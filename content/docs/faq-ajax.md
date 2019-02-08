@@ -1,30 +1,30 @@
 ---
 id: faq-ajax
-title: AJAX and APIs
+title: AJAX və API-lar
 permalink: docs/faq-ajax.html
 layout: docs
 category: FAQ
 ---
 
-### How can I make an AJAX call? {#how-can-i-make-an-ajax-call}
+### AJAX çağırış nə cür edə bilərəm? {#how-can-i-make-an-ajax-call}
 
-You can use any AJAX library you like with React. Some popular ones are [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), and the browser built-in [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+React ilə istədiyiniz Ajax kitabxanasını işlədə bilərsiniz. Populyar kitabxanalar: [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), və brauzerə qurulmuş [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### Where in the component lifecycle should I make an AJAX call? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
+### Komponent yaşama tsiklinin harasında Ajax çağırışları etməliyəm? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
-You should populate data with AJAX calls in the [`componentDidMount`](/docs/react-component.html#mounting) lifecycle method. This is so you can use `setState` to update your component when the data is retrieved.
+Ajax çağırışdan gələn bütün məlumatları [`componentDidMount`](/docs/react-component.html#mounting) yaşama tsikli funskiyasından tətbiq etməlisiniz. Bunun səbəbi, məlumat alındıqda `setState` ilə komponenti yeniləməkdən imkanının olmasıdır.
 
-### Example: Using AJAX results to set local state {#example-using-ajax-results-to-set-local-state}
+### Nümunə: AJAX nəticələrinin lokal veziyyətə yazılması {#example-using-ajax-results-to-set-local-state}
 
-The component below demonstrates how to make an AJAX call in `componentDidMount` to populate local component state. 
+Aşağıdakı komponent `componentDidMount`dan Ajax çağırış edib lokal komponent vəziyyətinin doldurulmasını göstərir. 
 
-The example API returns a JSON object like this:
+Nümunə API belə bir JSON obyekt göndərir:
 
 ```
 {
   "items": [
-    { "id": 1, "name": "Apples",  "price": "$2" },
-    { "id": 2, "name": "Peaches", "price": "$5" }
+    { "id": 1, "name": "Almalar",  "price": "2 AZN" },
+    { "id": 2, "name": "Şəftəlilər", "price": "5 AZN" }
   ] 
 }
 ```
@@ -50,9 +50,9 @@ class MyComponent extends React.Component {
             items: result.items
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+        // Qeyd: komponentlərdə olan aktual xətaları udmamaq üçün
+        // AJAX xetəlarını `catch()` blokunda tutmaq əvəzinə burda
+        // tutmaq daha vacibdir.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -65,9 +65,9 @@ class MyComponent extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div>Xəta: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div>Yüklənir...</div>;
     } else {
       return (
         <ul>
