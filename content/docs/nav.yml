@@ -7,7 +7,7 @@
     - id: create-a-new-react-app
       title: Yeni React Applikasiyası Yarat
     - id: cdn-links
-      title: CDN Linləri
+      title: CDN Linkləri
 - title: Əsas Konsepsiyalar
   isOrdered: true
   items:
@@ -32,29 +32,29 @@
     - id: lifting-state-up
       title: Vəziyyətin Qaldırılması
     - id: composition-vs-inheritance
-      title: Kompozisiya vs Vasislik
+      title: Kompozisiya vs Varislik
     - id: thinking-in-react
       title: React ilə Düşünmək
 - title: Genişləndirilmiş Təlimatlar
   items:
     - id: accessibility
-      title: Accessibility
+      title: İmkanlılıq
     - id: code-splitting
-      title: Code-Splitting
+      title: Kod Parçalanması
     - id: context
-      title: Context
+      title: Kontext
     - id: error-boundaries
       title: Xəta Sərhədləri
     - id: forwarding-refs
-      title: Reflərin Yönləndirilməsi
+      title: Ref-lərin Yönləndirilməsi
     - id: fragments
-      title: Fragmentlər
+      title: Fraqmentlər
     - id: higher-order-components
       title: Yüksək Dərəcəli Komponentlər
     - id: integrating-with-other-libraries
       title: Digər Kitabxanalar ilə İnteqrasiya
     - id: jsx-in-depth
-      title: JSX Derindən
+      title: JSX Dərindən
     - id: optimizing-performance
       title: Performansın Optimallaşdırılması
     - id: portals
@@ -66,17 +66,17 @@
     - id: reconciliation
       title: Rekonsiliasiya
     - id: refs-and-the-dom
-      title: Refs və DOM
+      title: Ref-lər və DOM
     - id: render-props
       title: Render Etmə Parametrləri
     - id: static-type-checking
-      title: Static Tip Yoxlamaladı
+      title: Static Tip Yoxlaması
     - id: strict-mode
       title: Ciddi Rejim
     - id: typechecking-with-proptypes
       title: PropType-lar ilə Tip Yoxlamaları
     - id: uncontrolled-components
-      title: Kontrolsuz Kopmonentlər
+      title: Kontrolsuz Komponentlər
     - id: web-components
       title: Veb Komponents
 - title: API Arayışı
@@ -91,7 +91,7 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: DOM Elements
+      title: DOM Elementləri
     - id: events
       title: SyntheticEvent
     - id: test-utils
@@ -112,17 +112,17 @@
       - id: hooks-overview
         title: Hooklar Bir Baxışda
       - id: hooks-state
-        title: State Hookun İşlənməsi
+        title: State Hookunun İşlənməsi
       - id: hooks-effect
-        title: Effect Hookun İşlənməsi
+        title: Effect Hookunun İşlənməsi
       - id: hooks-rules
         title: Hookların Qaydaları
       - id: hooks-custom
-        title: Öz Hooklarınızın Yaranması
+        title: Öz Hooklarınızın Yaradılması
       - id: hooks-reference
         title: Hookların API Arayışı
       - id: hooks-faq
-        title: Hooks FAQ
+        title: Hooklar FAQ
 - title: İştirak Etmək
   items:
   - id: how-to-contribute
@@ -144,7 +144,7 @@
     - id: faq-state
       title: Komponent Vəziyyəti
     - id: faq-styling
-      title: Stil və CSS
+      title: Stilləmə və CSS
     - id: faq-structure
       title: Fayl Strukturu
     - id: faq-versioning
