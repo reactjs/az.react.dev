@@ -14,16 +14,16 @@
           href: /tutorial/tutorial.html#prerequisites
           forceInternal: true
     - id: setup-for-the-tutorial
-      title: Dərslik üçün Plan
+      title: Dərslik üçün Qurulma
       href: /tutorial/tutorial.html#setup-for-the-tutorial
       forceInternal: true
       subitems:
         - id: setup-option-1-write-code-in-the-browser
-          title: "Plan 1: Brauzerdə Kodu Yaz"
+          title: "Seçim 1: Brauzerdə Kodu Yaz"
           href: /tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
           forceInternal: true
         - id: setup-option-2-local-development-environment
-          title: "Plan 2: Lokal Təkminləşmə Mühiti"
+          title: "Seçim 2: Lokal Təkminləşmə Mühiti"
           href: /tutorial/tutorial.html#setup-option-2-local-development-environment
           forceInternal: true
         - id: help-im-stuck

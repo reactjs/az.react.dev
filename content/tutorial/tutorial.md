@@ -16,7 +16,7 @@ Bu dərslik heç bir mövcud React biliyini təxmin etmir.
 
 ## Dərsliyi Başlamazdan Əvvəl {#before-we-start-the-tutorial}
 
-Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyaları yazmaq üçün əsasdır və bu metodları mənimsəmək sizə Reactı dərindən başa düşməyə kömək edəcək.
+Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyaları yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
 
 >İpucu
 >
@@ -24,7 +24,7 @@ Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan b
 
 Bu dərslik bir neçə bölməyə bölünmüşdür:
 
-* [Dərslik üçün Plan](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
+* [Dərslik üçün Qurulma](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
 * [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, parametrlər (props), and vəziyyət (state).
 * [Oyunu Tamamlamaq](#completing-the-game) React təkminləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
 * [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
@@ -49,60 +49,60 @@ Biz sizin HTML və Javascript ilə tanışlığınızı təxmin edirik amma siz 
 
 Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funskiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classlar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Dərslik üçün Qurulma {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə yaza və ya kompyuterinizdə lokal təkminləşmə mühiti yarada bilərsiniz.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Seçim 1: Brauzerdə Kodu Yaz {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Bu başlamaq üçün ən tez yoldur!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+İlk olaraq, bu **[Başlama Kodunu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** yeni təbdə açın. Yeni təb sizə boş "X O oyun" taxtası və React kodu göstərəcək. Biz bu dərslikdə React kodu üstündə işləyəcəyik.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Siz indi ikinci opsiyanından ötüb, [İcmal](#overview) bölməsinə keçə bilərsiniz.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Seçim 2: Lokal Təkminləşmə Mühiti {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Bu tam istəyə bağlı və bu dərslik üçün məcburi deyil!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Məcburi Deyil: Üstünlük verdiyiniz kod redaktoru ilə lokal qurulmasının təlimatları</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Bu qurulma daha çox vaxt tələb edir amma sizə bu dərsliyi seçdiyiniz redaktor ilə tamamlamağa icazə verir. İzləmək üçün addımlar:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Əmin olunki [Node.js](https://nodejs.org/en/) son versiyası qurulub.
+2. Yeni layihə yaratmaq üçün [Create React App qurulma təlimatlarını](/docs/create-a-new-react-app.html#create-react-app) izləyin.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Yeni layihənin `src/` direktoriyasından bütün faylları silin.
 
-> Note: **don't delete the entire `src` folder, just the original source files inside it.**.  We'll replace the default source files with examples for this project in the next step.
+> Qeyd: **bütün `src` direktoriyasını yox, yalnız daxilindəki faylları silin.**. Biz standart faylları bu layihədəki nümunələr ilə əvəz edəcəyik.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Əgər Mac və ya Linux işlədirsinizsə:
 rm -f *
 
-# Or, if you're on Windows:
+# Əgər Windows işlədirsinizsə:
 del *
 
-# Then, switch back to the project folder
+# Layihə direktoriyasına geri qayıdın:
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. `index.css` adlı faylı `src/` direktoriyasına [bu CSS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0100) ilə əlavə edin.
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. `index.js` adlı faylı `src/` directoriyasına [bu JS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) ilə əlavə edin.
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. `src/` directoriyasında olan `index.js` faylının ən yuxarısınz aşağıdalı üç sətri əlavə edin:
 
 ```js
 import React from 'react';
@@ -110,15 +110,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəni açsanız, boş "X O oyunu" taxtası.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlimatları](https://babeljs.io/docs/editors/) izləməniz tövsiyyə olunur.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Kömək, Mən İlişmişəm!
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusisən, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
 ## Overview {#overview}
 
