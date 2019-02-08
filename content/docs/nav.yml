@@ -1,41 +1,41 @@
-- title: Installation
+- title: Qurulma
   items:
     - id: getting-started
-      title: Getting Started
+      title: Başlamaq
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: Səhifəyə React Əlavə Et
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: Yeni React Applikasiyası Yarat
     - id: cdn-links
-      title: CDN Links
-- title: Main Concepts
+      title: CDN Linləri
+- title: Əsas Konsepsiyalar
   isOrdered: true
   items:
     - id: hello-world
-      title: Hello World
+      title: Salam Dünya
     - id: introducing-jsx
-      title: Introducing JSX
+      title: JSX-ə Giriş
     - id: rendering-elements
-      title: Rendering Elements
+      title: Elementlərin Render Edilməsi
     - id: components-and-props
-      title: Components and Props
+      title: Komponent və Parametrlər
     - id: state-and-lifecycle
-      title: State and Lifecycle
+      title: Vəziyyət və Yaşama Tsikli
     - id: handling-events
-      title: Handling Events
+      title: Hadisələrin İşlədilməsi
     - id: conditional-rendering
-      title: Conditional Rendering
+      title: Şərti Render Edilmə
     - id: lists-and-keys
-      title: Lists and Keys
+      title: Siyahılar və Açarlar
     - id: forms
-      title: Forms
+      title: Anketlər
     - id: lifting-state-up
-      title: Lifting State Up
+      title: Vəziyyətin Qaldırılması
     - id: composition-vs-inheritance
-      title: Composition vs Inheritance
+      title: Kompozisiya vs Vasislik
     - id: thinking-in-react
-      title: Thinking In React
-- title: Advanced Guides
+      title: React ilə Düşünmək
+- title: Genişləndirilmiş Təlimatlar
   items:
     - id: accessibility
       title: Accessibility
@@ -44,42 +44,42 @@
     - id: context
       title: Context
     - id: error-boundaries
-      title: Error Boundaries
+      title: Xəta Sərhədləri
     - id: forwarding-refs
-      title: Forwarding Refs
+      title: Reflərin Yönləndirilməsi
     - id: fragments
-      title: Fragments
+      title: Fragmentlər
     - id: higher-order-components
-      title: Higher-Order Components
+      title: Yüksək Dərəcəli Komponentlər
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Digər Kitabxanalar ilə İnteqrasiya
     - id: jsx-in-depth
-      title: JSX In Depth
+      title: JSX Derindən
     - id: optimizing-performance
-      title: Optimizing Performance
+      title: Performansın Optimallaşdırılması
     - id: portals
-      title: Portals
+      title: Portallar
     - id: react-without-es6
-      title: React Without ES6
+      title: ES6-sız React
     - id: react-without-jsx
-      title: React Without JSX
+      title: JSX-siz React
     - id: reconciliation
-      title: Reconciliation
+      title: Rekonsiliasiya
     - id: refs-and-the-dom
-      title: Refs and the DOM
+      title: Refs və DOM
     - id: render-props
-      title: Render Props
+      title: Render Etmə Parametrləri
     - id: static-type-checking
-      title: Static Type Checking
+      title: Static Tip Yoxlamaladı
     - id: strict-mode
-      title: Strict Mode
+      title: Ciddi Rejim
     - id: typechecking-with-proptypes
-      title: Typechecking With PropTypes
+      title: PropType-lar ilə Tip Yoxlamaları
     - id: uncontrolled-components
-      title: Uncontrolled Components
+      title: Kontrolsuz Kopmonentlər
     - id: web-components
-      title: Web Components
-- title: API Reference
+      title: Veb Komponents
+- title: API Arayışı
   items:
     - id: react-api
       title: React
@@ -95,59 +95,59 @@
     - id: events
       title: SyntheticEvent
     - id: test-utils
-      title: Test Utilities
+      title: Test Vasitələri
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Dayaz Render Etmə
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: JS Mühit Tələbləri
     - id: glossary
-      title: Glossary
-- title: Hooks (New)
+      title: Lüğət
+- title: Hooklar (Yeni)
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Introducing Hooks
+        title: Hooklara Giriş
       - id: hooks-overview
-        title: Hooks at a Glance
+        title: Hooklar Bir Baxışda
       - id: hooks-state
-        title: Using the State Hook
+        title: State Hookun İşlənməsi
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Effect Hookun İşlənməsi
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Hookların Qaydaları
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Öz Hooklarınızın Yaranması
       - id: hooks-reference
-        title: Hooks API Reference
+        title: Hookların API Arayışı
       - id: hooks-faq
         title: Hooks FAQ
-- title: Contributing
+- title: İştirak Etmək
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: Necə İştirak Etmək
   - id: codebase-overview
-    title: Codebase Overview
+    title: Kodun İcmalı
   - id: implementation-notes
-    title: Implementation Notes
+    title: Tətbiqetmə Qeydləri
   - id: design-principles
-    title: Design Principles
+    title: Dizayn Əsasları
 - title: FAQ
   items:
     - id: faq-ajax
-      title: AJAX and APIs
+      title: AJAX və APIs
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX, və Qurulma Addımları
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Komponentlərə Funskiyaların Göndərilməsi
     - id: faq-state
-      title: Component State
+      title: Komponent Vəziyyəti
     - id: faq-styling
-      title: Styling and CSS
+      title: Stil və CSS
     - id: faq-structure
-      title: File Structure
+      title: Fayl Strukturu
     - id: faq-versioning
-      title: Versioning Policy
+      title: Versiya Qaydaları
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: Virtual DOM və React-in Daxili
