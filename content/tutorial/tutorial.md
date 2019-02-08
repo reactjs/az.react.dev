@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Dəsrlik: React-a Giriş"
+title: "Dəsrlik: React-ə Giriş"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -120,22 +120,22 @@ Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlim
 
 Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusisən, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
-## Overview {#overview}
+## İcmal {#overview}
 
-Now that you're set up, let's get an overview of React!
+İndi sizdə hər şey qurulub deyə gəlin of React haqqında məlumat alaq!
 
-### What Is React? {#what-is-react}
+### React Nədir? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React UI yaratmaq üçen deklarativ, səmərəli, və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan balaca və sərbəst kod hissələrinin birləşməsi ilə kompleks UI yaratmağa icazə verir.
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React-də bir neçə növ komponent var amma gelin `React.Component` subklassından yaranan komponentlər ilə başlayaq:
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>{this.props.name} üçün alış-veriş siyahısı</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,14 +146,14 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// İşlətmə nümunəsi: <ShoppingList name="Rufat" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+Biz bu maraqlı XML-a oxşar təqlərdən sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyiril. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+Yuxarıdakı nümunədə, ShoppingList bir **React komponent klassı** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funskiyasından qaytarır.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render` funskiyası nə görmək istədiyinizin *məzmununu* qaytarır. React bu məzmun əsasında nəticəni göstərirş. Xesusi ilə, `render` **React elementi** (nə render edilməyinin yüngül məzmunu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksik belə iyerarxiyalı strukturların yazılışını asalaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdalı nümunənin JSX-siz aşağıdakı formada yazılır:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -162,13 +162,13 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[Genişləndirilmiş versiyanı izləyin.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+Əgər sizə maraqlıdırsa, `createElement()` [API arayışında](/docs/react-api.html#createelement) daha detallı izah edilir. Biz bu dərslikdə `createElement()` əvəzinə JSX-dən istifadə etməyə davam edəcəyik.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqur mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyekti obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funskiyalara və s. göndərə bilərsiniz.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+Yuxarıdalı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Amma siz başqa xüsusi komponentləri belə biləşdirə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı listini `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sade komponentlərdən komplex UI-lar yaratmağa icazə verir.
 
 ## Inspecting the Starter Code {#inspecting-the-starter-code}
 
