@@ -27,7 +27,7 @@ Bu dərslik bir neçə bölməyə bölünmüşdür:
 * [Dərslik üçün Plan](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
 * [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, parametrlər (props), and vəziyyət (state).
 * [Oyunu Tamamlamaq](#completing-the-game) React təkminləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
-* [Vaxt Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
+* [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
 
 Bu dərslikdən dəyər almaq üçün, bütün bölmələri birdəfəyə tamamlamaq vacib deyil. Çalışın mümkün qədər çox bölmədən keçəsiniz -- hətta bir və ya iki bölmədə olsa.
 
