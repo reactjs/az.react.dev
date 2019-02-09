@@ -44,7 +44,7 @@
           href: /tutorial/tutorial.html#inspecting-the-starter-code
           forceInternal: true
         - id: passing-data-through-props
-          title: Məlumatın Parametrlər ilə Ötürülməsi
+          title: Məlumatın Proplar ilə Ötürülməsi
           href: /tutorial/tutorial.html#passing-data-through-props
           forceInternal: true
         - id: making-an-interactive-component
@@ -61,7 +61,7 @@
       forceInternal: true
       subitems:
         - id: lifting-state-up
-          title: Vəziyyəti Qaldır
+          title: State-i Qaldır
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
@@ -90,7 +90,7 @@
           href: /tutorial/tutorial.html#storing-a-history-of-moves
           forceInternal: true
         - id: lifting-state-up-again
-          title: Vəziyyəti Yenidən Qaldır
+          title: State-i Yenidən Qaldır
           href: /tutorial/tutorial.html#lifting-state-up-again
           forceInternal: true
         - id: showing-the-past-moves

@@ -18,36 +18,36 @@ Bu dərslik heç bir mövcud React biliyini təxmin etmir.
 
 Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyaları yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
 
->İpucu
+>Məsləhət
 >
->Bu dərslik **praktika ilə oyrənməyə** üstünlük verənlər üçün nəzərdə tutulmuşdur. Əgər siz konsepsiyaları sıfırdan öyrənməyə üstünlük verirsinizsə, bizim [pillə-pillə təlimatımatımızı](/docs/hello-world.html) nəzərdən keçirin. Bu dərslik və göstərilən təlimat bir birini tamamlaya bilər.
+>Bu dərslik **praktika ilə öyrənməyə** üstünlük verənlər üçün nəzərdə tutulmuşdur. Əgər siz konsepsiyaları sıfırdan öyrənməyə üstünlük verirsinizsə, bizim [pillə-pillə təlimatımızı](/docs/hello-world.html) nəzərdən keçirin. Bu dərslik və göstərilən təlimat bir-birini tamamlaya bilər.
 
 Bu dərslik bir neçə bölməyə bölünmüşdür:
 
 * [Dərslik üçün Qurulma](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
-* [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, parametrlər (props), and vəziyyət (state).
-* [Oyunu Tamamlamaq](#completing-the-game) React təkminləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
+* [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, proplar, və state.
+* [Oyunu Tamamlamaq](#completing-the-game) React təkmilləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
 * [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
 
-Bu dərslikdən dəyər almaq üçün, bütün bölmələri birdəfəyə tamamlamaq vacib deyil. Çalışın mümkün qədər çox bölmədən keçəsiniz -- hətta bir və ya iki bölmədə olsa.
+Bu dərslikdən dəyər almaq üçün bütün bölmələri bir dəfəyə tamamlamaq vacib deyil. Çalışın mümkün qədər çox bölmədən keçəsiniz -- hətta bir və ya iki bölmədə olsa.
 
-Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlayışa kömək edəcək.
+Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
 
 ### Biz nə düzəldirik? {#what-are-we-building}
 
-Bu dərslikdə, biz sizə React ilə interaktiv "X O oyunu" düzəltməyi göstərəcəyik.
+Bu dərslikdə biz React ilə interaktiv "X O oyununu" düzəltməyi göstərəcəyik.
 
-Bizim düzəltdiyimizə buradan baxa bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Əgər kod sizə aydın deyilsə və ya sintaksis sizə məchuldursa, narahat olmayın! Bu dərsliyin məqsədi sizə React və onun sintaksisini anlamağa kömək etməkdir.
+Bizim düzəltdiyimizə buradan baxa bilərsiniz: **[Son Nəticəyə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Əgər kod sizə aydın deyilsə və ya sintaksis sizə tanış deyilsə, narahat olmayın! Bu dərsliyin məqsədi sizə React və onun sintaksisini anlamağa kömək etməkdir.
 
 Dərsliyi başlamamışdan qabaq oyuna baxmağınızı tövsiyyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
 
-Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu dərslikdə sadə bir şablon ilə başlayacağıq. Sonraki addım sizi oyunu yazmağa başlamağa hazır etməkdir.
+Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu dərslikdə sadə bir şablon ilə başlayacağıq. Sonraki addım sizi oyunu yazmağa hazır etməkdir.
 
 ### Ön şərtlər {#prerequisites}
 
 Biz sizin HTML və Javascript ilə tanışlığınızı təxmin edirik amma siz başqa proqramlaşdırma dilindən gəlirsinizsə belə davam edə bilərsiniz. Biz sizin proqramlaşdırma konsepsiyaları ilə (funskiyalar, objectlər, massivlər, və daha az dərəcədə, klasslar) tanışlığınızı təxmin edirik.
 
-Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funskiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classlar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
+Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funskiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
 ## Dərslik üçün Qurulma {#setup-for-the-tutorial}
 
@@ -170,25 +170,25 @@ JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifad�
 
 Yuxarıdalı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Amma siz başqa xüsusi komponentləri belə biləşdirə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı listini `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sade komponentlərdən komplex UI-lar yaratmağa icazə verir.
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+## Başlanğıc Kodunun Yoxlanması {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Əgər siz bu dərsliyi **brauzerdə** edəcəksinizsə bu kodu yeni təbdə açın: **[Başlanğıc Kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Əgər siz bu dərsliyi **lokalda** edəcəksinizsə, layihə direktoriyasında olan `src/index.js` faylını açın (siz bu fayla [qurulma](#setup-option-2-local-development-environment) bölməsində əl gəzdirmisiniz).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+Başlağıc Kodu sizin yazacağınız üçün baza kodudur. Biz CSS stilləri təmin etmişikki siz diqqətini yalnız React-i öyrənməyə və "X O oyunu" yazmağa yönləndirəsiniz.
 
-By inspecting the code, you'll notice that we have three React components:
+Koda yaxından baxdığınızda, üç React komponentin olacağını görəcəksiniz:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+ Square komponent tək bir `<button>` və Board komponenti 9 ədəd kvadrat render edir. Game komponenti Board elə belə  dəyərlər ilə render edir. Biz bu dəyərləri gələcək bölmələrdə dəyişəcəyik. İndiki zamanda bu kodda interaktiv komponent yoxdur.
 
-### Passing Data Through Props {#passing-data-through-props}
+### Məlumatı Proplar ilə göndərmək {#passing-data-through-props}
 
-Just to get our feet wet, let's try passing some data from our Board component to our Square component.
+Gəlin Board komponentindən Square komponentinə məlumat göndərək.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+Board-un `renderSquare` funskiyasında, Square-ə `value` propu əlavə edin:
 
 ```js{3}
 class Board extends React.Component {
@@ -197,7 +197,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Square-in `render` funskiyasında məlumatı göstərmək üçün `{/* TODO */}` kodunu `{this.props.value}` ilə əvəz edin:
 
 ```js{5}
 class Square extends React.Component {
@@ -211,22 +211,23 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+Öncə:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Sonra: Siz kvadratlarda rəqəmləri görməlisiniz.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+Congratulations! Siz valideyn olan Board komponentindən "propu" uçaq olan Square komponentinə göndərdiniz. React-də məlumat axınını propların göndərilməsi ilə baş verir -- valideyndən uşağa doğru.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### İnteraktiv Komponentin Yaradılması {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it. 
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
+
+İlk öncə Square komponentindəki `render()` funskiyasında olan "button" təqini aşağıdakı koda çevirin:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -240,11 +241,11 @@ class Square extends React.Component {
 }
 ```
 
-If we click on a Square now, we should get an alert in our browser.
+Əgər indi biz Square-ə tıklasaq, brauzerdə "click" yazısı ilə xəbərdarlıq alacağıq.
 
->Note
+>Qeyd
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>Yazmanı qısaltmaq və [`this`-in baş qarışdırıcı işləmə prinsipinindən](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) kənar olmaq üçün, biz buradakı və sonrakı hadisə işləyicilərində [arrow funskiyalası sintaksisindən istifadə edəcəyik](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -258,13 +259,13 @@ If we click on a Square now, we should get an alert in our browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. It only fires after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>Diqqət edinki biz `onClick` propuna *funskiya* göndəririk: `onClick={() => alert('click')}`. Bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez tez edilən bir səhvlədən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Sıradakı addımda, biz Square komponentinin tılandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+React komponentlərinin state-ləri olması üçün klas konstrukturunda `this.state`-dən istifadə edilir. `this.state` yalnız onu müəyyənləşdirən React komponentinə privat olmalıdır. Gəlin Square-in cari dəyərini `this.state`-də saxlayaq və Square tıklanarkən bu dəyəri dəyişək.
 
-First, we'll add a constructor to the class to initialize the state:
+İlk olaraq state-i inisializasiya etmək üçün klasa konstruktor əlavə edək:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -285,17 +286,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>Qeyd
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>[JavaScript klaslarında](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), subklasın konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funskiya çağırışı ilə başlamalıdır.
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funskiyasından istifadə edəcəyik:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `() => alert()` event handler with `() => this.setState({value: 'X'})`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* `<button>` təqində `this.props.value`-nu `this.state.value` ilə əvəz et.
+* the `() => alert()` hadisə işləyicisini `() => this.setState({value: 'X'})` ilə əvəz et.
+* Oxunaqlığı artirmaq üçün `className` və `onClick` proplarını ayrı sətrlərdə yazın.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Bu dəyişikliklərdən sonra Square-in `render` funskiyasından qaytarılan `<button>` təqi aşağıdakı koda oxşamalıdır:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -319,28 +320,28 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Square komponentinin `render` funskiyasında olan `onClick` işləyicisində `this.setState` çağırmaq ilə biz React-ə `<button>` tıklananda komponenti yenidən render etməyi deyirik. Yeniləmədən sonra, Square-in `this.state.value` dəyəri `'X'` olacaq və bu səbəbdən biz oyun taxtasında `X` görəcəyik. Hər hansı bir Square-i tıklayanda, `X` görünəcək.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+Komponentdən `setState` çağırdıqda, React avtomaik olaraq komponentin içinsəki uşaq komponentləridə  yeniləyir.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Bu nöqtəya kimi olan bütün kod](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Developer Tools {#developer-tools}
+### Developer Alətləri {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+[Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) və [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) üçün olan React DevTools Genişlənməsi, React komponent iyerarxiyasını brauzerin developer alətlərindən gözdən keçirməyə imkan yaradır.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React DevTools sizə React komponentlərinin state və proplarına baxmağa icazə verir.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+React DevTools-u qurduqdan sonra, siz səhifədə hər hansi bir elementə sağ düymə ilə tıklayıb, "Inspect"-ə tıklayıb developer alətlərini açın. React DevTools developer alətlərinin ən son təbində "React" adı ilə görünəcək.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+*Qeyd edinki CodePen-də işləməsi üçün əlavə bir neçə əlavə addım etmək lazımdır:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Login edin ve ya qeydiyyatdan keçib emailınızı təsdiq edin (spamin qarşısını almaq üçün lazımdır).
+2. "Fork" düyməsini tıklayın.
+3. "Change View" düyməsini tıklayıb "Debug mode" seçin.
+4. Yeni açılan təbdə brauzerin developer alətlərində React təbi olacaq.
 
 ## Completing the Game {#completing-the-game}
 
