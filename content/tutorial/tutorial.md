@@ -82,7 +82,9 @@ npx create-react-app my-app
 
 3. Yeni layihənin `src/` direktoriyasından bütün faylları silin.
 
-> Qeyd: **bütün `src` direktoriyasını yox, yalnız daxilindəki faylları silin.**. Biz standart faylları bu layihədəki nümunələr ilə əvəz edəcəyik.
+> Qeyd:
+>
+> **Bütün `src` direktoriyasını yox, yalnız daxilindəki faylları silin.**. Biz standart faylları bu layihədəki nümunələr ilə əvəz edəcəyik.
 
 ```bash
 cd my-app
