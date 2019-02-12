@@ -18,9 +18,9 @@
     - id: rendering-elements
       title: Elementlərin Render Edilməsi
     - id: components-and-props
-      title: Komponent və Parametrlər
+      title: Komponent və Proplar
     - id: state-and-lifecycle
-      title: Vəziyyət və Yaşama Tsikli
+      title: State və Lifecycle
     - id: handling-events
       title: Hadisələrin İşlədilməsi
     - id: conditional-rendering
@@ -30,7 +30,7 @@
     - id: forms
       title: Anketlər
     - id: lifting-state-up
-      title: Vəziyyətin Qaldırılması
+      title: State-in Qaldırılması
     - id: composition-vs-inheritance
       title: Kompozisiya vs Varislik
     - id: thinking-in-react
@@ -68,7 +68,7 @@
     - id: refs-and-the-dom
       title: Ref-lər və DOM
     - id: render-props
-      title: Render Etmə Parametrləri
+      title: Render Etmə Propları
     - id: static-type-checking
       title: Static Tip Yoxlaması
     - id: strict-mode
@@ -142,7 +142,7 @@
     - id: faq-functions
       title: Komponentlərə Funskiyaların Göndərilməsi
     - id: faq-state
-      title: Komponent Vəziyyəti
+      title: Komponent State-i
     - id: faq-styling
       title: Stilləmə və CSS
     - id: faq-structure
