@@ -72,7 +72,7 @@
     - id: static-type-checking
       title: Static Tip Yoxlaması
     - id: strict-mode
-      title: Ciddi Rejim
+      title: Strict Rejimi
     - id: typechecking-with-proptypes
       title: PropType-lar ilə Tip Yoxlamaları
     - id: uncontrolled-components
