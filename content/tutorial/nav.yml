@@ -61,7 +61,7 @@
       forceInternal: true
       subitems:
         - id: lifting-state-up
-          title: State-i Qaldır
+          title: State-in Qaldırılması
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important

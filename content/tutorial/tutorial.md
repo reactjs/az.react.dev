@@ -223,7 +223,7 @@ Sonra: Siz kvadratlarda rəqəmləri görməlisiniz.
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! Siz valideyn olan Board komponentindən "propu" uçaq olan Square komponentinə göndərdiniz. React-də məlumat axınını propların göndərilməsi ilə baş verir -- valideyndən uşağa doğru.
+Təbriklər! Siz valideyn olan Board komponentindən "propu" uçaq olan Square komponentinə göndərdiniz. React-də məlumat axınını propların göndərilməsi ilə baş verir -- valideyndən uşağa doğru.
 
 ### İnteraktiv Komponentin Yaradılması {#making-an-interactive-component}
 
@@ -345,19 +345,19 @@ React DevTools-u qurduqdan sonra, siz səhifədə hər hansi bir elementə sağ 
 3. "Change View" düyməsini tıklayıb "Debug mode" seçin.
 4. Yeni açılan təbdə brauzerin developer alətlərində React təbi olacaq.
 
-## Completing the Game {#completing-the-game}
+## Oyunu Tamamlamaq {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+Indi bizdə "X O oyununun" əsas blokları hazırdı. Oyunu tamamlamaq üçün biz "X" və "O"nun sıra ilə yerləşdirilməsini düzəltməli və oyunun sonunda qalibi müəyyənləşdirməliyik.
 
-### Lifting State Up {#lifting-state-up}
+### State-in Qaldırılması {#lifting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+İndi, hər Square komponenti oyunun vəziyyətini saxlayır. Qalibi təyin etmək üçün biz bu 9 kvadratın dəyərini bir yerdə saxlamalıyıq.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsini fikirləşə bilərik. Bunun React-da mümkün olmasına baxmayaraq, biz bu yol ilə getməyi tövsiyyə etmirik. Çünki bele üsulla yazılan kodu başa düşmək və refaktor etmək çətinləşir və baqların şansı artır. Bunu duzəltməyin ən yaxşı yolu oyunun state-ini hissə-hissə hər Square komponentdə saxlamaq əvəzinə bütünlüklə Board komponentində saxlamaqdır. Board komponenti hər Square-ə nə göstərəcəyini, [Square-ə rəqəm göndərdiyimiz kimi](#passing-data-through-props), prop ilə göndərə bilər.
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**Çoxlu uşaqdan məlumat yığması və ya iki uşaq komponentin bir biri ilə kommunikasiya etməsi üçün, paylaşılan state-i valideyn komponentində bəyan edin. Valideyn komponent bu state-i  uşaq komponentlərə proplar vasisəti ilə göndərə bilər. Bu metod uşaq komponentlər və valideyn komponentlər arasındakı məlumatları sinxron saxlayır.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out. We'll add a constructor to the Board and set the Board's initial state to contain an array with 9 nulls. These 9 nulls correspond to the 9 squares:
+React komponentlərini refaktor etdikdə, state-i valideyn komponentə qaldırmaq çox işlənən praktikadır. Gəlin bu metodu sınayaq. Biz Board komponentinə konstruktor əlavə edib Board-un başlanğıc state-inə 9 ədəd `null` olan massiv əlavə edəcəyik. Bu 9 ədəd `null` 9 ədəd kvadrat üçündür:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -373,7 +373,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Sonrakı oyunçu: X';
 
     return (
       <div>
@@ -399,7 +399,7 @@ class Board extends React.Component {
 }
 ```
 
-When we fill the board in later, the board will look something like this:
+Kvadratları doldurduqda, oyun taxtasının vəziyyəti belə formada olacaq:
 
 ```javascript
 [
@@ -409,7 +409,7 @@ When we fill the board in later, the board will look something like this:
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+Board-un `renderSquare` funskiyası indi belə görsənir:
 
 ```javascript
   renderSquare(i) {
@@ -417,9 +417,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+Bu dərsliyi başlayanda, biz hər Square-də 0-dan 8-ə kimi rəqəmləri göstərmək üçün Board-dan [`value` propunu göndərdik](#passing-data-through-props). Əvvəlki başqa bir bölmədə isə biz rəqəmləri [Square-in daxili state-indən istifadə edərək](#making-an-interactive-component) "X" ilə əvəz etdik. Bu səbəbdən Square komponenti Board-dan göndərilən `value` propunu saymır.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+Biz yenidən propu göndərmək mexanizmindən istifadə edəcəyik. Board komponentindən hər Square-ə kvadratın dəyərini göndərəcəyik (`'X'`, `'O'`, və ya `null`). Biz artıq `squares` massivini Board-un konstrukturunda yaratmışıq və indi biz `renderSquare` funskiyasından bu massivi oxuyacağıq:
 
 ```javascript{2}
   renderSquare(i) {
@@ -427,13 +427,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+İndi hər Square `value` propundan bu dəyərlərdən birini alacaq: `'X'`, `'O'`, və ya `null` (boş kvadrat).
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+İndi biz Square tıklananda nə olacağını dəyişməliyik. Board komponenti kvadratların dəyərlərini özündə saxlayır. Bu səbəbdən biz Square komponentinə Board-un state-ini dəyişməsini bildirməliyik. State, yarandığı komponentə (bu misalda Board komponentinə) privat olduğundan, biz Square komponentindən Board-un state-ini dəyişə bilmirik.
 
-To maintain the Board's state's privacy, we'll pass down a function from the Board to the Square. This function will get called when a Square is clicked. We'll change the `renderSquare` method in Board to:
+Board-un state-inin privatlığının saxlanması üçün biz Board-dan Square-ə funskiya göndərəcəyik. Bu funskiya Square tıklananda çağrılacaq. Board-un `renderSquare` funskiyasını aşağıdakına dəyişəcəyik:
 
 ```javascript{5}
   renderSquare(i) {
@@ -446,17 +446,17 @@ To maintain the Board's state's privacy, we'll pass down a function from the Boa
   }
 ```
 
->Note
+>Qeyd
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>Biz oxumanı artırmaq üçün qaytarılan elementi bir neçə sətrdə yazdıq və Javascriptin `return`-dən sonra nöqtə vergül qoyub kodumuzu sındırmaması üçün qaytarılan komponenti mötərizəyə saldıq.
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+İndi biz Board-dan Square-ə iki prop göndəririk: `value` və `onClick`. `onClick` propu funksiyadır və Square tıklananda çağrılacaq. Square komponentinə aşağıdakı dəyişiklikləri edəcəyik:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* Square-in `render` funskiyasında `this.state.value`-nu `this.props.value` ilə əvəz edəcəyik
+* Square-in `render` funskiyasında `this.setState()`-i `this.props.onClick()` ilə əvəz edəcəyik
+* Square state saxlamadığından `constructor`-u Square-dən siləcəyik
 
-After these changes, the Square component looks like this:
+Bu dəyişikliklərdən sonra, Square komponenti belə olacaq:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -473,19 +473,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+Square tıklandıqda Board-un təmin etdiyi `onClick` funksiyası çağrılır. Bu prosesin icmalı:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes.
+1. DOM qurulan `<button>` komponentinin `onClick` propu React-ə tıklama hadisəsi üçün hadisə qəbuledicisi qurmasını deyir.
+2. Düymə tıklandığı zaman, React, Square-in `render()` funskiyasında olan `onClick` hadisə işləyicisini çağırır.
+3. Bu hadisə işləyicisi `this.props.onClick()` funskiyasını çağırır. Square-in `onClick` propu Board tərəfindən müəyyənləşdirilib.
+4. Board-un Square-ə `onClick={() => this.handleClick(i)}` göndərməsindən, Square tıklandığında `this.handleClick(i)` funskiyasını çağırır.
+5. Biz `handleClick()` funksiyasını hələ tətbiq etmədiyimizdən bizim kod çökür.
 
->Note
+>Qeyd
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could name the Square's `onClick` prop or Board's `handleClick` method differently. In React, however, it is a convention to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-a xüsusi mənasi var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funskiyasını başqa cürədə adlandıra bilərdik. React-də, hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+Square-i tıkladıqda, `handleClick` funskiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board klasında tətbiq edək:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -512,7 +512,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Sonrakı oyunçu: X';
 
     return (
       <div>
@@ -538,63 +538,63 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+Bu dəyişikliklərdən sonra, biz Square-ə tıklayaraq oyun taxtasını doldura bilirk. Amma indi oyunun vəziyyəti Square komponentlərdə individual yerləşmək əvəzinə Board komponentində saxlanır. Board-un state-i dəyişdikdə bütün komponentlər avtomatik yenidən render olunurlar. Bütün kvadratların vəziyyətlərini Board komponentində saxlamaq ilə biz gələcəkdə oyunun qalibinidə müəyyənləşdirə biləcəyik.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Square komponentində state olmadığından, bütün Square komponentləri Board komponentindən dəyərləri alir və tıklandığı zaman Board komponentinə xəbər verir. React terminalogiyasında, Square komponentləri **kontrol olunan komponentlər** adlanırlar. Board komponentinin bu komponentlər üzərində tam kontrolu var.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Qeydə alinki biz `handleClick` funskiyasında mövcud `squares` massivini dəyişmək əvəzinə `.slice()` funskiyasını çağırıb massivin kopiyasını düzəldirik. Gələn bölmədə biz `squares`-in kopiyasını çıxarmağın səbəbini izah edəcəyik.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+Əvvəli kod nümunəsində, biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasının çıxarmağı tövsiyyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişiklər ilə olan kopiyası ilə əvəz etməkdir.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Məlumatı Mutasiya ilə Dəyişmək {#data-change-with-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
+var player = {score: 1, name: 'Orxan'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// player {score: 2, name: 'Orxan'} bərabərdir
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Məlumatı Mutasiyasız Dəyişmək {#data-change-without-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
+var player = {score: 1, name: 'Orxan'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// player dəyişməyib, amma newPlayer {score: 2, name: 'Orxan'} bərabərdir
 
-// Or if you are using object spread syntax proposal, you can write:
+// Əgər siz obyekt yayma sintaksisindən istifadə edirsinizsə, siz belə yaza bilərsiniz:
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+Son nəticənin eyni olmasına baxmayaraq məlumatı mutasiya etmədən dəyişdikdə aşağıdakı faydalardan yararlanırıq.
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Kompleks Xüsusiyyətlər Sadələşir {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+Dəyişməməzlik kompleks xüsusiyyətlərin tətbiqini çox asanlaşdırır. Bu dərslikdə biz "X O oyununun" tarixçəsinin icmalını və əvvəlki gedişlərə qayıda bilmək üçün "zaman səyahəti" tətbiq edəcəyik. Bu xüsusiyyət yalnız oyunlara xas deyil. Bir çox applikasiyaların tələblərində hərəkətləri geri qaytarmaq və ya qabağa çəkmək olur. Məlumatın birbaşa dəyişməyindən çəkinməklə biz oyunun tarixçəsini saxlaya bilir və saxladığımız tarixçədən istifadə edə bilərik.
 
-#### Detecting Changes {#detecting-changes}
+#### Dəyişikliklərin Aşkar Edilməsi {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Mutasiya olunmuş obyektlərin birbaşa dəyişildiyindən, bu dəyişikliklərin aşkar edilməsi çətindir. Dəyişikliyi tapmaq üçün mutasiya olunmuş obyekt, əvvəlki kopiyaları ilə müqayisə edilməlidir. Bu müqayisə üçün bütün obyekt iyerarxiyası yoxlanmalıdır.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Mutasiya olunmamış obyektlərdə dəyişiklikləri aşkar etmək xeyli dərəcədə asandır. Əgər dəyişməz obyektin referansı əvvəki obyektin referansından fərqlidirsə, bu obyekt dəyişmişdir.
 
-#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
+#### React-də Yenidən Render Etməyin Aşkarlanması {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+Dəyişməzliyin əsas faydası React-da bizə _təmiz komponentlərin_ yaranmasına kömək etməsidir. Mutasiya olunmamış məlumatlar ilə biz dəyişikliyin olduğunu asan formada aşkar edə bilərik. Bu tapıntı ilə komponentin yenidən olduğunu müəyyən edə bilərik.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+`shouldComponentUpdate()` və *təmiz komponentlər* haqqında öyrənmək üçün [Performansın Optimallaşdırılması](/docs/optimizing-performance.html#examples) səhifəsini oxuya bilərsiniz.
 
-### Function Components {#function-components}
+### Funksional Komponentlər {#function-components}
 
-We'll now change the Square to be a **function component**.
+Biz indi Square-i **funskional komponentə** çevirəcəyik.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+React-də, **funskional komponentlər** komponentlərin sadə formada yazılması üçündür. Bu komponentlərin state-i olmur; yalnız `render` funksiyası olur. `React.Component`-dən törənən klas yazmaq əvəzinə, biz `props` qəbul edən və nəyi render etməyi qaytaran funksiya yaradırıq. Funksional komponentləri yazmaq klas komponentləri yazmaqdan daha az yorucudur. Bir çox komponent belə formada yazıla bilər.
 
-Replace the Square class with this function:
+Square klasını aşağıdakı funskiya ilə əvəz edin:
 
 ```javascript
 function Square(props) {
@@ -606,19 +606,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Biz `this.props`-u işlətdiyimiz hər iki yerdə `props` ilə əvəz etdik.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>Qeyd
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides). In a class, we used an arrow function to access the correct `this` value, but in a function component we don't need to worry about `this`.
+>Biz Square-i funskional komponentə çevirdikdə, həmçinin `onClick={() => this.props.onClick()}` propunu daha qısa `onClick={props.onClick}`-a (**Hər iki** tərəfdəki mötərizələrin olmamasını qeyd edin) çevirdik. Klas olduqda, biz düzgün `this` işlədə bilmək üçün ox funskiyası işlətmişdik. Amma funskional komponentdə `this` bizə lazım deyil.
 
-### Taking Turns {#taking-turns}
+### Sıranı Gözlə {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Biz "X O oyununda" tam aydın ola defekti düzəltməliyik: "O"-lar oyun taxtasında işarələnə bilmirlər.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+Biz ilk gedişi "X" ilə qeyd edək. Bu ilkin dəyər üçün biz Board-un konstrukturunda başlanğıc state-i dəyişməliyik:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -631,7 +631,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+Hər zaman oyunçu hərəkət etdikdə, `xIsNext` (bulin) kimin sonrakı addımı atdığını müəyyənləşdirmək üçün çevriləcək. `xIsNext`-in dəyərini çevirmək üçün gəlin `handleClick` funskiyasını yeniləyək:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -644,17 +644,17 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+Bu dəyişiklikdə, "X"-lər və "O"-lar sıralarını gözləyə bilərlər. Əlavə olaraq Board-un `render` funksiyasındakı "status" mətnində kimin sonrakı addımı atacağınıda göstərək:
 
 ```javascript{2}
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Sonrakı oyunçu: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // kodun qalanı dəyişməyib
 ```
 
-After applying these changes, you should have this Board component:
+Bütün dəyişiklikləri etdikdən sonra Board komponenti belə görünəcək:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -685,7 +685,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Sonrakı oyunçu: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
@@ -711,11 +711,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Qalibi Bəyan Et {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. We can determine a winner by adding this helper function to the end of the file:
+Biz indi kimin sonrakı addımı atacağını bildiyimizdən, gəlin oyununu qalibini və ya oyunda heç bir gedişin qalmadığını göstərək. Qalibi tapmaq üçün aşağıdakı köməkçi funskiyanı faylın sonuna əlavə edə bilərik:
 
 ```javascript
 function calculateWinner(squares) {
@@ -739,23 +739,23 @@ function calculateWinner(squares) {
 }
 ```
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Biz Board-un `render` funskiyasında oyunçunun qazandığını yoxlamaq üçün `calculateWinner(squares)` funskiyasını çağıracağıq. Əgər oyunçu qalib olubsa, biz "Qalib: X" və ya "Qalib: O" formalı mətn göstərəcəyik. Board-un `render` funskiyasındakı `status`-u aşağıdakı formada dəyişəcəyik:
 
 ```javascript{2-8}
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Qalib: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Sonrakı oyunçu: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
-      // the rest has not changed
+      // kodun qalanı dəyişməyib
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+İndi Board-un `handleClick` funksiyasını dəyişərək kvadratın boş olmadığında və ya kiminsə qalib olduğunda funksiyadan tez qaytarıb tıklamanı iqnor edək:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -771,9 +771,9 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+Təbriklər! Sizdə indi işləyən "X O oyunu" var. Və siz həmçinin React-in əsaslarını öyrəndiniz. Bu səbəbdən *siz* yəqinki əsl qalibsiniz.
 
 ## Adding Time Travel {#adding-time-travel}
 
