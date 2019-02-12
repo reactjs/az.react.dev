@@ -42,7 +42,7 @@
     - id: code-splitting
       title: Kod Parçalanması
     - id: context
-      title: Kontext
+      title: Kontekst
     - id: error-boundaries
       title: Xəta Sərhədləri
     - id: forwarding-refs
