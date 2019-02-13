@@ -40,15 +40,15 @@
           href: /tutorial/tutorial.html#what-is-react
           forceInternal: true
         - id: inspecting-the-starter-code
-          title: Başlanğıc Kodunun Yoxlanması
+          title: Başlanğıc Kodunu Yoxlamaq
           href: /tutorial/tutorial.html#inspecting-the-starter-code
           forceInternal: true
         - id: passing-data-through-props
-          title: Məlumatın Proplar ilə Ötürülməsi
+          title: Məlumatı Proplar ilə Ötürmək
           href: /tutorial/tutorial.html#passing-data-through-props
           forceInternal: true
         - id: making-an-interactive-component
-          title: İnteraktiv Komponentin Yaradılması
+          title: İnteraktiv Komponenti Yaratmaq
           href: /tutorial/tutorial.html#making-an-interactive-component
           forceInternal: true
         - id: developer-tools
@@ -61,7 +61,7 @@
       forceInternal: true
       subitems:
         - id: lifting-state-up
-          title: State-in Qaldırılması
+          title: State-i Qaldırılmaq
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
@@ -73,39 +73,39 @@
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
-          title: Sıranı Gözlə
+          title: Sıranı Gözləmək
           href: /tutorial/tutorial.html#taking-turns
           forceInternal: true
         - id: declaring-a-winner
-          title: Qalibi Bəyan Et
+          title: Qalibi Bəyan Etmək
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel
-      title: Zaman Səyahətinin Əlavəsi
+      title: Zaman Səyahətini Əlavə Etmək
       href: /tutorial/tutorial.html#adding-time-travel
       forceInternal: true
       subitems:
         - id: storing-a-history-of-moves
-          title: Hərəkətlərin Tarixcəsini Yadda Saxla
+          title: Hərəkətlərin Tarixcəsini Yadda Saxlamaq
           href: /tutorial/tutorial.html#storing-a-history-of-moves
           forceInternal: true
         - id: lifting-state-up-again
-          title: State-i Yenidən Qaldır
+          title: State-i Yenidən Qaldırmaq
           href: /tutorial/tutorial.html#lifting-state-up-again
           forceInternal: true
         - id: showing-the-past-moves
-          title: Keçmiş Hərəkətləri Göstər
+          title: Keçmiş Hərəkətləri Göstərmək
           href: /tutorial/tutorial.html#showing-the-past-moves
           forceInternal: true
         - id: picking-a-key
-          title: Açar Seç
+          title: Açarı Seçmək
           href: /tutorial/tutorial.html#picking-a-key
           forceInternal: true
         - id: implementing-time-travel
-          title: Zaman Səyahətini Tətbiq Et
+          title: Zaman Səyahətini Tətbiq Etmək
           href: /tutorial/tutorial.html#implementing-time-travel
           forceInternal: true
         - id: wrapping-up
-          title: Yekunlaşdır
+          title: Yekunlaşdırmaq
           href: /tutorial/tutorial.html#wrapping-up
           forceInternal: true
