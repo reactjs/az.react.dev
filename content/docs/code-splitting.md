@@ -1,20 +1,16 @@
 ---
 id: code-splitting
-title: Code-Splitting
+title: Kod Parçalanması
 permalink: docs/code-splitting.html
 ---
 
-## Bundling {#bundling}
+## Paketləmə {#bundling}
 
-Most React apps will have their files "bundled" using tools like
-[Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/).
-Bundling is the process of following imported files and merging them into a
-single file: a "bundle". This bundle can then be included on a webpage to load
-an entire app at once.
+Bir çox React applikasiyalarda faylları [Webpack](https://webpack.js.org/) və ya [Browserify](http://browserify.org/) kimi alətlər ilə paketləriylər. Paketləmə (bundling) import olunan faylların izlənməsi və "bundle" adlanan bir fayla birləşdirilməsidir. Bu fayl bütün applikasiyanı saytda bir dəfəyə yükləmək üçün istifadə edilə bilər.
 
-#### Example {#example}
+#### Nümunə {#example}
 
-**App:**
+**Applikasiya:**
 
 ```js
 // app.js
@@ -30,7 +26,7 @@ export function add(a, b) {
 }
 ```
 
-**Bundle:**
+**Paket:**
 
 ```js
 function add(a, b) {
@@ -40,44 +36,27 @@ function add(a, b) {
 console.log(add(16, 26)); // 42
 ```
 
-> Note:
+> Qeyd:
 >
-> Your bundles will end up looking a lot different than this.
+> Sizin paketləriniz yuxarıdankından çox fərqli olacaq.
+Əgər siz [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack sizdə hazır qoşulmuş olacaq.
 
-If you're using [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), or a similar tool, you will have a Webpack setup out of the box to bundle your
-app.
+Əgər siz belə alətlərdən istifadə etmirsinizsə, siz paketləməni özünüz goşmalısınız. Misal üçün Webpack sənədlərində [İnstalyasiya](https://webpack.js.org/guides/installation/) və
+[Başlamaq](https://webpack.js.org/guides/getting-started/) təlimatlarına baxın.
 
-If you aren't, you'll need to setup bundling yourself. For example, see the
-[Installation](https://webpack.js.org/guides/installation/) and
-[Getting Started](https://webpack.js.org/guides/getting-started/) guides on the
-Webpack docs.
+## Kod Parçalanması {#code-splitting}
 
-## Code Splitting {#code-splitting}
+Paketləmə əladır amma sizin applikasiyanız böyüdükcə paket də böyüyəcək, xüsusəndə böyük üçüncü tərəf kitabxanalardan istifadə edildidikdə. Təsadüfən paketin ölçüsünü böyüdüb applikasiyanın yüklənməsi zamanını artırmamaq üçün paketə import etdiyiniz kodlara fikir verin.ß
 
-Bundling is great, but as your app grows, your bundle will grow too. Especially
-if you are including large third-party libraries. You need to keep an eye on
-the code you are including in your bundle so that you don't accidentally make
-it so large that your app takes a long time to load.
+Böyük paket ilə qalmamaq üçün öncədən problemin üstünə düşmə və paketi "parçalamağa" başlaya bilərsiniz. Webpack və Browserify ([factor-bundle](https://github.com/browserify/factor-bundle) ilə)  kimi paketləmə alətlərində bir çox paketləri yaradıb dinamik formada icra müddətində yüklənməsi xüsusiyyəti [Kod Parçalanması](https://webpack.js.org/guides/code-splitting/) adlanır.
 
-To avoid winding up with a large bundle, it's good to get ahead of the problem
-and start "splitting" your bundle.
- [Code-Splitting](https://webpack.js.org/guides/code-splitting/) is a feature
-supported by bundlers like Webpack and Browserify (via
-[factor-bundle](https://github.com/browserify/factor-bundle)) which can create
-multiple bundles that can be dynamically loaded at runtime.
-
-Code-splitting your app can help you "lazy-load" just the things that are
-currently needed by the user, which can dramatically improve the performance of
-your app. While you haven't reduced the overall amount of code in your app,
-you've avoided loading code that the user may never need, and reduced the amount
-of code needed during the initial load.
+Kod Parçalanması sizin applikasiyanızda istifadəçiyə cari lazım olanları "lazy-load" etməyə kömək edir. Bu sizin applikasiyanızın performansını dramatik şəkildə təkminləşdirir. Siz applikasiyada bütün kodun həcmini azalatmasanız da, istifadəçinin işlətməyəcəyi hissələrin yüklənmənməyini qabağını alır bə ilk yüklənən kodun həcmini azaltmış olursunuz.
 
 ## `import()` {#import}
 
-The best way to introduce code-splitting into your app is through the dynamic
-`import()` syntax.
+Kod Parçalanmasını applikasiyanıza əlavə etməyin ən yaxşı yolu dinamik `import()` sintaksisindən istifadə etməkdir.
 
-**Before:**
+**Əvvəl:**
 
 ```js
 import { add } from './math';
@@ -85,7 +64,7 @@ import { add } from './math';
 console.log(add(16, 26));
 ```
 
-**After:**
+**Sonra:**
 
 ```js
 import("./math").then(math => {
@@ -93,23 +72,17 @@ import("./math").then(math => {
 });
 ```
 
-> Note:
+> Qeyd:
 >
-> The dynamic `import()` syntax is a ECMAScript (JavaScript)
-> [proposal](https://github.com/tc39/proposal-dynamic-import) not currently
-> part of the language standard. It is expected to be accepted in the
-> near future.
+> Dinamik `import()` sintaksisi ECMAScript (JavaScript)
+> [təklifi fazasındadır](https://github.com/tc39/proposal-dynamic-import) və hələki dilin standartının 
+> bir hissəsi deyil. Bu təflik yaxın gələcəkdə standarta qəbul ediləcək.
 
-When Webpack comes across this syntax, it automatically starts code-splitting
-your app. If you're using Create React App, this is already configured for you
-and you can [start using it](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) immediately. It's also supported
-out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik parçalayacaq. Əgər siz Create React App işlədirsinizsə, bu xüsusiyyət artiq sizin üçün konfiqurasiya olunub və siz dərhal bunu [işlədə bilərsiniz](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). Bu xusiyyət həmçinin [Next.js-də](https://github.com/zeit/next.js/#dynamic-import) dəstəklənir.
 
-If you're setting up Webpack yourself, you'll probably want to read Webpack's
-[guide on code splitting](https://webpack.js.org/guides/code-splitting/). Your Webpack config should look vaguely [like this](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+Əgər siz Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyası daha [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
 
-When using [Babel](http://babeljs.io/), you'll need to make sure that Babel can
-parse the dynamic import syntax but is not transforming it. For that you will need [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
+[Babel](http://babeljs.io/) işlədərkən Babel-ın dinamik import sintaksisini təhlil edə bilir amma transformasiya etmir. Bunun üçün sizə [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import) lazımdır.
 
 ## `React.lazy` {#reactlazy}
 
