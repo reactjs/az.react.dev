@@ -34,27 +34,27 @@ Kontekst işlətdikdə isə, biz propları ara elementlərdən göndərməyə bi
 
 ## Kontekst İşlətməkdən Əvvəl {#before-you-use-context}
 
-Context is primarily used when some data needs to be accessible by *many* components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.
+Kontekst əsasən məlumatın fərqli səviyyələrdə yerləşən *bir neçə* komponent tərəfindən işlənməsi üçündür. Bunu hər yerdə işlətməyin çünki komponentin yenidən istifadəsini çətinləşdirir.
 
-**If you only want to avoid passing some props through many levels, [component composition](/docs/composition-vs-inheritance.html) is often a simpler solution than context.**
+**Əgər siz propları bir neçə səviyyədə göndərmək istəmirsinizsə, [komponent kompozisiyası](/docs/composition-vs-inheritance.html) kontekstdən daha sadə həlldir.**
 
-For example, consider a `Page` component that passes a `user` and `avatarSize` prop several levels down so that deeply nested `Link` and `Avatar` components can read it:
+Misal üçün, gəlin `user` və `avatarSize` proplarını mövcud olan `Page` komponentindan bir neçə səviyyədə göndərərkki, dərində olan `Link` və `Avatar` komponentləri bu propları oxuya bilsinlər:
 
 ```js
 <Page user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... render edirs ...
 <PageLayout user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... render edir ...
 <NavigationBar user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... render edir ...
 <Link href={user.permalink}>
   <Avatar user={user} size={avatarSize} />
 </Link>
 ```
 
-It might feel redundant to pass down the `user` and `avatarSize` props through many levels if in the end only the `Avatar` component really needs it. It's also annoying that whenever the `Avatar` component needs more props from the top, you have to add them at all the intermediate levels too.
+Əgər `user` və `avatarSize` propları yalnız `Avatar` komponenti tərəfindən işlənəcəksə, bu propların bütün səviyyələrdə göndərilməsi lazımsızdır. Əgər `Avatar` komponentinə yeni proplar lazım olsa, siz yenə lazım olan propları bütün ara komponentlərdən keçirməlisiniz.
 
-One way to solve this issue **without context** is to [pass down the `Avatar` component itself](/docs/composition-vs-inheritance.html#containment) so that the intermediate components don't need to know about the `user` prop:
+Bu problemi **kontekstsiz** həll etməyin yolu [`Avatar` komponentinin özünü göndərməkdir](/docs/composition-vs-inheritance.html#containment). Bu zaman, ara komponentlərin `user` və `avatarSize` proplarını bilməsi lazım deyil:
 
 ```js
 function Page(props) {
@@ -67,21 +67,21 @@ function Page(props) {
   return <PageLayout userLink={userLink} />;
 }
 
-// Now, we have:
+// Biz bizdə aşağıdakı var
 <Page user={user} />
-// ... which renders ...
+// ... render edir ...
 <PageLayout userLink={...} />
-// ... which renders ...
+// ... render edir ...
 <NavigationBar userLink={...} />
-// ... which renders ...
+// ... render edir ...
 {props.userLink}
 ```
 
-With this change, only the top-most Page component needs to know about the `Link` and `Avatar` components' use of `user` and `avatarSize`.
+Bu dəyişiklik ilə, yalnız ən yuxarıda olan Page komponenti, `Link` və `Avatar` komponentlərinin `user` və `avatarSize` proplarını işlətməyini bilir.
 
-This *inversion of control* can make your code cleaner in many cases by reducing the amount of props you need to pass through your application and giving more control to the root components. However, this isn't the right choice in every case: moving more complexity higher in the tree makes those higher-level components more complicated and forces the lower-level components to be more flexible than you may want.
+Bu *kontrolun inversiyası* applikasiyada göndərilən propların sayını azaldaraq və ana komponentlərə daha çox kontrol verərək, bir neçə ssenaridə kodunuzu daha təmiz edir. Lakin, bu metod hər ssenari üçün düzgün seçim deyil: mürəkkəbiliyi komponent ağacında yüksək olan komponentlərə göndərdikdə, bu yuxarı səviyyəli komponentləri daha çətinləşdirir və aşağı səviyyəli komponentlərin daha əyilgən olmasını məcbur edir.
 
-You're not limited to a single child for a component. You may pass multiple children, or even have multiple separate "slots" for children, [as documented here](/docs/composition-vs-inheritance.html#containment):
+Siz komponentdə bir uşaq göstərməyə məhdud deyilsiniz. Siz bir neçə uşağı, hətta uşaqlar üçün bir neçə "yuvada" edə bilərsiniz ([burada sənələşmişdir](/docs/composition-vs-inheritance.html#containment)):
 
 ```js
 function Page(props) {
@@ -103,9 +103,10 @@ function Page(props) {
 }
 ```
 
-This pattern is sufficient for many cases when you need to decouple a child from its immediate parents. You can take it even further with [render props](/docs/render-props.html) if the child needs to communicate with the parent before rendering.
+Bu metod, uşaqları yaxın valideyndən ayırmaq üçün kifayətdir. Əgər uşaq komponent, render etməzdən öncə valideyn ilə kommunikasiya qurmalıdırsa, siz [render proplardan](/docs/render-props.html) istifadə edə bilərsiniz.
 
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache. 
+Lakin, bəzən eyni məlumatlar komponent ağacında fərqli səviyyələrdə bir neçə komponent tərəfindən işlədilə bilməlidirlər. Kontekst belə məlumatları və bu məlumatlarda olan dəyişiklikləri, bütün aşağısında olan komponentlərə "yayımlaya" bilir. Bir çox nümunələrdə kontekst işlətmək alternativlərdən daha sadə ola bilər (dilin seçimi, şablon, məlumat keşi).
+
 
 ## API {#api}
 
