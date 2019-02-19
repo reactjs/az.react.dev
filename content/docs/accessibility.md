@@ -16,15 +16,15 @@ React daha çox standart HTML metodlarının istifadə etməklə hər kəs üç�
 
 [Veb Kontent İmkanlılıq Təlimatları](https://www.w3.org/WAI/intro/wcag) əsasında siz əlilliyi olan şəxslərin istifadə edəcəyi veb site hazırlaya bilərsiniz. 
 
-Aşağıdakı siyahı VKİT The following WCAG checklists provide an overview:
+Aşağıdakı siyahılar VKİT haqqında icmal təqdim edir:
 
-- [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
-- [WCAG checklist from WebAIM](http://webaim.org/standards/wcag/checklist)
-- [Checklist from The A11Y Project](http://a11yproject.com/checklist.html)
+- [Wuhcag tərəfində VKİT siyahısı](https://www.wuhcag.com/wcag-checklist/)
+- [WebAIM tərəfində VKİT siyahısı](http://webaim.org/standards/wcag/checklist)
+- [A11Y Layihəsi tərəfində VKİT siyahısı](http://a11yproject.com/checklist.html)
 
-### WAI-ARIA
+### VİT-İZİA
 
-[Veb İmkaqnlılığı Təşəbbüsü - İmkanlı Zəngin İnternet Applikasiyaları](https://www.w3.org/WAI/intro/aria) sənədinə tamamilə imkanlı JavaScript vicetlərini yaratmaq üçün metodlar daxildir.
+[Veb İmkaqnlılığı Təşəbbüsü - İmkanlı Zəngin İnternet Applikasiyaları](https://www.w3.org/WAI/intro/aria) ( Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)) sənədinə tamamilə imkanlı JavaScript vicetlərini yaratmaq üçün metodlar daxildir.
 
 Qeyd etmək lazımdır ki, bütün `aria-*` HTML atributları JSX-də dəstəklənir. React-da əksər DOM paramertlərinin və atributlarının cameCased olmasına baxmayaraq, bu atributlar mütləq şəkildə sadə HTML-ə daxil olduqda hyphen-cased (həmçinin kebab-cased, lisp-cased, və s. kimi tanınır) olmalıdırlar.
 
@@ -147,29 +147,27 @@ Bu konturu CSS (məsələn `outline: 0` yazdıqda) ilə yalnız onu başqa bir f
 
 ### Lazım olan kontentə ötmək üçün mexanizmlər
 
-Öz növbəsində applikasiyada klaviatura naviqasiyasına kömək edib və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsini ötürmə mexanizmini temin edinş
+Öz növbəsində applikasiyada klaviatura naviqasiyasına kömək edib və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsini ötmə mexanizmini təmin edin.
 
-Skiplinks və ya Naviqasiya Linklərini Ötürmə (Skip Navigation Links) gizli linkləridir ki, yalnız klaviatura istifadəçiləri səhifə ilə qarşılıqlı təsirə girdikdə görünür. are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with
-internal page anchors and some styling:
+Skiplinks və ya Naviqasiya Ötmə Linkləri (Skip Navigation Links) gizli linkləridir ki, yalnız klaviatura istifadəçiləri səhifə ilə qarşılıqlı təsirə girdikdə görünür. Onları daxili sahifə anker təqləri və bəzi üslübları tətbiq etmək çox asandı:
 
-- [WebAIM - Skip Navigation Links](http://webaim.org/techniques/skipnav/)
+- [WebAIM - Naviqasiya Ötmə Linkləri](http://webaim.org/techniques/skipnav/)
 
-Also use landmark elements and roles, such as `<main>` and `<aside>`, to demarcate page regions as assistive technology allow the user to quickly navigate to these sections.
+Həmçinin  səhifənin sahələrini sərhədləmək üçün `<main>` və `<aside>` kimi istiqamət verən element və rolları istifadə edin. Beləki, köməkçi texnologiyalar istifadəçiyə həmin bölmələrə tez hərəkət etməyə imkan verir.
 
-Read more about the use of these elements to enhance accessibility here:
+İmkanlılığı təkmilləşdirmək üçün bu elemetlərin istifadəsi haqqında ətraflı məlumat burada:
 
 - [Accessible Landmarks](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Programmatically managing focus
+### Proqram yolu ilə fokusun idarə edilməsi 
 
-Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this,
-we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+Bizim React applikasiyalarımız runtime müddətində davamlı şəkildə HTML DOM-u modifikasi edir, bəzən bu klaviatur fokusunun itməsi və ya gözlənilməz elementin qurulmasına gətirir. Bunu təmir etmək üçün biz proqram yolu ilə klaviatur fokusunu düzgün istiqamətdə dümsükləməliyik. Məsələn, klaviatur fokusunu modal pəncərəni açan düymə ilə geri qaytardıqdan sonra modal pəncərə bağlanır.
 
-MDN Web Docs takes a look at this and describes how we can build [keyboard-navigable JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+MDN Web Docs buna nəzər salır və bizim necə [Klaviatur ilə Naviqasiya oluna bilən JavaScript Vidcetləri](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets) yarada biləcəyimizi təsvir edir.
 
-To set focus in React, we can use [Refs to DOM elements](/docs/refs-and-the-dom.html).
+Fokusu React üzərinə qurmaq üçün biz [Ref üçün DOM elementləri](/docs/refs-and-the-dom.html) istifadə edə bilərik.
 
-Using this, we first create a ref to an element in the JSX of a component class:
+Bunu istifadə etməklə biz ilk öncə JSX komponent klassında element üçün ref yaradırıq:
 
 ```javascript{4-5,8-9,13}
 class CustomTextInput extends React.Component {
@@ -191,7 +189,7 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-Then we can focus it elsewhere in our component when needed:
+Daha sonra biz bunu komponentimizdə istənilər yerə fokus edə bilərik:
 
  ```javascript
  focus() {
@@ -201,8 +199,7 @@ Then we can focus it elsewhere in our component when needed:
  }
  ```
 
-Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components)
-through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+Bəzən valideyn komponent fokusu uşaq komponentdəki elementə təyin etməlidir. Biz bunu uşaq komponentin [valideynin refini uşağın DOM noduna](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components), valideyn komponentdən xüsusi prop vasitəsi ilə göndərərək DOM reflərini expose edə bilərik.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -229,28 +226,23 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
-When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC
-does not implement ref forwarding, the above pattern can still be used as a fallback.
+Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forwardRef` funksiyasını istifadə edərək əhatə edən komponentə [ref-i yönləndirmək](/docs/forwarding-refs.html)məsləhət görülür. Əgər üçüncü tərəf HOC-u ref-i yonləndirmirsə, yuxarıdakı şablon hələdə alternativ plan kimi istifadə oluna bilər.
 
-A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
-the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that
-initially triggered the modal.
+[React-aria-modal](https://github.com/davidtheclark/react-aria-modal) yaxşı fokus idarəçilik misalıdır. Bu tam rabitəli imkanlı modal pəncərənin nisbətən nadir misalıdır. Bu yalnız ilkin fokusu ləğv etmə düyməsinin üzərinə fokuslayır (klaviatur istifadəçisini təsadüfəni şəkildə uğurlu əməliyyatı aktivləşdirməyin qarşısını alır) və klaviatur fokusunu modalın daxilində tutur, həm də ilkin olaraq modalı açan elementə fokusu sıfırlayır.
 
->Note:
+>Qeyd:
 >
->While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how
->users want to use applications.
+>Halbuki bu çox vacib imkanlılıq xüsusiyyətidir, bu həm də məntiqi şəkildə istifadə olunmalı texnologiyadır. Bu texnologiyanı klaviatur fokusunun axininin düzəltmək üçün istifadə edin, istifadəçilərin applikasiyaları necə istifadə etək istədiklərini yoxlamaq və əvvəlcədən bilmək üçün yox.
 
-## Mouse and pointer events
+## Maus və kursor hadisələri
 
-Ensure that all functionality exposed through a mouse or pointer event can also be accessed using the keyboard alone. Depending only on the pointer device will lead to many cases where
-keyboard users cannot use your application.
+Əmin olun ki, bütün funksionallıq maus və ya kursor hadisəsi ilə göstərilib və yalnız klaviatur istifadə etməklə də giriş edilə bilər. Kursor cihazından asılı olaraq siz müxtəlif ssenarilərlə üzləşəcəksiz harada ki klaviatur istifadəçiləri applikasiyanı istifadə edə bilməyəcəklər.
 
-To illustrate this, let's look at a prolific example of broken accessibility caused by click events. This is the outside click pattern, where a user can disable an opened popover by clicking outside the element.
+Bunu təsvir etmək üçün gəlin  tıklamaq hadisəsinin səbə olduğu sınmış imkanlılığın məhsuldar misalına baxaq. Bu tıklamaq şablonunun xaricindədir, hardakı istifadəçi açılmış popover-i elementin xaricində tıklamaqla qeyri-aktiv edə bilər.
 
 <img src="../images/docs/outerclick-with-mouse.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with a mouse showing that the close action works." />
 
-This is typically implemented by attaching a `click` event to the `window` object that closes the popover:
+Bu adətən `click` hadisəsini popover-i bağlayan `window` obyektinə qoşmaqla həyata keçirilir:
 
 ```javascript{12-14,26-30}
 class OuterClickExample extends React.Component {
@@ -301,12 +293,11 @@ constructor(props) {
 }
 ```
 
-This may work fine for users with pointer devices, such as a mouse, but operating this with the keyboard alone leads to broken functionality when tabbing to the next element
-as the `window` object never receives a `click` event. This can lead to obscured functionality which blocks users from using your application.
+Bu kursor cihazı (məsələn, maus) olan istifadəçilər üçün yaxşı işləyə bilər, amma yalnız klaviatur ilə fəaliyyət göstərmək sınmiş funksionallığa gətirir. Bu da növbəti elementə dəyişdikdə `window` obyekti heç vaxt `click` hadisəsini qəbul etmir. Bu aydın olmayan funksionallığı agətirib çıxarır hansı ki istifadəçilərə sizin applikasiyanı istifadə etməyə qadağa edir.
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
-The same functionality can be achieved by using an appropriate event handlers instead, such as `onBlur` and `onFocus`:
+Eyni funksionallıq `onBlur` və `onFocus` kimi uyğun hadisə işləyicisini istifadə etməklə əldə edilə bilər:
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
@@ -367,46 +358,45 @@ class BlurExample extends React.Component {
   }
 }
 ```
-
-This code exposes the functionality to both pointer device and keyboard users. Also note the added `aria-*` props to support screen-reader users. For simplicity's sake
-the keyboard events to enable `arrow key` interaction of the popover options have not been implemented.
+Bu kod həm kursor cihazı, həm də klaviatur istifadəçiləri üçün funksionallığı göstərir. Həmçinin, ekran oxucusu istifadəçilərini dəstəkləmək üçün əlavə olunmuş `aria-*` prop-larına diqqət yetirin. Sadəlik üçün popover opsiyasının qarşılıqlı təsiri olan `arrow key` aktivləşdirmək üçün klavitur hadisələri həyata keçirilmir.
 
 <img src="../images/docs/blur-popover-close.gif" alt="A popover list correctly closing for both mouse and keyboard users." />
 
-This is one example of many cases where depending on only pointer and mouse events will break functionality for keyboard users. Always testing with the keyboard will immediately
-highlight the problem areas which can then be fixed by using keyboard aware event handlers.
+Bu yalnız kursor və maus hadisələrindən asılı olmağın klaviatur istifadəçiləri üçün funksionallığın sınmasına səbəb olacağını göstərən ssenarilərdən biridir. Həmişə klaviatur ilə test edərkən problemlı sahələri dərhal üzə çıxaracaq, hansılar ki klaviatur xəbərdarlıq hadisələr işləyicilərinin köməkliyi ilə düzəldilə bilər.
 
-## More Complex Widgets
+## Daha Kompleks Vidcetlər
 
-A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible,
-even the most complex widget can be coded accessibly.
+Daha kompleks istifadəçi təcrübəsi, daha az amkanlılıq demək deyil. Halbuki imkanlılıq ən rahatlıqla əldə etməyin yolu HTML-ə ən yaxın şəkildə kodlaşdırmaqdır, hətta ən kompleks vidcetlər imkanlı şəkildə kodlaşdırıla bilər. 
 
-Here we require knowledge of [ARIA Roles](https://www.w3.org/TR/wai-aria/#roles) as well as [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
-These are toolboxes filled with HTML attributes that are fully supported in JSX and enable us to construct fully accessible, highly functional React components.
+Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [ARIA Vəziyyətləri və Parametrləri](https://www.w3.org/TR/wai-aria/#states_and_properties) haqqında bilikləri tələb edirik. 
 
-Each type of widget has a specific design pattern and is expected to function in a certain way by users and user agents alike:
+Yuxarıdakı xüsusiyyətlər HTML atributları ilə doludur, hansı ki JSX-də tamamilə dəstəklənir və bizə tamamilə imkanlı, yüksək funksional React komponentləri qurmağa imkan verir.
 
-- [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](http://heydonworks.com/practical_aria_examples/)
+Hər bir növ vidcetlər xüsusi dizayn "patterni" var və müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işlədiyi gözlənilir:
+
+- [WAI-ARIA Yazma Təcrübələri - Pattern və Vidcetlərin Dizayn ediləsi](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Heydon Pickering - ARIA Nümunələri](http://heydonworks.com/practical_aria_examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Other Points for Consideration
+## Nəzərə Alınmalı Digər Məqamlar
 
-### Setting the language
+### Dilin təyin olunması
 
 Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:
 
 - [WebAIM - Document Language](http://webaim.org/techniques/screenreader/#language)
 
-### Setting the document title
+### Sənədin başlığının təyin olunması
 
-Set the document `<title>` to correctly describe the current page content as this ensures that the user remains aware of the current page context:
+Cari səhifənin məzmuunu düzgün təsvir etmək üçün sənədin `<title>` hissəsini düzgün təyin edin, belə ki bu istifadəçinin cari səhifənin məzmunu haqqında xəbərdar olduğuna təmin edir:
 
-- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
+- [WCAG - Sənədin Başlığının tələblərinin Başa düşülməsi](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
-We can set this in React using the [React Document Title Component](https://github.com/gaearon/react-document-title).
+Biz bunu React-da [React Sənəd Başlığı Komponenti](https://github.com/gaearon/react-document-title) istifadə edərək qura bilərik.
 
-### Color contrast
+### Rəng Kontrastı
+
+Əmin olun ki, ver səhifənizdəki  oxuna bilən bütün yazıların kifayət qədər rəng k 
 
 Ensure that all readable text on your website has sufficient color contrast to remain maximally readable by users with low vision:
 
@@ -520,11 +510,11 @@ Refer to the following guides on how to best use JAWS:
 - [WebAIM - Using JAWS to Evaluate Web Accessibility](http://webaim.org/articles/jaws/)
 - [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
-### Other Screen Readers
+### Digər Ekran Oxucuları
 
-#### ChromeVox in Google Chrome
+#### Google Chrome-da ChromeVox
 
-[ChromeVox](http://www.chromevox.com/) is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
+[ChromeVox](http://www.chromevox.com/) Crome books-a integrasiya olunmuş ekran oxucusudur və is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
 
 Refer to the following guides on how best to use ChromeVox:
 
