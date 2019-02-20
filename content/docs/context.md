@@ -235,20 +235,19 @@ Kontekstin yenidən render edilməsinin tez olması üçün, React hər kontekst
 
 If two or more context values are often used together, you might want to consider creating your own render prop component that provides both.
 
-## Caveats {#caveats}
+## Xəbərdarlıq {#caveats}
 
-Because context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider's parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for `value`:
+Kontesktin yenidən render etmək üçün dəyərin referensi ilə edir deyə, provider yenidən render etdikdə, consumer-lərdə istənilməyən renderlər oluna bilər. Məsələn, aşağıdakı kodda `value` üçün hər zaman yeni obyekt yarandığından, bütün consumer-lər yenidən render edirlər:
 
 `embed:context/reference-caveats-problem.js`
 
-
-To get around this, lift the value into the parent's state:
+Bu problemi həll etmək üçün, dəyəri valideynin state-inə qaldırın:
 
 `embed:context/reference-caveats-solution.js`
 
-## Legacy API {#legacy-api}
+## Köhnə API {#legacy-api}
 
-> Note
+> Qeyd
 > 
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
+> Əvvəl React eksperimental bir kontext API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
  
