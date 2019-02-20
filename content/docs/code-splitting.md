@@ -40,7 +40,7 @@ console.log(add(16, 26)); // 42
 >
 > Sizin paketləriniz yuxarıdankından çox fərqli olacaq.
 
-Əgər siz [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack sizdə hazır qoşulmuş olacaq.
+Əgər siz [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/) və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack sizdə hazır qoşulmuş olacaq.
 
 Əgər siz belə alətlərdən istifadə etmirsinizsə, siz paketləməni özünüz qoşmalısınız. Misal üçün, Webpack sənədlərində [İnstalyasiya](https://webpack.js.org/guides/installation/) və
 [Başlamaq](https://webpack.js.org/guides/getting-started/) təlimatlarına baxın.
@@ -75,13 +75,13 @@ import("./math").then(math => {
 
 > Qeyd:
 >
-> Dinamik `import()` sintaksisi ECMAScript (JavaScript)
-> [təklifi fazasındadır](https://github.com/tc39/proposal-dynamic-import) və hələki dilin standartının 
+> Dinamik `import()` sintaksisi ECMAScript (JavaScript) 
+> [təklifi fazasındadır](https://github.com/tc39/proposal-dynamic-import) və hələki dil standartının 
 > bir hissəsi deyil. Bu təklif yaxın gələcəkdə standarta qəbul ediləcək.
 
 Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik parçalayacaq. Əgər siz Create React App işlədirsinizsə, bu xüsusiyyət artiq sizin üçün konfiqurasiya olunub və siz dərhal bunu [işlədə bilərsiniz](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). Bu xusiyyəti həmçinin [Next.js](https://github.com/zeit/next.js/#dynamic-import) də dəstəkləyir.
 
-Əgər siz Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyanız təxminən [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
+Əgər Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyanız təxminən [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
 
 [Babel](http://babeljs.io/) işlədərkən Babel-ın dinamik import sintaksisini təhlil edə bilməsi amma transformasiya edə bilməməsi lazımdır. Bunun üçün siz [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import)-dan istifadə edə bilərsiniz.
 
@@ -93,7 +93,7 @@ Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik pa
 
 `React.lazy` funskiyası dinamik import olunmuş komponenti adi komponent kimi render etməyə imkan yaradır.
 
-**Before:**
+**Əvvəl:**
 
 ```js
 import OtherComponent from './OtherComponent';
@@ -107,7 +107,7 @@ function MyComponent() {
 }
 ```
 
-**After:**
+**Sonra:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -123,7 +123,7 @@ function MyComponent() {
 
 Bu avtomatik olara `OtherComponent` render olduğu zaman, komponent olan paketi yükləyəcək.
 
-`React.lazy` funskiyası mütləq olaraq dinamik `import()` funskiyasını çağırmalıdır. Bu mütləq `default` eksportunda React komponenti olan modulu "resolve" edən `Promise` qaytarmalıdır.
+`React.lazy` funskiyası mütləq olaraq dinamik `import()` funskiyasını çağırmalıdır. Bu mütləq `default` eksportunda React komponenti olan modulu "resolve" edən `Promise`-ə qaytarmalıdır.
 
 ### Suspense {#suspense}
 
@@ -165,7 +165,7 @@ function MyComponent() {
 
 ### Xəta sərhədləri {#error-boundaries}
 
-Əgər modulun yüklənməsi uğursuz keçirsə (məsələn şəbəkə problemlərinə görə), xəta göstəriləcək. Siz yaxşı İstifadəçi Təcrübəsi üçün bu xətaları tutmaq və bu xətaları bərpa etmək üçün [Xəta Sərhədlərindən](/docs/error-boundaries.html) istifadə edə bilərsiniz. Xəta Sərhədini yaratdıqdan sonra, siz şəbəkə xətası göstərmək üçün bu xəta sərhədini lazy komponentin yuxarısında istənilən yerdə istifadə edə bilərsiniz.
+Əgər modulun yüklənməsi uğursuz keçirsə (məsələn, şəbəkə problemlərinə görə), xəta göstəriləcək. Siz yaxşı İstifadəçi Təcrübəsi üçün bu xətaları tutmaq və bu xətaları bərpa etmək üçün [Xəta Sərhədlərindən](/docs/error-boundaries.html) istifadə edə bilərsiniz. Xəta Sərhədini yaratdıqdan sonra, siz şəbəkə xətası göstərmək üçün bu xəta sərhədini lazy komponentin yuxarısında istənilən yerdə istifadə edə bilərsiniz.
 
 ```js
 import MyErrorBoundary from './MyErrorBoundary';
@@ -188,7 +188,7 @@ const MyComponent = () => (
 
 ## Route əsasında kod parçalaması {#route-based-code-splitting}
 
-Applikasiyanızda harada kod parçalaması etmək biraz çaşdırıcı ola bilər. Siz həmişə İstifadəçi Təcrübəsini pozmamaq və paketləri bərabər ayrılmaq üçün düzgün yerdən applikasiyanı bölməlisiniz.
+Applikasiyanızda harada kod parçalaması etmək biraz çaşdırıcı ola bilər. Siz həmişə İstifadəçi Təcrübəsini pozmamaq və paketləri bərabər ayırlmaq üçün düzgün yerdən applikasiyanı bölməlisiniz.
 
 Yaxşı başlanğıc nöqtəsi route-lardan bölməni aparmaqdır. Bir çox insan vebdə səhifə keçidlərinin yüklənməsinin zaman aldığına vərdiş ediblər. Bu zaman siz həmçinin bütün səhifəni dərhal yenidən render edirsiniz deyə istifadəçilər eyni zamanda səhifədəki başqa elementlərə qarşılıqlı təsir etmirlər.
 
@@ -215,7 +215,7 @@ const App = () => (
 
 ## Adlı Eksportlar {#named-exports}
 
-`React.lazy` yalnız `default` eksportları dəstəkləyir. Əgər sizin import istədiyiniz modul, adlı eksportlar edirsə, siz bu adlı eksportu yenidən `default` eksport edən ara modulu yarada bilərsiniz. Bu treeshaking-in işlədiyini və lazım olmayan komponentlərin yüklənmədiyini təmin edir.
+`React.lazy` yalnız `default` eksportları dəstəkləyir. Əgər sizin import etmək istədiyiniz modul, adlı eksportlar edirsə, siz bu adlı eksportları yenidən `default` eksport edən ara modulu yarada bilərsiniz. Bu treeshaking-in işlədiyini və lazım olmayan komponentlərin yüklənmədiyini təmin edir.
 
 ```js
 // ManyComponents.js
