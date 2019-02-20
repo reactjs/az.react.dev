@@ -116,14 +116,14 @@ Lakin, bəzən eyni məlumatlar komponent ağacında fərqli səviyyələrdə bi
 const MyContext = React.createContext(defaultValue);
 ```
 
-Creates a Context object. When React renders a component that subscribes to this Context object it will read the current context value from the closest matching `Provider` above it in the tree.
+Kontekst obyekini yaradır. React Context obyektinə "abunə olan" komponentləri render edərkən, yuxarı səviyyədə ən yaxın olan `Provider`-dən cari kontext dəyərini oxuyacaq.
 
-The `defaultValue` argument is **only** used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Note: passing `undefined` as a Provider value does not cause consuming components to use `defaultValue`.
+`defaultValue` arqumenti **yalnız** komponentin yuxarı səviyyəsində Provider olmadığı zaman işlənir. Bu komponentləri Provider ilə əhatə etmədən, ayrılıqda test etmək üçün faydalıdır. Qeyd: Provider dəyərinə `undefined` göndərildikdə işlədən komponentlər `defaultValue`-dan istifadə etmirlər.
 
 ### `Context.Provider` {#contextprovider}
 
 ```js
-<MyContext.Provider value={/* some value */}>
+<MyContext.Provider value={/* bir dəyər */}>
 ```
 
 Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
