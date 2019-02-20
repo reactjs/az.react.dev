@@ -144,7 +144,7 @@ Dəyişikliklər yeni və köhnə dəyərlərin [`Object.is`](//developer.mozill
 class MyClass extends React.Component {
   componentDidMount() {
     let value = this.context;
-    /* perform a side-effect at mount using the value of MyContext */
+    /* mount etdikdə MyContext-in dəyəri ilə kənar effekt edin */
   }
   componentDidUpdate() {
     let value = this.context;
@@ -156,19 +156,19 @@ class MyClass extends React.Component {
   }
   render() {
     let value = this.context;
-    /* render something based on the value of MyContext */
+    /* MyContext-in dəyəri ilə render edin */
   }
 }
 MyClass.contextType = MyContext;
 ```
 
-The `contextType` property on a class can be assigned a Context object created by [`React.createContext()`](#reactcreatecontext). This lets you consume the nearest current value of that Context type using `this.context`. You can reference this in any of the lifecycle methods including the render function.
+`contextType` klass parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan Context-in dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funskiyası daxil olmaqla bütün render funskiyalarından istifadə edə bilərsiniz.
 
-> Note:
+> Qeyd:
 >
-> You can only subscribe to a single context using this API. If you need to read more than one see [Consuming Multiple Contexts](#consuming-multiple-contexts).
+> Siz bu API ilə yalnız bir kontekstə abunə ola bilərsiniz. Əgər sizə birdən çox kontekst lazımdırsa [Bir Neçə Kontekstin İstehlakı](#consuming-multiple-contexts) bölməsindən oxuya bilərsiniz.
 >
-> If you are using the experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use a **static** class field to initialize your `contextType`.
+> Əgər siz eksperimental olan [public klass sahəsi sintaksisindən](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə edirsinizsə, siz **static** klass sahəsindən istifadə edib `contextType`-ı inisializasiya edə bilərsiniz.
 
 
 ```js
@@ -176,7 +176,7 @@ class MyClass extends React.Component {
   static contextType = MyContext;
   render() {
     let value = this.context;
-    /* render something based on the value */
+    /* dəyər əsasında render et */
   }
 }
 ```
