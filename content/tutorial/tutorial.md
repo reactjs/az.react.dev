@@ -86,6 +86,7 @@ npx create-react-app my-app
 >
 > **Bütün `src` direktoriyasını yox, yalnız daxilindəki faylları silin.**. Biz standart faylları bu layihədəki nümunələr ilə əvəz edəcəyik.
 
+
 ```bash
 cd my-app
 cd src
