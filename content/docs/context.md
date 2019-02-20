@@ -185,19 +185,19 @@ class MyClass extends React.Component {
 
 ```js
 <MyContext.Consumer>
-  {value => /* render something based on the context value */}
+  {value => /* kontekst dəyəri əsasında render et */}
 </MyContext.Consumer>
 ```
 
-A React component that subscribes to context changes. This lets you subscribe to a context within a [function component](/docs/components-and-props.html#function-and-class-components).
+Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funskional komponent]((/docs/components-and-props.html#function-and-class-components)) ilə kontekstə abunə olmağa icazə verir.
 
-Requires a [function as a child](/docs/render-props.html#using-props-other-than-render). The function receives the current context value and returns a React node. The `value` argument passed to the function will be equal to the `value` prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the `value` argument will be equal to the `defaultValue` that was passed to `createContext()`.
+[funskiyanın uşaq kimi olmasını](/docs/render-props.html#using-props-other-than-render) tələb edir. Bu funskiya kontekstin cari dəyərini qəbul edir və React nodu qaytarır. Funskiyaya göndərilən `value` arqumenti, komponent ağacında bu komponentə ən yaxın olan Provider-in `value` propu ilə eynidir. Əgər Provider yoxdursa, `value` arqumenti `createContext()`-ə keçirilən `defaultValue` propuna bərabər olacaq.
 
-> Note
+> Qeyd
 > 
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
+> 'funskiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədəinə baxın.
 
-## Examples {#examples}
+## Misallar {#examples}
 
 ### Dynamic Context {#dynamic-context}
 
