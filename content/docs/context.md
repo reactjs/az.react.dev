@@ -199,9 +199,9 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funskional
 
 ## Misallar {#examples}
 
-### Dynamic Context {#dynamic-context}
+### Dinamik Kontekst {#dynamic-context}
 
-A more complex example with dynamic values for the theme:
+Şablon üçün dinamik dəyərlər işlədən daha kompleks misal:
 
 **theme-context.js**
 `embed:context/theme-detailed-theme-context.js`
@@ -212,9 +212,9 @@ A more complex example with dynamic values for the theme:
 **app.js**
 `embed:context/theme-detailed-app.js`
 
-### Updating Context from a Nested Component {#updating-context-from-a-nested-component}
+### Konteksti Bir Birindən Keçən Komponentdən Yeniləmək {#updating-context-from-a-nested-component}
 
-It is often necessary to update the context from a component that is nested somewhere deeply in the component tree. In this case you can pass a function down through the context to allow consumers to update the context:
+Bir çox vaxtda konteksti komponent ağacının dərinliklərində olan bir komponentdən yeniləmək lazım olur. Bu halda, siz kontekstdən funksiyanı consumer-lərin yeniləməsi üçün funksiya göndərə bilərsiniz:
 
 **theme-context.js**
 `embed:context/updating-nested-context-context.js`
@@ -225,11 +225,13 @@ It is often necessary to update the context from a component that is nested some
 **app.js**
 `embed:context/updating-nested-context-app.js`
 
-### Consuming Multiple Contexts {#consuming-multiple-contexts}
+### Bir Neçə Kontekstin İstehlakı {#consuming-multiple-contexts}
 
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree. 
+Kontekstin yenidən render edilməsinin tez olması üçün, React hər kontekst consumerinin komponent ağacında yeni bir nod yaratmalıdır. 
 
 `embed:context/multiple-contexts.js`
+
+Əgər 2 və ya daha çox kontekst dəyəri tez tez birlikdə işlədilirsə, siz bu kontekstlərin dəyərlərini birlikdə təmin edən xüsusi bir render prop komponenti düzəldə bilərsiniz.
 
 If two or more context values are often used together, you might want to consider creating your own render prop component that provides both.
 
