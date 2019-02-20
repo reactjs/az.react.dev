@@ -126,17 +126,17 @@ Kontekst obyekini yaradır. React Context obyektinə "abunə olan" komponentlər
 <MyContext.Provider value={/* bir dəyər */}>
 ```
 
-Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
+Hər bir Context obyekti Provider adlı React komponenti ilə gəlir. Bu komponent kontekstdə olan dəyişikliklərə abunə olmaq istəyən komponentlərə imkan yaradır.
 
-Accepts a `value` prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+Provayder `value` propu qəbul edir. Bu propun dəyəri abunə olan komponentlərə ötürülür. Bir Provider bir neçə Consumer komponentə goşula bilər. Provayderlər eyni komponent ağacında bir neçə səviyyədə ola bilər. Ağacda dərində yerləşən provayderlər, yuxarıda olan provayderlərin dəyərlərini əvəz edir.
 
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component bails out of the update.
+Provider-in aşağısında olan bütün istehlakçılar, Provider-in `value` propu dəyişdikdə yenidən render edir. Providerdən aşağıya məlumatların yayınlaması, `shouldComponentUpdate` funskiyasından asılı deyil. Bu deməkdirki, yuxarı komponentdə hansısa komponent yenilənməsə belə, Provider-ə abunə olan komponent yenilənəcək.
 
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
+Dəyişikliklər yeni və köhnə dəyərlərin [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description) alqoritminə bənzər bir alqoritm ilə müqayisəsi ilə təyin olunur.
 
-> Note
+> Qeyd
 > 
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
+> Dəyişikliklər `value`-a obyeki göndərdikdə problem yarada bilərlər: [Dəyişikliklər](#caveats) bölməsinə baxın.
 
 ### `Class.contextType` {#classcontexttype}
 
