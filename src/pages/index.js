@@ -291,7 +291,7 @@ class Home extends Component {
                 </CtaItem>
                 <CtaItem>
                   <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                    Dərsiliyi Götür
+                    Dərsiliyə Başla
                   </ButtonLink>
                 </CtaItem>
               </Flex>
