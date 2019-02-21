@@ -22,7 +22,7 @@ JSX React "elementləri"-ni yaradır. Bunları [sonrakı bölmə](/docs/renderin
 
 Reakt, applikasiyasının işləmə məntiqinin digər UI məntiqləri ilə birləşdirildiyini: hadisələrin necə idarə olunduğunu, state-in zamanla necə dəyişdiyini və göstərilən məlumatların necə nümayiş olunacağına dair məsələləri əhatə edir.
 
-Fərqli fayllarda markup və məntiq quraraq *texnologiyaları* süni şəkildə ayırmaq əvəzinə React [hər ikisini ehtiva edən "komponentlər" adlandırılan birləşmələrlə](https://en.wikipedia.org/wiki/Separation_of_concerns) reallaşdırdı. [Növbəti bölmədə](/docs/components-and-props.html) komponentlərə geri qayıdacağıq, lakin JS-də markup qurmaqda hələ rahat deyilsinizsə, [bu](https://www.youtube.com/watch?v=x7cQ3mrcKaY) sizi əksinə razı sala bilər.
+Fərqli fayllarda markup və məntiq quraraq *texnologiyaları* süni şəkildə ayırmaq əvəzinə React [*problemləri* ayıraraq](https://en.wikipedia.org/wiki/Separation_of_concerns) hər ikisini ehtiva edən "komponentlər" adlandırılan birləşmələrlə reallaşdırdı. [Növbəti bölmədə](/docs/components-and-props.html) komponentlərə geri qayıdacağıq, lakin JS-də markup qurmaqda hələ rahat deyilsinizsə, [bu](https://www.youtube.com/watch?v=x7cQ3mrcKaY) sizi əksinə razı sala bilər.
 
 React JSX-i istifadə etməyi [tələb etmir](/docs/react-without-jsx.html), amma bir çoxları bunu Javascript içərisində Uİ ilə işləyən zaman faydalı hesab edir. Həmçinin React-a daha çox faydalı səhv və xəbərdarlıq mesajları göstərməyə də imkan verir. 
 
