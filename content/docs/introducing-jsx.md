@@ -20,7 +20,7 @@ JSX React "elementləri"-ni yaradır. Bunları [sonrakı bölmə](/docs/renderin
 
 ### Niyə JSX? {#why-jsx}
 
-Reakt, applikasiyasının işləmə məntiqinin digər UI məntiqləri ilə birləşdirildiyini: hadisələrin necə idarə olunduğunu, state-in zamanla necə dəyişdiyini və göstərilən məlumatların necə nümayiş olunacağına dair məsələləri əhatə edir.
+Reakt, applikasiyasının işləmə məntiqinin digər Uİ məntiqləri ilə birləşdirildiyini: hadisələrin necə idarə olunduğunu, state-in zamanla necə dəyişdiyini və göstərilən məlumatların necə nümayiş olunacağına dair məsələləri əhatə edir.
 
 Fərqli fayllarda markup və məntiq quraraq *texnologiyaları* süni şəkildə ayırmaq əvəzinə React [*problemləri* ayıraraq](https://en.wikipedia.org/wiki/Separation_of_concerns) hər ikisini ehtiva edən "komponentlər" adlandırılan birləşmələrlə reallaşdırdı. [Növbəti bölmədə](/docs/components-and-props.html) komponentlərə geri qayıdacağıq, lakin JS-də markup qurmaqda hələ rahat deyilsinizsə, [bu](https://www.youtube.com/watch?v=x7cQ3mrcKaY) sizi əksinə razı sala bilər.
 
