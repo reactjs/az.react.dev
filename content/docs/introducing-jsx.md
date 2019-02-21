@@ -6,23 +6,23 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Bu dəyişən bəyannaməni nəzərdən keçirin:
+Bu dəyişən bəyannaməsini nəzərdən keçirin:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-Bu məzəli tag sintaksisi nə bir simlidir(string), nə də HTML.
+Bu məzəli təq sintaksisi nə bir sətrdir(string), nə də HTML.
 
-Bu JSX adlanır və JavaScript üçün sintaksis əlavəsidir. İstifadəçi interfeysinin görünməsi üçün React ilə istifadə etməyi məsləhət görürük. JSX şablon dilini sizə xatırlata bilər, lakin JavaScript-in tam funksionallığını istifadə imkanı yaradır.
+Bu JSX adlanır və JavaScript üçün sintaksis əlavəsidir. İstifadəçi interfeysinin görünməsi üçün React ilə istifadə etməyi məsləhət görürük. JSX şablon dilini sizə xatırlada bilər, lakin JavaScript-in tam funksionallığından istifadə imkanı yaradır.
 
-JSX React "elementləri"-ni yaradır. Bunları [sonrakı bölmə] (/docs/rendering-elements.html) daxilində DOM-da göstərməyi tədbiq edəcəyik. Aşağıda, siz başlamağınız üçün lazım olan JSX əsaslarını tapa bilərsiniz.
+JSX React "elementləri"-ni yaradır. Bunları [sonrakı bölmə](/docs/rendering-elements.html) daxilində DOM-da göstərməyi tədbiq edəcəyik. Aşağıda, siz başlamağınız üçün lazım olan JSX əsaslarını tapa bilərsiniz.
 
 ### Niyə JSX? {#why-jsx}
 
-Reakt, aplikasiynın işləmə məntiqinin digər UI məntiqləri ilə birləşdirildiyini: hadisələrin(events) necə idarə olunduğunu, state-in zamanla necə dəyişdiyini və göstərilən məlumatların necə nümayiş olunacağına dair reallığı əhatə edir.
+Reakt, applikasiyasının işləmə məntiqinin digər UI məntiqləri ilə birləşdirildiyini: hadisələrin necə idarə olunduğunu, state-in zamanla necə dəyişdiyini və göstərilən məlumatların necə nümayiş olunacağına dair məsələləri əhatə edir.
 
-Fərqli fayllarda markup və məntiq quraraq * texnologiyaları * süni şəkildə ayırmaq əvəzinə React [hər ikisini ehtiva edən "komponentlər" adlandırılan birləşmələrlə](https://en.wikipedia.org/wiki/Separation_of_concerns) reallaşdırdı. [Növbəti bölmədə](/docs/components-and-props.html) komponentlərə geri qayıdacağıq, lakin JS-də markup qurmaqda hələ rahat deyilsinizsə, [bu](https://www.youtube.com/watch?v=x7cQ3mrcKaY) bu sizi əksinə razı sala bilər.
+Fərqli fayllarda markup və məntiq quraraq *texnologiyaları* süni şəkildə ayırmaq əvəzinə React [hər ikisini ehtiva edən "komponentlər" adlandırılan birləşmələrlə](https://en.wikipedia.org/wiki/Separation_of_concerns) reallaşdırdı. [Növbəti bölmədə](/docs/components-and-props.html) komponentlərə geri qayıdacağıq, lakin JS-də markup qurmaqda hələ rahat deyilsinizsə, [bu](https://www.youtube.com/watch?v=x7cQ3mrcKaY) sizi əksinə razı sala bilər.
 
 React JSX-i istifadə etməyi [tələb etmir](/docs/react-without-jsx.html), amma bir çoxları bunu Javascript içərisində Uİ ilə işləyən zaman faydalı hesab edir. Həmçinin React-a daha çox faydalı səhv və xəbərdarlıq mesajları göstərməyə də imkan verir. 
 
@@ -44,7 +44,7 @@ ReactDOM.render(
 
 JSX daxilində fiqurlu mötərizə içərisində istənilən [JavaScript ifadəsi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) istifadə edə bilərsiniz. Misal üçün. `2+2`, `user.firstName`, və ya `formatName(user)`, hər biri doğru(valid) Javascript ifadəsidir.
 
-Aşağıdakı misalda, `formatName(user)` JavaScript funksiyasını çağırmanın nəticəsini `<h1>` elementinin daxilinə yerləşdirrik.
+Aşağıdakı misalda, `formatName(user)` JavaScript funksiyasını çağırmanın nəticəsini `<h1>` elementinin daxilinə yerləşdiririk.
 
 ```js{12}
 function formatName(user) {
@@ -74,7 +74,7 @@ JSX-i kodun rahat oxunması üçün bir neçə sətirə bölürük. Bunun tələ
 
 ### JSX həmçinin ifadədir {#jsx-is-an-expression-too}
 
-Kompilyasiya edilrikdən sonra, JSX ifadələri adi JavaScript funksiyalarına və JavaScript obyektlərinə çevrilir.
+Kompilyasiya edildikdən sonra, JSX ifadələri adi JavaScript funksiyalarına və JavaScript obyektlərinə çevrilir.
 
 Bu o deməkdir ki, JSX daxilində siz `if` və `for` ifadələrindən istifadə edərək onları dəyişənlərə bərabər edə və onları funksiyadan çağıra bilərik:
 
@@ -109,7 +109,7 @@ Javascript ifadələrini atribut kimi bildirərkən bunu dırnaq içində etməy
 >
 >Misal üçün, `class` JSX-də [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)-ə çevrilir, və `tabindex` [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex)-ə çevrilir.
 
-### Uşaqları(children) JSX ilə ifadə etmək {#specifying-children-with-jsx}
+### Uşaqları JSX ilə ifadə etmək {#specifying-children-with-jsx}
 
 Əgər tag daxilində başqa tag yoxdursa onu dərhal XML kimi `/>`-lə bağlaya bilərsiniz:
 
@@ -129,7 +129,7 @@ const element = (
 );
 ```
 
-### JSX Enjeksiyon hücumlarını qarşısını alır{#jsx-prevents-injection-attacks}
+### JSX Enjeksiyon hücumlarını qarşısını alır {#jsx-prevents-injection-attacks}
 
 JSX-də istifadəçi girişini yerləşdirə bilərsiniz:
 
@@ -139,7 +139,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-React DOM JSX daxilində yerləşdirilmiş bütün ifadələri [escapes](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) edir, yəni təhlükəsiz vəziyyət gətirir. Beləliklə, tətbiqinizdə açıq şəkildə yazılmayan heç bir ifadə enjektə edilə bilməz. Hər şey `render`-dən öncə simli(string)-ə çevrilir və bu [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarının qarşısını alır.
+React DOM JSX daxilində yerləşdirilmiş bütün ifadələri [escape](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) edir, yəni təhlükəsiz vəziyyət gətirir. Beləliklə, tətbiqinizdə açıq şəkildə yazılmayan heç bir ifadə enjektə edilə bilməz. Hər şey `render`-dən öncə simli(string)-ə çevrilir və bu [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarının qarşısını alır.
 
 ### JSX Obyektləri təmsil edir {#jsx-represents-objects}
 
