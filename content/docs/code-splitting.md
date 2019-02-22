@@ -83,7 +83,7 @@ Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik pa
 
 Əgər Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyanız təxminən [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
 
-[Babel](https://babeljs.io/) işlədərkən Babel-ın dinamik import sintaksisini təhlil edə bilməsi amma transformasiya edə bilməməsi lazımdır. Bunun üçün siz [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import)-dan istifadə edə bilərsiniz.
+[Babel](http://babeljs.io/) işlədərkən Babel-ın dinamik import sintaksisini təhlil edə bilməsi amma transformasiya edə bilməməsi lazımdır. Bunun üçün siz [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import)-dan istifadə edə bilərsiniz.
 
 ## `React.lazy` {#reactlazy}
 
