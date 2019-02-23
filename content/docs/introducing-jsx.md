@@ -70,7 +70,7 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-JSX-i kodun rahat oxunması üçün bir neçə sətirə bölürük. Bunun tələb olunmamasına baxmayaraq, [avtomatik olaraq nöqtəli vergüllərin yerləşdirilməsinin](http://stackoverflow.com/q/2846283) qarşısını almaq üçün onu mötərizədə saxlamağı məsləhət görürük
+JSX-i kodun rahat oxunması üçün bir neçə sətirə bölürük. Bunun tələb olunmamasına baxmayaraq, [avtomatik olaraq nöqtəli vergüllərin yerləşdirilməsinin](https://stackoverflow.com/q/2846283) qarşısını almaq üçün onu mötərizədə saxlamağı məsləhət görürük
 
 ### JSX həmçinin ifadədir {#jsx-is-an-expression-too}
 
@@ -139,7 +139,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-React DOM JSX daxilində yerləşdirilmiş bütün ifadələri [escape](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) edir, yəni təhlükəsiz vəziyyət gətirir. Beləliklə, tətbiqinizdə açıq şəkildə yazılmayan heç bir ifadə enjektə edilə bilməz. Hər şey `render`-dən öncə simli(string)-ə çevrilir və bu [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarının qarşısını alır.
+React DOM JSX daxilində yerləşdirilmiş bütün ifadələri [escape](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) edir, yəni təhlükəsiz vəziyyət gətirir. Beləliklə, tətbiqinizdə açıq şəkildə yazılmayan heç bir ifadə enjektə edilə bilməz. Hər şey `render`-dən öncə simli(string)-ə çevrilir və bu [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarının qarşısını alır.
 
 ### JSX Obyektləri təmsil edir {#jsx-represents-objects}
 
@@ -183,4 +183,4 @@ Sonrakı bölmədə DOM-a Reakt elementlərini render edilməyini araşdıracay�
 
 >**Məsləhət:**
 >
->ES6 və JSX kodlarının daha yaxşı seçilməsi üçün editorunuzda ["Babel" language definition](http://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük. Bu səhifədə qeyd olunanla uyğunlaşan  [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) rəngləndirməsindən istifadə olunur.
+>ES6 və JSX kodlarının daha yaxşı seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük. Bu səhifədə qeyd olunanla uyğunlaşan  [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) rəngləndirməsindən istifadə olunur.
