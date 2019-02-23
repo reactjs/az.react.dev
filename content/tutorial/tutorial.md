@@ -232,6 +232,7 @@ Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 
 İlk öncə Square komponentindəki `render()` funskiyasında olan "button" təqini aşağıdakı koda çevirin:
 
+
 ```javascript{4}
 class Square extends React.Component {
   render() {
@@ -1017,7 +1018,7 @@ JavaScriptdə, massivlərdə məlumatları başqa məlumatlara uzlaşdırmaq ü�
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
-``` 
+```
 
 `map` funskiyasından istifadə edərək, biz gedişlərin tarixçəsini ekranda düməyəri göstərən React elementlərinə uzlaşdırıb, keçmiş gedişlərə "tullanmaq" üçün düymələr siyahısı göstərə bilərik
 
