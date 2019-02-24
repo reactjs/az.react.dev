@@ -9,7 +9,7 @@ function Toolbar(props) {
   // Toolbar komponenti əlavə "theme" propu qəbul etməli və
   // bu propu ThemedButton komponentinə göndərməlidir. Applikasiyada hər bir
   // düymənin şablondan xəbəri olması üçün, "theme" propunu bütün
-  // komponentlərdən keçmirmək çox yorucu ola biler.
+  // komponentlərdən keçmirmək çox yorucu ola bilər.
   return (
     <div>
       <ThemedButton theme={props.theme} />

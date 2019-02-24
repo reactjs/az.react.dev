@@ -15,8 +15,8 @@ class App extends React.Component {
     };
 
     // highlight-range{1-2,5}
-    // State-də həmçinin yeniləyən funskiya olduğundan,
-    // bu funskiyada kontekst provayderindən göndəriləcək
+    // Dəyəri yeniləyən funskiyanında state-də olduğundan,
+    // bu funskiya da kontekst provayderindən göndəriləcək
     this.state = {
       theme: themes.light,
       toggleTheme: this.toggleTheme,
