@@ -6,25 +6,25 @@ permalink: docs/accessibility.html
 
 ## Niyə İmkanlılıq?
 
-Veb imkanlılığı ( və ya [**a11y**](https://en.wiktionary.org/wiki/a11y)) hər kəs tərəfindən istifadə oluna biləcək dizayn edilmiş sayt adlandırılır. İmkanlılıq dəstəyi köməkçi texnologiyaların interperasiyası üçün vacib amildir.
+Veb imkanlılığı ( və ya [**a11y**](https://en.wiktionary.org/wiki/a11y)) hər kəs tərəfindən istifadə oluna biləcək dizayn edilmiş səhifə adlandırılır. İmkanlılıq dəstəyi köməkçi texnologiyaların interperasiyası üçün vacib amildir.
 
-React daha çox standart HTML metodlarının istifadə etməklə hər kəs üçün imkanlı veb sayt yaratmağı dəstəkləyir.
+React daha çox standart HTML metodlarının istifadə etməklə hər kəs üçün imkanlı veb səhifə yaratmağı dəstəkləyir.
 
 ## Normativlər və Təlimatlar
 
 ### VKİT
 
-[Veb Kontent İmkanlılıq Təlimatları](https://www.w3.org/WAI/intro/wcag) əsasında siz əlilliyi olan şəxslərin istifadə edəcəyi veb site hazırlaya bilərsiniz. 
+[Veb Kontent İmkanlılıq Təlimatları](https://www.w3.org/WAI/intro/wcag) əsasında siz əlilliyi olan şəxslərin istifadə edəcəyi veb səhifə hazırlaya bilərsiniz. 
 
-Aşağıdakı siyahılar VKİT haqqında icmal təqdim edir:
+Aşağıdakı siyahılar VKİT haqqında icmalı təqdim edir:
 
 - [Wuhcag tərəfində VKİT siyahısı](https://www.wuhcag.com/wcag-checklist/)
-- [WebAIM tərəfində VKİT siyahısı](http://webaim.org/standards/wcag/checklist)
-- [A11Y Layihəsi tərəfində VKİT siyahısı](http://a11yproject.com/checklist.html)
+- [WebAIM tərəfində VKİT siyahısı](https://webaim.org/standards/wcag/checklist)
+- [A11Y Layihəsi tərəfində VKİT siyahısı](https://a11yproject.com/checklist.html)
 
 ### VİT-İZİA
 
-[Veb İmkaqnlılığı Təşəbbüsü - İmkanlı Zəngin İnternet Applikasiyaları](https://www.w3.org/WAI/intro/aria) ( Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)) sənədinə tamamilə imkanlı JavaScript vicetlərini yaratmaq üçün metodlar daxildir.
+[Veb İmkanlılığı Təşəbbüsü - İmkanlı Zəngin İnternet Applikasiyaları](https://www.w3.org/WAI/intro/aria) ( Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)) sənədinə tamamilə imkanlı JavaScript vicetlərini yaratmaq üçün metodlar daxildir.
 
 Qeyd etmək lazımdır ki, bütün `aria-*` HTML atributları JSX-də dəstəklənir. React-da əksər DOM paramertlərinin və atributlarının cameCased olmasına baxmayaraq, bu atributlar mütləq şəkildə sadə HTML-ə daxil olduqda hyphen-cased (həmçinin kebab-cased, lisp-cased, və s. kimi tanınır) olmalıdırlar.
 
@@ -44,9 +44,8 @@ Veb applikasiyasında imkanlılıq ideyasının əsasını Semantik HTML təşki
 
 - [MDN HTML elementlərinə istinad](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
-React kodun işləməsi üçün biz JSX-ə `<div>` elementini əlavə etməklə, xüsusilə siyahı (`<ol>`, `<ul>` və `<dl>`) və HTML `<table>` istifadə edərkən, bəzən biz HTML semantiklərini kəsirik.
 
-Bu halda biz çoxsaylı elementləri qruplaşdırmaq üçün [React Fraqmentlərini](/docs/fragments.html) istifadə etməliyik.
+React kodunun işləməsi üçün biz JSX-ə `<div>` elementini əlavə etməklə, xüsusilə siyahı (`<ol>`, `<ul>` və `<dl>`) və HTML `<table>` istifadə edilən yerlərdə, bəzən HTML semantiklərini qırılır. Bu halda biz çoxsaylı elementləri qruplaşdırmaq üçün [React Fraqmentlərini](/docs/fragments.html) istifadə etməliyik.
 
 Məsələn,
 
@@ -80,7 +79,7 @@ function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Fragments should also have a `key` prop when mapping collections
+        // Kolleksiyaları uzlaşdırarkən fraqmentlərin `key` prop-u olmalıdır
         <Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
@@ -114,13 +113,13 @@ Hər bir HTML anket kontrolu, məsələn `<input>` və `<textarea>`, imkanlı ş
 Aşağıdakı vəsaitlər bizə bunu necə etməyi göstərir:
 
 - [W3C bizə elementlərin markalanmasını öyrədir](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [WebAIM bizə elementlərin markalanmasını öyrədir](http://webaim.org/techniques/forms/controls)
+- [WebAIM bizə elementlərin markalanmasını öyrədir](https://webaim.org/techniques/forms/controls)
 - [Paciello Grup imkanlı adları izah edir](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
 Bu standart HTML praktikalarının birbaşa React-da istifadə olunacağına baxmayaraq, `for` atributu JSX-də `htmlFor` kimi yazıldığını nəzərə alın:
 
 ```javascript{1}
-<label htmlFor="namedInput">Name:</label>
+<label htmlFor="namedInput">Ad:</label>
 <input id="namedInput" type="text" name="name"/>
 ```
 
@@ -128,18 +127,18 @@ Bu standart HTML praktikalarının birbaşa React-da istifadə olunacağına bax
 
 Xəta vəziyyəti hər bir istifadəçi üçün başa düşülən olmalıdır. Aşağıdakı link ekran oxucularına da xəta mətnlərinin necə ifşa edilə biləcəyini göstərir:
 
-- [W3C istifadəçi bidirişlərini nüayiş edir](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM anket yoxlamasını nəzərdən keçirir](http://webaim.org/techniques/formvalidation/)
+- [W3C istifadəçi bidirişlərini nümayiş edir](https://www.w3.org/WAI/tutorials/forms/notifications/)
+- [WebAIM anket yoxlamasını nəzərdən keçirir](https://webaim.org/techniques/formvalidation/)
 
 ## Fokus Nəzarəti
 
 Əmin olun ki, sizin veb applikasiyanız yalnız klaviatur ilə idarə oluna bilir:
 
-- [WebAIM klaviatur imkanlılığı haqqında danışır](http://webaim.org/techniques/keyboard/)
+- [WebAIM klaviatur imkanlılığı haqqında danışır](https://webaim.org/techniques/keyboard/)
 
 ### Klaviatur fokusu və fokus konturu
 
-Klaviatur fokusu DOM-da yerləşən cari elementə yönləndirilir hansı ki, klaviaturdən daxiletməni qəbul etməsi üçün seçilmişdir. Aşağıdakı nümunədə göstərildiyi kimi biz hər herdə fokus konturu belə görürük:
+Klaviatur fokusu DOM-da yerləşən cari elementə yönləndirilir hansı ki, klaviaturdən daxiletməni qəbul etməsi üçün seçilmişdir. Aşağıdakı nümunədə göstərildiyi kimi biz hər yerdə fokus konturunu belə görürük:
 
 <img src="../images/docs/keyboard-focus.png" alt="Blue keyboard focus outline around a selected link." />
 
@@ -147,21 +146,21 @@ Bu konturu CSS (məsələn `outline: 0` yazdıqda) ilə yalnız onu başqa bir f
 
 ### Lazım olan kontentə ötmək üçün mexanizmlər
 
-Öz növbəsində applikasiyada klaviatura naviqasiyasına kömək edib və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsini ötmə mexanizmini təmin edin.
+Öz növbəsində applikasiyada klaviatur naviqasiyasına kömək edib və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsinin ötmə mexanizmini təmin edin.
 
-Skiplinks və ya Naviqasiya Ötmə Linkləri (Skip Navigation Links) gizli linkləridir ki, yalnız klaviatura istifadəçiləri səhifə ilə qarşılıqlı təsirə girdikdə görünür. Onları daxili sahifə anker təqləri və bəzi üslübları tətbiq etmək çox asandı:
+Skiplinks və ya Naviqasiya Ötmə Linkləri (Skip Navigation Links) gizli linkləridir ki, yalnız klaviatur istifadəçiləri səhifə ilə qarşılıqlı təsirə girdikdə görünür. Onları daxili səhifə anker təqləri və bəzi üslüblar ilə tətbiq etmək çox asandı:
 
-- [WebAIM - Naviqasiya Ötmə Linkləri](http://webaim.org/techniques/skipnav/)
+- [WebAIM - Naviqasiya Ötmə Linkləri](https://webaim.org/techniques/skipnav/)
 
 Həmçinin  səhifənin sahələrini sərhədləmək üçün `<main>` və `<aside>` kimi istiqamət verən element və rolları istifadə edin. Beləki, köməkçi texnologiyalar istifadəçiyə həmin bölmələrə tez hərəkət etməyə imkan verir.
 
 İmkanlılığı təkmilləşdirmək üçün bu elemetlərin istifadəsi haqqında ətraflı məlumat burada:
 
-- [Accessible Landmarks](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Accessible Landmarks](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
 ### Proqram yolu ilə fokusun idarə edilməsi 
 
-Bizim React applikasiyalarımız runtime müddətində davamlı şəkildə HTML DOM-u modifikasi edir, bəzən bu klaviatur fokusunun itməsi və ya gözlənilməz elementin qurulmasına gətirir. Bunu təmir etmək üçün biz proqram yolu ilə klaviatur fokusunu düzgün istiqamətdə dümsükləməliyik. Məsələn, klaviatur fokusunu modal pəncərəni açan düymə ilə geri qaytardıqdan sonra modal pəncərə bağlanır.
+Bizim React applikasiyalarımız icra müddətində davamlı şəkildə HTML DOM-u modifikasi edir, bəzən bu klaviatur fokusunun itməsi və ya gözlənilməz elementin qurulmasına gətirir. Bunu təmir etmək üçün biz proqram yolu ilə klaviatur fokusunu düzgün istiqamətdə dümsükləməliyik. Məsələn, klaviatur fokusunu modal pəncərəni açan düymə ilə geri qaytardıqdan sonra modal pəncərə bağlanır.
 
 MDN Web Docs buna nəzər salır və bizim necə [Klaviatur ilə Naviqasiya oluna bilən JavaScript Vidcetləri](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets) yarada biləcəyimizi təsvir edir.
 
@@ -173,12 +172,12 @@ Bunu istifadə etməklə biz ilk öncə JSX komponent klassında element üçün
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // Create a ref to store the textInput DOM element
+    // textInput DOM elementi saxlamaq üçün ref yaradın
     this.textInput = React.createRef();
   }
   render() {
-  // Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field (for example, this.textInput).
+  // mətn daxiletmə DOM elementini Use the `ref` callback to store a reference to the text input DOM
+  // element in an instance field parametr(məsələn, this.textInput).
     return (
       <input
         type="text"
@@ -375,7 +374,7 @@ Yuxarıdakı xüsusiyyətlər HTML atributları ilə doludur, hansı ki JSX-də 
 Hər bir növ vidcetlər xüsusi dizayn "patterni" var və müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işlədiyi gözlənilir:
 
 - [WAI-ARIA Yazma Təcrübələri - Pattern və Vidcetlərin Dizayn ediləsi](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Nümunələri](http://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical_aria_examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Nəzərə Alınmalı Digər Məqamlar
@@ -384,7 +383,7 @@ Hər bir növ vidcetlər xüsusi dizayn "patterni" var və müəyyən bir şəki
 
 Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:
 
-- [WebAIM - Document Language](http://webaim.org/techniques/screenreader/#language)
+- [WebAIM - Document Language](https://webaim.org/techniques/screenreader/#language)
 
 ### Sənədin başlığının təyin olunması
 
@@ -396,40 +395,37 @@ Biz bunu React-da [React Sənəd Başlığı Komponenti](https://github.com/gaea
 
 ### Rəng Kontrastı
 
-Əmin olun ki, ver səhifənizdəki  oxuna bilən bütün yazıların kifayət qədər rəng k 
+Əmin olun ki, ver səhifənizdəki oxuna bilən bütün yazıların kifayət qədər rəng konstrastına malikdir ki, zəif görmə problemi olan istifadəçilər üçün maksimum oxuna biləndir:
 
-Ensure that all readable text on your website has sufficient color contrast to remain maximally readable by users with low vision:
+- [WCAG - Rəng Kontrastı tələblərin başa düşülməsi](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [Rəng Kontrastı haqqında hər şey və niyə biz bu haqqında yenidən düşünməliyik](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
+- [A11yProject - Rəng Kontrastı nədir](https://a11yproject.com/posts/what-is-color-contrast/)
 
-- [WCAG - Understanding the Color Contrast Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-- [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
-- [A11yProject - What is Color Contrast](http://a11yproject.com/posts/what-is-color-contrast/)
+Sizi veb səhifənizdəki bütün mümkün hallarda düzgün rəng kombinasiyasını əllə hesablamaq yorucu ola bilər,bunun əvəzinə siz [bütün imkanlı rəng paletini Colorable ilə hesablaya bilərsiniz](https://jxnblk.com/colorable/).
 
-It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](http://jxnblk.com/colorable/).
+Yuxarıda qeyd olunmuş hər iki aXe and WAVE alətləri də rəng kontrastı testlərini daxil edir və kontrast xətalarından xəbər verir.
 
-Both the aXe and WAVE tools mentioned below also include color contrast tests and will report on contrast errors.
+Əgər kontrast testləmə bacarıqlarını genişləndirmək istəyirsinizsə aşağıdakı alətləri istifadə edə bilərsiniz:
 
-If you want to extend your contrast testing abilities you can use these tools:
+- [WebAIM - Rəng Kontrastı Yoxlayıcısı](https://webaim.org/resources/contrastchecker/)
+- [The Paciello Group - Rəng Kontrastı Təhlil Edicisi](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-- [WebAIM - Color Contrast Checker](http://webaim.org/resources/contrastchecker/)
-- [The Paciello Group - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
+## Development və Test etmə Alətləri
 
-## Development and Testing Tools
+İmkanlı veb applikasiyaların yaradılmasında kömək etmək üçün istifadə edə biləcəyimiz çöxlu sayda alətlər var.
 
-There are a number of tools we can use to assist in the creation of accessible web applications.
+### Klaviatur
 
-### The keyboard
+Ən asan və ən vacib xanalardan biri yoxlamaqdır, əgər sizin bütün veb səhifəniz təkcə klaviatur ilə əldə edilə və istifadə oluna bilər. Siz bunu belə edə bilərsiz:
 
-By far the easiest and also one of the most important checks is to test if your entire website can be reached and used with the keyboard alone. Do this by:
+1. Mausunuzu çıxarın.
+1. Baxmaq üçün `Tab` və `Shift+Tab` istifadə edin.
+1. Elementləri aktivləşdirmək üçün `Enter` iştifadə edin.
+1. Lazım olan yerdə sizin klaviaturun üzərində ox olan klavişin menus və dropdoün kimi bəzi elementlər ilə qarşılıqlı əlaqəyə girməsi üçün istifadəsi.
 
-1. Plugging out your mouse.
-1. Using `Tab` and `Shift+Tab` to browse.
-1. Using `Enter` to activate elements.
-1. Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.
+### Development köməyi
 
-### Development assistance
-
-We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE's for the ARIA roles, states and properties. We also
-have access to the following tool:
+Biz bəzi imkanlılıq xüsusiyyətlərini birdəfəlik JSX kodumuzda baxa bilərik. Çox vaxt "intellisense" yoxlamalarında ARIA rollar, vəziyyət və parametrlər üçün JSX anlayan İDE-lər təqdim olunub. Həmçinin bizim aşağıdakı alətlərə girişimiz var We als:
 
 #### eslint-plugin-jsx-a11y
 
@@ -461,7 +457,7 @@ You can also use the [react-axe](https://github.com/dylanb/react-axe) module to 
 
 #### WebAIM WAVE
 
-The [Web Accessibility Evaluation Tool](http://wave.webaim.org/extension/) is another accessibility browser extension.
+The [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) is another accessibility browser extension.
 
 #### Accessibility inspectors and the Accessibility Tree
 
@@ -488,7 +484,7 @@ Please note that browser / screen reader combinations matter. It is recommended 
 
 Refer to the following guides on how to best use NVDA:
 
-- [WebAIM - Using NVDA to Evaluate Web Accessibility](http://webaim.org/articles/nvda/)
+- [WebAIM - Using NVDA to Evaluate Web Accessibility](https://webaim.org/articles/nvda/)
 - [Deque - NVDA Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
 #### VoiceOver in Safari
@@ -497,26 +493,26 @@ VoiceOver is an integrated screen reader on Apple devices.
 
 Refer to the following guides on how activate and use VoiceOver:
 
-- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](http://webaim.org/articles/voiceover/)
+- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](https://webaim.org/articles/voiceover/)
 - [Deque - VoiceOver for OS X Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
 - [Deque - VoiceOver for iOS Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
 #### JAWS in Internet Explorer
 
-[Job Access With Speech](http://www.freedomscientific.com/Products/Blindness/JAWS) or JAWS, is a prolifically used screen reader on Windows.
+[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
 
 Refer to the following guides on how to best use JAWS:
 
-- [WebAIM - Using JAWS to Evaluate Web Accessibility](http://webaim.org/articles/jaws/)
+- [WebAIM - Using JAWS to Evaluate Web Accessibility](https://webaim.org/articles/jaws/)
 - [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
 ### Digər Ekran Oxucuları
 
 #### Google Chrome-da ChromeVox
 
-[ChromeVox](http://www.chromevox.com/) Crome books-a integrasiya olunmuş ekran oxucusudur və is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
+[ChromeVox](https://www.chromevox.com/) Crome books-a integrasiya olunmuş ekran oxucusudur və is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
 
 Refer to the following guides on how best to use ChromeVox:
 
 - [Google Chromebook Help - Use the Built-in Screen Reader](https://support.google.com/chromebook/answer/7031755?hl=en)
-- [ChromeVox Classic Keyboard Shortcuts Reference](http://www.chromevox.com/keyboard_shortcuts.html)
+- [ChromeVox Classic Keyboard Shortcuts Reference](https://www.chromevox.com/keyboard_shortcuts.html)
