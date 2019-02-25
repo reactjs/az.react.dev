@@ -1,6 +1,6 @@
 ---
 id: rendering-elements
-title: Rendering Elements
+title: Elementlərin Renderi
 permalink: docs/rendering-elements.html
 redirect_from:
   - "docs/displaying-data.html"
@@ -8,23 +8,23 @@ prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Elements are the smallest building blocks of React apps.
+Elementlər React applikasiyasının ən kiçik tərkib hissəsidir.
 
-An element describes what you want to see on the screen:
+Element ekranda nə görmək istədiyinizi təsvir edir:
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+Brauzerin DOM elementlərindən fərqli olaraq, React elementləri adi obyektlərdir və onların yaradılması daha az resurs tələb edir. DOM-un React elementləri ilə eyni olmasını təmin etməyi isə React DOM öz üzərinə götürür.
 
->**Note:**
+>**Qeyd:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/docs/components-and-props.html). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+>Elementlər daha geniş tanınmış "komponentlər" anlayışı ilə qarışdıra bilər. Komponentlər mövzusuna [növbəti səhifədə](/docs/components-and-props.html) giriş edəcəyik. Elementlər komponentlərin tərkib hissəsidir və irəliyə keçmədən bu hissəni oxumağı tövsiyyə edirik.
 
-## Rendering an Element into the DOM {#rendering-an-element-into-the-dom}
+## DOM-da Elementlərin Renderi {#rendering-an-element-into-the-dom}
 
-Let's say there is a `<div>` somewhere in your HTML file:
+Deyək ki HTML faylinizda hardasa `<div>` elementi var:
 
 ```html
 <div id="root"></div>
