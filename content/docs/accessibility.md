@@ -156,7 +156,7 @@ Həmçinin  səhifənin sahələrini sərhədləmək üçün `<main>` və `<asid
 
 İmkanlılığı təkmilləşdirmək üçün bu elemetlərin istifadəsi haqqında ətraflı məlumat burada:
 
-- [Accessible Landmarks](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Imkanlı Landmarklar](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
 ### Proqram yolu ilə fokusun idarə edilməsi 
 
@@ -176,8 +176,8 @@ class CustomTextInput extends React.Component {
     this.textInput = React.createRef();
   }
   render() {
-  // mətn daxiletmə DOM elementini Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field parametr(məsələn, this.textInput).
+  // nümunəvi sahə parametrində (məsələn, this.textInput) mətn daxiletmə DOM elementinin
+  // istinadını saxlamaq üçün `ref` callback-ini istifadə edin.
     return (
       <input
         type="text"
@@ -192,8 +192,8 @@ Daha sonra biz bunu komponentimizdə istənilər yerə fokus edə bilərik:
 
  ```javascript
  focus() {
-   // Explicitly focus the text input using the raw DOM API
-   // Note: we're accessing "current" to get the DOM node
+   // İşlənməmiş DOM API-ni istifadə edərək Mətn daxiletməsini aydın şəkildə fokuslayın
+   // Qeyd: biz DOM node-u götürmək üçün "current"-ə daxil oluruq 
    this.textInput.current.focus();
  }
  ```
@@ -221,7 +221,7 @@ class Parent extends React.Component {
   }
 }
 
-// Now you can set focus when required.
+// İndi siz lazım olduqda fokusu qura bilərsiz.
 this.inputElement.current.focus();
 ```
 
@@ -281,9 +281,9 @@ constructor(props) {
         <button onClick={this.onClickHandler}>Select an option</button>
         {this.state.isOpen ? (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Seçim 1</li>
+            <li>Seçim 2</li>
+            <li>Seçim 3</li>
           </ul>
         ) : null}
       </div>
@@ -317,10 +317,10 @@ class BlurExample extends React.Component {
     }));
   }
 
-  // We close the popover on the next tick by using setTimeout.
-  // This is necessary because we need to first check if
-  // another child of the element has received focus as
-  // the blur event fires prior to the new focus event.
+  // Biz popoveri növbəti tikləmədə setTimeout istifadə etməklə bağlayırıq.
+  // Bu vacibdir çunki biz ilk öncə yoxlamalıyıq ki, 
+  //yayğın hadisə yeni fokus hadisəsindən öncə işə 
+  //düşdüyü zaman elementin digər uşağı fokusu qəbul edir.
   onBlurHandler() {
     this.timeOutId = setTimeout(() => {
       this.setState({
@@ -329,14 +329,14 @@ class BlurExample extends React.Component {
     });
   }
 
-  // If a child receives focus, do not close the popover.
+  // Əgər uşaq fokusu qəbul edirsə popoveri bağlamayın.
   onFocusHandler() {
     clearTimeout(this.timeOutId);
   }
 
   render() {
-    // React assists us by bubbling the blur and
-    // focus events to the parent.
+    // React yayğın və fokus hadisələrini
+    // valideyndə qabartmaqla bizə kömək edir.
     return (
       <div onBlur={this.onBlurHandler}
            onFocus={this.onFocusHandler}>
@@ -347,9 +347,9 @@ class BlurExample extends React.Component {
         </button>
         {this.state.isOpen ? (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Seçim 1</li>
+            <li>Seçim 2</li>
+            <li>Seçim 3</li>
           </ul>
         ) : null}
       </div>
@@ -381,9 +381,9 @@ Hər bir növ vidcetlər xüsusi dizayn "patterni" var və müəyyən bir şəki
 
 ### Dilin təyin olunması
 
-Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:
+Səhifə mətnlərinin insan dilini, ekran oxucusunun roqram təminatının düzgün səs proqram xüsusiyyətlərini seçmək üçün bunu seçdiyi zaman təyin edir:
 
-- [WebAIM - Document Language](https://webaim.org/techniques/screenreader/#language)
+- [WebAIM - Sənəd Dili](https://webaim.org/techniques/screenreader/#language)
 
 ### Sənədin başlığının təyin olunması
 
@@ -425,15 +425,13 @@ Yuxarıda qeyd olunmuş hər iki aXe and WAVE alətləri də rəng kontrastı te
 
 ### Development köməyi
 
-Biz bəzi imkanlılıq xüsusiyyətlərini birdəfəlik JSX kodumuzda baxa bilərik. Çox vaxt "intellisense" yoxlamalarında ARIA rollar, vəziyyət və parametrlər üçün JSX anlayan İDE-lər təqdim olunub. Həmçinin bizim aşağıdakı alətlərə girişimiz var We als:
+Biz bəzi imkanlılıq xüsusiyyətlərini birdəfəlik JSX kodumuzda baxa bilərik. Çox vaxt "intellisense" yoxlamalarında ARIA rollar, vəziyyət və parametrlər üçün JSX anlayan İDE-lər təqdim olunub. Həmçinin bizim aşağıdakı alətlərə girişimiz var:
 
 #### eslint-plugin-jsx-a11y
 
-The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many
-IDE's allow you to integrate these findings directly into code analysis and source code windows.
+ESLint plugini olan [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) sizin JSX-izdə imkanlılıqla bağlı problemlərlə əlaqədar AST linting rəyi təmin edir. Çoxlu İDE-lar sizi bu tapıntıları birdəfəlik kod analitikasında və mənbə kod pəncərəsində inteqrasiya etməyə icazə verir.
 
-[Create React App](https://github.com/facebookincubator/create-react-app) has this plugin with a subset of rules activated. If you want to enable even more accessibility rules,
-you can create an `.eslintrc` file in the root of your project with this content:
+[React Applikasiyası Yarat](https://github.com/facebookincubator/create-react-app) - bu plugin-i bir hissəsi aktivləşdirilmiş qaydalar ilə mövcuddur. Əgər siz daha çox imkanlılıq qaydalarını açmaq istəyirsinizsə, siz  layihənizin kökündə `.eslintrc` faylı aşağıdakı kontent ilə yarada bilərsiniz:
 
   ```json
   {
@@ -442,77 +440,76 @@ you can create an `.eslintrc` file in the root of your project with this content
   }
   ```
 
-### Testing accessibility in the browser
+### İmkanlılığın brauzerdə test edilməsi
 
-A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only
-test the technical accessibility of your HTML.
+Bir sıra əlatlər mövcuddurk ki, sizin brauzerinizdə veb səhifələrin imkanlılıq auditlərini işlədə bilərlər.
+Zəhmət olmasa, onları burada qeyd olunmuş digər imkanlılıq yaxlamaları ilə birlikdə istifadə edin, necə ki onlar yalnız sizin HTML-inizin texniki imkanlılığını yoxlaya bilirlər. 
 
-#### aXe, aXe-core and react-axe
+#### aXe, aXe-core və react-axe
 
-Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for automated and end-to-end accessibility tests of your applications. This module includes integrations for Selenium.
+Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tərəfli açıq imkanlılıq testləri üçün [aXe-core](https://github.com/dequelabs/axe-core) təklif edir. Bu modul Selenium üçün inteqrasiyaları daxil edir.
 
-[The Accessibility Engine](https://www.deque.com/products/axe/) or aXe, is an accessibility inspector browser extension built on `aXe-core`.
+[The Accessibility Engine](https://www.deque.com/products/axe/) və ya aXe, `aXe-core`-da qurulmuş imkanlılıq inspektor brauzer proqram əlavəsidir.
 
-You can also use the [react-axe](https://github.com/dylanb/react-axe) module to report these accessibility findings directly to the console while developing and debugging.
+Siz həmçinin development və debuqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [react-axe](https://github.com/dylanb/react-axe) modulunu istifadə edə bilərsiniz.
 
 #### WebAIM WAVE
 
-The [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) is another accessibility browser extension.
+[Veb İmkanlılıq Məlumat Qiymətləndirmə Aləti](https://wave.webaim.org/extension/) digər bir brauzer imkanlılıq proqram əlavəsidir.
 
-#### Accessibility inspectors and the Accessibility Tree
+#### İmkanlılıq daxiletmələri və İmkanlılıq Ağacı
 
-[The Accessibility Tree](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) is a subset of the DOM tree that contains accessible objects for every DOM element that should be exposed
-to assistive technology, such as screen readers.
+[İmkanlılıq Ağacı](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) DOM ağacının bir hissəsidir ki, ekran oxucuları kimi köməkçi texnologiyalara göstərilməli hər bir DOM elementi üçün imkanlı obyektləri daxil edir.
 
-In some browsers we can easily view the accessibility information for each element in the accessibility tree:
+Bəzi brauzerlərdə biz asanlıqla imkanlılıq ağacındakı hər bir element üçün imkanlılıq informasiyasına baxa bilərik:
 
-- [Using the Accessibility Inspector in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Activate the Accessibility Inspector in Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
-- [Using the Accessibility Inspector in OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
+- [Firefox-da İmkanlılıq İnspektorunun İstifadəsi](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
+- [Chrome-da İmkanlılıq İnspektorunun Aktivləşdirilməsi](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [OS X Safari-də İmkanlılıq İnspektorunun İstifadəsi](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
-### Screen readers
+### Ekran Oxucuları
 
-Testing with a screen reader should form part of your accessibility tests.
+Ekran oxucusu ilə test etmək sizin imkanlılıq testlərinizə daxil olmalıdır.
 
-Please note that browser / screen reader combinations matter. It is recommended that you test your application in the browser best suited to your screen reader of choice.
+Zəhmət olmasa nəzərə alın ki, brauzer / exran oxucusu kombinasiyası vacibdir. Sizin applikasiyanızı ekran oxucusunun seçdiyi brauzer üzərindən yoxlamağınız tövsiyyə olunur.
 
-### Commonly Used Screen Readers
+### Tez-tez İstifadə olunan Ekran Oxucuları
 
-#### NVDA in Firefox
+#### Firefox-da NVDA
 
-[NonVisual Desktop Access](https://www.nvaccess.org/) or NVDA is an open source Windows screen reader that is widely used.
+[NonVisual Desktop Access](https://www.nvaccess.org/) və ya NVDA geniş şəkildə istifadə olunan açıq qaynaqlı Windows-un oxucusudur.
 
-Refer to the following guides on how to best use NVDA:
+NVDA-nı ən əlverişli üsulla istifadə etmək üçün təlimarlar aşağıdakı kimidir:
 
-- [WebAIM - Using NVDA to Evaluate Web Accessibility](https://webaim.org/articles/nvda/)
-- [Deque - NVDA Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
+- [WebAIM - Veb İmkanlılığı hesablamaq üçün NVDA-nın istifadəsi](https://webaim.org/articles/nvda/)
+- [Deque - NVDA Klaviatur qısayolları](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
-#### VoiceOver in Safari
+#### Safari-də VoiceOver
 
-VoiceOver is an integrated screen reader on Apple devices.
+VoiceOver Apple cihazlarında istifadə olunan inteqrasiya olunmuş ekran oxucusudur.
 
-Refer to the following guides on how activate and use VoiceOver:
+VoiceOver-in aktivləşdirilməsi və istifadəsi ilə bağlı təlimatlar aşağıdakı kimidir:
 
-- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](https://webaim.org/articles/voiceover/)
-- [Deque - VoiceOver for OS X Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
-- [Deque - VoiceOver for iOS Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
+- [WebAIM - Veb İmkanlılığı hesablamaq üçün VoiceOver-in istifadəsi](https://webaim.org/articles/voiceover/)
+- [Deque - OS X Klaviatur qısayolları üçün VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+- [Deque - iOS qısayolları üçün VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
-#### JAWS in Internet Explorer
+#### Internet Explorer-də JAWS
 
-[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
+[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) və ya JAWS, Windows-da  məhsuldar istifadə olunan ekran oxucusudur.
 
-Refer to the following guides on how to best use JAWS:
+JAWS-ı ən əlverişli üsulla istifadə etmək üçün təlimarlar aşağıdakı kimidir:
 
-- [WebAIM - Using JAWS to Evaluate Web Accessibility](https://webaim.org/articles/jaws/)
-- [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
+- [WebAIM - Veb İmkanlılığı hesablamaq üçün JAWS-ın istifadəsi](https://webaim.org/articles/jaws/)
+- [Deque - JAWS Klaviatur qısayolları](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
 ### Digər Ekran Oxucuları
 
 #### Google Chrome-da ChromeVox
 
-[ChromeVox](https://www.chromevox.com/) Crome books-a integrasiya olunmuş ekran oxucusudur və is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
+[ChromeVox](https://www.chromevox.com/) Crome books-a integrasiya olunmuş ekran oxucusudur və [proqram əlavəsi kimi](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) Google Chrome üçün mövcuddur.
 
-Refer to the following guides on how best to use ChromeVox:
+ChromeVox-un ən əlverişli üsulla istifadə etmək üçün təlimarlar aşağıdakı kimidir:
 
-- [Google Chromebook Help - Use the Built-in Screen Reader](https://support.google.com/chromebook/answer/7031755?hl=en)
-- [ChromeVox Classic Keyboard Shortcuts Reference](https://www.chromevox.com/keyboard_shortcuts.html)
+- [Google Chromebook Help - Qurulmuş Ekran Oxucusunun İstifadəsi](https://support.google.com/chromebook/answer/7031755?hl=en)
+- [ChromeVox Klassik Klaviatur Qısayollarının istinadı](https://www.chromevox.com/keyboard_shortcuts.html)
