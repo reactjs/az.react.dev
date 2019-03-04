@@ -79,7 +79,14 @@ import("./math").then(math => {
 > [təklifi fazasındadır](https://github.com/tc39/proposal-dynamic-import) və hələki dil standartının 
 > bir hissəsi deyil. Bu təklif yaxın gələcəkdə standarta qəbul ediləcək.
 
+<<<<<<< HEAD
 Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik parçalayacaq. Əgər siz Create React App işlədirsinizsə, bu xüsusiyyət artiq sizin üçün konfiqurasiya olunub və siz dərhal bunu [işlədə bilərsiniz](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). Bu xusiyyəti həmçinin [Next.js](https://github.com/zeit/next.js/#dynamic-import) də dəstəkləyir.
+=======
+When Webpack comes across this syntax, it automatically starts code-splitting
+your app. If you're using Create React App, this is already configured for you
+and you can [start using it](https://facebook.github.io/create-react-app/docs/code-splitting) immediately. It's also supported
+out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Əgər Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyanız təxminən [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
 
