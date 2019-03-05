@@ -86,6 +86,7 @@ npx create-react-app my-app
 >
 > **Bütün `src` direktoriyasını yox, yalnız daxilindəki faylları silin.**. Biz standart faylları bu layihədəki nümunələr ilə əvəz edəcəyik.
 
+
 ```bash
 cd my-app
 cd src
@@ -230,6 +231,7 @@ Təbriklər! Siz valideyn olan Board komponentindən "propu" uşaq olan Square k
 Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 
 İlk öncə Square komponentindəki `render()` funskiyasında olan "button" təqini aşağıdakı koda çevirin:
+
 
 ```javascript{4}
 class Square extends React.Component {
@@ -1016,7 +1018,7 @@ JavaScriptdə massivlərdə məlumatları başqa məlumatlara uzlaşdırmaq üç
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
-``` 
+```
 
 `map` funskiyasından istifadə edərək, biz gedişlərin tarixçəsini ekranda düymələri göstərən React elementlərinə uzlaşdırıb, keçmiş gedişlərə "tullanmaq" üçün düymələr siyahısını göstərə bilərik.
 
