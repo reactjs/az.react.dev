@@ -590,6 +590,7 @@ Biz `this.props`-u işlətdiyimiz hər iki yerdə `props` ilə əvəz etdik.
 >
 >Biz Square-i funksional komponentə çevirdikdə, həmçinin `onClick={() => this.props.onClick()}` propunu daha qısa `onClick={props.onClick}`-a (**Hər iki** tərəfdəki mötərizələrin olmamasını qeyd edin) çevirdik.
 
+
 ### Sıranı Gözləmək {#taking-turns}
 
 Biz "X O oyununda" tam aydın olan qüsura düzəltməliyik: "O"-lar oyun taxtasında işarələnə bilmirlər.
