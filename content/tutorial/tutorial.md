@@ -1052,7 +1052,7 @@ Gəlin Game-in `render funskiyasında `history`-nin üzərindən `map` edək:
 
 Gəlin yuxarıdakı xəbərdarlığın nə olduğunu müzakirə edək.
 
-### Açarın Seçilməsi {#picking-a-key}
+### Açarı Seçmək {#picking-a-key}
 
 Siyahı render etdikdə, React hər render olunmuş siyahı bəndi haqqında məlumat saxlayır. Siyahı yeniləndikdə React nəyin dəyişdiyini müəyyən etməlidir. Biz siyahı bəndlərinə yenisini əlavə edə, bəndi silə, bəndlərinin yerini dəyişə və ya list bəndləri yeniləyə bilərik.
 
