@@ -31,8 +31,6 @@ Bu dərslik bir neçə bölməyə bölünmüşdür:
 
 Bu dərslikdən dəyər almaq üçün bütün bölmələri bir dəfəyə tamamlamaq vacib deyil. Çalışın mümkün qədər çox bölmədən keçəsiniz -- hətta bir və ya iki bölmə olsa belə.
 
-Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
-
 ### Biz nə düzəldirik? {#what-are-we-building}
 
 Bu dərslikdə biz React ilə interaktiv "X O oyununu" düzəltməyi göstərəcəyik.
@@ -190,6 +188,8 @@ Koda yaxından baxdığınızda, üç React komponentin olacağını görəcəks
 
 Gəlin Board komponentindən Square komponentinə məlumat göndərək.
 
+Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
+
 Board-un `renderSquare` funskiyasında, Square-ə `value` propu əlavə edin:
 
 ```js{3}
@@ -243,7 +243,7 @@ class Square extends React.Component {
 }
 ```
 
-Əgər indi biz Square-ə tıklasaq, brauzerdə "click" yazısı ilə xəbərdarlıq alacağıq.
+Əgər indi siz Square-ə tıklasanız, brauzerdə "click" yazısı ilə xəbərdarlıq alacaqsınız.
 
 >Qeyd
 >
@@ -261,7 +261,7 @@ class Square extends React.Component {
 >}
 >```
 >
->Diqqət edin ki, biz `onClick` propuna *funskiya* göndəririk: `onClick={() => alert('click')}`. Bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
+>Diqqət edin ki, biz `onClick` propuna *funskiya* göndəririk: `onClick={() => alert('click')}`. React, bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
 
 Sıradakı addımda, biz Square komponentinin tıklandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. Komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
@@ -295,7 +295,7 @@ class Square extends React.Component {
 Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funskiyasından istifadə edəcəyik:
 
 * `<button>` təqində `this.props.value`-nu `this.state.value` ilə əvəz et.
-* `() => alert()` hadisə işləyicisini `() => this.setState({value: 'X'})` ilə əvəz et.
+* `onClick={...}` hadisə işləyicisini `onClick={() => this.setState({value: 'X'})}` ilə əvəz et.
 * Oxunaqlığı artırmaq üçün `className` və `onClick` proplarını ayrı sətrlərdə yazın.
 
 Bu dəyişikliklərdən sonra Square-in `render` funskiyasından qaytarılan `<button>` təqi aşağıdakı koda oxşamalıdır:
@@ -357,7 +357,9 @@ Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsi
 
 **Çoxlu uşaqdan məlumat yığması və ya iki uşaq komponentin bir-biri ilə kommunikasiya etməsi üçün paylaşılan state-i valideyn komponentində bəyan edin. Valideyn komponent bu state-i  uşaq komponentlərə proplar vasisəti ilə göndərə bilər. Bu metod uşaq komponentlər və valideyn komponentlər arasındakı məlumatları sinxron saxlayır.**
 
-React komponentlərini refaktor etdikdə, state-i valideyn komponentə qaldırmaq çox işlənən praktikadır. Gəlin bu metodu sınayaq. Biz Board komponentinə konstruktor əlavə edib Board-un başlanğıc state-inə 9 ədəd `null` olan massiv əlavə edəcəyik. Bu 9 ədəd `null` 9 ədəd kvadrat üçündür:
+React komponentlərini refaktor etdikdə, state-i valideyn komponentə qaldırmaq çox işlənən praktikadır. Gəlin bu metodu sınayaq.
+
+Board komponentinə konstruktor əlavə edərək Board-un başlanğıc state-inə 9 ədəd `null` olan massiv əlavə edin. Bu 9 ədəd `null` 9 ədəd kvadrat üçündür:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -371,35 +373,9 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
-
-  render() {
-    const status = 'Sonrakı oyunçu: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
 ```
 
-Kvadratları doldurduqda, oyun taxtasının vəziyyəti belə formada olacaq:
+Kvadratları doldurduqda, oyun taxtasının vəziyyəti (`this.state.squares` massivi) belə formada olacaq:
 
 ```javascript
 [
@@ -433,7 +409,7 @@ Biz yenidən propu göndərmək mexanizmindən istifadə edəcəyik. Board kompo
 
 İndi biz Square tıklananda nə olacağını dəyişməliyik. Board komponenti kvadratların dəyərlərini özündə saxlayır. Bu səbəbdən biz Square komponentinə Board-un state-ini dəyişməsini bildirməliyik. State, yarandığı komponentə (bu misalda Board komponentinə) privat olduğundan, biz Square komponentindən Board-un state-ini dəyişə bilmirik.
 
-Board-un state-inin privatlığının saxlanması üçün biz Board-dan Square-ə funskiya göndərəcəyik. Bu funskiya Square tıklananda çağrılacaq. Board-un `renderSquare` funskiyasını aşağıdakına dəyişəcəyik:
+Bunun əvəzinə, biz Board-dan Sqquare-ə funksiya göndərəcəyik. Bu funskiya Square tıklananda çağrılacaq. Board-un `renderSquare` funskiyasını aşağıdakına dəyişəcəyik:
 
 ```javascript{5}
   renderSquare(i) {
@@ -479,11 +455,11 @@ Square tıklandıqda Board-un təmin etdiyi `onClick` funksiyası çağrılır. 
 2. Düymə tıklandığı zaman, React, Square-in `render()` funskiyasında olan `onClick` hadisə işləyicisini çağırır.
 3. Bu hadisə işləyicisi `this.props.onClick()` funskiyasını çağırır. Square-in `onClick` propu Board tərəfindən müəyyənləşdirilib.
 4. Board-un Square-ə `onClick={() => this.handleClick(i)}` göndərməsindən, Square tıklandığında `this.handleClick(i)` funskiyasını çağırır.
-5. Biz `handleClick()` funksiyasını hələ tətbiq etmədiyimizdən bizim kod çökür.
+5. Biz `handleClick()` funksiyasını hələ tətbiq etmədiyimizdən bizim kod çökür. Əgər siz indi düyməni tıklasanız, sizdə qırmızı rəngdə xəta səhifəsi "this.handleClick is not a function" formasında çıxacaq.
 
 >Qeyd
 >
->DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-ə xüsusi mənası var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funskiyasını başqa cür də adlandıra bilərdik. React-də hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
+>DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-ə xüsusi mənası var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funskiyasını başqa cür də adlandıra bilərik və kod eyni formada işləyəcək. React-də hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
 
 Square-i tıkladıqda, `handleClick` funskiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board klasında tətbiq edək:
 
@@ -612,7 +588,7 @@ Biz `this.props`-u işlətdiyimiz hər iki yerdə `props` ilə əvəz etdik.
 
 >Qeyd
 >
->Biz Square-i funksional komponentə çevirdikdə, həmçinin `onClick={() => this.props.onClick()}` propunu daha qısa `onClick={props.onClick}`-a (**Hər iki** tərəfdəki mötərizələrin olmamasını qeyd edin) çevirdik. Klas olduqda, biz düzgün `this` işlədə bilmək üçün ox funskiyası işlətmişdik. Amma funskional komponentdə `this` bizə lazım deyil.
+>Biz Square-i funksional komponentə çevirdikdə, həmçinin `onClick={() => this.props.onClick()}` propunu daha qısa `onClick={props.onClick}`-a (**Hər iki** tərəfdəki mötərizələrin olmamasını qeyd edin) çevirdik.
 
 ### Sıranı Gözləmək {#taking-turns}
 
@@ -644,7 +620,9 @@ Hər zaman oyunçu hərəkət etdikdə, `xIsNext` (bulin) kimin sonrakı addım�
   }
 ```
 
-Bu dəyişiklikdə, "X"-lər və "O"-lar sıralarını gözləyə bilərlər. Əlavə olaraq Board-un `render` funksiyasındakı "status" mətnində kimin sonrakı addımı atacağını da göstərək:
+Bu dəyişiklikdə, "X"-lər və "O"-lar sıralarını gözləyə bilərlər.
+
+Əlavə olaraq Board-un `render` funksiyasındakı "status" mətnində kimin sonrakı addımı atacağını da göstərək:
 
 ```javascript{2}
   render() {
@@ -715,7 +693,7 @@ class Board extends React.Component {
 
 ### Qalibi Bəyan Etmək {#declaring-a-winner}
 
-Biz indi kimin sonrakı addımı atacağını bildiyimizdən, gəlin oyunun qalibini və ya oyunda heç bir gedişin qalmadığını göstərək. Qalibi tapmaq üçün aşağıdakı köməkçi funskiyanı faylın sonuna əlavə edə bilərik:
+Biz indi kimin sonrakı addımı atacağını bildiyimizdən, gəlin oyunun qalibini və ya oyunda heç bir gedişin qalmadığını göstərək. Qalibi tapmaq üçün aşağıdakı köməkçi funskiyanı faylın sonuna əlavə edin:
 
 ```javascript
 function calculateWinner(squares) {
@@ -738,6 +716,8 @@ function calculateWinner(squares) {
   return null;
 }
 ```
+
+9 kvadratdan ibarət olan massiv verildikdə, bu funskiya qalibi müəyyənləşdirib, "X", "O" və ya "null" qaytaracaq.
 
 Biz Board-un `render` funskiyasında oyunçunun qazandığını yoxlamaq üçün `calculateWinner(squares)` funskiyasını çağıracağıq. Əgər oyunçu qalib olubsa, biz "Qalib: X" və ya "Qalib: O" formalı mətn göstərəcəyik. Board-un `render` funskiyasındakı `status`-u aşağıdakı formada dəyişəcəyik:
 
