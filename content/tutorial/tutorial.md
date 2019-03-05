@@ -1099,7 +1099,7 @@ Sayın çoxalmağından əlavə, bunu oxuyan insan, bizim Aydan ilə Elnurun sı
 <li key={user.id}>{user.name}: {user.taskCount} tapşırıq qalıb</li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Siyahı yenidən render etdikdə, React hər siyahı elementinin açarını götürür və keçmiş siyahıda eyni açarlı elementləri axtarır. Əgər cari siyahıda olan açar əvvəl mövcud deyildisə, React yeni komponent yaradır. Əgər keçmiş siyahıda olan açar cari siyahıda yoxdursa, React əvvəlki komponenti dağıdır. Əgər açarlar eynidirsə, açarı saxlayan element yerini dəyişir. Açarlar React-ə hər komponentin şəxsiyyəti haqqında məlumat verir və React-ə yenidən renderlər arası state-i saxlayır. Əgər komponentin açarı dəyişirsə, komponent dağılıb və yeni state ilə düzəlir.
 
 `key` React-də xüsusi və reservlənmiş parametrdir (daha təkminli xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
 
