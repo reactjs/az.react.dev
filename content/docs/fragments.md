@@ -1,10 +1,10 @@
 ---
 id: fragments
-title: Fragments
+title: Fraqmentlər
 permalink: docs/fragments.html
 ---
 
-A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+React-də ümumi pattern çoxlu elementlərə komponentin qayıtması üçündür. Fraqmentlər sizə DOM-a node-lar əlavə etmədən uşaqların siyahısını qruplaşdırmağa imkan verir.
 
 ```js
 render() {
@@ -18,11 +18,11 @@ render() {
 }
 ```
 
-There is also a new [short syntax](#short-syntax) for declaring them, but it isn't supported by all popular tools yet.
+Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax)var, amma bu hələki bütün məşhur alətlər tərəfindən dəstəklənmir.
 
-## Motivation {#motivation}
+## Motivasiya {#motivation}
 
-A common pattern is for a component to return a list of children. Take this example React snippet:
+Ümumi pattern uşaqlar siyahısına qayıtmaq üçün komponentdir. React-in kod parçası misalına baxın:
 
 ```jsx
 class Table extends React.Component {
@@ -38,7 +38,7 @@ class Table extends React.Component {
 }
 ```
 
-`<Columns />` would need to return multiple `<td>` elements in order for the rendered HTML to be valid. If a parent div was used inside the `render()` of `<Columns />`, then the resulting HTML will be invalid.
+Render edilmiş HTML-in etibarlı olması üçün `<Columns />` çoxsaylı `<td>` elementlərinə qayıtmalı ola bilərlər. Əgər valideyn div `<Columns />`-un `render()`inin daxilində istifadə olunubsa, onda nəticələnn HTML etibarsızdır.
 
 ```jsx
 class Columns extends React.Component {
@@ -53,7 +53,7 @@ class Columns extends React.Component {
 }
 ```
 
-results in a `<Table />` output of:
+yekun `<Table />` nəticəsidir:
 
 ```jsx
 <table>
@@ -66,9 +66,9 @@ results in a `<Table />` output of:
 </table>
 ```
 
-Fragments solve this problem.
+Fraqmentlər bu problemi həll edir.
 
-## Usage {#usage}
+## İstifadə {#usage}
 
 ```jsx{4,7}
 class Columns extends React.Component {
@@ -83,7 +83,7 @@ class Columns extends React.Component {
 }
 ```
 
-which results in a correct `<Table />` output of:
+hansıki düzgün `<Table />` nəticəsi ilə yekunlaşacaq:
 
 ```jsx
 <table>
@@ -94,9 +94,9 @@ which results in a correct `<Table />` output of:
 </table>
 ```
 
-### Short Syntax {#short-syntax}
+### Qısa Sintaksis {#short-syntax}
 
-There is a new, shorter syntax you can use for declaring fragments. It looks like empty tags:
+Fraqmentləri bəyan etmək üçün yeni qısa sintaksis istifadə edə bilərsiniz. Bu boş təqlərə bənzəyir:
 
 ```jsx{4,7}
 class Columns extends React.Component {
@@ -111,20 +111,20 @@ class Columns extends React.Component {
 }
 ```
 
-You can use `<></>` the same way you'd use any other element except that it doesn't support keys or attributes.
+Siz `<></>` digər elementləri işlətdiyiniz üsulla istifadə edə bilərsiniz, yalnız bu açarları və atributları dəstəkləmir.
 
-Note that **[many tools don't support it yet](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** so you might want to explicitly write `<React.Fragment>` until the tooling catches up.
+Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** beləliklə `<React.Fragment>` açıq şəkildə əlatlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
 
-### Keyed Fragments {#keyed-fragments}
+### Açarlı Fraqmentlər {#keyed-fragments}
 
-Fragments declared with the explicit `<React.Fragment>` syntax may have keys. A use case for this is mapping a collection to an array of fragments -- for example, to create a description list:
+Açıq `<React.Fragment>`sintaksisi ilə bəyan olunmuş fraqmentlərin açarları ola bilər. Buna misal kolleksiyanın fraqmentlər massivi ilə uzlaşdırılması ola bilər -- məsələn, təsvir siyahısının yaratmaq:
 
 ```jsx
 function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Without the `key`, React will fire a key warning
+        // `key`-siz React açar xəbərdarlığı göndərəcək
         <React.Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
@@ -135,8 +135,8 @@ function Glossary(props) {
 }
 ```
 
-`key` is the only attribute that can be passed to `Fragment`. In the future, we may add support for additional attributes, such as event handlers.
+`key` tək atributdur ki, `Fragment` ötürülə bilər. Gələcəkdə biz dəstək üçün hadisə işləyiciləri kimi əlavə atributlar əlavə edə bilərik. 
 
 ### Live Demo {#live-demo}
 
-You can try out the new JSX fragment syntax with this [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
+Siz yeni JSX fraqment sintaksisini [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000)ilə yoxlaya bilərsiniz.
