@@ -1,9 +1,9 @@
 ---
-title: A Simple Component
+title: Sadə Komponent
 order: 0
 domid: hello-example
 ---
 
-React components implement a `render()` method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by `render()` via `this.props`.
+React komponenti daxil olan məlumatları qəbul edib nəyi göstəriləcəyini qaytaran, `render()` funskiyasını tətbiq edir. Bu nümunədə XML-ə oxşayan sintaksis - JSX işlənilir. Daxil olunan məlumat `this.props` ilə `render` funskiyasından oxuna bilər.
 
-**JSX is optional and not required to use React.** Try the [Babel REPL](babel://es5-syntax-example) to see the raw JavaScript code produced by the JSX compilation step.
+**JSX məcburi deyil və React işlətmək üçün tələb olunmur.** JSX kompilyasiyasından yaradılan Javascript kodunu görmək üçün [Babel REPL](babel://es5-syntax-example) sınayın.
