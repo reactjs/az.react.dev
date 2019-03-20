@@ -51,7 +51,7 @@ const Languages = ({location}: Props) => (
 
           <div css={sharedStyles.markdown}>
             <p>
-              React-ın sənədləri aşağıdakı dillərdə mövcuddur:
+              React-in sənədləri aşağıdakı dillərdə mövcuddur:
             </p>
 
             <LanguagesGrid languages={complete} />
