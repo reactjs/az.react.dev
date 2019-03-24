@@ -74,7 +74,7 @@ State prop-a bənzəyir, lakin komponent tərəfindən tam idarə olunur və yal
 
 [Əvvəlki bölümlərdə](/docs/components-and-props.html#functional-and-class-components) qeyd olunmuşdur ki, klas kimi təyin olunmuş komponentlərin əlavə xüsusiyyətləri var. Lokal state-lər məhz belə xüsusiyyətlərdən biridir.
 
-## Funksiyanən klasa çevirilməsi {#converting-a-function-to-a-class}
+## Funksiyanın klasa çevirilməsi {#converting-a-function-to-a-class}
 
 `Clock` kimi funksional komponenti klas komponentinə  5 addımda çevirmək olar:
 
@@ -84,7 +84,7 @@ State prop-a bənzəyir, lakin komponent tərəfindən tam idarə olunur və yal
 
 3. Funksiyanın kodunu `render()` metoduna köçürək.
 
-4. `render`-in içində `props`-u `this.props` ilə əvəzləyək.
+4. `render()`-in içində `props`-u `this.props` ilə əvəzləyək.
 
 5. Boş qalmış funksiyanı silək.
 
@@ -103,13 +103,13 @@ class Clock extends React.Component {
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-Öncəlikdən funksiya kimi təyin edilən `Clock` komponenti indi klas kimi təyin edilmişdir.
+Öncəlikdən funksiya kimi təyin edilən `Clock` komponenti, indi klas kimi təyin edilmişdir.
 
 `render` metodu hər dəfə yeniləmə baş tutduqda çağırılacaq. Lakin eyni DOM düyünü daxilində `<Clock />` komponentini neçə dəfə istifadə etsək də, `Clock` klasının yalnız bir nüsxəsi istifadə olunacaq. Bu hal bizə lokal state və lifecycle kimi əlavə xüsusiyyətləri istifadə etmə imkanı verir.
 
 ## Klasa lokal state əlavə edilməsi {#adding-local-state-to-a-class}
 
-`date` propsunu state-ə üç addımda çevirək:
+`date` prop-unu state-ə üç addımda çevirək:
 
 1) `render()` metodunda `this.props.date`-i `this.state.date` ilə əvəz edək:
 
@@ -156,7 +156,7 @@ Diqqət yetirin ki, `props` arqumenti baza konstruktora da ötürülür:
 
 Klas komponentləri həmişə baza konstruktoru `props` arqumentini ötürərək çağırmalıdırlar.
 
-3) `<Clock />` elementindən `date` propunu silək:
+3) `<Clock />` elementindən `date` prop-unu silək:
 
 ```js{2}
 ReactDOM.render(
@@ -202,7 +202,7 @@ Tərkibində çox sayda komponent olan applikasiyalarda həmin komponentlər sil
 
 Komponentin DOM-da ilk dəfə render olunmasına "mounting" deyilir. Bizim məqsədimiz hər dəfə "mounting" baş tutanda [taymeri quraşdırmaqdır.](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)
 
-Komponentin DOM-dan silinməsi isə React-da "unmounting" adlanır. Bu proses zamanı [taymeri silmək](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) gərəkdir.
+Komponentin DOM-dan silinməsi isə React-da "unmounting" adlanır. Bu proses zamanı [taymeri yadaşdan silmək](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) gərəkdir.
 
 Mounting və unmounting zamanı istədiyimiz kodu icra edən metodlar təyin edək:
 
@@ -258,7 +258,7 @@ Diqqət yetirsək, taymerin id-sini `this` də saxladığımızı görərsiniz.
 ```
 Sonunda `tick()` metodunu realizə edəcik. Bu metodu `Clock` komponenti saniyədə bir dəfə çağıracaq.
 
-Komponentin lokal state-i `tick()` metodunun `this.setState()` çağırması ilə yenilənəcək.
+`tick()` metodu `this.setState()` çağırmaqla komponentin lokal state-ni yeniləyəcək.
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -306,19 +306,19 @@ ReactDOM.render(
 
 Gəlin bir daha hər şeyi təkrarlayaq və metodların çağırıldığı ardıcıllığa nəzər yetirək:
 
-1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` klasının konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görədə `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
+1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` klasının konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görə də `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
 
 2) Daha sonra React `Clock` komponentinin `render()` metodunu çağırır. Belə React ekranda nə göstərmək lazım olduğunu öyrənir. Və daha sonra DOM `Clock`-un render nəticəsinə uyğun olaraq yenilənir.
 
 3) `Clock` render olunub DOM-a əlavə olunanda `componentDidMount()` lifecycle metodu React tərəfindən çağırılır. Metodun içərisində `Clock` komponenti brauzerə taymer quraşdırmağı əmr edir. Bu taymer saniyədə bir dəfə `tick()` metodunu çağıracaq.
 
-4) Brauzer gözləndiyi kimi `tick()` metodunu hər saniyə çağırır. Bu metodun daxilində `Clock` komponenti,  cari vaxtı ötürməklə, `setState()` metodunu çağırır. `setState()`-in çağırılması React-ə state-in dəyişdiyini xəbər verir. React buna görə ekranda nə olmasını dəqiqləşdirmək üçün yenidən `render()` metodunu icra edir. `render()` metodunda `this.state.date` fərqli olduğundan, renderin nəticəsi fərqli vaxt göstərəcək. React DOM-u buna uyğun dəyişir.
+4) Brauzer, gözləndiyi kimi, `tick()` metodunu hər saniyə çağırır. Bu metodun daxilində `Clock` komponenti,  cari vaxtı ötürməklə, `setState()` metodunu çağırır. `setState()`-in çağırılması React-ə state-in dəyişdiyini xəbər verir. React buna görə ekranda nə olmasını dəqiqləşdirmək üçün yenidən `render()` metodunu icra edir. `render()` metodunda `this.state.date` fərqli olduğundan, renderin nəticəsi fərqli vaxt göstərəcək. React DOM-u buna uyğun dəyişir.
 
 5) `Clock` komponenti DOM-dan silinsə `componentWillUnmount()` lifecycle metodu React tərəfindən çağırılacaq. Və taymer dayandırılacaq.
 
 ## State-in düzgün istifadə edilməsi {#using-state-correctly}
 
-`setState()` haqqımda bilməli olduğumuz üç şey var.
+`setState()` haqqında bilməli olduğumuz üç şey var.
 
 ### State-i birbaşa dəyişmək olmaz {#do-not-modify-state-directly}
 
@@ -362,7 +362,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-Az öncəki misalda biz [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) istifadə etdik. Misal adi funksiyalar üçün də keçərlidir:
+Az öncəki misalda biz [arrow funksiyası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) istifadə etdik. Misal adi funksiyalar üçün də keçərlidir:
 
 ```js
 // Düzgün
@@ -407,8 +407,7 @@ Həmin verilənlər müstəqil olaraq `setState()` vasitəsi ilə yenilənə bil
   }
 ```
 
-Birləşdirmə dayazdır (shallow), yəni `this.setState({comments})` çağırılanda `this.state.posts`-i dəyişmir, amma `this.state.comments`-i tamamilə əvəz edir.
-The merging is shallow, so `this.setState({comments})` leaves `this.state.posts` intact, but completely replaces `this.state.comments`.
+Birləşdirmə dayazdır (shallow), yəni `this.setState({comments})` çağırılanda `this.state.posts`-u dəyişmir, amma `this.state.comments`-i tamamilə əvəz edir.
 
 ## Verilənlərin aşağı istiqamətdə axını {#the-data-flows-down}
 
@@ -465,4 +464,4 @@ ReactDOM.render(
 
 Hər bir `Clock` öz taymerini quraşdırır və sərbəst yenilənir.
 
-React applikasiyalarında komponentin state-nin olub olmaması gələcəkdə dəyişə bilən daxili detal sayılır. State-i olan komponentlər state-i olmayan komponentlərin içində sitifadə oluna bilər. Əks bəyanətdə doğrudur.
+React applikasiyalarında komponentin state-nin olub olmaması gələcəkdə dəyişə bilən daxili detal sayılır. State-i olan komponentlər state-i olmayan komponentlərin içində istifadə oluna bilər. Əks bəyanətdə doğrudur.
