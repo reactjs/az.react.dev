@@ -1,6 +1,6 @@
 ---
 id: components-and-props
-title: Components and Props
+title: Komponentlər və Proplar
 permalink: docs/components-and-props.html
 redirect_from:
   - "docs/reusable-components.html"
@@ -16,13 +16,13 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Komponentlər sizə UI-ı müstəqil, yenidən istifadə oluna bilən hissələrə bölməyə və hər bir hissə haqqında izolasiya olunmuş kimi düşünməyə imkan verir. Bu səhifə komponentlər haqqında ideya üçün girişi təmin edir. Siz [komponent API referansı haqqında ətraflı burada](/docs/react-component.html) məlumat tapa bilərsiniz.
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Konseptual olaraq, komponentlər JavaScript funksiyalarına bənzəyir. Komponentlər özbaşına daxiletmələri ("proplar" adlanan) qəbul edir və ekranda nə olacağını təsvir edən React elementlərinə qayıdırlar.
 
-## Function and Class Components {#function-and-class-components}
+## Funksiya və Klass Komponentlər {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+Komponenti müəyyən etməyin ən asan yolu JavaScript funksiyasını yazmaqdır:
 
 ```js
 function Welcome(props) {
@@ -30,9 +30,9 @@ function Welcome(props) {
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Bu funksiya məlumatı olan tək "proplar" (parametrlər mənasını daşıyır) obyekt arqumentini qəbul etdiyi və React elementini qaytardigi üçün etibarlı React komponenti sayılır. Biz belə komponentləri JavaScript funksiyaları olduğu üçün "funksiya komponentləri" adlandırırıq. 
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Siz komponenti müəyyən etmək üçün [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
 
 ```js
 class Welcome extends React.Component {
@@ -42,27 +42,27 @@ class Welcome extends React.Component {
 }
 ```
 
-The above two components are equivalent from React's point of view.
+Yuxarıdakı iki komponent Reaact-ə nəzərən bərabərdirlər.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Klassların [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
 
-## Rendering a Component {#rendering-a-component}
+## Komponenti Render Etmək {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Daha əvvəl biz yalnız DOM təqlərini təmsil edən React elementlərini qarşılaşdırırdıq:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+Buna baxmayaraq, elementlər developerlər tərəfindən yazılmış komponentləri təmsil edə bilər:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+React developerlər tərəfindən yazılmış komponenti təmsil edən element gördükdə, o JSX atributlarını bu komponentə tək obyekt kimi ötürür. Biz bu obyekti "proplar" adlandırırıq.
 
-For example, this code renders "Hello, Sara" on the page:
+Məsələn, bu kod this "Hello, Sara"-nı səhifədə belə render edir:
 
 ```js{1,5}
 function Welcome(props) {
@@ -78,24 +78,24 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Gəlin bu nümunədə baş verənləri qeyd edək:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Biz `ReactDOM.render()`-i `<Welcome name="Sara" />` elementi ilə çağırırıq.
+2. React `Welcome` komponentini proplar kimi`{name: 'Sara'}`-i ilə çağırırıq.
+3. Bizim `Welcome` komponentimiz `<h1>Hello, Sara</h1>` elementini nəticə kimi çağırır.
+4. React DOM-u `<h1>Hello, Sara</h1>`-ə uyğunlaşlaq üçün effektli şəkildə DOM-u yeniləyir.
 
->**Note:** Always start component names with a capital letter.
+>**Qeyd:** Komponent adlarının həmişə böyük hərf ilə başlayın.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>React kiçik hərflərlə başlayan komponentlərə DOM təqləri kimi davranır. Məsələn, `<div />`, HTML div təqini təmsil edir, amma `<Welcome />` isə komponenti təmsil edir və `Welcome`-un əhatə olunmasını tələb edir.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>Bu adətin səbəbi haqqında ətraflı məlumat üçün [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized) nəzərdən keçirin.
 
-## Composing Components {#composing-components}
+## Kompozisiya olunmuş Komponentlər{#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Komponentlər onların nəticələrində digər komponentlərə istinad göstərə bilərlər. Bu bizə hər hansı bir detal səviyyəsi üçün eyni komponent abstraksiyasını istifadə etməyə imkan verir. React-də düymə, forma, dialoq və ekran ümumi şəkildə komponentlər kimi ifadə olunur.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Məsələn, biz `Welcome`-ı dəfələrlə render edən `App` komponentini yarada bilərik:
 
 ```js{8-10}
 function Welcome(props) {
@@ -120,13 +120,13 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Adətən yeni React applikasiyalarının ən yuxarıda tək `App` komponenti olur. Buna baxmayaraq, əgər siz mövcud applikasiyalara React-i inteqrasiya etsəniz, Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
 
-## Extracting Components {#extracting-components}
+## Komponentlərin Çıxarılması {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Komponentləri daha kiçik komponentlərə bölməyə çəkinməyin.
 
-For example, consider this `Comment` component:
+Məsələn, bu `Comment` komponentini nəzərə alın:
 
 ```js
 function Comment(props) {
@@ -154,9 +154,9 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Bu `author` (obyekt), `text` (mətn), və `date`-i (məlumat) proplar kimi qəbul edir və sosial media saytında kommenti təsvir edir.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Bu komponent dəyişmək üçün çətin ola bilər This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
 
 First, we will extract `Avatar`:
 
