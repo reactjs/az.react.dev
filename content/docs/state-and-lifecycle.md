@@ -72,8 +72,6 @@ Bunu yerinə yetirmək üçün `Clock` komponentinə "state" əlavə etmək laz�
 
 State prop-a bənzəyir, lakin komponent tərəfindən tam idarə olunur və yalnız onun daxilində əlçatandır.
 
-[Əvvəlki bölümlərdə](/docs/components-and-props.html#functional-and-class-components) qeyd olunmuşdur ki, klas kimi təyin olunmuş komponentlərin əlavə xüsusiyyətləri var. Lokal state-lər məhz belə xüsusiyyətlərdən biridir.
-
 ## Funksiyanın klasa çevirilməsi {#converting-a-function-to-a-class}
 
 `Clock` kimi funksional komponenti klas komponentinə  5 addımda çevirmək olar:
