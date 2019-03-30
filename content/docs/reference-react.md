@@ -1,8 +1,8 @@
 ---
 id: react-api
-title: React Top-Level API
+title: Üst Səviyyəli React API
 layout: docs
-category: Reference
+category: Arayış
 permalink: docs/react-api.html
 redirect_from:
   - "docs/reference.html"
@@ -13,67 +13,67 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
-`React` is the entry point to the React library. If you load React from a `<script>` tag, these top-level APIs are available on the `React` global. If you use ES6 with npm, you can write `import React from 'react'`. If you use ES5 with npm, you can write `var React = require('react')`.
+`React` React kitabxanası üçün başlanğıc nöqtəsidir. Əgər siz React-i `<script>` təqi ilə yükləyirsinizsə, bu üst səviyyəli API-lar `React` qlobalında mövcuddur. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import React from 'react'` yaza bilərsiniz. Əgər siz NPM ilə ES5 işlədirsinizsə, siz `var React = require('react')` yaza bilərsiniz.
 
-## Overview {#overview}
+## İcmal {#overview}
 
-### Components {#components}
+### Komponentlər {#components}
 
-React components let you split the UI into independent, reusable pieces, and think about each piece in isolation. React components can be defined by subclassing `React.Component` or `React.PureComponent`.
+React komponentləri sizə UI-ı müstəqil, yenidən işlənə bilən hissələrə ayırmağa və bu hissələr haqqında ayrılıqda fikirləşməyə imkan yaradır. React komponentləri `React.Component` və ya `React.PureComponent` klaslarını genişləndirərək müəyyənləşdirilə bilir.
 
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-If you don't use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](/docs/react-without-es6.html) for more information.
+Əgər siz ES6 klasları istifadə etmirsinizsə, siz `create-react-class` modulundan istifadə edə bilərsiniz. Əlavə məlumat üçün, [ES6-sız React-in istifadəsi](/docs/react-without-es6.html) bölməsini oxuyun.
 
-React components can also be defined as functions which can be wrapped:
+React komponentləri həmçinin funskiyalar ilə də müəyyənləşdirilə bilərlər. Bu funskiyalar aşağıdakılar ilə əhatə oluna bilərələr:
 
 - [`React.memo`](#reactmemo)
 
-### Creating React Elements {#creating-react-elements}
+### React Elementlərinin Düzəldilməsi {#creating-react-elements}
 
-We recommend [using JSX](/docs/introducing-jsx.html) to describe what your UI should look like. Each JSX element is just syntactic sugar for calling [`React.createElement()`](#createelement). You will not typically invoke the following methods directly if you are using JSX.
+Biz UI-ın nə olacağını təsvir etmək üçün [JSX işlətməyi](/docs/introducing-jsx.html) tövsiyyə edirik. Hər bir JSX elementi [`React.createElement()`](#createelement) funskiyasını çağırmaq üçün gözəl sintaksisdir. JSX işlətdikdə adətən aşağıdakı funskiyaları birbaşa çağırmırsınız.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
 
-See [Using React without JSX](/docs/react-without-jsx.html) for more information.
+Daha ətraflı məlumat üçün [JSX-siz React-in İşlənməsini](/docs/react-without-jsx.html) oxuyun.
 
-### Transforming Elements {#transforming-elements}
+### Elementlərin Transformasiyası {#transforming-elements}
 
-`React` provides several APIs for manipulating elements:
+`React` elementlərin manipulyasiyası üçün bir neçə API təmin edir:
 
 - [`cloneElement()`](#cloneelement)
 - [`isValidElement()`](#isvalidelement)
 - [`React.Children`](#reactchildren)
 
-### Fragments {#fragments}
+### Fraqmentlər {#fragments}
 
-`React` also provides a component for rendering multiple elements without a wrapper.
+`React` həmçinin bir neçə elmeentin əhatə olan elementsiz bir neçə elementi render etmək üçün kompoennt tmin edir.
 
 - [`React.Fragment`](#reactfragment)
 
-### Refs {#refs}
+### Reflər {#refs}
 
 - [`React.createRef`](#reactcreateref)
 - [`React.forwardRef`](#reactforwardref)
 
 ### Suspense {#suspense}
 
-Suspense lets components "wait" for something before rendering. Today, Suspense only supports one use case: [loading components dynamically with `React.lazy`](/docs/code-splitting.html#reactlazy). In the future, it will support other use cases like data fetching.
+Suspense komponentləri render etməmişdən qabaq neyisə "gözləməsinə" imkan yaradır. Bugün, Suspense yalnız bir ssenarini dəstələyir: [komponentlərin `React.lazy` ilə dinamik yüklənməsi](/docs/code-splitting.html#reactlazy). Gələcəkdə, bu başqa ssenariləri (məsələn məklumatın yüklənməsi) də dəstəkləyəcək.
 
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
 
-### Hooks {#hooks}
+### Hooklar {#hooks}
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class. Hooks have a [dedicated docs section](/docs/hooks-intro.html) and a separate API reference:
+*Hooklar* React 16.8-a yeni əlavədir. Onlar sizə state və başqa React xüsusiyyətlərini klas yazmadan istifadə etməyə imkan yaradır. Hooklara [həsr olunmuş ayrıca sənədləri](/docs/hooks-intro.html) və API arayışları var:
 
-- [Basic Hooks](/docs/hooks-reference.html#basic-hooks)
+- [Əsas Hooklar](/docs/hooks-reference.html#basic-hooks)
   - [`useState`](/docs/hooks-reference.html#usestate)
   - [`useEffect`](/docs/hooks-reference.html#useeffect)
   - [`useContext`](/docs/hooks-reference.html#usecontext)
-- [Additional Hooks](/docs/hooks-reference.html#additional-hooks)
+- [Əlavə Hooklar](/docs/hooks-reference.html#additional-hooks)
   - [`useReducer`](/docs/hooks-reference.html#usereducer)
   - [`useCallback`](/docs/hooks-reference.html#usecallback)
   - [`useMemo`](/docs/hooks-reference.html#usememo)
@@ -84,21 +84,21 @@ Suspense lets components "wait" for something before rendering. Today, Suspense 
 
 * * *
 
-## Reference {#reference}
+## Arayış {#reference}
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` is the base class for React components when they are defined using [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+`React.Component` [ES6 klasları](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) ilə müəyyənləşdirilən React komponentləri üçün əsas klasdır:
 
 ```javascript
 class Greeting extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 }
 ```
 
-See the [React.Component API Reference](/docs/react-component.html) for a list of methods and properties related to the base `React.Component` class.
+`React.Component` əsas klasına aid Funskiya və parametrlərin siyahısı üçün [React.Component API Arayışına](/docs/react-component.html) baxın.
 
 * * *
 
@@ -212,13 +212,13 @@ You will not typically invoke `React.createFactory()` directly if you are using 
 React.isValidElement(object)
 ```
 
-Verifies the object is a React element. Returns `true` or `false`.
+Elementin React elementi olmasını təsdiqləyir. `true` və ya `false` qaytarır.
 
 * * *
 
 ### `React.Children` {#reactchildren}
 
-`React.Children` provides utilities for dealing with the `this.props.children` opaque data structure.
+`React.Children` `this.props.children` qeyri şəffaf data strukturu ilə məşğul olmaq üçün faydalı funskiyalar ilə təmin edir.
 
 #### `React.Children.map` {#reactchildrenmap}
 
@@ -238,7 +238,7 @@ Invokes a function on every immediate child contained within `children` with `th
 React.Children.forEach(children, function[(thisArg)])
 ```
 
-Like [`React.Children.map()`](#reactchildrenmap) but does not return an array.
+[`React.Children.map()`](#reactchildrenmap) kimi amma massiv qaytarmır.
 
 #### `React.Children.count` {#reactchildrencount}
 
@@ -246,7 +246,7 @@ Like [`React.Children.map()`](#reactchildrenmap) but does not return an array.
 React.Children.count(children)
 ```
 
-Returns the total number of components in `children`, equal to the number of times that a callback passed to `map` or `forEach` would be invoked.
+`children`-də olan komponentlərin sayını qaytarır. Bu dəyər, `map` və ya `forEach` callback-inin neçə dəfə çağrılmasına bərabərdir.
 
 #### `React.Children.only` {#reactchildrenonly}
 
@@ -254,11 +254,11 @@ Returns the total number of components in `children`, equal to the number of tim
 React.Children.only(children)
 ```
 
-Verifies that `children` has only one child (a React element) and returns it. Otherwise this method throws an error.
+`children`-in yalnız bir uşağı (React elementi) olmasını təsqidləyir və bu elementi qaytarır. Əks halda, bu funksiya xəta atir.
 
-> Note:
+> Qeyd:
 >
->`React.Children.only()` does not accept the return value of [`React.Children.map()`](#reactchildrenmap) because it is an array rather than a React element.
+>`React.Children.only()` [`React.Children.map()`](#reactchildrenmap) funskiyasının qaytardığı dəyəri qəbul etmir. Çünki bu funskiyaının qaytardığı massivdir, React elementi deyil.
 
 #### `React.Children.toArray` {#reactchildrentoarray}
 
@@ -276,7 +276,7 @@ Returns the `children` opaque data structure as a flat array with keys assigned 
 
 ### `React.Fragment` {#reactfragment}
 
-The `React.Fragment` component lets you return multiple elements in a `render()` method without creating an additional DOM element:
+`React.Fragment` komponenti bir neçə elementi, əlavə DOM elementi yaratmadan `render()` funskiyasından qaytarmağa imkan yaradır:
 
 ```javascript
 render() {
@@ -289,12 +289,11 @@ render() {
 }
 ```
 
-You can also use it with the shorthand `<></>` syntax. For more information, see [React v16.2.0: Improved Support for Fragments](/blog/2017/11/28/react-v16.2.0-fragment-support.html).
-
+Siz həmçinin `<></>` qısa sintaksisi işlədə bilərsiniz. Daha ətraflı məlumat üçün, [React v16.2.0: Fraqmentlərin Dəstəyinin Təkmilləşdirilməsi](/blog/2017/11/28/react-v16.2.0-fragment-support.html) yazısını oxuyun.
 
 ### `React.createRef` {#reactcreateref}
 
-`React.createRef` creates a [ref](/docs/refs-and-the-dom.html) that can be attached to React elements via the ref attribute.
+`React.createRef` React elementlərinə ref parametri ilə qoşulan [ref](/docs/refs-and-the-dom.html) yaradır.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
