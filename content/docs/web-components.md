@@ -22,7 +22,7 @@ class HelloMessage extends React.Component {
 
 > Qeyd:
 >
-> Veb Komponentlər çox vaxt imperativ API-nı göstərir. Məsələn, `video` Veb Komponenti `play()` və `pause()` funksiyalarını göstərə bilər. Veb Komponentin interaktiv API-sinə daxil olmaq üçün siz DOM node-la birdəfəlik əlaqəyə girən ref işlətməli olacaqsınız. Əgər siz üçüncü tərəf Veb Komponentlərini istifadə edirsinizsə, ən yaxşı çıxış yolu sizin Veb Komponentinizi əhatə edən funksiyasını daşıyan React komponenti yazmaqdır. 
+> Veb Komponentlər çox vaxt imperativ API-ı göstərir. Məsələn, `video` Veb Komponenti `play()` və `pause()` funksiyalarını göstərə bilər. Veb Komponentin interaktiv API-ına daxil olmaq üçün siz DOM node-la birdəfəlik əlaqəyə girən ref işlətməli olacaqsınız. Əgər siz üçüncü tərəf Veb Komponentlərini istifadə edirsinizsə, ən yaxşı çıxış yolu sizin Veb Komponentinizi əhatə edən funksiyasını daşıyan React komponenti yazmaqdır. 
 >
 > Veb komponentlər tərəfindən yayılmış hadisələr React render ağacından düzgün ötməyə bilər.
 > Siz React komponentlərinizdə bu hadisələri idarə etmək üçün əllə (manually) hadisə işləyicilərini qoşmalısınız.
