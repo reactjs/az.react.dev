@@ -226,11 +226,11 @@ Elementin React elementi olmasını təsdiqləyir. `true` və ya `false` qaytar�
 React.Children.map(children, function[(thisArg)])
 ```
 
-Invokes a function on every immediate child contained within `children` with `this` set to `thisArg`. If `children` is an array it will be traversed and the function will be called for each child in the array. If children is `null` or `undefined`, this method will return `null` or `undefined` rather than an array.
+`children`-da olan hər birbaşa ola uşağın üzərində funskiya çağırır. Bu funskiyada `this`, `thisArg` ilə təyin edilir. Əgər `children` masivdirsə, massiv traver edəcək və funskiya hər uşaqda çağrılacaq. Əgər `children` `null` və ya `undefined`-dirsə, bu funskiya massiv əvəzinə `null` və ya `undefined` qaytaracaq.
 
-> Note
+> Qeyd
 >
-> If `children` is a `Fragment` it will be treated as a single child and not traversed.
+> Əgər `children` `Fragment`-dirsə, bu bir uşaq kimi sayılacaq və travers olunmayacaq.
 
 #### `React.Children.forEach` {#reactchildrenforeach}
 
@@ -238,7 +238,7 @@ Invokes a function on every immediate child contained within `children` with `th
 React.Children.forEach(children, function[(thisArg)])
 ```
 
-[`React.Children.map()`](#reactchildrenmap) kimi amma massiv qaytarmır.
+[`React.Children.map()`](#reactchildrenmap) kimi. Amma massiv qaytarmır.
 
 #### `React.Children.count` {#reactchildrencount}
 
@@ -266,11 +266,11 @@ React.Children.only(children)
 React.Children.toArray(children)
 ```
 
-Returns the `children` opaque data structure as a flat array with keys assigned to each child. Useful if you want to manipulate collections of children in your render methods, especially if you want to reorder or slice `this.props.children` before passing it down.
+ `children` data strukturundan yastı massiv yaradır, uşaqları açarlar ilə təyin edir, və yaranan massivi qaytarır. Uşaqların kolleksiyalarıni render zamanı manipulyasiya etmək, xüsusilədə `this.props.children`-ı render etməmişdən oncə sıralamaq və ya parçalamaq, üçün yararlıdır.
 
-> Note:
+> Qeyd:
 >
-> `React.Children.toArray()` changes keys to preserve the semantics of nested arrays when flattening lists of children. That is, `toArray` prefixes each key in the returned array so that each element's key is scoped to the input array containing it.
+> `React.Children.toArray()` uşaqların siyahısını yastıladıqda, iç içə massivlərin semantikasını qorumaq üçün açarları dəyişir. Yəni, `toArray`, qaytarılan massivin daxilində olan hər massivin elementlərin açarlarının düzgün əhatəsi üçün, bütün açarlara prefix əlavə edir.
 
 * * *
 
