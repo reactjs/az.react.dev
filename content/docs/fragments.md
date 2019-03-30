@@ -18,7 +18,7 @@ render() {
 }
 ```
 
-Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax)var, amma bu hələki bütün məşhur alətlər tərəfindən dəstəklənmir.
+Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax) var, amma bu hələki bütün məşhur alətlər tərəfindən dəstəklənmir.
 
 ## Motivasiya {#motivation}
 
@@ -38,7 +38,7 @@ class Table extends React.Component {
 }
 ```
 
-Render edilmiş HTML-in etibarlı olması üçün `<Columns />` çoxsaylı `<td>` elementlərinə qayıtmalı ola bilərlər. Əgər valideyn div `<Columns />`-un `render()`inin daxilində istifadə olunubsa, onda nəticələnn HTML etibarsızdır.
+Render edilmiş HTML-in etibarlı olması üçün `<Columns />` çoxsaylı `<td>` elementlərinə qayıtmalı ola bilərlər. Əgər valideyn div `<Columns />`-un `render()`-inin daxilində istifadə olunubsa, onda nəticələnən HTML etibarsızdır.
 
 ```jsx
 class Columns extends React.Component {
@@ -113,11 +113,11 @@ class Columns extends React.Component {
 
 Siz `<></>` digər elementləri işlətdiyiniz üsulla istifadə edə bilərsiniz, yalnız bu açarları və atributları dəstəkləmir.
 
-Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** beləliklə `<React.Fragment>` açıq şəkildə əlatlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
+Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Beləliklə, siz `<React.Fragment>` açıq şəkildə əlatlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
 
 ### Açarlı Fraqmentlər {#keyed-fragments}
 
-Açıq `<React.Fragment>`sintaksisi ilə bəyan olunmuş fraqmentlərin açarları ola bilər. Buna misal kolleksiyanın fraqmentlər massivi ilə uzlaşdırılması ola bilər -- məsələn, təsvir siyahısının yaratmaq:
+Açıq `<React.Fragment>` sintaksisi ilə bəyan olunmuş fraqmentlərin açarları ola bilər. Buna misal kolleksiyanın fraqmentlər massivi ilə uzlaşdırılması ola bilər -- məsələn, təsvir siyahısının yaratmaq:
 
 ```jsx
 function Glossary(props) {
@@ -135,8 +135,8 @@ function Glossary(props) {
 }
 ```
 
-`key` tək atributdur ki, `Fragment` ötürülə bilər. Gələcəkdə biz dəstək üçün hadisə işləyiciləri kimi əlavə atributlar əlavə edə bilərik. 
+`key` tək atributdur ki, `Fragment`-ə ötürülə bilər. Gələcəkdə biz dəstək üçün hadisə işləyiciləri kimi əlavə atributlar əlavə edə bilərik. 
 
 ### Live Demo {#live-demo}
 
-Siz yeni JSX fraqment sintaksisini [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000)ilə yoxlaya bilərsiniz.
+Siz yeni JSX fraqment sintaksisini [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000) ilə yoxlaya bilərsiniz.
