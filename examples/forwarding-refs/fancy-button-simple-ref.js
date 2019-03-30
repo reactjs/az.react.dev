@@ -5,6 +5,6 @@ const FancyButton = React.forwardRef((props, ref) => (
   </button>
 ));
 
-// İndi siz ref-i birdəfəlik DOM button ötürə bilərsiniz:
+// İndi siz ref-i birdəfəlik DOM button-a ötürə bilərsiniz:
 const ref = React.createRef();
 <FancyButton ref={ref}>Click me!</FancyButton>;
