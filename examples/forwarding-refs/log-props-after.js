@@ -15,7 +15,7 @@ function logProps(Component) {
     }
   }
 
-  // Note the second param "ref" provided by React.forwardRef.
+  // Nəzər alın ki, ikinci "ref" parametri React.forwardRef. tərəfindən təqdim olunub.
   // Biz bunu LogProps-a müntəzəm prop kimi ötürə bilərik, məs. "forwardedRef"
   // Və sonra bu Komponent kimi qoşula bilər.
   // highlight-range{1-3}
