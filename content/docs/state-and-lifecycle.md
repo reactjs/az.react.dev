@@ -31,7 +31,7 @@ setInterval(tick, 1000);
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-Bu bölümdə isə biz `Clock` komponentini inkapsulyasiya və təkrar istifadə etməyi öyrənəcik. Bu komponent öz taymerini quraşdıracaq və saniyədə bir dəfə özünü yeniləyəcək.
+Bu bölümdə isə biz `Clock` komponentini inkapsulyasiya və təkrar istifadə etməyi öyrənəcəyik. Bu komponent öz taymerini quraşdıracaq və saniyədə bir dəfə özünü yeniləyəcək.
 
 Bunun üçün əvvəlcə `Clock` komponentinə ayrılıqda nəzər yetirək: 
 
@@ -57,7 +57,7 @@ setInterval(tick, 1000);
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-Bu komponentin önəmli çatışmamazlığı var. Taymeri quraşdırma və özünü hər saniyə yeniləmə `Clock` komponentinin daxilində olmalıdır.
+Bu komponentin önəmli çatışmazlığı var. Taymeri quraşdırma və özünü hər saniyə yeniləmə `Clock` komponentinin daxilində olmalıdır.
 
 Məqsədimiz bu komponenti elə reallaşdırmaqdır ki, komponent özü özünü yeniləməyi bilsin:
 
@@ -103,7 +103,7 @@ class Clock extends React.Component {
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-Öncəlikdən funksiya kimi təyin edilən `Clock` komponenti, indi klas kimi təyin edilmişdir.
+Öncəliklə funksiya kimi təyin edilən `Clock` komponenti, indi klas kimi təyin edilmişdir.
 
 `render` metodu hər dəfə yeniləmə baş tutduqda çağırılacaq. Lakin eyni DOM düyünü daxilində `<Clock />` komponentini neçə dəfə istifadə etsək də, `Clock` klasının yalnız bir nüsxəsi istifadə olunacaq. Bu hal bizə lokal state və lifecycle kimi əlavə xüsusiyyətləri istifadə etmə imkanı verir.
 
@@ -165,7 +165,7 @@ ReactDOM.render(
 );
 ```
 
-Bir qədər sonra taymerin kodunu komponentə geri əlavə edəcik.
+Bir qədər sonra taymerin kodunu komponentə geri əlavə edəcəyik.
 
 Yekun nəticə belədir:
 
@@ -194,7 +194,7 @@ ReactDOM.render(
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-İndi isə `Clock` komponentidə taymer quraşdıraq və özünü hər saniyə yeniləməsini təmin edək.
+İndi isə `Clock` komponentində taymer quraşdıraq və özünü hər saniyə yeniləməsini təmin edək.
 
 ## Klasa lifecycle metodlarının əlavə edilməsi {#adding-lifecycle-methods-to-a-class}
 
@@ -202,9 +202,9 @@ Tərkibində çox sayda komponent olan applikasiyalarda həmin komponentlər sil
 
 Komponentin DOM-da ilk dəfə render olunmasına "mounting" deyilir. Bizim məqsədimiz hər dəfə "mounting" baş tutanda [taymeri quraşdırmaqdır.](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)
 
-Komponentin DOM-dan silinməsi isə React-da "unmounting" adlanır. Bu proses zamanı [taymeri yadaşdan silmək](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) gərəkdir.
+Komponentin DOM-dan silinməsi isə React-da "unmounting" adlanır. Bu proses zamanı [taymeri yaddaşdan silmək](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) gərəkdir.
 
-Mounting və unmounting zamanı istədiyimiz kodu icra edən metodlar təyin edək:
+Mounting və unmounting zamanı istədiyimiz kodu icra edən **metodları** təyin edək:
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -245,18 +245,18 @@ Bu metodlara "lifecycle metodları" deyilir.
   }
 ```
 
-Diqqət yetirsək, taymerin id-sini `this` də saxladığımızı görərsiniz.
+Diqqət yetirsək, taymerin ID-sini `this` də saxladığımızı görərsiniz.
 
-`this.props` və `this.state` React xüsusi dəyişənlərdir və React tərəfindən idarə olunur. Lakin klasa hər hansı məlumat saxlamaq üçün və məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
+`this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı klasa hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
 
-`componentWillUnmount()` metodunda taymeri yaddaşdan siləcik:
+`componentWillUnmount()` metodunda taymeri yaddaşdan siləcəyik:
 
 ```js{2}
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 ```
-Sonunda `tick()` metodunu realizə edəcik. Bu metodu `Clock` komponenti saniyədə bir dəfə çağıracaq.
+Sonunda `tick()` metodunu yaradacıq. Bu metodu `Clock` komponenti saniyədə bir dəfə çağıracaq.
 
 `tick()` metodu `this.setState()` çağırmaqla komponentin lokal state-ni yeniləyəcək.
 
@@ -308,13 +308,13 @@ Gəlin bir daha hər şeyi təkrarlayaq və metodların çağırıldığı ardı
 
 1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` klasının konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görə də `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
 
-2) Daha sonra React `Clock` komponentinin `render()` metodunu çağırır. Belə React ekranda nə göstərmək lazım olduğunu öyrənir. Və daha sonra DOM `Clock`-un render nəticəsinə uyğun olaraq yenilənir.
+2) Daha sonra React `Clock` komponentinin `render()` metodunu çağırır. Belə React ekranda nə göstərmək lazım olduğunu öyrənir. Bundan da sonra DOM `Clock`-un render nəticəsinə uyğun olaraq yenilənir.
 
 3) `Clock` render olunub DOM-a əlavə olunanda `componentDidMount()` lifecycle metodu React tərəfindən çağırılır. Metodun içərisində `Clock` komponenti brauzerə taymer quraşdırmağı əmr edir. Bu taymer saniyədə bir dəfə `tick()` metodunu çağıracaq.
 
 4) Brauzer, gözləndiyi kimi, `tick()` metodunu hər saniyə çağırır. Bu metodun daxilində `Clock` komponenti,  cari vaxtı ötürməklə, `setState()` metodunu çağırır. `setState()`-in çağırılması React-ə state-in dəyişdiyini xəbər verir. React buna görə ekranda nə olmasını dəqiqləşdirmək üçün yenidən `render()` metodunu icra edir. `render()` metodunda `this.state.date` fərqli olduğundan, renderin nəticəsi fərqli vaxt göstərəcək. React DOM-u buna uyğun dəyişir.
 
-5) `Clock` komponenti DOM-dan silinsə `componentWillUnmount()` lifecycle metodu React tərəfindən çağırılacaq. Və taymer dayandırılacaq.
+5) `Clock` komponenti DOM-dan silinsə `componentWillUnmount()` lifecycle metodu React tərəfindən çağırılacaq, taymer dayandırılacaq.
 
 ## State-in düzgün istifadə edilməsi {#using-state-correctly}
 
@@ -353,7 +353,7 @@ this.setState({
 });
 ```
 
-Bu problemi düzəltmək üçün, `setState()`-in obyekt yerinə funksiya qəbul edən ikinci forma istifadə etmək olar. Həmin funksiya birinci arqument kimi state-in əvvəlki dəyərini, ikinci arqument kimi isə props-un yeniləmə zamanındakı dəyərini qəbul edir:
+Bu problemi düzəltmək üçün, `setState()`-in obyekt yerinə funksiya qəbul edən ikinci formasını istifadə etmək olar. Həmin funksiya birinci arqument kimi state-in əvvəlki dəyərini, ikinci arqument kimi isə propların yeniləmə zamanındakı dəyərini qəbul edir:
 
 ```js
 // Düzgün
@@ -362,7 +362,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-Az öncəki misalda biz [arrow funksiyası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) istifadə etdik. Misal adi funksiyalar üçün də keçərlidir:
+Az öncəki misalda biz [arrow funksiyasını](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) istifadə etdik. Misal adi funksiyalar üçün də keçərlidir:
 
 ```js
 // Düzgün
@@ -375,7 +375,7 @@ this.setState(function(state, props) {
 
 ### State yeniləmələri birləşdirilir {#state-updates-are-merged}
 
-`setState()` çağırılanda React ötürülən obyekti hazırkı state-ə birləşdirir.
+`setState()` çağırılanda React ötürülən obyekti hazırki state-ə birləşdirir.
 
 Misal üçün, state bir neçə sərbəst  veriləndən ibarət ola bilər:
 
@@ -411,7 +411,7 @@ Birləşdirmə dayazdır (shallow), yəni `this.setState({comments})` çağırı
 
 ## Verilənlərin aşağı istiqamətdə axını {#the-data-flows-down}
 
-Nə valideyn, nə də uşaq komponenti digər komponentin state-inin olub olmadığını bilməyə məcbur deyil. Və həmin komponentin funksiya və ya klas kimi təyin olmağı da onlar üçün önəmli deyil.
+Nə valideyn, nə də uşaq komponenti digər komponentin state-inin olub olmadığını bilməyə məcbur deyil. Həmin komponentin funksiya və ya klas kimi təyin olmağı da onlar üçün önəmli deyil.
 
 Məhz buna görə state lokal və ya inkapsulyasiya olunmuş adlanır. Yalnız məxsus olduğu komponent daxilində əlçatandır, digər komponentlər onu görmür.
 
@@ -427,7 +427,7 @@ Bu həmçinin istifadəçinin yaratdığı komponentlər üçün keçərlidir:
 <FormattedDate date={this.state.date} />
 ```
 
-`FormattedDate` komponenti `date`-i props kimi qəbul edəcək. Lakin onun `Clock`-un state-i, `Clock`-un props-u və ya manual olaraq daxil olduğundan xəbər tutmayacaq:
+`FormattedDate` komponenti `date`-i props kimi qəbul edəcək. Lakin onun `Clock`-un state-i, `Clock`-un propları və ya manual olaraq daxil olduğundan xəbər tutmayacaq:
 
 ```js
 function FormattedDate(props) {
