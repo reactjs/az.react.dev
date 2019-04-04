@@ -6,7 +6,7 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React və [Veb Komponentlər](https://developer.mozilla.org/en-US/docs/Web/Web_Components) müxtəlif problemləri həll etmək üçün qurulub. İnkapsulyasiya dəstəklədiyi halda, Veb Komponentlərin yenidən istifadə olunması üçün  React DOM-u sizin məlumatlarınız ilə sinxronlaşdıran deklarativ kitabxana təmin edir. Hər iki məqsədlər tamamlayıcıdırlar. Developer kimi siz Veb Komponentlərinizdə React istifadə edə bilər və ya React-də Veb Komponentlər istifadə edə bilərsiniz, və ya hər ikisini.
+React və [Veb Komponentlər](https://developer.mozilla.org/en-US/docs/Web/Web_Components) müxtəlif problemləri həll etmək üçün qurulub. Veb Komponentlər yenidən istifadə oluna bilən komponentlər üçün güclü inkapsulyasiyanı dəstəkləyir. React isə DOM-u sizin məlumatlarınızı sinxronlaşdıran deklarativ kitabxana təmin edir. Bu məqsədlər tamamlayıcıdırlar. Developer kimi siz Veb Komponentlərinizdə React istifadə edə bilər və ya React-də Veb Komponentlər istifadə edə bilərsiniz, və ya hər ikisini.
 
 React istifadə edənlərin çoxu Veb Komponentlər istifadə etmir, amma siz istifadə etmək istəyə bilərsiniz. Xüsusilə, əgər siz Veb Komponentlərin istifadəsi üçün yazılmış üçüncü tərəf UI komponentləri istifadə edirsinizsə.
 
@@ -22,7 +22,7 @@ class HelloMessage extends React.Component {
 
 > Qeyd:
 >
-> Veb Komponentlər çox vaxt imperativ API-ı göstərir. Məsələn, `video` Veb Komponenti `play()` və `pause()` funksiyalarını göstərə bilər. Veb Komponentin interaktiv API-ına daxil olmaq üçün siz DOM node-la birdəfəlik əlaqəyə girən ref işlətməli olacaqsınız. Əgər siz üçüncü tərəf Veb Komponentlərini istifadə edirsinizsə, ən yaxşı çıxış yolu sizin Veb Komponentinizi əhatə edən funksiyasını daşıyan React komponenti yazmaqdır. 
+> Veb Komponentlər çox vaxt imperativ API-ı göstərir. Məsələn, `video` Veb Komponenti `play()` və `pause()` funksiyalarını göstərə bilər. Veb Komponentin interaktiv API-ına daxil olmaq üçün siz DOM nodla birdəfəlik əlaqəyə girən ref işlətməli olacaqsınız. Əgər siz üçüncü tərəf Veb Komponentlərini istifadə edirsinizsə, ən yaxşı həll sizin Veb Komponentinizi əhatə edən funksiyasını daşıyan React komponenti yazmaqdır. 
 >
 > Veb komponentlər tərəfindən yayılmış hadisələr React render ağacından düzgün ötməyə bilər.
 > Siz React komponentlərinizdə bu hadisələri idarə etmək üçün əllə (manually) hadisə işləyicilərini qoşmalısınız.
