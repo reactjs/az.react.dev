@@ -4,7 +4,7 @@ title: Fraqmentlər
 permalink: docs/fragments.html
 ---
 
-React-də ümumi pattern çoxlu elementlərə komponentin qayıtması üçündür. Fraqmentlər sizə DOM-a node-lar əlavə etmədən uşaqların siyahısını qruplaşdırmağa imkan verir.
+React-də ümumi pattern çoxlu elementlərə komponentin qayıtması üçündür. Fraqmentlər sizə DOM-a nodelar əlavə etmədən uşaqların siyahısını qruplaşdırmağa imkan verir.
 
 ```js
 render() {
@@ -22,7 +22,7 @@ Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-sy
 
 ## Motivasiya {#motivation}
 
-Ümumi pattern uşaqlar siyahısına qayıtmaq üçün komponentdir. React-in kod parçası misalına baxın:
+Komponentlərdə uşaqlar siyahısını qaytarmaq çox işlənən bir patterndir. React-in kod parçası misalına baxın:
 
 ```jsx
 class Table extends React.Component {
@@ -53,7 +53,7 @@ class Columns extends React.Component {
 }
 ```
 
-yekun `<Table />` nəticəsidir:
+yekun `<Table />` nəticəsi:
 
 ```jsx
 <table>
@@ -113,7 +113,7 @@ class Columns extends React.Component {
 
 Siz `<></>` digər elementləri işlətdiyiniz üsulla istifadə edə bilərsiniz, yalnız bu açarları və atributları dəstəkləmir.
 
-Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Beləliklə, siz `<React.Fragment>` açıq şəkildə əlatlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
+Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Beləliklə, siz `<React.Fragment>` açıq şəkildə alətlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
 
 ### Açarlı Fraqmentlər {#keyed-fragments}
 
