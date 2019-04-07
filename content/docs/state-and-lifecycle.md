@@ -202,7 +202,7 @@ Komponentin DOM-da ilk dəfə render olunmasına "mounting" deyilir. Bizim məqs
 
 Komponentin DOM-dan silinməsi isə React-da "unmounting" adlanır. Bu proses zamanı [taymeri yaddaşdan silmək](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) gərəkdir.
 
-Mounting və unmounting zamanı istədiyimiz kodu icra edən **metodları** təyin edək:
+Mounting və unmounting zamanı istədiyimiz kodu icra edən metodları təyin edək:
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -254,7 +254,7 @@ Diqqət yetirsək, taymerin ID-sini `this` də saxladığımızı görərsiniz.
     clearInterval(this.timerID);
   }
 ```
-Sonunda `tick()` metodunu yaradacıq. Bu metodu `Clock` komponenti saniyədə bir dəfə çağıracaq.
+Sonunda `tick()` metodunu yaradacağıq. Bu metodu `Clock` komponenti saniyədə bir dəfə çağıracaq.
 
 `tick()` metodu `this.setState()` çağırmaqla komponentin lokal state-ni yeniləyəcək.
 
