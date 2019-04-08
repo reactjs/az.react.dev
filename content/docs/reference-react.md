@@ -162,9 +162,9 @@ React.createElement(
 )
 ```
 
-Create and return a new [React element](/docs/rendering-elements.html) of the given type. The type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
+Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yarat və qaytar. Element tipi təq adı yazısı (məsələn `'div'` və ya `'span'`), [React komponenti](/docs/components-and-props.html) tipi (klas və ya funskiya), və ya [React fraqmenti](#reactfragment) tipi ola bilər.
 
-Code written with [JSX](/docs/introducing-jsx.html) will be converted to use `React.createElement()`. You will not typically invoke `React.createElement()` directly if you are using JSX. See [React Without JSX](/docs/react-without-jsx.html) to learn more.
+[JSX](/docs/introducing-jsx.html) ilə yazılmış kod `React.createElement()`-ə çevriləcək. Siz JSX işlətdiyiniz zaman çox vaxt siz `React.createElement()` funskiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
 
 * * *
 
