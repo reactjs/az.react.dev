@@ -198,11 +198,14 @@ Bu API, köhnəlmiş `React.addons.cloneWithProps()` funskiyasının əvəzləm�
 React.createFactory(type)
 ```
 
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createElement), the type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
+Verilmiş tip ilə React elementlər yaradan funskiya qaytarır. [`React.createElement()`] kimi, tip arqumenti təq adı yazısı (məsələn `'div'` və ya `'span'`), [React komponenti](/docs/components-and-props.html) tipi (klas və ya funskiya), və ya [React fraqmenti](#reactfragment) tipi ola bilər.
 
-This helper is considered legacy, and we encourage you to either use JSX or use `React.createElement()` directly instead.
+Bu köməkçi funskiya köhnəlmiş kimi hesab edilir, və biz bu funksiyanı işlətmək əvəzinə birbaşa JSX və ya `React.createElement()` işlətməyi təşviq edirik.
 
-You will not typically invoke `React.createFactory()` directly if you are using JSX. See [React Without JSX](/docs/react-without-jsx.html) to learn more.
+Siz JSX işlətdiyiniz zaman, birbaşa
+
+
+Siz JSX işlətdiyiniz zaman çox vaxt siz `React.createFactory()` funskiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
 
 * * *
 
