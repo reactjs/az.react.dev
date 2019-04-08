@@ -104,15 +104,15 @@ class Greeting extends React.Component {
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison. 
+`React.PureComponent` [`React.Component-inə`](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funskiyasını tətbiq etməsəsi, `React.PureComponent`-in isə bu funskiyasının dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
 
-If your React component's `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
+Əgər React komponentin `render()` funskiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
 
-> Note
+> Qeyd
 >
-> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
+> `React.PureComponent`-in `shouldComponentUpdate()` funskiyası obyektləri yalnız dayaz müqayisə edir. Əgər kompleks data strukturlar varsa, bu sizə dərin müqayisələrdə səhv-neqativlər verə bilər. Komponentinizə `PureComponent` ilə yalnız sadə proplar və state olduqda işlədin. Əks halda dərin data stukturlarının dəyişdiyini bildiyiniz zaman [`forceUpdate()`](/docs/react-component.html#forceupdate) funskiyasından istifadə edin. Və ya dərin məlumatların tez müqayisəsi üçün [dəyişməyən obyektlərdən](https://facebook.github.io/immutable-js/) istifadə edin.
 >
-> Furthermore, `React.PureComponent`'s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also "pure".
+> Əlavə olaraq, `React.PureComponent`-in `shouldComponentUpdate()` funskiyası komponentdən başlayan komponent ağacının prop yeniliklərini saymır. Əmin olunki, bütün uşaq komponentlərdə "təmizdirlər."
 
 * * *
 
@@ -124,7 +124,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` is a [higher order component](/docs/higher-order-components.html). It's similar to [`React.PureComponent`](#reactpurecomponent) but for function components instead of classes.
+`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu klaslar əvəzinə funskiya komponentləri ilə işlənilir.
 
 If your function component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
 
