@@ -318,20 +318,20 @@ For more information, see [forwarding refs](/docs/forwarding-refs.html).
 
 ### `React.lazy` {#reactlazy}
 
-`React.lazy()` lets you define a component that is loaded dynamically. This helps reduce the bundle size to delay loading components that aren't used during the initial render.
+`React.lazy()` sizə dinamik yüklənən komponent müəyyən etməyə icazə verir. Bu ilkin render zamanı işlənməyən komponentlərinin yüklənməsinin gecikdirərək, sizin applikasiyanızın paket ölçüsünü azaltmağa kömək edir.
 
-You can learn how to use it from our [code splitting documentation](/docs/code-splitting.html#reactlazy). You might also want to check out [this article](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) explaining how to use it in more detail.
+Siz bunu necə işlətməyi [kod parçalanması sənədindən](/docs/code-splitting.html#reactlazy) öyrənə bilərsiniz. Siz həmçinin bunu işlətmək haqqında daha ətraflı izahat üçün [bu məqaləni](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) oxuya bilərsiniz.
 
 ```js
 // This component is loaded dynamically
 const SomeComponent = React.lazy(() => import('./SomeComponent'));
 ```
 
-Note that rendering `lazy` components requires that there's a `<React.Suspense>` component higher in the rendering tree. This is how you specify a loading indicator.
+Qeyd edin ki, `lazy` komponentləri render etmək üçün komponent ağacında üstdə `<React.Suspense>` komponenti olmalıdır. Siz belə formada yükləmə göstəricisini müəyyənləşdirirsiniz.
 
-> **Note**
+> **Qeyd**
 >
-> Using `React.lazy`with dynamic import requires Promises to be available in the JS environment. This requires a polyfill on IE11 and below.
+> `React.lazy`-ni dinamik import ilə işlətmək üçün Javascript mühitində Promise-in olması tələb olunur. Bu, IE11 və aşağı versiyalarda polifilin işlədilməsini tələb edir.
 
 ### `React.Suspense` {#reactsuspense}
 
