@@ -1,16 +1,16 @@
 ---
 id: web-components
-title: Web Components
+title: Veb Komponentlər
 permalink: docs/web-components.html
 redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React and [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) are built to solve different problems.  Web Components provide strong encapsulation for reusable components, while React provides a declarative library that keeps the DOM in sync with your data. The two goals are complementary. As a developer, you are free to use React in your Web Components, or to use Web Components in React, or both.
+React və [Veb Komponentlər](https://developer.mozilla.org/en-US/docs/Web/Web_Components) müxtəlif problemləri həll etmək üçün qurulub. Veb Komponentlər yenidən istifadə oluna bilən komponentlər üçün güclü inkapsulyasiyanı dəstəkləyir. React isə DOM-u sizin məlumatlarınızı sinxronlaşdıran deklarativ kitabxana təmin edir. Bu məqsədlər tamamlayıcıdırlar. Developer kimi siz Veb Komponentlərinizdə React istifadə edə bilər və ya React-də Veb Komponentlər istifadə edə bilərsiniz, və ya hər ikisini.
 
-Most people who use React don't use Web Components, but you may want to, especially if you are using third-party UI components that are written using Web Components.
+React istifadə edənlərin çoxu Veb Komponentlər istifadə etmir, amma siz istifadə etmək istəyə bilərsiniz. Xüsusilə, əgər siz Veb Komponentlərin istifadəsi üçün yazılmış üçüncü tərəf UI komponentləri istifadə edirsinizsə.
 
-## Using Web Components in React {#using-web-components-in-react}
+## React-də Veb Komponentlərin İstifadəsi {#using-web-components-in-react}
 
 ```javascript
 class HelloMessage extends React.Component {
@@ -20,14 +20,14 @@ class HelloMessage extends React.Component {
 }
 ```
 
-> Note:
+> Qeyd:
 >
-> Web Components often expose an imperative API. For instance, a `video` Web Component might expose `play()` and `pause()` functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
+> Veb Komponentlər çox vaxt imperativ API-ı göstərir. Məsələn, `video` Veb Komponenti `play()` və `pause()` funksiyalarını göstərə bilər. Veb Komponentin interaktiv API-ına daxil olmaq üçün siz DOM nodla birdəfəlik əlaqəyə girən ref işlətməli olacaqsınız. Əgər siz üçüncü tərəf Veb Komponentlərini istifadə edirsinizsə, ən yaxşı həll sizin Veb Komponentinizi əhatə edən funksiyasını daşıyan React komponenti yazmaqdır. 
 >
-> Events emitted by a Web Component may not properly propagate through a React render tree.
-> You will need to manually attach event handlers to handle these events within your React components.
+> Veb komponentlər tərəfindən yayılmış hadisələr React render ağacından düzgün ötməyə bilər.
+> Siz React komponentlərinizdə bu hadisələri idarə etmək üçün əllə (manually) hadisə işləyicilərini qoşmalısınız.
 
-One common confusion is that Web Components use "class" instead of "className".
+Bir ümumi çaşqınlıq odur ki, Veb Komponentlər "className" əvəzinə "class" işlədirlər. 
 
 ```javascript
 function BrickFlipbox() {
@@ -40,7 +40,7 @@ function BrickFlipbox() {
 }
 ```
 
-## Using React in your Web Components {#using-react-in-your-web-components}
+## Sizin Veb Komponentlərinizdə React-in İşlənməsi {#using-react-in-your-web-components}
 
 ```javascript
 class XSearch extends HTMLElement {
@@ -56,7 +56,7 @@ class XSearch extends HTMLElement {
 customElements.define('x-search', XSearch);
 ```
 
->Note:
+>Qeyd:
 >
->This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion.
->Include the [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.
+>Bu kod klasları Babel ilə çevirsəniz **işləməyəcək**. [Bu problemə](https://github.com/w3c/webcomponents/issues/587) müzakirə üçün baxın.
+>Bu problemi həll etmək üçün veb komponentinizi yükləməmişdən öncə [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs)-i daxil edin. 
