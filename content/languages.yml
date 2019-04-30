@@ -23,28 +23,19 @@
   translated_name: বাংলা
   code: bn
   status: 0
-<<<<<<< HEAD
-- name: Almanca
-=======
 - name: Catalan
   translated_name: Català
   code: ca
   status: 0
-- name: German
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Almanca
   translated_name: Deutsch
   code: de
   status: 1
 - name: Yunanca
   translated_name: Ελληνικά
   code: el
-<<<<<<< HEAD
-  status: 0
-- name: İspanca
-=======
   status: 1
-- name: Spanish
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: İspanca
   translated_name: Español
   code: es
   status: 2
@@ -112,15 +103,11 @@
   translated_name: മലയാളം
   code: ml
   status: 0
-<<<<<<< HEAD
-- name: Nepalca
-=======
 - name: Mongolian
   translated_name: Монгол хэл
   code: mn
   status: 0
-- name: Nepali
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Nepalca
   translated_name: नेपाली
   code: ne
   status: 0
@@ -131,13 +118,8 @@
 - name: Polyakca
   translated_name: Polski
   code: pl
-<<<<<<< HEAD
-  status: 1
-- name: Portuqalca (Braziliya)
-=======
   status: 2
-- name: Portuguese (Brazil)
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Portuqalca (Braziliya)
   translated_name: Português do Brasil
   code: pt-br
   status: 2
@@ -180,13 +162,8 @@
 - name: Ukraynca
   translated_name: Українська
   code: uk
-<<<<<<< HEAD
-  status: 1
-- name: Urdu dilində
-=======
   status: 2
-- name: Urdu
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Urdu dilində
   translated_name: اردو
   code: ur
   status: 0
