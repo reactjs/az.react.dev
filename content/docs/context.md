@@ -4,9 +4,9 @@ title: Kontekst
 permalink: docs/context.html
 ---
 
-Kontext məlumatları komponent ağacının hər səviyyəsində proplar göndərmədən məlumatları komponentlərə ötürməyə təmin edir.
+Kontekst məlumatları komponent ağacının hər səviyyəsində proplar göndərmədən məlumatları komponentlərə ötürməyə təmin edir.
 
-Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uşağa) proplar vasitəsi ilə göndərilir. Lakin bir çox komponentin istifadə etdiyi bəzi prop tiplərinin (məsələn dil seçimi, UI şablonun) göndərilməsi çox yorucu və çətin ola bilər. Kontext, dəyərlərin komponentlər arasında, komponent ağaçının hər səviyyəsində prop göndərmədən paylaşmasına yol göstərir.
+Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uşağa) proplar vasitəsi ilə göndərilir. Lakin bir çox komponentin istifadə etdiyi bəzi prop tiplərinin (məsələn dil seçimi, UI şablonun) göndərilməsi çox yorucu və çətin ola bilər. Kontekst, dəyərlərin komponentlər arasında, komponent ağacının hər səviyyəsində prop göndərmədən paylaşmasına yol göstərir.
 
 - [Nə Zaman Kontekst İşlətmək Lazımdır](#when-to-use-context)
 - [Kontekst İşlətməzdən Əvvəl](#before-you-use-context)
@@ -38,7 +38,7 @@ Kontekst əsasən məlumatın fərqli səviyyələrdə yerləşən *bir neçə* 
 
 **Əgər siz propları bir neçə səviyyədən göndərmək istəmirsinizsə, [komponent kompozisiyası](/docs/composition-vs-inheritance.html) kontekstdən daha sadə həlldir.**
 
-Misal üçün, gəlin `user` və `avatarSize` proplarını mövcud olan `Page` komponentindan bir neçə səviyyədə göndərək ki, dərində olan `Link` və `Avatar` komponentləri bu propları oxuya bilsinlər:
+Misal üçün, gəlin `user` və `avatarSize` proplarını mövcud olan `Page` komponentindən bir neçə səviyyədə göndərək ki, dərində olan `Link` və `Avatar` komponentləri bu propları oxuya bilsinlər:
 
 ```js
 <Page user={user} avatarSize={avatarSize} />
@@ -79,7 +79,7 @@ function Page(props) {
 
 Bu dəyişiklik ilə, yalnız ən yuxarıda olan Page komponenti, `Link` və `Avatar` komponentlərinin `user` və `avatarSize` proplarını işlətməyini bilir.
 
-Bu *kontrolun inversiyası* applikasiyada göndərilən propların sayını azaldaraq və ana komponentlərə daha çox kontrol verərək, bir neçə ssenaridə kodunuzu daha təmiz edir. Lakin, bu metod hər ssenari üçün düzgün seçim deyil: mürəkkəbiliyi komponent ağacında yüksək olan komponentlərə köçürdükdə, yuxarı səviyyəli komponentləri daha çətinləşir və aşağı səviyyəli komponentlərin daha əyilgən olması lazım olur.
+Bu *kontrolun inversiyası* applikasiyada göndərilən propların sayını azaldaraq və ana komponentlərə daha çox kontrol verərək bir neçə ssenaridə kodunuzu daha təmiz edir. Lakin, bu metod hər ssenari üçün düzgün seçim deyil: mürəkkəbiliyi komponent ağacında yüksək olan komponentlərə köçürdükdə, yuxarı səviyyəli komponentləri daha çətinləşir və aşağı səviyyəli komponentlərin daha əyilgən olması lazım olur.
 
 Siz komponentdə bir uşaq göstərməyə məhdud deyilsiniz. Siz bir neçə uşağı, hətta uşaqlar üçün bir neçə "yuvada" edə bilərsiniz ([burada sənələşmişdir](/docs/composition-vs-inheritance.html#containment)):
 
@@ -103,7 +103,7 @@ function Page(props) {
 }
 ```
 
-Bu metod, uşaqları yaxın valideyndən ayırmaq üçün kifayətdir. Əgər uşaq komponent, render etməzdən öncə valideyn ilə kommunikasiya qurmalıdırsa, siz [render proplardan](/docs/render-props.html) istifadə edə bilərsiniz.
+Bu metod uşaqları yaxın valideyndən ayırmaq üçün kifayətdir. Əgər uşaq komponent, render etməzdən öncə valideyn ilə kommunikasiya qurmalıdırsa, siz [render proplardan](/docs/render-props.html) istifadə edə bilərsiniz.
 
 Lakin, bəzən eyni məlumatlar komponent ağacında fərqli səviyyələrdə bir neçə komponent tərəfindən işlədilə bilməlidirlər. Kontekst belə məlumatları və bu məlumatlarda olan dəyişiklikləri, bütün aşağısında olan komponentlərə "yayımlaya" bilir. Bəzi nümunələrdə kontekst işlətmək alternativlərdən daha sadə ola bilər (dilin seçimi, şablon, məlumat keşi).
 
@@ -116,7 +116,7 @@ Lakin, bəzən eyni məlumatlar komponent ağacında fərqli səviyyələrdə bi
 const MyContext = React.createContext(defaultValue);
 ```
 
-Kontekst obyekti yaradır. React, Context obyektinə "abunə olan" komponentləri render edərkən, yuxarı səviyyədə ən yaxın olan `Provider`-dən cari kontext dəyərini oxuyacaq.
+Kontekst obyekti yaradır. React, Context obyektinə "abunə olan" komponentləri render edərkən, yuxarı səviyyədə ən yaxın olan `Provider`-dən cari kontekst dəyərini oxuyacaq.
 
 `defaultValue` arqumenti **yalnız** komponentin yuxarı səviyyəsində Provider olmadığı zaman işlənir. Bu dəyər, komponentləri Provider ilə əhatə etmədən, ayrılıqda test etmək üçün faydalıdır. Qeyd: Provider dəyərinə `undefined` göndərildikdə, qoşulan komponentlər `defaultValue`-dan istifadə etmirlər.
 
@@ -130,13 +130,13 @@ Hər bir Context obyekti Provider adlı React komponenti ilə gəlir. Bu kompone
 
 Provayder `value` propu qəbul edir. Bu propun dəyəri abunə olan komponentlərə ötürülür. Bir Provider bir neçə Consumer komponentə goşula bilər. Provayderlər eyni komponent ağacında bir neçə səviyyədə ola bilər. Ağacda dərində yerləşən provayderlər, yuxarıda olan provayderlərin dəyərlərini əvəz edir.
 
-Provayderin aşağısında olan bütün istehlakçılar, Provayderin `value` propu dəyişdikdə yenidən render edir. Provayderdən aşağıya məlumatların yayınlaması, `shouldComponentUpdate` funskiyasından asılı deyil. Bu deməkdirki, yuxarı komponentdə heç bir komponent yenilənməsə belə, Provider-ə abunə olan komponent yenilənəcək.
+Provayderin aşağısında olan bütün istehlakçılar, Provayderin `value` propu dəyişdikdə yenidən render edir. Provayderdən aşağıya məlumatların yayınlaması, `shouldComponentUpdate` funksiyasından asılı deyil. Bu deməkdir ki, yuxarı komponentdə heç bir komponent yenilənməsə belə Provider-ə abunə olan komponent yenilənəcək.
 
 Dəyişikliklər yeni və köhnə dəyərlərin [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description) alqoritminə bənzər bir alqoritm ilə müqayisəsi ilə təyin olunur.
 
 > Qeyd
 > 
-> Dəyişikliklər `value`-a obyeki göndərdikdə problem yarada bilərlər: [Dəyişikliklər](#caveats) bölməsinə baxın.
+> Dəyişikliklər `value`-a obyekti göndərdikdə problem yarada bilərlər: [Dəyişikliklər](#caveats) bölməsinə baxın.
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -162,7 +162,7 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-`contextType` klass parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan kontekstin dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funskiyası daxil olmaqla bütün lifecycle funskiyalarından istifadə edə bilərsiniz.
+`contextType` klass parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan kontekstin dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funksiyası daxil olmaqla bütün lifecycle funksiyalarından istifadə edə bilərsiniz.
 
 > Qeyd:
 >
@@ -189,13 +189,13 @@ class MyClass extends React.Component {
 </MyContext.Consumer>
 ```
 
-Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funskional komponent]((/docs/components-and-props.html#function-and-class-components)) ilə kontekstə abunə olmağa icazə verir.
+Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funksional komponent]((/docs/components-and-props.html#function-and-class-components)) ilə kontekstə abunə olmağa icazə verir.
 
-[Funskiyanın uşaq kimi olmasını](/docs/render-props.html#using-props-other-than-render) tələb edir. Bu funskiya, kontekstin cari dəyərini qəbul edir və React nodu qaytarır. Funskiyaya göndərilən `value` arqumenti, komponent ağacında bu komponentə ən yaxın olan Provider-in `value` propu ilə eynidir. Əgər provayder yoxdursa, `value` arqumenti `createContext()`-ə keçirilən `defaultValue` propuna bərabər olacaq.
+[Funksiyanın uşaq kimi olmasını](/docs/render-props.html#using-props-other-than-render) tələb edir. Bu funksiya, kontekstin cari dəyərini qəbul edir və React nodu qaytarır. Funksiyaya göndərilən `value` arqumenti, komponent ağacında bu komponentə ən yaxın olan Provider-in `value` propu ilə eynidir. Əgər provayder yoxdursa, `value` arqumenti `createContext()`-ə keçirilən `defaultValue` propuna bərabər olacaq.
 
 > Qeyd
 > 
-> 'funskiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədinə baxın.
+> 'funksiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədinə baxın.
 
 ## Misallar {#examples}
 
@@ -212,7 +212,7 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funskional
 **app.js**
 `embed:context/theme-detailed-app.js`
 
-### Konteksti Bir Birindən Keçən Komponentdən Yeniləmək {#updating-context-from-a-nested-component}
+### Konteksti Bir-Birindən Keçən Komponentdən Yeniləmək {#updating-context-from-a-nested-component}
 
 Çox vaxt konteksti komponent ağacının dərinliklərində olan bir komponentdən yeniləmək lazım olur. Bu halda, siz kontekstdən dəyərləri Consumer-lərin yeniləməsi üçün funksiya göndərə bilərsiniz:
 
@@ -227,15 +227,15 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funskional
 
 ### Bir Neçə Kontekstin İstehlakı {#consuming-multiple-contexts}
 
-Kontekstin yenidən render edilməsinin tez olması üçün, React hər kontekst consumerinin komponent ağacında yeni bir nod yaratmalıdır. 
+Kontekstin yenidən render edilməsinin tez olması üçün, React hər kontekst consumer-inin komponent ağacında yeni bir nod yaratmalıdır. 
 
 `embed:context/multiple-contexts.js`
 
-Əgər 2 və ya daha çox kontekst dəyəri tez tez birlikdə işlədilirsə, siz bu kontekstlərin dəyərlərini birlikdə təmin edən xüsusi bir render prop komponenti düzəldə bilərsiniz.
+Əgər 2 və ya daha çox kontekst dəyəri tez-tez birlikdə işlədilirsə, siz bu kontekstlərin dəyərlərini birlikdə təmin edən xüsusi bir render prop komponenti düzəldə bilərsiniz.
 
 ## Xəbərdarlıq {#caveats}
 
-Kontesktin yenidən render etmək üçün dəyərin referensi ilə edir deyə, provayder yenidən render etdikdə, consumer-lərdə istənilməyən renderlər ola bilər. Məsələn, aşağıdakı kodda `value` üçün hər zaman yeni obyekt yarandığından, bütün consumer-lər yenidən render edirlər:
+Konteskt yenidən render etmə zamanını, dəyərin referensi əsasında müəyyənləşdirir. Bu səbəbdən, provider yenidən render etdikdə, consumer-lərdə istənilməyən renderlər ola bilər. Məsələn, aşağıdakı kodda `value` üçün hər zaman yeni obyekt yarandığından, bütün consumer-lər yenidən render edirlər:
 
 `embed:context/reference-caveats-problem.js`
 
@@ -247,5 +247,5 @@ Bu problemi həll etmək üçün, dəyəri valideynin state-inə qaldırın:
 
 > Qeyd
 > 
-> Əvvəl React eksperimental bir kontext API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
+> Əvvəl React eksperimental bir kontekst API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [Köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
  

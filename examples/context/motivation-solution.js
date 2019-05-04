@@ -1,7 +1,7 @@
 // highlight-range{1-4}
 // Kontekst dəyərləri komponent ağacında hər komponentdən
 // keçmədən lazım olan komponentə ötürməyə icazə verir.
-// Cari şablon üçün yeni bir kontext yaradın ("light" default dəyər kimi).
+// Cari şablon üçün yeni bir kontekst yaradın ("light" default dəyər kimi).
 const ThemeContext = React.createContext('light');
 
 class App extends React.Component {

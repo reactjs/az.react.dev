@@ -3,7 +3,7 @@ import {ThemeContext} from './theme-context';
 function ThemeTogglerButton() {
   // highlight-range{1-2,5}
   // Theme Toggler Button theme-dən əlavə
-  // toggleTheme funskiyasını da kontekstdan qəbul edir
+  // toggleTheme funksiyasını da kontekstdən qəbul edir
   return (
     <ThemeContext.Consumer>
       {({theme, toggleTheme}) => (
