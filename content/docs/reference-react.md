@@ -335,15 +335,15 @@ Qeyd edin ki, `lazy` komponentləri render etmək üçün komponent ağacında �
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` let you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
+`React.Suspense`, ağacda olan komponentlərin render-ə hazır olmadığı halda sizə yükləmə indikatoru müəyyənləşdirməyə icazə verir. Bugün, `<React.Suspense>` **yalnız** komponentlərin lazy yüklənməsini dəstəkləyir:
 
 ```js
-// This component is loaded dynamically
+// Bu komponent dinamik yüklənir
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
   return (
-    // Displays <Spinner> until OtherComponent loads
+    // OtherComponent yüklənənədək <Spinner> render olunur
     <React.Suspense fallback={<Spinner />}>
       <div>
         <OtherComponent />
@@ -353,10 +353,11 @@ function MyComponent() {
 }
 ```
 
-It is documented in our [code splitting guide](/docs/code-splitting.html#reactlazy). Note that `lazy` components can be deep inside the `Suspense` tree -- it doesn't have to wrap every one of them. The best practice is to place `<Suspense>` where you want to see a loading indicator, but to use `lazy()` wherever you want to do code splitting.
+Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#reactlazy) göstərilmişdir. Qeyd edinki, `lazy` komponentlər `Suspense` ağacının dərinliklərində də ola bilər. Suspense hər bir `lazy` komponenti əhatə etməməlidir. Yükləmə indikatoru görmək istədiyiniz yerdə `<Suspense>`-i əlavə etmək, amma `lazy()`-ni kod parçalaması etmək istədiyiniz yerdə işlətmək ən yaxşı praktikadır.
 
-While this is not supported today, in the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html).
+İndiki gündə dəstəklənməməsinə baxmayaraq, biz gələcəkdə `Suspense`-in məlumat yüklənməsi kimi ssenarilərini dəstəkləməsini planlaşdırırıq. Bu haqda əlavə məlumat üçün, [yol xəritəmizi](/blog/2018/11/27/react-16-roadmap.html) oxuya bilərsiniz.
 
->Note:
+
+>Qeyd:
 >
->`React.lazy()` and `<React.Suspense>` are not yet supported by `ReactDOMServer`. This is a known limitation that will be resolved in the future.
+>`React.lazy()` və `<React.Suspense>` `ReactDOMServer` tərəfindən dəstəklənmir. Bu məlum olan məhdudiyyət gələcəkdə həll olunacaq.
