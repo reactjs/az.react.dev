@@ -120,35 +120,35 @@ class Greeting extends React.Component {
 
 ```javascript
 const MyComponent = React.memo(function MyComponent(props) {
-  /* render using props */
+  /* proplar ilə render edin */
 });
 ```
 
 `React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu klaslar əvəzinə funskiya komponentləri ilə işlənilir.
 
-If your function component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+Əgər sizin komponent funskiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funskiyanı `React.memo` ilə əhatə edib bəzi hallarda nətinəni memoize edərək performansı artıra bilərsiniz. Bu deməkdirki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
 
-By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
+Default halda, bu props obyektində olan kompleks obyektləri dayaz formada müqayisə edəcək. Əgər siz müqayisəni kontrol etmək istəyirsinizsə, siz xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
 
 ```javascript
 function MyComponent(props) {
-  /* render using props */
+  /* proplar ilə render edin */
 }
 function areEqual(prevProps, nextProps) {
   /*
-  return true if passing nextProps to render would return
-  the same result as passing prevProps to render,
-  otherwise return false
+  Əgər nextProps-u render-ə göndərdikdə qaytarılan nəticə,
+  prevProps-u render-ə göndərdikdə qaytarılan nəticə ilə eynidirsə,
+  true qaytarın. Əks halda false qaytarın.
   */
 }
 export default React.memo(MyComponent, areEqual);
 ```
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a render, as this can lead to bugs.
+Bu metod yalnız **[performans optimizasiyası](/docs/optimizing-performance.html)** yararlıdır. Bu funskiyaya render-in qarşısını almaq üçün etibar etməyin -- bu sizdə baqlara səbəb ola bilər.
 
-> Note
+> Qeyd
 >
-> Unlike the [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
+> Klass komponentlərdə [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funskiyasından fərqli olaraq, `areEqual` funksiyası proplar eyni olduqda `true`, fərqli olduqda isə `false` qaytarır. Bu `shouldComponentUpdate` funskiyasının tərsidir.
 
 * * *
 
