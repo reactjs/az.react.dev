@@ -301,20 +301,20 @@ Siz həmçinin `<></>` qısa sintaksisi işlədə bilərsiniz. Daha ətraflı m�
 
 ### `React.forwardRef` {#reactforwardref}
 
-`React.forwardRef` creates a React component that forwards the [ref](/docs/refs-and-the-dom.html) attribute it receives to another component below in the tree. This technique is not very common but is particularly useful in two scenarios:
+`React.forwardRef` qəbul etdiyi [ref-i](/docs/refs-and-the-dom.html) aşağısında olan digər komponentə yönləndirən React komponenti yaradır. Bu texnika tez-tez istifadə olunmur; bu yalnız iki ssenaridə faydalıdır:
 
-* [Forwarding refs to DOM components](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
-* [Forwarding refs in higher-order-components](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
+* [Ref-lərin DOM komponentlərə yönləndirilməsi](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
+* [Yüksək dərəcəli komponentlərdə ref-lərin yönləndirilməsi](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
 
-`React.forwardRef` accepts a rendering function as an argument. React will call this function with `props` and `ref` as two arguments. This function should return a React node.
+`React.forwardRef` render funskiyasını arqument kimi qəbul edir. React bu funskiyanı `props` və `ref` arqumentləri ilə çağırır. Bu funskiya React nodu qaytarmalıdır.
 
 `embed:reference-react-forward-ref.js`
 
-In the above example, React passes a `ref` given to `<FancyButton ref={ref}>` element as a second argument to the rendering function inside the `React.forwardRef` call. This rendering function passes the `ref` to the `<button ref={ref}>` element.
+Bu nümunədə, React, `<FancyButton ref={ref}>` elementinə verilən `ref`-i `React.forwardRef` funskiyasında olan render funskiyasının ikinci arqumentinə ötürür. Bu rendering funskiyası `ref`-i `<button ref={ref}>` elementinə ötürür.
 
-As a result, after React attaches the ref, `ref.current` will point directly to the `<button>` DOM element instance.
+Nəticədə, React ref-i əlavə etdikdən sonra, `ref.current` birbaşa `button` DOM elementini qeyd edəcək.
 
-For more information, see [forwarding refs](/docs/forwarding-refs.html).
+Əlavə məlumat üçün, [ref-lərin yönləndirilməsini](/docs/forwarding-refs.html) oxuyun.
 
 ### `React.lazy` {#reactlazy}
 
