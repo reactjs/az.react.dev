@@ -81,7 +81,7 @@ Bu dəyişiklik ilə, yalnız ən yuxarıda olan Page komponenti, `Link` və `Av
 
 Bu *kontrolun inversiyası* applikasiyada göndərilən propların sayını azaldaraq və ana komponentlərə daha çox kontrol verərək bir neçə ssenaridə kodunuzu daha təmiz edir. Lakin, bu metod hər ssenari üçün düzgün seçim deyil: mürəkkəbiliyi komponent ağacında yüksək olan komponentlərə köçürdükdə, yuxarı səviyyəli komponentləri daha çətinləşir və aşağı səviyyəli komponentlərin daha əyilgən olması lazım olur.
 
-Siz komponentdə bir uşaq göstərməyə məhdud deyilsiniz. Siz bir neçə uşağı, hətta uşaqlar üçün bir neçə "yuvada" edə bilərsiniz ([burada sənələşmişdir](/docs/composition-vs-inheritance.html#containment)):
+Siz komponentdə bir uşaq göstərməyə məhdud deyilsiniz. Siz bir neçə uşağı, hətta uşaqlar üçün bir neçə "yuva da" edə bilərsiniz ([burada sənələşmişdir](/docs/composition-vs-inheritance.html#containment)):
 
 ```js
 function Page(props) {
