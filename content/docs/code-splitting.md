@@ -215,7 +215,7 @@ const App = () => (
 
 ## Adlı Eksportlar {#named-exports}
 
-`React.lazy` yalnız `default` eksportları dəstəkləyir. Əgər sizin import etmək istədiyiniz modul, adlı eksportlar edirsə, siz bu adlı eksportları yenidən `default` eksport edən ara modulu yarada bilərsiniz. Bu treeshaking-in işlədiyini və lazım olmayan komponentlərin yüklənmədiyini təmin edir.
+`React.lazy` yalnız `default` eksportları dəstəkləyir. Əgər sizin import etmək istədiyiniz modul, adlı eksportlar edirsə, siz bu adlı eksportları yenidən `default` eksport edən ara modulu yarada bilərsiniz. Bu tree shaking-in işlədiyini və lazım olmayan komponentlərin yüklənmədiyini təmin edir.
 
 ```js
 // ManyComponents.js
