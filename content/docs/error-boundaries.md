@@ -6,11 +6,11 @@ permalink: docs/error-boundaries.html
 
 Keçmişdə, komponent daxilində baş verən Javascript xətaları, React-in daxili vəziyyətini korlayıb, sonrakı renderlərdə [kriptik](https://github.com/facebook/react/issues/6895) [xətalar](https://github.com/facebook/react/issues/8579) [göstərirdi](https://github.com/facebook/react/issues/4026). Bu xətaların həmişə applikasiya kodunda əvvəlki xətalara görə baş verməyinə baxmayaraq, React bu xətaların komponent daxilində idarəsi üçün və bu xətalardan bərpa olunmaq üçün heç bir mexanizm təmin etmirdi.
 
-## Xəta Sərhədlərinin Təqdimi {#introducing-error-boundaries}
+## Xəta Sərhədlərinin Təqdim Edilməsi {#introducing-error-boundaries}
 
 UI-ın bir hissəsində baş verən Javascript xətası bütün applikasiyanı sındırmamalıdır. Bu problemin React-də həll olunması üçün, React 16 "xəta sərhədi" adında yeni bir konsepsiya təqdim edir.
 
-Xəta sərhədləri **uşaq komponent ağacında baş verən Javascript xətaları tutan, bu xətaları qeydiyyata alan, və xəta olduqda fallback UI göstərən** bir React komponentidir. Xəta sərhədləri render zamanı, lifecycle metodlarında, və bütün altında olan ağacdakı konstruktorlarda baş verən xətaları tutur.
+Xəta sərhədləri **uşaq komponent ağacında baş verən Javascript xətaları tutan, bu xətaları qeydiyyata alan və xəta olduqda fallback UI göstərən** bir React komponentidir. Xəta sərhədləri render zamanı, lifecycle metodlarında, və bütün altında olan ağacdakı konstruktorlarda baş verən xətaları tutur.
 
 > Qeyd
 >
@@ -59,9 +59,9 @@ Sonra siz bunu normal komponent kimi işlədə bilərsiniz:
 </ErrorBoundary>
 ```
 
-Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız klas komponentləri xəta sərhədləri ola bilərlər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
+Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız klas komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
 
-Qeyd edək ki, **xəta sərhədləri yalnız altındaki ağacda olan komponentlərin xətalarını tuta bilir**. Xəta sərhədi daxilində baş verən xətanı tuta bilmir. Əgər xəta sərhədin xəta mesajını render edə bilmirsə, xəta bu komponentin yuxarısında olan ən yaxın xəta sərhədinə yayılacaq. Javascriptin catch {} funskiyasıda bunun kimi işləyir.
+Qeyd edək ki, **xəta sərhədləri yalnız altındakı ağacda olan komponentlərin xətalarını tuta bilir**. Xəta sərhədi daxilində baş verən xətanı tuta bilmir. Əgər xəta sərhədin xəta mesajını render edə bilmirsə, xəta bu komponentin yuxarısında olan ən yaxın xəta sərhədinə yayılacaq. Javascriptin catch {} funskiyasıda bunun kimi işləyir.
 
 ## Canlı Demo {#live-demo}
 
@@ -74,9 +74,9 @@ Xəta sərhədlərinin zənginliyi / əhatəsi sizdən asılıdır. Siz ən yuxa
 
 ## Tutulmamış Xətalar üçün Yeni Davranış {#new-behavior-for-uncaught-errors}
 
-Bu dəyişikliyin vacib bir təsiri var. **React 16-dan başlayaraq, xəta sərhədində tutulmayan xətalar, React komponent ağacının bütünlüklə DOM-dan çıxarılmasına səbən olacaq.**
+Bu dəyişikliyin vacib bir təsiri var. **React 16-dan başlayaraq, xəta sərhədində tutulmayan xətalar, React komponent ağacının bütünlüklə DOM-dan çıxarılmasına səbəb olacaq.**
 
-Biz bu qərarı müzakirə etdik və bizim təcrübəmizdən korlanmış UI-ı yerində saxlamaq, bu UI-ı bütün silməkdən daha pisdir. Məsələn, Messenger kimi bir produktda, sınmış UI-ı göstərmək, kiminzə yalnış adama mesaj göndərməsinə səbəb ola bilər. Eyniliklə, ödəmə applikasiyasının yalnız dəyər göstərməsi heç nə göstərməsindən daha pisdir.
+Biz bu qərarı müzakirə etdik və bizim təcrübəmizdən korlanmış UI-ı yerində saxlamaq, bu UI-ı bütün silməkdən daha pisdir. Məsələn, Messenger kimi bir məhsulda, sınmış UI-ı göstərmək, kiminsə yalnış adama mesaj göndərməsinə səbəb ola bilər. Eyniliklə, ödəmə applikasiyasının yalnız dəyər göstərməsi heç nə göstərməsindən daha pisdir.
 
 Bu dəyişikliklə siz React 16-a miqrasiya etdikdə, sizin applikasiyanızda əvvəl fikir vermədiyiniz mövcud xətaların üstünü aça biləcəksiniz. Xəta sərhədlərini əlavə etməklə bir şey yalnış getdikdə daha yaxşı istifadəçi təcrübəsi yarada bilərsiniz.
 
@@ -86,7 +86,7 @@ Biz həmçinin sizin Javascript xəta servislərindən (və ya özünüz düzəl
 
 ## Komponent Stek İzləri {#component-stack-traces}
 
-React 16 render zamanı baş verən bütün xətaları, applikasiya təsadüfən bu xətaları udsa belə, development zamanı brauzerin konsoluna yazır. Xəta mesajı və Javascript stekindən əlavə, React 16 həmçinin komponent stek izlərini göstərir. İndi siz xətanın komponent ağacında dəqiq harada baş verdiyini görə bilərsiniz:
+React 16 render zamanı baş verən bütün xətaları, applikasiya təsadüfən bu xətaları udsa belə, development zamanı brauzerin konsoluna yazır. Xəta mesajı və Javascript stekindən əlavə, həmçinin React 16 həmçinin komponent stek izlərini göstərir. İndi siz xətanın komponent ağacında dəqiq harada baş verdiyini görə bilərsiniz:
 
 <img src="../images/docs/error-boundaries-stack-trace.png" style="max-width:100%" alt="Xətanın Error Boundary komponenti tərəfindən tutulması">
 
@@ -124,7 +124,7 @@ Xəta sərhərləri React-in deklarativ təbiətini saxlayır və sizin gözləd
 
 Xəta sərhədləri hadisə işləyicilərində baş verən xətaları **tutmur**.
 
-React-ə hadisə işləyicilərində baş verən xətaların bərpası üçün, xəta sərhədlərindən istifadə etməsi lazım deyil. Render və lifecycle metodlarından fərqli olaraq, hadisə işləyiciləri render zamanı baş vermir. Bu səbəbdən, əgər bu işləyicilər xəta atırlarsa, React yenədə ekranda nə göstərəcəyini bilir.
+React-ə hadisə işləyicilərində baş verən xətaların bərpası üçün, xəta sərhədlərindən istifadə etməsi lazım deyil. Render və lifecycle metodlarından fərqli olaraq, hadisə işləyiciləri render zamanı baş vermir. Bu səbəbdən, əgər bu işləyicilər xəta atırlarsa, React yenə də ekranda nə göstərəcəyini bilir.
 
 Əgər sizə hadisə işləyicilərində yeni xətanı tutmaq lazımdırsa, normal Jacascript `try` / `catch` ifadəsindən istifadə edin:
 
@@ -157,6 +157,6 @@ Qeyd edək ki, yuxarıdakı nümunə normal Javascript davranışını göstəri
 
 ## React 15-dən ad dəyişiklikləri {#naming-changes-from-react-15}
 
-React 15 xəta sərhədlərini fərqli funskiya adı ilə çox məhdudiyyətli formada dəstəkləyirdi: `unstable_handleError`. Bu funksiya artiq işləmir və siz React 16 betadan başlayaraq bunu `componentDidCatch` ilə əvəz etməlisiniz.
+React 15 xəta sərhədlərini fərqli funskiya adı ilə çox məhdudiyyətli formada dəstəkləyirdi: `unstable_handleError`. Bu funksiya artıq işləmir və siz React 16 betadan başlayaraq bunu `componentDidCatch` ilə əvəz etməlisiniz.
 
 Bu dəyişiklik üçün, biz kodunuzun avtomatik miqrasiyası üçün [codemod](https://github.com/reactjs/react-codemod#error-boundaries) təmin etmişik.
