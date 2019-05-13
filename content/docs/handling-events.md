@@ -11,9 +11,9 @@ redirect_from:
 React elementlərində hadisələrin emal edilməsi DOM elementlərindəkinə bənzəyir. Amma bəzi sintaktik fərqlər var:
 
 * React hadisələrinə lowercase yox camelCase istifadə edilərək ad verilir.
-* JSX ilə string yerinə funksiya hadisə işləyidicisi kimi ötürülür.
+* JSX ilə string yerinə funksiya hadisə işlədicisi kimi ötürülür.
 
-Misal üçün, aşağıdakı HTML:
+Misal üçün aşağıdakı HTML:
 
 ```html
 <button onclick="activateLasers()">
@@ -56,7 +56,7 @@ function ActionLink() {
 
 Burada `e` sintetik hadisədir. React sintetik hadisələri [W3C spesifikasiyasına](https://www.w3.org/TR/DOM-Level-3-Events/) uyğun olaraq təyin edir. Bu isə o deməkdir ki, brauzerlər arası uyğunluqdan narahat olmamaq olar. Daha ətraflı məlumat üçün [`SyntheticEvent`](/docs/events.html) referans təlimatına nəzər yetirin.
 
-React istifadə edərkən DOM elementə yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə işləyicini element ilk dəfə render olunduqda ötürmək olar.
+React istifadə edərkən DOM elementi yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə işləyicini element ilk dəfə render olunduqda ötürmək olar.
 
 Komponent [ES6 klası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) kimi təyin olunduqda hadisə işləyicisi klasın metodlarından biri ola bilər. Məsələn, aşağıdakı `Toggle` komponenti istifadəçiyə "ON" və "OFF" halları arasında dəyişməyə imkan verən düyməyə render olunur:
 
@@ -138,7 +138,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-Bu sintaksisin çatışmazlığı ondan ibarətdər ki, hər dəfə `LoggingButton` render olanda yeni callback yaradılır. Əksər hallarda bu problem deyil. Lakin əgər bu callback prop kimi uşaq komponentlərə ötürülürsə, onda həmin komponentlər əlavə render işi görə bilər. Belə performans problemlərini aradan qaldırmaq üçün konstruktorda bağlamaq və ya klas sahələri sintaksisindən istifadə etmək məsləhət görülür.
+Bu sintaksisin çatışmazlığı ondan ibarətdir ki, hər dəfə `LoggingButton` render olanda yeni callback yaradılır. Əksər hallarda bu problem deyil. Lakin əgər bu callback prop kimi uşaq komponentlərə ötürülürsə, onda həmin komponentlər əlavə render işi görə bilər. Belə performans problemlərini aradan qaldırmaq üçün konstruktorda bağlamaq və ya klas sahələri sintaksisindən istifadə etmək məsləhət görülür.
 
 ## Arqumentlərin hadisə işləyicilərinə ötürülməsi {#passing-arguments-to-event-handlers}
 
