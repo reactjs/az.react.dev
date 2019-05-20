@@ -10,6 +10,7 @@ import Container from 'components/Container';
 import Header from 'components/Header';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
 import React from 'react';
+import {urlRoot} from 'site-constants';
 import {media, sharedStyles} from 'theme';
 
 // $FlowFixMe This is a valid path
@@ -46,8 +47,16 @@ const Languages = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
+<<<<<<< HEAD
           <Header>Dillər</Header>
           <TitleAndMetaTags title="React - Languages" />
+=======
+          <Header>Languages</Header>
+          <TitleAndMetaTags
+            canonicalUrl={`${urlRoot}/languages/`}
+            title="React - Languages"
+          />
+>>>>>>> 7b217c701075b1af7ddabd6a237ed847df98853c
 
           <div css={sharedStyles.markdown}>
             <p>
