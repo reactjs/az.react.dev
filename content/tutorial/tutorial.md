@@ -524,7 +524,11 @@ Qeydə alin ki, biz `handleClick` funskiyasında mövcud `squares` massivini də
 
 ### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
+<<<<<<< HEAD
 Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
+=======
+In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 1f27bba9484f26ec6dab383b09730ad7ed59f732
 
 Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişikliklər olan kopiyası ilə əvəz etməkdir.
 
