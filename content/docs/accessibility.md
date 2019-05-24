@@ -148,7 +148,11 @@ Bu konturu CSS (məsələn, `outline: 0` yazdıqda) ilə yalnız onu başqa bir 
 
 Öz növbəsində applikasiyada klaviatur naviqasiyasına kömək etmək və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsində ötmə mexanizmini təmin edin.
 
+<<<<<<< HEAD
 Skiplinks və ya Naviqasiya Ötmə Linkləri (Skip Navigation Links) yalnız klaviatur istifadəçiləri səhifə ilə qarşılıqlı təsirə girdikdə görünən gizli linklərdir. Onları daxili səhifə anker təqləri və bəzi stillər ilə tətbiq etmək çox asandır:
+=======
+Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 - [WebAIM - Naviqasiya Ötmə Linkləri](https://webaim.org/techniques/skipnav/)
 
@@ -160,7 +164,11 @@ Həmçinin, səhifənin sahələrini sərhədləmək üçün `<main>` və `<asid
 
 ### Proqram yolu ilə fokusun idarə edilməsi 
 
+<<<<<<< HEAD
 Bizim React applikasiyalarımız icra müddətində davamlı şəkildə HTML DOM-u modifikasi edir, bəzən bu klaviatur fokusunun itməsi və ya gözlənilməz elementin keçməsinə gətirir. Bunu təmir etmək üçün biz proqram yolu ilə klaviatur fokusunu düzgün istiqamətdə dümsükləməliyik. Məsələn, modal pəncərə bağlandıqdan sonra klaviatur fokusu modal pəncərəni açan düyməyə geri qayıtmalıdır.
+=======
+Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 MDN Web Docs buna nəzər keçirib və bizim necə [Klaviatur ilə Naviqasiya oluna bilən JavaScript Vidcetləri](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets) yarada biləcəyimiz haqqında məlumat verir.
 
@@ -198,7 +206,11 @@ Daha sonra biz bunu komponentimizdə istənilər yerə fokus edə bilərik:
  }
  ```
 
+<<<<<<< HEAD
 Bəzən valideyn komponent fokusu uşaq komponentdəki elementə təyin etməlidir. Biz bunu uşaq komponentin [valideynin refini uşağın DOM noduna](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components), valideyn komponentdən xüsusi prop vasitəsi ilə göndərərək DOM reflərini expose edə bilərik.
+=======
+Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -225,9 +237,16 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forwardRef` funksiyasını istifadə edərək əhatə edən komponentə [ref-i yönləndirmək](/docs/forwarding-refs.html) məsləhət görülür. Əgər üçüncü tərəf HOC ref-i yonləndirmirsə, yuxarıdakı şablon hələdə alternativ plan kimi istifadə oluna bilər.
 
 [React-aria-modal](https://github.com/davidtheclark/react-aria-modal) yaxşı fokus idarəçiliyin misalıdır. Bu tam imkanlı modal pəncərəsinin nisbətən nadir misalıdır. Bu, ilkin fokusu, ləğv etmə düyməsinin üzərinə fokuslamasından (klaviatur istifadəçisini təsadüfəni şəkildə uğurlu əməliyyatı aktivləşdirməyin qarşısını alır) və klaviatur fokusunun modalın daxilində tutmasından əlavə, həm də ilkin olaraq modalı açan elementə fokusu qaytarır.
+=======
+When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+
+A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
+the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 >Qeyd:
 >
@@ -235,7 +254,11 @@ Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forw
 
 ## Maus və kursor hadisələri
 
+<<<<<<< HEAD
 Əmin olun ki, bütün funksionallıq maus və ya kursor hadisəsi ilə göstərilib və yalnız klaviatur istifadə etməklə də giriş edilə bilər. Kursor cihazından asılı olaraq siz klaviatur istifadəçilərinin applikasiyanı istifadə edə bilməyəcəyi müxtəlif ssenarilərlə üzləşəcəksiniz.
+=======
+Ensure that all functionality exposed through a mouse or pointer event can also be accessed using the keyboard alone. Depending only on the pointer device will lead to many cases where keyboard users cannot use your application.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Bunu təsvir etmək üçün gəlin tıklamaq hadisəsinin səbəb olduğu sınmış imkanlılığın məhsuldar misalına baxaq. Bu, istifadəçinin açılmış popoveri elementin xaricində tıklamaqla qeyri-aktiv edə bilən tıklamaq şablonunun xaricindədir.
 
@@ -292,7 +315,11 @@ constructor(props) {
 }
 ```
 
+<<<<<<< HEAD
 Bu kursor cihazı (məsələn, maus) olan istifadəçilər üçün yaxşı işləyə bilər, amma yalnız klaviatur ilə fəaliyyət göstərdikdə sınmış funksionallığa gətirir. Çünki növbəti elementə dəyişdikdə `window` obyekti heç vaxt `click` hadisəsini qəbul etmir. Bu istifadəçilərə sizin applikasiyanı istifadə etməyə qadağa edən, aydın olmayan funksionallığa gətirib çıxarır.
+=======
+This may work fine for users with pointer devices, such as a mouse, but operating this with the keyboard alone leads to broken functionality when tabbing to the next element as the `window` object never receives a `click` event. This can lead to obscured functionality which blocks users from using your application.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="Kənara tıklamaq patternası ilə tətbiq olunmuş və klaviatur ilə idarə olunan popover siyahısını açan toggle düyməsinin popoverin blur zamanı bağlanmamasını və ekrandakı başqa elementlərin üstünü bağlamasını göstərməsi." />
 
@@ -359,15 +386,27 @@ class BlurExample extends React.Component {
 ```
 Bu kod həm kursor cihazı, həm də klaviaturda işləyir. Həmçinin, ekran oxucusu istifadəçilərini dəstəkləmək üçün əlavə olunmuş `aria-*` proplarına diqqət yetirin. Sadəlik üçün popover opsiyasının qarşılıqlı təsiri olan `arrow key` aktivləşdirmək üçün klavitur hadisələri həyata keçirilmir.
 
+<<<<<<< HEAD
 <img src="../images/docs/blur-popover-close.gif" alt="Popover siyahısı həm maus ,həm də klaviatur istifadəçiləri üçün düzgün bağlanır." />
+=======
+This code exposes the functionality to both pointer device and keyboard users. Also note the added `aria-*` props to support screen-reader users. For simplicity's sake the keyboard events to enable `arrow key` interaction of the popover options have not been implemented.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Bu yalnız kursor və maus hadisələrindən asılı olmağın klaviatur istifadəçiləri üçün funksionallığın sınmasına səbəb olacağını göstərən ssenarilərdən biridir. Həmişə klaviatur ilə test edərkən klaviatur xəbərdarlıq hadisələr işləyicilərinin köməkliyi ilə düzəldilə bilən problemlı sahələr dərhal üzə çıxaracaqdır.
 
+<<<<<<< HEAD
 ## Daha Kompleks Vidcetlər
+=======
+This is one example of many cases where depending on only pointer and mouse events will break functionality for keyboard users. Always testing with the keyboard will immediately highlight the problem areas which can then be fixed by using keyboard aware event handlers.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Daha kompleks istifadəçi təcrübəsi, daha az imkanlılıq demək deyil. Halbuki imkanlılıq ən rahatlıqla əldə etməyin yolu HTML-ə ən yaxın şəkildə kodlaşdırmaqdır, hətta ən kompleks vidcetlər imkanlı şəkildə kodlaşdırıla bilər. 
 
+<<<<<<< HEAD
 Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [ARIA Vəziyyətləri və Parametrləri](https://www.w3.org/TR/wai-aria/#states_and_properties) haqqında bilikləri tələb edirik. 
+=======
+A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Yuxarıdakı xüsusiyyətlər JSX-də tamamilə dəstəklənən və bizə tamamilə imkanlı, yüksək funksional React komponentləri qurmağa imkan verən HTML atributları ilə doludur. 
 
@@ -425,13 +464,23 @@ Test üçün ən asan və ən vacib xanalardan biri sizin bütün veb səhifəni
 
 ### Development köməyi
 
+<<<<<<< HEAD
 Biz bəzi imkanlılıq xüsusiyyətlərinə birdəfəlik JSX kodumuzda baxa bilərik. Çox vaxt ARIA rolları, vəziyyəti və parametrləri JSX anlayan IDE-lərin "intellisense" yoxlamalarında göstərilir. Həmçinin biz aşağıdakı alətlərdən də istifadə edə bilərik:
+=======
+We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE's for the ARIA roles, states and properties. We also have access to the following tool:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 #### eslint-plugin-jsx-a11y
 
+<<<<<<< HEAD
 ESLint plugini olan [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) sizin JSX-izdə imkanlılıqla bağlı problemlərlə əlaqədar AST linting rəyini təmin edir. Çoxlu IDE-lar sizi bu tapıntıları birdəfəlik kod analitikasında və mənbə kod pəncərəsində inteqrasiya etməyə icazə verir.
 
 [Creat React App](https://github.com/facebookincubator/create-react-app)-də plugin bir hissəsi aktivləşdirilmiş qaydalar ilə mövcuddur. Əgər siz daha çox imkanlılıq qaydalarını açmaq istəyirsinizsə, siz layihənizin kökündə aşağıdakı kontent ilə `.eslintrc` faylı yarada bilərsiniz:
+=======
+The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many IDE's allow you to integrate these findings directly into code analysis and source code windows.
+
+[Create React App](https://github.com/facebookincubator/create-react-app) has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an `.eslintrc` file in the root of your project with this content:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
   ```json
   {
