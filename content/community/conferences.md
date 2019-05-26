@@ -17,8 +17,6 @@ May 23-24, 2019 in Paris, France
 
 [Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
 
-<<<<<<< HEAD
-=======
 ### React Conf Armenia 2019 {#react-conf-am-19}
 May 25, 2019 in Yerevan, Armenia
 
@@ -29,7 +27,6 @@ June 11, 2019. Tel Aviv, Israel
 
 [Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
->>>>>>> 7b217c701075b1af7ddabd6a237ed847df98853c
 ### React Norway 2019 {#react-norway-2019}
 June 12, 2019. Larvik, Norway
 
