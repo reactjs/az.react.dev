@@ -47,21 +47,14 @@ const Languages = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-<<<<<<< HEAD
           <Header>Dillər</Header>
-          <TitleAndMetaTags title="React - Languages" />
-=======
-          <Header>Languages</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/languages/`}
-            title="React - Languages"
+            title="React - Dillər"
           />
->>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
           <div css={sharedStyles.markdown}>
-            <p>
-              React-in sənədləri aşağıdakı dillərdə mövcuddur:
-            </p>
+            <p>React-in sənədləri aşağıdakı dillərdə mövcuddur:</p>
 
             <LanguagesGrid languages={complete} />
 
