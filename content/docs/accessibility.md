@@ -367,9 +367,8 @@ Bu yalnız kursor və maus hadisələrindən asılı olmağın klaviatur istifad
 
 Daha kompleks istifadəçi təcrübəsi, daha az imkanlılıq demək deyil. Halbuki imkanlılıq ən rahatlıqla əldə etməyin yolu HTML-ə ən yaxın şəkildə kodlaşdırmaqdır, hətta ən kompleks vidcetlər imkanlı şəkildə kodlaşdırıla bilər. 
 
-Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [ARIA Vəziyyətləri və Parametrləri](https://www.w3.org/TR/wai-aria/#states_and_properties) haqqında bilikləri tələb edirik. 
+Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [ARIA Vəziyyətləri və Parametrləri](https://www.w3.org/TR/wai-aria/#states_and_properties) haqqında bilikləri tələb edirik. Yuxarıdakı xüsusiyyətlər JSX-də tamamilə dəstəklənən və bizə tamamilə imkanlı, yüksək funksional React komponentləri qurmağa imkan verən HTML atributları ilə doludur. 
 
-Yuxarıdakı xüsusiyyətlər JSX-də tamamilə dəstəklənən və bizə tamamilə imkanlı, yüksək funksional React komponentləri qurmağa imkan verən HTML atributları ilə doludur. 
 
 Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işləndiyi gözlənilir:
 
