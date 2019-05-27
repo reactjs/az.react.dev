@@ -26,13 +26,13 @@ React komponentləri sizə UI-ı müstəqil, yenidən işlənə bilən hissələ
 
 Əgər siz ES6 klasları istifadə etmirsinizsə, siz `create-react-class` modulundan istifadə edə bilərsiniz. Əlavə məlumat üçün, [ES6-sız React-in istifadəsi](/docs/react-without-es6.html) bölməsini oxuyun.
 
-React komponentləri həmçinin funskiyalar ilə də müəyyənləşdirilə bilərlər. Bu funskiyalar aşağıdakılar ilə əhatə oluna bilərələr:
+React komponentləri həmçinin funksiyalar ilə də müəyyənləşdirilə bilərlər. Bu funksiyalar aşağıdakılar ilə əhatə oluna bilərlər:
 
 - [`React.memo`](#reactmemo)
 
 ### React Elementlərinin Düzəldilməsi {#creating-react-elements}
 
-Biz UI-ın nə olacağını təsvir etmək üçün [JSX işlətməyi](/docs/introducing-jsx.html) tövsiyyə edirik. Hər bir JSX elementi [`React.createElement()`](#createelement) funskiyasını çağırmaq üçün gözəl sintaksisdir. JSX işlətdikdə adətən aşağıdakı funskiyaları birbaşa çağırmırsınız.
+Biz UI-ın nə olacağını təsvir etmək üçün [JSX işlətməyi](/docs/introducing-jsx.html) tövsiyyə edirik. Hər bir JSX elementi [`React.createElement()`](#createelement) funksiyasını çağırmaq üçün gözəl sintaksisdir. JSX işlətdikdə adətən aşağıdakı funksiyaları birbaşa çağırmırsınız.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
@@ -49,7 +49,8 @@ Daha ətraflı məlumat üçün [JSX-siz React-in İşlənməsini](/docs/react-w
 
 ### Fraqmentlər {#fragments}
 
-`React` həmçinin bir neçə elmeentin əhatə olan elementsiz bir neçə elementi render etmək üçün kompoennt tmin edir.
+
+React həmçinin əhatə edən element olmadan bir neçə elementi render etmək üçün komponent təmin edir.
 
 - [`React.Fragment`](#reactfragment)
 
@@ -60,7 +61,7 @@ Daha ətraflı məlumat üçün [JSX-siz React-in İşlənməsini](/docs/react-w
 
 ### Suspense {#suspense}
 
-Suspense komponentləri render etməmişdən qabaq neyisə "gözləməsinə" imkan yaradır. Bugün, Suspense yalnız bir ssenarini dəstələyir: [komponentlərin `React.lazy` ilə dinamik yüklənməsi](/docs/code-splitting.html#reactlazy). Gələcəkdə, bu başqa ssenariləri (məsələn məklumatın yüklənməsi) də dəstəkləyəcək.
+Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" imkan yaradır. Bu gün, Suspense yalnız bir ssenarini dəstələyir: [komponentlərin `React.lazy` ilə dinamik yüklənməsi](/docs/code-splitting.html#reactlazy). Gələcəkdə bu başqa ssenariləri (məsələn məklumatın yüklənməsi) də dəstəkləyəcək.
 
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
@@ -98,21 +99,21 @@ class Greeting extends React.Component {
 }
 ```
 
-`React.Component` əsas klasına aid Funskiya və parametrlərin siyahısı üçün [React.Component API Arayışına](/docs/react-component.html) baxın.
+`React.Component` əsas klasına aid funksiya və parametrlərin siyahısı üçün [React.Component API Arayışına](/docs/react-component.html) baxın.
 
 * * *
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` [`React.Component-inə`](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funskiyasını tətbiq etməsəsi, `React.PureComponent`-in isə bu funskiyasının dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
+`React.PureComponent` [`React.Component-inə`](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyasının dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
 
-Əgər React komponentin `render()` funskiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
+Əgər React komponentin `render()` funksiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
 
 > Qeyd
 >
-> `React.PureComponent`-in `shouldComponentUpdate()` funskiyası obyektləri yalnız dayaz müqayisə edir. Əgər kompleks data strukturlar varsa, bu sizə dərin müqayisələrdə səhv-neqativlər verə bilər. Komponentinizə `PureComponent` ilə yalnız sadə proplar və state olduqda işlədin. Əks halda dərin data stukturlarının dəyişdiyini bildiyiniz zaman [`forceUpdate()`](/docs/react-component.html#forceupdate) funskiyasından istifadə edin. Və ya dərin məlumatların tez müqayisəsi üçün [dəyişməyən obyektlərdən](https://facebook.github.io/immutable-js/) istifadə edin.
+> `React.PureComponent`-in `shouldComponentUpdate()` funksiyası obyektləri yalnız dayaz müqayisə edir. Əgər kompleks data strukturlar varsa, bu sizə dərin müqayisələrdə səhv-neqativlər verə bilər. Komponentinizi `PureComponent` ilə yalnız sadə proplar və state olduqda genişləndirin. Əks halda dərin data strukturlarının dəyişdiyini bildiyiniz zaman [`forceUpdate()`](/docs/react-component.html#forceupdate) funksiyasından istifadə edin. Əlavə olaraq, dərin məlumatların tez müqayisəsi üçün [dəyişməyən obyektlərdən](https://facebook.github.io/immutable-js/) istifadə edin.
 >
-> Əlavə olaraq, `React.PureComponent`-in `shouldComponentUpdate()` funskiyası komponentdən başlayan komponent ağacının prop yeniliklərini saymır. Əmin olunki, bütün uşaq komponentlərdə "təmizdirlər."
+> Əlavə olaraq, `React.PureComponent`-in `shouldComponentUpdate()` funksiyası komponentdən başlayan komponent ağacının prop yeniliklərini saymır. Əmin olun ki, bütün uşaq komponentlər də "təmizdirlər."
 
 * * *
 
@@ -124,9 +125,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu klaslar əvəzinə funskiya komponentləri ilə işlənilir.
+`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu klaslar əvəzinə funksiya komponentləri ilə işlənilir.
 
-Əgər sizin komponent funskiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funskiyanı `React.memo` ilə əhatə edib bəzi hallarda nətinəni memoize edərək performansı artıra bilərsiniz. Bu deməkdirki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
+Əgər sizin komponent funksiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
 
 Default halda, bu props obyektində olan kompleks obyektləri dayaz formada müqayisə edəcək. Əgər siz müqayisəni kontrol etmək istəyirsinizsə, siz xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
 
@@ -144,11 +145,11 @@ function areEqual(prevProps, nextProps) {
 export default React.memo(MyComponent, areEqual);
 ```
 
-Bu metod yalnız **[performans optimizasiyası](/docs/optimizing-performance.html)** yararlıdır. Bu funskiyaya render-in qarşısını almaq üçün etibar etməyin -- bu sizdə baqlara səbəb ola bilər.
+Bu metod yalnız **[performans optimizasiyası](/docs/optimizing-performance.html)** üçün yararlıdır. Bu funksiyaya render-in qarşısını almaq üçün etibar etməyin -- bu sizdə baqlara səbəb ola bilər.
 
 > Qeyd
 >
-> Klass komponentlərdə [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funskiyasından fərqli olaraq, `areEqual` funksiyası proplar eyni olduqda `true`, fərqli olduqda isə `false` qaytarır. Bu `shouldComponentUpdate` funskiyasının tərsidir.
+> Klass komponentlərdə [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasından fərqli olaraq, `areEqual` funksiyası proplar eyni olduqda `true`, fərqli olduqda isə `false` qaytarır. Bu `shouldComponentUpdate` funksiyasının tərsidir.
 
 * * *
 
@@ -162,9 +163,9 @@ React.createElement(
 )
 ```
 
-Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yarat və qaytar. Element tipi təq adı yazısı (məsələn `'div'` və ya `'span'`), [React komponenti](/docs/components-and-props.html) tipi (klas və ya funskiya), və ya [React fraqmenti](#reactfragment) tipi ola bilər.
+Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yaradın və qaytarın. Element tipi təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (klas və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
 
-[JSX](/docs/introducing-jsx.html) ilə yazılmış kod `React.createElement()`-ə çevriləcək. Siz JSX işlətdiyiniz zaman çox vaxt siz `React.createElement()` funskiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
+[JSX](/docs/introducing-jsx.html) ilə yazılmış kod `React.createElement()`-ə çevriləcək. Siz JSX işlətdiyiniz zaman çox vaxt `React.createElement()` funksiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
 
 * * *
 
@@ -178,7 +179,7 @@ React.cloneElement(
 )
 ```
 
-`element`-i başlanğıc nöqtəsi götürərək, elementi kopiyalayıb, yeni React elementi qaytar. Nəticədə yaranan elementdə orijinal elementin propları ilə yeni propların dayaz birləşməsi var. Yeni uşaqlar olan uşaqları əvəz edəcəklar. `key` və `ref` orijinal elementdəki kimi qalacaq.
+`element`-i başlanğıc nöqtəsi götürərək, elementi kopiyalayıb, yeni React elementi qaytar. Nəticədə yaranan elementdə orijinal elementin propları ilə yeni propların dayaz birləşməsi var. Yeni uşaqlar mövcud uşaqları əvəz edəcək. `key` və `ref` orijinal elementdəki kimi qalacaq.
 
 `React.cloneElement()` aşağıdakı ifadə ilə təxminən eynidir:
 
@@ -188,7 +189,7 @@ React.cloneElement(
 
 Lakin, bu həmçinin `ref`-ləridə saxlayır. Bu deməkdir ki, əgər sizə üstündə `ref` olan uşaq gəlirsə, siz təsadüfən, ref-i əcdad komponentdən oğurlamayacaqsınız. Siz yeni `ref` qoşulmuş yeni element alacaqsınız.
 
-Bu API, köhnəlmiş `React.addons.cloneWithProps()` funskiyasının əvəzləmək üçün təqdim edilmişdir.
+Bu API, köhnəlmiş `React.addons.cloneWithProps()` funksiyasının əvəzləmək üçün təqdim edilmişdir.
 
 * * *
 
@@ -198,14 +199,11 @@ Bu API, köhnəlmiş `React.addons.cloneWithProps()` funskiyasının əvəzləm�
 React.createFactory(type)
 ```
 
-Verilmiş tip ilə React elementlər yaradan funskiya qaytarır. [`React.createElement()`](#createelement) kimi, tip arqumenti təq adı yazısı (məsələn `'div'` və ya `'span'`), [React komponenti](/docs/components-and-props.html) tipi (klas və ya funskiya), və ya [React fraqmenti](#reactfragment) tipi ola bilər.
+Verilmiş tip ilə React elementlər yaradan funksiya qaytarır. [`React.createElement()`](#createelement) kimi, tip arqumenti təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (klas və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
 
-Bu köməkçi funskiya köhnəlmiş kimi hesab edilir, və biz bu funksiyanı işlətmək əvəzinə birbaşa JSX və ya `React.createElement()` işlətməyi təşviq edirik.
+Bu köməkçi funksiya köhnəlmiş kimi hesab edilir və biz bu funksiyanı işlətmək əvəzinə birbaşa JSX və ya `React.createElement()` işlətməyi təşviq edirik.
 
-Siz JSX işlətdiyiniz zaman, birbaşa
-
-
-Siz JSX işlətdiyiniz zaman çox vaxt siz `React.createFactory()` funskiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
+Siz JSX işlətdiyiniz zaman çox vaxt `React.createFactory()` funksiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
 
 * * *
 
@@ -221,7 +219,7 @@ Elementin React elementi olmasını təsdiqləyir. `true` və ya `false` qaytar�
 
 ### `React.Children` {#reactchildren}
 
-`React.Children` `this.props.children` qeyri şəffaf data strukturu ilə məşğul olmaq üçün faydalı funskiyalar ilə təmin edir.
+`React.Children` `this.props.children` qeyri şəffaf data strukturu ilə məşğul olmaq üçün faydalı funksiyalar ilə təmin edir.
 
 #### `React.Children.map` {#reactchildrenmap}
 
@@ -229,7 +227,7 @@ Elementin React elementi olmasını təsdiqləyir. `true` və ya `false` qaytar�
 React.Children.map(children, function[(thisArg)])
 ```
 
-`children`-da olan hər birbaşa ola uşağın üzərində funskiya çağırır. Bu funskiyada `this`, `thisArg` ilə təyin edilir. Əgər `children` masivdirsə, massiv traver edəcək və funskiya hər uşaqda çağrılacaq. Əgər `children` `null` və ya `undefined`-dirsə, bu funskiya massiv əvəzinə `null` və ya `undefined` qaytaracaq.
+`children`-da olan hər birbaşa ola uşağın üzərində funksiya çağırır. Bu funksiyada `this`, `thisArg` ilə təyin edilir. Əgər `children` massivdirsə, massiv traver edəcək və funksiya hər uşaqda çağrılacaq. Əgər `children` `null` və ya `undefined`-dirsə, bu funksiya massiv əvəzinə `null` və ya `undefined` qaytaracaq.
 
 > Qeyd
 >
@@ -257,11 +255,11 @@ React.Children.count(children)
 React.Children.only(children)
 ```
 
-`children`-in yalnız bir uşağı (React elementi) olmasını təsqidləyir və bu elementi qaytarır. Əks halda, bu funksiya xəta atir.
+`children`-in yalnız bir uşağı (React elementi) olmasını təsqidləyir və bu elementi qaytarır. Əks halda, bu funksiya xəta atır.
 
 > Qeyd:
 >
->`React.Children.only()` [`React.Children.map()`](#reactchildrenmap) funskiyasının qaytardığı dəyəri qəbul etmir. Çünki bu funskiyaının qaytardığı massivdir, React elementi deyil.
+>`React.Children.only()` [`React.Children.map()`](#reactchildrenmap) funksiyasının qaytardığı dəyəri qəbul etmir. Çünki bu funksiyaının qaytardığı massivdir, React elementi deyil.
 
 #### `React.Children.toArray` {#reactchildrentoarray}
 
@@ -269,24 +267,24 @@ React.Children.only(children)
 React.Children.toArray(children)
 ```
 
- `children` data strukturundan yastı massiv yaradır, uşaqları açarlar ilə təyin edir, və yaranan massivi qaytarır. Uşaqların kolleksiyalarıni render zamanı manipulyasiya etmək, xüsusilədə `this.props.children`-ı render etməmişdən oncə sıralamaq və ya parçalamaq, üçün yararlıdır.
+ `children` data strukturundan yastı massiv yaradır, uşaqları açarlar ilə təyin edir və yaranan massivi qaytarır. Uşaqların kolleksiyalarını render zamanı manipulyasiya etmək, xüsusilə də `this.props.children`-ı render etməmişdən öncə sıralamaq və ya parçalamaq üçün yararlıdır.
 
 > Qeyd:
 >
-> `React.Children.toArray()` uşaqların siyahısını yastıladıqda, iç içə massivlərin semantikasını qorumaq üçün açarları dəyişir. Yəni, `toArray`, qaytarılan massivin daxilində olan hər massivin elementlərin açarlarının düzgün əhatəsi üçün, bütün açarlara prefix əlavə edir.
+> `React.Children.toArray()` uşaqların siyahısını yastıladıqda, iç-içə massivlərin semantikasını qorumaq üçün açarları dəyişir. Yəni, `toArray`, qaytarılan massivin daxilində olan hər massiv elementlərin açarlarının düzgün əhatəsi üçün bütün açarlara prefix əlavə edir.
 
 * * *
 
 ### `React.Fragment` {#reactfragment}
 
-`React.Fragment` komponenti bir neçə elementi, əlavə DOM elementi yaratmadan `render()` funskiyasından qaytarmağa imkan yaradır:
+`React.Fragment` komponenti bir neçə elementi, əlavə DOM elementi yaratmadan `render()` funksiyasından qaytarmağa imkan yaradır:
 
 ```javascript
 render() {
   return (
     <React.Fragment>
-      Some text.
-      <h2>A heading</h2>
+      Bir mətn.
+      <h2>Başlıq</h2>
     </React.Fragment>
   );
 }
@@ -306,11 +304,11 @@ Siz həmçinin `<></>` qısa sintaksisi işlədə bilərsiniz. Daha ətraflı m�
 * [Ref-lərin DOM komponentlərə yönləndirilməsi](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
 * [Yüksək dərəcəli komponentlərdə ref-lərin yönləndirilməsi](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
 
-`React.forwardRef` render funskiyasını arqument kimi qəbul edir. React bu funskiyanı `props` və `ref` arqumentləri ilə çağırır. Bu funskiya React nodu qaytarmalıdır.
+`React.forwardRef` render funksiyasını arqument kimi qəbul edir. React bu funksiyanı `props` və `ref` arqumentləri ilə çağırır. Bu funksiya React nodu qaytarmalıdır.
 
 `embed:reference-react-forward-ref.js`
 
-Bu nümunədə, React, `<FancyButton ref={ref}>` elementinə verilən `ref`-i `React.forwardRef` funskiyasında olan render funskiyasının ikinci arqumentinə ötürür. Bu rendering funskiyası `ref`-i `<button ref={ref}>` elementinə ötürür.
+Bu nümunədə, React, `<FancyButton ref={ref}>` elementinə verilən `ref`-i `React.forwardRef` funksiyasında olan render funksiyasının ikinci arqumentinə ötürür. Bu rendering funksiyası `ref`-i `<button ref={ref}>` elementinə ötürür.
 
 Nəticədə, React ref-i əlavə etdikdən sonra, `ref.current` birbaşa `button` DOM elementini qeyd edəcək.
 
@@ -318,16 +316,16 @@ Nəticədə, React ref-i əlavə etdikdən sonra, `ref.current` birbaşa `button
 
 ### `React.lazy` {#reactlazy}
 
-`React.lazy()` sizə dinamik yüklənən komponent müəyyən etməyə icazə verir. Bu ilkin render zamanı işlənməyən komponentlərinin yüklənməsinin gecikdirərək, sizin applikasiyanızın paket ölçüsünü azaltmağa kömək edir.
+`React.lazy()` sizə dinamik yüklənən komponenti müəyyən etməyə icazə verir. Bu ilkin render zamanı işlənməyən komponentlərin yüklənməsini gecikdirərək, sizin applikasiyanızın paket ölçüsünü azaltmağa kömək edir.
 
 Siz bunu necə işlətməyi [kod parçalanması sənədindən](/docs/code-splitting.html#reactlazy) öyrənə bilərsiniz. Siz həmçinin bunu işlətmək haqqında daha ətraflı izahat üçün [bu məqaləni](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) oxuya bilərsiniz.
 
 ```js
-// This component is loaded dynamically
+// Bu komponent dinamik olaraq yüklənir
 const SomeComponent = React.lazy(() => import('./SomeComponent'));
 ```
 
-Qeyd edin ki, `lazy` komponentləri render etmək üçün komponent ağacında üstdə `<React.Suspense>` komponenti olmalıdır. Siz belə formada yükləmə göstəricisini müəyyənləşdirirsiniz.
+Nəzərə alın ki, `lazy` komponentləri render etmək üçün komponent ağacında üstdə `<React.Suspense>` komponenti olmalıdır. Siz belə formada yükləmə göstəricisini müəyyənləşdirirsiniz.
 
 > **Qeyd**
 >
@@ -353,7 +351,7 @@ function MyComponent() {
 }
 ```
 
-Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#reactlazy) göstərilmişdir. Qeyd edinki, `lazy` komponentlər `Suspense` ağacının dərinliklərində də ola bilər. Suspense hər bir `lazy` komponenti əhatə etməməlidir. Yükləmə indikatoru görmək istədiyiniz yerdə `<Suspense>`-i əlavə etmək, amma `lazy()`-ni kod parçalaması etmək istədiyiniz yerdə işlətmək ən yaxşı praktikadır.
+Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#reactlazy) göstərilmişdir. Qeyd edin ki, `lazy` komponentlər `Suspense` ağacının dərinliklərində də ola bilər. Suspense hər bir `lazy` komponenti əhatə etməməlidir. Yükləmə indikatoru görmək istədiyiniz yerdə `<Suspense>`-i əlavə etmək, amma `lazy()`-ni kod parçalaması etmək istədiyiniz yerdə işlətmək ən yaxşı praktikadır.
 
 İndiki gündə dəstəklənməməsinə baxmayaraq, biz gələcəkdə `Suspense`-in məlumat yüklənməsi kimi ssenarilərini dəstəkləməsini planlaşdırırıq. Bu haqda əlavə məlumat üçün, [yol xəritəmizi](/blog/2018/11/27/react-16-roadmap.html) oxuya bilərsiniz.
 
