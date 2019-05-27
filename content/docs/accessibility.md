@@ -369,6 +369,7 @@ Daha kompleks istifadəçi təcrübəsi, daha az imkanlılıq demək deyil. Halb
 
 Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [ARIA Vəziyyətləri və Parametrləri](https://www.w3.org/TR/wai-aria/#states_and_properties) haqqında bilikləri tələb edirik. Yuxarıdakı xüsusiyyətlər JSX-də tamamilə dəstəklənən və bizə tamamilə imkanlı, yüksək funksional React komponentləri qurmağa imkan verən HTML atributları ilə doludur. 
 
+
 Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işləndiyi gözlənilir:
 
 - [WAI-ARIA Yazma Təcrübələri - Pattern və Vidcetlərin Dizayn edilməsi](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
