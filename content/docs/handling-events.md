@@ -1,6 +1,6 @@
 ---
 id: handling-events
-title: Hadisələrin emal edilməsi
+title: Hadisələrin Emal Edilməsi
 permalink: docs/handling-events.html
 prev: state-and-lifecycle.html
 next: conditional-rendering.html

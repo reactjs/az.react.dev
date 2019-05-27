@@ -22,7 +22,7 @@
     - id: state-and-lifecycle
       title: State və Lifecycle
     - id: handling-events
-      title: Hadisələrin İşlədilməsi
+      title: Hadisələrin Emal Edilməsi
     - id: conditional-rendering
       title: Şərti Render Edilmə
     - id: lists-and-keys
