@@ -417,17 +417,10 @@ Aşağıda qeyd olunmuş aXe and WAVE alətlərinə rəng kontrastı testləri d
 
 Test üçün ən asan və ən vacib xanalardan biri sizin bütün veb səhifəniz təkcə klaviatur ilə istifadə oluna bilməsidir. Siz bunu belə edə bilərsiz:
 
-<<<<<<< HEAD
 1. Mausunuzu çıxarın.
 2. Baxmaq üçün `Tab` və `Shift+Tab` istifadə edin.
 3. Elementləri aktivləşdirmək üçün `Enter` istifadə edin.
 4. Lazım olan yerlərdə klaviaturun üzərində ox olan klavişin menus və dropdown kimi bəzi elementlər ilə qarşılıqlı əlaqəyə girməsi üçün istifadə edin.
-=======
-1. Disconnecting your mouse.
-1. Using `Tab` and `Shift+Tab` to browse.
-1. Using `Enter` to activate elements.
-1. Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.
->>>>>>> 23b242edc4c7eeee5798953ba205e36cc71016b8
 
 ### Development köməyi
 
