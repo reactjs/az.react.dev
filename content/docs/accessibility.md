@@ -245,7 +245,7 @@ Bu adətən `click` hadisəsini popoveri bağlayan `window` obyektinə qoşmaqla
 
 ```javascript{12-14,26-30}
 class OuterClickExample extends React.Component {
-constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { isOpen: false };
@@ -279,13 +279,13 @@ constructor(props) {
     return (
       <div ref={this.toggleContainer}>
         <button onClick={this.onClickHandler}>Opsiya seçin</button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Seçim 1</li>
             <li>Seçim 2</li>
             <li>Seçim 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
@@ -345,13 +345,13 @@ class BlurExample extends React.Component {
                 aria-expanded={this.state.isOpen}>
           Opsiyanı seçin
         </button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Seçim 1</li>
             <li>Seçim 2</li>
             <li>Seçim 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
