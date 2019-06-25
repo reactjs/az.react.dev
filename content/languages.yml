@@ -90,13 +90,8 @@
 - name: Koreya dilində
   translated_name: 한국어
   code: ko
-<<<<<<< HEAD
-  status: 1
-- name: Kürdcə
-=======
   status: 2
-- name: Kurdish
->>>>>>> 899411236d5b1520ab8b8e7fad7d48c681abc69b
+- name: Kürdcə
   translated_name: کوردی‎
   code: ku
   status: 0
