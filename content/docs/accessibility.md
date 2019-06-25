@@ -278,13 +278,8 @@ class OuterClickExample extends React.Component {
   render() {
     return (
       <div ref={this.toggleContainer}>
-<<<<<<< HEAD
         <button onClick={this.onClickHandler}>Opsiya seçin</button>
-        {this.state.isOpen ? (
-=======
-        <button onClick={this.onClickHandler}>Select an option</button>
         {this.state.isOpen && (
->>>>>>> 899411236d5b1520ab8b8e7fad7d48c681abc69b
           <ul>
             <li>Seçim 1</li>
             <li>Seçim 2</li>
@@ -301,11 +296,7 @@ Bu kursor cihazı (məsələn, maus) olan istifadəçilər üçün yaxşı işl�
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="Kənara tıklamaq patternası ilə tətbiq olunmuş və klaviatur ilə idarə olunan popover siyahısını açan toggle düyməsinin popoverin blur zamanı bağlanmamasını və ekrandakı başqa elementlərin üstünü bağlamasını göstərməsi." />
 
-<<<<<<< HEAD
 Eyni funksionallıq `onBlur` və `onFocus` kimi uyğun hadisə işləyicisini istifadə etməklə əldə edilə bilər:
-=======
-The same functionality can be achieved by using appropriate event handlers instead, such as `onBlur` and `onFocus`:
->>>>>>> 899411236d5b1520ab8b8e7fad7d48c681abc69b
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
