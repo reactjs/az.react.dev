@@ -1,6 +1,6 @@
 ---
 id: conditional-rendering
-title: Conditional Rendering
+title: Şərti Render Etmə
 permalink: docs/conditional-rendering.html
 prev: handling-events.html
 next: lists-and-keys.html
@@ -8,11 +8,11 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
-In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+React-də siz ehtiyacınız olan davranışı ininkapsulyasiya edən fərqli komponentləri yarada bilərsiniz. Daha sonra, siz applikasiyanızın vəziyyətindən asılı olaraq bəzi komponentləri render edə bilərsiniz.
 
-Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) or the [conditional operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to create elements representing the current state, and let React update the UI to match them.
+Şərti render etmə JavaScript-də işlədiyi kimi React-də işlənilir. Hazırki vəziyyəti təmsil etmək üçün elemetləri yaratmağa və React yenilənmələrini UI ilə uyğunlaşdırmaq üçün [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) və ya [şərti operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) kimi Javascript operatorlarını istifadə edin.
 
-Consider these two components:
+Bu iki komponentləri nəzərə alın:
 
 ```js
 function UserGreeting(props) {
@@ -24,7 +24,7 @@ function GuestGreeting(props) {
 }
 ```
 
-We'll create a `Greeting` component that displays either of these components depending on whether a user is logged in:
+Biz, bu komponentlərin hansınısa təsvir edən  `Greeting` komponenti yaradacağıq.We'll create a `Greeting` component that displays either of these components depending on whether a user is logged in:
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
@@ -42,15 +42,15 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
+[**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
-This example renders a different greeting depending on the value of `isLoggedIn` prop.
+Bu münunə `isLoggedIn` propunun dəyərindən asılı olaraq müxtəlif salamlama render edir.
 
-### Element Variables {#element-variables}
+### Element Dəyişənləri {#element-variables}
 
-You can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn't change.
+Siz elementləri saxlamaq üçün dəyişənləri istifadə edə bilərsiniz. Bu sizə nəticənin qalan hissəsini dəyişmədən komponentin bir hissəsini şərti olaraq render etməyə imkan verəcək.
 
-Consider these two new components representing Logout and Login buttons:
+Yeni iki komponentləri təmsil edən Logout və Login düymələrini nəzərə alın:
 
 ```js
 function LoginButton(props) {
@@ -70,9 +70,9 @@ function LogoutButton(props) {
 }
 ```
 
-In the example below, we will create a [stateful component](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) called `LoginControl`.
+Aşağıdakı müsalda biz `LoginControl` adlanan [state-li komponent](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) yaradacağıq.
 
-It will render either `<LoginButton />` or `<LogoutButton />` depending on its current state. It will also render a `<Greeting />` from the previous example:
+Bu hazırki vəziyyəti nəzərə alaraq `<LoginButton />` və ya `<LogoutButton />` render edəcək. Bu həmçinin əvvəli misaldan olan `<Greeting />`-i render edəcək:
 
 ```javascript{20-25,29,30}
 class LoginControl extends React.Component {
@@ -116,7 +116,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
+[**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
 While declaring a variable and using an `if` statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
 
@@ -146,17 +146,17 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
+[**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-It works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
+Bu işləyir çünki JavaScript-də `true && expression` həmişə `expression`-u qiymətləndirir və `false && expression` həmişə `false`-u qiIt works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
 
-Therefore, if the condition is `true`, the element right after `&&` will appear in the output. If it is `false`, React will ignore and skip it.
+Buna görə də, əgər şərt (vəziyyət) `true`-dursa, `&&`-dan sonrakı element nəticədə görünəcək. Əgər `false`-dursa, React onu nəzərə almır və ötür.
 
-### Inline If-Else with Conditional Operator {#inline-if-else-with-conditional-operator}
+### Müvəqqəti If-Else Şərti Operator ilə {#inline-if-else-with-conditional-operator}
 
-Another method for conditionally rendering elements inline is to use the JavaScript conditional operator [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+Elementlərin müvəqqəti şərti render edilməsi üçün digər bir üsul JavaScript-in şərti operatoru [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)istifadə etməkdir.
 
-In the example below, we use it to conditionally render a small block of text.
+Aşağıdakı misalda biz bunu balaca mətn qutusunu şərti olaraq render etmək üçün istifadə etdik.
 
 ```javascript{5}
 render() {
@@ -169,7 +169,7 @@ render() {
 }
 ```
 
-It can also be used for larger expressions although it is less obvious what's going on:
+Bu daha geniş tərkiblər üçün istifadə oluna bilər, amma daha az başa düşülən olur:
 
 ```js{5,7,9}
 render() {
@@ -186,13 +186,13 @@ render() {
 }
 ```
 
-Just like in JavaScript, it is up to you to choose an appropriate style based on what you and your team consider more readable. Also remember that whenever conditions become too complex, it might be a good time to [extract a component](/docs/components-and-props.html#extracting-components).
+Javascript-də olduğu kimi, siz və sizin komandanızın oxuna bilən kimi müəyyənləşdirdiyinə əsasən müvafiq stili seçmək sizə bağlıdır. Həmçinin yadda saxlayın ki, şərtlər kompleksləşdiyi zaman [komponenti çıxarmaq](/docs/components-and-props.html#extracting-components) yaxşı üsuldur.
 
-### Preventing Component from Rendering {#preventing-component-from-rendering}
+### Komponentin render edilməsinin qarşısını almaq {#preventing-component-from-rendering}
 
-In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return `null` instead of its render output.
+Nadir hallarda siz komponentin digər komponent tərəfindən render edildiyinə baxmayaraq, onun ozünü gizlətməsini istəyə bilərsiniz. Bunun üçün nəticəni render etməkdənsə, `null`-u qaytarın.
 
-In the example below, the `<WarningBanner />` is rendered depending on the value of the prop called `warn`. If the value of the prop is `false`, then the component does not render:
+Aşağıdakı nümunədə `warn` adlanan propun dəyərindən asılı olaraq `<WarningBanner />` render olunur. Əgər propun dəyəri `false`-dursa, bu halda komponent render etmir:
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
@@ -238,6 +238,6 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
+[**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
 Returning `null` from a component's `render` method does not affect the firing of the component's lifecycle methods. For instance `componentDidUpdate` will still be called.
