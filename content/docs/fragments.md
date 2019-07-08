@@ -18,7 +18,11 @@ render() {
 }
 ```
 
+<<<<<<< HEAD
 Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax) var, amma bu hələki bütün məşhur alətlər tərəfindən dəstəklənmir.
+=======
+There is also a new [short syntax](#short-syntax) for declaring them.
+>>>>>>> 40e96a44e5d42b57a453afeb5f6daed792025371
 
 ## Motivasiya {#motivation}
 
@@ -113,9 +117,13 @@ class Columns extends React.Component {
 
 Siz `<></>` digər elementləri işlətdiyiniz üsulla istifadə edə bilərsiniz, yalnız bu açarları və atributları dəstəkləmir.
 
+<<<<<<< HEAD
 Nəzərə alın ki, **[çox alətlər hələki bunu dəstəkləmir](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Beləliklə, siz `<React.Fragment>` açıq şəkildə alətlər dəstəkləyənə qədər yazmaq istəyə bilərsiniz.
 
 ### Açarlı Fraqmentlər {#keyed-fragments}
+=======
+### Keyed Fragments {#keyed-fragments}
+>>>>>>> 40e96a44e5d42b57a453afeb5f6daed792025371
 
 Açıq `<React.Fragment>` sintaksisi ilə bəyan olunmuş fraqmentlərin açarları ola bilər. Buna misal kolleksiyanın fraqmentlər massivi ilə uzlaşdırılması ola bilər -- məsələn, təsvir siyahısının yaratmaq:
 
