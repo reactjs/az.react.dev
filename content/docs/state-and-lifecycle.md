@@ -243,7 +243,11 @@ Bu metodlara "lifecycle metodları" deyilir.
   }
 ```
 
+<<<<<<< HEAD
 Diqqət yetirsək, taymerin ID-sini `this` də saxladığımızı görərsiniz.
+=======
+Note how we save the timer ID right on `this` (`this.timerID`).
+>>>>>>> 4af9f2dcd1014c18ea6ce98794ba0d63874ac9d2
 
 `this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı klasa hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
 
