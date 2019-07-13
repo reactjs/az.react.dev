@@ -18,11 +18,7 @@ render() {
 }
 ```
 
-<<<<<<< HEAD
-Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax) var, amma bu hələki bütün məşhur alətlər tərəfindən dəstəklənmir.
-=======
-There is also a new [short syntax](#short-syntax) for declaring them.
->>>>>>> 4af9f2dcd1014c18ea6ce98794ba0d63874ac9d2
+Burada həmçinin onları bəyan etmək üçün yeni [qısa sintaksis](#short-syntax) var.
 
 ## Motivasiya {#motivation}
 
