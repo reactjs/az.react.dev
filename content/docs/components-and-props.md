@@ -1,6 +1,6 @@
 ---
 id: components-and-props
-title: Components and Props
+title: Komponentlər və Proplar
 permalink: docs/components-and-props.html
 redirect_from:
   - "docs/reusable-components.html"
@@ -16,60 +16,60 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Komponentlər sizə UI-ı müstəqil, yenidən istifadə oluna bilən hissələrə bölməyə və hər bir hissə haqqında izolasiya olunmuş kimi düşünməyə imkan verir. Bu səhifə komponentlər haqqında ideya üçün girişi təmin edir. Siz [komponent API referansı haqqında ətraflı burada](/docs/react-component.html) məlumat tapa bilərsiniz.
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Konseptual olaraq, komponentlər JavaScript funksiyalarına bənzəyir. Komponentlər özbaşına daxiletmələri ("proplar" adlanan) qəbul edir və ekranda nə olacağını təsvir edən React elementlərini qaytarırlar.
 
-## Function and Class Components {#function-and-class-components}
+## Funksiya və Klass Komponentlər {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+Komponenti müəyyən etməyin ən asan yolu JavaScript funksiyasını yazmaqdır:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Salam, {props.name}</h1>;
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Bu funksiya məlumatı olan tək "proplar" (parametrlər mənasını daşıyır) obyekt arqumentini qəbul etdiyi və React elementini qaytardığı üçün etibarlı React komponenti sayılır. Biz bu komponentlərin JavaScript funksiyaları olduğu üçün "funksiya komponentləri" adlandırırıq.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Siz komponenti müəyyən etmək üçün [ES6 klassından](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 }
 ```
 
-The above two components are equivalent from React's point of view.
+Yuxarıdakı iki komponentlər React-ə nəzərən bərabərdirlər.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Klasların [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
 
-## Rendering a Component {#rendering-a-component}
+## Komponenti Render Etmək {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Daha əvvəl biz yalnız DOM təqlərini təmsil edən React elementlərini qarşılaşdırırdıq:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+Buna baxmayaraq, elementlər developerlər tərəfindən yazılmış komponentləri təmsil edə bilərlər:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+React developerlər tərəfindən yazılmış komponenti təmsil edən element gördükdə, o JSX atributlarını bu komponentə tək obyekt kimi ötürür. Biz bu obyekti "proplar" adlandırırıq.
 
-For example, this code renders "Hello, Sara" on the page:
+Məsələn, aşağıdakı kod "Salam, Aysel" mətnini səhifədə render edir:
 
 ```js{1,5}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Salam, {props.name}</h1>;
 }
 
-const element = <Welcome name="Sara" />;
+const element = <Welcome name="Aysel" />;
 ReactDOM.render(
   element,
   document.getElementById('root')
@@ -78,36 +78,36 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Gəlin bu nümunədə baş verənləri qeyd edək:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Biz `ReactDOM.render()`-i `<Welcome name="Aysel" />` elementi ilə çağırırıq.
+2. React `Welcome` komponentini proplar kimi`{name: 'Aysel'}`-i ilə çağırırıq.
+3. Bizim `Welcome` komponentimiz `<h1>Salam, Aysel</h1>` elementini nəticə kimi çağırır.
+4. React DOM-u `<h1>Salam, Aysel</h1>`-ə uyğunlaşdırmaq üçün effektli şəkildə DOM-u yeniləyir.
 
->**Note:** Always start component names with a capital letter.
+>**Qeyd:** Komponent adlarının həmişə böyük hərf ilə başlayın.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>React kiçik hərflərlə başlayan komponentlərə DOM təqləri kimi davranır. Məsələn, `<div />`, HTML div təqini təmsil edir, amma `<Welcome />` isə komponenti təmsil edir və `Welcome`-un əhatə olunmasını tələb edir.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>Bu adətin səbəbi haqqında ətraflı məlumat üçün [JSX Dərindən](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized) arayışını nəzərdən keçirin.
 
-## Composing Components {#composing-components}
+## Kompozisiya olunmuş Komponentlər{#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Komponentlər öz nəticələrində digər komponentlərə istinad göstərə bilərlər. Bu bizə hər hansı bir detal səviyyəsi üçün eyni komponent abstraksiyasını istifadə etməyə imkan verir. React-də düymə, forma, dialoq və ekran ümumi şəkildə komponentlər kimi ifadə olunur.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Məsələn, biz `Welcome`-u dəfələrlə render edən `App` komponenti yarada bilərik:
 
 ```js{8-10}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Salam, {props.name}</h1>;
 }
 
 function App() {
   return (
     <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
+      <Welcome name="Aysel" />
+      <Welcome name="Orxan" />
+      <Welcome name="Cəmilə" />
     </div>
   );
 }
@@ -120,13 +120,13 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Adətən yeni React applikasiyalarının ən yuxarıda tək `App` komponenti olur. Buna baxmayaraq, əgər siz mövcud applikasiyalara React-i inteqrasiya etsəniz, siz aşağıdan yuxarı `Button` kimi kiçik komponentlər ilə başlamalı olacaqsız və tədricən ierarxiyanın ən yuxarısına işləməlisiniz.
 
-## Extracting Components {#extracting-components}
+## Komponentlərin Çıxarılması {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Komponentləri daha kiçik komponentlərə bölməyə çəkinməyin.
 
-For example, consider this `Comment` component:
+Məsələn, bu `Comment` komponentini nəzərə alın:
 
 ```js
 function Comment(props) {
@@ -154,11 +154,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Bu `author` (obyekt), `text` (mətn), və `date`-i (məlumat) proplar kimi qəbul edir və sosial media saytında kommenti təsvir edir.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Bu komponent dəyişmək yerləşmə səbəbindən çətin ola bilər və bu komponentin individual hissələrinin yenidən istifadə olunmasıda çətindir. Gəlin bundan bir neçə komponenti xaric edək.
 
-First, we will extract `Avatar`:
+İlk olaraq, biz `Avatar` çıxaracağıq:
 
 ```js{3-6}
 function Avatar(props) {
@@ -171,11 +171,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar`-ın `Comment`-in daxilində render olunduğunu bilməsi vacib deyil. Bu səbəbdən biz bunun propuna daha ümumi ad verə bilərik: `author` yerinə `user`.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Biz proplara ad verərkən istifadə olunan kontentə uyğun olaraq deyil, komponentlərin nəzərindən ad verməyi məsləhət görürük.
 
-We can now simplify `Comment` a tiny bit:
+İndi biz `Comment`-i bir az sadələşdirə bilərik:
 
 ```js{5}
 function Comment(props) {
@@ -198,7 +198,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Daha sonra biz istifadəçi adının yanında yerləşən `Avatar`-ı render edən `UserInfo` komponentini xaric edirik:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -213,7 +213,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+Bu bizə `Comment`-i daha da sadələşdirməyə imkan verir:
 
 ```js{4}
 function Comment(props) {
@@ -233,11 +233,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Komponentlərin xaric edilməsi ilk öncə aşağı səviyyəli iş kimi görünə bilər, amma daha böyük applikasiyalarda  yenidən istifadə oluna bilən komponentlər paletinin olması yararlıdır. Məsləhət görülür ki, sizin bir neçə yerdə istifadə etdiyiniz (`Button`, `Panel`, `Avatar`), və ya təklildə mürəkkəb tərkibli (`App`, `FeedStory`, `Comment`) olan UI-ınızı yenidən istifadə oluna bilən komponent kimi istifadə edin.
 
-## Props are Read-Only {#props-are-read-only}
+## Proplar və Read-Only {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Komponentin [funksiya və ya klas kimi](#function-and-class-components) bəyan edilməyinə baxmayaraq, komponent heç vaxt öz proplarını dəyişməməlidir. Bu `sum` funksiyasını nəzərə alın:
 
 ```js
 function sum(a, b) {
@@ -245,9 +245,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Bu növ funksiyalar ["pure"](https://en.wikipedia.org/wiki/Pure_function) adlanır, çünki onlar daxil olunmuş arqumentləri dəyişməyə cəhd etmir və həmişə eyni nəticəni eyni arqument üçün qaytarırlar.
 
-In contrast, this function is impure because it changes its own input:
+Buna baxmayaraq, bu funksiya öz arqumentini dəyişdiyi üçün qarışıqdır:
 
 ```js
 function withdraw(account, amount) {
@@ -255,8 +255,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React-in çevik olmağına baxmayaraq onun bir sərt qaydası var:
 
-**All React components must act like pure functions with respect to their props.**
+**Bütün React komponentləri öz proplarını nəzərə alaraq təmiz funksiya kimi davranmalıdırlar.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Əlbəttə ki, applikasiyaların UI-ları dinamikdir və vaxt aşırı dəyişə bilir. [Növbəti Sessiyada](/docs/state-and-lifecycle.html), biz yeni "state" konsepsiyasını təqdim edəcəyik. State React komponentlərə onların nəticəsini istifadəçi fəaliyyətinə, şəbəkə cavablarına və digər fəaliyyətlərə cavab olaraq, heç bir qaydanı pozmamaq şərti ilə ara-sıra dəyişməyə icazə verir.
