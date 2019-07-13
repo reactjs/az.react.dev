@@ -463,7 +463,7 @@ Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntı
 Bəzi brauzerlərdə biz asanlıqla imkanlılıq ağacındakı hər bir element üçün imkanlılıq informasiyasına baxa bilərik:
 
 - [Firefox-da İmkanlılıq İnspektorunun İstifadəsi](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Chrome-da İmkanlılıq İnspektorunun Aktivləşdirilməsi](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [Chrome-da İmkanlılıq İnspektorunun İstifadəsi](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [OS X Safari-də İmkanlılıq İnspektorunun İstifadəsi](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ### Ekran Oxucuları

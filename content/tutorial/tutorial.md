@@ -16,7 +16,7 @@ Bu dərslik heç bir mövcud React biliyini təxmin etmir.
 
 ## Dərsliyi Başlamazdan Əvvəl {#before-we-start-the-tutorial}
 
-Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyaları yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
+Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyası yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
 
 >Məsləhət
 >
