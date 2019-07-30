@@ -583,11 +583,11 @@ Normally you should try to avoid all uses of `forceUpdate()` and only read from 
 
 * * *
 
-## Class Properties {#class-properties-1}
+## Klas Parametrləri {#class-properties-1}
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props. For example:
+`defaultProps` klasa ilkin propların verilməsi üçün komponent klasının parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
 
 ```js
 class CustomButton extends React.Component {
@@ -599,19 +599,19 @@ CustomButton.defaultProps = {
 };
 ```
 
-If `props.color` is not provided, it will be set by default to `'blue'`:
+Əgər `props.color` təmin edilməyibsə, ilkin prop `'blue'` olacaq:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <CustomButton /> ; // props.color 'blue' olacaq
   }
 ```
 
-If `props.color` is set to null, it will remain null:
+Əgər `props.color` null ilə təyin edilibsə, null kimi qalacaq:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <CustomButton color={null} /> ; // props.color null olacaq
   }
 ```
 
@@ -619,7 +619,7 @@ If `props.color` is set to null, it will remain null:
 
 ### `displayName` {#displayname}
 
-The `displayName` string is used in debugging messages. Usually, you don't need to set it explicitly because it's inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component, see [Wrap the Display Name for Easy Debugging](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) for details.
+`displayName` parametri mesajları debaq etmək üçün işlədilir. Adətən, bunu açıq şəkildə təyin etmək lazım deyil. Çünki, komponenti təyin edən funksiya və ya klasın adından istifadə edilərək avtomatik şəkildə təyin edilir. Debaq zamanı komponentdə fərqli ad görmək üçün və ya yüksək-dərəcəli komponent işləndiyi zaman bu parametri açıq şəkildə təyin etmək olar. Əlavə məlumat üçün, [Asan Debaq Etmək üçün Nümayiş Adını Əhatə Et](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) sənədini oxuyun.
 
 * * *
 
