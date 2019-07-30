@@ -623,20 +623,20 @@ CustomButton.defaultProps = {
 
 * * *
 
-## Instance Properties {#instance-properties-1}
+## İnstansiya Parametrləri {#instance-properties-1}
 
 ### `props` {#props}
 
-`this.props` contains the props that were defined by the caller of this component. See [Components and Props](/docs/components-and-props.html) for an introduction to props.
+`this.props` komponenti çağıranın təyin etdiyi propları saxlayır. Proplar haqqında məlumat üçün [Komponent və Proplar](/docs/components-and-props.html) sənədinə baxın.
 
-In particular, `this.props.children` is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
+Xüsusi olaraq, `this.props.children` xüsusi propdur. Bu prop adətən JSX taqinin daxilində təyin edilmək əvəzinə, JSX ifadəsində uçaq təqlər ilə təyin edilir.
 
 ### `state` {#state}
 
-The state contains data specific to this component that may change over time. The state is user-defined, and it should be a plain JavaScript object.
+State komponentə aid olan və zaman keçdikcə dəyişən məlumatları saxlayır. State istifadəçi tərəfindən yaranır, və sadə Javascript obyekti olmalıdır
 
-If some value isn't used for rendering or data flow (for example, a timer ID), you don't have to put it in the state. Such values can be defined as fields on the component instance.
+Əgər hər hansı bir dəyər render üçün və ya məlumat axını üçün (məsələn timer ID-si) istifadə edilmirsə, bu dəyəri state-də saxlamaq lazım deyil. Komponentin instansiya parametri kimi bu dəyərləri yarada bilərsiniz.
 
-See [State and Lifecycle](/docs/state-and-lifecycle.html) for more information about the state.
+State haqqında əlavə məlumat üçün [State və Lifecycle](/docs/state-and-lifecycle.html) sənədini oxuyun.
 
-Never mutate `this.state` directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
+`this.state`-i heç zaman birbaşa dəyişməyin. Çünki `setState()`-i sonra çağırdıqda sizin birbaşa etdiyiniz dəyişikliyi əvəz edə bilər. `this.state`-ə dəyişməz obyekt kimi davranın.
