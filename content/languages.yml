@@ -10,13 +10,8 @@
 - name: Ərəbcə
   translated_name: العربية
   code: ar
-<<<<<<< HEAD
-  status: 0
-- name: Azərbaycanca
-=======
   status: 1
-- name: Azerbaijani
->>>>>>> eef56ffdcfa995e3478f85cd9d02f4be01f65b79
+- name: Azərbaycanca
   translated_name: Azərbaycanca
   code: az
   status: 0
