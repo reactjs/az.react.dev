@@ -93,7 +93,7 @@ Komponentlər həmçinin açağıdakı API-lar təmin edirlər:
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Klass Parametrləri {#class-properties}
+### Klas Parametrləri {#class-properties}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
