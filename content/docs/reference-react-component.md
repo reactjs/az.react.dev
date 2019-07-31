@@ -194,11 +194,11 @@ Konstruktorda side-effektlərdən və ya abunələrdən istifadə etməyin. Bu h
 componentDidMount()
 ```
 
-`componentDidMount()` is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
+`componentDidMount()` komponentin mount olduqdan (ağaca əlavə olduqdan) dərhal sonra çağrılır. DOM nodlar lazın olan inisializasiyanın burada olması məsləhətlidir. Əgər siz məlumatları kənar yerdən yükləyirsinizsə, şəbəkə sorğusunu bu funksiyadan çağıra bilərsiniz.
 
-This method is a good place to set up any subscriptions. If you do that, don't forget to unsubscribe in `componentWillUnmount()`.
+Abunələri bu funksiyada qurmaq məsləhətlidir. Əgər siz abunə qurursunuzsa, `componentWillUnmount()` funksiyasında bu abunələri ləğv etməyi unutmayın.
 
-You **may call `setState()` immediately** in `componentDidMount()`. It will trigger an extra rendering, but it will happen before the browser updates the screen. This guarantees that even though the `render()` will be called twice in this case, the user won't see the intermediate state. Use this pattern with caution because it often causes performance issues. In most cases, you should be able to assign the initial state in the `constructor()` instead. It can, however, be necessary for cases like modals and tooltips when you need to measure a DOM node before rendering something that depends on its size or position.
+Siz **`setState()`-i dərhal** `componentDidMount()`-dan çağıra bilərsiniz. Bu əlavə render edəcək amma bu render brauzerin ekranı yeniləməsindən öncə baş verəcək. Bu qarantiya verir ki, `render()`-in iki dəfə çağrılmasına baxmayaraq, istifadəçi ara state-i gorməyəcək. Bu pattern performans problemləri yarada bilər. Bu səbədən bu patterni ehtoyat ilə istifadə edin. Bir çox halda, siz ilkin state-i `constructor()`-dan təyin edə bilərsiniz. Amma ölçü və pozisiyadan asılı olan elementləri (məsələn modal və ya tooltip) render etmədən öncə, DOM nodun ölçülərini hesablayıb state-ə yazmaq kimi hallarda bu pattern faydalıdır.
 
 * * *
 
@@ -208,26 +208,26 @@ You **may call `setState()` immediately** in `componentDidMount()`. It will trig
 componentDidUpdate(prevProps, prevState, snapshot)
 ```
 
-`componentDidUpdate()` is invoked immediately after updating occurs. This method is not called for the initial render.
+`componentDidUpdate()` yeniləmə baş verdikdən dərhal sonra çağrılır. Bu funksiya ilkin render zamanı çağrılmır.
 
-Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+Komponent yeniləndiyi zaman DOM nod üstündə işləmək üçün bu fürsətdən istifadə edin. Bu həmçinin şəbəkə sorğuları etmək üçün yaxşı yerdir. Bu halda cari proplar ilə keçmiş propları müqayisə etməyi unutmayın (məsələn proplar dəyişməyibsə, şəbəkə sorğusu lazım olmaya bilər).
 
 ```js
 componentDidUpdate(prevProps) {
-  // Typical usage (don't forget to compare props):
+  // Tipik İstifadə (propları müqayisə etməyi unutmayın):
   if (this.props.userID !== prevProps.userID) {
     this.fetchData(this.props.userID);
   }
 }
 ```
 
-You **may call `setState()` immediately** in `componentDidUpdate()` but note that **it must be wrapped in a condition** like in the example above, or you'll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance. If you're trying to "mirror" some state to a prop coming from above, consider using the prop directly instead. Read more about [why copying props into state causes bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+Siz **`setState()`-i dərhal** `componentDidUpdate()`-dən çağıra bilərsiniz. Amma qeyd edin ki, **bu yuxarıdakı kimi müqayisə şərt ifadəsində əhatə olmalıdır**. Əks halda bu sonsuz sikla səbəb ola bilər. Həmçinin, bu əlavə render etmələrə səbəb ola bilər və bu renderləri istifadəçi görməsə belə, performans problemləri yarana bilər. Əgər siz propları state-ə uyğun etmək istəyirsinizsə, propu birbaşa işlətməyiniz məsləhət görünür. [Propların state-ə kopiyalanmasının niye baqlara səbəb olacağı](/blog/2018/06/07/you-probably-dont-need-derived-state.html) haqda əlavə məlumat üçün postu oxuyun.
 
-If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is rare), the value it returns will be passed as a third "snapshot" parameter to `componentDidUpdate()`. Otherwise this parameter will be undefined.
+Əgər sizin komponentiniz `getSnapshotBeforeUpdate()` lifecycle funksiyasını tətbiq edirsə (çox nadir hallarda), bu funksiyanin qaytardığı dəyər `componentDidUpdate()` funksiyasının 3cü "snapshot" arqumentinə ötürüləcək. Əks halda bu arqument undefined olacaq.
 
-> Note
+> Qeyd
 >
-> `componentDidUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> [`shouldComponentUpdate()`](#shouldcomponentupdate) false qaytardıqda `componentDidUpdate()` çağrılmayacaq.
 
 * * *
 
@@ -237,9 +237,9 @@ If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is
 componentWillUnmount()
 ```
 
-`componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount()`.
+`componentWillUnmount()` komponent unmount olmamışdan və dağılmamışdan dərhal öncə çağrılır. Bu funksiyada bütün lazımı təmizləmə işlərini (məsələn aktiv taymerləri etibarsız etmək, şəbəkə sorğularını ləğv etmək və ya `componentDidMount()`-da yaranmış abunələri ləğv etmək) yerinə yetirin.
 
-You **should not call `setState()`** in `componentWillUnmount()` because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.
+`componentWillUnmount()`-dan **`setState()`-i heç zaman çağırmayın.** Çünki bu komponent heç bir zaman yeniden render edilməyəcək. Komponent instansiyası unmount olduqdan sonra yenidən mount olunmayacaq.
 
 * * *
 
