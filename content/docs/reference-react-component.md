@@ -86,9 +86,9 @@ Aşağıdakı funksiyalar render zamanı, lifecycle funksiyasında, və ya uşaq
 - [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 - [`componentDidCatch()`](#componentdidcatch)
 
-### Digər API-lər {#other-apis}
+### Digər API-lar {#other-apis}
 
-Komponentlər həmçinin açağıdakı API-lər təmin edirlər:
+Komponentlər həmçinin açağıdakı API-lar təmin edirlər:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
@@ -183,7 +183,7 @@ Konstruktorda side-effektlərdən və ya abunələrdən istifadə etməyin. Bu h
 >
 >**Bu pattern-i yalnız prop yeniliklərini bilərəkdən saymamaq istəyirsinizsə işlədin.** Bu halda, propu `initialColor` və ya `defaultColor` kimi adlandırmaq məntiqlidir. Siz komponentin daxili state-ini [komponentin `key`-ini dəyişərək](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) sıfırlaya bilərsiniz.
 >
->State-in proplardan asılı olmasını istəyirsinizsə [törənən state-dən çəkinmək üçün olan bloq postumuzu](/blog/2018/06/07/you-probably-dont-need-derived-state.html) oxuyun.
+>State-in proplardan asılı olmasını istəyirsinizsə [törənən state-dən çəkinmək üçün olan bloq yazımızı](/blog/2018/06/07/you-probably-dont-need-derived-state.html) oxuyun.
 
 
 * * *
@@ -418,9 +418,9 @@ class ErrorBoundary extends React.Component {
 
 * * *
 
-### Legacy Lifecycle Methods {#legacy-lifecycle-methods}
+### Köhnə Lifecycle Funksiyaları {#legacy-lifecycle-methods}
 
-The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
+Aşağıdakı lifecycle funksiyalar köhnədirlər. Bu funksiyalar indidə işləməyinə baxmayaraq, biz yeni kodda bu lifecycle-ları işlətməyi tövsiyyə etmirik. Siz [bu bloq yazısında](/blog/2018/03/27/update-on-async-rendering.html) köhnə lifecycle funksiyalarından miqrasiya etmək üçün əlavə məlumat ala bilərsiniz.
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
@@ -428,15 +428,15 @@ The lifecycle methods below are marked as "legacy". They still work, but we don'
 UNSAFE_componentWillMount()
 ```
 
-> Note
+> Qeyd
 >
-> This lifecycle was previously named `componentWillMount`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Bu lifecycle əvvəllər `componentWillMount` adlanırdı. Bu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
-`UNSAFE_componentWillMount()` is invoked just before mounting occurs. It is called before `render()`, therefore calling `setState()` synchronously in this method will not trigger an extra rendering. Generally, we recommend using the `constructor()` instead for initializing state.
+`UNSAFE_componentWillMount()` mount olmamışdan əvvəl baş verir. Bunun `render()`-dan əvvəl çağrıldığından,  `setState()`-i bu funksiyada sinxron formada çağrıldıqda əlavə render baş vermir. Ümumiyyətlə, biz state-i inisializasiya etmək üçün `constructor()`-dan istifadə etməyi tovsiyyə edirik.
 
-Avoid introducing any side-effects or subscriptions in this method. For those use cases, use `componentDidMount()` instead.
+Bu funksiyada side-effectlər və ya abunələrdən istifadə etməyin. Bu hallar üçün, `componentDidMount()`-dan istifadə edin.
 
-This is the only lifecycle method called on server rendering.
+Server render zamanı yalnız bu lifecycle funksiyası çağrılır.
 
 * * *
 
@@ -446,9 +446,9 @@ This is the only lifecycle method called on server rendering.
 UNSAFE_componentWillReceiveProps(nextProps)
 ```
 
-> Note
+> Qeyd
 >
-> This lifecycle was previously named `componentWillReceiveProps`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Bu lifecycle əvvəllər `componentWillReceiveProps` adlanırdı. Bu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
 > Note:
 >
@@ -474,9 +474,9 @@ React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props durin
 UNSAFE_componentWillUpdate(nextProps, nextState)
 ```
 
-> Note
+> Qeyd
 >
-> This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> This lifecycle əvvəllər `componentWillUpdate` adlanırdı. TBu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
 `UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
 
@@ -484,17 +484,17 @@ Note that you cannot call `this.setState()` here; nor should you do anything els
 
 Typically, this method can be replaced by `componentDidUpdate()`. If you were reading from the DOM in this method (e.g. to save a scroll position), you can move that logic to `getSnapshotBeforeUpdate()`.
 
-> Note
+> Qeyd
 >
-> `UNSAFE_componentWillUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> [`shouldComponentUpdate()`](#shouldcomponentupdate) false qaytardıqda, `UNSAFE_componentWillUpdate()` çağrılmayacaq.
 
 * * *
 
-## Other APIs {#other-apis-1}
+## Digər API-lar {#other-apis-1}
 
-Unlike the lifecycle methods above (which React calls for you), the methods below are the methods *you* can call from your components.
+Lifecycle funksiyalarından fərqli olaraq (React bu funksiyaları çağırır), aşağıdakı funksiyalar komponentdə *siz* tərəfindən çağrılır.
 
-There are just two of them: `setState()` and `forceUpdate()`.
+Burada yalnız iki funksiya var: `setState()` və `forceUpdate()`.
 
 ### `setState()` {#setstate}
 
@@ -573,11 +573,11 @@ For more detail, see:
 component.forceUpdate(callback)
 ```
 
-By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
+Normalda, sizin komponentinizin state və ya propları dəyişdikdə, komponent yenidən render edir. Əgər sizin `render()` funksiyanız başqa məlumatlardan asılıdırsa, siz React-ə komponenti yeniden render etmək üçün `forceUpdate()` funksiyasını çağıra bilərsiniz.
 
-Calling `forceUpdate()` will cause `render()` to be called on the component, skipping `shouldComponentUpdate()`. This will trigger the normal lifecycle methods for child components, including the `shouldComponentUpdate()` method of each child. React will still only update the DOM if the markup changes.
+`forceUpdate()` funksiyası komponentdə, `shouldComponentUpdate()` atlayaraq, `render()` funksiyasını çağıracaq. Bu uşaq komponentlərdə normal lifecycle funksiyalarını çağıracaq (`shouldComponentUpdate()` daxil olmaqla). React DOM-u yalnız markap dəyişdikdə yeniləyəcək.
 
-Normally you should try to avoid all uses of `forceUpdate()` and only read from `this.props` and `this.state` in `render()`.
+Normalda siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli və yalnız `this.props` və `this.state`-i oxuya bilərsiniz.
 
 * * *
 
