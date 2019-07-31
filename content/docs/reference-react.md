@@ -61,7 +61,7 @@ React həmçinin əhatə edən element olmadan bir neçə elementi render etmək
 
 ### Suspense {#suspense}
 
-Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" imkan yaradır. Bu gün, Suspense yalnız bir ssenarini dəstələyir: [komponentlərin `React.lazy` ilə dinamik yüklənməsi](/docs/code-splitting.html#reactlazy). Gələcəkdə bu başqa ssenariləri (məsələn məklumatın yüklənməsi) də dəstəkləyəcək.
+Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" imkan yaradır. Bu gün Suspense yalnız bir ssenarini dəstələyir: [komponentlərin `React.lazy` ilə dinamik yüklənməsi](/docs/code-splitting.html#reactlazy). Gələcəkdə bu başqa ssenariləri (məsələn məklumatın yüklənməsi) də dəstəkləyəcək.
 
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
