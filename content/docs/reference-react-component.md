@@ -243,9 +243,9 @@ componentWillUnmount()
 
 * * *
 
-### Rarely Used Lifecycle Methods {#rarely-used-lifecycle-methods}
+### Nadir Hallarda İşlədilən Lifecycle Funksiyaları {#rarely-used-lifecycle-methods}
 
-The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
+Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmasına baxmayaraq, bu funksiyalar bəzən lazımlı ola bilirlər. **Siz bu funksiyaların bir çoxunu [lifecycle sxemində](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -254,17 +254,17 @@ The methods in this section correspond to uncommon use cases. They're handy once
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-Use `shouldComponentUpdate()` to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+`shouldComponentUpdate()` funksiyasından istifadə edərək React-ə komponentdə state və ya propların dəyişməsinin komponentin nəticəsinə təsir olmamasını göstərin. Normalda hər state dəyişikliyində komponent yenidən render edir və əksər hallarda normativə etibar etməyi tövsiyyə edirik.
 
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received. Defaults to `true`. This method is not called for the initial render or when `forceUpdate()` is used.
+`shouldComponentUpdate()` proplar və ya state dəyişdikdə, hər renderdən öncə çağrılır. Defoltda bu funksiya `true` qaytarır. Bu funksiya ilkin render zamanı və ya `forceUpdate()` işlədildikdə çağrılmır.
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a rendering, as this can lead to bugs. **Consider using the built-in [`PureComponent`](/docs/react-api.html#reactpurecomponent)** instead of writing `shouldComponentUpdate()` by hand. `PureComponent` performs a shallow comparison of props and state, and reduces the chance that you'll skip a necessary update.
+Bu funksiyanın yeganə səbəbi **[performansın optimallaşması üçündür](/docs/optimizing-performance.html).** Renderin qarşısını almaq üçün bu funksiyadan istifadə etməyin. Baqlara səbəb ola bilər. `shouldComponentUpdate()` əllə yazmaq əvəzinə **hazır quraşdırılmış [`PureComponent`-dən](/docs/react-api.html#reactpurecomponent)** istifadə edin. `PureComponent` proplar və state arasında dayaz müqayisə edir və sizin lazımi yeniliyi atlamağın şansını azaldır.
 
-If you are confident you want to write it by hand, you may compare `this.props` with `nextProps` and `this.state` with `nextState` and return `false` to tell React the update can be skipped. Note that returning `false` does not prevent child components from re-rendering when *their* state changes.
+Əgər siz əllə bunu yazmaqdan əminsinizsə, siz `this.props`-u `nextProps` ilə və `this.state`-i `nextState` ilə yoxlayıb React-ə yenilıiyi atlamağı üçün `false` qaytarın. Qeyd edinki əgər uşaq komponentlərin state-i dəyişirsə ana komponentin `false` qaytarmasından asılı olmayaraq uşaq komponentlər yeniden render edəcəklər.
 
-We do not recommend doing deep equality checks or using `JSON.stringify()` in `shouldComponentUpdate()`. It is very inefficient and will harm performance.
+Biz `shouldComponentUpdate()`-də dərin obyekt müqayisəsi etməyi və ya `JSON.stringify()` işlətməyi məsləhət görmürük. Bu çox səmərəsizdir və performansa ziyan vuracaq.
 
-Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), and [`componentDidUpdate()`](#componentdidupdate) will not be invoked. In the future React may treat `shouldComponentUpdate()` as a hint rather than a strict directive, and returning `false` may still result in a re-rendering of the component.
+Hal hazırda, əgər `shouldComponentUpdate()` `false` qaytarırsa, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) və [`componentDidUpdate()`](#componentdidupdate) çağrılmayacaq. Amma gələcəkdə React `shouldComponentUpdate()` funksiyasını sərt direktiv əvəzinə bir işarə kimi rəftar edə bilər. Bu deməkdir ki, `false` qaytardıqda komponent yenə də render edə bilər.
 
 * * *
 
@@ -274,22 +274,22 @@ Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_component
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
+`getDerivedStateFromProps` render funksiyası çağrılmamışdan dərhal öncə (ilkin mount və sonrakı yeniliklər zamanı) çağrıla bilər. Bu funksiya state-i yeniləmək üçün obyekt qaytarmalı və ya yeniləməmək üçün null qaytarmalıdır.
 
-This method exists for [rare use cases](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) where the state depends on changes in props over time. For example, it might be handy for implementing a `<Transition>` component that compares its previous and next children to decide which of them to animate in and out.
+Bu funksiya state-in zaman ilə propların dəyişməsindən asılı olduğu [nadir halda](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) işlənilir. Məsələn, əvvəlki və sonrakı uşaqları müqayisə edib hansı uşaqları animasiya etmək üçün `<Transition>` komponentinin tətbiqi üçün bu funksiya faydalı ola bilər.
 
-Deriving state leads to verbose code and makes your components difficult to think about.  
-[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+State-i törətmək qarışıq koda səbəb olub komponentin pis anlaşılmasına səbəb ola bilər. 
+[Daha sadə alternativlər ilə tanış olun:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
+* Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya), [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
 
-* If you want to **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa**, [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* If you want to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+* Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 
-This method doesn't have access to the component instance. If you'd like, you can reuse some code between `getDerivedStateFromProps()` and the other class methods by extracting pure functions of the component props and state outside the class definition.
+Bu funksiyanın komponent instansiyasına girişi yoxdur. Əgər istəyirsinizsə, siz  komponent proplarının saf funksiyalarını və state-i klas təriflindən ekstrakt edib `getDerivedStateFromProps()` və digər klas metodları arasında kodu paylaşa bilərsiniz.
 
-Note that this method is fired on *every* render, regardless of the cause. This is in contrast to `UNSAFE_componentWillReceiveProps`, which only fires when the parent causes a re-render and not as a result of a local `setState`.
+Qeyd edin ki, bu funksiya səbəbdən asılı olmayaraq **hər** render-də çağrılır. Bundan fərqli olaraq `UNSAFE_componentWillReceiveProps` funksiyası lokal `setState` əsasında yox, yalnız ana komponent yenidən render yaratdıqda çağrılır.
 
 * * *
 
@@ -299,17 +299,17 @@ Note that this method is fired on *every* render, regardless of the cause. This 
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle will be passed as a parameter to `componentDidUpdate()`.
+`getSnapshotBeforeUpdate()` ən son render edilən nəticənin DOM-a köçürülməsindən dərhal əvvəl çağrılır. Bu komponentə DOM-dan bəzi məlumatları (məsələn skrol pozisiyası) dəyişməmişdən öncə yaxalamağa icazə verir. Bu lifecycle-dan qaytarılan hər hansı bir dəyər `componentDidUpdate()` funksiyasına arqument kimi ötürülür.
 
-This use case is not common, but it may occur in UIs like a chat thread that need to handle scroll position in a special way.
+Bu istifadə halı sıravi deyil amma bu çat kimi skrol posiziyasını xüsusi formada işlədən UI-larda işlədilə bilər.
 
-A snapshot value (or `null`) should be returned.
+Snapshot dəyəri (və ya `null`) qaytarılmalıdır.
 
-For example:
+Məsələn:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
-In the above examples, it is important to read the `scrollHeight` property in `getSnapshotBeforeUpdate` because there may be delays between "render" phase lifecycles (like `render`) and "commit" phase lifecycles (like `getSnapshotBeforeUpdate` and `componentDidUpdate`).
+Yuxarıdalı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funskiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
 
 * * *
 
