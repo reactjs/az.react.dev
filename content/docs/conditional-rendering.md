@@ -118,11 +118,11 @@ ReactDOM.render(
 
 [**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-While declaring a variable and using an `if` statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
+`if` operatorunu istifadə edərək dəyişəni bəyan etmək şərti olaraq komponenti render etməyin yaxşı üsuludur, bəzən siz qısa sintaksis istifadə etmək istəyə bilərsiz. Aşağıda göstərildiyi kimi, JSX-də müvəqqəti şərait üçün bir neçə üsul var.
 
-### Inline If with Logical && Operator {#inline-if-with-logical--operator}
+### Müvəqqəti If Məntiqi && Operator ilə {#inline-if-with-logical--operator}
 
-You may [embed any expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+Siz formalı mötərizə ilə [hər hansı ifadələri JSX-də əlaqələndirə](/docs/introducing-jsx.html#embedding-expressions-in-jsx) bilərsiniz. Buna JavaScript məntiqi `&&` operatoru daxildir. Bu şərti olaraq elementi daxil etdikdə yararlı ola bilər :
 
 ```js{6-10}
 function Mailbox(props) {
@@ -148,7 +148,7 @@ ReactDOM.render(
 
 [**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-Bu işləyir çünki JavaScript-də `true && expression` həmişə `expression`-u qiymətləndirir və `false && expression` həmişə `false`-u qiIt works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
+Bu işləyir çünki JavaScript-də `true && expression` həmişə `expression`-u qiymətləndirir və `false && expression` həmişə `false`-u qiymətləndirir.
 
 Buna görə də, əgər şərt (vəziyyət) `true`-dursa, `&&`-dan sonrakı element nəticədə görünəcək. Əgər `false`-dursa, React onu nəzərə almır və ötür.
 
@@ -156,7 +156,7 @@ Buna görə də, əgər şərt (vəziyyət) `true`-dursa, `&&`-dan sonrakı elem
 
 Elementlərin müvəqqəti şərti render edilməsi üçün digər bir üsul JavaScript-in şərti operatoru [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)istifadə etməkdir.
 
-Aşağıdakı misalda biz bunu balaca mətn qutusunu şərti olaraq render etmək üçün istifadə etdik.
+Aşağıdakı misalda, biz bunu balaca mətn qutusunu şərti olaraq render etmək üçün istifadə etdik.
 
 ```javascript{5}
 render() {
@@ -240,4 +240,4 @@ ReactDOM.render(
 
 [**CodePen-də yoxlayın**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Returning `null` from a component's `render` method does not affect the firing of the component's lifecycle methods. For instance `componentDidUpdate` will still be called.
+Komponentin `render` üsulundan `null`-u qaytarmaq, komponentin lifecycle üsullarıının çıxarılmasına təsir etmir. Məsələn, `componentDidUpdate` yenədə çağırılacaqdır.
