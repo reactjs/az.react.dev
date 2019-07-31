@@ -26,7 +26,7 @@ React komponentləri sizə UI-ı müstəqil, yenidən işlənə bilən hissələ
 
 Əgər siz ES6 klasları istifadə etmirsinizsə, siz `create-react-class` modulundan istifadə edə bilərsiniz. Əlavə məlumat üçün, [ES6-sız React-in istifadəsi](/docs/react-without-es6.html) bölməsini oxuyun.
 
-React komponentləri həmçinin funksiyalar ilə də müəyyənləşdirilə bilərlər. Bu funksiyalar aşağıdakılar ilə əhatə oluna bilərlər:
+React komponentləri həmçinin funksiyalar ilə də müəyyənləşdirilə bilər. Bu funksiyalar aşağıdakılar ilə əhatə oluna bilər:
 
 - [`React.memo`](#reactmemo)
 
