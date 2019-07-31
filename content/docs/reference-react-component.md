@@ -332,8 +332,7 @@ For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-hand
 static getDerivedStateFromError(error)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives the error that was thrown as a parameter and should return a value to update state.
+Bu lifecycle funksiyası komponentin aşağısında olan komponentlərdə xəta baş verdikdə çağrılır. Bu funksiya atılan xətanı arqument kimi qəbul edir və yenilənəcək state-i qaytarır.
 
 ```js{7-10,13-16}
 class ErrorBoundary extends React.Component {
@@ -343,14 +342,14 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Sonrakı renderdə xəta UI-nı göstərmək üçün state-i yenilə
     return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      // Burada hər hansı bir xəta UI-ı işlədə bilərsiniz
+      return <h1>Xəta baş verdi.</h1>;
     }
 
     return this.props.children; 
@@ -358,10 +357,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Qeyd
 >
-> `getDerivedStateFromError()` is called during the "render" phase, so side-effects are not permitted.
-For those use cases, use `componentDidCatch()` instead.
+> `getDerivedStateFromError()` "render" fazası zamanı çağrılır. Bu səbəbdən side-effectlərə icazə yoxdur.
+Bu hallar üçün, `componentDidCatch()` işlədin.
 
 * * *
 
@@ -371,15 +370,14 @@ For those use cases, use `componentDidCatch()` instead.
 componentDidCatch(error, info)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives two parameters:
+Bu lifecycle funksiyası komponentin aşağısında olan komponentlərdə xəta baş verdikdə çağrılır.
+Bu funksiyanın iki arqumenti var:
 
-1. `error` - The error that was thrown.
-2. `info` - An object with a `componentStack` key containing [information about which component threw the error](/docs/error-boundaries.html#component-stack-traces).
+1. `error` - Baş verən xəta.
+2. `info` - `componentStack` açarı altında [hansı komponentin xətanı atdığı haqqında məlumatı saxlayan](/docs/error-boundaries.html#component-stack-traces) obyekt.
 
 
-`componentDidCatch()` is called during the "commit" phase, so side-effects are permitted.
-It should be used for things like logging errors:
+`componentDidCatch()` "commit" fazasında çarğrılır. Bu səbəbdən side-effektlərə icazə var. Bu funksiya logging kimi əməliyyatlar üçün işlənilir:
 
 ```js{12-19}
 class ErrorBoundary extends React.Component {
@@ -389,7 +387,7 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Sonrakı renderdə xəta UI-nı göstərmək üçün state-i yenilə
     return { hasError: true };
   }
 
@@ -404,8 +402,8 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      // Burada hər hansı bir xəta UI-ı işlədə bilərsiniz
+      return <h1>Xəta baş verdi.</h1>;
     }
 
     return this.props.children; 
@@ -413,10 +411,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Qeyd
 > 
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
+> Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq  xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.
+> Xəta render etmək üçün `static getDerivedStateFromError()` funksiyasından istifadə edin.
 
 * * *
 
