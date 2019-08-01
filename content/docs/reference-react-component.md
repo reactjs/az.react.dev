@@ -260,7 +260,7 @@ shouldComponentUpdate(nextProps, nextState)
 
 Bu funksiyanın yeganə səbəbi **[performansın optimallaşması üçündür](/docs/optimizing-performance.html).** Renderin qarşısını almaq üçün bu funksiyadan istifadə etməyin. Baqlara səbəb ola bilər. `shouldComponentUpdate()` əllə yazmaq əvəzinə **hazır quraşdırılmış [`PureComponent`-dən](/docs/react-api.html#reactpurecomponent)** istifadə edin. `PureComponent` proplar və state arasında dayaz müqayisə edir və sizin lazımi yeniliyi atlamağın şansını azaldır.
 
-Əgər siz əllə bunu yazmaqdan əminsinizsə, siz `this.props`-u `nextProps` ilə və `this.state`-i `nextState` ilə yoxlayıb React-ə yenilıiyi atlamağı üçün `false` qaytarın. Qeyd edinki əgər uşaq komponentlərin state-i dəyişirsə ana komponentin `false` qaytarmasından asılı olmayaraq uşaq komponentlər yeniden render edəcəklər.
+Əgər siz əllə bunu yazmaqdan əminsinizsə, siz `this.props`-u `nextProps` ilə və `this.state`-i `nextState` ilə yoxlayıb React-ə yenilıiyi atlamağı üçün `false` qaytarın. Qeyd edin ki, əgər uşaq komponentlərin state-i dəyişirsə ana komponentin `false` qaytarmasından asılı olmayaraq uşaq komponentlər yeniden render edəcəklər.
 
 Biz `shouldComponentUpdate()`-də dərin obyekt müqayisəsi etməyi və ya `JSON.stringify()` işlətməyi məsləhət görmürük. Bu çox səmərəsizdir və performansa ziyan vuracaq.
 
@@ -450,21 +450,21 @@ UNSAFE_componentWillReceiveProps(nextProps)
 >
 > Bu lifecycle əvvəllər `componentWillReceiveProps` adlanırdı. Bu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
-> Note:
+> Qeyd:
 >
-> Using this lifecycle method often leads to bugs and inconsistencies
+> Bu lifecycle funksiyasını işlətmək yalnız baqlara və uyğunsuzluqlara səbəb olur
 >
-> * If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
-> * If you used `componentWillReceiveProps` for **re-computing some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * If you used `componentWillReceiveProps` to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+> * Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya), [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
+> * Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa**, [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 >
-> For other use cases, [follow the recommendations in this blog post about derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Digər alternativlər üçün, [bu törənmiş state haqqında bloq yazısında olan tövsiyyələri tətbiq edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare `this.props` and `nextProps` and perform state transitions using `this.setState()` in this method.
+`UNSAFE_componentWillReceiveProps()` mount olunmuş komponent propları qəbul etməmişdən öncə çağrılırır. Əgər sizə prop dəyişiklikləri əsasında state-i yeniləmək lazımdırsa (məsələn, state-i sıfırlamaq üçün) siz `this.props`-u `nextProps` ilə müqayisə edib state-i `this.setState()` ilə yeniləyə bilərsiniz.
 
-Note that if a parent component causes your component to re-render, this method will be called even if props have not changed. Make sure to compare the current and next values if you only want to handle changes.
+Qeyd edin ki, əgər ana komponent-də yeniden render baş verirsə, bu funksiya propların dəyişməsindən asılı olmayaraq yenidən çağrılacaq. Əmin olun ki, cari və yeni prop dəyərlərini müqayisə edirsiniz.
 
-React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props during [mounting](#mounting). It only calls this method if some of component's props may update. Calling `this.setState()` generally doesn't trigger `UNSAFE_componentWillReceiveProps()`.
+React [mount zamanı](#mounting) `UNSAFE_componentWillReceiveProps()` funksiyasını ilkin proplar ilə çağırmır. Bu funksiya yalnız komponentin propları yeniləndiyi zaman çağrılır. `this.setState()` çağrılıdığı zaman `UNSAFE_componentWillReceiveProps()` çağrılmır.
 
 * * *
 
@@ -478,11 +478,11 @@ UNSAFE_componentWillUpdate(nextProps, nextState)
 >
 > This lifecycle əvvəllər `componentWillUpdate` adlanırdı. TBu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
-`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+`UNSAFE_componentWillUpdate()` yeni proplar və ya state qəbul olunduqdan və render olunmamışdan öncə çağrılır. Bu funksiyada yenilik baş verməmişdən qabaq lazımi hazırlıqları görün. Bu funksiya ilkin render zamanı çağrılmır.
 
-Note that you cannot call `this.setState()` here; nor should you do anything else (e.g. dispatch a Redux action) that would trigger an update to a React component before `UNSAFE_componentWillUpdate()` returns.
+Qeyd edin ki, bu funksiyada `this.setState()` çağırmaq və ya React komponenti yeniləyən heç bir əməliyyat etmək olmaz.
 
-Typically, this method can be replaced by `componentDidUpdate()`. If you were reading from the DOM in this method (e.g. to save a scroll position), you can move that logic to `getSnapshotBeforeUpdate()`.
+Adətən, bu funksiyanı `componentDidUpdate()` ilə əvəz etmək olar. Əgər siz bu funksiyadan DOM-dan dəyərləri oxumaq üçün (məsələn skrol pozisiyasını yadda saxlamaq üçün) istifadə edirdinizsə, siz bu məntiqi `getSnapshotBeforeUpdate()` köçürə bilərsiniz.
 
 > Qeyd
 >
@@ -502,21 +502,21 @@ Burada yalnız iki funksiya var: `setState()` və `forceUpdate()`.
 setState(updater[, callback])
 ```
 
-`setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state. This is the primary method you use to update the user interface in response to event handlers and server responses.
+`setState()` dəyişiklikləri komponent state-ində növbəyə əlavə edir və React-ə bu komponentin və uşaqlarının yenidən render edilməsini bildirir. Bu funksiya UI-ı hadisə işləyiciləri və server cavabları əsasında yeniləmək üçün əsas metoddur.
 
-Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. React does not guarantee that the state changes are applied immediately.
+`setState()`-ə komponenti yeniləmək üçün birbaşa əmr əvəzinə bir *sorğu* kimi baxın. Daha yaxşı performans üçün React yeniləməni gecikdirib bir neçə komponenti bir keçiddə yeniləyə bilər. React state yeniliklərinin dərhal tətbiqinə qarantiya vermir.
 
-`setState()` does not always immediately update the component. It may batch or defer the update until later. This makes reading `this.state` right after calling `setState()` a potential pitfall. Instead, use `componentDidUpdate` or a `setState` callback (`setState(updater, callback)`), either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the `updater` argument below.
+`setState()` komponenti dərhal yeniləmir. Bu dəyişklikləri bir dəstəyə yığa bilər və ya yeniliyi sonraya qədər təxirə sala bilər. Bu `this.state`-i `setState()`-dən dərhal sonra oxumağında problem yardır. Bunun əvəzinə, `componentDidUpdate` və ya `setState` callback-indən istifadə edin (`setState(updater, callback)`). Bu iki yol yenilik baş verəndən sonra həmişə çağrılır. Əgər sizə state-i keçmiş state əsasında təyin etmək lazımdırsa, aşağıdakı `updater` arqumenti haqqında oxuyun.
 
-`setState()` will always lead to a re-render unless `shouldComponentUpdate()` returns `false`. If mutable objects are being used and conditional rendering logic cannot be implemented in `shouldComponentUpdate()`, calling `setState()` only when the new state differs from the previous state will avoid unnecessary re-renders.
+`shouldComponentUpdate()`-in`false` qaytarması istisna olmaqla `setState()` komponenti həmişə yenidən render etdirəcək. Əgər dəyişən obyektlər işlənilirsə və şərtli render `shouldComponentUpdate()`-də tətbiq edilə bilmirsə, `setState()`-i yalnız yeni state-in köhnə state-dən fərqli olduğu zaman çağırdıqda lazımsız yeniden renderlərdən qaçınmaq olar.
 
-The first argument is an `updater` function with the signature:
+İlk arqument aşağıdakı imza ilə `updater` funksiyasıdır:
 
 ```javascript
 (state, props) => stateChange
 ```
 
-`state` is a reference to the component state at the time the change is being applied. It should not be directly mutated. Instead, changes should be represented by building a new object based on the input from `state` and `props`. For instance, suppose we wanted to increment a value in state by `props.step`:
+`state` arqumenti dəyişiklik tətbiq edilər zaman komponent state-inə referansdır. Bu dəyər birbaşa mutasiya edilməməlidir. Dəyişikliklər `state` və `props` arqumentləri əsasında yeni obyekt yaratmaq ilə baş verməlidir. Məsələn, gəlin state-in dəyərini `props.step` əsasında artıraq:
 
 ```javascript
 this.setState((state, props) => {
@@ -524,23 +524,23 @@ this.setState((state, props) => {
 });
 ```
 
-Both `state` and `props` received by the updater function are guaranteed to be up-to-date. The output of the updater is shallowly merged with `state`.
+`updater` funksiyasında olan `state` və `props` dəyərlərinin yeni olmasında qarantiya var. `updater`-in nəticəsi `state` ilə dayaz birləşdirilir (merge).
 
-The second parameter to `setState()` is an optional callback function that will be executed once `setState` is completed and the component is re-rendered. Generally we recommend using `componentDidUpdate()` for such logic instead.
+`setState()`-in ikinci arqumenti məcburi olmayan callback funksiyasıdır. Bu funksiya `setState` başa çatanda və komponent yenidən render etdikdə icra olunur. Normalda biz belə məntiq üçün `componentDidUpdate()` işlətməyi tövsiyyə edirik.
 
-You may optionally pass an object as the first argument to `setState()` instead of a function:
+Siz `setState()`-in `updater` arqumentinə funksiya əvəzinə obyekt də göndərə bilərsiniz:
 
 ```javascript
 setState(stateChange[, callback])
 ```
 
-This performs a shallow merge of `stateChange` into the new state, e.g., to adjust a shopping cart item quantity:
+Bu `stateChange` ilə cari state-i dayaz birləşdirərək komponent state-ini yeniləyir. Məsələn, alış-veriş səbətində olan maddənin miqdarını dəyişmək üçün aşağıdakı formada yazmaq olar:
 
 ```javascript
 this.setState({quantity: 2})
 ```
 
-This form of `setState()` is also asynchronous, and multiple calls during the same cycle may be batched together. For example, if you attempt to increment an item quantity more than once in the same cycle, that will result in the equivalent of:
+Bu formalı `setState()` də asinxron baş verir və bir siklda baş verən bir neçə `setState` çağırışı bir dəstə ilə baş verə bilər. Məsələn, əgər siz maddə dəyərini bir sikl-da bir neçə dəfə artırsanız, aşağıdakı kimi nəticə ola bilər:
 
 ```javaScript
 Object.assign(
@@ -551,7 +551,7 @@ Object.assign(
 )
 ```
 
-Subsequent calls will override values from previous calls in the same cycle, so the quantity will only be incremented once. If the next state depends on the current state, we recommend using the updater function form, instead:
+Bir siklda bir neçə çağırış əvvəlki çağırışları "ləğv edəcək" və bu miqdarın yalnız bir dəfə artması ilə nəticələnəcək. Əgər sonrakı state cari state-dən asılıdırsa, biz `updater`-i funksiya formasında istifadə etməyi tövsiyyə edirik:
 
 ```js
 this.setState((state) => {
@@ -559,11 +559,11 @@ this.setState((state) => {
 });
 ```
 
-For more detail, see:
+Əlavə məlumat üçün aşağıdakı səhifələrə baxın:
 
-* [State and Lifecycle guide](/docs/state-and-lifecycle.html)
-* [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
-* [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
+* [State və Lifecycle sənədi](/docs/state-and-lifecycle.html)
+* [Dərindən: Ne zaman və niye `setState()` çağırışları dəstələnir?](https://stackoverflow.com/a/48610973/458193)
+* [Dərindən: `this.state` niyə dərhal yenilənmir?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 
