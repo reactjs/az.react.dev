@@ -315,17 +315,17 @@ Yuxarıdalı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` f
 
 ### Error boundaries {#error-boundaries}
 
-[Error boundaries](/docs/error-boundaries.html) are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+[Xəta Sərhədləri](/docs/error-boundaries.html) uşaq komponent ağacında xətaları tutan, tutulan xətaları loq edən, və sınmış komponent ağacında xəta UI-ı göstərən React komponentləridir. Xəta sərhədləri uşaq komponent ağacında render zamanı, lifecycle funksiyalarında, və konstruktorlarda baş verən xətaları tutur.
 
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`. Updating state from these lifecycles lets you capture an unhandled JavaScript error in the below tree and display a fallback UI.
+Klas komponenti `static getDerivedStateFromError()` və ya `componentDidCatch()` lifecycle funksiyasından hər hansınısa (və ya hər ikisini) tətbiq edirsə bu komponent xəta sərhədi olur. Bu lifecycle funksiyalarından state-i yeniləyərək uşaq komponentlərdə tutulmayan Javascript xətalarını tutmaq və xəta UI-ı göstərmək mümkündür.
 
-Only use error boundaries for recovering from unexpected exceptions; **don't try to use them for control flow.**
+Xəta sərhədlərini yalnız gözlənilməz xətalardan bərpa üçün işlədin; **Kontrol axını üçün istifadə etməyin.**
 
-For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
+Əlavə məlumat üçün [*React 16-da Xəta Sərhədləri*](/blog/2017/07/26/error-handling-in-react-16.html) yazısını oxuyun.
 
-> Note
+> Qeyd
 > 
-> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
+> Xəta sərhadləri yalnız **ağacın aşağısında olan** komponentlərin xətalarını tuta bilirlər. Xəta sərhədi özündə baş verən xətanı tuta bilmir.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
