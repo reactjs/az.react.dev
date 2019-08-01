@@ -15,11 +15,11 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Bu səhifədə React komponent klass təriflərinin ətraflı API arayışı var. Bu səhifə, sizin React-in [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyalarından məlumatı olduğunuzu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
+Bu səhifədə React komponent klas təriflərinin ətraflı API arayışı var. Bu səhifə, sizin [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyalarından məlumatı olduğunuzu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
 
 ## İcmal
 
-React komponentləri klas və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var və bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React klas komponenti yaratmaq üçün, klasları `React.Component`-dən genişləndirmək lazımdır:
+React, komponentləri klas və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React klas komponenti yaratmaq üçün klasları `React.Component`-dən genişləndirmək lazımdır:
 
 ```js
 class Welcome extends React.Component {
@@ -31,15 +31,15 @@ class Welcome extends React.Component {
 
 `React.Component` subklasında yeganə müəyyənləşdirilməsi olan funksiya [`render()`](#render) funksiyasıdır. Bu səhifədə göstərilən digər bütün funksiyaların müəyyənləşdirilməsi məcburi deyil.
 
-**Biz özünüzün baza komponent klası yaratmamağınızı təvsiyyə edirik.** React komponentlərində, [kodun yenidən işlədilməsi varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
+**Biz xüsusi baza komponent klası yaratmağı tövsiyyə etmirik.** React komponentlərində [kodun yenidən işlədilməsinə varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
 
 >Qeyd:
 >
->React sizə ES6 klas sintaksisindən istifadə etməyə məcbur etmir. Əgər siz ES6 klasları istifadə etmək istəmirsinizsə, `create-react-class` modulu və ya buna oxşar digər abastraksiyadan istifadə edə bilərsiniz. Ətraflı məlumat üçün [ES6-sız React səhifəsinə](/docs/react-without-es6.html) baxın.
+>React sizi ES6 klas sintaksisindən istifadə etməyə məcbur etmir. Əgər siz ES6 klasları istifadə etmək istəmirsinizsə, `create-react-class` modulu və ya buna oxşar digər abastraksiyadan istifadə edə bilərsiniz. Ətraflı məlumat üçün [ES6-sız React səhifəsinə](/docs/react-without-es6.html) baxın.
 
 ### Komponentin Lifecycle-ı {#the-component-lifecycle}
 
-Hər komponentın bir neçə "lifecycle funksiyaları" var. Siz bu funksiyaları yenidən təyin edərək, kodu prosesin xüsusi zamanlarında icra edə bilərsiniz.. **Siz bu [lifecycle sxemindən](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) arayış kimi istifadə edə bilərsiniz.** Aşağıdalı listdə, çox işlədilən lifecycle funksiyaları **qalın** şrift ilə yazılın. Digərlər daha nadir hallarda istifadə olunur.
+Hər komponentın bir neçə "lifecycle funksiyaları" var. Siz bu funksiyaları yenidən təyin edərək, kodu prosesin xüsusi zamanlarında icra edə bilərsiniz. **Siz bu [lifecycle sxemindən](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) arayış kimi istifadə edə bilərsiniz.** Aşağıdakı siyahıda çox işlədilən lifecycle funksiyaları **qalın** şrift ilə yazılmışdır. Digərlər daha nadir hallarda istifadə olunur.
 
 #### Mount Edilmə {#mounting}
 
@@ -58,7 +58,7 @@ Aşağıdakı funksiyalar komponent yarandığı və DOM-a əlavə edildiyi zama
 
 #### Yeniləmə {#updating}
 
-Propların və state-in dəyişdiyi zaman yenilənmə baş verir. Komponent yenidən render edildiyi zaman aşağıdakı funksiyalar göstərilən sıra ilə çağrılır:
+Proplar və state-in dəyişdiyi zaman yenilənmə baş verir. Komponent yenidən render edildiyi zaman aşağıdakı funksiyalar göstərilən sıra ilə çağrılır:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -81,14 +81,14 @@ Aşağıdakı funksiya komponent DOM-dan silindiyi zaman çağrılır:
 
 #### Xətaların İşlənməsi {#error-handling}
 
-Aşağıdakı funksiyalar render zamanı, lifecycle funksiyasında, və ya uşaq komponentin konstruktorunda error zamanı çağrılır.
+Aşağıdakı funksiyalar render-də, lifecycle funksiyasında, və ya uşaq komponentin konstruktorunda xəta baş verdiyi zaman çağrılır.
 
 - [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 - [`componentDidCatch()`](#componentdidcatch)
 
 ### Digər API-lar {#other-apis}
 
-Komponentlər həmçinin açağıdakı API-lar təmin edirlər:
+Komponentlər həmçinin açağıdakı API-ları təmin edirlər:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
@@ -109,7 +109,7 @@ Komponentlər həmçinin açağıdakı API-lar təmin edirlər:
 
 ### Tez-tez istifadə olunan Lifecycle Funksiyaları {#commonly-used-lifecycle-methods}
 
-Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə hallarının böyük əksəriyyətini təşkil edir. **Visual arayış üçün [lifecycle sxeminə](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) baxın.**
+Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə hallarının böyük əksəriyyətini təşkil edir. **Vizual arayış üçün [lifecycle sxeminə](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) baxın.**
 
 ### `render()` {#render}
 
@@ -119,17 +119,17 @@ render()
 
 `render()` klas komponenti üçün yeganə müəyyənləşdirilməli funksiyadır.
 
-Çağrıldığı zaman, bu funksiya, `this.props` və `this.state` parametrlərindən istifadə edərək aşağıdakı tipləri qaytarmalıdır:
+Çağrıldığı zaman, bu funksiya, `this.props` və `this.state` parametrlərindən istifadə edərək aşağıdakı tiplərdən birini qaytarmalıdır:
 
 - **React elementləri.** Adətən [JSX](/docs/introducing-jsx.html) ilə düzəldilir. Məsələn, `<div />` və ya `<MyComponent />` React-ə DOM nodu və ya başqa istifadəçi tərəfindən düzəldilmiş komponenti render etməyi təlimatlandıran React elementləridirlər.
-- **Massivlər və fraqmentlər.** Bir renderdən bir neçə elementi qaytarmağa icazə verirlər. Əlavə məlumat üçün [fragmentlər](/docs/fragments.html) haqqında sənədlərə baxın.
-- **Portallar**. Uşaqları fərqli DOM ağaçına render eməyə imkan verirlər. Əlavə məlumat üçün [portallar](/docs/portals.html) sənədinə baxın.
+- **Massivlər və fraqmentlər.** Bir renderdən bir neçə elementi qaytarmağa icazə verirlər. Əlavə məlumat üçün [fragmentlər](/docs/fragments.html) haqqında sənədə baxın.
+- **Portallar**. Uşaqları fərqli DOM ağaçına render etməyə imkan verirlər. Əlavə məlumat üçün [portallar](/docs/portals.html) sənədinə baxın.
 - **Mətn və rəqəm.** Bunlar DOM-a mətn nodları kimi render edilirlər.
 - **Booleans və ya `null`**. Heç nə render etmə. (Bir çox zaman `return test && <Child />` pattern-i istifadə etmək üçün işlədilir. `test` booleandır.)
 
-`render()` funksiyası saf olmalıdır. Bu deməkdirki, bu funksiya komponent vəziyyətini dəyişmir, hər çağrıldığı zaman eyni nəticəni verir, və birbaşa brauzer ilə əlaqə yaratmır.
+`render()` funksiyası saf olmalıdır. Bu deməkdir ki, bu funksiya komponent vəziyyətini dəyişmir, hər çağrıldığı zaman eyni nəticəni verir, və birbaşa brauzer ilə əlaqə yaratmır.
 
-Əgər sizə brauzer ilə əlaqə yaratmaq lazındırsa, görüləcək işi `componentDidMount()` və ya digər lifecycle funksiyalarında icra edin. `render()` funksiyasını saf saxladıqda komponentlər haqqında düşünmək asanlaşır.
+Əgər sizə brauzer ilə əlaqə yaratmaq lazımdırsa, görüləcək işi `componentDidMount()` və ya digər lifecycle funksiyalarında icra edin. `render()` funksiyasını saf saxladıqda komponentlər haqqında düşünmək asanlaşır.
 
 > Qeyd
 >
@@ -143,11 +143,11 @@ render()
 constructor(props)
 ```
 
-**Əgər siz state inisializasiya etmirsinizsə və funksiyaları bind etmirsinizsə, React komponenti üçün konstruktor yaratmaq lazım deyil.**
+**Əgər siz state-i inisializasiya və funksiyaları bind etmirsinizsə, React komponenti üçün konstruktor yaratmaq lazım deyil.**
 
 React komponentinin konstruktoru komponent mount olmamışdan qabaq çağrılır. `React.Component` subklası üçün konstruktor yaratdıqda, hər hansı bir ifadədən öncə `super(props)` çağırın. Əks halda, `this.props` konstruktor zamanı `undefined` olacaq. Bu baqlara səbəb ola bilər.
 
-Adətən React konstruktorlar iki halda işlədilir:
+Adətən React-də konstruktorlar iki halda işlədilir:
 
 * `this.state`-ə obyekt təyin edərək [lokal state-in](/docs/state-and-lifecycle.html) inisializasiyası zamanı.
 * [Hadisə işləyiciləri](/docs/handling-events.html) funksiyalarının klas instansiyasına bind edilməsi üçün.
@@ -163,13 +163,13 @@ constructor(props) {
 }
 ```
 
-`this.state`-ə birbaşa teəyin edilməyi yalnız konstruktorda etmək olar. Bütün başğa funksiyalarda,`this.setState()`-dən istifadə edin.
+`this.state`-ə birbaşa təyin edilmə yalnız konstruktorda mümkündür. Bütün başğa funksiyalarda `this.setState()`-dən istifadə edin.
 
 Konstruktorda side-effektlərdən və ya abunələrdən istifadə etməyin. Bu hallar üçün `componentDidMount()`-dan istifadə edin.
 
 >Qeyd
 >
->**Propları state-ə kopiyalamayın! Bu çox tez-tez edilən bir səhvdir:**
+>**Propları state-ə kopiyalamayın! Bu tez-tez edilən bir səhvdir:**
 >
 >```js
 >constructor(props) {
@@ -194,11 +194,11 @@ Konstruktorda side-effektlərdən və ya abunələrdən istifadə etməyin. Bu h
 componentDidMount()
 ```
 
-`componentDidMount()` komponentin mount olduqdan (ağaca əlavə olduqdan) dərhal sonra çağrılır. DOM nodlar lazın olan inisializasiyanın burada olması məsləhətlidir. Əgər siz məlumatları kənar yerdən yükləyirsinizsə, şəbəkə sorğusunu bu funksiyadan çağıra bilərsiniz.
+`componentDidMount()` komponentin mount olduqdan (ağaca əlavə olduqdan) dərhal sonra çağrılır. DOM nodlardan asılı olan inisializasiyaların burada olması məsləhətlidir. Əgər siz məlumatları kənar yerdən yükləyirsinizsə şəbəkə sorğusunu bu funksiyadan çağıra bilərsiniz.
 
-Abunələri bu funksiyada qurmaq məsləhətlidir. Əgər siz abunə qurursunuzsa, `componentWillUnmount()` funksiyasında bu abunələri ləğv etməyi unutmayın.
+Abunələri bu funksiyada qurmaq məsləhətlidir. Əgər siz abunə qurursunuzsa `componentWillUnmount()` funksiyasında bu abunələri ləğv etməyi unutmayın.
 
-Siz **`setState()`-i dərhal** `componentDidMount()`-dan çağıra bilərsiniz. Bu əlavə render edəcək amma bu render brauzerin ekranı yeniləməsindən öncə baş verəcək. Bu qarantiya verir ki, `render()`-in iki dəfə çağrılmasına baxmayaraq, istifadəçi ara state-i gorməyəcək. Bu pattern performans problemləri yarada bilər. Bu səbədən bu patterni ehtoyat ilə istifadə edin. Bir çox halda, siz ilkin state-i `constructor()`-dan təyin edə bilərsiniz. Amma ölçü və pozisiyadan asılı olan elementləri (məsələn modal və ya tooltip) render etmədən öncə, DOM nodun ölçülərini hesablayıb state-ə yazmaq kimi hallarda bu pattern faydalıdır.
+Siz **`setState()`-i dərhal** `componentDidMount()`-dan çağıra bilərsiniz. Bunun əlavə render etməsinə baxmayaraq render brauzerin ekranı yeniləməsindən öncə baş verəcək. Bu qarantiya verir ki, `render()`-in iki dəfə çağrılmasına baxmayaraq, istifadəçi ara state-i gorməyəcək. Bu pattern performans problemləri yarada bilər. Bu səbədən bu patterni ehtiyat ilə istifadə edin. Bir çox halda, siz ilkin state-i `constructor()`-dan təyin edə bilərsiniz. Amma ölçü və pozisiyadan asılı olan elementləri (məsələn modal və ya tooltip) render etmədən öncə, DOM nodun ölçülərini hesablayıb state-ə yazmaq kimi hallarda bu pattern faydalıdır.
 
 * * *
 
@@ -210,7 +210,7 @@ componentDidUpdate(prevProps, prevState, snapshot)
 
 `componentDidUpdate()` yeniləmə baş verdikdən dərhal sonra çağrılır. Bu funksiya ilkin render zamanı çağrılmır.
 
-Komponent yeniləndiyi zaman DOM nod üstündə işləmək üçün bu fürsətdən istifadə edin. Bu həmçinin şəbəkə sorğuları etmək üçün yaxşı yerdir. Bu halda cari proplar ilə keçmiş propları müqayisə etməyi unutmayın (məsələn proplar dəyişməyibsə, şəbəkə sorğusu lazım olmaya bilər).
+Komponent yeniləndiyi zaman DOM nodun üstündə işləmək üçün istifadə edin. Bu həmçinin şəbəkə sorğuları etmək üçün yaxşı yerdir. Bu halda cari proplar ilə keçmiş propları müqayisə etməyi unutmayın (məsələn proplar dəyişmədikdə şəbəkə sorğusu lazım olmaya bilər).
 
 ```js
 componentDidUpdate(prevProps) {
@@ -221,9 +221,9 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-Siz **`setState()`-i dərhal** `componentDidUpdate()`-dən çağıra bilərsiniz. Amma qeyd edin ki, **bu yuxarıdakı kimi müqayisə şərt ifadəsində əhatə olmalıdır**. Əks halda bu sonsuz sikla səbəb ola bilər. Həmçinin, bu əlavə render etmələrə səbəb ola bilər və bu renderləri istifadəçi görməsə belə, performans problemləri yarana bilər. Əgər siz propları state-ə uyğun etmək istəyirsinizsə, propu birbaşa işlətməyiniz məsləhət görünür. [Propların state-ə kopiyalanmasının niye baqlara səbəb olacağı](/blog/2018/06/07/you-probably-dont-need-derived-state.html) haqda əlavə məlumat üçün postu oxuyun.
+Siz **`setState()`-i dərhal** `componentDidUpdate()`-dən çağıra bilərsiniz. Amma qeyd edin ki, **bu yuxarıdakı kimi müqayisə şərt ifadəsində əhatə olmalıdır**. Əks halda bu sonsuz sikla səbəb ola bilər. Həmçinin, bu əlavə render etmələrə səbəb ola bilər və renderləri istifadəçi görməsə belə, performans problemləri yarana bilər. Əgər siz propları state-ə uyğun etmək istəyirsinizsə, propu birbaşa işlətməyiniz məsləhət görünür. [Propların state-ə kopiyalanmasının niye baqlara səbəb olacağı](/blog/2018/06/07/you-probably-dont-need-derived-state.html) haqda əlavə məlumat üçün yazını oxuyun.
 
-Əgər sizin komponentiniz `getSnapshotBeforeUpdate()` lifecycle funksiyasını tətbiq edirsə (çox nadir hallarda), bu funksiyanin qaytardığı dəyər `componentDidUpdate()` funksiyasının 3cü "snapshot" arqumentinə ötürüləcək. Əks halda bu arqument undefined olacaq.
+Əgər sizin komponentiniz `getSnapshotBeforeUpdate()` lifecycle funksiyasını tətbiq edirsə (çox nadir hallarda), bu funksiyanin qaytardığı dəyər `componentDidUpdate()` funksiyasının 3cü "snapshot" arqumentinə ötürüləcək. Əks halda arqument undefined olacaq.
 
 > Qeyd
 >
@@ -239,13 +239,13 @@ componentWillUnmount()
 
 `componentWillUnmount()` komponent unmount olmamışdan və dağılmamışdan dərhal öncə çağrılır. Bu funksiyada bütün lazımı təmizləmə işlərini (məsələn aktiv taymerləri etibarsız etmək, şəbəkə sorğularını ləğv etmək və ya `componentDidMount()`-da yaranmış abunələri ləğv etmək) yerinə yetirin.
 
-`componentWillUnmount()`-dan **`setState()`-i heç zaman çağırmayın.** Çünki bu komponent heç bir zaman yeniden render edilməyəcək. Komponent instansiyası unmount olduqdan sonra yenidən mount olunmayacaq.
+`componentWillUnmount()`-dan **`setState()`-i heç zaman çağırmayın.** Çünki unmount edilən komponent heç bir zaman yeniden render edilməyəcək. Komponent instansiyası unmount olduqdan sonra yenidən mount olunmayacaq.
 
 * * *
 
 ### Nadir Hallarda İşlədilən Lifecycle Funksiyaları {#rarely-used-lifecycle-methods}
 
-Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmasına baxmayaraq, bu funksiyalar bəzən lazımlı ola bilirlər. **Siz bu funksiyaların bir çoxunu [lifecycle sxemində](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
+Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmamasına baxmayaraq, bəzi hallarda bu metodlara ehtiyac olur. **Siz aşağıdakı funksiyaların bir çoxunu [lifecycle sxemində](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -254,17 +254,17 @@ Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər kompon
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-`shouldComponentUpdate()` funksiyasından istifadə edərək React-ə komponentdə state və ya propların dəyişməsinin komponentin nəticəsinə təsir olmamasını göstərin. Normalda hər state dəyişikliyində komponent yenidən render edir və əksər hallarda normativə etibar etməyi tövsiyyə edirik.
+`shouldComponentUpdate()` funksiyasından istifadə edərək React-ə komponentdə state və ya propların dəyişməsinin komponentin nəticəsinə təsir etmədiyini göstərin. Normalda hər state dəyişikliyində komponent yenidən render edir. Biz əksər hallarda normativə etibar etməyi tövsiyyə edirik.
 
-`shouldComponentUpdate()` proplar və ya state dəyişdikdə, hər renderdən öncə çağrılır. Defoltda bu funksiya `true` qaytarır. Bu funksiya ilkin render zamanı və ya `forceUpdate()` işlədildikdə çağrılmır.
+`shouldComponentUpdate()` proplar və ya state dəyişdikdə hər render-dən öncə çağrılır. Defoltda bu funksiya `true` qaytarır. Bu funksiya ilkin render zamanı və ya `forceUpdate()` işlədildikdə çağrılmır.
 
-Bu funksiyanın yeganə səbəbi **[performansın optimallaşması üçündür](/docs/optimizing-performance.html).** Renderin qarşısını almaq üçün bu funksiyadan istifadə etməyin. Baqlara səbəb ola bilər. `shouldComponentUpdate()` əllə yazmaq əvəzinə **hazır quraşdırılmış [`PureComponent`-dən](/docs/react-api.html#reactpurecomponent)** istifadə edin. `PureComponent` proplar və state arasında dayaz müqayisə edir və sizin lazımi yeniliyi atlamağın şansını azaldır.
+Bu funksiyanın yeganə səbəbi **[performansın optimallaşması üçündür](/docs/optimizing-performance.html).** Renderin qarşısını almaq üçün bu funksiyadan istifadə etməyin. Baqlara səbəb ola bilər. `shouldComponentUpdate()` əllə yazmaq əvəzinə **hazır quraşdırılmış [`PureComponent`-dən](/docs/react-api.html#reactpurecomponent)** istifadə edin. `PureComponent` proplar və state arasında dayaz müqayisə edir və səhv yeniliyi atlamaların şansını azaldır.
 
-Əgər siz əllə bunu yazmaqdan əminsinizsə, siz `this.props`-u `nextProps` ilə və `this.state`-i `nextState` ilə yoxlayıb React-ə yenilıiyi atlamağı üçün `false` qaytarın. Qeyd edin ki, əgər uşaq komponentlərin state-i dəyişirsə ana komponentin `false` qaytarmasından asılı olmayaraq uşaq komponentlər yeniden render edəcəklər.
+Əgər siz əllə bunu yazmaqdan əminsinizsə, `this.props`-u `nextProps` ilə və `this.state`-i `nextState` ilə yoxlayıb React-ə yeniliyi atlamağı üçün `false` qaytarın. Qeyd edin ki, uşaq komponentlərin state-i dəyişdikdə ana komponentin `false` qaytarmasından asılı olmayaraq uşaq komponentlər yeniden render ediləcəklər.
 
 Biz `shouldComponentUpdate()`-də dərin obyekt müqayisəsi etməyi və ya `JSON.stringify()` işlətməyi məsləhət görmürük. Bu çox səmərəsizdir və performansa ziyan vuracaq.
 
-Hal hazırda, əgər `shouldComponentUpdate()` `false` qaytarırsa, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) və [`componentDidUpdate()`](#componentdidupdate) çağrılmayacaq. Amma gələcəkdə React `shouldComponentUpdate()` funksiyasını sərt direktiv əvəzinə bir işarə kimi rəftar edə bilər. Bu deməkdir ki, `false` qaytardıqda komponent yenə də render edə bilər.
+Hal hazırda, əgər `shouldComponentUpdate()` `false` qaytarırsa, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) və [`componentDidUpdate()`](#componentdidupdate) çağrılmayacaq. Amma gələcəkdə React `shouldComponentUpdate()` funksiyasına sərt direktiv əvəzinə bir işarə kimi rəftar edə bilər. Bu deməkdir ki, `false` qaytardıqda komponent yenə də render edə bilər.
 
 * * *
 
@@ -276,20 +276,20 @@ static getDerivedStateFromProps(props, state)
 
 `getDerivedStateFromProps` render funksiyası çağrılmamışdan dərhal öncə (ilkin mount və sonrakı yeniliklər zamanı) çağrıla bilər. Bu funksiya state-i yeniləmək üçün obyekt qaytarmalı və ya yeniləməmək üçün null qaytarmalıdır.
 
-Bu funksiya state-in zaman ilə propların dəyişməsindən asılı olduğu [nadir halda](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) işlənilir. Məsələn, əvvəlki və sonrakı uşaqları müqayisə edib hansı uşaqları animasiya etmək üçün `<Transition>` komponentinin tətbiqi üçün bu funksiya faydalı ola bilər.
+Bu funksiya state-in zaman ilə propların dəyişməsindən asılı olduğu [nadir halda](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) işlənilir. Məsələn, əvvəlki və sonrakı uşaqları müqayisə edib hansı uşaqların animasiya ediləcəyini müəyyənləşdirmək üçün `<Transition>` kimi komponentinin tətbiqi üçün bu funksiya faydalı ola bilər.
 
 State-i törətmək qarışıq koda səbəb olub komponentin pis anlaşılmasına səbəb ola bilər. 
 [Daha sadə alternativlər ilə tanış olun:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya), [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
+* Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya) [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
 
-* Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa**, [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa** [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
+* Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 
-Bu funksiyanın komponent instansiyasına girişi yoxdur. Əgər istəyirsinizsə, siz  komponent proplarının saf funksiyalarını və state-i klas təriflindən ekstrakt edib `getDerivedStateFromProps()` və digər klas metodları arasında kodu paylaşa bilərsiniz.
+Bu funksiyanın komponent instansiyasına girişi yoxdur. Siz komponent proplarının saf funksiyalarını və state-i klas tərifindən ekstrakt edib `getDerivedStateFromProps()` və digər klas metodları arasında kodu paylaşa bilərsiniz.
 
-Qeyd edin ki, bu funksiya səbəbdən asılı olmayaraq **hər** render-də çağrılır. Bundan fərqli olaraq `UNSAFE_componentWillReceiveProps` funksiyası lokal `setState` əsasında yox, yalnız ana komponent yenidən render yaratdıqda çağrılır.
+Qeyd edin ki, bu funksiya səbəbsiz halda **hər** render-də çağrılır. Bundan fərqli olaraq `UNSAFE_componentWillReceiveProps` funksiyası lokal `setState` əsasında yox, yalnız ana komponent yenidən render etdikdə çağrılır.
 
 * * *
 
@@ -299,9 +299,9 @@ Qeyd edin ki, bu funksiya səbəbdən asılı olmayaraq **hər** render-də ça�
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-`getSnapshotBeforeUpdate()` ən son render edilən nəticənin DOM-a köçürülməsindən dərhal əvvəl çağrılır. Bu komponentə DOM-dan bəzi məlumatları (məsələn skrol pozisiyası) dəyişməmişdən öncə yaxalamağa icazə verir. Bu lifecycle-dan qaytarılan hər hansı bir dəyər `componentDidUpdate()` funksiyasına arqument kimi ötürülür.
+`getSnapshotBeforeUpdate()` ən son render edilən nəticənin DOM-a köçürülməsindən dərhal əvvəl çağrılır.  Bu funksiya komponentə DOM-dan bəzi məlumatları (məsələn skrol pozisiyası) dəyişməmişdən öncə yaxalamaq üçün istifadə edilir. Bu funksiyadan qaytarılan hər hansı bir dəyər `componentDidUpdate()` funksiyasına arqument kimi ötürülür.
 
-Bu istifadə halı sıravi deyil amma bu çat kimi skrol posiziyasını xüsusi formada işlədən UI-larda işlədilə bilər.
+Bu istifadə halı sıravi deyil: çat kimi skrol posiziyasını xüsusi formada işlədən UI-larda işlədilə bilər.
 
 Snapshot dəyəri (və ya `null`) qaytarılmalıdır.
 
@@ -309,7 +309,7 @@ Məsələn:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
-Yuxarıdalı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funskiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
+Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funskiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
 
 * * *
 
@@ -317,9 +317,9 @@ Yuxarıdalı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` f
 
 [Xəta Sərhədləri](/docs/error-boundaries.html) uşaq komponent ağacında xətaları tutan, tutulan xətaları loq edən, və sınmış komponent ağacında xəta UI-ı göstərən React komponentləridir. Xəta sərhədləri uşaq komponent ağacında render zamanı, lifecycle funksiyalarında, və konstruktorlarda baş verən xətaları tutur.
 
-Klas komponenti `static getDerivedStateFromError()` və ya `componentDidCatch()` lifecycle funksiyasından hər hansınısa (və ya hər ikisini) tətbiq edirsə bu komponent xəta sərhədi olur. Bu lifecycle funksiyalarından state-i yeniləyərək uşaq komponentlərdə tutulmayan Javascript xətalarını tutmaq və xəta UI-ı göstərmək mümkündür.
+Klas komponenti `static getDerivedStateFromError()` və ya `componentDidCatch()` lifecycle funksiyalarından hər hansınısa (və ya hər ikisini) tətbiq edirsə bu komponent xəta sərhədi olur. Bu lifecycle funksiyalarından state-i yeniləyərək uşaq komponentlərdə tutulmayan Javascript xətalarını tutmaq və xəta UI-ı göstərmək mümkündür.
 
-Xəta sərhədlərini yalnız gözlənilməz xətalardan bərpa üçün işlədin; **Kontrol axını üçün istifadə etməyin.**
+Xəta sərhədlərini yalnız gözlənilməz xətalardan bərpa üçün işlədin. **Kontrol axını üçün istifadə etməyin.**
 
 Əlavə məlumat üçün [*React 16-da Xəta Sərhədləri*](/blog/2017/07/26/error-handling-in-react-16.html) yazısını oxuyun.
 
@@ -359,8 +359,8 @@ class ErrorBoundary extends React.Component {
 
 > Qeyd
 >
-> `getDerivedStateFromError()` "render" fazası zamanı çağrılır. Bu səbəbdən side-effectlərə icazə yoxdur.
-Bu hallar üçün, `componentDidCatch()` işlədin.
+> `getDerivedStateFromError()` "render" fazası zamanı çağrılır. Bu səbəbdən side-effektlərə icazə yoxdur.
+Belə hallar üçün `componentDidCatch()` işlədin.
 
 * * *
 
@@ -413,14 +413,14 @@ class ErrorBoundary extends React.Component {
 
 > Qeyd
 > 
-> Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq  xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.
+> Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.
 > Xəta render etmək üçün `static getDerivedStateFromError()` funksiyasından istifadə edin.
 
 * * *
 
 ### Köhnə Lifecycle Funksiyaları {#legacy-lifecycle-methods}
 
-Aşağıdakı lifecycle funksiyalar köhnədirlər. Bu funksiyalar indidə işləməyinə baxmayaraq, biz yeni kodda bu lifecycle-ları işlətməyi tövsiyyə etmirik. Siz [bu bloq yazısında](/blog/2018/03/27/update-on-async-rendering.html) köhnə lifecycle funksiyalarından miqrasiya etmək üçün əlavə məlumat ala bilərsiniz.
+Aşağıdakı lifecycle funksiyalar köhnədirlər. Bu funksiyaların indi işləməyinə baxmayaraq, biz yeni kodda bu lifecycle-ları işlətməyi tövsiyyə etmirik. Siz [bu bloq yazısında](/blog/2018/03/27/update-on-async-rendering.html) köhnə lifecycle funksiyalarından miqrasiya etmək üçün əlavə məlumat ala bilərsiniz.
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
@@ -432,9 +432,9 @@ UNSAFE_componentWillMount()
 >
 > Bu lifecycle əvvəllər `componentWillMount` adlanırdı. Bu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
-`UNSAFE_componentWillMount()` mount olmamışdan əvvəl baş verir. Bunun `render()`-dan əvvəl çağrıldığından,  `setState()`-i bu funksiyada sinxron formada çağrıldıqda əlavə render baş vermir. Ümumiyyətlə, biz state-i inisializasiya etmək üçün `constructor()`-dan istifadə etməyi tovsiyyə edirik.
+`UNSAFE_componentWillMount()` mount olmamışdan əvvəl baş verir. Bunun `render()`-dan əvvəl çağrıldığından  `setState()` bu funksiyada sinxron formada çağrıldıqda əlavə render baş vermir. Ümumiyyətlə, biz state-i inisializasiya etmək üçün `constructor()`-dan istifadə etməyi tovsiyyə edirik.
 
-Bu funksiyada side-effectlər və ya abunələrdən istifadə etməyin. Bu hallar üçün, `componentDidMount()`-dan istifadə edin.
+Bu funksiyada side-effektlər və ya abunələrdən istifadə etməyin. Belə hallar üçün `componentDidMount()`-dan istifadə edin.
 
 Server render zamanı yalnız bu lifecycle funksiyası çağrılır.
 
@@ -454,15 +454,15 @@ UNSAFE_componentWillReceiveProps(nextProps)
 >
 > Bu lifecycle funksiyasını işlətmək yalnız baqlara və uyğunsuzluqlara səbəb olur
 >
-> * Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya), [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
-> * Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa**, [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
+> * Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya),[`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
+> * Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa** [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə** komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 >
-> Digər alternativlər üçün, [bu törənmiş state haqqında bloq yazısında olan tövsiyyələri tətbiq edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Digər alternativlər üçün [bu törənmiş state haqqında bloq yazısında olan tövsiyyələri tətbiq edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` mount olunmuş komponent propları qəbul etməmişdən öncə çağrılırır. Əgər sizə prop dəyişiklikləri əsasında state-i yeniləmək lazımdırsa (məsələn, state-i sıfırlamaq üçün) siz `this.props`-u `nextProps` ilə müqayisə edib state-i `this.setState()` ilə yeniləyə bilərsiniz.
+`UNSAFE_componentWillReceiveProps()` funksiyası mount olunmuş komponent propları qəbul etməmişdən öncə çağrılırır. Əgər sizə prop dəyişiklikləri əsasında state-i yeniləmək lazımdırsa (məsələn, state-i sıfırlamaq üçün) siz `this.props`-u `nextProps` ilə müqayisə edib state-i `this.setState()` ilə yeniləyə bilərsiniz.
 
-Qeyd edin ki, əgər ana komponent-də yeniden render baş verirsə, bu funksiya propların dəyişməsindən asılı olmayaraq yenidən çağrılacaq. Əmin olun ki, cari və yeni prop dəyərlərini müqayisə edirsiniz.
+Qeyd edin ki, əgər ana komponentdə yenidən render baş verirsə bu funksiya propların dəyişməsindən asılı olmayaraq yenidən çağrılacaq. Əmin olun ki, cari və yeni prop dəyərlərini müqayisə edirsiniz.
 
 React [mount zamanı](#mounting) `UNSAFE_componentWillReceiveProps()` funksiyasını ilkin proplar ilə çağırmır. Bu funksiya yalnız komponentin propları yeniləndiyi zaman çağrılır. `this.setState()` çağrılıdığı zaman `UNSAFE_componentWillReceiveProps()` çağrılmır.
 
@@ -476,13 +476,13 @@ UNSAFE_componentWillUpdate(nextProps, nextState)
 
 > Qeyd
 >
-> This lifecycle əvvəllər `componentWillUpdate` adlanırdı. TBu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
+> This lifecycle əvvəllər `componentWillUpdate` adlanırdı. Bu ad 17ci versiyaya kimi işləyəcək. [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) istifadə edərək komponentlərinizi yeniləyin.
 
-`UNSAFE_componentWillUpdate()` yeni proplar və ya state qəbul olunduqdan və render olunmamışdan öncə çağrılır. Bu funksiyada yenilik baş verməmişdən qabaq lazımi hazırlıqları görün. Bu funksiya ilkin render zamanı çağrılmır.
+`UNSAFE_componentWillUpdate()` yeni proplar və ya state qəbul olunduqdan və komponent render olunmamışdan öncə çağrılır. Bu funksiyada yenilik baş verməmişdən qabaq lazımi hazırlıqları görün. Bu funksiya ilkin render zamanı çağrılmır.
 
 Qeyd edin ki, bu funksiyada `this.setState()` çağırmaq və ya React komponenti yeniləyən heç bir əməliyyat etmək olmaz.
 
-Adətən, bu funksiyanı `componentDidUpdate()` ilə əvəz etmək olar. Əgər siz bu funksiyadan DOM-dan dəyərləri oxumaq üçün (məsələn skrol pozisiyasını yadda saxlamaq üçün) istifadə edirdinizsə, siz bu məntiqi `getSnapshotBeforeUpdate()` köçürə bilərsiniz.
+Adətən, bu funksiyanı `componentDidUpdate()` ilə əvəz etmək olar. Əgər siz bu funksiyadan DOM-dan dəyərləri oxumaq üçün (məsələn skrol pozisiyasını yadda saxlamaq üçün) istifadə edirdinizsə siz bu məntiqi `getSnapshotBeforeUpdate()` köçürə bilərsiniz.
 
 > Qeyd
 >
@@ -506,7 +506,7 @@ setState(updater[, callback])
 
 `setState()`-ə komponenti yeniləmək üçün birbaşa əmr əvəzinə bir *sorğu* kimi baxın. Daha yaxşı performans üçün React yeniləməni gecikdirib bir neçə komponenti bir keçiddə yeniləyə bilər. React state yeniliklərinin dərhal tətbiqinə qarantiya vermir.
 
-`setState()` komponenti dərhal yeniləmir. Bu dəyişklikləri bir dəstəyə yığa bilər və ya yeniliyi sonraya qədər təxirə sala bilər. Bu `this.state`-i `setState()`-dən dərhal sonra oxumağında problem yardır. Bunun əvəzinə, `componentDidUpdate` və ya `setState` callback-indən istifadə edin (`setState(updater, callback)`). Bu iki yol yenilik baş verəndən sonra həmişə çağrılır. Əgər sizə state-i keçmiş state əsasında təyin etmək lazımdırsa, aşağıdakı `updater` arqumenti haqqında oxuyun.
+`setState()` komponenti dərhal yeniləmir. Bu dəyişklikləri bir dəstəyə yığa bilər və ya yeniliyi sonraya qədər təxirə sala bilər. Bu `this.state`-i `setState()`-dən dərhal sonra oxuduqda problem yardır. Bunun əvəzinə, `componentDidUpdate` və ya `setState` callback-indən istifadə edin (`setState(updater, callback)`). Bu iki yol yenilik baş verdikdən sonra həmişə çağrılır. Əgər sizə state-i keçmiş state əsasında təyin etmək lazımdırsa, aşağıdakı `updater` arqumenti haqqında oxuyun.
 
 `shouldComponentUpdate()`-in`false` qaytarması istisna olmaqla `setState()` komponenti həmişə yenidən render etdirəcək. Əgər dəyişən obyektlər işlənilirsə və şərtli render `shouldComponentUpdate()`-də tətbiq edilə bilmirsə, `setState()`-i yalnız yeni state-in köhnə state-dən fərqli olduğu zaman çağırdıqda lazımsız yeniden renderlərdən qaçınmaq olar.
 
@@ -516,7 +516,7 @@ setState(updater[, callback])
 (state, props) => stateChange
 ```
 
-`state` arqumenti dəyişiklik tətbiq edilər zaman komponent state-inə referansdır. Bu dəyər birbaşa mutasiya edilməməlidir. Dəyişikliklər `state` və `props` arqumentləri əsasında yeni obyekt yaratmaq ilə baş verməlidir. Məsələn, gəlin state-in dəyərini `props.step` əsasında artıraq:
+`state` arqumenti dəyişiklik tətbiq edilən zaman komponent state-inə referansdır. Bu dəyər birbaşa mutasiya edilməməlidir. Dəyişikliklər `state` və `props` arqumentləri əsasında yeni obyekt yaratmaq ilə baş verməlidir. Məsələn, gəlin cari state-in dəyərini `props.step` əsasında artıraq:
 
 ```javascript
 this.setState((state, props) => {
@@ -526,7 +526,7 @@ this.setState((state, props) => {
 
 `updater` funksiyasında olan `state` və `props` dəyərlərinin yeni olmasında qarantiya var. `updater`-in nəticəsi `state` ilə dayaz birləşdirilir (merge).
 
-`setState()`-in ikinci arqumenti məcburi olmayan callback funksiyasıdır. Bu funksiya `setState` başa çatanda və komponent yenidən render etdikdə icra olunur. Normalda biz belə məntiq üçün `componentDidUpdate()` işlətməyi tövsiyyə edirik.
+`setState()`-in ikinci arqumenti məcburi olmayan callback funksiyasıdır. Bu funksiya `setState` başa çatdıqda və komponent yenidən render etdikdə icra olunur. Normalda biz belə məntiq üçün `componentDidUpdate()` işlətməyi tövsiyyə edirik.
 
 Siz `setState()`-in `updater` arqumentinə funksiya əvəzinə obyekt də göndərə bilərsiniz:
 
@@ -540,7 +540,7 @@ Bu `stateChange` ilə cari state-i dayaz birləşdirərək komponent state-ini y
 this.setState({quantity: 2})
 ```
 
-Bu formalı `setState()` də asinxron baş verir və bir siklda baş verən bir neçə `setState` çağırışı bir dəstə ilə baş verə bilər. Məsələn, əgər siz maddə dəyərini bir sikl-da bir neçə dəfə artırsanız, aşağıdakı kimi nəticə ola bilər:
+Bu formalı `setState()` də asinxron baş verir və bir siklda baş verən bir neçə `setState` çağırışı bir dəstə ilə baş verə bilər. Məsələn, əgər siz maddə dəyərini bir siklda bir neçə dəfə artırsanız aşağıdakı kimi nəticə ola bilər:
 
 ```javaScript
 Object.assign(
@@ -562,7 +562,7 @@ this.setState((state) => {
 Əlavə məlumat üçün aşağıdakı səhifələrə baxın:
 
 * [State və Lifecycle sənədi](/docs/state-and-lifecycle.html)
-* [Dərindən: Ne zaman və niye `setState()` çağırışları dəstələnir?](https://stackoverflow.com/a/48610973/458193)
+* [Dərindən: Ne zaman və niyə `setState()` çağırışları dəstələnir?](https://stackoverflow.com/a/48610973/458193)
 * [Dərindən: `this.state` niyə dərhal yenilənmir?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
@@ -573,7 +573,7 @@ this.setState((state) => {
 component.forceUpdate(callback)
 ```
 
-Normalda, sizin komponentinizin state və ya propları dəyişdikdə, komponent yenidən render edir. Əgər sizin `render()` funksiyanız başqa məlumatlardan asılıdırsa, siz React-ə komponenti yeniden render etmək üçün `forceUpdate()` funksiyasını çağıra bilərsiniz.
+Normalda, sizin komponentinizin state və ya propları dəyişdikdə, komponent yenidən render edir. Əgər sizin `render()` funksiyanız başqa məlumatlardan asılıdırsa, siz React-ə komponenti yeniden render etmək üçün `forceUpdate()` funksiyasından istifadə edə bilərsiniz.
 
 `forceUpdate()` funksiyası komponentdə, `shouldComponentUpdate()` atlayaraq, `render()` funksiyasını çağıracaq. Bu uşaq komponentlərdə normal lifecycle funksiyalarını çağıracaq (`shouldComponentUpdate()` daxil olmaqla). React DOM-u yalnız markap dəyişdikdə yeniləyəcək.
 
@@ -617,7 +617,7 @@ CustomButton.defaultProps = {
 
 ### `displayName` {#displayname}
 
-`displayName` parametri mesajları debaq etmək üçün işlədilir. Adətən, bunu açıq şəkildə təyin etmək lazım deyil. Çünki, komponenti təyin edən funksiya və ya klasın adından istifadə edilərək avtomatik şəkildə təyin edilir. Debaq zamanı komponentdə fərqli ad görmək üçün və ya yüksək-dərəcəli komponent işləndiyi zaman bu parametri açıq şəkildə təyin etmək olar. Əlavə məlumat üçün, [Asan Debaq Etmək üçün Nümayiş Adını Əhatə Et](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) sənədini oxuyun.
+`displayName` parametri mesajları debaq etmək üçün işlədilir. Adətən, bunu açıq şəkildə təyin etmək lazım deyil. Çünki, komponenti təyin edən funksiya və ya klasın adından istifadə edilərək avtomatik şəkildə təyin edilir. Debaq zamanı komponentdə fərqli ad görmək üçün və ya yüksək-dərəcəli komponent işləndiyi zaman bu parametri açıq şəkildə təyin etmək olar. Əlavə məlumat üçün [Asan Debaq Etmək üçün Nümayiş Adını Əhatə Et](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) sənədini oxuyun.
 
 * * *
 
