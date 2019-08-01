@@ -1,6 +1,6 @@
 ---
 id: conditional-rendering
-title: Şərti Render Etmə
+title: Şərti Render Edilmə
 permalink: docs/conditional-rendering.html
 prev: handling-events.html
 next: lists-and-keys.html
