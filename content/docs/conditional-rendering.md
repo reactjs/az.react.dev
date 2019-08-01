@@ -24,7 +24,7 @@ function GuestGreeting(props) {
 }
 ```
 
-Biz, bu komponentlərin hansınısa təsvir edən  `Greeting` komponenti yaradacağıq.We'll create a `Greeting` component that displays either of these components depending on whether a user is logged in:
+Biz, hansı istifadəçinin daxil olmasını nəzərə alaraq,bu komponentlərin hansınısa təsvir edən  `Greeting` komponenti yaradacağıq:
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
