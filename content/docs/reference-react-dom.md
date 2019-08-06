@@ -6,7 +6,8 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-Əgər siz React-i `<script>` təqi ilə yükləyirsinizsə, yüksək dərəcəli API-lar `ReactDOM` qlobal dəyişənindən istifadə edilə bilərlər. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import ReactDOM from 'react-dom'` yaza bilərsiniz. Əgər siz NPM ile ES5 işlədirsinizsə, siz `var ReactDOM = require('react-dom')` yaza bilərsiniz.
+Əgər siz React-i `<script>` təqi ilə yükləyirsinizsə, yüksək dərəcəli API-lar 
+üçün `ReactDOM` qlobal dəyişənindən istifadə edilə bilərlər. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import ReactDOM from 'react-dom'` yaza bilərsiniz. Əgər siz NPM ile ES5 işlədirsinizsə, siz `var ReactDOM = require('react-dom')` yaza bilərsiniz.
 
 ## İcmal {#overview}
 
@@ -64,13 +65,13 @@ ReactDOM.hydrate(element, container[, callback])
 
 [`render()`](#render)-dən fərqli olaraq bu funksiya [`ReactDOMServer`](/docs/react-dom-server.html) tərəfindən render edilən HTML kontenti olan konteyneri hidrat etmək üçün işlədilir. React mövcud markapa hadisə işləyicilərini qoşmağa çalışacaq.
 
-React render edilən kontentin server və klientdə eyni olmasını umur. Bu mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışır. Təkminləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir mox applikasiyalarda uyğunsuzluqların nadir olduğundan, bütün markapları validasiya etmək çox bahalıdır.
+React render edilən kontentin server və klientdə eyni olmasını umur. Bu, mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışın. Təkminləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir çox applikasiyalarda uyğunsuzluqların nadir olduğundan bütün markapları validasiya etmək çox bahalıdır.
 
 Əgər elementin atributu və ya mətn kontenti server və klientdə qaçılmaz şəkildə fərqlənirsə (məsələn tarix), siz elementə `suppressHydrationWarning={true}` əlavə etməklə xəbərdarlığı söndürə bilərsiniz. Bu yalnız bir dərəcədə işləyir və yalnız qaçış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Mətn kontenti olmadıqda, React yenədə uyğunsuzları düzəltməyə bilər və bu gələcək yeniliklərə kimi uyğunsuz qala bilər.
 
-Əgər sizə render və klientdə bilərəkdən fərqli render etmək istəyirsinizsə siz iki-keçidli render etmədən isitfadə edə bilərsiniz. Klientdə fərqli render edən komponentlərdə state-də `this.state.isClient` (`componentDidMount`-da bunu `true` ilə təyin edə bilərsiniz) dəyəri oxuya bilərlər. Bu səbəbdən ilkin render keçidində klient server ilə eyni kontenti render edəcək və uyğunsuzlug olmayacaq. Amma hidrasiyadan sonra sinxron formada ikinci keçid baş verəcək. Qeyd edin ki, bu yanaşmada komponentlər iki dəfə render edildiyindən komponentləriniz yavaş işləyə bilərlər. Bu səbəbdən bu yolu diqqət ilə işlədin.
+Əgər sizə server və klientdə bilərəkdən fərqli render etmək lazımdırsa siz iki-keçidli render etmədən istifadə edə bilərsiniz. Klientdə fərqli render edilməli komponentlər `this.state.isClient` state (`componentDidMount`-da bunu `true` ilə təyin edə bilərsiniz) dəyərini oxuya bilərlər. Bu səbəbdən ilkin render keçidində klient server ilə eyni kontenti render edəcək və uyğunsuzlug olmayacaq. Amma hidrasiyadan sonra sinxron formada ikinci keçid baş verəcək. Qeyd edin ki, bu yanaşmada komponentlər iki dəfə render edildiyindən komponentləriniz yavaş işləyə bilərlər. Bu səbəbdən bu yolu diqqət ilə işlədin.
 
-Yavaş internetdə istifadəçi təcrübəsindən zehinli olun. Javascript kodu ilkin HTML renderindən çox gec sonra yüklənə bilər. Bu səbəbdən klient keçidində fərqli bir şey render edildikdə, keçid çox xoşagəlməz ola bilər. Amma yaxşı icra edildikdə, applikasiyanın "qabığını" serverdə render etmək faydalı ola bilər. Bunu markap uyğunsuzluqları olmadan edə bilmək üçün, əvvəli paraqrafad olan izahata baxın.
+Yavaş internet sürətlədində istifadəçi təcrübəsindən zehinli olun. Javascript kodu ilkin HTML renderindən çox gec sonra yüklənə bilər. Bu səbəbdən klient keçidində fərqli bir şey render edildikdə, keçid çox xoşagəlməz ola bilər. Amma yaxşı icra edildikdə, applikasiyanın "qabığını" serverdə render etmək faydalı ola bilər. Bunu markap uyğunsuzluqları olmadan edə bilmək üçün, əvvəlki paraqrafda olan izahata baxın.
 
 * * *
 
@@ -95,7 +96,7 @@ ReactDOM.findDOMNode(component)
 ```
 Əgər komponent DOM-a mount edilibsə bu funksiya brauzerdə komponentə müvafiq nativ DOM elementini qaytarır. Bu metod anket sahələrinin dəyərlərini oxumaq və DOM ölçmələri aparmaq kimi əməliyyatlar üçün DOM-dan dəyərləri oxumaq üçün faydalıdır. **Bir çox hallarda, siz DOM noduna ref qoşub `findDOMNode`-dan istifadə etməyə bilərsiniz.**
 
-Komponent `null` və ya `false` render etdikdə `findDOMNode` `null` qaytarır. Komponent mətn render etdikdə, `findDOMNode`, dəyəri saxlayan mətn DOM nodu qaytarır. React 16-dan başlayaraq, komponent fraqment ilə bir neçə uşaq qaytara bilər. Bu halda `findDOMNode` ilk boş olmayan uşağın DOM nodunu qaytaracaq.
+Komponent `null` və ya `false` render etdikdə `findDOMNode` `null` qaytarır. Komponent mətn render etdikdə, `findDOMNode` dəyəri saxlayan mətn DOM nodu qaytarır. React 16-dan başlayaraq komponent fraqment ilə bir neçə uşaq qaytara bilər. Bu halda `findDOMNode` ilk boş olmayan uşağın DOM nodunu qaytaracaq.
 
 > Qeyd:
 >
@@ -111,4 +112,4 @@ Komponent `null` və ya `false` render etdikdə `findDOMNode` `null` qaytarır. 
 ReactDOM.createPortal(child, container)
 ```
 
-Portal yaradır. Portallar [DOM komponenti iyerarxiyası kənarında olan DOM noduna uşaqları render etmək üçün](/docs/portals.html) yol ilə təmin edir.
+Portal yaradır. Portallar [DOM komponenti iyerarxiyası kənarında olan DOM noduna uşaqları render etmək üçün](/docs/portals.html) yol təmin edir.
