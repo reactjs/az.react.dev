@@ -120,23 +120,23 @@ Server React render edtikdə normalda server və klient fərqli kontent render e
 
 ### value {#value}
 
-The `value` attribute is supported by `<input>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+`value` atributu `<input>` və `<textarea>` komponentləri tərəfindən dəstəklənir. Bu atributdan istifadə edərək komponentin dəyərini təyin edə bilərsiniz. Bu kontrol edilən komponentlər yaratmaq üçün faydalıdır. `defaultValue` kontrol edilməyən ekvivalentidir. Bu komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
 
-## All Supported HTML Attributes {#all-supported-html-attributes}
+## Dəstəklənən bütün HTML Atributları {#all-supported-html-attributes}
 
-As of React 16, any standard [or custom](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM attributes are fully supported.
+React 16-dan başlayaraq, bütün standart [və ya xüsusi](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM atributları tam dəstəklənir.
 
-React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, React uses the `camelCase` convention just like the DOM APIs:
+React həmişə DOM üçün Javascript əsaslı API təmin edib. React komponentlərin həm xüsusi, həm də DOM-a aid propları qəbul etdiyindən React, DOM API-ları kimi `camelCase`  konvensiyasından istifadə edir:
 
 ```js
-<div tabIndex="-1" />      // Just like node.tabIndex DOM API
-<div className="Button" /> // Just like node.className DOM API
-<input readOnly={true} />  // Just like node.readOnly DOM API
+<div tabIndex="-1" />      // node.tabIndex DOM API-ı kimi
+<div className="Button" /> // node.className DOM API-ı kimi
+<input readOnly={true} />  // node.readOnly DOM API-ı kimi
 ```
 
-These props work similarly to the corresponding HTML attributes, with the exception of the special cases documented above.
+Yuxarıda göstərilmiş xüsusi hallar istisna olmaqla bu proplar uyğun olan HTML atributlarına bənzər formada işləyirlər.
 
-Some of the DOM attributes supported by React include:
+React-in dəstəklədiyi bəzi DOM atributları:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -154,7 +154,7 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Similarly, all SVG attributes are fully supported:
+Eyni formada, bütün SVG atributları da tam dəstəklənir:
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
@@ -193,4 +193,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-You may also use custom attributes as long as they're fully lowercase.
+Kiçik hərf istifadə etdiyiniz müddətcə siz xüsusi atributlar da işlədə bilərsiniz.
