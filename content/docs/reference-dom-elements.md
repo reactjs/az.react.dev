@@ -14,7 +14,7 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-Performans və brauzerlər arası uyğunluqlar üçün React brauzerdən müstəqil DOM sistemi tətbiq edir. Biz bu fürsətdən istifadə edərək brauzer DOM-unun tətbiqində olan bəzi problemləri düzəltdik.
+Performans üçün və brauzerlər arası uyğunluqlar üçün React brauzerdən müstəqil DOM sistemi tətbiq edir. Biz bu fürsətdən istifadə edərək brauzer DOM-unun tətbiqində olan bəzi problemləri düzəltdik.
 
 React-də bütün DOM parametrləri və atributları (hadisə işləyiciləri daxil olmaqla) camelCase formatında olmalıdır. Məsələn `tabindex` HTML atributu React-də `tabIndex` atributuna uyğun gəlir. İstisnalar `aria-*` və `data-*` atributlarıdırlar: bu atributlar kiçik hərf ilə yazılmalıdırlar. Məsələn siz `aria-label` atributunu `aria-label` kimi saxlaya bilərsiniz.
 
@@ -24,17 +24,17 @@ Bir neçə atributun işləməsi React və HTML-də fərqlidir:
 
 ### checked {#checked}
 
-`checked` atributu `checkbox` və ya `radio` tipli `<input>` komponentlərində dəstəklənir. Siz bu atribut ilə komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponent düzəltmək üçün faydalıdır. `defaultChecked` kontrol edilməyən ekvivalentidir. Bu komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
+`checked` atributu `checkbox` və ya `radio` tipli `<input>` komponentlərində dəstəklənir. Siz bu atribut ilə komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponent düzəltmək üçün faydalıdır. `defaultChecked` kontrol edilməyən ekvivalentidir. Bu, komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
 
 ### className {#classname}
 
-CSS klası təyin etmək üçün `className` atributundan istifadə edin. Bu bütün normal DOM və SVG elementlərinə (`<div>`, `<a>` və başqaları) aiddir.
+CSS klası təyin etmək üçün `className` atributundan istifadə edin. Bu, bütün normal DOM və SVG elementlərinə (`<div>`, `<a>` və başqaları) aiddir.
 
 Əgər siz React-i Veb Komponentlər ilə işlədirsinizsə (nadirdir) `class` atributu işlədin.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-React-də `dangerouslySetInnerHTML` brauzer DOM-da `innerHTML` atributunu əvəzləyir. Adətən, təsadüfən istifadəçiləri [kros-səhifə scriptləri (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarına ifşa etməyini asanlaşdırdığından koddan HTML təyin etmək risklidir. Bu səbəbdən HTML-i bir başa React-ə təyin etmək üçün siz `dangerouslySetInnerHTML` yazıb `__html` açarı olan obyekt göndərməlisiniz ki, bunun təhlükəli olduğunu yada salasınız. Məsələn:
+React-də `dangerouslySetInnerHTML` brauzerin DOM-unda `innerHTML` atributunu əvəzləyir. Adətən, təsadüfən istifadəçiləri [kros-səhifə scriptləri (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarına ifşa etməyini asanlaşdırdığından koddan HTML təyin etmək risklidir. Bu səbəbdən HTML-i bir başa React-ə təyin etmək üçün siz `dangerouslySetInnerHTML` yazıb `__html` açarı olan obyekt göndərməlisiniz ki, bunun təhlükəli olduğunu yada salasınız. Məsələn:
 
 ```js
 function createMarkup() {
@@ -52,17 +52,17 @@ function MyComponent() {
 
 ### onChange {#onchange}
 
-`onChange` hadisəsi gözlədiyiniz kimi davranır to: anket sahəsi dəyişdikdə bu hadisə atılır. Brauzerdə olan mövcud davranışın səhv olduğundan və React-in istifadəçi daxil etməsinin atdığı hadisədən real zamanda asılı olduğundan biz bilərəkdən brauzerdə olan mövcud davranışı işlətmirik.
+`onChange` hadisəsi gözlədiyiniz kimi davranır: anket sahəsi dəyişdikdə bu hadisə atılır. Brauzerdə olan mövcud davranışın səhv olduğundan və React-in istifadəçi daxil etməsinin atdığı hadisədən real zamanda asılı olduğundan biz bilərəkdən brauzerdə olan mövcud davranışı işlətmirik.
 
 ### selected {#selected}
 
-`selected` atribut `<option>` komponentlərində dəstəklənir. Siz bunun ile komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponentlər düzəltmək üçün faydalıdır.
+`selected` atribut `<option>` komponentlərində dəstəklənir. Siz bunun ilə komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponentlər düzəltmək üçün faydalıdır.
 
 ### style {#style}
 
 >Qeyd
 >
->Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyyə etmirik.** Bir çox halda kenar CSS stil cədvəlində (stylesheet) olan klaslara referans etmək üçün [`className`](#classname) işlətməyi tövsiyyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
+>Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyyə etmirik.** Bir çox halda kənar CSS stil cədvəlində (stylesheet) olan klaslara referans etmək üçün [`className`](#classname) işlətməyi tövsiyyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
 
 `style` atributu CSS mətn əvəzinə camelCased parametrləri olan Javascript obyekti qəbul edir. Bu Javascriptin DOM `style` parametri ilə uyğundur, daha səmərəlidir və istifadəçini XSS-dən qoruyur. Məsələn:
 
@@ -86,11 +86,11 @@ const divStyle = {
 };
 
 function ComponentWithTransition() {
-  return <div style={divStyle}>Bu bütün brauzerlərdə işləməyəcək</div>;
+  return <div style={divStyle}>Bu bütün brauzerlərdə işləyəcək</div>;
 }
 ```
 
-JS-də DOM nodlarının parametrlərini oxumaq ilə uyğun olması üçün (məsələn `node.style.backgroundImage`) stil açarları camelCased olmalıdır. [`ms`-dən başqa](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) bütün vendor prefixləri ilk hərfi böyük hərflə başlamalıdırlar. Bu səbəbdən `WebkitTransition`-də böyük hərfli "W" var.
+JS-də DOM nodlarının parametrlərini oxumaq ilə uyğun olması üçün (məsələn `node.style.backgroundImage`) stil açarları camelCased olmalıdır. [`ms`-dən başqa](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) bütün vendor prefikslər ilk hərfi böyük hərflə başlamalıdırlar. Bu səbəbdən `WebkitTransition`-da böyük hərfli "W" var.
 
 React avtomatik olaraq "px" şəkilçisini bəzi ədədi eyni sətrli stil parametrlərinə əlavə edəcək. Əgər sizə "px"-dən fərqli vahidlər lazımdırsa dəyəri lazım olan vahid ilə mətn formasında göstərin. Məsələn:
 
@@ -106,21 +106,21 @@ React avtomatik olaraq "px" şəkilçisini bəzi ədədi eyni sətrli stil param
 </div>
 ```
 
-Bütün stil parametrləri pixel mətnlərinə çevrilmirlər. Bəziləri vahidsiz qalırlar (məsələn `zoom`, `order`, `flex`). Vahidsiz parametrlərinin siyahısını [bu linkdən](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59) görə bilərsiniz.
+Bütün stil parametrləri piksel mətnlərinə çevrilmirlər. Bəziləri vahidsiz qalırlar (məsələn `zoom`, `order`, `flex`). Vahidsiz parametrlərin siyahısını [bu linkdən](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59) görə bilərsiniz.
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
-Normalda bu xəbərdarlıq uşağı olan elementin `contentEditable` atributu olduğu halda göstərilir. Çünki bu işləməyəcək. Bu atribut bu xəbərdarlığı gizlədir. [Draft.js](https://facebook.github.io/draft-js/) kimi `contentEditable`-ı əl ilə idarə edən kitabxana düzəltmirsinizsə bu atributdan istifadə etməyin.
+Normalda bu xəbərdarlıq, uşağı olan elementin `contentEditable` atributu olduğu halda göstərilir. Çünki bu işləməyəcək. Bu atribut bu xəbərdarlığı gizlədir. [Draft.js](https://facebook.github.io/draft-js/) kimi `contentEditable`-ı əl ilə idarə edən kitabxana düzəltmirsinizsə bu atributdan istifadə etməyin.
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
-Server React render edtikdə normalda server və klient fərqli kontent render edirsə xəbərdarlıq atılır. Amma bəzi nadir hallarda klient və server kontentinin uyğun olduğunu qarantiyalamaq çətindir. Məsələn tarixlərin server və klientdə fərqli olması gözlənilir.
+Server React render etdikdə normalda server və klient fərqli kontent render edirsə xəbərdarlıq atılır. Amma bəzi nadir hallarda klient və server kontentinin uyğun olduğunu qarantiyalamaq çətindir. Məsələn tarixlərin server və klientdə fərqli olması gözlənilir.
 
-Əgər `suppressHydrationWarning` `true`-dursa, React elementlər arasında və atributlar arasında fərqliliklər haqqında xəbərdarlıq etməyəcək. Bu yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Hidrasiya haqqında əlavə məlumat üçün [`ReactDOM.hydrate()` sənədinə](/docs/react-dom.html#hydrate) baxın.
+Əgər `suppressHydrationWarning` `true`-dursa React, elementlər arasında və atributlar arasında fərqliliklər haqqında xəbərdarlıq etməyəcək. Bu, yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Hidrasiya haqqında əlavə məlumat üçün [`ReactDOM.hydrate()` sənədinə](/docs/react-dom.html#hydrate) baxın.
 
 ### value {#value}
 
-`value` atributu `<input>` və `<textarea>` komponentləri tərəfindən dəstəklənir. Bu atributdan istifadə edərək komponentin dəyərini təyin edə bilərsiniz. Bu kontrol edilən komponentlər yaratmaq üçün faydalıdır. `defaultValue` kontrol edilməyən ekvivalentidir. Bu komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
+`value` atributu `<input>` və `<textarea>` komponentləri tərəfindən dəstəklənir. Bu atributdan istifadə edərək komponentin dəyərini təyin edə bilərsiniz. Bu kontrol edilən komponentlər yaratmaq üçün faydalıdır. `defaultValue` kontrol edilməyən ekvivalentidir. Bu, komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
 
 ## Dəstəklənən bütün HTML Atributları {#all-supported-html-attributes}
 
