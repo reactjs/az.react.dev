@@ -179,7 +179,7 @@ Konstruktorda side-effektlərdən və ya abunələrdən istifadə etməyin. Bu h
 >}
 >```
 >
->Burada problem bunun lazımsız olduğu (siz birbaşa `this.props.color` istifadə edə bilərsiniz) və baqların yaranmasına səbəb olduğundandır (`color` propuna edilən yeniliklər state-də görünməyəcak).
+>Bu əməliyyat lazımsızdır (siz birbaşa `this.props.color` istifadə edə bilərsiniz) və baqların yaranmasına səbəb ola bilər (`color` propuna edilən yeniliklər state-də görünməyəcak).
 >
 >**Bu pattern-i yalnız prop yeniliklərini bilərəkdən saymamaq istəyirsinizsə işlədin.** Bu halda, propu `initialColor` və ya `defaultColor` kimi adlandırmaq məntiqlidir. Siz komponentin daxili state-ini [komponentin `key`-ini dəyişərək](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) sıfırlaya bilərsiniz.
 >
@@ -573,11 +573,11 @@ this.setState((state) => {
 component.forceUpdate(callback)
 ```
 
-Normalda, sizin komponentinizin state və ya propları dəyişdikdə, komponent yenidən render edir. Əgər sizin `render()` funksiyanız başqa məlumatlardan asılıdırsa, siz React-ə komponenti yenidən render etmək üçün `forceUpdate()` funksiyasından istifadə edə bilərsiniz.
+Adi halda, sizin komponentinizin state və ya propları dəyişdikdə, komponent yenidən render edir. Əgər sizin `render()` funksiyanız başqa məlumatlardan asılıdırsa, siz React-ə komponenti yenidən render etmək üçün `forceUpdate()` funksiyasından istifadə edə bilərsiniz.
 
 `forceUpdate()` funksiyası komponentdə, `shouldComponentUpdate()` atlayaraq, `render()` funksiyasını çağıracaq. Bu uşaq komponentlərdə normal lifecycle funksiyalarını çağıracaq (`shouldComponentUpdate()` daxil olmaqla). React DOM-u yalnız markap dəyişdikdə yeniləyəcək.
 
-Normalda siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli və yalnız `this.props` və `this.state`-i oxuya bilərsiniz.
+Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli və yalnız `this.props` və `this.state`-i oxuya bilərsiniz.
 
 * * *
 
