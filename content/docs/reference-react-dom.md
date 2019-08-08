@@ -7,7 +7,7 @@ permalink: docs/react-dom.html
 ---
 
 Əgər siz React-i `<script>` təqi ilə yükləyirsinizsə, yüksək dərəcəli API-lar 
-üçün `ReactDOM` qlobal dəyişənindən istifadə edilə bilərlər. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import ReactDOM from 'react-dom'` yaza bilərsiniz. Əgər siz NPM ile ES5 işlədirsinizsə, siz `var ReactDOM = require('react-dom')` yaza bilərsiniz.
+üçün `ReactDOM` qlobal dəyişənindən istifadə edilə bilərsiniz. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import ReactDOM from 'react-dom'` yaza bilərsiniz. Əgər siz NPM ilə ES5 işlədirsinizsə, siz `var ReactDOM = require('react-dom')` yaza bilərsiniz.
 
 ## İcmal {#overview}
 
@@ -25,7 +25,7 @@ React bütün populyar brauzerləri (Internet Explorer 9 və yuxarı daxil olmaq
 
 > Qeyd
 >
-> Biz ES5 metodları dəstəkləməyən köhnə brauzerləri dəstəkləmir. Amma bir çox applikasiyalar [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) kimi polifillər səhifəyə yüklənəndə köhnə brauzerlərdə işləyirlər. Siz bu yolu seçirsinizsə biz sizə kömək edə bilmərik.
+> Biz ES5 metodları dəstəkləməyən köhnə brauzerləri dəstəkləmirik. Amma bir çox applikasiyalar [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) kimi polifillər səhifəyə yüklənəndə köhnə brauzerlərdə işləyirlər. Siz bu yolu seçirsinizsə biz sizə kömək edə bilmərik.
 
 * * *
 
@@ -39,9 +39,9 @@ ReactDOM.render(element, container[, callback])
 
 DOM-da göstərilən `container`-ə React elementini render et və komponent [referansı](/docs/more-about-refs.html) qaytar ([state-siz komponentlər](/docs/components-and-props.html#functional-and-class-components) üçün `null` qaytarır).
 
-Əgər `container`-ə əvvəl başqa React elementi render edilmişdirsə bu funksiya olan `container`-i yalnız yeniləyəcək və DOM-u yeni React elementini göstərmək üçün dəyişəcək.
+Əgər `container`-ə əvvəl başqa React elementi render edilmişdirsə, bu funksiya olan `container`-i yalnız yeniləyəcək və DOM-u yeni React elementini göstərmək üçün dəyişəcək.
 
-Əgər vacib olmayan callback arqumenti təmin edilibsə, təmin edilən funksiya komponent render edildikdən və ya yeniləndikdən sonra çağrılacak.
+Əgər vacib olmayan callback arqumenti təmin edilibsə, təmin edilən funksiya komponent render edildikdən və ya yeniləndikdən sonra çağrılacaq.
 
 > Qeyd:
 >
@@ -65,11 +65,11 @@ ReactDOM.hydrate(element, container[, callback])
 
 [`render()`](#render)-dən fərqli olaraq bu funksiya [`ReactDOMServer`](/docs/react-dom-server.html) tərəfindən render edilən HTML kontenti olan konteyneri hidrat etmək üçün işlədilir. React mövcud markapa hadisə işləyicilərini qoşmağa çalışacaq.
 
-React render edilən kontentin server və klientdə eyni olmasını umur. Bu, mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışın. Təkminləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir çox applikasiyalarda uyğunsuzluqların nadir olduğundan bütün markapları validasiya etmək çox bahalıdır.
+React render edilən kontentin server və klientdə eyni olmasını umur. Bu, mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışın. Təkminləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir çox applikasiyalarda uyğunsuzluqlar nadir olduğundan bütün markapları validasiya etmək çox bahalıdır.
 
-Əgər elementin atributu və ya mətn kontenti server və klientdə qaçılmaz şəkildə fərqlənirsə (məsələn tarix), siz elementə `suppressHydrationWarning={true}` əlavə etməklə xəbərdarlığı söndürə bilərsiniz. Bu yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Mətn kontenti olmadıqda, React yenədə uyğunsuzları düzəltməyə bilər və bu gələcək yeniliklərə kimi uyğunsuz qala bilər.
+Əgər elementin atributu və ya mətn kontenti server və klientdə qaçılmaz şəkildə fərqlənirsə (məsələn tarix), siz elementə `suppressHydrationWarning={true}` əlavə etməklə xəbərdarlığı söndürə bilərsiniz. Bu yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Mətn kontenti olmadıqda, React yenə də uyğunsuzluqları düzəltməyə bilər və bu gələcək yeniliklərə kimi eyni qala bilər.
 
-Əgər sizə server və klientdə bilərəkdən fərqli render etmək lazımdırsa siz iki-keçidli render etmədən istifadə edə bilərsiniz. Klientdə fərqli render edilməli komponentlər `this.state.isClient` state (`componentDidMount`-da bunu `true` ilə təyin edə bilərsiniz) dəyərini oxuya bilərlər. Bu səbəbdən ilkin render keçidində klient server ilə eyni kontenti render edəcək və uyğunsuzlug olmayacaq. Amma hidrasiyadan sonra sinxron formada ikinci keçid baş verəcək. Qeyd edin ki, bu yanaşmada komponentlər iki dəfə render edildiyindən komponentləriniz yavaş işləyə bilərlər. Bu səbəbdən bu yolu diqqət ilə işlədin.
+Əgər sizə server və klientdə bilərəkdən fərqli render etmək lazımdırsa siz iki-keçidli render etmədən istifadə edə bilərsiniz. Klientdə fərqli render edilməli komponentlər `this.state.isClient` state (`componentDidMount`-da bunu `true` ilə təyin edə bilərsiniz) dəyərini oxuya bilərlər. Bu səbəbdən ilkin render keçidində klient server ilə eyni kontenti render edəcək və uyğunsuzluq olmayacaq. Amma hidrasiyadan sonra sinxron formada ikinci keçid baş verəcək. Nəzərə alın ki, bu yanaşmada komponentlər iki dəfə render edildiyindən komponentləriniz yavaş işləyə bilərlər. Bu səbəbdən bu yolu diqqət ilə işlədin.
 
 Yavaş internet sürətlədində istifadəçi təcrübəsindən zehinli olun. Javascript kodu ilkin HTML renderindən çox gec sonra yüklənə bilər. Bu səbəbdən klient keçidində fərqli bir şey render edildikdə, keçid çox xoşagəlməz ola bilər. Amma yaxşı icra edildikdə, applikasiyanın "qabığını" serverdə render etmək faydalı ola bilər. Bunu markap uyğunsuzluqları olmadan edə bilmək üçün, əvvəlki paraqrafda olan izahata baxın.
 
