@@ -37,13 +37,13 @@ string type
 
 ### Event Pooling {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+`SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
+Bunun səbəbi performans ilə bağlıdır.
+Bu səbəbdən siz hadisəni asinxron formada işlədər bilməzsiniz.
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => sıfırlanmış obyekt.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -52,44 +52,44 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // Bu işləməyəcək. this.state.clickEvent yalnız null dəyərləri saxlayacaq.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Qeyd:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Əgər siz hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamaya icazə verəcək.
 
-## Supported Events {#supported-events}
+## Dəstəklənən Hadisələr {#supported-events}
 
-React normalizes events so that they have consistent properties across different browsers.
+Bütün brauzerlərdə eyni parametrlərinin olması üçün React hadisələri normallaşdırır.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
 
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
+- [Clipboard Hadisələri](#clipboard-events)
+- [Kompozisiya Hadisələri](#composition-events)
+- [Klaviatur Hadisələri](#keyboard-events)
+- [Fokus Hadisələri](#focus-events)
+- [Anket Hadisələri](#form-events)
+- [Maus Hadisələri](#mouse-events)
+- [Pointer Hadisələri](#pointer-events)
+- [Selection Hadisələri](#selection-events)
+- [Toxunuş Hadisələri](#touch-events)
+- [UI Hadisələri](#ui-events)
+- [Wheel Hadisələri](#wheel-events)
+- [Media Hadisələri](#media-events)
+- [Şəkil Hadisələri](#image-events)
+- [Animasiya Hadisələri](#animation-events)
+- [Keçid Hadisələri](#transition-events)
+- [Digər Hadisələr](#other-events)
 
 * * *
 
-## Reference {#reference}
+## Arayış {#reference}
 
 ### Clipboard Events {#clipboard-events}
 
