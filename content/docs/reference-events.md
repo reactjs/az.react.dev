@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Bu arayış React-in Hadisə Sisteminin bir hissəsini yaradan `SyntheticEvent`-i əhatə edir. Əlavə məlumat üçün [Hadisələrin Emal Edilməsi](/docs/handling-events.html) sənədinə baxın.
 
-## Overview {#overview}
+## İcmal {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+Sizin hadisə işləyicilərin Your event handlers will be passed instances of `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə uyğun olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisənin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent`-in bütün brauzerlərdə eyni formada işləməsidir.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Əgər sizə hər hansı səbəbə görə brauzerin hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
 
 ```javascript
 boolean bubbles
@@ -31,9 +31,9 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Qeyd:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> v0.14-cı versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdırlar.
 
 ### Event Pooling {#event-pooling}
 
