@@ -10,18 +10,18 @@ category: Reference
 
 ```javascript
 import ReactTestUtils from 'react-dom/test-utils'; // ES6
-var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
+var ReactTestUtils = require('react-dom/test-utils'); // NPM ilə ES5
 ```
 
-## Overview {#overview}
+## İcmal {#overview}
 
-`ReactTestUtils` makes it easy to test React components in the testing framework of your choice. At Facebook we use [Jest](https://facebook.github.io/jest/) for painless JavaScript testing. Learn how to get started with Jest through the Jest website's [React Tutorial](https://jestjs.io/docs/tutorial-react).
+`ReactTestUtils`, React komponentlərini öz seçdiyiniz freymvorklarda test etməyi asanlaşdırır. Javascripti əziyyətsiz test etmək üçün, biz Facebook-da [Jest-dən](https://facebook.github.io/jest/) istifadə edirik. Jest-in veb səhifəsində olan [React dərsliyindən istifadə edərək](https://jestjs.io/docs/tutorial-react) Jest-dən istifadə etməyə başlayın.
 
-> Note:
+> Qeyf:
 >
-> We recommend using [React Testing Library](https://testing-library.com/react) which is designed to enable and encourage writing tests that use your components as the end users do.
+> Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
 >
-> Alternatively, Airbnb has released a testing utility called [Enzyme](https://airbnb.io/enzyme/), which makes it easy to assert, manipulate, and traverse your React Components' output.
+> Alternativ olaraq, Airbnb-in test etmək üçün olan [Enzyme](https://airbnb.io/enzyme/) qurğusundan istifadə edə bilərsiniz. Bu qurğu React komponentləri asan şəkildə test etməyə imkan yaradır.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -40,17 +40,17 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
  - [`renderIntoDocument()`](#renderintodocument)
  - [`Simulate`](#simulate)
 
-## Reference {#reference}
+## Arayış {#reference}
 
 ### `act()` {#act}
 
-To prepare a component for assertions, wrap the code rendering it and performing updates inside an `act()` call. This makes your test run closer to how React works in the browser.
+Komponenti iddialara hazırlamaq üçün, komponenti render edən və yeniləyən kodu `act()` çağışının içində yerləşdirin. Bu sizin testlərinizin React-in brauzerdə işlədiyi kimi icra edilməsinə imkan yaradır.
 
->Note
+>Qeyd
 >
->If you use `react-test-renderer`, it also provides an `act` export that behaves the same way.
+>Əgər siz `react-test-renderer` işlədirsinizsə, bu kitabxana da sizə eyni formada işləyən `act` funksiyası ilə təmin edir.
 
-For example, let's say we have this `Counter` component:
+Məsələn, fərz edəkki bizim olan `Counter` komponentimiz var:
 
 ```js
 class Counter extends React.Component {
@@ -60,10 +60,10 @@ class Counter extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-    document.title = `You clicked ${this.state.count} times`;
+    document.title = `${this.state.count} dəfə tıklamısınız`;
   }
   componentDidUpdate() {
-    document.title = `You clicked ${this.state.count} times`;
+    document.title = `${this.state.count} dəfə tıklamısınız`;
   }
   handleClick() {
     this.setState(state => ({
@@ -73,9 +73,9 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        <p>You clicked {this.state.count} times</p>
+        <p>{this.state.count} dəfə tıklamısınız</p>
         <button onClick={this.handleClick}>
-          Click me
+          Tıkla
         </button>
       </div>
     );
@@ -83,7 +83,7 @@ class Counter extends React.Component {
 }
 ```
 
-Here is how we can test it:
+Bu komponenti aşağıdaki formada test edə bilərik:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -103,8 +103,8 @@ afterEach(() => {
   container = null;
 });
 
-it('can render and update a counter', () => {
-  // Test first render and componentDidMount
+it('counter-i render və yeniləyir', () => {
+  // İlk renderi və componentDidMount-u test et
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
@@ -113,16 +113,16 @@ it('can render and update a counter', () => {
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
-  // Test second render and componentDidUpdate
+  // İkinci renderi və componentDidUpdate-i render et
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
-  expect(label.textContent).toBe('You clicked 1 times');
-  expect(document.title).toBe('You clicked 1 times');
+  expect(label.textContent).toBe('1 dəfə tıkladınız');
+  expect(document.title).toBe('1 dəfə tıkladınız');
 });
 ```
 
-Don't forget that dispatching DOM events only works when the DOM container is added to the `document`. You can use a helper like [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) to reduce the boilerplate code.
+Yaddan çıxarmayınki Dom hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun ölçüsünü azaltmaq üçün [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
 
 * * *
 
@@ -135,11 +135,11 @@ mockComponent(
 )
 ```
 
-Pass a mocked component module to this method to augment it with useful methods that allow it to be used as a dummy React component. Instead of rendering as usual, the component will become a simple `<div>` (or other tag if `mockTagName` is provided) containing any provided children.
+Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əlavə edin. Bu sizə komponenti dummy kimi React komponenti kimi işlətməyə imkan yaradır. Həmişə render etdiyinizdən fərqli olaraq, komponent təmin edilən uşaqları olan sadə `<div>`-ə (və ya `mockTagName`-də təyin edilmiş bir taq) çevriləcək.
 
-> Note:
+> Qeyd:
 >
-> `mockComponent()` is a legacy API. We recommend using [shallow rendering](/docs/shallow-renderer.html) or [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) instead.
+> `mockComponent()` köhnə API-dır. Biz [dayaz render etmə](/docs/shallow-renderer.html) və ya [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyyə edirik.
 
 * * *
 
@@ -149,7 +149,7 @@ Pass a mocked component module to this method to augment it with useful methods 
 isElement(element)
 ```
 
-Returns `true` if `element` is any React element.
+`element` React elementi olduqda `true` qaytarır.
 
 * * *
 
@@ -162,7 +162,7 @@ isElementOfType(
 )
 ```
 
-Returns `true` if `element` is a React element whose type is of a React `componentClass`.
+`componentClass` tipli React elementi olduqda `true` qaytarır.
 
 * * *
 
@@ -172,7 +172,7 @@ Returns `true` if `element` is a React element whose type is of a React `compone
 isDOMComponent(instance)
 ```
 
-Returns `true` if `instance` is a DOM component (such as a `<div>` or `<span>`).
+`instance` DOM komponenti olduqda (`<div>` və ya `<span>` kimi) `true` qaytarır.
 
 * * *
 
@@ -182,7 +182,7 @@ Returns `true` if `instance` is a DOM component (such as a `<div>` or `<span>`).
 isCompositeComponent(instance)
 ```
 
-Returns `true` if `instance` is a user-defined component, such as a class or a function.
+`instance` xüsusi yaradılmış komponent olduqda (klas və ya funksiya komponentləri kimi) `true` qaytarır.
 
 * * *
 
@@ -195,7 +195,7 @@ isCompositeComponentWithType(
 )
 ```
 
-Returns `true` if `instance` is a component whose type is of a React `componentClass`.
+`instance` `componentClass` tipli React komponenti olduqda `true` qaytarır.
 
 * * *
 
@@ -208,7 +208,7 @@ findAllInRenderedTree(
 )
 ```
 
-Traverse all components in `tree` and accumulate all components where `test(component)` is `true`. This is not that useful on its own, but it's used as a primitive for other test utils.
+`tree`-də olan bütün komponentlərdən keçib bütün `test(component)` `true` olan komponentləri toplayın. Bu funksiya təklikdə faydalı deyil. Amma digər test qurğuları üçün baza kimi işlədilə bilər.
 
 * * *
 
@@ -221,7 +221,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Finds all DOM elements of components in the rendered tree that are DOM components with the class name matching `className`.
+Klas adları `className` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
 
 * * *
 
@@ -234,7 +234,7 @@ findRenderedDOMComponentWithClass(
 )
 ```
 
-Like [`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithclass) but expects there to be one result, and returns that one result, or throws exception if there is any other number of matches besides one.
+[`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithclass) kimi amma yalnız bir nəticə qatarır. Birdən çox nəticə olduqda istisna atır.
 
 * * *
 
@@ -247,7 +247,7 @@ scryRenderedDOMComponentsWithTag(
 )
 ```
 
-Finds all DOM elements of components in the rendered tree that are DOM components with the tag name matching `tagName`.
+Təq adları `tagName` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
 
 * * *
 
@@ -260,7 +260,7 @@ findRenderedDOMComponentWithTag(
 )
 ```
 
-Like [`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag) but expects there to be one result, and returns that one result, or throws exception if there is any other number of matches besides one.
+[`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag) kimi amma yalnız bir nəticə qatarır. Birdən çox nəticə olduqda istisna atır.
 
 * * *
 
@@ -273,7 +273,7 @@ scryRenderedComponentsWithType(
 )
 ```
 
-Finds all instances of components with type equal to `componentClass`.
+Tipi `componentClass` olan bütün komponentlərin instansiyalarını tapın.
 
 * * *
 
@@ -286,7 +286,7 @@ findRenderedComponentWithType(
 )
 ```
 
-Same as [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) but expects there to be one result and returns that one result, or throws exception if there is any other number of matches besides one.
+[`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) kimi amma yalnız bir nəticə qatarır. Birdən çox nəticə olduqda istisna atır.
 
 ***
 
@@ -296,20 +296,20 @@ Same as [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) bu
 renderIntoDocument(element)
 ```
 
-Render a React element into a detached DOM node in the document. **This function requires a DOM.** It is effectively equivalent to:
+Documentdən ayrılmış DOM noduna React elementini render edin. **Bu funksiya DOM-dan asılıdır.** Bu funksiyanın eqvivalenti aşağıdaki koda bənzəyir:
 
 ```js
 const domContainer = document.createElement('div');
 ReactDOM.render(element, domContainer);
 ```
 
-> Note:
+> Qeyd:
 >
-> You will need to have `window`, `window.document` and `window.document.createElement` globally available **before** you import `React`. Otherwise React will think it can't access the DOM and methods like `setState` won't work.
+> React-i **idxal etməmişdən öncə** `window`, `window.document` və `window.document.createElement` obyektləri qlobal mövcud olmalıdırlar. Əks halda React DOM-un mövcud olmamasını fikirləşəcək və `setState` kimi funksiyalar işləməyəcək.
 
 * * *
 
-## Other Utilities {#other-utilities}
+## Digər Qurğular {#other-utilities}
 
 ### `Simulate` {#simulate}
 
@@ -320,11 +320,11 @@ Simulate.{eventName}(
 )
 ```
 
-Simulate an event dispatch on a DOM node with optional `eventData` event data.
+Məcburi olmayan `eventData` hadisə məlumatları ilə DOM noda Hadisə göndərilməsini simulyasiya edin.
 
-`Simulate` has a method for [every event that React understands](/docs/events.html#supported-events).
+[React-in anladığı bütün hadisələr üçün](/docs/events.html#supported-events) `Simulate`-də funksiya var.
 
-**Clicking an element**
+**Elementi tıklamaq**
 
 ```javascript
 // <button ref={(node) => this.button = node}>...</button>
@@ -332,7 +332,7 @@ const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
-**Changing the value of an input field and then pressing ENTER.**
+**Daxil olma sahəsinin dəyərini dəyişmək və klaviaturda ENTER düyməsini tıklamaq.**
 
 ```javascript
 // <input ref={(node) => this.textInput = node} />
@@ -342,8 +342,8 @@ ReactTestUtils.Simulate.change(node);
 ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 ```
 
-> Note
+> Qeyd
 >
-> You will have to provide any event property that you're using in your component (e.g. keyCode, which, etc...) as React is not creating any of these for you.
+> Komponentdə işlətdiniz bütün hadisə parametrlərini özünüz təmin etməlisiniz (məsələn, keyCode, which, və s...). Çünki React bu parametrləri sizin üçün yaratmır.
 
 * * *
