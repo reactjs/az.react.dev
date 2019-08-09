@@ -10,7 +10,7 @@ Bu arayış React-in Hadisə Sisteminin bir hissəsini yaradan `SyntheticEvent`-
 
 ## İcmal {#overview}
 
-Sizin hadisə işləyicilərin Your event handlers will be passed instances of `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə uyğun olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisənin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent`-in bütün brauzerlərdə eyni formada işləməsidir.
+Hadisə işləyiciləri React-ə `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə eyni olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisələrinin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent` bütün brauzerlərdə eyni formada işləməyir.
 
 Əgər sizə hər hansı səbəbə görə brauzerin hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
 
@@ -33,13 +33,12 @@ string type
 
 > Qeyd:
 >
-> v0.14-cı versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdırlar.
+> v0.14-cı versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
 
 ### Hadisə Pulinqı {#event-pooling}
 
 `SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
-Bunun səbəbi performans ilə bağlıdır.
-Bu səbəbdən siz hadisəni asinxron formada işlədər bilməzsiniz.
+Bunun səbəbi performans ilə bağlıdır. Bu səbəbdən siz hadisəni asinxron formada işlədə bilməzsiniz.
 
 ```javascript
 function onClick(event) {
@@ -52,7 +51,7 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Bu işləməyəcək. this.state.clickEvent yalnız null dəyərləri saxlayacaq.
+  // Aşağıdaki işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
   this.setState({clickEvent: event});
 
   // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
@@ -62,11 +61,11 @@ function onClick(event) {
 
 > Qeyd:
 >
-> Əgər siz hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamaya icazə verəcək.
+> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamağa icazə verəcək.
 
 ## Dəstəklənən Hadisələr {#supported-events}
 
-Bütün brauzerlərdə eyni parametrlərinin olması üçün React hadisələri normallaşdırır.
+Bütün brauzerlərdə eyni parametrlərinin olması üçün, React hadisələri normallaşdırır.
 
 Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
 
@@ -149,7 +148,7 @@ boolean shiftKey
 number which
 ```
 
-`key` parametri [DOM 3-cü səviyyəli Hadisələr spesifikasiyasında](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) olan bütün dəyərləri qəbul edə bilər.
+`key` parametri [DOM-un 3-cü səviyyəli Hadisələr spesifikasiyasında](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) olan bütün dəyərləri qəbul edə bilər.
 
 * * *
 
@@ -161,7 +160,7 @@ Hadisə adları:
 onFocus onBlur
 ```
 
-Bu fokus hadisələri yalnız anketlərdə yox, React DOM-da olan bütün elementlərdə işləyirlər.
+Fokus hadisələri yalnız anketlərdə yox, React DOM-da olan bütün elementlərdə də işləyirlər.
 
 Parametrlər:
 
@@ -230,7 +229,7 @@ onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 
 Parametrlər:
 
-[W3 spesifikasiyasında](https://www.w3.org/TR/pointerevents/) müəyyənlişdirildiyi kimi, pointer hadisələri [Maus Hadisələrini](#mouse-events) aşağıdakı parametrlər ilə genişləndirirlər:
+[W3 spesifikasiyasında](https://www.w3.org/TR/pointerevents/) müəyyənləşdirildiyi kimi, pointer hadisələri [Maus Hadisələrini](#mouse-events) aşağıdakı parametrlər ilə genişləndirirlər:
 
 ```javascript
 number pointerId
