@@ -1,12 +1,12 @@
 ---
 id: test-utils
-title: Test Utilities
+title: Test Vasitələri
 permalink: docs/test-utils.html
 layout: docs
 category: Reference
 ---
 
-**Importing**
+**İdxal Etmək**
 
 ```javascript
 import ReactTestUtils from 'react-dom/test-utils'; // ES6
@@ -15,13 +15,13 @@ var ReactTestUtils = require('react-dom/test-utils'); // NPM ilə ES5
 
 ## İcmal {#overview}
 
-`ReactTestUtils`, React komponentlərini öz seçdiyiniz freymvorklarda test etməyi asanlaşdırır. Javascripti əziyyətsiz test etmək üçün, biz Facebook-da [Jest-dən](https://facebook.github.io/jest/) istifadə edirik. Jest-in veb səhifəsində olan [React dərsliyindən istifadə edərək](https://jestjs.io/docs/tutorial-react) Jest-dən istifadə etməyə başlayın.
+`ReactTestUtils`, React komponentlərini öz seçdiyiniz freymvorklarda test etməyi asanlaşdırır. Javascript-i əziyyətsiz test etmək üçün, biz Facebook-da [Jest-dən](https://facebook.github.io/jest/) istifadə edirik. Jest-in veb səhifəsində olan [React dərsliyindən istifadə edərək](https://jestjs.io/docs/tutorial-react) Jest-dən istifadə etməyə başlayın.
 
 > Qeyf:
 >
 > Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
 >
-> Alternativ olaraq, Airbnb-in test etmək üçün olan [Enzyme](https://airbnb.io/enzyme/) qurğusundan istifadə edə bilərsiniz. Bu qurğu React komponentləri asan şəkildə test etməyə imkan yaradır.
+> Alternativ olaraq, Airbnb-in test etmək üçün yaratdığı [Enzyme](https://airbnb.io/enzyme/) qurğusundan istifadə edə bilərsiniz. Bu qurğu React komponentləri asan şəkildə test etməyə imkan yaradır.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -50,7 +50,7 @@ Komponenti iddialara hazırlamaq üçün, komponenti render edən və yeniləyə
 >
 >Əgər siz `react-test-renderer` işlədirsinizsə, bu kitabxana da sizə eyni formada işləyən `act` funksiyası ilə təmin edir.
 
-Məsələn, fərz edəkki bizim olan `Counter` komponentimiz var:
+Məsələn, fərz edək ki, bizim olan `Counter` komponentimiz var:
 
 ```js
 class Counter extends React.Component {
@@ -122,7 +122,7 @@ it('counter-i render və yeniləyir', () => {
 });
 ```
 
-Yaddan çıxarmayınki Dom hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun ölçüsünü azaltmaq üçün [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
+Yaddan çıxarmayın ki, DOM hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun uzunluğunu azaltmaq üçün [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
 
 * * *
 
@@ -135,7 +135,7 @@ mockComponent(
 )
 ```
 
-Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əlavə edin. Bu sizə komponenti dummy kimi React komponenti kimi işlətməyə imkan yaradır. Həmişə render etdiyinizdən fərqli olaraq, komponent təmin edilən uşaqları olan sadə `<div>`-ə (və ya `mockTagName`-də təyin edilmiş bir taq) çevriləcək.
+Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əlavə edin. Bu sizə komponenti dummy React komponenti kimi işlətməyə imkan yaradır. Həmişə render etdiyinizdən fərqli olaraq, komponent təmin edilən uşaqları olan sadə `<div>`-ə (və ya `mockTagName`-də təyin edilmiş bir təqə) çevriləcək.
 
 > Qeyd:
 >
@@ -162,7 +162,7 @@ isElementOfType(
 )
 ```
 
-`componentClass` tipli React elementi olduqda `true` qaytarır.
+`element` `componentClass` tipli React elementi olduqda `true` qaytarır.
 
 * * *
 
@@ -305,7 +305,7 @@ ReactDOM.render(element, domContainer);
 
 > Qeyd:
 >
-> React-i **idxal etməmişdən öncə** `window`, `window.document` və `window.document.createElement` obyektləri qlobal mövcud olmalıdırlar. Əks halda React DOM-un mövcud olmamasını fikirləşəcək və `setState` kimi funksiyalar işləməyəcək.
+> React-i **idxal etməmişdən öncə** `window`, `window.document` və `window.document.createElement` obyektləri qlobal mövcud olmalıdırlar. Əks halda React, DOM-un mövcud olmamasını fikirləşəcək və `setState` kimi funksiyalar işləməyəcək.
 
 * * *
 
@@ -322,7 +322,7 @@ Simulate.{eventName}(
 
 Məcburi olmayan `eventData` hadisə məlumatları ilə DOM noda Hadisə göndərilməsini simulyasiya edin.
 
-[React-in anladığı bütün hadisələr üçün](/docs/events.html#supported-events) `Simulate`-də funksiya var.
+[React-in anladığı hər hadisə üçün](/docs/events.html#supported-events) `Simulate`-də funksiya var.
 
 **Elementi tıklamaq**
 
@@ -344,6 +344,6 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 
 > Qeyd
 >
-> Komponentdə işlətdiniz bütün hadisə parametrlərini özünüz təmin etməlisiniz (məsələn, keyCode, which, və s...). Çünki React bu parametrləri sizin üçün yaratmır.
+> Komponentdə işlətdiniz bütün hadisə parametrlərini özünüz təmin etməlisiniz (məsələn, keyCode, which, və s...). Çünki, React bu parametrləri sizin üçün yaratmır.
 
 * * *
