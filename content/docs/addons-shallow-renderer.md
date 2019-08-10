@@ -1,36 +1,36 @@
 ---
 id: shallow-renderer
-title: Shallow Renderer
+title: Dayaz Render Etmə
 permalink: docs/shallow-renderer.html
 layout: docs
 category: Reference
 ---
 
-**Importing**
+*İdxal Etmək**
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow'; // ES6
-var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 with npm
+var ShallowRenderer = require('react-test-renderer/shallow'); // npm ilə ES5
 ```
 
-## Overview {#overview}
+## İcmal {#overview}
 
-When writing unit tests for React, shallow rendering can be helpful. Shallow rendering lets you render a component "one level deep" and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered. This does not require a DOM.
+Dayaz Render Etmə React-də unit testlər yazdıqda faydalıdır. Dayaz render etmə komponenti "bir dərəcə dərinlikdə" render etməyə imkan yaradır. Bu halda, uşaq komponentlərin davranışından narahat olmayaraq (yaranıb render etmirlər), siz komponentin nə qaytardığı haqqında iddaları yoxlaya bilərsiniz. Burada DOM-a tələbat yoxdur.
 
-For example, if you have the following component:
+Məsələn, əgər sizdə aşağıdaki komponent varsa:
 
 ```javascript
 function MyComponent() {
   return (
     <div>
-      <span className="heading">Title</span>
+      <span className="heading">Başlıq</span>
       <Subcomponent foo="bar" />
     </div>
   );
 }
 ```
 
-Then you can assert:
+Siz iddiaları aşağıdaki formada edə bilərsiniz:
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow';
@@ -42,27 +42,27 @@ const result = renderer.getRenderOutput();
 
 expect(result.type).toBe('div');
 expect(result.props.children).toEqual([
-  <span className="heading">Title</span>,
+  <span className="heading">Başlıq</span>,
   <Subcomponent foo="bar" />
 ]);
 ```
 
-Shallow testing currently has some limitations, namely not supporting refs.
+Dayaz render etmənin bəzi məhdudiyyətləri var. Əsas olaraq indi ref-lər dəstəklənmir.
 
-> Note:
+> Qeyd:
 >
-> We also recommend checking out Enzyme's [Shallow Rendering API](https://airbnb.io/enzyme/docs/api/shallow.html). It provides a nicer higher-level API over the same functionality.
+> Biz həmçinin Enzyme-ın [Dayaz Render Etmə API-na](https://airbnb.io/enzyme/docs/api/shallow.html) baxmağınızı tövsiyyə edirik. Bu sizə eyni funksionallıq üzərindən  yuxarı dərəcəli API təmin edir.
 
-## Reference {#reference}
+## Arayış {#reference}
 
 ### `shallowRenderer.render()` {#shallowrendererrender}
 
-You can think of the shallowRenderer as a "place" to render the component you're testing, and from which you can extract the component's output.
+Siz the shallowRenderer-ə komponenti render etmək üçün və komponentin nəticəsini idxal etmək üçün bir "yer" kimi baxa bilərsiniz.
 
-`shallowRenderer.render()` is similar to [`ReactDOM.render()`](/docs/react-dom.html#render) but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+`shallowRenderer.render()` [`ReactDOM.render()`-ə](/docs/react-dom.html#render) bənzəyir amma DOM tələb etmir və komponentləri yalnız bir dərəcə dərinliyə kimi render edir. Bu sizə komponentləri uşaqların tətbiqindən təcrid olunmuş şəkildə test etməyə imkan yaradır..
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
-After `shallowRenderer.render()` has been called, you can use `shallowRenderer.getRenderOutput()` to get the shallowly rendered output.
+`shallowRenderer.render()` çağrıldıqdan sonra, you can use `shallowRenderer.getRenderOutput()`-dən istifadə edərək dayaz render etmənin nəticəsini əldə edə bilərsiniz.
 
-You can then begin to assert facts about the output.
+Nəticəni əldə etdikdən sonra, nəticə haqqında iddiaları yoxlaya bilərsiniz.
