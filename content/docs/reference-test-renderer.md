@@ -15,7 +15,7 @@ const TestRenderer = require('react-test-renderer'); // npm ilə ES5
 
 ## İcmal {#overview}
 
-Bu paket, React komponentlərini Javascript obyektlərinə render etmək üçün, DOM və ya nativ mobil mühitindən asılı olmayan React rendereri təmin edir.
+Bu paket, React komponentlərini Javascript obyektlərinə render etmək üçün, DOM və ya nativ mobil mühitindən asılı olmayan React renderer-i təmin edir.
 
 Bu paket, React DOM və ya React Native komponentinin, brauzer və ya [jsdom](https://github.com/tmpvar/jsdom) olmadan render etdiyi platform görünüş iyerarxiyasının snəpşotunu asan formada çəkməyə imkan yaradır.
 
@@ -40,7 +40,7 @@ console.log(testRenderer.toJSON());
 
 JSON ağacının kopiyasını yadda saxlayıb testlərdə bu ağacın dəyişdiyini yoxlamaq üçün Jest-in snəpşot test xüsusiyyətindən istifadə edə bilərsiniz. [Əlavə məlumat üçün bura baxın](https://jestjs.io/docs/en/snapshot-testing).
 
-Həmçinin siz nəticənin üzərindən keçib lazım olan nodları tapa bilər və bu nodlar üzərində iddialarını yoxlaya bilərsiniz.
+Həmçinin siz nəticənin üzərindən keçib lazım olan nodları tapa bilər və bu nodlar üzərində iddialarınızı yoxlaya bilərsiniz.
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
@@ -102,7 +102,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 TestRenderer.create(element, options);
 ```
 
-Göndərilən React elementi ilə `TestRenderer` instansiyası yaradın. Bunun real DOM-dan istifadə etməsinə baxmayaraq, iddialarımızı yoxlaya bilmək üçün komponent ağacı yenə də bütünlüklə yaddaşa render edilir. Qaytarılan instansiyanın aşağıdaki funksiyalar və parametrləri var.
+Göndərilən React elementi ilə `TestRenderer` instansiyası yaradın. Bunun real DOM-dan istifadə etməməsinə baxmayaraq, iddialarımızı yoxlaya bilmək üçün komponent ağacı yenə də bütünlüklə yaddaşa render edilir. Qaytarılan instansiyanın funksiya və parametrləri aşağıda göstərilib.
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 
@@ -110,7 +110,7 @@ Göndərilən React elementi ilə `TestRenderer` instansiyası yaradın. Bunun r
 testRenderer.toJSON()
 ```
 
-Render edilmiş ağacını təmsil edən obyekti qaytarır. Render edilmiş ağac yalnız `<div>` və ya `<View>` kimi platform-spesifik nodlardan ibarətdir. Bu ağacda istifadəçi tərəfindən yaranmış komponentlər olmur. Bu [snəpşot testi üçün](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) faydalıdır.
+Render edilmiş ağacı təmsil edən obyekti qaytarır. Render edilmiş ağac yalnız `<div>` və ya `<View>` kimi platform-spesifik nodlardan ibarətdir. Bu ağacda istifadəçi tərəfindən yaranmış komponentlər olmur. [Snəpşot testi üçün](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) faydalıdır.
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
@@ -118,7 +118,7 @@ Render edilmiş ağacını təmsil edən obyekti qaytarır. Render edilmiş ağa
 testRenderer.toTree()
 ```
 
-Render edilmiş ağacını təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa bu funksiya sizə lazım deyil.
+Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa bu funksiya sizə lazım deyil.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
@@ -126,7 +126,7 @@ Render edilmiş ağacını təmsil edən obyekti qaytarır. `toJSON()`-dan fərq
 testRenderer.update(element)
 ```
 
-Yaddaşda olan ağacı yeni ana elementi ilə yenidən render edin. Bu React-in anada yenilməsini simulyasiya edir. Əgər yeni elementin tipi və açarı keçmiş elementinki ilə eynidirsə, ağac yenilənəcək. Əks halda, yeni ağac mount olunacaq.
+Yaddaşda olan ağacı yeni ana elementi ilə yenidən render edin. Bu funksiya React-in anada yenilənməsini simulyasiya edir. Əgər yeni elementin tipi və açarı keçmiş elementinki ilə eynidirsə ağac yenilənəcək. Əks halda yeni ağac mount olunacaq.
 
 ### `testRenderer.unmount()` {#testrendererunmount}
 
@@ -134,7 +134,7 @@ Yaddaşda olan ağacı yeni ana elementi ilə yenidən render edin. Bu React-in 
 testRenderer.unmount()
 ```
 
-Yaddaşda olan ağacı unmount edib, uyğun lifecycle hadisələrini çağırın.
+Yaddaşda olan ağacı unmount edib uyğun lifecycle hadisələrini çağırın.
 
 ### `testRenderer.getInstance()` {#testrenderergetinstance}
 
@@ -142,7 +142,7 @@ Yaddaşda olan ağacı unmount edib, uyğun lifecycle hadisələrini çağırın
 testRenderer.getInstance()
 ```
 
-Əgər mövcuddursa, ana elementin instansiyasını qaytarın. Əgər ana element funksiya komponentidirsə, bu funksiya işləməyəcək. Çünki funksiya komponentlərinin instansiyaları olmur.
+Əgər mövcuddursa, ana elementin instansiyasını qaytarın. Əgər ana element funksiya komponentidirsə bu funksiya işləməyəcək. Çünki funksiya komponentlərinin instansiyaları olmur.
 
 ### `testRenderer.root` {#testrendererroot}
 
@@ -158,7 +158,7 @@ Ağacda olan spesifik nodlar haqqında iddiaları yaratmaq üçün faydalı olan
 testInstance.find(test)
 ```
 
-`test(testInstance)` `true` qaytaran tək test instansiyasını tapın. Əgər `test(testInstance)` dəqiq tək instansiya üçün `true` qaytarmırsa, bu funksiya istisna atacaq.
+`test(testInstance)` `true` qaytaran tək test instansiyasını tapın. Əgər `test(testInstance)` yalnız tək instansiya üçün `true` qaytarmırsa bu funksiya istisna atacaq.
 
 ### `testInstance.findByType()` {#testinstancefindbytype}
 
@@ -166,7 +166,7 @@ testInstance.find(test)
 testInstance.findByType(type)
 ```
 
-Təmin edilən `type` ilə tək test instansiyasını tapın. Əgər təmin edilən `type` ilə dəqiq tək instansiya yoxdursa, bu funksiya istisna atacaq.
+Təmin edilən `type` ilə tək test instansiyasını tapın. Əgər təmin edilən `type` ilə yalnız tək instansiya yoxdursa bu funksiya istisna atacaq.
 
 ### `testInstance.findByProps()` {#testinstancefindbyprops}
 
@@ -174,7 +174,7 @@ Təmin edilən `type` ilə tək test instansiyasını tapın. Əgər təmin edil
 testInstance.findByProps(props)
 ```
 
-Təmin edilən `props` ilə tək test instansiyasını tapın. Əgər təmin edilən `props` ilə dəqiq tək instansiya yoxdursa, bu funksiya istisna atacaq.
+Təmin edilən `props` ilə tək test instansiyasını tapın. Əgər təmin edilən `props` ilə yalnız tək instansiya yoxdursa, bu funksiya istisna atacaq.
 
 ### `testInstance.findAll()` {#testinstancefindall}
 
@@ -214,7 +214,7 @@ Göstərilən test instansiyasına uyğun olan komponent. Funksiya komponentlər
 testInstance.type
 ```
 
-Test instansiyasının komponent tipi. Məsələn, `<Button />` komponentinin `Button` tipi var.
+Test instansiyasının komponent tipi. Məsələn, `<Button />` komponentinin tipi `Button`-dır.
 
 ### `testInstance.props` {#testinstanceprops}
 
@@ -230,7 +230,7 @@ Test instansiyasına uyğun gələn proplar. Məsələn, `<Button size="small" /
 testInstance.parent
 ```
 
-Test instansiyasının ana instansiyası.
+Test instansiyasının ana test instansiyası.
 
 ### `testInstance.children` {#testinstancechildren}
 
@@ -240,7 +240,7 @@ testInstance.children
 
 Test instansiyasının uşaq test instansiyaları.
 
-## İdealar {#ideas}
+## İdeyalar {#ideas}
 
 Xüsusi mok refləri düzəltmək üçün `TestRenderer.create`-ə `createNodeMock` funksiyasını göndərə bilərsiniz.
 `createNodeMock` cari elementi qəbul edir və mok ref obyekti qaytarır.
