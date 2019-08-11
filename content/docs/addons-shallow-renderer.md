@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-*İdxal Etmək**
+**İdxal Etmək**
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow'; // ES6
@@ -15,7 +15,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // npm ilə ES5
 
 ## İcmal {#overview}
 
-Dayaz Render Etmə React-də unit testlər yazdıqda faydalıdır. Dayaz render etmə komponenti "bir dərəcə dərinlikdə" render etməyə imkan yaradır. Bu halda, uşaq komponentlərin davranışından narahat olmayaraq (yaranıb render etmirlər), siz komponentin nə qaytardığı haqqında iddaları yoxlaya bilərsiniz. Burada DOM-a tələbat yoxdur.
+React-də unit testlər yazmaq üçün Dayaz Render Etmə faydalıdır. Dayaz render etmə, komponenti "bir dərəcə dərinlikdə" render etməyə imkan yaradır. Bu halda, uşaq komponentlərin davranışından narahat olmayaraq (yaranıb render etmirlər), siz komponentin nə qaytardığı haqqında iddaları yoxlaya bilərsiniz. Burada DOM-a tələbat yoxdur.
 
 Məsələn, əgər sizdə aşağıdaki komponent varsa:
 
@@ -47,7 +47,7 @@ expect(result.props.children).toEqual([
 ]);
 ```
 
-Dayaz render etmənin bəzi məhdudiyyətləri var. Əsas olaraq indi ref-lər dəstəklənmir.
+Dayaz render etmənin bəzi məhdudiyyətləri var. Hal hazırda ref-lər dəstəklənmir.
 
 > Qeyd:
 >
@@ -57,12 +57,12 @@ Dayaz render etmənin bəzi məhdudiyyətləri var. Əsas olaraq indi ref-lər d
 
 ### `shallowRenderer.render()` {#shallowrendererrender}
 
-Siz the shallowRenderer-ə komponenti render etmək üçün və komponentin nəticəsini idxal etmək üçün bir "yer" kimi baxa bilərsiniz.
+Siz shallowRenderer-ə komponenti render etmək üçün və komponentin nəticəsini idxal etmək üçün bir "yer" kimi baxa bilərsiniz.
 
-`shallowRenderer.render()` [`ReactDOM.render()`-ə](/docs/react-dom.html#render) bənzəyir amma DOM tələb etmir və komponentləri yalnız bir dərəcə dərinliyə kimi render edir. Bu sizə komponentləri uşaqların tətbiqindən təcrid olunmuş şəkildə test etməyə imkan yaradır..
+`shallowRenderer.render()` [`ReactDOM.render()`-ə](/docs/react-dom.html#render) bənzəyir amma DOM tələb etmir və komponentləri yalnız bir dərəcə dərinliyə kimi render edir. Bu metod, sizə komponentləri uşaqların tətbiqindən təcrid olunmuş şəkildə test etməyə imkan yaradır.
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
-`shallowRenderer.render()` çağrıldıqdan sonra, you can use `shallowRenderer.getRenderOutput()`-dən istifadə edərək dayaz render etmənin nəticəsini əldə edə bilərsiniz.
+`shallowRenderer.render()` çağrıldıqdan sonra `shallowRenderer.getRenderOutput()`-dan istifadə edərək dayaz render etmənin nəticəsini əldə edə bilərsiniz.
 
-Nəticəni əldə etdikdən sonra, nəticə haqqında iddiaları yoxlaya bilərsiniz.
+Nəticəni əldə etdikdən sonra nəticə haqqında iddiaları yoxlaya bilərsiniz.
