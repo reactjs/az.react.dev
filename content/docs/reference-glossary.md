@@ -7,77 +7,77 @@ permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Tək səhifəli Applikasiya {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Tək səhifəli applikasiya, tək HTML səhifəsi və applikasiyanın işləməyi üçün lazım olan bütün faylları (JavaScript və CSS kimi) yükləyir. Səhifəda baş verən hər bir interaksiya üçün serverə yenidən müraciət etmək lazım olmadığından səhifə heç zaman yeniden yüklənmir.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+React-də tək səhifəli applikasiya düzəltmək zəruri deyil. Siz mövcud olan veb səhifələrin kiçik hissələrinə interaksiya əlavə etmək üçün React-dən istifadə edə bilərsiniz. React-də yazılmış kod, serverdə render edilmiş (məsələn PHP dili ilə) markup ilə və ya digər klient kitabxanaları ilə eyni zamanda mövcud ola bilər. Faktiki olaraq Facebook-da React bu formada işlədilir.
 
-## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
+## ES6, ES2015, ES2016, və s {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Bu akronimlər, ECMAScript Dilinin Spesifikasiya standartının (JavaScript bu standartın tətbiqidir) ən yeni versiyalarına istinad edir. ES6 versiyası (həmçinin ES2015 kimi də tanınır) keçmiş versiyalara bir çox yeniliklər əlavə edir: ox funksiyaları, klaslar, şablon hərfləri, `let` və `const`. Spesifik versiyalar haqqında məlumatlara [buradan](https://en.wikipedia.org/wiki/ECMAScript#Versions) baxa bilərsiniz.
 
-## Compilers {#compilers}
+## Kompilyatorlar {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+JavaScript kopilyatoru qəbul edilən Javascript kodunu digər Javascript formatına çevirir. Ən çox işlənən hal, ES6 sintaksisini köhnə brauzerlərin başa düşəcəyi sintaksisə çevirməkdir. React ilə işlədilən ən məşhur kompilyator [Babel-dır](https://babeljs.io/).
 
-## Bundlers {#bundlers}
+## Paketləmə Qurğuları {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Paketləmə Qurğuları ayrı modullarda (adətən yüzlərlə) yazılmış JavaScript və CSS kodlarının brauzerlər üçün optimallaşdırılmış halda olan bir neçə fayla birləşdirir. [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/), React applikasiyalarında ən çox işlədilən paketləmə qurğularıdırlar.
 
-## Package Managers {#package-managers}
+## Paket  Menecerləri {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Paket Menecerləri layihənin asılı olduğu paketləri idarə etmək üçün alətlərdir. React applikasiyarında ən çox işlədilən paket menecerləri [npm](https://www.npmjs.com/) və [Yarn-dır](https://yarnpkg.com/). Bu iki paket menecer klienti eyni npm paket registry-sindən istifadə edirlər.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+CDN Kontent Çatdırılma Şəbəkəsidir (Content Delivery Network). CDN-lər dünyanın hər yerində yərləşən serverlər şəbəkəsindən kəç olunmuş statik kontenti çatdırır. 
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX JavaScript üçün sintaksis əlavəsidir. Bu dilin şablon dilinə oxşamasına baxmayaraq JavaScript-in bütün gücündən istifadə edə bilir. JSX, "React elementləri" adlanan sadə JavaScript obyektləri qaytaran `React.createElement()` funksiyalarına kompilyasiya edilir. JSX haqqında girişüçün [bu sənədlərə](/docs/introducing-jsx.html), dərindən dərslik üçün isə [bu sənədlərə](/docs/jsx-in-depth.html) baxın.
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+React DOM HTML atribut adları əvəzinə camelCase ad konvensiyasından istifadə edir. Məsələn, JSX-də `tabindex` `tabIndex`-ə çevrilir. Həmçinin `class` atributu JavaScript-in qorunan sözü olduğundan JSX-də `className` kimi yazılır:
 
 ```js
 const name = 'Clementine';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hello">Mənin adım: {name}!</h1>,
   document.getElementById('root')
 );
 ```  
 
-## [Elements](/docs/rendering-elements.html) {#elements}
+## [Elementlər](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+React applikasiyalarının əsası React elementlərindən ibarətdir. Elementləri daha çox tanınan "komponentlər" konsepsiyası ilə çaşdırmaq olar. Element sizin ekranda nə görmək istədiyinizi təsvir edir. React elementləri dəyişməzdirlər.
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Salam Dünya</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Adətən, elementlər bir başa işlədilmək əvəzinə komponentlərdən qaytarırırlar.
 
-## [Components](/docs/components-and-props.html) {#components}
+## [Komponentlər](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+React komponentləri səhifəyə render ediləcək React elementi qaytaran kiçik və yenidən istifadə edilə bilən kod bloklarıdır. React komponentinin ən sadə forması React elementi qaytaran sadə JavaScript funksiyasıdır:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Salam, {props.name}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Komponentlər həmçinin ES6 klasladı da ola bilərlər:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Komponentlər funksionallıq əsasında parçalana bilər və digər komponenlərdə işlənə bilərlər. Komponentlər digər komponentlər, massivlər, mətnlən, və rəqəmlər qaytara bilərlər. Əgər UI-ın bir hissəsi bir neçə dəfə işlədilirsə (Button, Panel, Avatar) və ya UI təklikdə mürəkkəbdirsə (App, FeedStory, Comment), bu UI-ı yenidən işlədilə bilən komponent etmək olar. Komponent adları həmişə böyük hərf ilə başlamalıdırlar (`<wrapper/>` **yox** `<Wrapper/>`). Komponenləri render etmək haqqında əlavə məlumat üçün [bu sənədə](/docs/components-and-props.html#rendering-a-component) baxın. 
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
