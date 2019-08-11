@@ -81,26 +81,26 @@ Komponentlər funksionallıq əsasında parçalana bilər və digər komponenlə
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` React komponenti üçün arqumentlərdir. Proplar ana komponentdən uşaq komponentə göndərilən məlumatlardır.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Nəzərə alın ki, `props` həmişə oxunabiləndir (readonly). Proplar heç bir formada dəyişdirilməməlidirlər:
 
 ```js
-// Wrong!
+// Yanlış!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Əgər siz istifadəçi daxil olması və ya şəbəkə cavabı əsasında bir dəyəri dəyişmək istəyirsinizsə `state`-dən istifadə edin.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+`props.children` bütün komponentlərdə mövcuddur. Bu komponentin açılma və bağlanma təqləri arasında olan konenti ehtiva edir. Məsələn:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Welcome>Salam Dünya!</Welcome>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+`Salam Dünya!` mətni `Welcome` komponentinin `props.children` propunda yərləşdirilir:
 
 ```js
 function Welcome(props) {
@@ -108,7 +108,7 @@ function Welcome(props) {
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+Klas komponentlərində `this.props.children` dəyişənindən istifadə edin:
 
 ```js
 class Welcome extends React.Component {
@@ -120,11 +120,11 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Komponentdə hər hansı bir məlumat vaxt ilə dəyişirsə `state`-dən istifadə etmək lazımdır. Məsələn, `Checkbox` komponentina `isChecked` state-i və `NewsFeed` komponentinə şəbəkən yüklənmiş `fetchedPosts` state-i lazım ola bilər.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+`state` və `props` arasındaki əsas fərq `props`-un ana komponentindən göndərilir. `state` isə komponentin daxilindən idarə edilir. Komponent `props`-u dəyişə bilmir. Amma `state`-i dəyişə bilir.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Dəyişən hər bir məlumat üçün, state-ə "yiyə duran" bir komponent olmalıdır. İki fərqli komponentin state-ini sinxronizasiya etməyin. Əvəzinə, state-i ən yaxın valideynə [qaldırıb](/docs/lifting-state-up.html) hər iki komponentə proplar kimi göndərin.
 
 ## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
