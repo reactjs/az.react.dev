@@ -122,7 +122,9 @@ it('counter-i render və yeniləyir', () => {
 });
 ```
 
-Yaddan çıxarmayın ki, DOM hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun uzunluğunu azaltmaq üçün [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
+Yaddan çıxarmayın ki, DOM hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun uzunluğunu azaltmaq üçün [React Testing Library](https://testing-library.com/react) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
+
+- The [`Reseptlər`](/docs/recipes.html) sənədində misallar ilə `act()`-in işləməyi haqqında daha ətraflı məlumat var.
 
 * * *
 
@@ -139,7 +141,7 @@ Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əla
 
 > Qeyd:
 >
-> `mockComponent()` köhnə API-dır. Biz [dayaz render etmə](/docs/shallow-renderer.html) və ya [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyyə edirik.
+> `mockComponent()` köhnə API-dır. Biz [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyyə edirik.
 
 * * *
 
