@@ -2,19 +2,19 @@
 
 Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu yerləşir.
 
-## Getting started
+## Başlamaq
 
-### Prerequisites
+### İlkin Şərtlər
 
 1. Git
 1. Node: 8.4.0 və ya yuxarı hər hansı 8.x versiyası
 1. Yarn: [Quraşdırma təlimatları üçün Yarn səhifəsinə](https://yarnpkg.com/lang/en/docs/install/) baxın
-1. repo-nun forku (hər hansı kontribusiya üçün)
+1. Repo-nun forku (hər hansı kontribusiya üçün)
 1. [az.reactjs.org reposunun](https://github.com/reactjs/az.reactjs.org) lokal maşında klonu
 
 ### Quraşdırma
 
-1. Layihə direktosiyasına daxil olmaq üçün `cd az.reactjs.org` yazın
+1. Layihə direktoriyasına daxil olmaq üçün `cd az.reactjs.org` yazın
 1. Veb Səhifənin npm asılılıqlarını yükləmək üçün `yarn` yazın
 
 ### Lokal İstifadə
@@ -38,13 +38,13 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 
 1. "Lokal İstifadə" təlimatlarına baxın
 1. Faylları yaddaşa yazın və brauzerdə yoxlayın
-  1. `src`-da React komponentlərə olan dəyişikliklər hot-reload edəcək
-  1. Changes to markdown files in `content`-də olan markdown fayllarına olan dəyişikliklər hot-reload edəcək
+  1. `src`-da React komponentlərə olan dəyişikliklər hot-reload ediləcək
+  1. `content`-də olan markdown fayllarına olan dəyişikliklər hot-reload ediləcək
   1. Pluginlər işə işləyirsinizsə `.cache` direktoriyasını silib serveri restart edin
 
 ### Dəyişiklikləri yoxlayın
 
-1. Əgər mümkündürsə, vizual dəyişiklikləri bütün sıravi mobil və desktop brauzerlərinin ən yeni versiyalarında yoxlayın.
+1. Əgər mümkündürsə vizual dəyişiklikləri bütün sıravi mobil və desktop brauzerlərinin ən yeni versiyalarında yoxlayın.
 1. Layihə direktoriyasından `yarn check-all` çağırın. (Bu Prettier, ESLint, və Flow çağıracaq.)
 
 ### Push edin
@@ -53,16 +53,16 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 1. `git push my-fork-name the-name-of-my-branch`
 1. [az.reactjs.org repo-suna](https://github.com/reactjs/az.reactjs.org) baxdıqda push etdiyiniz branch-ləri görəcəksiniz.
 1. GitHub-ın təlimatlarını tətbiq edin.
-1. Əgər mümkündürsə, vizual dəyişikliklərin skrinşotlarını daxil edin. Digərlərinin sizin dəyişiklikləri görə bilməsi üçün PR yaranan kimi Netlify səhifəsi avtomatik olaraq düzəldiləcək.
+1. Əgər mümkündürsə vizual dəyişikliklərin skrinşotlarını əlavə edin. Digərlərinin dəyişiklikləri görməsi üçün PR yaranan kimi Netlify səhifəsi avtomatik olaraq düzəldiləcək.
 
 ## Tərcümə
 
-Əgər `az.reactjs.org` tərcümə etmək istəyirsinizsə, [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/) səhifəsində olan indiki tərcümə səylərinə baxın.
+Əgər `az.reactjs.org` tərcümə etmək istəyirsinizsə [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/) səhifəsində olan cari tərcümə səylərinə baxın.
 
-## Problemləri Aradan Qaldlrmaq
+## Problemləri Aradan Qaldırmaq
 
-- `yarn reset` çağıraraq lokal kəçi təmizləyin
+- `yarn reset` çağıraraq lokal kəşi təmizləyin
 
 ## Lisenziya
 
-[az.reactjs.org](https://az.reactjs.org/) səhifəsinə yüklənən konten CC-BY-4.0 ilə lisenziya olunub. Lisenziyanı[LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md) faylından tapa bilərsiniz.
+[az.reactjs.org](https://az.reactjs.org/) səhifəsinə yüklənən kontent CC-BY-4.0 ilə lisenziya olunub. Lisenziyanı [LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md) faylından tapa bilərsiniz.
