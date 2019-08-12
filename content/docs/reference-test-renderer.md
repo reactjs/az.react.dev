@@ -70,6 +70,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 ### TestRenderer {#testrenderer}
 
 * [`TestRenderer.create()`](#testrenderercreate)
+* [`TestRenderer.act()`](#testrendereract)
 
 ### TestRenderer instansiyası {#testrenderer-instance}
 
@@ -103,6 +104,36 @@ TestRenderer.create(element, options);
 ```
 
 Göndərilən React elementi ilə `TestRenderer` instansiyası yaradın. Bunun real DOM-dan istifadə etməməsinə baxmayaraq, iddialarımızı yoxlaya bilmək üçün komponent ağacı yenə də bütünlüklə yaddaşa render edilir. Qaytarılan instansiyanın funksiya və parametrləri aşağıda göstərilib.
+
+### `TestRenderer.act()` {#testrendereract}
+
+```javascript
+TestRenderer.act(callback);
+```
+
+ `TestRenderer.act`, [`react-dom/test-utils`-də olan `act()` köməkçisi kimi](/docs/test-utils.html#act) iddialarınızı yoxlamaq üçün komponentləri hazırlayır. `act()`-in bu versiyasını `TestRenderer.create` və `testRenderer.update` çağırışlarını əhatə etmək üçün işlədin.
+
+```javascript
+import {create, act} from 'react-test-renderer';
+import App from './app.js'; // Test edilən komponent
+
+// komponenti render et
+let root; 
+act(() => {
+  root = create(<App value={1}/>)
+});
+
+// ana komponentin üzərində iddaları yoxlayın
+expect(root.toJSON()).toMatchSnapshot();
+
+// fərqli proplar ilə yeniləyin
+act(() => {
+  root = root.update(<App value={2}/>);
+})
+
+// ana komponentin üzərində iddaları yoxlayın
+expect(root.toJSON()).toMatchSnapshot();
+```
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 
