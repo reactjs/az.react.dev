@@ -58,13 +58,9 @@
     - id: optimizing-performance
       title: Performansın Optimallaşdırılması
     - id: portals
-<<<<<<< HEAD
       title: Portallar
-=======
-      title: Portals
     - id: profiler
-      title: Profiler
->>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
+      title: Profayler
     - id: react-without-es6
       title: ES6-sız React
     - id: react-without-jsx
@@ -128,21 +124,16 @@
       - id: hooks-reference
         title: Hookların API Arayışı
       - id: hooks-faq
-<<<<<<< HEAD
         title: Hooklar FAQ
-- title: İştirak Etmək
-=======
-        title: Hooks FAQ
-- title: Testing
+- title: Test Etmə
   items:
     - id: testing 
-      title: Testing Overview
+      title: İcmal
     - id: testing-recipes
-      title: Testing Recipes
+      title: Test Etmə Reseptləri
     - id: testing-environments
-      title: Testing Environments
-- title: Contributing
->>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
+      title: Test Etmə Mühiti
+- title: İştirak Etmək
   items:
   - id: how-to-contribute
     title: Necə İştirak Etmək
