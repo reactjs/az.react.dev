@@ -6,7 +6,7 @@ permalink: docs/code-splitting.html
 
 ## Paketləmə {#bundling}
 
-Bir çox React applikasiyalarında, faylları [Webpack](https://webpack.js.org/) və ya [Browserify](http://browserify.org/) kimi alətlər ilə paketləriylər. Paketləmə (bundling) import olunan faylların izlənməsi və "bundle" adlanan bir fayla birləşdirilməsidir. Bu fayl bütün applikasiyanı saytda bir dəfəyə yükləmək üçün istifadə edilə bilər.
+Bir çox React applikasiyalarında, faylları [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) və ya [Browserify](http://browserify.org/) kimi alətlər ilə paketləriylər. Paketləmə (bundling) import olunan faylların izlənməsi və "bundle" adlanan bir fayla birləşdirilməsidir. Bu fayl bütün applikasiyanı saytda bir dəfəyə yükləmək üçün istifadə edilə bilər.
 
 #### Nümunə {#example}
 

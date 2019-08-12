@@ -59,6 +59,8 @@
       title: Performansın Optimallaşdırılması
     - id: portals
       title: Portallar
+    - id: profiler
+      title: Profayler
     - id: react-without-es6
       title: ES6-sız React
     - id: react-without-jsx
@@ -123,6 +125,14 @@
         title: Hookların API Arayışı
       - id: hooks-faq
         title: Hooklar FAQ
+- title: Test Etmə
+  items:
+    - id: testing 
+      title: İcmal
+    - id: testing-recipes
+      title: Test Etmə Reseptləri
+    - id: testing-environments
+      title: Test Etmə Mühiti
 - title: İştirak Etmək
   items:
   - id: how-to-contribute

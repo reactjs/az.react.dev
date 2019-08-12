@@ -122,9 +122,10 @@ it('counter-i render və yeniləyir', () => {
 });
 ```
 
+
 Yaddan çıxarmayın ki, DOM hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun uzunluğunu azaltmaq üçün [React Testing Library](https://testing-library.com/react) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
 
-- The [`Reseptlər`](/docs/recipes.html) sənədində misallar ilə `act()`-in işləməyi haqqında daha ətraflı məlumat var.
+- The [`Reseptlər`](/docs/recipes.html) sənədində `act()`-in işləməyi haqqında misallar ilə daha ətraflı məlumat var.
 
 * * *
 
