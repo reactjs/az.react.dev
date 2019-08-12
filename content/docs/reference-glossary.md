@@ -1,6 +1,6 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: React Terminlərinin Lüğəti
 layout: docs
 category: Reference
 permalink: docs/glossary.html
@@ -126,41 +126,41 @@ Komponentdə hər hansı bir məlumat vaxt ilə dəyişirsə `state`-dən istifa
 
 Dəyişən hər bir məlumat üçün, state-ə "yiyə duran" bir komponent olmalıdır. İki fərqli komponentin state-ini sinxronizasiya etməyin. Əvəzinə, state-i ən yaxın valideynə [qaldırıb](/docs/lifting-state-up.html) hər iki komponentə proplar kimi göndərin.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Lifecycle Metodları](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Komponentin fəqli fazalarında icra edilən funksiyalar lifecycle metodlarıdır. Komponentin yarandığı və DOM-ə ləavə edildiyi ([mount edilmə](/docs/react-component.html#mounting)), komponentin yeniləndiyi və komponentin unmount edildiyi və DOM-dan silindiyi funksiyalar mövcuddur.
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Kontrol Olunan](/docs/forms.html#controlled-components) və [Kontrol Olunmayan](/docs/uncontrolled-components.html) Komponentlər
 
-React has two different approaches to dealing with form inputs. 
+React-də Anket sahələrini idarə etmək üçün ide iki cür yanaşma mövcuddur.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Dəyəri React tərəfindən kontorl edilən anket sahəsi elementi **kontrol olunan komponentdir**. İstifadəçi kontrol olunan komponentə məlumat daxil etdikdə, dəyişən hadisə işləyicisi çağrılacaq. Sizin kodunuz, daxil olunan dəyəri yoxlayıb yenilənmiş dəyəri render edir. Əgər siz yenidən render etməsəniz anket elementi dəyişməz qalacaq.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+*Kontrol olunmayan komponentləri* React-dən kənarda işləyən anket elementləri ilə eyni formada işləyirlər. İstifadəçi anket sahəsinə (input, dropdown və s) məlumat daxil etdikdə React-dən asılı olmayaraq yenilənmiş dəyər anket sahəsində əks olunacaq. Bu deməkdirki, siz sahədə müəyyən bir dəyərin olmasını məcbur edə bilmirsiniz.
 
-In most cases you should use controlled components.
+Bir çox hallarda kontrol olunan komponent işlətməyi tövsiyyə edirik.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [Açarlar](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Elementlər massivi düzəltdikdə "key" (açar) adlanan xüsusi mətn atributunu elementlərə daxil etməlisiniz. Açarlar React-ə hansı elementlərin yeniləndiyini, əlavə edildiyini silindiyini müəyyən etməyə kömək edir. Açarlar massivdə olan elementlərə göndərilməlidir.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Açarlar yalnız yeni massivdə olan elementlərdə unikal olmalıdırlar. Bu açarlar bütün applikasiyada və ya tək komponentdə belə unikal olmamalıdırlar.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+Açarlara `Math.random()` kimi dəyərlər göndərməyin. Yenidən render etmələr zamanı açarların "sabit identikliyi" olması vacibdir. Bu dəyərlərdən istifadə edərək React, elementlərin əlavə edildiyini, silindiyini, və ya yerini dəyişdiyini müəyyən edə bilər. İdeal olaraq açarlar, gələn məlumatın sabit identiklikləri ilə (məsələn `post.id`) uyğun olmalıdırlar.
 
-## [Refs](/docs/refs-and-the-dom.html) {#refs}
+## [Ref-lər](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React hər hansı komponentə qoşula bilən xüsusi bir atribut dəstəkləyir. `ref` atributu, [`React.createRef()` funksiyası](/docs/react-api.html#reactcreateref), tərəfindən yaradılan obyekt, callback funksiyası və ya mətn (köhnə API-dır) qəbul edir. `ref` atributu callback funksiyası olduqda, bu funksiya qoşulan DOM elementi və ya klas instansiyası (elementin tipindən asılı olaraq) arqument kimi qəbul edir. Qəbul edilən DOM elementindən və ya komponent instansiyasından bir başa istifadə edə bilər.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+ref-ləri hər yerdə işlətməyin. Əgər applikasiyanızda normal funksiyalar üçün ref-lərdən istifadə etdiyinizi görürsünüzsə [yuxarıdan aşağı məlumat axını](/docs/lifting-state-up.html) ilə tanış olun.
 
-## [Events](/docs/handling-events.html) {#events}
+## [Hadisələr](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+Hadisələrin React elementlərində idarə edilməsində bəzi sintaktik fərqlər var:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* React hadisə işləyiciləri kiçik hərflə yazılmaq əvəzinə camelCase ilə yazılırlar.
+* JSX işlətdikdə hadisə işləyicilərinə mətn əvəzinə funksiya göndərilir.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Rekonsilyasiya](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Komponentin propları və ya state-i dəyişdikdə, React qaytarılan element ilə əvvəlki render edilmiş elementi müqayisə edərək DOM yeniliyinin lazım olduğunu müəyyənləşdirir. Əgər yeni element ilə keçmiş element eyni deyilsə React DOM-u yeniləyəcək. Bu proses  "rekonsilyasiya" adlanır.
