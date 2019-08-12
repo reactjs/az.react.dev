@@ -1,3 +1,5 @@
+[Azərbaycan Versiyası](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md)
+
 # az.reactjs.org
 
 This repo contains the source code and documentation powering [az.reactjs.org](https://az.reactjs.org/).

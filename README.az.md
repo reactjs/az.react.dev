@@ -1,3 +1,5 @@
+[English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md)
+
 # az.reactjs.org
 
 Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu yerləşir.
