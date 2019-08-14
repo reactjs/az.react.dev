@@ -130,13 +130,13 @@ Dəyişən hər bir məlumat üçün state-ə "yiyə duran" bir komponent olmal�
 
 Komponentin fəqli fazalarında icra edilən funksiyalar lifecycle metodlarıdır. Komponentin yaranıb DOM-a əlavə edildiyi ([mount edilmə](/docs/react-component.html#mounting)), yeniləndiyi və unmount edilib DOM-dan silindiyi zaman çağrılan funksiyalar mövcuddur.
 
- ## [Kontrol Olunan](/docs/forms.html#controlled-components) və [Kontrol Olunmayan](/docs/uncontrolled-components.html) Komponentlər
+ ## [Kontrol Olunan](/docs/forms.html#controlled-components) və [Kontrolsuz](/docs/uncontrolled-components.html) Komponentlər
 
 React-də anket sahələrini idarə etmək üçün iki cür yanaşma mövcuddur.
 
 Dəyəri React tərəfindən kontrol edilən anket sahəsi elementi **kontrol olunan komponentdir**. İstifadəçi kontrol olunan komponentə məlumat daxil etdikdə "dəyişmək" hadisə işləyicisi çağrılacaq. Sizin kodunuz, daxil olunan dəyəri yoxlayıb yenilənmiş dəyəri render edir. Əgər siz yenidən render etməsəniz anket elementi dəyişməz qalacaq.
 
-*Kontrol olunmayan komponentlər*, React-dən kənarda işləyən anket elementləri ilə eyni formada işləyirlər. İstifadəçi anket sahəsinə (input, dropdown və s) məlumat daxil etdikdə React-dən asılı olmayaraq yenilənmiş dəyər anket sahəsində əks olunacaq. Bu deməkdir ki, siz sahədə müəyyən bir dəyərin olmasını idarə edə bilmirsiniz.
+*Kontrolsuz komponentlər*, React-dən kənarda işləyən anket elementləri ilə eyni formada işləyirlər. İstifadəçi anket sahəsinə (input, dropdown və s) məlumat daxil etdikdə React-dən asılı olmayaraq yenilənmiş dəyər anket sahəsində əks olunacaq. Bu deməkdir ki, siz sahədə müəyyən bir dəyərin olmasını idarə edə bilmirsiniz.
 
 Bir çox hallarda kontrol olunan komponent işlətməyi tövsiyyə edirik.
 
