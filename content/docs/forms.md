@@ -23,7 +23,7 @@ React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyir
 
 Bu anketin istifadəçinin anketi göndərdiyində yeni səhifəyə dəyişməsi olan standart HTML anket davranışı var. Əgər siz React-də bu davranışı istəyirsinizsə, heç nə etmək lazım deyil. Lakin, bir çox halda anketin göndərilməsini idarə edən və istifadəçinin daxil etdiyi məlumatlardan istifadə edə bilən funksiyanın olması əlverişlidir. Bu funksionallığı tətbiq etmək üçün "kontrol olunan komponentlərdən" istifadə edə bilərsiniz.
 
-## Kontrol Olunan Komponentlərə #controlled-components}
+## Kontrol Olunan Komponentlər {#controlled-components}
 
 HTML-də `<input>`, `<textarea>` və `<select>` kimi anket elementləri öz vəziyyətlərini saxlayır və istifadəçi daxil etməsi əsasında vəziyyəti yeniləyirlər. React-də isə dəyişən vəziyyət komponentin state parametrində yerləşir və yalnız [`setState()`](/docs/react-component.html#setstate) ilə yenilənir.
 
