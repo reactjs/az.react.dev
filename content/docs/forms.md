@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, sadə HTML-də yazılmış anket tək ad qəbul edir:
+React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, gəlin sadə HTML-də yazılmış yalnız ad qəbul edən anketə baxaq:
 
 ```html
 <form>
@@ -21,13 +21,13 @@ React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyir
 </form>
 ```
 
-Bu anketin istifadəçinin anketi göndərdiyində yeni səhifəyə dəyişməsi olan standart HTML anket davranışı var. Əgər siz React-də bu davranışı istəyirsinizsə, heç nə etmək lazım deyil. Lakin, bir çox halda anketin göndərilməsini idarə edən və istifadəçinin daxil etdiyi məlumatlardan istifadə edə bilən funksiyanın olması əlverişlidir. Bu funksionallığı tətbiq etmək üçün "kontrol olunan komponentlərdən" istifadə edə bilərsiniz.
+İstifadəçi bu anketi göndərdiyində cari səhifə yeni səhifəyə keçir. Bu standard HTML anket davranışıdır. Əgər siz React-də bu davranışı istəyirsinizsə əlavə heç nə etmək lazım deyil. Lakin, bir çox halda anketin göndərilməsini idarə edən və istifadəçinin daxil etdiyi məlumatlardan istifadə edə bilən funksiyanın olması əlverişlidir. Bu funksionallığı tətbiq etmək üçün "kontrol olunan komponentlərdən" istifadə edilir.
 
 ## Kontrol Olunan Komponentlər {#controlled-components}
 
-HTML-də `<input>`, `<textarea>` və `<select>` kimi anket elementləri öz vəziyyətlərini saxlayır və istifadəçi daxil etməsi əsasında vəziyyəti yeniləyirlər. React-də isə dəyişən vəziyyət komponentin state parametrində yerləşir və yalnız [`setState()`](/docs/react-component.html#setstate) ilə yenilənir.
+HTML-də `<input>`, `<textarea>` və `<select>` kimi anket elementləri,. öz vəziyyətlərini saxlayır və istifadəçi daxil etməsi əsasında vəziyyəti yeniləyirlər. React-də isə dəyişən vəziyyət, komponentin state parametrində yerləşir və yalnız [`setState()`](/docs/react-component.html#setstate) ilə yenilənir.
 
-Biz bu iki konsepsiyanı birləşdirib React state-ini "vahid həqiqət mənbəyi" edə bilərik. Nəticədə anketi render edən React komponenti, sonrakı istifadəçi daxil etmələri əsasında anketdə nə baş verdiyini idarə edir. Dəyəri React tərəfindən idarə edilən anket sahə elementi "kontrol olunan komponent" adlıanır.
+Biz bu iki konsepsiyanı birləşdirib React state-ini "vahid həqiqət mənbəyi" edə bilərik. Nəticədə, anketi render edən React komponenti, sonrakı istifadəçi daxil etmələri əsasında anketdə nə baş verdiyini idarə edir. Dəyəri React tərəfindən idarə edilən anket sahə elementi "kontrol olunan komponent" adlanır.
 
 Məsələn, əgər əvvəlki misalda istifadəçi anketi göndərdiyi zaman adı loq etmək istəyiriksə, anketi kontrol olunan komponent kimi yaza bilərik:
 
@@ -66,9 +66,9 @@ class NameForm extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Anket elementində `value` atributu təyin edildiyindən, anketin göstərdiyi dəyər həmişə `this.state.value` olacaq. Bu React state-ini vahid həqiqə mənbəyi edəcək. `handleChange` hadisə işləyicisi hər klaviş tıklandığında çağrılıb React state-ini yenilədiyindən, göstərilən dəyər istifadəçi daxil edə edə yenilənəcək.
+Anket elementində `value` atributu təyin edildiyindən, anketin göstərdiyi dəyər həmişə `this.state.value` olacaq və React state-i anket üçün vahid həqiqə mənbəyi olacaq. `handleChange` hadisə işləyicisi hər klaviş tıklamasında çağrılıb React state-ini yenilədiyindən anket sahəsində göstərilən dəyər həmişə yeni olacaq.
 
-Kontrol olunan komponentdə, hər state dəyişikliyi üçün uyğun olan idarə edici funksiya olur. Bu istifadəçi daxil etməsinin dəyişməsini və təsdiq edilməsini asanlaşdırır. Məsələn, əgər biz bütün yazılan adların böyük hərf ilə yazımasını istəyiriksə `handleChange` funksiyasını aşağıdaki kimi dəyişə bilərik:
+Kontrol olunan komponentdə, hər state dəyişikliyi üçün uyğun olan idarə edici funksiya olur. Bu funksiya, istifadəçi daxil etməsinin dəyişməsini və təsdiq edilməsini asanlaşdırır. Məsələn, əgər yazılan adların böyük hərf ilə saxlanmasını istəyiriksə `handleChange` funksiyasını aşağıdaki kimi dəyişə bilərik:
 
 ```javascript{2}
 handleChange(event) {
@@ -78,7 +78,7 @@ handleChange(event) {
 
 ## textarea Təqi {#the-textarea-tag}
 
-HTML-də, `<textarea>` elementinin yazısı uşaq tərəfindən təyin edilir:
+HTML-də `<textarea>` elementinin yazısı uşaq tərəfindən təyin edilir:
 
 ```html
 <textarea>
@@ -86,7 +86,7 @@ HTML-də, `<textarea>` elementinin yazısı uşaq tərəfindən təyin edilir:
 </textarea>
 ```
 
-React-də isə `<textarea>` `value` atributundan istifadə edir. Bu `<textarea>` ilə bir sətrli anket sahəsinin işləməsini uyğunlaşdırır:
+React-də isə `<textarea>` üçün `value` atributundan istifadə edilir. Bu, `<textarea>` ilə bir-sətrli anket sahəsinin işləməsini uyğunlaşdırır:
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
@@ -138,7 +138,7 @@ HTML-də drop-down siyahısı düzəltmək üçün `<select>`  işlədilir. Məs
 </select>
 ```
 
-Nəzərə alın ki, Kokos seçimində `selected` atributu olduğundan, bu seçim ilk seçilmiş olacaq. React-də `selected` atributu əvəzinə, ana `select` təqində `value` atributundan istifadə edin. Kontrol olunan komponentdə yeniliyi yalnız bir yerdə təyin etmək əlverişlidir:
+Nəzərə alın ki, Kokos seçimində `selected` atributu olduğundan, bu seçim ilk seçilmiş olacaq. React-də `selected` atributu əvəzinə ana `select` təqinin `value` atributundan istifadə edilir. Kontrol olunan komponentdə yeniliyi yalnız bir yerdə təyin etmək əlverişlidir:
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -180,7 +180,7 @@ class FlavorForm extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
 
-React, `<input type="text">`, `<textarea>` və `<select>` elementlərinin eyni formada işləməsini təmin edir. Bu elementlər hamısı kontrol olunan komponent tətbiq etmək üçün `value` atributu qəbul edirlər.
+React, `<input type="text">`, `<textarea>` və `<select>` elementlərinin eyni formada işləməsini təmin edir. Kontrol olunan komponent tətbiq edə bilmək üçün bu elementlər `value` atributu qəbul edirlər.
 
 > Qeyd
 >
@@ -198,7 +198,7 @@ HTML-də `<input type="file">` təqi istifadəçiyə bir və ya bir neçə fayl�
 <input type="file" />
 ```
 
-Bu elementin dəyərinin yalnız oxuna bilən olduğundan, bu element React-də **kontrolsuz** komponent olur. [Gələcək sənədlərdə](/docs/uncontrolled-components.html#the-file-input-tag) bu element və digər kontrolsuz komponentlərdən danışacağıq.
+Bu elementin dəyərinin yalnız oxuna bilən olduğundan, bu element React-də **kontrolsuz** komponent olur. [Gələcək sənədlərdə](/docs/uncontrolled-components.html#the-file-input-tag) bu və digər kontrolsuz komponentlərdən danışacağıq.
 
 ## Bir Neçə Daxil Olmanın İdarəsi {#handling-multiple-inputs}
 
@@ -256,7 +256,7 @@ class Reservation extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Nəzərə alın ki, lazım olan state açarını veriən anket sahəsi adı əsasında yeniləmək üçün ES6 [hesablanmış parametr adı](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) sintaksisindən istifadə etmişik:
+Nəzərə alın ki, lazım olan state açarını, verilən anket sahəsi adı əsasında yeniləmək üçün ES6 [hesablanmış parametr adı](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) sintaksisindən istifadə etmişik:
 
 ```js{2}
 this.setState({
@@ -264,7 +264,7 @@ this.setState({
 });
 ```
 
-Bu kodun eqvivalenti ES5-də aşağıdaki formadadır:
+Bu kodun ES5 eqvivalenti aşağıdaki formadadır:
 
 ```js{2}
 var partialState = {};
@@ -276,7 +276,7 @@ this.setState(partialState);
 
 ## Null Dəyərli Daxil Olmanın İdarəsi {#controlled-input-null-value}
 
-[Kontrol olunan komponentdə](/docs/forms.html#controlled-components) `value` propunu təyin etdikdə istifadəçinin yalnız istədiyiniz zaman anket sahəsini dəyişməsinə icazə verə bilərsiniz. Əgər sizin `value` təyin etdiyinizdən asılı olmayaraq anket sahəsinin dəyəri dəyişrisə istəmədən `value`-nu `undefined` və `null` ilə təyin etmiş ola bilərsiniz.
+[Kontrol olunan komponentin](/docs/forms.html#controlled-components) `value` propunu təyin etdikdə istifadəçinin anket sahəsini dəyişməsini idarə edə bilərsiniz. Əgər `value` təyin edildiyindən asılı olmayaraq anket sahəsinin dəyəri dəyişə bilirsə, siz istəmədən `value`-nu `undefined` və `null` ilə təyin etmiş ola bilərsiniz.
 
 Aşağıdaki kod bu problemi göstərir. (Anket sahəsi ilkin olaraq dəyişə bilmir amma bir zamandan sonra dəyişə bilir.)
 
@@ -291,7 +291,7 @@ setTimeout(function() {
 
 ## Kontrol Olunan Komponentlərə Alternativlər {#alternatives-to-controlled-components}
 
-Hər bir məlumat dəyişikliyi üçün hadisə işləyicisi yazmaq və bütün daxil olma state-lərini React komponentindən keçirmək yorucu ola bilər. Mövcud kodu React-ə çevirdikdə və ya React applikasiyasını React olmayan kitabxana ilə inteqrasiya etdikdə bu problem xüsusi ilə yorucu ola bilər. Bu hallarda anket sahələrini başqa formada idarə etmək üçün [kontrolsuz komponentləri](/docs/uncontrolled-components.html) gözdən keçirin.
+Hər bir məlumat dəyişikliyi üçün hadisə işləyicisi yazmaq və bütün daxil olma state-lərini React komponentindən keçirmək yorucu ola bilər. Mövcud kodu React-ə çevirdikdə və ya React applikasiyasını React olmayan kitabxana ilə inteqrasiya etdikdə bu problem xüsusi ilə yorucu ola bilər. Belə hallarda anket sahələrini başqa formada idarə etmək üçün [kontrolsuz komponentləri](/docs/uncontrolled-components.html) gözdən keçirin.
 
 ## Tam Yazılmış Həll {#fully-fledged-solutions}
 
