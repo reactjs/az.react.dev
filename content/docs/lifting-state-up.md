@@ -234,7 +234,7 @@ class TemperatureInput extends React.Component {
 
 Gəlin indi `Calculator` komponentinə keçək.
 
-Cari anket sahəsinin `temperature` və `scale` dəyərlərini lokal state-də saxlayacağıq. Bu, anketlərdən "qaldırdığımız state-dir." Bu state hər iki sahə üçün "həqiqə mənbəyidir". Bu məlumatlar, hər iki sahəni render etmək üçün lazımdır.
+Cari anket sahəsinin `temperature` və `scale` dəyərlərini lokal state-də saxlayacağıq. Bu, anketlərdən "qaldırdığımız state-dir." Bu state hər iki sahə üçün "həqiqət mənbəyidir". Bu məlumatlar, hər iki sahəni render etmək üçün lazımdır.
 
 Məsələn, əgər Selsi sahəsinə 37 daxil etsəniz, `Calculator` komponentinin state-i aşağıdaki formada olacaq:
 
@@ -305,26 +305,26 @@ class Calculator extends React.Component {
 
 Sahədə dəyişiklikər edildikdə nə baş verdiyinə yenidən baxaq:
 
-* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in the `TemperatureInput` component.
-* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
-* When it previously rendered, the `Calculator` has specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
-* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
-* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
-* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
-* React calls the `render` method of the `BoilingVerdict` component, passing the temperature in Celsius as its props.
-* React DOM updates the DOM with the boiling verdict and to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
+* DOM `<input>`-unda göstərilən `onChange` funksiyası React tərəfindən çağrılır. Bizim halda, bu funksiya `TemperatureInput` komponentində olan `handleChange` funksiyasıdır.
+* `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını lazımi dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla, bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
+* Əvvəlki renderdə, Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası göndərilir. Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərilir. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
+* `Calculator` komponenti bu funksiyanın içərisində dəyişən anket sahəsinin dəyəri və miqyası ilə `this.setState()` çağıraraq React-ə özünü yenidən render etməyi istəyir.
+* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini göstərir. Hər iki anket sahəsinin dəyəri cari temperatur və miqyas əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
+* React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağırır. UI-ın necə olacağı göstərilir.
+* React, Selsi temperaturu prop kimi göndərərək `BoilingVerdict` komponentinin `render` funksiyasını çağırır.
+* React DOM, qaynama iddiası və anket sahəsinin dəyərləri əsasında DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperaturu yeniləyir.
 
-Every update goes through the same steps so the inputs stay in sync.
+Hər yenilik eyni addımlardan keçərək anket sahələrini sinxron saxlayır.
 
-## Lessons Learned {#lessons-learned}
+## Nə Öyrəndik {#lessons-learned}
 
-There should be a single "source of truth" for any data that changes in a React application. Usually, the state is first added to the component that needs it for rendering. Then, if other components also need it, you can lift it up to their closest common ancestor. Instead of trying to sync the state between different components, you should rely on the [top-down data flow](/docs/state-and-lifecycle.html#the-data-flows-down).
+React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət mənbəyi" olmalıdır. Adətən, ilk olaraq render olunmuş komponentə state əlavə edirik. Sonra, əgər digər komponentlərə bu dəyər lazımdırsa, state-i valideyn komponentlərə qaldırırıq. Fəqrli komponentlər arası state-i sinxron etmək əvəzinə [yuxarıdan aşağı məlumat axınından](/docs/state-and-lifecycle.html#the-data-flows-down) istifadə edin.
 
-Lifting state involves writing more "boilerplate" code than two-way binding approaches, but as a benefit, it takes less work to find and isolate bugs. Since any state "lives" in some component and that component alone can change it, the surface area for bugs is greatly reduced. Additionally, you can implement any custom logic to reject or transform user input.
+İki-yollu binding yanaşmasından fərqli olaraq state-i qaldırmaq yanaşması daha çox kodun yazılmasına səbəb olur. Amma bu yanaşma ilə baqları tapıb düzəltmək daha asandır. State həmişə hər hansı bir komponentdə "yaşadığından" və bu komponent state-i dəyişə bildiyindən, baqların əhatə sahəsi çox kiçilir. Əlavə olaraq, istifadəçi daxil olmasını rədd etmək və ya çevirmək üçün xüsusi məntiq tətbiq edə bilərsiniz.
 
-If something can be derived from either props or state, it probably shouldn't be in the state. For example, instead of storing both `celsiusValue` and `fahrenheitValue`, we store just the last edited `temperature` and its `scale`. The value of the other input can always be calculated from them in the `render()` method. This lets us clear or apply rounding to the other field without losing any precision in the user input.
+Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, həm `celsiusValue` həm də `fahrenheitValue`-nu state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və miqyasını `temperature` və `scale`-də saxlayırıq. Digər sahənin dəyəri `render()` funksiyasından cari dəyərin əsasında hesablana bilər. Bu yanaşma dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
 
-When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react-devtools) istifadə edə bilərsiniz. Bu alətlər baqların mənbəyini tapmağa imkan yaradır:
 
-<img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
+<img src="../images/docs/react-devtools-state.gif" alt="React Proqramçı Alətlərində State-in Yoxlanması" max-width="100%" height="100%">
 
