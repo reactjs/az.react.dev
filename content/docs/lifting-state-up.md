@@ -9,11 +9,11 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-Bir çox zaman, bir neçə komponent eyni dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan ana komponentə qaldırmağı tövsiyyə edirik. Gəlin bunun necə işlədiyinə baxaq.
+Bir çox zaman, bir neçə komponent eyni zamanda dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan valideyn komponentə qaldırmağı tövsiyyə edirik. Gəlin bunun necə işlədiyinə baxaq.
 
 Bu bölmədə, verilən temperaturda suyun qaynayacağını hesablayan temperatur kalkulyatoru düzəldəcəyik.
 
-`BoilingVerdict` adlanan komponent ilə başlayaq. Bu kopmonent `celsius` temperaturunu prop kimi qəbul edib verilən temperaturda suyun qaynayacağını render edir:
+`BoilingVerdict` adlanan komponent ilə başlayaq. Bu komponent, `celsius` temperaturunu prop kimi qəbul edib verilən temperaturda suyun qaynayacağını render edir:
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -24,7 +24,7 @@ function BoilingVerdict(props) {
 }
 ```
 
-İndi biz `Calculator` adında komponent düzəldəcəyik. Bu komponent temperaturu daxil etmək üçün `<input>` render edir və anket sahəsinin dəyərini `this.state.temperature` state-ində saxlayır.
+İndi biz `Calculator` adında komponent düzəldəcəyik. Bu komponent, temperaturu daxil etmək üçün `<input>` render edir və anket sahəsinin dəyərini `this.state.temperature` state-ində saxlayır.
 
 Əlavə olaraq, cari temperatur dəyəri üçün `BoilingVerdict`-i render edir.
 
@@ -60,9 +60,9 @@ class Calculator extends React.Component {
 
 ## İkinci Anket Sahəsinin Əlavə Edilməsi {#adding-a-second-input}
 
-İndi yeni tələb Selsidən əlavə Farenheit əlavə edib bu iki temperatur dəyərini sinxron saxlamaqdır.
+İndi yeni tələb, Selsidən əlavə Farenheit əlavə edib bu iki temperatur dəyərini sinxron saxlamaqdır.
 
-Bunun üçün biz `TemperatureInput` komponentini `Calculator`-dan ayıra edə bilərik. Biz bu komponentə `"c"` və ya `"f"` qəbul edən `scale` propu əlavə edirik:
+Bunun üçün biz `TemperatureInput` komponentini `Calculator`-dan ayıra bilərik. Gəlin bu komponentə `"c"` və ya `"f"` qəbul edən `scale` propu əlavə edirik:
 
 ```js{1-4,19,22}
 const scaleNames = {
@@ -112,9 +112,9 @@ class Calculator extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
 
-Bizdə iki sahə olmasına baxmayaraq, temperaturu birində yenilədikdə o biri sahədə dəyər yenilənmir. Bu bizim bir tələbimizə ziddir: bu iki sahənin dəyəri sinxron saxlanmalıdır.
+İki sahənin olmasına baxmayaraq, temperaturu bir sahədə yenilədikdə o biri sahədə dəyər yenilənmir. Bu bizim bir tələbimizə ziddir: bu iki sahənin dəyəri sinxron saxlanmalıdır.
 
-Əlavə olaraq, biz `BoilingVerdict` komponentini `Calculator`-dan render edə bilmirik. `Calculator`-un `TemperatureInput`-da yerləşən cari temperaturdan xəbəri yoxdur.
+Əlavə olaraq, `Calculator`-un `TemperatureInput`-da yerləşən cari temperaturdan xəbəri olmadığından `BoilingVerdict` komponentini `Calculator`-dan render etmək mümkün deyil.
 
 ## Çevrilmə Funksiyalarının Yazılması {#writing-conversion-functions}
 
@@ -169,11 +169,11 @@ class TemperatureInput extends React.Component {
     // ...  
 ```
 
-Lakin, biz bu iki anket sahəsinin dəyərinin bir-birindən asılı olmasını istəyirik. Biz Selsi sahəsini yeniləndikdə, Farenheit sahəsi çevrilmiş temperaturu göstərməli, Farenheit yeniləndikdə isə, Selsi sahəsi çevrilmiş temperaturu göstərməlidir.
+Lakin, biz bu iki anket sahəsinin dəyərinin bir-birindən asılı olmasını istəyirik. Selsi sahəsi yeniləndikdə, Farenheit sahəsi çevrilmiş temperaturu göstərməli, Farenheit yeniləndikdə isə, Selsi sahəsi çevrilmiş temperaturu göstərməlidir.
 
-React-də komponentlər arasında paylaşan state yaratmaq üçün, state-i yaxın ana komponentə köçürmək lazımdır. Biz bunu "state-in qaldırılması" adlandırırıq. Gəlin `TemperatureInput`-dan lokal state-i silib `Calculator`-a köçürək.
+Komponentlər arasında paylaşan state-i React-də yaratmaq üçün, state-i yaxın valideyn komponentə köçürmək lazımdır. Biz bunu "state-in qaldırılması" adlandırırıq. Gəlin `TemperatureInput`-dan lokal state-i silib `Calculator`-a köçürək.
 
-Paylaşan state `Calculator`-da yerləşdirildikdə, bu komponent hər iki anket sahəsi üçün cari temperaturun həqiqət mənbəyi olur. Bu komponent, hər iki anket sahəsinə bir-biri ilə uyğun olan dəyərin olmasını təlim edir. Hər iki `TemperatureInput`-un propları eyni ana `Calculator` komponentindən gəldiyindən, anket sahələri həmişə sinxronizasiyada olacaqlar.
+Paylaşan state `Calculator`-da yerləşdirildikdə, bu komponent hər iki anket sahəsi üçün cari temperaturun həqiqət mənbəyi olur. Bu komponent, hər iki anket sahəsində bir-biri ilə uyğun olan dəyərin olmasını təlim edir. Hər iki `TemperatureInput`-un propları eyni valideyn `Calculator` komponentindən gəldiyindən, anket sahələri həmişə sinxronizasiyada olacaqlar.
 
 Gəlin bunun işləməsinə addım addım baxaq.
 
@@ -186,11 +186,11 @@ Gəlin bunun işləməsinə addım addım baxaq.
     // ...
 ```
 
-[propların yalnız oxuna bilən olduğunu](/docs/components-and-props.html#props-are-read-only) biz bilirik. `temperature` lokal state-də olduğu zaman, the `TemperatureInput` komponenti `this.setState()` çağıraraq bu state-i dəyişə bilər. Lakin, indi `temperature`-un valideyn komponentdən prop kimi gəldiyinə görə `TemperatureInput`-un bu dəyəri idarə edə bilmir.
+Biz [propların yalnız oxuna bilən olduğunu](/docs/components-and-props.html#props-are-read-only) bilirik. `temperature` lokal state-də olduğu zaman, `TemperatureInput` komponenti `this.setState()` çağıraraq bu state-i dəyişə bilər. Lakin, `temperature`-un valideyn komponentdən prop kimi gəldiyindən `TemperatureInput` bu dəyəri idarə edə bilmir.
 
-React-də, komponenti "kontrol olunan" edərək bu problemi həll etmək olur. DOM `<input>` elementinin `value` və `onChange` propları qəbul etdiyi kimi, `TemperatureInput` xüsusi komponenti də  `temperature` və `onTemperatureChange` proplarını valideyn komponenti olan `Calculator`-dan qəbul edə bilər.
+React-də, komponenti "kontrol olunan" edərək bu problemi həll etmək mümkündür. DOM `<input>` elementinin `value` və `onChange` propları qəbul etdiyi kimi, `TemperatureInput` xüsusi komponenti də  `temperature` və `onTemperatureChange` proplarını valideyn komponenti olan `Calculator`-dan qəbul edə bilər.
 
-İndi, `TemperatureInput` temperaturu yeniləmək istədikdə temperature `this.props.onTemperatureChange` funksiyasını çağıra bilər:
+`TemperatureInput` komponenti temperaturu yeniləmək istədikdə `this.props.onTemperatureChange` funksiyasını çağıra bilər:
 
 ```js{3}
   handleChange(e) {
@@ -234,9 +234,9 @@ class TemperatureInput extends React.Component {
 
 Gəlin indi `Calculator` komponentinə keçək.
 
-Cari anket sahəsinin `temperature` və `scale` dəyərlərini lokal state-də saxlayacağıq. Bu, anketlərdən "qaldırdığımız state-dir." Bu state hər iki sahə üçün "həqiqət mənbəyidir". Bu məlumatlar, hər iki sahəni render etmək üçün lazımdır.
+Cari anket sahəsinin `temperature` və `scale` dəyərlərini lokal state-də saxlayacağıq. Bu dəyərlər, anketlərdən "qaldırdığımız state-dir." Bu state hər iki sahə üçün "həqiqət mənbəyi" olub, hər iki sahəni render etmək üçün lazımdır.
 
-Məsələn, əgər Selsi sahəsinə 37 daxil etsəniz, `Calculator` komponentinin state-i aşağıdaki formada olacaq:
+Məsələn, Selsi sahəsinə 37 daxil etdikdə, `Calculator` komponentinin state-i aşağıdaki formada olacaq:
 
 ```js
 {
@@ -245,7 +245,7 @@ Məsələn, əgər Selsi sahəsinə 37 daxil etsəniz, `Calculator` komponentini
 }
 ```
 
-Əgər biz Fahrenheit sahəsini 212-ə dəyişsək, `Calculator`-un state-i aşağıdaki formada olacaq:
+Əgər Fahrenheit sahəsini 212-ə dəyişdikdə, `Calculator`-un state-i aşağıdaki formada olacaq:
 
 ```js
 {
@@ -254,7 +254,7 @@ Məsələn, əgər Selsi sahəsinə 37 daxil etsəniz, `Calculator` komponentini
 }
 ```
 
-Biz hər iki dəyəri saxlaya bilərdik amma bu lazımsızdır. Yeni dəyişmiş sahənin dəyərini və təmsil etdiyi bölgünü saxlamaq bəsdir. Saxlanılan dəyər əsasında digər sahənin `temperature` and `scale` dəyərlərini hesablaya bilərik.
+Biz hər iki dəyəri saxlaya bilərdik amma bu lazımsızdır. Yeni dəyişmiş sahənin dəyərini və təmsil etdiyi bölgünü saxlamaq kifayətdir. Saxlanılan dəyər əsasında digər sahənin `temperature` and `scale` dəyərlərini hesablamaq mümkündür.
 
 Dəyərlər eyni state əsasında hesablandığından sahələri sinxron saxlamaq mümkündür:
 
@@ -301,30 +301,30 @@ class Calculator extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/WZpxpz?editors=0010)
 
-İndi hansı sahənin dəyişildiyindən asılı olmayaraq, `Calculator`-un `this.state.temperature` və `this.state.scale` state-ləri yenilənəcək. Bir sahə həmişə dəyəri olduğu kimi qəbul edir. O biri sahə isə həmişə bu sahənin dəyəri əsasında yenidən hesablanır.
+İndi hansı sahənin dəyişildiyindən asılı olmayaraq, `Calculator`-un `this.state.temperature` və `this.state.scale` state-ləri yenilənəcək. Bir sahə, dəyəri olduğu kimi qəbul edir. Digər sahə isə bu sahənin dəyəri əsasında yenidən hesablanır.
 
-Sahədə dəyişiklikər edildikdə nə baş verdiyinə yenidən baxaq:
+Sahədə dəyişikliklər edildikdə nə baş verdiyinə yenidən baxaq:
 
 * DOM `<input>`-unda göstərilən `onChange` funksiyası React tərəfindən çağrılır. Bizim halda, bu funksiya `TemperatureInput` komponentində olan `handleChange` funksiyasıdır.
 * `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını lazımi dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla, bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
 * Əvvəlki renderdə, Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası göndərilir. Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərilir. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
-* `Calculator` komponenti bu funksiyanın içərisində dəyişən anket sahəsinin dəyəri və miqyası ilə `this.setState()` çağıraraq React-ə özünü yenidən render etməyi istəyir.
-* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini göstərir. Hər iki anket sahəsinin dəyəri cari temperatur və miqyas əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
+* `Calculator` komponenti bu funksiyanda, dəyişən anket sahəsinin dəyəri və bölgüsü ilə `this.setState()` funksiyasını çağdığından, React bu komponenti yenidən render edir.
+* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini göstərir. Hər iki anket sahəsinin dəyəri cari temperatur və bölgü əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
 * React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağırır. UI-ın necə olacağı göstərilir.
-* React, Selsi temperaturu prop kimi göndərərək `BoilingVerdict` komponentinin `render` funksiyasını çağırır.
-* React DOM, qaynama iddiası və anket sahəsinin dəyərləri əsasında DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperaturu yeniləyir.
+* React, Selsi temperaturunu prop kimi göndərərək `BoilingVerdict` komponentinin `render` funksiyasını çağırır.
+* React DOM, qaynama iddiası və anket sahələrinin dəyərləri əsasında DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperaturu göstərir.
 
 Hər yenilik eyni addımlardan keçərək anket sahələrini sinxron saxlayır.
 
 ## Nə Öyrəndik {#lessons-learned}
 
-React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət mənbəyi" olmalıdır. Adətən, ilk olaraq render olunmuş komponentə state əlavə edirik. Sonra, əgər digər komponentlərə bu dəyər lazımdırsa, state-i valideyn komponentlərə qaldırırıq. Fəqrli komponentlər arası state-i sinxron etmək əvəzinə [yuxarıdan aşağı məlumat axınından](/docs/state-and-lifecycle.html#the-data-flows-down) istifadə edin.
+React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət mənbəyi" olmalıdır. Adətən, ilk olaraq render olunmuş komponentə state əlavə edirik. Digər komponentlərə bu dəyər lazım olduqda, state-i valideyn komponentlərə qaldırırıq. Fəqrli komponentlər arası state-i sinxron etmək əvəzinə [yuxarıdan aşağı məlumat axınından](/docs/state-and-lifecycle.html#the-data-flows-down) istifadə edin.
 
-İki-yollu binding yanaşmasından fərqli olaraq state-i qaldırmaq yanaşması daha çox kodun yazılmasına səbəb olur. Amma bu yanaşma ilə baqları tapıb düzəltmək daha asandır. State həmişə hər hansı bir komponentdə "yaşadığından" və bu komponent state-i dəyişə bildiyindən, baqların əhatə sahəsi çox kiçilir. Əlavə olaraq, istifadəçi daxil olmasını rədd etmək və ya çevirmək üçün xüsusi məntiq tətbiq edə bilərsiniz.
+İki-yollu binding yanaşmasından fərqli olaraq state-i qaldırmaq yanaşması daha çox kodun yazılmasına səbəb olur. Amma bu yanaşma ilə baqları tapıb düzəltmək daha asandır. State həmişə hər hansı bir komponentdə "yaşadığından" və bu komponent state-i dəyişə bildiyindən, baqların əhatə sahəsi çox kiçilir. Əlavə olaraq, istifadəçi daxil olmasını rədd etmək və ya çevirmək üçün xüsusi məntiq tətbiq etmən mümkün olur.
 
-Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, həm `celsiusValue` həm də `fahrenheitValue`-nu state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və miqyasını `temperature` və `scale`-də saxlayırıq. Digər sahənin dəyəri `render()` funksiyasından cari dəyərin əsasında hesablana bilər. Bu yanaşma dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
+Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, `celsiusValue` və `fahrenheitValue` dəyərlərini state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və bölgüsünü `temperature` və `scale`-də saxlaya bilirik. Digər sahənin dəyəri `render()` funksiyasında, cari dəyərin əsasında hesablana bilər. Bu yanaşma, dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
 
-UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react-devtools) istifadə edə bilərsiniz. Bu alətlər baqların mənbəyini tapmağa imkan yaradır:
+UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react-devtools) istifadə edə bilərsiniz. Bu alətlər, baqların mənbəyini tapmağa imkan yaradır:
 
 <img src="../images/docs/react-devtools-state.gif" alt="React Proqramçı Alətlərində State-in Yoxlanması" max-width="100%" height="100%">
 
