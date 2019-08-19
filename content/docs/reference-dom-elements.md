@@ -16,7 +16,7 @@ redirect_from:
 
 Performans üçün və brauzerlər arası uyğunluqlar üçün React brauzerdən müstəqil DOM sistemi tətbiq edir. Biz bu fürsətdən istifadə edərək brauzer DOM-unun tətbiqində olan bəzi problemləri düzəltdik.
 
-React-də bütün DOM parametrləri və atributları (hadisə işləyiciləri daxil olmaqla) camelCase formatında olmalıdır. Məsələn `tabindex` HTML atributu React-də `tabIndex` atributuna uyğun gəlir. İstisnalar `aria-*` və `data-*` atributlarıdırlar: bu atributlar kiçik hərf ilə yazılmalıdırlar. Məsələn siz `aria-label` atributunu `aria-label` kimi saxlaya bilərsiniz.
+React-də bütün DOM parametrləri və atributları (hadisə işləyiciləri daxil olmaqla) camelCase formatında olmalıdır. Məsələn `tabindex` HTML atributu React-də `tabIndex` atributuna uyğun gəlir. İstisnalar `aria-*` və `data-*` atributlarıdır: bu atributlar kiçik hərf ilə yazılmalıdır. Məsələn, siz `aria-label` atributunu `aria-label` kimi saxlaya bilərsiniz.
 
 ## Atributlar arasında Fərqlər {#differences-in-attributes}
 
@@ -30,11 +30,11 @@ Bir neçə atributun işləməsi React və HTML-də fərqlidir:
 
 CSS klası təyin etmək üçün `className` atributundan istifadə edin. Bu, bütün normal DOM və SVG elementlərinə (`<div>`, `<a>` və başqaları) aiddir.
 
-Əgər siz React-i Veb Komponentlər ilə işlədirsinizsə (nadirdir) `class` atributu işlədin.
+Əgər siz React-i Veb Komponentlər ilə işlədirsinizsə (nadir haldır) `class` atributu işlədin.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-React-də `dangerouslySetInnerHTML` brauzerin DOM-unda `innerHTML` atributunu əvəzləyir. Adətən, təsadüfən istifadəçiləri [kros-səhifə scriptləri (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarına ifşa etməyini asanlaşdırdığından koddan HTML təyin etmək risklidir. Bu səbəbdən HTML-i bir başa React-ə təyin etmək üçün siz `dangerouslySetInnerHTML` yazıb `__html` açarı olan obyekt göndərməlisiniz ki, bunun təhlükəli olduğunu yada salasınız. Məsələn:
+React-də `dangerouslySetInnerHTML` brauzerin DOM-unda `innerHTML` atributunu əvəzləyir. Adətən, təsadüfən istifadəçiləri [kros-səhifə scriptləri (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) hücumlarına ifşa etməyini asanlaşdırdığından koddan HTML təyin etmək risklidir. Bu səbəbdən HTML-i birbaşa React-ə təyin etmək üçün siz `dangerouslySetInnerHTML` yazıb `__html` açarı olan obyekt göndərməlisiniz ki, bunun təhlükəli olduğunu yada salasınız. Məsələn:
 
 ```js
 function createMarkup() {
@@ -77,7 +77,7 @@ function HelloWorldComponent() {
 }
 ```
 
-Qeyd edinki stillər avtomatik prefikslənmirlər. Keçmiş brauzerləri dəstəkləmək üçün müvafiq stil parametrlərini təyin edin:
+Nəzərə alın ki, stillər avtomatik prefikslənmirlər. Keçmiş brauzerləri dəstəkləmək üçün müvafiq stil parametrlərini təyin edin:
 
 ```js
 const divStyle = {
@@ -193,4 +193,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-Kiçik hərf istifadə etdiyiniz müddətcə siz xüsusi atributlar da işlədə bilərsiniz.
+Kiçik hərf istifadə etdiyiniz müddətdə siz xüsusi atributlar da işlədə bilərsiniz.
