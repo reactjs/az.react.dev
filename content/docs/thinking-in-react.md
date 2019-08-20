@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Thinking in React
+title: React ilə Düşünmək
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -8,50 +8,50 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+Bizim fikrimizcə böyük və tez işləyən Javascript Veb applikasiyaları yazmaq üçün React ən yaxşı yollardan biridir. React bizim üçün Facebook-da və Instagram-da çox yaxşı scale edib.
 
-One of the many great parts of React is how it makes you think about apps as you build them. In this document, we'll walk you through the thought process of building a searchable product data table using React.
+React-in ən yaxşı hissələrindən biri applikasiyanı yaza-yaza sizi necə formada fikirləşməyə məcbur etməsidir. Bu sənəddə, React-dən istifadə edərək axtarıla bilən məhsulların məlumat cədvəlini yaratmaq üçün düşüncə prosesindən danışacağıq.
 
-## Start With A Mock {#start-with-a-mock}
+## Mok ilə Başlamayın {#start-with-a-mock}
 
-Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
+Fikirləşək ki, designerin verdiyi mokap və JSON API bizdə var. Mokap aşağıdaki şəkildə göstərilib:
 
-![Mockup](../images/blog/thinking-in-react-mock.png)
+![Mokap](../images/blog/thinking-in-react-mock.png)
 
-Our JSON API returns some data that looks like this:
+JSON API aşağıdaki formada məlumat qaytarır:
 
 ```
 [
-  {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
-  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
-  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
-  {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
-  {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
-  {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+  {category: "İdman Əşyaları", price: "49.99 AZN", stocked: true, name: "Futbol"},
+  {category: "İdman Əşyaları", price: "9.99 AZN", stocked: true, name: "Beysbol"},
+  {category: "İdman Əşyaları", price: "29.99 AZN", stocked: false, name: "Basketbol"},
+  {category: "Electronika", price: "99.99 AZN", stocked: true, name: "iPod Touch"},
+  {category: "Electronika", price: "399.99 AZN", stocked: false, name: "iPhone 5"},
+  {category: "Electronika", price: "199.99 AZN", stocked: true, name: "Nexus 7"}
 ];
 ```
 
-## Step 1: Break The UI Into A Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
+## Addım 1: UI Komponent İyerarxiyasına Parçalayın {#step-1-break-the-ui-into-a-component-hierarchy}
 
-The first thing you'll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you're working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!
+İlk öncə, mokda olan hər komponent-in (və subkomponent-in) ətrafında kvadratlar çəkib, bu kvadratları adlandırın. Əgər dizayner ilə işləyirsinizsə, o bu hissəni artıq düzəltmiş ola bilər. Dizayneriniz ilə danışın! Onun Photoshop-da adlandırdığı   layer-lər sizin React komponentləriniz ola bilər!
 
-But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+Bəz hansı hissənin ayrı komponent olmasını necə bilirik? Yeni obyekt və ya funksiya üçün işlətdiyiniz texnikadan istifadə edin. Bu texnikalardan biri [vahid məsuliyyət prinsipidir](https://en.wikipedia.org/wiki/Single_responsibility_principle). Bu prinsip deyir ki, ideal olaraq komponent yalnız bir iş ilə məşqul olmalıdır. Əgər komponent boyüyürsə, bu komponent daha kiçik komponentlərə parçalanmalıdır.
 
-Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+Bir çox zaman istifadəçiyə JSON məlumatı göstərdiyinizdən, modeliniz düzgün qurulubsa, UI-nız (və nəticədə komponent strukturunuz) bu modelə rahat map ola biləcək. Bunun səbəbi UI və məlumat modelinin eyni *informasiya arxitekturasından istifadə etməsidir*. Hər komponenti məlumat modelinin bir hissəsinə uyğunlaşdırmaq fikri ilə UI-ı komponentlərə parçalayın.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Komponent sxemi](../images/blog/thinking-in-react-components.png)
 
-You'll see here that we have five components in our app. We've italicized the data each component represents.
+Bu sxemdə, bizim applikasiyamızın beş kompoentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı italik ilə yazmışıq.
 
-  1. **`FilterableProductTable` (orange):** contains the entirety of the example
-  2. **`SearchBar` (blue):** receives all *user input*
-  3. **`ProductTable` (green):** displays and filters the *data collection* based on *user input*
-  4. **`ProductCategoryRow` (turquoise):** displays a heading for each *category*
-  5. **`ProductRow` (red):** displays a row for each *product*
+  1. **`FilterableProductTable` (narıncı):** bütün nümunəni üçün konteynerdir
+  2. **`SearchBar` (mavi):** *istifadəçi daxil etməsini* qəbul edir
+  3. **`ProductTable` (yaşıl):** *istifadəçi daxil etməsi* əsasında *məlumat kolleksiyasını* göstərir və filter edir
+  4. **`ProductCategoryRow` (firuzə):** hər *kateqoriya* üçün başlığı göstərir
+  5. **`ProductRow` (qırmızı):** hər *məhsul* üçün sıranı göstərir
 
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+`ProductTable` komponentinə baxdıqda, "Name" və "Price" başlıqlarını saxlayan cədvəl başlığının komponent olmadığını görəcəksiniz. Bu bizim seçdiyimiz yoldur və bu hissənin komponent olması və ya olmaması haqqında mübahisə aparmaq olar. Məsələn bizim bu hissəni `ProductTable`-da saxlamağımızın səbəbi, bu hissənin *data kolleksiyasının* bir hissəsi olduğundan `ProductTable`-ın məsulliyəti olmasıdır. Lakin, əgər başlıq mürəkkəbləşsə (məsələn, biz başlıqlara sort etmək funksionallığı əlavə etsək), bu hissəni ayrı `ProductTableHeader` komponentinə əlavə etmək məntiqli olar.
 
-Now that we've identified the components in our mock, let's arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+Mokapda olan komponentləri müəyyənləşdirdikdən sonra, gəlin bu komponentləri iyerarxiyada düzək. Hər hansı bir komponentin daxilində olan komponentlər iyerarxiyada valideyn komponentlərin uşaq komponentləri olmalıdırlar:
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -59,88 +59,88 @@ Now that we've identified the components in our mock, let's arrange them into a 
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Step 2: Build A Static Version in React {#step-2-build-a-static-version-in-react}
+## Addım 2: Statik Versiyasını React-də Düzəldin {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen"><a href="https://codepen.io/gaearon/pen/BwWzwm">React ilə Düşünmək: Addım 2</a> Pen-ini <a href="https://codepen.io">CodePen-də</a> sınayın.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-Now that you have your component hierarchy, it's time to implement your app. The easiest way is to build a version that takes your data model and renders the UI but has no interactivity. It's best to decouple these processes because building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking and not a lot of typing. We'll see why.
+Bizdə komponent iyerarxiyasının oldğundan, gəlin applikasiyamızı düzəldək. İlk öncə məlumat modeli əsasında UI-ı interaksiya olmadan render etmək başlamaq üçün ən asan yoldur. Statik versiyanı düzəltmək çox yazmaq amma az fikirləşmək, interaktivlik əlavə etmək isə çox fikirləşmək amma az yazmaq tələb etdiyindən, bu iki prosesi ayırmaq faydalıdır.
 
-To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using *props*. *props* are a way of passing data from parent to child. If you're familiar with the concept of *state*, **don't use state at all** to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.
+Məlumat modelini render edən applikasiyanın statik versiyasını düzəltmək üçün digər komponentlərdən istifadə edən komponentlər düzəldib məlumatı *proplar* ilə göndərmək lazımdır. Valideyndən uşaqlara məlumatı *proplar* ilə göndərmək olur. Əgər  *state* konsepsiyasından xəbəriniz varsa, statik versiyanı düzəltmək üçün **state-dən istifadə etməyin**. State yalnız interaktivlik (yəni zaman ilə dəyişən məlumatlar) üçün lazımdır. İndi biz applikasiyanın statik versiyasını düzəltdiyimizdən, sizə state-dən istifadə etmək lazım deyil.
 
-You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy (i.e. starting with `FilterableProductTable`) or with the ones lower in it (`ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.
+Siz komponentləri aşağıdan yuxarı və ya yuxarıdan aşağı düzəldə bilərsiniz. Bu deməkdir ki, siz iyerarxiyada yuxara olan komponentlərdən (məsələn, `FilterableProductTable`) və ya aşağıda olan komponentlərdən (məsələn, `ProductRow`) başlaya bilərsiniz. Sadə nümunələrdə, yuxarıdan aşağı yazmaq daha asandır. Böyük layihələrdə isə aşağıdan yuxarı gedib komponentləri düzəldə düzəldə test etmək daha asandır.
 
-At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `ReactDOM.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+Bu addımın sondunda, məlumat modelini render edən, yenidən istifadə edilə bilən komponentlər kitabxananız olacaq. Applikasiyanın statik versiyası olduğundan, komponentlərin yalnız `render()` funksiyaları olacaq. İyerarxiyada üstdə olan komponent (`FilterableProductTable`) məlumat modelini prop kimi qəbul edəcək. Əgər siz məlumat modelini dəyişib `ReactDOM.render()` funksiyasını yenidən çağırsanız, UI yenilənəcək. UI-ın necə yeniləndiyini və hara dəyişikliklər etməin lazım olduğunu görə biləcəksiniz. React-in **bir tərəfli məlumat axını** (*bir tərəfli binding*-də adlanır) hər şeyin modulyar və tez olmasına imkan yaradır.
 
-Refer to the [React docs](/docs/) if you need help executing this step.
+Bu addımı icra etmək üçün komək lazımdırsa [React sənədlərinə](/docs/) baxın.
 
-### A Brief Interlude: Props vs State {#a-brief-interlude-props-vs-state}
+### Qısa İnterlyud: Props və ya State {#a-brief-interlude-props-vs-state}
 
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
+React-də iki tip məlumat "modeli" var: proplar və state. Bu iki "model" arasındaki fərqi başa düşmək vacibdir. Əgər bunların fərqini bilmirsinizsə [React-in rəsmi sənədlərini](/docs/state-and-lifecycle.html)  gözdən keçirin. Əlavə olaraq [FAQ: State və Proplar arasında fərq nədir?](/docs/faq-state.html#what-is-the-difference-between-state-and-props) sənədə baxın.
 
-## Step 3: Identify The Minimal (but complete) Representation Of UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Addım 3: Minimal (amma tam) UI Vəziyyətinin Təsvirin Müəyyənləşdirin {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**.
+UI-ı interaktiv etmək üçün, məlumat modelində dəyişikliklər edə bilməlisiniz. React-də bu, **state** ilə icra olunur.
 
-To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, take the length of the TODO items array.
+Applikasiyanı düzgün qurmaq üçün, ilk öncə applikasiyaya lazım olan dəyişən state-i müəyyənləşdirmək lazımdır. Burada ən vacib məqam [DRY-dır: *Özünüzü Yenidən Təkrarlamayın (Don't Repeat Yourself)*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Applikasiyaya lazım olan ən minimum state-i tapıb qalan bütün dəyərli lazım olduqda hesablayın. Məsələn, əgər TODO siyahısı düzəldirsinizsə, TODO elementləri olan massivi saxlayın. Lakin, elementlərin sayını ayrıca state-də saxlamayın. TODO elementlərinin sayını bilmək üçün, massivdən sayı götürün.
 
-Think of all of the pieces of data in our example application. We have:
+Applikasiyada olan bütün məlumatları haqqında fikirləşək. Bizdə aşağıdaki məlumatlar var:
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  * Məhsulların orijinal siyahısı
+  * İstifadəçinin daxil etdiyi axtarış mətni
+  * Çekboksun dəyəri
+  * Məhsulların filter olunmuş siyahısı
 
-Let's go through each one and figure out which one is state. Ask three questions about each piece of data:
+Gəlin bu məlumatlara baxıb hansının state olacağını müəyyənləşdirək. Hər məlumat parçası ümün aşağıdaki üç sualı verin:
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+  1. Bu məlumat valideyndən proplar ilə gəlir? Əgər belədirsə bu state deyil.
+  2. Bu məlumat zaman ilə dəyişir? Əgər dəyişmirsə, bu state deyil.
+  3. Bu məlumatı digər state və ya proplar əsasında hesablamaq olar? Əgər olarsa, bu state deyil.
 
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+Məhsulların orijinal siyahısı proplar ilə göndərildiyindən, bu state deyil. Axtarış məti və çekboks dəyəri zaman ilə dəyişdiyindən və heç nədən hesablanıb törənə bilmədiyindən, state-dir. Filter olunmuş siyahı məhsulların orijinal siyahısı, axtarış mətni və çekboks dəyəri əsasında hesablana bildiyindən, bu state deyil.
 
-So finally, our state is:
+State aşağıdaki iki siyahıda göstərilib:
 
-  * The search text the user has entered
-  * The value of the checkbox
+  * İstifadəçinin daxil etdiyi axtarış mətni
+  * Çekboksun dəyəri
 
-## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
+## Addım 4: State-in Harada Yaşayacağını Müəyyənləşdirin {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen"><a href="https://codepen.io/gaearon/pen/qPrNQZ">React ilə Düşünmək: Addım 4</a> Pen-ini <a href="https://codepen.io">CodePen-də</a> sınayın.</p>
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+Biz applikasiyaya lazım olan minimum state-i müəyyənləşdirdik. İndi bizə hansı komponentin dəyişdiyini və ya bu state-i *saxladığını* müəyyənləşdirməliyik.
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+Yadınızda saxlayın: React həmişə komponent iyerarxiyasında bir tərəfli məlumat axınından ibarətdir. Hansı komponentin state-i saxlaması ilk zamanlar aydın olmaya bilər. **Yeni başlayanlar üçün bu ən çətin hissələrdən biri olduğundan,** aşağıdaki addımlardan istifadə edərək bunu müəyyənləşdirin:
 
-For each piece of state in your application:
+Applikasiyada olan hər state parçası üçün:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * Bu state əsasında render edən komponentləri müəyyənləşdirin.
+  * Müştərək sahib komponenti tapın (State lazım olan bütün komponentlərin iyerarxiyada üstündə olan tək komponent).
+  * Müştərək sahib komponent və ya iyerarxiyada daha üstdə olan digər komponent state-i saxlamalıdır.
+  * Əgər state-i saxlayan komponent tapa bilmirsinizsə, yalnız state-i saxlamaq üçün yeni komponent yaradıb, bu komponenti iyerarxiyada müştərək sahib komponentdən üstdə yerləşdirin.
 
-Let's run through this strategy for our application:
+Applikasiyamız üçün bu strategiyaya yenidən baxaq:
 
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+  * `ProductTable` state əsasında məhsullar siyahısını filter etməlidir. `SearchBar` isə axtarış mətnini və çekboks state-ini göstərməlidir.
+  * `FilterableProductTable` müştərək sahib komponentdir.
+  * Filter mətninin və çekboks dəyərinin `FilterableProductTable` komponentində yaşaması məntiqlidir.
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+Biz state-in `FilterableProductTable` komponentində saxlanmasına qərar verdik. İlk öncə, `FilterableProductTable`-in `constructor`-una applikasiyanın ilkin state-ini təmsil etməsi üçün `this.state = {filterText: '', inStockOnly: false}` instansiya parametri əlavə edin. Sonra, `filterText` və `inStockOnly` state-lərini `ProductTable` və `SearchBar` komponentlərinə prop kimi göndərik. Ən sonda, bu proplar əsasında `ProductTable`-da məhsulları filter edin və `SearchBar`-da anket sahələrinin dəyərlərini təyin edin.
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+Siz applikasiyanızın necə işləyəcəini görə bilərsiniz: `filterText`-i `"ball"` mətni ilə dəyişib applikasiyanı yeniləyin. Məlumat cədvəlinin düzgün yeniləndiyini görəcəksiniz You'll see that the data table is updated correctly.
 
-## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
+## Addım 5: Tərs Məlumat Axını Əlavə Edin {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="React ilə Düşünmək: Addım 5" class="codepen"><a href="https://codepen.io/gaearon/pen/LzWZvb">React ilə Düşünmək: Addım 5</a> Pen-ini <a href="https://codepen.io">CodePen-də</a> sınayın.</p>
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+Biz iyerarxiyada aşağı axını olan proplar və state-in əsasında render edən applikasiya yaratmışıq. İndi bizə əks istiqmətdə məlumat axını lazımdır: iyerarxiyanın dərinliklərində olan anket komponentləri `FilterableProductTable` komponentində state-i yeniləyə bilməlidir.
 
-React makes this data flow explicit to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+React proqramın necə işlədiyini anlaya bilmək üçün bu məlumat axının açıq göstərir. Lakin, standart iki-tərəfli məlumat axınından daha çox yazmaq tələb edir.
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+Əgər siz anket sahəsinə yazı yazsanız və ya çekboksu çek etmək istəsəniz, sizin daxil etdiyiniz dəyərlər sayılmayacaq. Bunun səbəbi  `input`-un `value` propunun həmişə `FilterableProductTable` komponentindən göndərilən `state`-ə bərabər olmasıdır.
 
-Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
+Gəlin nə baş verməsi haqqında fikirləşək. İstifadəçi anket sahələrini yenilədikdə, state bu yeni dəyərlərli əks etməlidir. Komponentlər yalnız öz state-lərini yeniləməlir. Bu səbəbdən `FilterableProductTable` `SearchBar` komponentinə state-i yenilənməsi üçün callback-lər göndərəcək. Biz anket sahələrinin `onChange` hadisəsindən istifadə edərək dəyişiklikləri əks etdirə bilərik. `FilterableProductTable` tərəfindən göndərikən callback-lər `setState()` funksiyasını çağırıb applikasiyanı yeniləyəcəklər.
 
-## And That's It {#and-thats-it}
+## Son {#and-thats-it}
 
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+Arzulayırıq ki, bu sənəd sizə React-də komponentlər və applikasiyalar yaratmaq üçün ideyalar verəcək. Kodun standart yazmaqdan biraz çox uzun olmasına baxmayaraq, yadda saxlayın ki, kod həmişə yazıldığından qat-qat çox oxunur. Belə modulyar və açıq kodu oxumaq daha asandır. Böyük komponentlər kitabxanaları yazdıqda, bu modulyarlığı və açıqlığı qiymətləndirəcəksiniz. Əlavə olaraq kodu yenidən istifadə etmək ilə liniyalarınızı azalda biləcəksiniz. :)
