@@ -17,7 +17,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // NPM ilə ES5
 
 `ReactTestUtils`, React komponentlərini öz seçdiyiniz freymvorklarda test etməyi asanlaşdırır. Javascript-i əziyyətsiz test etmək üçün, biz Facebook-da [Jest-dən](https://facebook.github.io/jest/) istifadə edirik. Jest-in veb səhifəsində olan [React dərsliyindən istifadə edərək](https://jestjs.io/docs/tutorial-react) Jest-dən istifadə etməyə başlayın.
 
-> Qeyf:
+> Qeyd:
 >
 > Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
 >
@@ -83,7 +83,7 @@ class Counter extends React.Component {
 }
 ```
 
-Bu komponenti aşağıdaki formada test edə bilərik:
+Bu komponenti aşağıdakı formada test edə bilərik:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -125,7 +125,7 @@ it('counter-i render və yeniləyir', () => {
 
 Yaddan çıxarmayın ki, DOM hadisələri yalnız DOM konteyneri `document`-ə əlavə olduqdan sonra göndərilir. Kodun uzunluğunu azaltmaq üçün [React Testing Library](https://testing-library.com/react) kimi köməkçi kitabxanalardan istifadə edə bilərsiniz.
 
-- The [`Reseptlər`](/docs/recipes.html) sənədində `act()`-in işləməyi haqqında misallar ilə daha ətraflı məlumat var.
+- [`Reseptlər`](/docs/recipes.html) sənədində `act()` funksiyasının işləməyi haqqında misallar ilə daha ətraflı məlumat var.
 
 * * *
 
@@ -299,7 +299,7 @@ findRenderedComponentWithType(
 renderIntoDocument(element)
 ```
 
-Documentdən ayrılmış DOM noduna React elementini render edin. **Bu funksiya DOM-dan asılıdır.** Bu funksiyanın eqvivalenti aşağıdaki koda bənzəyir:
+Dokumentdən ayrılmış DOM noduna React elementini render edin. **Bu funksiya DOM-dan asılıdır.** Bu funksiyanın ekvivalenti aşağıdakı koda bənzəyir:
 
 ```js
 const domContainer = document.createElement('div');
@@ -308,7 +308,7 @@ ReactDOM.render(element, domContainer);
 
 > Qeyd:
 >
-> React-i **idxal etməmişdən öncə** `window`, `window.document` və `window.document.createElement` obyektləri qlobal mövcud olmalıdırlar. Əks halda React, DOM-un mövcud olmamasını fikirləşəcək və `setState` kimi funksiyalar işləməyəcək.
+> React-i **idxal etməmişdən öncə** `window`, `window.document` və `window.document.createElement` obyektləri qlobal mövcud olmalıdırlar. Əks halda React, DOM-un mövcud olmadığını fikirləşəcək və `setState` kimi funksiyalar işləməyəcək.
 
 * * *
 
@@ -347,6 +347,6 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 
 > Qeyd
 >
-> Komponentdə işlətdiniz bütün hadisə parametrlərini özünüz təmin etməlisiniz (məsələn, keyCode, which, və s...). Çünki, React bu parametrləri sizin üçün yaratmır.
+> Komponentdə işlətdiniz bütün hadisə parametrlərini özünüz təmin etməlisiniz (məsələn, keyCode, which, və s.). Çünki, React bu parametrləri sizin üçün yaratmır.
 
 * * *
