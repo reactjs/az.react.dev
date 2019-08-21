@@ -50,7 +50,7 @@ Bu kod 1-dən 5-ə kimi rəqəmləri nöqtəli siyahıda göstərir.
 
 Adətən siyahılar [komponentin](/docs/components-and-props.html) daxilindən render edilir.
 
-Əvvəkli misalı redaktə edib, `numbers massivi qəbul edən və elementlər siyahısı render edən komponentə çevirə bilərik.
+Əvvəkli nümunəni redaktə edib, `numbers massivi qəbul edən və elementlər siyahısı render edən komponentə çevirə bilərik.
 
 ```javascript{3-5,7,13}
 function NumberList(props) {
