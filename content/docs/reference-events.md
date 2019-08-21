@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Bu arayış React-in Hadisə Sisteminin bir hissəsini yaradan `SyntheticEvent`-i əhatə edir. Əlavə məlumat üçün [Hadisələrin Emal Edilməsi](/docs/handling-events.html) sənədinə baxın.
 
-## Overview {#overview}
+## İcmal {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+Hadisə işləyiciləri React-ə `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə eyni olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisələrinin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent` bütün brauzerlərdə eyni formada işləmir.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Əgər sizə hər hansı səbəbə görə brauzerin hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
 
 ```javascript
 boolean bubbles
@@ -31,19 +31,18 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Qeyd:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
 
-### Event Pooling {#event-pooling}
+### Hadisə Pulinqi {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+`SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
+Bunun səbəbi performans ilə bağlıdır. Bu səbəbdən siz hadisəni asinxron formada işlədə bilməzsiniz.
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => sıfırlanmış obyekt.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -52,54 +51,54 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // Aşağıdakı işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Qeyd:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamağa icazə verəcək.
 
-## Supported Events {#supported-events}
+## Dəstəklənən Hadisələr {#supported-events}
 
-React normalizes events so that they have consistent properties across different browsers.
+Bütün brauzerlərdə eyni parametrlərinin olması üçün, React hadisələri normallaşdırır.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
 
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
+- [Clipboard Hadisələri](#clipboard-events)
+- [Kompozisiya Hadisələri](#composition-events)
+- [Klaviatur Hadisələri](#keyboard-events)
+- [Fokus Hadisələri](#focus-events)
+- [Anket Hadisələri](#form-events)
+- [Maus Hadisələri](#mouse-events)
+- [Pointer Hadisələri](#pointer-events)
+- [Seleksiya Hadisələri](#selection-events)
+- [Toxunuş Hadisələri](#touch-events)
+- [UI Hadisələri](#ui-events)
+- [Wheel Hadisələri](#wheel-events)
+- [Media Hadisələri](#media-events)
+- [Şəkil Hadisələri](#image-events)
+- [Animasiya Hadisələri](#animation-events)
+- [Keçid Hadisələri](#transition-events)
+- [Digər Hadisələr](#other-events)
 
 * * *
 
-## Reference {#reference}
+## Arayış {#reference}
 
-### Clipboard Events {#clipboard-events}
+### Clipboard Hadisələri {#clipboard-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -107,15 +106,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events {#composition-events}
+### Kompozisiya Hadisələri {#composition-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 string data
@@ -124,15 +123,15 @@ string data
 
 * * *
 
-### Keyboard Events {#keyboard-events}
+### Klaviatur Hadisələri {#keyboard-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 boolean altKey
@@ -149,21 +148,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+`key` parametri [DOM-un 3-cü səviyyəli Hadisələr spesifikasiyasında](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) olan bütün dəyərləri qəbul edə bilər.
 
 * * *
 
-### Focus Events {#focus-events}
+### Fokus Hadisələri {#focus-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Fokus hadisələri yalnız anketlərdə yox, React DOM-da olan bütün elementlərdə də işləyirlər.
 
-Properties:
+Parametrlər:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -171,21 +170,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events {#form-events}
+### Anket Hadisələri {#form-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onChange onInput onInvalid onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+onChange hadisəsi haqqında əlavə məlumat üçün [Anketlər](/docs/forms.html) sənədinə baxın.
 
 * * *
 
-### Mouse Events {#mouse-events}
+### Maus Hadisələri {#mouse-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -193,9 +192,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+`onMouseEnter` və `onMouseLeave` hadisələri siravi bubbling əvəzinə çıxan elementdən daxil olan elementə yayılırlar. Əlavə olaraq bu hadisələrin capture fazası yoxdur.
 
-Properties:
+Parametrlər:
 
 ```javascript
 boolean altKey
@@ -216,20 +215,21 @@ boolean shiftKey
 
 * * *
 
-### Pointer Events {#pointer-events}
+### Pointer Hadisələri {#pointer-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+`onPointerEnter` və `onPointerLeave` hadisələri siravi bubbling əvəzinə çıxan elementdən daxil olan elementə yayılırlar. Əlavə olaraq bu hadisələrin capture fazası yoxdur.
 
-Properties:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+Parametrlər:
+
+[W3 spesifikasiyasında](https://www.w3.org/TR/pointerevents/) müəyyənləşdirildiyi kimi, pointer hadisələri [Maus Hadisələrini](#mouse-events) aşağıdakı parametrlər ilə genişləndirirlər:
 
 ```javascript
 number pointerId
@@ -244,17 +244,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Brauzer dəstəyi haqqında qeyd:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Pointer hadisələri bütün brauzerlər tərəfindən dəstəklənmirlər (bu sənədin yazıldığı zamanda yalnız Chrome, Firefox, Edge, və Internet Explorer bu hadisələri dəstəkləyir). React bilərəkdən digər brauzerlər üçün polifil dəstəkləmir. Bunun səbəni polifilin `react-dom` paketini ölçüsünü çox böyütməsidir.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Əgər sizin applikasiyanıza pointer hadisələri lazımdırsa biz 3-cü tərəfli pointer hadisəsi polifili işlətməyi tövsiyyə edirik.
 
 * * *
 
-### Selection Events {#selection-events}
+### Seleksiya Hadisələri {#selection-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onSelect
@@ -262,15 +262,15 @@ onSelect
 
 * * *
 
-### Touch Events {#touch-events}
+### Toxunuş Hadisələri {#touch-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 boolean altKey
@@ -285,15 +285,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events {#ui-events}
+### UI Hadisələri {#ui-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onScroll
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 number detail
@@ -302,15 +302,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events {#wheel-events}
+### Wheel Hadisələri {#wheel-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onWheel
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 number deltaMode
@@ -321,9 +321,9 @@ number deltaZ
 
 * * *
 
-### Media Events {#media-events}
+### Media Hadisələri {#media-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -334,9 +334,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events {#image-events}
+### Şəkil Hadisələri {#image-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onLoad onError
@@ -344,15 +344,15 @@ onLoad onError
 
 * * *
 
-### Animation Events {#animation-events}
+### Animasiya Hadisələri {#animation-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 string animationName
@@ -362,15 +362,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events {#transition-events}
+### Keçid Hadisələri {#transition-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Parametrlər:
 
 ```javascript
 string propertyName
@@ -380,9 +380,9 @@ float elapsedTime
 
 * * *
 
-### Other Events {#other-events}
+### Digər Hadisələr {#other-events}
 
-Event names:
+Hadisə adları:
 
 ```
 onToggle
