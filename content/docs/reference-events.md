@@ -10,7 +10,7 @@ Bu arayış React-in Hadisə Sisteminin bir hissəsini yaradan `SyntheticEvent`-
 
 ## İcmal {#overview}
 
-Hadisə işləyiciləri React-ə `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə eyni olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisələrinin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent` bütün brauzerlərdə eyni formada işləməyir.
+Hadisə işləyiciləri React-ə `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə eyni olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisələrinin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent` bütün brauzerlərdə eyni formada işləmir.
 
 Əgər sizə hər hansı səbəbə görə brauzerin hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
 
@@ -33,9 +33,9 @@ string type
 
 > Qeyd:
 >
-> v0.14-cı versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
+> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
 
-### Hadisə Pulinqı {#event-pooling}
+### Hadisə Pulinqi {#event-pooling}
 
 `SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
 Bunun səbəbi performans ilə bağlıdır. Bu səbəbdən siz hadisəni asinxron formada işlədə bilməzsiniz.
@@ -51,7 +51,7 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Aşağıdaki işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
+  // Aşağıdakı işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
   this.setState({clickEvent: event});
 
   // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
