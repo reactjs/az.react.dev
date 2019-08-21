@@ -17,7 +17,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // npm ilə ES5
 
 React-də unit testlər yazmaq üçün Dayaz Render Etmə faydalıdır. Dayaz render etmə, komponenti "bir dərəcə dərinlikdə" render etməyə imkan yaradır. Bu halda, uşaq komponentlərin davranışından narahat olmayaraq (yaranıb render etmirlər), siz komponentin nə qaytardığı haqqında iddaları yoxlaya bilərsiniz. Burada DOM-a tələbat yoxdur.
 
-Məsələn, əgər sizdə aşağıdaki komponent varsa:
+Məsələn, əgər sizdə aşağıdakı komponent varsa:
 
 ```javascript
 function MyComponent() {
@@ -30,7 +30,7 @@ function MyComponent() {
 }
 ```
 
-Siz iddiaları aşağıdaki formada edə bilərsiniz:
+Siz iddiaları aşağıdakı formada edə bilərsiniz:
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow';
@@ -47,7 +47,7 @@ expect(result.props.children).toEqual([
 ]);
 ```
 
-Dayaz render etmənin bəzi məhdudiyyətləri var. Hal hazırda ref-lər dəstəklənmir.
+Dayaz render etmənin bəzi məhdudiyyətləri var. Hal-hazırda ref-lər dəstəklənmir.
 
 > Qeyd:
 >
