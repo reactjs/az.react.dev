@@ -6,9 +6,9 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
-Gəlin JavaScript-də siyahıları çevirməyə yenidən baxaq.
+Gəlin JavaScript-də siyahıları çevirməyi nəzərdən keçirək.
 
-Aşağıdaki kodda [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) funksiyasından istifadə edib rəqəmlər (`numbers`) massivinindəki dəyərləri iki dəfə artırırıq. `map()`-dən qaytarılan yeni massivi `doubled` dəyişəninə təyin edib bu massivi çap edirik:
+Göstərilən kodda [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) funksiyasından istifadə edərək rəqəmlər (`numbers`) massivinində olan dəyərləri iki dəfə artırırıq. `map()`-dən qaytarılan yeni massivi `doubled` dəyişəninə təyin edib bu massivi çap edirik:
 
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
@@ -22,7 +22,7 @@ React-də, massivləri [elementlər](/docs/rendering-elements.html) siyahısına
 
 ### Bir Neçə Komponentin Render Edilməsi {#rendering-multiple-components}
 
-Siz elementlər kolleksiyaları yaradıb, bu kolleksiyaları fiqur mötərizəsindən istifadə edərək [JSX-ə daxil edə bilərsiniz](/docs/introducing-jsx.html#embedding-expressions-in-jsx).
+Siz elementlər kolleksiyaları yaradıb fiqur mötərizəsindən istifadə edərək [JSX-ə daxil edə bilərsiniz](/docs/introducing-jsx.html#embedding-expressions-in-jsx).
 
 Aşağıdaki kodda, [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) funksiyasından istifadə edərək `numbers` massivindən keçirik. Biz massivin hər bəndi üçün `<li>` elementi qaytarırıq. Ən sonda, qaytarılan elementlər massivini `listItems` dəyişəninə təyin edirik:
 
@@ -48,9 +48,9 @@ Bu kod 1-dən 5-ə kimi rəqəmləri nöqtəli siyahıda göstərir.
 
 ### Sadə Siyahı Komponenti {#basic-list-component}
 
-Adətən siyahılar [komponentin](/docs/components-and-props.html) daxilindən render edilir.
+Adətən siyahılar [komponentin](/docs/components-and-props.html) daxilində render edilir.
 
-Əvvəkli nümunəni redaktə edib, `numbers massivi qəbul edən və elementlər siyahısı render edən komponentə çevirə bilərik.
+Əvvəkli nümunəni redaktə edib `numbers` massivi qəbul edən və elementlər siyahısı render edən komponentə çevirə bilərik.
 
 ```javascript{3-5,7,13}
 function NumberList(props) {
@@ -72,7 +72,7 @@ ReactDOM.render(
 
 Bu kodu icra etdikdə, siyahı elementlərinin açarları olması haqqında xəbərdarlıq göstəriləcək. Elementlər siyahısı düzəltdikdə, xüsusi mətn atributu olan "key" (açar) atributunu daxil etməlisiniz. Gələcək bölmədə bu atributun əhəmiyyətindən danışacağıq.
 
-Gəlin `numbers.map()`-in daxilində olan siyahı elementlərinə `key` atrubutunu təyin edib açar əskikliyini düzəldək.
+Gəlin `numbers.map()`-in daxilində olan siyahı elementlərinə `key` atrubutunu təyin edib açar əskikliyi problemini aradan qaldıraq.
 
 ```javascript{4}
 function NumberList(props) {
@@ -98,7 +98,7 @@ ReactDOM.render(
 
 ## Açarlar {#keys}
 
-React-də açarlar ilə elementlərin dəyişdiyini, əlavə edildiyini və ya silindiyini müəyyənləşdirmək mümkündür. Massivdə olan elementlərə sabit identiklik verə bilmək üçün hər elementə açar verilməlidir:
+React-də açarlardan istifadə edərək elementlərin dəyişildiyini, əlavə edildiyini və ya silindiyini müəyyənləşdirmək mümkündür. Massivdə olan elementlərə sabit identiklik verə bilmək üçün hər elementə açar verilməlidir:
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
@@ -109,7 +109,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-Açarı seçməyin ən yaxşı yolu, elementi siyahıda olan digər elementlərdən unikal şəkildə fəqrləndirən mətn seçmək. Adətən, məlumatda olan ID-lər açar kimi işlənilir:
+Elementi, siyahıda olan digər elementlərdən unikal şəkildə fərqləndirən mətn seçmək açarı seçməyin ən yaxşı yoludur. Adətən, məlumatda olan ID-lər açar kimi işlənilir:
 
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -123,14 +123,14 @@ const todoItems = todos.map((todo) =>
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
-  // Yalnız sabit ID olmadıqda indeskdən istifadə edin
+  // Yalnız sabit ID olmadıqda indeksdən istifadə edin
   <li key={index}>
     {todo.text}
   </li>
 );
 ```
 
-Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) Robin Pokorninin məqaləsini oxuyun. Əgər siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
+Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) Robin Pokorninin məqaləsini oxuyun. Siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
 
 Əlavə məlumat üçün [açarların vacibliyi haqqında dərin izahatı](/docs/reconciliation.html#recursing-on-children) sənədini oxuya bilərsiniz.
 
@@ -138,7 +138,7 @@ Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməy
 
 Açarlar yalnız daxil olduğu massivin kontekstində məntiqlidir.
 
-Məsələn, `ListItem` komponentini [çıxardıqda](/docs/components-and-props.html#extracting-components), açarları `ListItem` komponentlərində yerləşən `<li>` elementi əvəzinə `<ListItem />` elementlərinə təyin edin.
+Məsələn, `ListItem` komponentini [çıxardıqda](/docs/components-and-props.html#extracting-components), açarları `ListItem` komponentlərində yerləşən `<li>` elementləri əvəzinə `<ListItem />` elementlərinə təyin edin.
 
 **Nümunə: Açarın Səhv İstifadəsi**
 
@@ -184,7 +184,7 @@ function ListItem(props) {
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Düzdür! Açar massivin daxilində təyin edilməlidir.
+    // Düzdür! Açar, massivin daxilində təyin edilməlidir.
     <ListItem key={number.toString()}
               value={number} />
   );
@@ -204,11 +204,11 @@ ReactDOM.render(
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-`map()` çağırışının daxilində olan elementlərdə açarlarının olması yaxşı qaydadır.
+Bir qayda kimi, açarları `map()` çağırışının daxilində olan elementlərə təyin edə bilərsiniz.
 
 ### Qonşular Arasında olan Açarlar Unikal Olmalıdır {#keys-must-only-be-unique-among-siblings}
 
-Massivdə olan açarlar qonşu elementlər arasında unikal olmalıdırlar. Lakin, bu açarlar bütün applikasiyada unikal olmamalıdırlar. Biz iki fərqli massivdə eyni açarları istifadə edə bilərik:
+Massivdə olan açarlar qonşu elementlər arasında unikal olmalıdır. Lakin, bu açarlar bütün applikasiyada unikal olmamalıdırlar. Biz iki fərqli massivdə eyni açarları istifadə edə bilərik:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -238,7 +238,7 @@ function Blog(props) {
 
 const posts = [
   {id: 1, title: 'Salam Dünya', content: 'React-i Öyrənməyə Xoş Gəlmisiniz!'},
-  {id: 2, title: 'Yükləmə', content: 'npm ilə React-i ilə yükləyə bilərsiniz.'}
+  {id: 2, title: 'Yükləmə', content: 'npm ilə React-i yükləyə bilərsiniz.'}
 ];
 ReactDOM.render(
   <Blog posts={posts} />,
@@ -248,7 +248,7 @@ ReactDOM.render(
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Açarlar React üçün işarə kimi işlədilir. Açarlar komponentlərə göndərilmir. Əgər sizə açarda göndərilən dəyər komponentdə lazımdırsa, bu dəyəri fərqli ad ilə prop kimi göndərin:
+Açarlar React-də bir ipucu kimi istifadə edildiyi üçün komponentlərə göndərilmir. Əgər açar ilə göndərilən dəyər komponentdə lazımdırsa, bu dəyəri fərqli ad ilə əlavə prop kimi göndərmək lazımdır:
 
 ```js{3,4}
 const content = posts.map((post) =>
@@ -259,11 +259,11 @@ const content = posts.map((post) =>
 );
 ```
 
-Yuxarıdaki nümunədə, `Post` komponenti `props.id`-ni oxuya bilir. Lakin, `props.key`-i oxuya bilmir.
+Göstərilən nümumədə, `Post` komponenti `props.id`-ni oxuya bilir. Lakin, `props.key`-i oxuya bilmir.
 
-### map() Funksiyasını JSX-ə daxil edin {#embedding-map-in-jsx}
+### map() Funksiyasını JSX-ə Daxil Edin {#embedding-map-in-jsx}
 
-Yuxarıdaki nümunələrdə, biz massivləri ayrı `listItems` dəyişəninə təyin edib, bu dəyişəni JSX-ə daxil edirdik:
+Yuxarıdakı nümunələrdə, biz massivləri ayrı `listItems` dəyişəninə təyin edib, bu dəyişəni JSX-ə daxil edirdik:
 
 ```js{3-6}
 function NumberList(props) {
@@ -280,7 +280,7 @@ function NumberList(props) {
 }
 ```
 
-JSX fiqur mötərizənin içərisində [hər bir ifadəni daxil etməyə](/docs/introducing-jsx.html#embedding-expressions-in-jsx) icazə verdiyindən biz `map()`-in nəticəsini eyni sətrdə JSX-ə daxil edə bilərik:
+JSX, fiqur mötərizədə [hər bir ifadəni daxil etməyə](/docs/introducing-jsx.html#embedding-expressions-in-jsx) icazə verdiyindən biz `map()`-in nəticəsini eyni sətrdə JSX-ə daxil edə bilərik:
 
 ```js{5-8}
 function NumberList(props) {
@@ -298,4 +298,4 @@ function NumberList(props) {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Bu stilin təmiz kod ilə nəticələnməsinə baxmayaraq, bu stili çox istifadə etmək ziyanlı ola bilər. JavaScript-də olduğu kimi, oxunuşu artırmaq üçün dəyəri dəyişəndə çıxarmaq etmək sizdən asılıdır. Əgər `map()` çağırışının gövdəsi çox iç-içədirsə, [komponenti çıxarmaq](/docs/components-and-props.html#extracting-components) yaxşı fikir ola bilər.
+Bu stilin təmiz kod ilə nəticələnməsinə baxmayaraq, bu stili çox istifadə etmək ziyanlı ola bilər. JavaScript-də olduğu kimi, oxunuşu artırmaq üçün dəyəri dəyişənə çıxarmaq sizdən asılıdır. Əgər `map()` çağırışının gövdəsi çox iç-içədirsə, [komponenti çıxarmaq](/docs/components-and-props.html#extracting-components) yaxşı fikir ola bilər.
