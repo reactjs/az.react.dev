@@ -18,13 +18,13 @@ Bu ID-ləri tərcümə **etməyin**! Bu ID-lər naviqasiya üçün işlədilir v
 Əlavə məlumat üçün [başlanğıc bölməyə](/getting-started#try-react) baxın.
 ```
 
-✅ Edin:
+✅ EDİN:
 
 ```md
 ## React-i Sına {#try-react}
 ```
 
-❌ Etməyin:
+❌ ETMƏYİN:
 
 ```md
 ## React-i Sına {#react-sına}
@@ -43,7 +43,7 @@ const element = <h1>Hello, world</h1>;
 ReactDOM.render(element, document.getElementById('root'));
 ```
 
-✅ DO:
+✅ EDİN:
 
 ```js
 // Nümunə
@@ -51,7 +51,7 @@ const element = <h1>Salam dünya</h1>;
 ReactDOM.render(element, document.getElementById('root'));
 ```
 
-❌ DON'T:
+❌ ETMƏYİN:
 
 ```js
 // Nümunə
@@ -61,7 +61,7 @@ const element = <h1>Salam dünya</h1>;
 ReactDOM.render(element, document.getElementById('kök'));
 ```
 
-❌ DEFINITELY DON'T:
+❌ QƏTİ ETMƏYİN:
 
 ```js
 // Nümunə
