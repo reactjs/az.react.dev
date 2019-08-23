@@ -123,6 +123,7 @@ act(() => {
   root = create(<App value={1}/>)
 });
 
+
 // ana komponentin üzərində iddaları yoxlayın
 expect(root.toJSON()).toMatchSnapshot();
 
