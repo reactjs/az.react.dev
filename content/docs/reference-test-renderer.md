@@ -17,7 +17,7 @@ const TestRenderer = require('react-test-renderer'); // npm ilə ES5
 
 Bu paket, React komponentlərini Javascript obyektlərinə render etmək üçün, DOM və ya nativ mobil mühitindən asılı olmayan React renderer-i təmin edir.
 
-Bu paket, React DOM və ya React Native komponentinin, brauzer və ya [jsdom](https://github.com/tmpvar/jsdom) olmadan render etdiyi platform görünüş iyerarxiyasının snəpşotunu asan formada çəkməyə imkan yaradır.
+Bu paket, React DOM və ya React Native komponentinin, brauzer və ya [jsdom](https://github.com/tmpvar/jsdom) olmadan render etdiyi platforma görünüş iyerarxiyasının snəpşotunu asan formada çəkməyə imkan yaradır.
 
 Məsələn:
 
@@ -149,7 +149,7 @@ Render edilmiş ağacı təmsil edən obyekti qaytarır. Render edilmiş ağac y
 testRenderer.toTree()
 ```
 
-Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa bu funksiya sizə lazım deyil.
+Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa, bu funksiya sizə lazım deyil.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
@@ -157,7 +157,7 @@ Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli 
 testRenderer.update(element)
 ```
 
-Yaddaşda olan ağacı yeni ana elementi ilə yenidən render edin. Bu funksiya React-in anada yenilənməsini simulyasiya edir. Əgər yeni elementin tipi və açarı keçmiş elementinki ilə eynidirsə ağac yenilənəcək. Əks halda yeni ağac mount olunacaq.
+Yaddaşda olan ağacı yeni ana elementi ilə yenidən render edin. Bu funksiya React-in ana komponentdə yenilənməsini simulyasiya edir. Əgər yeni elementin tipi və açarı keçmiş elementinki ilə eynidirsə ağac yenilənəcək. Əks halda yeni ağac mount olunacaq.
 
 ### `testRenderer.unmount()` {#testrendererunmount}
 
@@ -173,7 +173,7 @@ Yaddaşda olan ağacı unmount edib uyğun lifecycle hadisələrini çağırın.
 testRenderer.getInstance()
 ```
 
-Əgər mövcuddursa, ana elementin instansiyasını qaytarın. Əgər ana element funksiya komponentidirsə bu funksiya işləməyəcək. Çünki funksiya komponentlərinin instansiyaları olmur.
+Əgər mümkündürsə, ana elementin instansiyasını qaytarın. Əgər ana element funksiya komponentidirsə bu funksiya işləməyəcək. Çünki funksiya komponentlərinin instansiyaları olmur.
 
 ### `testRenderer.root` {#testrendererroot}
 
