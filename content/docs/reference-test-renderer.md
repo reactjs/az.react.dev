@@ -150,11 +150,7 @@ Render edilmiş ağacı təmsil edən obyekti qaytarır. Render edilmiş ağac y
 testRenderer.toTree()
 ```
 
-<<<<<<< HEAD
-Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa, bu funksiya sizə lazım deyil.
-=======
-Return an object representing the rendered tree. The representation is more detailed than the one provided by `toJSON()`, and includes the user-written components. You probably don't need this method unless you're writing your own assertion library on top of the test renderer.
->>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
+Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya daha ətraflıdır və istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa, bu funksiya sizə lazım deyil.
 
 ### `testRenderer.update()` {#testrendererupdate}
 

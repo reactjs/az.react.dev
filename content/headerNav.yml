@@ -1,13 +1,13 @@
 items:
-  - title: Docs
+  - title: Sənədlər
     to: /docs/getting-started.html
     activeSelector: /docs/
-  - title: Tutorial
+  - title: Dərslik
     to: /tutorial/tutorial.html
     activeSelector: /tutorial
-  - title: Blog
+  - title: Bloq
     to: /blog/
     activeSelector: /blog
-  - title: Community
+  - title: Cəmiyyət
     to: /community/support.html
     activeSelector: /community
