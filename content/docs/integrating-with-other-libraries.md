@@ -1,26 +1,26 @@
 ---
 id: integrating-with-other-libraries
-title: Integrating with Other Libraries
+title: Digər Kitabxanalar ilə İnteqrasiya
 permalink: docs/integrating-with-other-libraries.html
 ---
 
-React can be used in any web application. It can be embedded in other applications and, with a little care, other applications can be embedded in React. This guide will examine some of the more common use cases, focusing on integration with [jQuery](https://jquery.com/) and [Backbone](https://backbonejs.org/), but the same ideas can be applied to integrating components with any existing code.
+React bütün veb applikasiyalarda işlənilə bilər. React-i digər applikasiyalara və digər applikasiyları React-ə qoşmaq mümkündür. Bu sənəddə çox işlənən ssenarilərə baxacağıq. Bu sənəddə [jQuery](https://jquery.com/) və [Backbone](https://backbonejs.org/) kitabxanalarına inteqrasiyaya fokuslandığımıza baxmayaraq göstərilən fikirlər ilə komponentləri hər hansı mövcud koda inteqrasiya etmək mümkündür.
 
-## Integrating with DOM Manipulation Plugins {#integrating-with-dom-manipulation-plugins}
+## DOM Manipulyasiya Plaginlərinə İnteqrasiya {#integrating-with-dom-manipulation-plugins}
 
-React is unaware of changes made to the DOM outside of React. It determines updates based on its own internal representation, and if the same DOM nodes are manipulated by another library, React gets confused and has no way to recover.
+React-in DOM-dan kənarda baş verən dəyişikliklərdən xəbəri yoxdur. React yalnız daxili strukturundan istifadə edərək DOM-u yeniləyir. Əgər DOM nodları digər kitabxana tərəfindən manipulyasiya olunursa, React-in başı qarışır və bərpa ola bilmir.
 
-This does not mean it is impossible or even necessarily difficult to combine React with other ways of affecting the DOM, you just have to be mindful of what each is doing.
+Amma bu o demək deyil ki, React-i DOM-u təsir edən digər həllər ilə birləşdirmək mümkün deyil və ya çətindir. Sadəcə hər həəlin nə etdiyi haqda zehinli olmalısınız.
 
-The easiest way to avoid conflicts is to prevent the React component from updating. You can do this by rendering elements that React has no reason to update, like an empty `<div />`.
+Ziddiyətlərin olmaması üçün ən asan yol React komponentinin yeniləməsinin qarşısını almaqdır. Siz buna React-in yeniləməyə səbəbi olmayan elementlər (məsələn boş `<div />`) render edərək nail ola bilərsiniz.
 
-### How to Approach the Problem {#how-to-approach-the-problem}
+### Problemə Yanaşma {#how-to-approach-the-problem}
 
-To demonstrate this, let's sketch out a wrapper for a generic jQuery plugin.
+Bunu göstərə bilmək üçün sadə jQuery plaginini əhatə edən komponent yaradaq.
 
-We will attach a [ref](/docs/refs-and-the-dom.html) to the root DOM element. Inside `componentDidMount`, we will get a reference to it so we can pass it to the jQuery plugin.
+Biz ana DOM elementinə [ref](/docs/refs-and-the-dom.html) qoşacağıq. `componentDidMount`-da bu elementə referans alıb jQuery plagininə göndərəcəyik.
 
-To prevent React from touching the DOM after mounting, we will return an empty `<div />` from the `render()` method. The `<div />` element has no properties or children, so React has no reason to update it, leaving the jQuery plugin free to manage that part of the DOM:
+React-in ilkin renderdən sonra DOM-u render etməsinin qarşısını almaq üçün `render()` funksiyasından boş `<div />` elementi qaytaracağıq. `<div />` elementinin heç bir parametri və ya uşaqları olmadığından, React-in bu komponenti yeniləməsinin heç bir mənası yoxdur. Bu səbəbdən jQuery plagini DOM-un bu hissəsini problemsiz dəyişə bilər:
 
 ```js{3,4,8,12}
 class SomePlugin extends React.Component {
@@ -39,37 +39,37 @@ class SomePlugin extends React.Component {
 }
 ```
 
-Note that we defined both `componentDidMount` and `componentWillUnmount` [lifecycle methods](/docs/react-component.html#the-component-lifecycle). Many jQuery plugins attach event listeners to the DOM so it's important to detach them in `componentWillUnmount`. If the plugin does not provide a method for cleanup, you will probably have to provide your own, remembering to remove any event listeners the plugin registered to prevent memory leaks.
+Nəzərə alın ki, biz `componentDidMount` və `componentWillUnmount` [lifecycle funksiyalarını](/docs/react-component.html#the-component-lifecycle) təyin edirik. Bir çox jQuery plaginləri DOM-a hadisə işləyiciləri qoşduğundan, bu hadisə işləyicilərini `componentWillUnmount`-dan ayırmaq lazımdır. Əgər plagin temizlik üçün heç bir funksiya təmin etmirsə, siz bunu özünüz təmin etməli ola bilərsiniz. Yaddaş sızmalarının olmaması üçün, hadisə işləyicilərini silməyi yaddan çıxarmayın.
 
-### Integrating with jQuery Chosen Plugin {#integrating-with-jquery-chosen-plugin}
+### jQuery Chosen Plagini ilə İnteqrasiya {#integrating-with-jquery-chosen-plugin}
 
-For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
+Bu konsepsiyaların daha dəqiq misalı üçün, gəlin `<select>` sahələrinə əlavələr edən [Chosen](https://harvesthq.github.io/chosen/) plaginini əhatə edən komponent yaradaq.
 
->**Note:**
+>**Qeyd:**
 >
->Just because it's possible, doesn't mean that it's the best approach for React apps. We encourage you to use React components when you can. React components are easier to reuse in React applications, and often provide more control over their behavior and appearance.
+>Bunun mümkün olması React applikasiyaları üçün ən yaxşı yol anlamına gəlmir. Biz işlədə bildiyiniz halda React komponentləri işlətməyini tövsiyyə edirik. React komponentlərini React applikasiyalarında işlətmək daha asandır. Əlavə olaraq bu komponentlərin üzərində davranış və görünüş dəyişikləri üçün daha çox kontrol var.
 
-First, let's look at what Chosen does to the DOM.
+İlk olaraq, gəlin Chosen-ın DOM-un üzərində nə etdiyinə baxaq.
 
-If you call it on a `<select>` DOM node, it reads the attributes off of the original DOM node, hides it with an inline style, and then appends a separate DOM node with its own visual representation right after the `<select>`. Then it fires jQuery events to notify us about the changes.
+Əgər siz bu plagini `<select>` DOM nodunun üzərində çağırırsınızsa, bu plagin orijinal DOM noddan atributları oxuyur, birsətrli stil ilə nodu gizlədir, və özünəməxsus görünüşü olan DOM nodunu bu orijinal elementdən sonra DOM-a əlavə edir. Sonra, bu plagin dəyişikliklər haqqında xəbər verə bilmək üçün jQuery hadisələrini işlədir.
 
-Let's say that this is the API we're striving for with our `<Chosen>` wrapper React component:
+Fərz edək ki, `<Chosen>` əhatə edən React komponentinin aşağıdaki kimi API-ı olmasını istəyirik:
 
 ```js
 function Example() {
   return (
     <Chosen onChange={value => console.log(value)}>
-      <option>vanilla</option>
-      <option>chocolate</option>
-      <option>strawberry</option>
+      <option>vanil</option>
+      <option>şokolad</option>
+      <option>çiyələk</option>
     </Chosen>
   );
 }
 ```
 
-We will implement it as an [uncontrolled component](/docs/uncontrolled-components.html) for simplicity.
+Sadəlik üçün biz bu komponenti [kontrol olunmayan komponent](/docs/uncontrolled-components.html) kimi tətbiq edəcəyik.
 
-First, we will create an empty component with a `render()` method where we return `<select>` wrapped in a `<div>`:
+İlk öncə, `render()` funksiyası `<div>`-in daxilində `<select>` elementi qaytaran boş komponent düzəldəcəyik:
 
 ```js{4,5}
 class Chosen extends React.Component {
@@ -85,9 +85,9 @@ class Chosen extends React.Component {
 }
 ```
 
-Notice how we wrapped `<select>` in an extra `<div>`. This is necessary because Chosen will append another DOM element right after the `<select>` node we passed to it. However, as far as React is concerned, `<div>` always only has a single child. This is how we ensure that React updates won't conflict with the extra DOM node appended by Chosen. It is important that if you modify the DOM outside of React flow, you must ensure React doesn't have a reason to touch those DOM nodes.
+Əlavə `<div>`-in daxilində `<select>` elementini necə əhatə etdiyimizə fikir verin. Bunun olması vacibdir. Çünki Chosen plagini `<select>` nodundan sonra yeni DOM nodu əlavə edəcək. Lakin, React-in dünyasında, `<div>` elementinin həmişə bir uşağı var. Bu yolla biz React yeniliklərinin Chosen tərəfindən əlavə edilən əlavə DOM nodu ilə ziddiyətdə olmayacağını siğortalayırıq. Əgər React axınından kənarda DOM-unu dəyişirsinizsə, React-in bu DOM nodlara əl vurmayacağından əmin olun.
 
-Next, we will implement the lifecycle methods. We need to initialize Chosen with the ref to the `<select>` node in `componentDidMount`, and tear it down in `componentWillUnmount`:
+İndi biz lifecycle funksiyalarını tətbiq edəcəyik. Chosen plaginini `componentDidMount`-da `<select>` noduna ref ilə inisializasiya edib `componentWillUnmount`-da sökəcəyik:
 
 ```js{2,3,7}
 componentDidMount() {
@@ -100,17 +100,17 @@ componentWillUnmount() {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/qmqeQx?editors=0010)
+[**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/qmqeQx?editors=0010)
 
-Note that React assigns no special meaning to the `this.el` field. It only works because we have previously assigned this field from a `ref` in the `render()` method:
+Nəzərə alın ki, React `this.el` sahəsinə heç bir xüsusi məna vermir. Yuxarıdaki kod, bu sahəyə `render()` funksiyasından `ref` ilə dəyər təyin etdiyimizdən işləyir:
 
 ```js
 <select className="Chosen-select" ref={el => this.el = el}>
 ```
 
-This is enough to get our component to render, but we also want to be notified about the value changes. To do this, we will subscribe to the jQuery `change` event on the `<select>` managed by Chosen.
+Bu bizim komponentimizin render edilməsi üçün yetərlidir. Lakin biz həmçinin dəyər dəyişmələrindən xəbərdar olmaq istəyirik. Bunun üçün Chosen tərəfindən idarə edilən `<select>`-in jQuery `change` hadisəsinə abunə olmaq lazımdır.
 
-We won't pass `this.props.onChange` directly to Chosen because component's props might change over time, and that includes event handlers. Instead, we will declare a `handleChange()` method that calls `this.props.onChange`, and subscribe it to the jQuery `change` event:
+Komponentin propları (hadisə işləyiciləri daxil olmaqla) zaman ilə dəyişdiyindən `this.props.onChange` propunu Chosen plagininə bir başa göndərməyəcəyik. Əvəzinə, `this.props.onChange` propu çağıran `handleChange()` funksiyası yaradıb, bu funksiyanı jQuery `change` hadisəsinə abunə edəcəyik:
 
 ```js{5,6,10,14-16}
 componentDidMount() {
@@ -131,11 +131,11 @@ handleChange(e) {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/bWgbeE?editors=0010)
+[**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/bWgbeE?editors=0010)
 
-Finally, there is one more thing left to do. In React, props can change over time. For example, the `<Chosen>` component can get different children if parent component's state changes. This means that at integration points it is important that we manually update the DOM in response to prop updates, since we no longer let React manage the DOM for us.
+Sonda, biz bir məsələnidə nəzərə almalıyıq. React-də proplar zaman ilə dəyişə bilərlər. Məsələn, valideyn komponentin vəziyyəti dəyişərsə `<Chosen>` komponenti fərqli uşaqlar qəbul edə bilər. Bu deməkdir ki, React-in DOM-u idarə etmədiyindən, prop yenilikləri əsasında DOM-u əl ilə yeniləmək lazımdır.
 
-Chosen's documentation suggests that we can use jQuery `trigger()` API to notify it about changes to the original DOM element. We will let React take care of updating `this.props.children` inside `<select>`, but we will also add a `componentDidUpdate()` lifecycle method that notifies Chosen about changes in the children list:
+Chosen plaginini sənədləri, orijinal DOM elementində baş verən dəyişikliklər haqqında Chosen-i xəbərdar etmək üçün jQuery `trigger()` API-ından istifadə etməyi təklif edir. Biz React-ə `<select>`-in daxilində `this.props.children` propunu yenilənməsinə icazə verməyimizdən əlavə `componentDidUpdate()` lifecycle funksiyası əlavə edib Chosen-ə uşaq siyahısında baş verən dəyişikliklər haqqında xəbər verəcəyik:
 
 ```js{2,3}
 componentDidUpdate(prevProps) {
@@ -145,9 +145,9 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-This way, Chosen will know to update its DOM element when the `<select>` children managed by React change.
+Bu halda, React `<select>`-in uşaqlarını yenilədikdə, Chosen özünün DOM elementini yeniləyəcək.
 
-The complete implementation of the `Chosen` component looks like this:
+`Chosen` komponentinin tam tətbiqi aşağıdaki formada olacaq:
 
 ```js
 class Chosen extends React.Component {
@@ -186,7 +186,7 @@ class Chosen extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/xdgKOz?editors=0010)
+[**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
 ## Integrating with Other View Libraries {#integrating-with-other-view-libraries}
 
