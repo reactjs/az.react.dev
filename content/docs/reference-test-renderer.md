@@ -150,7 +150,7 @@ Render edilmiş ağacı təmsil edən obyekti qaytarır. Render edilmiş ağac y
 testRenderer.toTree()
 ```
 
-Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa, bu funksiya sizə lazım deyil.
+Render edilmiş ağacı təmsil edən obyekti qaytarır. `toJSON()`-dan fərqli olaraq bu funksiya daha ətraflıdır və istifadəçi tərəfindən yaranmış komponentləri də obyektə daxil edir. Siz test renderer üzərində öz test kitabxananızı yazmırsınızsa, bu funksiya sizə lazım deyil.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
