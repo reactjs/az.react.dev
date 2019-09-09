@@ -336,11 +336,7 @@ Komponentdən `setState` çağırdıqda, React avtomatik olaraq komponentin içi
 
 React DevTools sizə React komponentlərinin state və proplarına baxmağa icazə verir.
 
-<<<<<<< HEAD
-React DevTools-u qurduqdan sonra, siz səhifədə hər hansi bir elementə sağ düymə ilə tıklayıb, "Inspect"-ə tıklayıb developer alətlərini açın. React DevTools developer alətlərinin ən son təbində "React" adı ilə görünəcək.
-=======
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
->>>>>>> 8b30ae43439818009213da86eca872a3d869c5eb
+React DevTools-u qurduqdan sonra, siz səhifədə hər hansi bir elementə sağ düymə ilə tıklayıb, "Inspect"-ə tıklayıb developer alətlərini açın. Ən sağda yerləşən iki təb React təbləridir ("⚛️ Components" və "⚛️ Profiler"). Komponent ağacını yoxlamaq üçün "⚛️ Components" təbindən istifadə edin.
 
 **Nəzərə alın ki, CodePen-də işləməsi üçün əlavə bir neçə addım atmaq lazımdır:**
 
