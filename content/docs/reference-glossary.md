@@ -1,106 +1,106 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: React Terminlərinin Lüğəti
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Tək səhifəli Applikasiya {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Tək səhifəli applikasiya, tək HTML səhifəsi və applikasiyanın işləməsi üçün lazım olan bütün faylları (JavaScript və CSS kimi) yükləyir. Səhifəda baş verən hər bir interaksiya üçün serverə yenidən müraciət etmək lazım olmadığından səhifə heç zaman yenidən yüklənmir.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+React-də tək səhifəli applikasiya düzəltmək zəruri deyil. Siz mövcud olan veb səhifələrin kiçik hissələrinə interaksiya əlavə etmək üçün React-dən istifadə edə bilərsiniz. React-də yazılmış kod, serverdə render edilmiş (məsələn PHP dili ilə) markup ilə və ya digər klient kitabxanaları ilə eyni zamanda mövcud ola bilər. Faktiki olaraq Facebook-da React bu formada işlədilir.
 
-## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
+## ES6, ES2015, ES2016, və s {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Göstərilən akronimlər ECMAScript Dilinin Spesifikasiya standartının (JavaScript bu standartın tətbiqidir) ən yeni versiyalarına istinad edir. ES2015 kimi də tanınan, ES6 versiyası, keçmiş versiyalara bir çox yeniliklər əlavə edir: ox funksiyaları, klaslar, şablon hərfləri, `let` və `const`. Spesifik versiyalar haqqında məlumatlara [buradan](https://en.wikipedia.org/wiki/ECMAScript#Versions) baxa bilərsiniz.
 
-## Compilers {#compilers}
+## Kompilyatorlar {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+JavaScript kopilyatoru, qəbul edilən Javascript kodunu digər Javascript formatına çevirir. Ən çox işlənən hallardan biri ES6 sintaksisini köhnə brauzerlərin başa düşəcəyi sintaksisə çevirməkdir. React ilə işlədilən ən məşhur kompilyator [Babel](https://babeljs.io/)-dır.
 
-## Bundlers {#bundlers}
+## Paketləmə Qurğuları {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Paketləmə Qurğuları fərqli modullarda (adətən yüzlərlə) yazılmış JavaScript və CSS kodlarını brauzerlər üçün optimallaşdırılmış halda olan bir neçə fayla birləşdirir. React applikasiyalarında ən çox işlədilən paketləmə qurğuları [Webpack](https://webpack.js.org/) və [Browserify](http://browserify.org/)-dır.
 
-## Package Managers {#package-managers}
+## Paket  Menecerləri {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Layihənin asılı olduğu paketləri idarə etmək üçün Paket Menecerlərindən istifadə edilir. React applikasiyalarında ən çox işlənən paket menecerləri [npm](https://www.npmjs.com/) və [Yarn](https://yarnpkg.com/)-dır. Bu iki paket menecer klienti eyni npm paket registry-sindən istifadə edirlər.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+CDN Kontent Çatdırılma Şəbəkəsidir (Content Delivery Network). Dünyanın hər yerində yərləşən serverlər şəbəkəsindən ibarət olan CDN-lər, kəç olunmuş statik kontent çatdırırlar.
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX JavaScript üçün sintaksis əlavəsidir. Bu dilin şablon dilinə oxşamasına baxmayaraq JavaScript-in bütün gücündən istifadə edə bilir. JSX, "React elementləri" adlanan sadə JavaScript obyektləri qaytaran `React.createElement()` funksiyalarına kompilyasiya edilir. JSX haqqında giriş üçün [bu sənədlərə](/docs/introducing-jsx.html), dərindən dərslik üçün isə [bu sənədlərə](/docs/jsx-in-depth.html) baxın.
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+React DOM atributları, HTML atribut adlarından fərqli olaraq camelCase ad konvensiyasından istifadə edir. Məsələn, JSX-də `tabindex` `tabIndex`-ə çevrilir. Həmçinin `class` atributu JavaScript-in qorunan sözü olduğundan JSX-də `className` kimi yazılır:
 
 ```js
 const name = 'Clementine';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hello">Mənin adım: {name}!</h1>,
   document.getElementById('root')
 );
 ```  
 
-## [Elements](/docs/rendering-elements.html) {#elements}
+## [Elementlər](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+React applikasiyalarının əsası React elementlərindən ibarətdir. Elementləri daha çox tanınan "komponentlər" konsepsiyası ilə çaşdırmaq olar. Element sizin ekranda nə görmək istədiyinizi təsvir edir. React elementləri dəyişməzdirlər.
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Salam Dünya</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Adətən, elementlər birbaşa işlədilmək əvəzinə komponentlərdən qaytarılırlar.
 
-## [Components](/docs/components-and-props.html) {#components}
+## [Komponentlər](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+React komponentləri səhifəyə render ediləcək React elementi qaytaran kiçik və yenidən istifadə edilə bilən kod bloklarıdır. React komponentinin ən sadə forması React elementi qaytaran sadə JavaScript funksiyasıdır:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Salam, {props.name}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Komponentlər həmçinin ES6 klasları da ola bilərlər:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Komponentlər funksionallıq əsasında parçalana bilər və digər komponentlərdə işlənə bilərlər. Komponentlər digər komponentlər, massivlər, mətnlən, və rəqəmlər qaytara bilərlər. Əgər UI-ın bir hissəsi bir neçə dəfə işlədilirsə (Button, Panel, Avatar) və ya UI təklikdə mürəkkəbdirsə (App, FeedStory, Comment), bu UI-ı yenidən işlədilə bilən komponent etmək olar. Komponent adları həmişə böyük hərf ilə başlamalıdırlar (`<wrapper/>` **yox** `<Wrapper/>`). Komponentləri render etmək haqqında əlavə məlumat üçün [bu sənədə](/docs/components-and-props.html#rendering-a-component) baxın. 
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` React komponenti üçün arqumentlərdir. Proplar ana komponentdən uşaq komponentə göndərilən məlumatlardır.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Nəzərə alın ki, `props` həmişə oxunabiləndir (readonly). Proplar heç bir formada dəyişdirilməməlidirlər:
 
 ```js
-// Wrong!
+// Yanlış!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Əgər siz istifadəçi daxil olması və ya şəbəkə cavabı əsasında bir dəyəri dəyişmək istəyirsinizsə `state`-dən istifadə edin.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+`props.children` bütün komponentlərdə mövcuddur. Bu prop, komponentin açılma və bağlanma təqləri arasında olan konenti ehtiva edir. Məsələn:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Welcome>Salam Dünya!</Welcome>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+`Salam Dünya!` mətni `Welcome` komponentinin `props.children` propunda yərləşdirilir:
 
 ```js
 function Welcome(props) {
@@ -108,7 +108,7 @@ function Welcome(props) {
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+Klas komponentlərində `this.props.children` dəyişənindən istifadə edin:
 
 ```js
 class Welcome extends React.Component {
@@ -120,47 +120,47 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Komponentdə hər hansı bir məlumat vaxt ilə dəyişirsə `state`-dən istifadə etmək lazımdır. Məsələn, `Checkbox` komponentinə `isChecked` state-i və `NewsFeed` komponentinə şəbəkədən yüklənmiş `fetchedPosts` state-i lazım ola bilər.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+`state` və `props` arasındakı əsas fərq `props`-un ana komponentindən göndərilməsi, `state`-in isə komponentin daxilindən idarə edilməsidir. `props`-u komponent dəyişə bilmir, lakin `state`-i dəyişə bilir.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Dəyişən hər bir məlumat üçün state-ə "yiyə duran" bir komponent olmalıdır. İki fərqli komponentin state-ini sinxronizasiya etməyin. Əvəzinə, state-i ən yaxın valideynə [qaldırıb](/docs/lifting-state-up.html) hər iki komponentə proplar kimi göndərin.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Lifecycle Metodları](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Komponentin fəqli fazalarında icra edilən funksiyalar lifecycle metodlarıdır. Komponentin yaranıb DOM-a əlavə edildiyi ([mount edilmə](/docs/react-component.html#mounting)), yeniləndiyi və unmount edilib DOM-dan silindiyi zaman çağrılan funksiyalar mövcuddur.
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Kontrol Olunan](/docs/forms.html#controlled-components) və [Kontrolsuz](/docs/uncontrolled-components.html) Komponentlər
 
-React has two different approaches to dealing with form inputs. 
+React-də anket sahələrini idarə etmək üçün iki cür yanaşma mövcuddur.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Dəyəri React tərəfindən kontrol edilən anket sahəsi elementi **kontrol olunan komponentdir**. İstifadəçi kontrol olunan komponentə məlumat daxil etdikdə "dəyişmək" hadisə işləyicisi çağrılacaq. Sizin kodunuz, daxil olunan dəyəri yoxlayıb yenilənmiş dəyəri render edir. Əgər siz yenidən render etməsəniz anket elementi dəyişməz qalacaq.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+*Kontrolsuz komponentlər*, React-dən kənarda işləyən anket elementləri ilə eyni formada işləyirlər. İstifadəçi anket sahəsinə (input, dropdown və s) məlumat daxil etdikdə React-dən asılı olmayaraq yenilənmiş dəyər anket sahəsində əks olunacaq. Bu deməkdir ki, siz sahədə müəyyən bir dəyərin olmasını idarə edə bilmirsiniz.
 
-In most cases you should use controlled components.
+Bir çox hallarda kontrol olunan komponent işlətməyi tövsiyyə edirik.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [Açarlar](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Elementlər massivi düzəltdikdə "key" (açar) adlanan xüsusi mətn atributunu elementlərə daxil etməlisiniz. Açarlar React-ə hansı elementlərin yeniləndiyini, əlavə edildiyini və silindiyini müəyyən etməyə kömək edir. Açarlar massivdə olan elementlərə göndərilməlidir.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Açarlar yalnız bir massivdə olan elementlərdə unikal olmalıdırlar. Bu açarlar bütün applikasiyada və ya tək komponentdə belə unikal olmamalıdırlar.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+Açarlara `Math.random()` kimi dəyərlər göndərməyin. Yenidən render etmələr zamanı açarların "sabit identikliyi" olması vacibdir. Bu dəyərlərdən istifadə edərək React, elementlərin əlavə edildiyini, silindiyini və ya yerini dəyişdiyini müəyyən edə bilər. İdeal olaraq açarlar gələn məlumatın sabit identiklikləri ilə (məsələn `post.id`) uyğun olmalıdırlar.
 
-## [Refs](/docs/refs-and-the-dom.html) {#refs}
+## [Ref-lər](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React hər hansı komponentə qoşula bilən xüsusi bir atribut dəstəkləyir. `ref` atributu, [`React.createRef()` funksiyası](/docs/react-api.html#reactcreateref) tərəfindən yaradılan obyekt, callback funksiyası və ya mətn (köhnə API-dır) qəbul edir. `ref` atributu callback funksiyası olduqda, qoşulan DOM element və ya klas instansiyası (elementin tipindən asılı olaraq) arqument kimi funksiyaya göndərilir. Qəbul edilən DOM elementindən və ya komponent instansiyasından funksiya daxilində birbaşa istifadə edə bilər.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+ref-ləri hər yerdə işlətməyin. Əgər applikasiyanızda normal işlər üçün ref-lərdən istifadə etdiyinizi görürsünüzsə [yuxarıdan aşağı məlumat axını](/docs/lifting-state-up.html) ilə tanış olun.
 
-## [Events](/docs/handling-events.html) {#events}
+## [Hadisələr](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+React elementlərində hadisələrin idarə edilməsində bəzi sintaktik fərqlər var:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* React hadisə işləyiciləri kiçik hərflə yazılmaq əvəzinə camelCase ilə yazılırlar.
+* JSX işlətdikdə hadisə işləyicilərinə mətn əvəzinə funksiya göndərilir.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Rekonsilyasiya](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Komponentin propları və ya state-i dəyişdikdə, React qaytarılan element ilə əvvəlki render edilmiş elementi müqayisə edərək DOM yeniliyinin lazım olduğunu müəyyənləşdirir. Əgər yeni element ilə keçmiş element eyni deyilsə DOM yeniləyəcək. Bu proses  "rekonsilyasiya" adlanır.
