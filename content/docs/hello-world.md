@@ -1,6 +1,6 @@
 ---
 id: hello-world
-title: Hello World
+title: Salam Dünya
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
@@ -10,39 +10,38 @@ next: introducing-jsx.html
 
 ```js
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <h1>Salam Dünya!</h1>,
   document.getElementById('root')
 );
 ```
 
-Bu, səhifədə "Hello world!" başlığını yazır.
+Bu kod, səhifədə "Salam Dünya!" başlığını yazır.
 
 [](codepen://hello-world)
 
-Online dəyişmək üçün yuxarıda qeyd olunan linkə keçid edə bilərsiniz. Dəyişiklik etməkdən çəkinməyin, və nəticənin necə olacağına baxın. Bu təlimatda bir çox səhifədə buna bənzər nümunələr görəcəksiniz.
-
+Onlayn redaktoru açmaq üçün yuxarıda qeyd olunan linkə keçid edin. Bu redaktorda dəyişiklik etməkdən çəkinməyin. və nəticənin necə olacağına baxın. Bu təlimatda olan bir çox səhifədə buna bənzər redaktə oluna bilən nümunələr görəcəksiniz.
 
 ## Təlimatı necə oxumaq lazımdır {#how-to-read-this-guide}
 
-Təlimatda, React-in əsas fundamental blokları haqqında bəhs edəcəyik: element və komponent. Onları yaxşı mənimsədikdən sonra, kiçik təkrar istifadə oluna bilən bloklardan kompleks tətbiqlər yarada biləcəksiniz.
+Təlimatda, React-in fundamental blokları haqqında bəhs edəcəyik: element və komponent. Onları yaxşı mənimsədikdən sonra, kiçik təkrar istifadə oluna bilən bloklardan kompleks applikasiyalar yarada biləcəksiniz.
 
 >Məsləhət
 >
->Təlimat **addım-addım öyrənməyi** tərcih edən insanlar üçün nəzərdə tutulub. Əgər siz praktika edərək öyrənməyi tərcih edirsinizsə, [praktiki təlimat](/tutorial/tutorial.html) nəzər yetirin. Bu təlimatlar bir-birini tamamlayır.
+>Bu təlimat **addım-addım öyrənməyi** tərcih edən insanlar üçün nəzərdə tutulub. Əgər siz praktika edərək öyrənməyi tərcih edirsinizsə, [praktiki dəsrliyi](/tutorial/tutorial.html) nəzərdən keçirin. Bu təlimatlar bir-birini tamamlayır.
 
-Bu, React-in əsas konseptlərini addım-addım öyrən təlimatının birinci hissədir. Sağdakı siyahıda təlimatın bütün hissələri ilə tanış ola bilərsiniz. Siz bunu mobildən oxuyursunuzsa sağ yuxarıda olan düymədən istifadə edərək siyahını görə bilərsiniz.
+Bu sənəd, React-in əsas konseptlərini addım-addım öyrənmək üçün ilk hissədir. Sağdakı siyahıda bütün sənədlər ilə tanış ola bilərsiniz. Siz bu sənədi mobildə cihazdan oxuyursunuzsa yuxarı sağda olan düymədən istifadə edərək siyahını görə bilərsiniz.
 
-Təlimatda hər bir hissə öncə olan hissədən öyrəndiyimiz biliklərə əsaslanır. **Siyahıdan “Əsas Konseptlər” bölməsini seçib oxuyaraq React haqqında daha çox öyrənə bilərsiniz.** Misal üçün [“JSX-ə giriş”](/docs/introducing-jsx.html) bundan sonrakı hissədir.
+Bu təlimatda olan hər bir sənəd, bir əvvəlki sənədlərdə öyrəndiyimiz biliklərə əsaslanır. **React-in böyük hissəsini öyrənə bilmək üçün siyahıda olan “Əsas Konseptlər” bölməsini göstərilmiş sırada oxuyun.** Misal üçün [“JSX-ə giriş”](/docs/introducing-jsx.html) bu sənəddən sonrakı hissədir.
 
-## Bilik səviyyəsi təyini {#knowledge-level-assumptions}
+## Bilik Səviyyəsi Haqqında Fərziyyələrimiz {#knowledge-level-assumptions}
 
-React bir Javascript kitabxanısıdır, və sizin Javascript programlaşdırma dilinin əsaslarını bildiyinizi güman edirik. **Əgər siz bu sahədə biliklərinizə o qədərdə güvənmirsinizsə [JavaScript təlimatını](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) məsləhət görürük.** Bu 30 dəq. və ya 1 saat çəkə bilər, lakin nəticədə siz həm React-ı həm Javascript-i eyni vaxtda paralel olaraq öyrənmək məcburiyyətində qalmayacaqsınız.
+React bir Javascript kitabxanısıdır. Bu səbəbdən sizin Javascript programlaşdırma dilinin əsaslarını bildiyinizi güman edirik. **Əgər siz bu sahədə biliklərinizə güvənmirsinizsə [JavaScript sənədlərinini oxumağı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) məsləhət görürük.** Bunun 30 dəqiqə və ya bir saat çəkə biləcəyinə baxmayaraq, siz həm React-i həm Javascript-i eyni vaxtda öyrənmək məcburiyyətində qalmayacaqsınız.
 
 >Qeyd
 >
->Təlimatda zaman zaman Javascript-in yeni sintaksisindən istifadə olunur. Javascript-lə son illər işləməmisinizsə, [üç əsas nöqtə](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) bunu mütləq nəzərdən keçirməlisiniz
+>Təlimatda zaman zaman Javascript-in yeni sintaksisindən istifadə olunur. Əgər spon illərdə Javascript ilə işləməmisinizsə, [bu üç nöqtə](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) sənədlərin böyük hissəsini anlamağınıza yardım edəcək.
 
 ## Gəlin başlayaq! {#lets-get-started}
 
-Aşağı skrol etməyə davam edin, [təlimatın növbəti hissəsi](/docs/introducing-jsx.html) linkini görəcəksiniz.
+Aşağı skrol edərək, [təlimatın növbəti hissəsi](/docs/introducing-jsx.html) linkini görəcəksiniz.
 
