@@ -57,15 +57,15 @@ Applikasiyanı produksiyaya yerləşdirməya hazır olduqda, `npm run build` əm
 
 ### Next.js {#nextjs}
 
-[Next.js](https://nextjs.org/) is a popular and lightweight framework for **static and server‑rendered applications** built with React. It includes **styling and routing solutions** out of the box, and assumes that you're using [Node.js](https://nodejs.org/) as the server environment.
+React-də **statik və server ilə render edilmiş applikasiyaları** yaratmq üqçün populyar və yüngül freymvorklardan biri [Next.js-dir](https://nextjs.org/). Bu freymvork **stilləmə və routing həlləri ilə** hazır gəlir. Bu toolchain server mühitində [Node.js](https://nodejs.org/) işlətdiyinizi fərz edir.
 
-Learn Next.js from [its official guide](https://nextjs.org/learn/).
+Next.js haqqında əlavə məlumat üçün [rəsmi dərsliyə](https://nextjs.org/learn/) baxın.
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) is the best way to create **static websites** with React. It lets you use React components, but outputs pre-rendered HTML and CSS to guarantee the fastest load time.
+React-də **statik veb səhifə** yaratmaq üçün ən yaxşı yol [Gatsby](https://www.gatsbyjs.org/) işlətməkdir. Bu toolchain React komponentlərindən istifadə edir. Lakin son nəticədə əvvəlcədən render olunmuş HTML və CSS faylları yaradaraq ən təz yükləmə sürətinin olacağını qarantiyalayır.
 
-Learn Gatsby from [its official guide](https://www.gatsbyjs.org/docs/) and a [gallery of starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
+Gatsby haqqında öyrənmək üçün [rəsmi sənədlərinə](https://www.gatsbyjs.org/docs/) və [start kitlər qalereyasına](https://www.gatsbyjs.org/docs/gatsby-starters/) baxın.
 
 ### More Flexible Toolchains {#more-flexible-toolchains}
 
