@@ -37,9 +37,9 @@ React komandası əsasən aşağıdaki həlləri tövsiyyə edir:
 
 ### Create React App {#create-react-app}
 
-[Create React App](https://github.com/facebookincubator/create-react-app) is a comfortable environment for **learning React**, and is the best way to start building **a new [single-page](/docs/glossary.html#single-page-application) application** in React.
+[Create React App](https://github.com/facebookincubator/create-react-app), **React-i öyrənmək üçün** və React-də **yeni [tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya** yaratmaq üçün çox rahat mühit təmin edir.
 
-It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+Bu sizə ən son JavaScript xüsusiyyətlərini istifadə etmək üçün development mühiti yaradır, yaxşı developer təcrübəsi ilə proqramçıları təmin edir, və applikasiyanı produksiya üçün optimallaşdırır. Bu toolchain Node >= 8.10 və npm >= 5.6 tələb edir. Layihə yaratmaq üçün aşağıdaki əmri icra edin:
 
 ```bash
 npx create-react-app my-app
@@ -47,13 +47,13 @@ cd my-app
 npm start
 ```
 
->Note
+>Qeyd
 >
->`npx` on the first line is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>İlk sətrdəki `npx` səhv deyil -- bu [npm 5.2+ ilə gələn paket icra edən alətdir](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses [Babel](https://babeljs.io/) and [webpack](https://webpack.js.org/), but you don't need to know anything about them.
+Create React App backend məntiqi və ya verilənlər bazası idarə etmir; bu yalnız frontend üçün yaranma konveyeri yaradır. Siz bunu istədiyiniz backend ilə işlədə bilərsiniz. Pərdə arxasında bu toolchain-in [Babel](https://babeljs.io/) və [webpack](https://webpack.js.org/) işlətməsinə baxmayaraq siz bu alətlər haqqında heç nə bilməyə bilərsiniz.
 
-When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
+Applikasiyanı produksiyaya yerləşdirməya hazır olduqda, `npm run build` əmri  applikasiyanın produksiya üçün optimallaşmış versiyasını `build` direktoriyasında yaradacaq. Create React App haqqında əlavə məlumat üçün [README faylınını](https://github.com/facebookincubator/create-react-app#create-react-app--) və ya [İstifadəçi Dərsliyini](https://facebook.github.io/create-react-app/) oxuyun.
 
 ### Next.js {#nextjs}
 
