@@ -1,37 +1,37 @@
 ---
 id: cdn-links
-title: CDN Links
+title: CDN Linkləri
 permalink: docs/cdn-links.html
 prev: create-a-new-react-app.html
 next: hello-world.html
 ---
 
-Both React and ReactDOM are available over a CDN.
+React və ReactDOM CDN-dən mövcuddur.
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-The versions above are only meant for development, and are not suitable for production. Minified and optimized production versions of React are available at:
+Yuxarıda göstərilən versiyalar yalnız development üçündür. Production-da işlətmək üçün deyil. React-in minify olunmuş ve production üçün optimallaşmış versiyaları aşağıdaki linklərdən mövcuddur:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-To load a specific version of `react` and `react-dom`, replace `16` with the version number.
+`react` və `react-dom`-un spesifik versiyalarını yükləmək üçün `16`-nı versiya nömrəsi ilə əvəz edin.
 
-### Why the `crossorigin` Attribute? {#why-the-crossorigin-attribute}
+### Niye `crossorigin` Atributu? {#why-the-crossorigin-attribute}
 
-If you serve React from a CDN, we recommend to keep the [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute set:
+React-i CDN-dən yükləyirsinizsə [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) atributunu saxlamağı tövsiyyə edirik:
 
 ```html
 <script crossorigin src="..."></script>
 ```
 
-We also recommend to verify that the CDN you are using sets the `Access-Control-Allow-Origin: *` HTTP header:
+CDN-lərin `Access-Control-Allow-Origin: *` HTTP başlığı etdiyini yoxlamağıda tövsiyyə edirik:
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-This enables a better [error handling experience](/blog/2017/07/26/error-handling-in-react-16.html) in React 16 and later.
+Bu sizə React 16 və yuxarı versiyalarda daha yaxşı [xəta idarəsi təcrübəsi](/blog/2017/07/26/error-handling-in-react-16.html) verir.
