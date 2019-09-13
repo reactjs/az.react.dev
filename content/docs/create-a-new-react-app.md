@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Create a New React App
+title: Yeni React Applikasiyası Yarat
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
@@ -8,32 +8,32 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+Ən yaxşı istifadəçi və developer təcrübəsi üçün inteqrasiya olunmuş toolchain-dən istifadə edin.
 
-This page describes a few popular React toolchains which help with tasks like:
+Bu səhifə göstərilən məsələləri həll etməyə kömək edən React toolchain-lərindən danışır:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* Çoxlu fayllara və komponenlərə böyümə.
+* NPM-dən kitabxanaların işlədilməsi.
+* Çox yaranan səhvlərin erkən tapılması.
+* Development-də CSS və JS-in canlı redaktə edilməsi.
+* Production üçün nəticənin optimallaşdırılması.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+Bu səhifədə tövsiyyə olunan toolchain-lər **başlamaq üçün konfiqurasiya tələb etmir**.
 
-## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
+## Size Toolchain Lazım Olmaya Bilər {#you-might-not-need-a-toolchain}
 
-If you don't experience the problems described above or don't feel comfortable using JavaScript tools yet, consider [adding React as a plain `<script>` tag on an HTML page](/docs/add-react-to-a-website.html), optionally [with JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+Əgər siz yuxarıda göstərilən problemlər ilə qarşılaşmırsınızsa və ya JavaScript  alətlərindən istifadə etmək istəmirsinizsə [React-i `<script>` təqi ilə HTML səhifəsinə əlavə etməyi](/docs/add-react-to-a-website.html) (fakultativ olaraq [JSX ilə](/docs/add-react-to-a-website.html#optional-try-react-with-jsx)) tövsiyyə edirik.
 
-This is also **the easiest way to integrate React into an existing website.** You can always add a larger toolchain if you find it helpful!
+Bu həmçinin **React-i mövcud veb səhifəsinə əlavə etməyin ən asan yoludur.** Siz hər zaman faydalı gördüyünüz halda daha böyük toolchain əlavə edə bilərsiniz!
 
-## Recommended Toolchains {#recommended-toolchains}
+## Tövsiyyə Edilən Toolchain-lər {#recommended-toolchains}
 
-The React team primarily recommends these solutions:
+React komandası əsasən aşağıdaki həlləri tövsiyyə edir:
 
-- If you're **learning React** or **creating a new [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app).
-- If you're building a **server-rendered website with Node.js,** try [Next.js](#nextjs).
-- If you're building a **static content-oriented website,** try [Gatsby](#gatsby).
-- If you're building a **component library** or **integrating with an existing codebase**, try [More Flexible Toolchains](#more-flexible-toolchains).
+- Əgər **React-i öyrənirsinizsə** və ya **[tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya yaradırsınızsa,** [Create React App-dən](#create-react-app) istifadə edin.
+- Əgər **Node.js ilə server tərəfindən render edilmiş veb səhifə yaradırsınızsa** try [Next.js-dən](#nextjs) istifadə edin.
+- Əgər **statik kontent əsasında qurulmuş veb səhifə yaradırsınızsa,** [Gatsby-dən](#gatsby) istifadə edin.
+- Əgər **komponent kitabxanası yaradırsınızsa** və ya **mövcud koda inteqrasiya edirsinizsə**, [Daha Əyilgən Toolchain-lərdən](#more-flexible-toolchains) istifadə edin.
 
 ### Create React App {#create-react-app}
 
