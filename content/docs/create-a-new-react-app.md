@@ -33,7 +33,7 @@ React komandası əsasən aşağıdaki həlləri tövsiyyə edir:
 - Əgər **React-i öyrənirsinizsə** və ya **[tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya yaradırsınızsa,** [Create React App-dən](#create-react-app) istifadə edin.
 - Əgər **Node.js ilə server tərəfindən render edilmiş veb səhifə yaradırsınızsa** try [Next.js-dən](#nextjs) istifadə edin.
 - Əgər **statik kontent əsasında qurulmuş veb səhifə yaradırsınızsa,** [Gatsby-dən](#gatsby) istifadə edin.
-- Əgər **komponent kitabxanası yaradırsınızsa** və ya **mövcud koda inteqrasiya edirsinizsə**, [Daha Əyilgən Toolchain-lərdən](#more-flexible-toolchains) istifadə edin.
+- Əgər **komponent kitabxanası yaradırsınızsa** və ya **mövcud koda inteqrasiya edirsinizsə**, [Daha Elasktik Toolchain-lərdən](#more-flexible-toolchains) istifadə edin.
 
 ### Create React App {#create-react-app}
 
@@ -67,28 +67,28 @@ React-də **statik veb səhifə** yaratmaq üçün ən yaxşı yol [Gatsby](http
 
 Gatsby haqqında öyrənmək üçün [rəsmi sənədlərinə](https://www.gatsbyjs.org/docs/) və [start kitlər qalereyasına](https://www.gatsbyjs.org/docs/gatsby-starters/) baxın.
 
-### More Flexible Toolchains {#more-flexible-toolchains}
+### Daha Elastik Toolchain-lər {#more-flexible-toolchains}
 
-The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
+Ağağıda göstərilən toolchain-lər daha çox seçim və elasiklik təklif edirlər. Biz bunları daha təcrübəli istifadəçilərə tövsiyyə edirik:
 
-- **[Neutrino](https://neutrinojs.org/)** combines the power of [webpack](https://webpack.js.org/) with the simplicity of presets, and includes a preset for [React apps](https://neutrinojs.org/packages/react/) and [React components](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** [webpack-in](https://webpack.js.org/) gücünü əvvəlcədən hazırlanmış şablonların sadəliyi ilə birləşdirir. Bu alət, [React applikasiyaları](https://neutrinojs.org/packages/react/) və [React komponentləri](https://neutrinojs.org/packages/react-components/) üçün şablonlar təmin edir.
 
-- **[nwb](https://github.com/insin/nwb)** is particularly great for [publishing React components for npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). It [can be used](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) for creating React apps, too. 
+- **[nwb](https://github.com/insin/nwb)** [React komponentlərini npm-ə dərc etməyi üçün](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb) asanlaşdırır. Bu aləti React applikasiyalarında [işlətmək də](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) mümkündür.
 
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 
-## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
+## Sıfırdan Toolchain Yaratmaq {#creating-a-toolchain-from-scratch}
 
-A JavaScript build toolchain typically consists of:
+JavaScript yaratma toolchain-u aşağıdaki elementlərdən ibarətdir:
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+* [Yarn](https://yarnpkg.com/) və ya [npm](https://www.npmjs.com/) kimi **paket meneceri**. Bu sizə paketlərdən ibarət olan çox böyük ekosistemdən faydlanmağa və paketləri yükləməyə və ya yeniləməyə icazə verir.
 
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Parcel](https://parceljs.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
+* [webpack](https://webpack.js.org/) və ya [Parcel](https://parceljs.org/) kimi **paketləmə qurğuları**. Bu sizə modulyar kod yazmağa və modulları kiçik paketlərə paketləyib yükləmə zamanını optimallaşdırmağa imkan yaradır.
 
-* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+* [Babel](https://babeljs.io/) kimi **kompilyator**. Bu sizə köhnə brauzerlərdə işləyən modern JavaScript kodu yazmağa imkan yaradır.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
+Əgər öz JavaScript toolchain-ini quraşdırmağa üstünlük verirsinizsə, Create React App-in bəzi funksiyalarını yenidən yaradan [bu yazını oxuyun](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658).
 
-Don't forget to ensure your custom toolchain [is correctly set up for production](/docs/optimizing-performance.html#use-the-production-build).
+Xüsusi toolchain-in [produksiya üçün düzgün quraşdırıldığından](/docs/optimizing-performance.html#use-the-production-build) əmin olun.
