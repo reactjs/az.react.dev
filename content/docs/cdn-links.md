@@ -13,7 +13,7 @@ React və ReactDOM CDN-dən mövcuddur.
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-Yuxarıda göstərilən versiyalar yalnız development üçündür. Production-da işlətmək üçün deyil. React-in minify olunmuş ve production üçün optimallaşmış versiyaları aşağıdaki linklərdən mövcuddur:
+Yuxarıda göstərilən versiyalar yalnız development üçündür. Produksiyada işlətmək üçün deyil. React-in minify olunmuş ve produksiya üçün optimallaşmış versiyaları aşağıdaki linklərdən mövcuddur:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
