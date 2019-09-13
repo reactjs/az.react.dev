@@ -1,6 +1,6 @@
 ---
 id: getting-started
-title: Getting Started
+title: Başlamaq
 permalink: docs/getting-started.html
 next: add-react-to-a-website.html
 redirect_from:
@@ -18,109 +18,109 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-This page is an overview of the React documentation and related resources.
+Bu səhifə React sənədlərinin icmalından və React ilə əlaqəli resurslardan ibarətdir.
 
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+**React**, UI yaratmaq üçün JavaScript kitabxanasıdır. React-in oluduğunu öyrənmək üçün [ana səhifəmizə](/) və ya [dərsliyə](/tutorial/tutorial.html) baxın.
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [React-i Sına](#try-react)
+- [React-i Öyrən](#learn-react)
+- [Məlumatlı Olmaq](#staying-informed)
+- [Versiyalı Sənədlər](#versioned-documentation)
+- [Nəsə Çatışmır?](#something-missing)
 
-## Try React {#try-react}
+## React-i Sına {#try-react}
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda React-i istədiyiniz qədər az və ya çox istifadə edə bilərsiniz.** React-in nə olduğunu öyrənmək, sadə HTML səhifəsinə React ilə interaktivlik əlavə etmək, və ya kompleks React applikasiyası düzəltməyi başlamaq üçün bu bölmədəki linklərdən istifadə edin.
 
-### Online Playgrounds {#online-playgrounds}
+### Onlayn Kod Meydançaları {#online-playgrounds}
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
+React-i biraz qurdalamaq istəyirsinizsə onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), və ya [Glitch-də](https://glitch.com/edit/#!/remix/starter-react-template) sınayın.
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+Əgər siz öz kod redaktorunuzdan istifadə etmək istəyirsinizsə, siz [bu HTML faylını yüklə](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), redaktə edə, və brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaç kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyyə edirik.
 
-### Add React to a Website {#add-react-to-a-website}
+### React-i Veb Səhifəyə Əlavə Et {#add-react-to-a-website}
 
-You can [add React to an HTML page in one minute](/docs/add-react-to-a-website.html). You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+Siz [React-i HTML səhifəsinə bir dəqiqəyə](/docs/add-react-to-a-website.html) əlavə edə bilərsiniz. Siz React-in varlığını zaman ilə çoxalda bilər və ya bir neçə dinamik vidcetlərdə ehtiva edə bilərsiniz.
 
-### Create a New React App {#create-a-new-react-app}
+### Yeni React Applikasiyaı Yarat {#create-a-new-react-app}
 
-When starting a React project, [a simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
+Yeni React layihəsinə başladıqda, [script təqləri ilə sadə HTML səhifəsi işlətmək](/docs/add-react-to-a-website.html) ən yaxşı seçim ola bilər. Bunu quraşdırmaq bir dəqiqə alacaq!
 
-As your application grows, you might want to consider a more integrated setup. There are [several JavaScript toolchains](/docs/create-a-new-react-app.html) we recommend for larger applications. Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem.
+Applikasiya böyüdükcə sizə daha inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün [JavaScript toolchain-lərdən](/docs/create-a-new-react-app.html) istifadə etməyi tövsiyyə edirik. Bu toolchain-lərin hər biri biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər.
 
-## Learn React {#learn-react}
+## React-i Öyrən {#learn-react}
 
-People come to React from different backgrounds and with different learning styles. Whether you prefer a more theoretical or a practical approach, we hope you'll find this section helpful.
+React-ə fərqli təməlli və fərqli formada öyrənən adamlar gəlirlər. Nəzəri və ya praktiki yanaşmadan asılı olmayaraq sizin bu bölmədən xeyir tapacağınızı arzulayırıq.
 
-* If you prefer to **learn by doing**, start with our [practical tutorial](/tutorial/tutorial.html).
-* If you prefer to **learn concepts step by step**, start with our [guide to main concepts](/docs/hello-world.html).
+* Əgər **edə edə öyrənməyə** üstünlük verirsinizsə [praktiki dərslik](/tutorial/tutorial.html) ilə başlayın.
+* Əgər **konsepsiyaları addım addım öyrənməyə üstünlük verirsinizsə** [əsas konsepsiyalara baxın](/docs/hello-world.html).
 
-Like any unfamiliar technology, React does have a learning curve. With practice and some patience, you *will* get the hang of it.
+Hər bir tanımadığınız texnologiya kimi, React-in də öyrənmək əyriliyi var. Praktika və biraz səbr ilə, siz React-in məntiqini *tutacaqsınız*.
 
-### First Examples {#first-examples}
+### İlkin Nümunələr {#first-examples}
 
-The [React homepage](/) contains a few small React examples with a live editor. Even if you don't know anything about React yet, try changing their code and see how it affects the result.
+[React ana səhifəsində](/) canlı redaktor ilə kiçik React nümunələri var. React haqqında heç nə bilməsənizdə kodu dəyişik nəticənin necə dəyişdiyinə baxın.
 
-### React for Beginners {#react-for-beginners}
+### Yeni Başlayanlar üçün React {#react-for-beginners}
 
-If you feel that the React documentation goes at a faster pace than you're comfortable with, check out [this overview of React by Tania Rascia](https://www.taniarascia.com/getting-started-with-react/). It introduces the most important React concepts in a detailed, beginner-friendly way. Once you're done, give the documentation another try!
+Əgər sizcə React sənədlərinin çox tez addımlayırsa, [Rascianın React haqqında icmalına](https://www.taniarascia.com/getting-started-with-react/) baxın. Bu yazıda React-in ən əsas konsepsiyaları detallı və yeni başlayanlar üçün asan şəkildə təqdim edilidir. Bitirdikdən sonra sənədlərə yenidən baxın!
 
-### React for Designers {#react-for-designers}
+### Dizaynerlər üçün React {#react-for-designers}
 
-If you're coming from a design background, [these resources](https://reactfordesigners.com/) are a great place to get started.
+Əgər dizayn təməlindən gəlirsinizsə, başlamaq üçün [bu resurslardan](https://reactfordesigners.com/) istifadə edin.
 
-### JavaScript Resources {#javascript-resources}
+### JavaScript Resursları {#javascript-resources}
 
-The React documentation assumes some familiarity with programming in the JavaScript language. You don't have to be an expert, but it's harder to learn both React and JavaScript at the same time.
+React sənədləri JavaScript dili haqqında məlumatı olduğunuzu fərz edir. Bu sahədə mütəxəssis olmasanız belə React ilə JavaScript-i eyni vaxtda öyrənmək çətindir.
 
-We recommend going through [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level. It will take you between 30 minutes and an hour but you will feel more confident learning React.
+JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağı tövsiyyə edirik. Bu sənəd 30 dəqiqə və bir saat arası çəkəcək amma sizə React-i öyrənmək haqqında daha arxayın edəcək.
 
->Tip
+>Məsləhət
 >
->Whenever you get confused by something in JavaScript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [javascript.info](https://javascript.info/) are great websites to check. There are also [community support forums](/community/support.html) where you can ask for help.
+>JavaScdript-də hər hansı bir konsepsiya sizi çaşdırdığında [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) və [javascript.info](https://javascript.info/) veb səhifələrinə baxmağı tövsiyyə edirik. Əlavə olaraq kömək üçün [cəmiyyət dəstək forumlarından](/community/support.html) istifadə edin.
 
-### Practical Tutorial {#practical-tutorial}
+### Praktiki Dərslik {#practical-tutorial}
 
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+Əgər **edə edə öyrnəməyə** üstünlük verirsinizsə [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *hər hansı* React applikasiyaları düzəltmək üçün vacibdir. Bu texnikalarda qavardıqda siz React-i daha dərindən anlayacaqsınız.
 
-### Step-by-Step Guide {#step-by-step-guide}
+### Addım Addım Öyrənmək {#step-by-step-guide}
 
-If you prefer to **learn concepts step by step,** our [guide to main concepts](/docs/hello-world.html) is the best place to start. Every next chapter in it builds on the knowledge introduced in the previous chapters so you won't miss anything as you go along.
+Əgər **addım addım öyrnməyə** üstünlük verirsinizsə, [əsas konsepsiyaları](/docs/hello-world.html) oxuyun. Bu sənədlərdə hər sonrakı bölmə əvvəlki bölmələrdə öyrənilən biliklər əsasında yazılıb. Bu səbəbdən siz oxuduqca heç nəyi ötüməyəcəksiniz.
 
-### Thinking in React {#thinking-in-react}
+### React ilə Düşünmək {#thinking-in-react}
 
-Many React users credit reading [Thinking in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
+Bir çoc React istifadəçiləri [React ilə Düşünmək](/docs/thinking-in-react.html) sənədini tərifləyirlər. Onlar üçün bu sənədi oxuduqdan sonra React tam anlaşıldı. Bu sənəd bizim ən yaşlı sənədlərimizdən biri olmasına baxmayaraq indiki zamana da münasibdir.
 
-### Recommended Courses {#recommended-courses}
+### Tövsiyyə Edilən Kurslar Courses {#recommended-courses}
 
-Sometimes people find third-party books and video courses more helpful than the official documentation. We maintain [a list of commonly recommended resources](/community/courses.html), some of which are free.
+Bəzən adamlar 3-cü şəxslər tərəfindən yazılmız kitablar və kursları rəsmi sənəddən daha faydalı görürlər. Biz [cəmiyyət tərəfindən tövsiyyə edilən resursların siyahısını](/community/courses.html) saxlayırıq. Bu resursların bəziləri pulsuzdur.
 
-### Advanced Concepts {#advanced-concepts}
+### Genişləndirilmiş Konsepsiyalar {#advanced-concepts}
 
-Once you're comfortable with the [main concepts](/docs/hello-world.html) and played with React a little bit, you might be interested in more advanced topics. This section will introduce you to the powerful, but less commonly used React features like [context](/docs/context.html) and [refs](/docs/refs-and-the-dom.html).
+[Əsas konsepsiyaları](/docs/hello-world.html) öyrəndikdən və React-i qurdaladıqdan sonra sizi genişləndirilmiş mövzular maraqlandıra bilər. Bu bölmə sizə [kontekst](/docs/context.html) və [ref0lər](/docs/refs-and-the-dom.html) kimi güclü amma daha az işlənən React xüsusiyyətlərini sizə təqdim edir.
 
-### API Reference {#api-reference}
+### API Arayışı {#api-reference}
 
-This documentation section is useful when you want to learn more details about a particular React API. For example, [`React.Component` API reference](/docs/react-component.html) can provide you with details on how `setState()` works, and what different lifecycle methods are useful for.
+Sənədlərin bu bölməsi xüsusi React API-ı haqqında əlavə məlumat almaq üçün faydalıdır. Məsələn, [`React.Component` API arayışı](/docs/react-component.html) `setState()`-in işlənməsi və fərqli lifecycle funksiyaları haqqında əlavə məlumat verə bilər.
 
-### Glossary and FAQ {#glossary-and-faq}
+### Lüğət və FAQ {#glossary-and-faq}
 
-The [glossary](/docs/glossary.html) contains an overview of the most common terms you'll see in the React documentation. There is also a FAQ section dedicated to short questions and answers about common topics, including [making AJAX requests](/docs/faq-ajax.html), [component state](/docs/faq-state.html), and [file structure](/docs/faq-structure.html).
+[Lüğətdə](/docs/glossary.html), React sənədində işlədilən bütün terminlərin icmalı ehtiva edilir. [AJAX soğuları](/docs/faq-ajax.html), [komponent state-i](/docs/faq-state.html), və [fayl strukturu](/docs/faq-structure.html) kimi çox işlədilən mövzular haqqında qısa sual-cavab üçün FAQ bölməsinə baxın.
 
-## Staying Informed {#staying-informed}
+## Məlumatlı Olmaq {#staying-informed}
 
-The [React blog](/blog/) is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted there first.
+[React bloqu](/blog/) React komandasından gələn yeniliklər üçün rəsmi mənbədir. Buraxılış qeydləri və ya köhnəlmə xəbərdarlıqları kimi vacib məlumatlar ilk olaraq burada dərc olunacaq.
 
-You can also follow the [@reactjs account](https://twitter.com/reactjs) on Twitter, but you won't miss anything essential if you only read the blog.
+Siz həmçinin [@reactjs Twitter hesabını](https://twitter.com/reactjs) izləyə bilərsiniz. Lakin, bloqu oxuyursunuzsa heç bir vacib məlumatı qaçırmayacaqsınız.
 
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release [in the `CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/master/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
 
-## Versioned Documentation {#versioned-documentation}
+## Versiyalı Sənədlər {#versioned-documentation}
 
-This documentation always reflects the latest stable version of React. Since React 16, you can find older versions of the documentation on a [separate page](/versions). Note that documentation for past versions is snapshotted at the time of the release, and isn't being continuously updated.
+Bu sənədlər hər zaman ən son, stabil React versiyasını əks etdirir. React 16-dan başlayaraq, sənədlərin köhnə versiyalarını [ayrı səhifədən](/versions) tapa bilərsiniz. Nəzərə alın ki, sənədlərin köhnə versiyaları yeni buraxılış zamanı çəkilir və davamlı olaraq yenilənmir.
 
-## Something Missing? {#something-missing}
+## Nəsə Çatışmır? {#something-missing}
 
-If something is missing in the documentation or if you found some part confusing, please [file an issue for the documentation repository](https://github.com/reactjs/reactjs.org/issues/new) with your suggestions for improvement, or tweet at the [@reactjs account](https://twitter.com/reactjs). We love hearing from you!
+Əgər sənədlərdə nəsə çatışmırsa və ya hər hansı bir hissəsi başa düşülməzdirsə, düzəlişlər üçün tövsiyyələrinizi [sənədlər reposunda yeni issue açaraq](https://github.com/reactjs/reactjs.org/issues/new) bildirin və ya [@reactjs hesabına](https://twitter.com/reactjs) tvit atın. Biz sizdən eşitməyi sevirik!
