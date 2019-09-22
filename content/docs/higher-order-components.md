@@ -4,29 +4,29 @@ title: Yüksək Dərəcəli Komponentlər
 permalink: docs/higher-order-components.html
 ---
 
-Yüksək dərəcəli komponentlər (Higher-Order Component, HOC) React-da komponent məntiqini yenidən istifadə etmənin qabaqcıl bir texnikasıdır. HOC-lar özlüyündə React API-ın bir parçası deyil, React-ın kompozisiyalı təbiətindən ortaya çıxan bir modeldir.
+Yüksək dərəcəli komponentlər (Higher-Order Component, HOC) React-də komponent məntiqini yenidən istifadə etmənin qabaqcıl texnikasıdır. HOC-lər özlüyündə React API-ın bir parçası deyil, React-ın kompozisiyalı təbiətindən ortaya çıxan modeldir.
 
-Qısacası, **yüksək dərəcəli komponent bir komponenti parametr olaraq qəbul edib, yeni bir komponent döndərən funksiyadır.**
+Qısacası, **yüksək dərəcəli komponent bir komponenti parametr olaraq qəbul edib, yeni bir komponent qaytaran funksiyadır.**
 
 ```js
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 ```
 
-Adi komponent propları UI-a çevirir, yüksək dərəcəli komponent isə bir komponenti başqa bir komponentə çevirir.
+Adi komponent propları UI-a çevirir, yüksək dərəcəli komponent isə komponenti başqa bir komponentə çevirir.
 
-HOC-lar üçüncü tərəf React kitabxanalarında yayğındır, məsələn Redux-ın [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)-i və ya Relay-in [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html)-i kimi.
+HOC-lər üçüncü tərəf React kitabxanalarında yayğındır, məsələn Redux-ın [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)-i və ya Relay-in [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html)-i kimi.
 
 Bu sənəddə yüksək dərəcəli komponentlərin niyə faydalı olduğunu və necə yazılacağını müzakirə edəcəyik.
 
-## HOC-ların cross-cutting concern-lər üçün istifadəsi {#use-hocs-for-cross-cutting-concerns}
+## HOC-lərin Cross-Cutting Concern-lər Üçün İstifadəsi {#use-hocs-for-cross-cutting-concerns}
 
 > **Qeyd**
 >
-> Əvvəllər cross-cutting concern-ləri ələ almaq üçün mixin-ləri təklif etdik. Sonra isə, mixin-lərin xeyirindən daha çox ziyanı olduğunu anladıq. Mixin-ləri niyə ləğv etdiyimiz və mövcud komponentlərinizi necə dəyişə biləcəyiniz haqqında burdan [oxuyun](/blog/2016/07/13/mixins-considered-harmful.html).
+> Əvvəllər cross-cutting concern-ləri ələ almaq üçün mixin-ləri təklif etdik. İndi isə, mixin-lərin xeyirindən daha çox ziyanı olduğunu anladıq. Mixin-ləri niyə ləğv etdiyimiz və mövcud komponentlərinizi necə dəyişə biləcəyiniz haqqında buradan [oxuyun](/blog/2016/07/13/mixins-considered-harmful.html).
 
-Komponentlər Reakt-da kodu yenidən istifadə etmənin əsasıdır. Ancaq, bəzi problemlərin ənənəvi komponentlərlə həll oluna bilmədiyini görəcəyik.
+Komponentlər React-də kodu yenidən istifadə etmənin əsasıdır. Ancaq, bəzi problemlərin ənənəvi komponentlərlə həll oluna bilmədiyini görəcəyik.
 
-Məsələn, deyək ki `CommentList` komponenti xarici mənbəydən aldığı yorumlar siyahısını render edir:
+Məsələn, gəlin xarici mənbədən aldığı yorumlar siyahısını render edən `CommentList` komponentinə baxaq:
 
 ```js
 class CommentList extends React.Component {
@@ -34,7 +34,7 @@ class CommentList extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      // "DataSource" burda qlobal məlumatlar mənbəyidir
+      // "DataSource" qlobal məlumatlar mənbəyidir
       comments: DataSource.getComments()
     };
   }
@@ -68,7 +68,7 @@ class CommentList extends React.Component {
 }
 ```
 
-Sonra isə, bənzər bir nümunədə, bir blog yazısına abunə olmaq üçün başqa bir komponent yazırıq:
+İndi isə, bənzər formada, tək bloq yazısına abunə olan yeni komponent yazaq:
 
 ```js
 class BlogPost extends React.Component {
@@ -102,13 +102,13 @@ class BlogPost extends React.Component {
 
 `CommentList` və `BlogPost` eyni deyil — `DataSource` üzərində müxtəlif metodları çağırırlar və müxtəlif nəticələri render edirlər. Ancaq, əksər hissələri oxşardır:
 
-- Mount etmədə bir dəyişiklik dinləyicisini `DataSource`-a əlavə etmə.
-- Dinləyici içərisində veri qaynağı dəyişdikdə `setState`-i çağırma.
-- Unmount etmədə dəyişiklik dinləyicisini silmə.
+- Mount zamanı dəyişiklik dinləyicisini `DataSource`-a əlavə edir.
+- Məlumat qaynağı dəyişdikdə dinləyici içərisindən `setState`-i çağırır.
+- Unmount zamanı dəyişiklik dinləyicisini silir.
 
-Təsəvvür edin, böyük bir applikasiyada `DataSource`-a abunə olma və `setState`-i çağırma dəsti hər dəfə təkrarlanacaq. Bizə bu məntiqin bir yerdə müəyyən edərək, bir çox komponent arasında istifadəyə imkan verən bir abstraksiya lazımdır. Burda yüksək dərəcəli komponentlər üzə çıxır.
+Təsəvvür edin ki, böyük bir applikasiyada `DataSource`-a abunə olma və `setState`-i çağırma dəsti hər dəfə təkrarlanacaq. Bizə bu məntiqin bir yerdə müəyyən edərək, bir çox komponent arasında istifadəyə imkan verən abstraksiya lazımdır. Burada yüksək dərəcəli komponentlər üzə çıxır.
 
-`CommentList` və `BlogPost` kimi komponentləri birbaşa yazmaq yerinə, bunları yaradan və `DataSource`-a abunə edən bir funksiya yaza bilərik. Bu funksiya arqument olaraq komponent qəbul edəcək və bu komponentə məlumatları prop olaraq ötürəcək. Gəlin bu funksiyanı `withSubscription` adlandıraq:
+`CommentList` və `BlogPost` kimi komponentləri birbaşa yazmaq yerinə, bunları yaradan və `DataSource`-a abunə edən funksiya yaza bilərik. Bu funksiya abunə olduğu məlumatı prop kimi qəbul edən uşaq komponentini arqument kimi qəbul edəcək. Gəlin bu funksiyanı `withSubscription` adlandıraq:
 
 ```js
 const CommentListWithSubscription = withSubscription(
@@ -122,14 +122,14 @@ const BlogPostWithSubscription = withSubscription(
 );
 ```
 
-Birinci parametr əhatə olunacax komponentdir, ikinci parametr isə `DataSource`-u və cari propları qəbul edərək məlumatları döndərən bir funksiyadır.
+Birinci parametr əhatə olunacaq komponent, ikinci parametr isə `DataSource` və cari proplar əsasında məlumatları qəbul edən funksiyadır.
 
-`CommentListWithSubscription` və `BlogPostWithSubscription` render edildiyi zaman, `CommentList`-ə və `BlogPost`-a `data` prop olaraq ən aktual məlumatları (`DataSource`-dan alınan) ötürürük:
+`CommentListWithSubscription` və `BlogPostWithSubscription` render edildiyi zaman, `CommentList` və `BlogPost`-a ən aktual məlumatları (`DataSource`-dan alınan) `data` propu ilə ötürürük:
 
 ```js
-// Bu funksiya bir komponent qəbul edir...
+// Bu funksiya komponent qəbul edir...
 function withSubscription(WrappedComponent, selectData) {
-  // ...və başqa bir komponenti döndərir...
+  // ...və başqa bir komponenti qaytarır...
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -163,66 +163,66 @@ function withSubscription(WrappedComponent, selectData) {
 }
 ```
 
-Qeyd edək ki, HOC qəbul etdiyi komponenti dəyişdirmir və ya davranışını kopyalamır (varislik ilə), bunun yerinə HOC orijinal komponenti bir konteyner komponenti ilə *əhatə edərək* *tərtib edir*. HOC yan təsiri olmayan bir təmiz funksiyadır.
+Qeyd edək ki, HOC qəbul etdiyi komponenti dəyişdirmir və ya davranışını kopiyalamır (varislik ilə), bunun yerinə HOC orijinal komponenti konteyner komponenti ilə *əhatə edərək* *tərtib edir*. HOC yan təsiri olmayan təmiz funksiyadır.
 
-Vəssalam! Əhatə olunmuş komponent konteynerin bütün propları ilə birlikdə yeni prop `data`-nı da alaraq nəticəni render edir. HOC məlumatların necə istifadə edildiyi ilə, əhatə olunmuş komponent isə məlumatın haradan gəldiyi ilə maraqlanmırlar.
+Vəssalam! Əhatə olunmuş komponent konteynerin bütün propları ilə birlikdə yeni `data` propunu alaraq nəticəni render edir. HOC məlumatların necə istifadə edildiyi ilə, əhatə olunmuş komponent isə məlumatın haradan gəldiyi ilə maraqlanmırlar.
 
-`withSubscription` normal bir funksiya olduğundan, istədiyiniz qədər arqument əlavə edə bilərsiniz. Məsələn, HOC-u əhatə olunmuş komponentdən daha da təcrid etmək üçün `data` propının adını konfiqurasiyalı olmasını istəyə bilərik. Yani, `shouldComponentUpdate`-i və ya məlumat mənbəyini konfiqurasiya edən bir arqument əlavə edə bilərik. Bunlar hamısı mümkündür, çünki HOC komponentin necə təyin olunduğuna tam nəzarət edir.
+`withSubscription` normal funksiya olduğundan, istədiyiniz qədər arqument əlavə edə bilərsiniz. Məsələn, HOC-i əhatə olunmuş komponentdən daha da təcrid etmək üçün `data` propunun adının konfiqurasiyalı olmasını istəyə bilərik. Yəni, `shouldComponentUpdate`-i və ya məlumat mənbəyini konfiqurasiya edən bir arqument əlavə edə bilərik. Bunlar hamısı mümkündür, çünki HOC komponentin necə təyin olunduğuna tam nəzarət edir.
 
-Komponentlər arasında olduğu kimi, `withSubscription` ilə əhatə olunmuş komponent arasındakı müqavilə tamamilə prop əsasındadır. Bu, əhatə olunmuş komponentə eyni propu təmin etdikcə bir HOC-u fərqli birinə dəyişdirməyi asanlaşdırır. Məsələn, bu məlumat əldə edən kitabxananı dəyişdirdiyinizdə faydalı ola bilər.
+Komponentlər arasında olduğu kimi, `withSubscription` ilə əhatə olunmuş komponent arasındakı müqavilə tamamilə prop əsasındadır. Bu, əhatə olunmuş komponentə eyni propu təmin etdikcə bir HOC-i fərqli birinə dəyişdirməyi asanlaşdırır. Məsələn, bu məlumat əldə edən kitabxananı dəyişdirdiyinizdə faydalı ola bilər.
 
-## Orijinal komponenti dəyişdirməyin. Kompozisiya istifadə edin. {#dont-mutate-the-original-component-use-composition}
+## Orijinal Komponenti Dəyişdirməyin. Kompozisiya İstifadə Edin. {#dont-mutate-the-original-component-use-composition}
 
-HOC içərisində komponentin prototipini dəyişdirməkdən (və ya başqa bir şəkildə dəyişdirməkdən) uzax olun.
+HOC içərisində komponentin prototipini dəyişdirməkdən (və ya başqa bir şəkildə dəyişdirməkdən) uzaq olun.
 
 ```js
 function logProps(InputComponent) {
   InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
-    console.log('Current props: ', this.props);
-    console.log('Next props: ', nextProps);
+    console.log('Cari proplar: ', this.props);
+    console.log('Sonrakı proplar: ', nextProps);
   };
-  // Orijinal əhatə olunacax komponenti geri döndərməməyimiz, deyişikliyin bir işarətidir.
+  // Orijinal əhatə olunacaq komponenti geri qaytarmamağımız, dəyişikliyin işarəsidir.
   return InputComponent;
 }
 
-// EnhancedComponent hər dəfə yeni proplar aldığında konsola yazacaxdır
+// EnhancedComponent hər dəfə yeni proplar aldığında konsola yazacaqdır
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Bununla bağlı bir neçə problem var. Bunlardan biri, `InputComponent`-nin `EnhancedComponent`-dən ayrı istifadə oluna bilməməsidir. Daha əhəmiyyətlisi, `EnhancedComponent`-i başqa bir HOC ilə əhatə etmək istəsəniz, və bu HOC *da* komponentin `componentWillReceiveProps`-nu dəyişsə, ilk HOC-un funksionallığı ləğv ediləcəkdir! Üstəlik, bu tip HOC-lar funksiya komponentləri (lifecycle metodlarına sahib olmayan komponentlər) ilə işləməyəcəkdir.
+Bununla bağlı bir neçə problem var. Bunlardan biri, `InputComponent`-in `EnhancedComponent`-dən ayrı istifadə oluna bilməməsidir. Daha əhəmiyyətlisi, `EnhancedComponent`-i başqa HOC ilə əhatə etmək istəsəniz, və bu HOC *də* komponentin `componentWillReceiveProps`-nu dəyişsə, ilk HOC-in funksionallığı ləğv ediləcəkdir! Üstəlik, bu tip HOC-lər funksiya komponentləri (lifecycle metodlarına sahib olmayan komponentlər) ilə işləməyəcəkdir.
 
-Dəyişiklik edən HOC-lar sızıntılı bir abstraksiyadır. İstehlakçı digər HOC-larla münaqişənin qarşısını almaq üçün bu HOC-un nə dəyişdiyini bilməlidir.
+Dəyişiklik edən HOC-lər sızıntılı bir abstraksiyadır. İstehlakçı digər HOC-lərlə münaqişənin qarşısını almaq üçün bu HOC-in nə dəyişdiyini bilməlidir.
 
-Dəyişiklik etmə əvəzinə, HOC-lar tərtibləmədən (kompozisiya) istifadə etməlidirlər, komponenti bir konteyner komponenti ilə əhatə edərək:
+Dəyişiklik etmə əvəzinə, HOC-lər, qəbul olunmuş komponenti konteyner komponenti ilə əhatə edərək kompozisiyadan istifadə etməlidir:
 
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
     componentWillReceiveProps(nextProps) {
-      console.log('Current props: ', this.props);
-      console.log('Next props: ', nextProps);
+      console.log('Cari proplar: ', this.props);
+      console.log('Sonrakı proplar: ', nextProps);
     }
     render() {
-      // Komponent dəyişilmədən bir konteynerə qoyulur. Əla!
+      // Komponent dəyişilmədən konteynerə qoyulur. Əla!
       return <WrappedComponent {...this.props} />;
     }
   }
 }
 ```
 
-Bu HOC, dəyişiklik edən əvvəlki HOC ilə eyni funksiyaya malikdir, lakin dəyişiklik edən HOC-un problemlərinə sahib deyil. Klas və funksiya komponentləri ilə bərabər dərəcədə yaxşı işləyir. Təmiz bir funksiya olduğundan, digər HOC-larla, hətta özü ilə də tərtib edilə bilər.
+Bu HOC, dəyişiklik edən əvvəlki HOC ilə eyni funksiyaya malikdir, lakin dəyişiklik edən HOC-in problemlərinə sahib deyil. Klas və funksiya komponentləri ilə bərabər dərəcədə yaxşı işləyəcəkdir. Təmiz bir funksiya olduğundan, digər HOC-lərlə, hətta özü ilə də tərtib edilə bilər.
 
-HOC-lar ilə **konteyner komponentləri** adlı bir pattern arasında oxşarlıq görmüş ola bilərsiniz. Konteyner komponentlərinin köməyi ilə əsasən ümumi funksiyanallığı şəxsi funksiyanallıqdan ayırırıq. Konteynerlər, state-i və ya məlumata abunə olmanı və propları UI-ı render edən komponentlərə ötürməni idarə edir. HOC-lar tətbiqinin bir hissəsi olaraq konteynerlərdən istifadə edirlər. HOC-ları parametrləşdirilmiş konteyner yaradıcısı olaraq düşünə bilərsiniz.
+HOC-lər ilə **konteyner komponentləri** adlı pattern arasında oxşarlıq görmüş ola bilərsiniz. Konteyner komponentlərinin köməyi ilə əsasən ümumi funksionallığı şəxsi funksionallıqdan ayırırıq. Konteynerlər, state-i və ya məlumata abunə olmanı və propları UI-ı render edən komponentlərə ötürməni idarə edir. HOC-lər tətbiqinin bir hissəsi olaraq konteynerlərdən istifadə edirlər. HOC-ləri parametrləşdirilmiş konteyner yaradıcısı olaraq düşünə bilərsiniz.
 
-## Konvensiya: Əhatə olunmuş komponentə geri qalan propları ötürün {#convention-pass-unrelated-props-through-to-the-wrapped-component}
+## Konvensiya: Əhatə Olunmuş Komponentə Geri Qalan Propları Ötürün {#convention-pass-unrelated-props-through-to-the-wrapped-component}
 
-HOC komponentə xüsusiyyətlər əlavə edir ancaq ilkin məqsədini dəyişdirməməlidir. HOC-dan döndərilən komponentin əhatə olunmuş komponent ilə bənzər bir interfeysə sahib olacağı gözlənilir.
+HOC komponentə xüsusiyyətlər əlavə edir ancaq ilkin məqsədini dəyişdirməməlidir. HOC-dən qaytarılan komponentin əhatə olunmuş komponent ilə bənzər interfeysə sahib olacağı gözlənilir.
 
-HOC-lar funksionallıqları ilə əlaqəsi olmayan propları əhatə etdikləri komponentlərə ötürməlidirlər. Əksər HOC-ların aşağdakına bənzər bir render metodu var:
+HOC-lər funksionallıqları ilə əlaqəsi olmayan propları əhatə etdikləri komponentlərə ötürməlidirlər. Əksər HOC-lərin aşağdakına bənzər render metodu var:
 
 ```js
 render() {
-  // HOC-a məxsus olan, ötürülməyəcək propların süzülməsi
+  // HOC-ə məxsus olan, ötürülməyəcək propların süzülməsi
   const { extraProp, ...passThroughProps } = this.props;
 
   // Əhatə olunmuş komponent üçün olan yeni proplar. Bunlar əsasən state dəyərləri və ya 
@@ -239,41 +239,42 @@ render() {
 }
 ```
 
-Bu konvensiya HOC-ların mümkün qədər çevik və təkrar istifadəli olmasını təmin edir.
+Bu konvensiya HOC-lərin mümkün qədər çevik və təkrar istifadəli olmasını təmin edir.
 
-## Konvensiya: Tərtib edilə bilmə dərəcəsini artırmaq {#convention-maximizing-composability}
+## Konvensiya: Tərtib Edilə Bilmə Dərəcəsini Artırmaq {#convention-maximizing-composability}
 
-Bütün HOC-lar eyni görünmürlər. Bəzən sadəcə bir dənə arqument qəbul edirlər, əhatə olunacax komponenti:
+Bütün HOC-lər eyni görünmürlər. Bəzən yalnız əhatə olunacaq komponenti arqument kimi qəbul edirlər:
 
 ```js
 const NavbarWithRouter = withRouter(Navbar);
 ```
 
-Adətən, HOC-lar əlavə arqumentlər qəbul edirlər. Relay-dən bir nümunədə bir komponentin məlumat asılılığını təyin etmək üçün bir konfiqurasiya obyekti istifadə olunur:
+Adətən, HOC-lər əlavə arqumentlər qəbul edirlər. Relay-dən bir nümunədə komponentin məlumat asılılığını təyin etmək üçün konfiqurasiya obyekti istifadə olunur:
 
 ```js
 const CommentWithRelay = Relay.createContainer(Comment, config);
 ```
 
-HOC çağırmanın ən yayığın yolu belə görünür:
+HOC çağırmanın ən yayğın yolu belə görünür:
 
 ```js
 // React Redux-dan olan `connect`
 const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
 ```
 
-*Təəccübləndiniz?* Bunu bir-birindən ayırsax, nələrin baş verdiyini görmək daha asand olacax.
+*Təəccübləndiniz?* Bunu bir-birindən ayırsaq, nələrin baş verdiyini görmək daha asand olacaq.
 
 ```js
-// connect başqa bir funksiyanı döndərən bir funksiyadır
+// connect başqa funksiyanı qaytaran funksiyadır
 const enhance = connect(commentListSelector, commentListActions);
 
-// Geri döndərilmiş funksiya HOC-dur, hansı ki komponenti Redux store-a qoşaraq döndərir
+// Geri qaytarılmış funksiya HOC-dir, hansı ki komponenti 
+// Redux store-a qoşaraq qaytarır
 const ConnectedComment = enhance(CommentList);
 ```
-Başqa sözlə, `connect` yüksək dərəcəli komponenti döndərən yüksək dərəcəli funskiyadır!
+Başqa sözlə, `connect` yüksək dərəcəli komponenti qaytaran yüksək dərəcəli funskiyadır!
 
-Bu forma çaşdırıcı və ya lazımsız görünə bilər, lakin faydalı bir xassəyə malikdir. `connect` funksiyasından geri döndərilən HOC tək arqumentlidir və `Component => Component` imzasına sahibdir. Dönüş növü ilə giriş növü eyni olan funksiyaları birlikdə tərtib etmək çox asandır.
+Bu forma çaşdırıcı və ya lazımsız görünə bilər, lakin faydalı xassəyə malikdir. `connect` funksiyasından geri qaytarılan HOC tək arqumentlidir və `Component => Component` imzasına sahibdir. Qaydış növü ilə giriş növü eyni olan funksiyaları birlikdə tərtib etmək çox asandır.
 
 ```js
 // Bunu etmək əvəzinə...
@@ -282,7 +283,7 @@ const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
 // ... köməkçi birləşmə funksiyasından istifadə edə bilərsiniz
 // compose(f, g, h) ilə (...args) => f(g(h(...args))) eynidir
 const enhance = compose(
-// Bunlar hər ikisi HOC-dur və tək arqument qəbul edirlər
+// Bunlar hər ikisi HOC-dir və tək arqument qəbul edirlər
   withRouter,
   connect(commentSelector)
 )
@@ -293,11 +294,11 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 `compose` köməkçi funksiyası bir çox üçüncü tərəf kitabxanalar tərəfindən təmin edilir, lodash daxil olmaqla ([`lodash.flowRight`](https://lodash.com/docs/#flowRight) kimi), [Redux](https://redux.js.org/api/compose), və [Ramda](https://ramdajs.com/docs/#compose).
 
-## Konvensiya: Asan dibaq etmək üçün görüntüləmə adı əlavə edin {#convention-wrap-the-display-name-for-easy-debugging}
+## Konvensiya: Asan Dibaq Etmək üçün Görüntüləmə Adı Əlavə Edin{#convention-wrap-the-display-name-for-easy-debugging}
 
 HOC tərəfindən yaradılan konteyner komponentləri digər komponentlər kimi [React Developer Tools](https://github.com/facebook/react-devtools)-da görünür. Dibaqı asanlaşdırmaq üçün HOC tərəfindən yaradılan komponentlərə özəl ad vermək olar.
 
-Ən çox yayılmış texnika əhatə olunmuş komponentin adını sarmaqdır. Yani, yüksək dərəcəli komponentiniz `withSubscription` adlanırsa və əhatə olunan komponentin adı `CommentList`-dirsə, görüntüləmə adı olaraq `WithSubscription(CommentList)` istifadə edirik:
+Ən çox yayılmış texnika əhatə olunmuş komponentin adını sarmaqdır. Yəni, yüksək dərəcəli komponentiniz `withSubscription` adlanırsa və əhatə olunan komponentin adı `CommentList`-dirsə, görüntüləmə adı olaraq `WithSubscription(CommentList)` istifadə edirik:
 
 ```js
 function withSubscription(WrappedComponent) {
@@ -316,15 +317,15 @@ function getDisplayName(WrappedComponent) {
 
 Yüksək dərəcəli komponentlərlə işlədikdə ilk baxışda görünməyən bir neçə problemlərlə rastlaşa bilərsiniz.
 
-### HOC-ları render metodunun içərisində istifadə etməyin {#dont-use-hocs-inside-the-render-method}
+### HOC-ləri Render Metodu Daxilində İstifadə Etməyin {#dont-use-hocs-inside-the-render-method}
 
-React-ın fərqlilik alqoritmi (reconciliation adlanır) mövcud alt ağacın yeniləməsini və ya onun atıblıb, yenisinin mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri döndərilmiş komponent əvvəlki render-dəki komponentlə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər bərabər deyillərsə, əvvəlki alt ağac tamamilə unmount edilərək yenisiylə əvəz edilir.
+React-ın fərqlilik alqoritmi (reconciliation adlanır) mövcud alt ağacın yeniləməsini və ya onun atıblıb, yenisinin mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri qaytarılmış komponent əvvəlki renderdəki komponentlə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər bərabər deyillərsə, əvvəlki alt ağac tamamilə unmount edilərək yenisilə əvəz edilir.
 
-Normalda bu bizi maraxlandırmır. Ancaq HOC-lar üçün vacibdir, çünki bu komponentin render metodu daxilində bir HOC tətbiq etmənin necə problemli olduğunu bildirir:
+Normalda bu bizi maraqlandırmır. Ancaq HOC-lər üçün vacibdir, çünki bu komponentin render metodu daxilində HOC tətbiq etmənin necə problemli olduğunu bildirir:
 
 ```js
 render() {
-  // Hər render EnhancedComponent-in yeni bir versiyasını yaradır
+  // Hər renderdə EnhancedComponent-in yeni versiyası yaranır
   // EnhancedComponent1 !== EnhancedComponent2
   const EnhancedComponent = enhance(MyComponent);
   // Bu, bütün alt ağacın hər dəfə unmount və yenidən mount edilməsinə səbəb olur!
@@ -334,18 +335,18 @@ render() {
 
 Buradakı problem yalnız performansla bağlı deyil. Bir komponenti yenidən mount etmə bu komponentin state-ni və bütün uşaqlarının state-ni itirməsinə səbəb olur.
 
-Bunun əvəzinə, HOC-ları komponent tərifi xaricində tətbiq edin. Bu yolla komponent şəxsiyəti qalıcı olacaxdır və React yenidən render etdikdə eyni komponent ilə müqayisə edəcəkdir.
+Bunun əvəzinə, HOC-ləri komponent tərifi xaricində tətbiq edin. Bu yolla komponent şəxsiyəti qalıcı olacaqdır və React yenidən render etdikdə eyni komponent ilə müqayisə edəcəkdir.
 
-Bəzi nadir hallarda bir HOC-u dinamik olaraq istifadə etmək istəsəniz, bunu komponentin lifecycle metodları və ya konstruktoru içərisində edə bilərsiniz.
+Bəzi nadir hallarda HOC-i dinamik olaraq istifadə etmək istəsəniz, bunu komponentin lifecycle metodları və ya konstruktoru içərisində edə bilərsiniz.
 
-### Statik metodlar kopyalanmalıdır {#static-methods-must-be-copied-over}
+### Statik Metodlar Kopiyalanmalıdır {#static-methods-must-be-copied-over}
 
-Bəzən bir React komponentində statik bir metod təyin etmək faydalıdır. Məsələn, Relay konteynerləri GraphQL fraqmentlərinin tərtibini asanlaşdırmaq üçün statik `getFragment` metodunu istifadəyə verirlər.
+Bəzən React komponentində statik metod təyin etmək faydalıdır. Məsələn, Relay konteynerləri GraphQL fraqmentlərinin tərtibini asanlaşdırmaq üçün statik `getFragment` metodunu istifadəyə verirlər.
 
-Bir komponentə HOC tətbiq etdiyiniz zaman orijinal komponent bir konteyner komponenti ilə əhatə olunur. Bununla yeni komponent orijinal komponentin statik metodlarından heç birinə sahib olmur.
+Bir komponentə HOC tətbiq etdiyiniz zaman orijinal komponent konteyner komponenti ilə əhatə olunur. Bununla yeni komponent orijinal komponentin statik metodlarından heç birinə sahib olmur.
 
 ```js
-// Statik bir metod təyin etmə
+// Statik metod təyin etmə
 WrappedComponent.staticMethod = function() {/*...*/}
 // HOC tətbiq etmə
 const EnhancedComponent = enhance(WrappedComponent);
@@ -354,18 +355,18 @@ const EnhancedComponent = enhance(WrappedComponent);
 typeof EnhancedComponent.staticMethod === 'undefined' // true
 ```
 
-Bunu həll etmək üçün konteynerə metodları kopyalaya bilərik:
+Bunu həll etmək üçün konteynerə metodları kopiyalaya bilərik:
 
 ```js
 function enhance(WrappedComponent) {
   class Enhance extends React.Component {/*...*/}
-  // Kopyalayacaq metod dəqiq bilməlidir :(
+  // Kopiyalanacaq metod dəqiq bilinməlidir :(
   Enhance.staticMethod = WrappedComponent.staticMethod;
   return Enhance;
 }
 ```
 
-Ancaq bu, hansı metodların kopyalanacağını dəqiq bilməyimizi tələb edir. Bütün react-a aid olmayan statik metodları avtomatik olaraq kopyalamaq üçün [hoist-non-react-statics](https://github.com/mridgway/hoist-non-react-statics) istifadə edə bilərsiniz:
+Ancaq bu, hansı metodların kopiyalanacağını dəqiq bilməyimizi tələb edir. Bütün React-ə aid olmayan statik metodları avtomatik olaraq kopiyalamaq üçün [hoist-non-react-statics](https://github.com/mridgway/hoist-non-react-statics) istifadə edə bilərsiniz:
 
 ```js
 import hoistNonReactStatic from 'hoist-non-react-statics';
@@ -376,22 +377,22 @@ function enhance(WrappedComponent) {
 }
 ```
 
-Digər mümkün bir həll, statik metodları komponentdən ayrıca export etməkdir.
+Digər mümkün həll, statik metodları komponentdən ayrıca ixrac etməkdir.
 
 ```js
 // Bunun yerinə ...
 MyComponent.someFunction = someFunction;
 export default MyComponent;
 
-// ...metod ayrıca export edilir...
+// ...metod ayrıca ixrac edilir...
 export { someFunction };
 
 // ...və istehlakcı modulunda hər ikisini import edilir
 import MyComponent, { someFunction } from './MyComponent.js';
 ```
 
-### Ref-lər ötürülmür {#refs-arent-passed-through}
+### Ref-lər Ötürülmür {#refs-arent-passed-through}
 
-Yüksək dərəcəli komponentlər üçün konvensiya, bütün propları əhatə edilən komponentə ötürməkdir, ref-lər xaric. Bunun səbəbi, `ref` həqiqi bir prop deyil, məsələn, `key` də həqiqi bir prop deyil, və bunlar xüsusi olaraq React tərəfindən idarə olunurlar. Ref-i HOC-un nəticəsi olan bir komponentin elementinə əlavə etsəniz, ref əhatə edən komponentə deyil də, iyerarxiyaya ən yaxın olan konteyner komponentinin instansiyasına işarə edəcəkdir.
+Yüksək dərəcəli komponentlər üçün konvensiya, bütün propları əhatə edilən komponentə ötürməkdir, ref-lər xaric. Bunun səbəbi, `ref` həqiqi prop deyil, məsələn, `key` də həqiqi prop deyil, və bunlar xüsusi olaraq React tərəfindən idarə olunurlar. Ref-i HOC-in nəticəsi olan komponentin elementinə əlavə etsəniz, ref əhatə edən komponentə deyil də, iyerarxiyaya ən yaxın olan konteyner komponentinin instansiyasına işarə edəcəkdir.
 
 Bu problemin həlli `React.forwardRef` API-ı (React 16.3-ə əlavə olundu) istifadə etməkdir. [Bu barədə daha çox məlumatı ref-lərin yönlendirmesi bölməsindən əldə edə bilərsiniz](/docs/forwarding-refs.html).
