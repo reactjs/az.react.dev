@@ -97,31 +97,15 @@ Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik pa
 
 ```js
 import OtherComponent from './OtherComponent';
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
 **Sonra:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
-Bu avtomatik olara `OtherComponent` render olduğu zaman, komponent olan paketi yükləyəcək.
+Bu avtomatik olaraq `OtherComponent` render olduğu zaman, komponent olan paketi yükləyəcək.
 
 `React.lazy` funskiyası mütləq olaraq dinamik `import()` funskiyasını çağırmalıdır. Bu mütləq `default` eksportunda React komponenti olan modulu "resolve" edən `Promise`-ə qaytarmalıdır.
 
