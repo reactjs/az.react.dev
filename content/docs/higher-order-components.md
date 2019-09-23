@@ -4,7 +4,7 @@ title: Yüksək Dərəcəli Komponentlər
 permalink: docs/higher-order-components.html
 ---
 
-Yüksək dərəcəli komponentlər (Higher-Order Component, HOC) React-də komponent məntiqini yenidən istifadə etmənin qabaqcıl texnikasıdır. HOC-lər özlüyündə React API-ın bir parçası deyil, React-ın kompozisiyalı təbiətindən ortaya çıxan modeldir.
+Yüksək dərəcəli komponentlər (Higher-Order Component, HOC) React-də komponent məntiqini yenidən istifadə etmənin qabaqcıl texnikasıdır. HOC-lər özlüyündə React API-ın bir parçası deyil, React-in kompozisiyalı təbiətindən ortaya çıxan modeldir.
 
 Qısacası, **yüksək dərəcəli komponent bir komponenti parametr olaraq qəbul edib, yeni bir komponent qaytaran funksiyadır.**
 
@@ -319,7 +319,7 @@ Yüksək dərəcəli komponentlərlə işlədikdə ilk baxışda görünməyən 
 
 ### HOC-ləri Render Metodu Daxilində İstifadə Etməyin {#dont-use-hocs-inside-the-render-method}
 
-React-ın fərqlilik alqoritmi (reconciliation adlanır) mövcud alt ağacın yeniləməsini və ya onun atıblıb, yenisinin mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri qaytarılmış komponent əvvəlki renderdəki komponentlə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər bərabər deyillərsə, əvvəlki alt ağac tamamilə unmount edilərək yenisilə əvəz edilir.
+React-in fərqlilik alqoritmi (reconciliation adlanır) mövcud alt ağacın yeniləməsini və ya onun atıblıb, yenisinin mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri qaytarılmış komponent əvvəlki renderdəki komponentlə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər bərabər deyillərsə, əvvəlki alt ağac tamamilə unmount edilərək yenisilə əvəz edilir.
 
 Normalda bu bizi maraqlandırmır. Ancaq HOC-lər üçün vacibdir, çünki bu komponentin render metodu daxilində HOC tətbiq etmənin necə problemli olduğunu bildirir:
 
