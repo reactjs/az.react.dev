@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Create a New React App
+title: Yeni React Applikasiyası Yarat
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
@@ -8,38 +8,38 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+Ən yaxşı istifadəçi və developer təcrübəsi üçün inteqrasiya olunmuş toolchain istifadə edin.
 
-This page describes a few popular React toolchains which help with tasks like:
+Bu səhifə, göstərilən məsələləri həll etməyə kömək edən React toolchain-lərindən danışır:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* Çoxlu fayllara və komponentlərə böyümə.
+* NPM-dən kitabxanaların işlədilməsi.
+* Çox yaranan səhvlərin erkən tapılması.
+* Development-də CSS və JS-in canlı redaktə edilməsi.
+* Produksiya üçün nəticənin optimallaşdırılması.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+Bu səhifədə tövsiyyə olunan toolchain-lər **heç bir konfiqurasiya tələb etmir**.
 
-## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
+## Sizə Toolchain Lazım Olmaya Bilər {#you-might-not-need-a-toolchain}
 
-If you don't experience the problems described above or don't feel comfortable using JavaScript tools yet, consider [adding React as a plain `<script>` tag on an HTML page](/docs/add-react-to-a-website.html), optionally [with JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+Əgər yuxarıda göstərilən problemlər ilə qarşılaşmır və ya JavaScript alətlərindən istifadə etmək istəmirsinizsə [React-i HTML səhifəsinə `<script>` təqi ilə əlavə etməyi](/docs/add-react-to-a-website.html) (fakultativ olaraq [JSX ilə](/docs/add-react-to-a-website.html#optional-try-react-with-jsx)) tövsiyyə edirik.
 
-This is also **the easiest way to integrate React into an existing website.** You can always add a larger toolchain if you find it helpful!
+Bu, **React-i mövcud veb səhifəsinə əlavə etməyin ən asan yoludur.** Siz, faydalı gördüyünüz halda istədiyiniz zaman daha böyük toolchain əlavə edə bilərsiniz!
 
-## Recommended Toolchains {#recommended-toolchains}
+## Tövsiyyə Edilən Toolchain-lər {#recommended-toolchains}
 
-The React team primarily recommends these solutions:
+React komandası əsasən aşağıdaki həlləri tövsiyyə edir:
 
-- If you're **learning React** or **creating a new [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app).
-- If you're building a **server-rendered website with Node.js,** try [Next.js](#nextjs).
-- If you're building a **static content-oriented website,** try [Gatsby](#gatsby).
-- If you're building a **component library** or **integrating with an existing codebase**, try [More Flexible Toolchains](#more-flexible-toolchains).
+- **React-i öyrənmək** və ya **[tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya yaratmaq üçün** [Create React App-dən](#create-react-app) istifadə edin.
+- **Node.js ilə server tərəfindən render edilmiş veb səhifə yaratmaq üçün** [Next.js-dən](#nextjs) istifadə edin.
+- **Statik kontent əsasında qurulmuş veb səhifə yaratmaq üçün** [Gatsby-dən](#gatsby) istifadə edin.
+- **Komponent kitabxanası yaratmaq** və ya **mövcud koda React inteqrasiya etmək üçün** [Daha Elasktik Toolchain-lərdən](#more-flexible-toolchains) istifadə edin.
 
 ### Create React App {#create-react-app}
 
-[Create React App](https://github.com/facebookincubator/create-react-app) is a comfortable environment for **learning React**, and is the best way to start building **a new [single-page](/docs/glossary.html#single-page-application) application** in React.
+[Create React App](https://github.com/facebookincubator/create-react-app), **React-i öyrənmək** və React-də **yeni [tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya** yaratmaq üçün çox rahat mühit təmin edir.
 
-It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+Bu alət ən son JavaScript xüsusiyyətlərini istifadə etmək üçün development mühiti yaradır, yaxşı developer təcrübəsi ilə proqramçıları təmin edir, və applikasiyanı produksiya üçün optimallaşdırır. Bu aləti işlətmək üçün Node >= 8.10 və npm >= 5.6 tələb edilir. Layihə yaratmaq üçün göstərilən əmri icra edin:
 
 ```bash
 npx create-react-app my-app
@@ -47,48 +47,48 @@ cd my-app
 npm start
 ```
 
->Note
+>Qeyd
 >
->`npx` on the first line is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>İlk sətrdə yazılan `npx` səhv deyil -- bu [npm 5.2+ ilə gələn paket icra edən alətdir](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses [Babel](https://babeljs.io/) and [webpack](https://webpack.js.org/), but you don't need to know anything about them.
+Create React App backend məntiqi və ya verilənlər bazası idarə etmir; bu yalnız frontend üçün yaratma konveyeri (build pipeline) yaradır. Siz bunu istədiyiniz backend ilə işlədə bilərsiniz. Bu toolchain pərdə arxasında [Babel](https://babeljs.io/) və [webpack](https://webpack.js.org/) işlədir. Lakin siz bu alətlər haqqında heç nə bilməyə bilərsiniz.
 
-When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
+Applikasiyanı produksiyaya yerləşdirməya hazır olduqda `npm run build` əmri, applikasiyanın produksiya üçün optimallaşmış versiyasını `build` direktoriyasında yaradacaq. Create React App haqqında əlavə məlumat üçün [README faylınını](https://github.com/facebookincubator/create-react-app#create-react-app--) və ya [İstifadəçi Dərsliyini](https://facebook.github.io/create-react-app/) oxuyun.
 
 ### Next.js {#nextjs}
 
-[Next.js](https://nextjs.org/) is a popular and lightweight framework for **static and server‑rendered applications** built with React. It includes **styling and routing solutions** out of the box, and assumes that you're using [Node.js](https://nodejs.org/) as the server environment.
+React-də **statik və server ilə render edilmiş applikasiyalar** yaratmaq üçün populyar və yüngül freymvorklardan biri [Next.js-dir](https://nextjs.org/). Bu freymvork **stilləmə və routing həlləri ilə** hazır gəlir. Bu toolchain server mühitində [Node.js](https://nodejs.org/) işlətdiyinizi fərz edir.
 
-Learn Next.js from [its official guide](https://nextjs.org/learn/).
+Next.js haqqında əlavə məlumat üçün [rəsmi dərsliyə](https://nextjs.org/learn/) baxın.
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) is the best way to create **static websites** with React. It lets you use React components, but outputs pre-rendered HTML and CSS to guarantee the fastest load time.
+React-də **statik veb səhifə** yaratmaq üçün ən yaxşı yol [Gatsby](https://www.gatsbyjs.org/) işlətməkdir. Bu toolchain React komponentlərindən istifadə edir. Lakin son nəticədə əvvəlcədən render olunmuş HTML və CSS faylları yaradaraq ən təz yükləmə sürətinin olacağını qarantiyalayır.
 
-Learn Gatsby from [its official guide](https://www.gatsbyjs.org/docs/) and a [gallery of starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
+Gatsby haqqında öyrənmək üçün [rəsmi sənədlərə](https://www.gatsbyjs.org/docs/) və [start kitlər qalereyasına](https://www.gatsbyjs.org/docs/gatsby-starters/) baxın.
 
-### More Flexible Toolchains {#more-flexible-toolchains}
+### Daha Elastik Toolchain-lər {#more-flexible-toolchains}
 
-The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
+Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif edirlər. Biz bu alətləri daha təcrübəli istifadəçilərə tövsiyyə edirik:
 
-- **[Neutrino](https://neutrinojs.org/)** combines the power of [webpack](https://webpack.js.org/) with the simplicity of presets, and includes a preset for [React apps](https://neutrinojs.org/packages/react/) and [React components](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** aləti [webpack-in](https://webpack.js.org/) gücünü əvvəlcədən hazırlanmış şablonların sadəliyi ilə birləşdirir. Bu alət, [React applikasiyaları](https://neutrinojs.org/packages/react/) və [React komponentləri](https://neutrinojs.org/packages/react-components/) üçün şablonlar təmin edir.
 
-- **[nwb](https://github.com/insin/nwb)** is particularly great for [publishing React components for npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). It [can be used](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) for creating React apps, too. 
+- **[nwb](https://github.com/insin/nwb)** [React komponentlərini npm-ə dərc etməyi](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb) asanlaşdırır. Bu aləti React applikasiyalarında [işlətmək də](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) mümkündür.
 
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 
-## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
+## Sıfırdan Toolchain Yaratmaq {#creating-a-toolchain-from-scratch}
 
-A JavaScript build toolchain typically consists of:
+JavaScript yaratma toolchain-i aşağıdaki elementlərdən ibarətdir:
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+* [Yarn](https://yarnpkg.com/) və ya [npm](https://www.npmjs.com/) kimi **paket meneceri**. Bu mecerlər paketlərdən ibarət olan çox böyük ekosistemdən faydalanmağa və paketləri yükləməyə və ya yeniləməyə imkan yaradır.
 
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Parcel](https://parceljs.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
+* [webpack](https://webpack.js.org/) və ya [Parcel](https://parceljs.org/) kimi **paketləmə qurğuları**. Bu qurğular modulyar kodun yazılmasına və modulları kiçik paketlərə paketləyib yükləmə zamanını optimallaşdırılmasına imkan yaradır.
 
-* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+* [Babel](https://babeljs.io/) kimi **kompilyator**. Bu kompilyator ilə köhnə brauzerlərdə işləyən modern JavaScript kodu yazmaq mümkündür.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
+Əgər öz JavaScript toolchain-inizi quraşdırmağa üstünlük verirsinizsə Create React App-in bəzi funksiyalarını yenidən tətbiq edən [bu yazını oxuyun](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658).
 
-Don't forget to ensure your custom toolchain [is correctly set up for production](/docs/optimizing-performance.html#use-the-production-build).
+Xüsusi toolchain-in [produksiya üçün düzgün quraşdırıldığından](/docs/optimizing-performance.html#use-the-production-build) əmin olun.
