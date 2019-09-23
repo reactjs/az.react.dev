@@ -14,16 +14,11 @@
 - name: Azərbaycanca
   translated_name: Azərbaycanca
   code: az
-<<<<<<< HEAD
   status: 1
 - name: Bolqarca
-=======
   status: 2
-- name: Bulgarian
->>>>>>> 8edfc7ce78cbf5b6024ab5f891f0eee69c792d1f
   translated_name: Български
   code: bg
-  status: 1
 - name: Benqalca
   translated_name: বাংলা
   code: bn
