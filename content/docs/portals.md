@@ -1,6 +1,6 @@
 ---
 id: portals
-title: Portals
+title: Portallar
 permalink: docs/portals.html
 ---
 
@@ -50,7 +50,7 @@ Portalları işlətməyin tipik ssenarilərdən biri validayen komponentinin `ov
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/yzMaBd)
 
-## Portallarda Hadisə Event Bubblinqi {#event-bubbling-through-portals}
+## Portallarda Hadisə Bubblinqi {#event-bubbling-through-portals}
 
 Portalın hər hansı bir yerdə olmasına baxmayaraq, bu element bütün hallarda normal React uşağıdır. Kontekst kimi xüsusiyyətlər uşaqın portalda olmasına baxmayaraq işləyəcək. Bunun səbəbi portalın *DOM ağacındakı* yerindən asılı olmayaraq *React ağacında eyni yerdə yerləşir*.
 
