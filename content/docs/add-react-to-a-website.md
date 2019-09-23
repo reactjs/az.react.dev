@@ -1,6 +1,6 @@
 ---
 id: add-react-to-a-website
-title: Add React to a Website
+title: Səhifəyə React Əlavə Et
 permalink: docs/add-react-to-a-website.html
 redirect_from:
   - "docs/add-react-to-an-existing-app.html"
@@ -8,28 +8,28 @@ prev: getting-started.html
 next: create-a-new-react-app.html
 ---
 
-Use as little or as much React as you need.
+İstədiyiniz qədər az və ya çox React işlədin.
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need**. Perhaps you only want to add some "sprinkles of interactivity" to an existing page. React components are a great way to do that.
+React tədrici adaptasiya ilə dizan olunub. Siz **istədiyiniz qədər az və ya çox React işlədə bilərsiniz**. Siz mövcud səhifəyə bir az interktivlik əlavə etmək istəyə bilərsiniz. React komponentləri bunun üçün çox yaxşıdır.
 
-The majority of websites aren't, and don't need to be, single-page apps. With **a few lines of code and no build tooling**, try React in a small part of your website. You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+Veb səhifələrin əksəriyyəti tək səhifəli applikasiya deyil və olmamalıdırlar. **Bir neçə sətr kod və heç bir yaranma aləti olmadan**, React-i veb səhifənin kiçik bir hissəsində sınayın. Sonra React-in varlığını yavaş yavaş genişləndirə bilər və ya bir neçə dinamik vidcet üçün saxlaya bilərsiniz.
 
 ---
 
-- [Add React in One Minute](#add-react-in-one-minute)
-- [Optional: Try React with JSX](#optional-try-react-with-jsx) (no bundler necessary!)
+- [React-i Bir Dəqiqəyə Əlavə Et](#add-react-in-one-minute)
+- [Fakultativ: React-i JSX-də Sına](#optional-try-react-with-jsx) (paketləmə qurğusu lazım deyil!)
 
-## Add React in One Minute {#add-react-in-one-minute}
+## React-i Bir Dəqiqəyə Əlavə Et {#add-react-in-one-minute}
 
-In this section, we will show how to add a React component to an existing HTML page. You can follow along with your own website, or create an empty HTML file to practice.
+Bu bölmədə, React-i mövcud veb səfihəyə necə əlavə edəcəyimiz göstərəcəyik. Siz öz veb səhifənizdə yoxlaya bilər və ya boş HTML faylı yaradıb praktika edə bilərsiniz.
 
-There will be no complicated tools or install requirements -- **to complete this section, you only need an internet connection, and a minute of your time.**
+Burada çətin alətlər və ya yükləmə tələbləri olmayacaq -- **bu bölməni bitirmək üçün sizə yalnız internet və bir dəqiqə vaxt lazımdır.**
 
-Optional: [Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+Fakultativ: [Tam nümunəni yüklə (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
-### Step 1: Add a DOM Container to the HTML {#step-1-add-a-dom-container-to-the-html}
+### Addım 1: HTML-ə DOM Konteyneri Əlavə Et {#step-1-add-a-dom-container-to-the-html}
 
-First, open the HTML page you want to edit. Add an empty `<div>` tag to mark the spot where you want to display something with React. For example:
+İlk olaraq, redaktə edəcəyiniz HTML səhifəsini açın. React-də render ediləcək komponentin harada yerləşdirilməsi üçün boş `<div>` təqi əlavə edin. Məsələn:
 
 ```html{3}
 <!-- ... existing HTML ... -->
@@ -39,96 +39,96 @@ First, open the HTML page you want to edit. Add an empty `<div>` tag to mark the
 <!-- ... existing HTML ... -->
 ```
 
-We gave this `<div>` a unique `id` HTML attribute. This will allow us to find it from the JavaScript code later and display a React component inside of it.
+Biz `<div>`-ə unikal `id` HTML atributu verdik. Bu elementi JavaScript kodda taparaq React komponentini bu elementə render etməyə imkan yaradacaq.
 
->Tip
+>Məsləhət
 >
->You can place a "container" `<div>` like this **anywhere** inside the `<body>` tag. You may have as many independent DOM containers on one page as you need. They are usually empty -- React will replace any existing content inside DOM containers.
+>Siz bunun kimi "konteyner" `<div>`-ini `<body>` təqinin **istənilən yerində** yerləşdirə bilərsiniz. Bir səhifədə istədiyiniz qədər müstəqil DOM konteynerləri yerləşdirmək münkündür. Bu elementlər adətən boş olurlar. React bu elementin daxilində olan bütün konenti öz markapı ilə əvəzləyəcək.
 
-### Step 2: Add the Script Tags {#step-2-add-the-script-tags}
+### Addım 2: Script Təqləri Əlavə Et {#step-2-add-the-script-tags}
 
-Next, add three `<script>` tags to the HTML page right before the closing `</body>` tag:
+İndi, HTML səhifəsinə `</body>` təqi bağlanmamışdan dərhal öncə üç `<script>` təqi əlavə edin:
 
 ```html{5,6,9}
-  <!-- ... other HTML ... -->
+  <!-- ... digər HTML ... -->
 
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <!-- React-i Yüklə. -->
+  <!-- Qeyd: yerləşdirmə zamanı, "development.js"-i "production.min.js" ilə əvəzləyin. -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Load our React component. -->
+  <!-- React komponentini yüklə. -->
   <script src="like_button.js"></script>
 
 </body>
 ```
 
-The first two tags load React. The third one will load your component code.
+İlk iki təq React-i yükləyəcək. Üçüncü təq isə bizim komponentimizi yükləyəcək.
 
-### Step 3: Create a React Component {#step-3-create-a-react-component}
+### Addım 3: React Komponenti Yarat {#step-3-create-a-react-component}
 
-Create a file called `like_button.js` next to your HTML page.
+HTML faylının yanında `like_button.js` faylı yaradın.
 
-Open **[this starter code](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** and paste it into the file you created.
+Bu **[starter kodunu](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** açaraq bu faylın kontentini yeni yaratdığınız fayla köçürün.
 
->Tip
+>Məsləhət
 >
->This code defines a React component called `LikeButton`. Don't worry if you don't understand it yet -- we'll cover the building blocks of React later in our [hands-on tutorial](/tutorial/tutorial.html) and [main concepts guide](/docs/hello-world.html). For now, let's just get it showing on the screen!
+>Bu kod `LikeButton` adlı React komponenti təyin edir. Bunu başa düşmürsünüzsə narahat olmayın -- biz React-in əsas blokları haqqında [dərslikdə](/tutorial/tutorial.html) and [və əsas konsepsiyalarda](/docs/hello-world.html) danışacağıq. İndi, əsas kodu ekranda görməkdir!
 
-After **[the starter code](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, add two lines to the bottom of `like_button.js`:
+**[Starter koddan sonra](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, `like_button.js` faylının sonuna iki sətr əlavə edin:
 
 ```js{3,4}
-// ... the starter code you pasted ...
+// ... Köçürdüyünüz starter kodu ...
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
-These two lines of code find the `<div>` we added to our HTML in the first step, and then display our "Like" button React component inside of it. 
+Bu iki liniya kod HTML-ə əlavə etdiyimiz `<div>` elementini tapacaq və "Like" düyməsi olan React komponentini bu elementin içərisində render edəcək. 
 
-### That's It! {#thats-it}
+### Hamısı Budur! {#thats-it}
 
-There is no step four. **You have just added the first React component to your website.**
+Burada 4-cü addım yoxdur. **Siz veb səhifənizə ilk React komponentinin əlavə etdiniz.**
 
-Check out the next sections for more tips on integrating React.
+React-in inteqrasiyası üçün digər məsləhətlər üçün sonrakı bölmələrə baxın.
 
-**[View the full example source code](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
+**[Tam nümunə koduna buradan baxın](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
-**[Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+**[Tam nümunəni yükləyin (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Tip: Reuse a Component {#tip-reuse-a-component}
+### Məsləhət: Komponenti Yenidən İşlədin {#tip-reuse-a-component}
 
-Commonly, you might want to display React components in multiple places on the HTML page. Here is an example that displays the "Like" button three times and passes some data to it:
+Adətən, React komponentləri HTML səhifəsinin bir neçə yerində istifadə edilir. Bu nümunədə "Like" düyməsi üç dəfə göstərilir və bəzi məlumatlar bu düyməyə göndərilir:
 
-[View the full example source code](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
+[Tam nümunə koduna buradan baxın](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
 
-[Download the full example (2KB zipped)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
+[Tam nümunəni yükləyin (2KB zipped)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
 
->Note
+>Qeyd
 >
->This strategy is mostly useful while React-powered parts of the page are isolated from each other. Inside React code, it's easier to use [component composition](/docs/components-and-props.html#composing-components) instead.
+>Bu stategiya React ilə işlənilən hissələrinin bir birindən ayrı olduğu halda faydalıdır. React kodunun daxilində [komponent kompozisiyasından istifadə etmək](/docs/components-and-props.html#composing-components) daha faydalıdır.
 
-### Tip: Minify JavaScript for Production {#tip-minify-javascript-for-production}
+### Məsləhət: Produksiya üçün JavaScript-i Minify Edin {#tip-minify-javascript-for-production}
 
-Before deploying your website to production, be mindful that unminified JavaScript can significantly slow down the page for your users.
+Veb səhifəni produksiyaya yerləşdirmədən öncə, minify olunmamış JavaScript-in istifadəçilərə səhifənin açılmasını çox yavaşladacaq.
 
-If you already minify the application scripts, **your site will be production-ready** if you ensure that the deployed HTML loads the versions of React ending in `production.min.js`:
+Əgər siz artıq applikasiya skriptlərini minify edirsinizsə, yüklənmiş HTML-in `production.min.js` ilə bitən React veriyasını yüklədikdə **sizin saytınız produksiya üçün hazır olacaq**:
 
 ```js
 <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
-If you don't have a minification step for your scripts, [here's one way to set it up](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
+Əgər sizdə scriptlər üçün minifikasiya addımı yoxdursa, [bunu quraşdırmağın yollarından biri buradadır](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 
-## Optional: Try React with JSX {#optional-try-react-with-jsx}
+## Fakultativ: React-i JSX ilə Sınayın {#optional-try-react-with-jsx}
 
-In the examples above, we only relied on features that are natively supported by the browsers. This is why we used a JavaScript function call to tell React what to display:
+Yuxarıdakı numünələrdə, biz yalnız brauzerlərdə nativ dəstəklənən xüsusiyyətlərdən istifadə etdik. Bu səbəbdən biz React-ə render etməsi üçün funksiya çağırışından istifadə etdik:
 
 ```js
 const e = React.createElement;
 
-// Display a "Like" <button>
+// "Like" <button> göstər
 return e(
   'button',
   { onClick: () => this.setState({ liked: true }) },
@@ -136,7 +136,7 @@ return e(
 );
 ```
 
-However, React also offers an option to use [JSX](/docs/introducing-jsx.html) instead:
+Lakin, React [JSX](/docs/introducing-jsx.html) işlətməyə icazə verir:
 
 ```js
 // Display a "Like" <button>
@@ -147,56 +147,56 @@ return (
 );
 ```
 
-These two code snippets are equivalent. While **JSX is [completely optional](/docs/react-without-jsx.html)**, many people find it helpful for writing UI code -- both with React and with other libraries.
+Bu iki kod parçaları eynidir. **JSX-in [tam fakultativ olmasına baxmayaraq](/docs/react-without-jsx.html)** bir çox adam React və digər kitabxanalar ilə UI kodu yazdıqda JSX-i faydalı görürlər.
 
-You can play with JSX using [this online converter](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
+[Bu onlayn konverterdən](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3) JSX-i qurdalaya bilərsiniz.
 
-### Quickly Try JSX {#quickly-try-jsx}
+### JSX-i Tez Sına {#quickly-try-jsx}
 
-The quickest way to try JSX in your project is to add this `<script>` tag to your page:
+JSX-i sınamağın ən tez yolu səhifəyə `<script>` təqi əlavə etməkdir:
 
 ```html
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
-Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. Here is [an example HTML file with JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) that you can download and play with.
+İndi, `type="text/babel"` atributunu `<script>` təqlərinə istifadə edərək JSX-dən istifadə edə bilərsiniz. [JSX işlədilən bu HTML faylını](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) yükləyib JSX-i yoxlaya bilərsiniz.
 
-This approach is fine for learning and creating simple demos. However, it makes your website slow and **isn't suitable for production**. When you're ready to move forward, remove this new `<script>` tag and the `type="text/babel"` attributes you've added. Instead, in the next section you will set up a JSX preprocessor to convert all your `<script>` tags automatically.
+Öyrənmək və ya sadə demolar yaratmaq üçünThis approach is fine for learning and creating simple demos. However, it makes your website slow and **isn't suitable for production**. When you're ready to move forward, remove this new `<script>` tag and the `type="text/babel"` attributes you've added. Instead, in the next section you will set up a JSX preprocessor to convert all your `<script>` tags automatically.
 
-### Add JSX to a Project {#add-jsx-to-a-project}
+### Layihəyə JSX Əlavə Et {#add-jsx-to-a-project}
 
-Adding JSX to a project doesn't require complicated tools like a bundler or a development server. Essentially, adding JSX **is a lot like adding a CSS preprocessor.** The only requirement is to have [Node.js](https://nodejs.org/) installed on your computer.
+Layihəyə JSX əlavə etmək üçün paketləmə və ya development server kimi mürəkkəb alətlər lazım deyil. JSX əlavə etmək **CSS preprosessor əlavə etmək kimidir.** Yeganə tələb kompüterdə [Node.js](https://nodejs.org/)-in quraşdırılmış olması.
 
-Go to your project folder in the terminal, and paste these two commands:
+Terminaldan layihə direktoriyasına gedərək aşağıdakı iki əmri icra edin:
 
-1. **Step 1:** Run `npm init -y` (if it fails, [here's a fix](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
-2. **Step 2:** Run `npm install babel-cli@6 babel-preset-react-app@3`
+1. **Addım 1:** `npm init -y` əmrini icra edin (Əgər bu əmr uğursuz başa çatırsa [bu düzəlişdən](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d) istifadə edin)
+2. **Addım 2:** `npm install babel-cli@6 babel-preset-react-app@3` əmrini icra edin
 
->Tip
+>Məsləhət
 >
->We're **using npm here only to install the JSX preprocessor;** you won't need it for anything else. Both React and the application code can stay as `<script>` tags with no changes.
+>Biz **NPM-i yalnız JSX preprosessorunu yükləmək üçün işlədirik.** Bu aləti başqa yerlədə işlətməyəcəyik. Həm React həm də applikasiya kodu dəyişiklik edilmədən `<script>` təqləri kimi qala bilərlər.
 
-Congratulations! You just added a **production-ready JSX setup** to your project.
+Təbrik Edirik! Siz layihənizə **produksiyaya hazır JSX quruluşu** əlavə etdiniz.
 
 
-### Run JSX Preprocessor {#run-jsx-preprocessor}
+### JSX Preprosessorunu İcra Et {#run-jsx-preprocessor}
 
-Create a folder called `src` and run this terminal command:
+`src` adlı direktotiya yaradaraq aşağıdaki əmri icra edin:
 
 ```
 npx babel --watch src --out-dir . --presets react-app/prod 
 ```
 
->Note
+>Qeyd
 >
->`npx` is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>`npx` səhv deyil -- bu [NPM 5.2+ ilə gələn paket icra edən alətdir](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
->If you see an error message saying "You have mistakenly installed the `babel` package", you might have missed [the previous step](#add-jsx-to-a-project). Perform it in the same folder, and then try again.
+>Əgər "You have mistakenly installed the `babel` package" xəta mesajını görürsünüzsə [əvvəlki addımı](#add-jsx-to-a-project) qaçırmış ola bilərsiniz. Əvvəlki addımı eyni direktoriyada çağıraraq bu əmri təkrarlayın.
 
-Don't wait for it to finish -- this command starts an automated watcher for JSX.
+Bu əmrin bitməsini gözləməyin -- bu əmr JSX üçün avromatik gözətçi başladır.
 
-If you now create a file called `src/like_button.js` with this **[JSX starter code](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, the watcher will create a preprocessed `like_button.js` with the plain JavaScript code suitable for the browser. When you edit the source file with JSX, the transform will re-run automatically.
+İndi, **[JSX başlama kodu ilə](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)** `src/like_button.js` faylı yaratdıqda, gözətçi brauzerlərə uyğun sadə JavaScript kodu ilə transformasiya olunmuş `like_button.js` faylı yaradacaq. Mənbə faylını JSX ilə dəyişdikdə, transformasiya yenidən icra olunacaq.
 
-As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about breaking older browsers. The tool we just used is called Babel, and you can learn more about it from [its documentation](https://babeljs.io/docs/en/babel-cli/).
+Bonus olaraq, bu sizə köhnə brauzerləri sındırmadan klaslar kimi modern JavaScript sintaksisininin xüsusiyyətləsindən istifadə etməyə imkan yaradır. Bizim işlətdiyimiz alətin adı Babel-dir. Siz bu alət haqqında əlavə məlumat üçün [sənədlərinə](https://babeljs.io/docs/en/babel-cli/) baxa bilərsiniz.
 
-If you notice that you're getting comfortable with build tools and want them to do more for you, [the next section](/docs/create-a-new-react-app.html) describes some of the most popular and approachable toolchains. If not -- those script tags will do just fine!
+Quraşdırma alətləri ilə işləməyə öyrəşdiyinizi hiss etdikdə və bu alətlərin daha çox iş görməsini istədikdə, populyar və asan işlənə bilən toolchain-lərə [sonrakı bölmədən](/docs/create-a-new-react-app.html) baxa bilərsiniz. Əgər lazım deyilsə, script təqləri işlətmək bəs edəcək!
