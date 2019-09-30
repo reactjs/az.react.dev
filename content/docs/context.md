@@ -15,12 +15,22 @@ Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uş
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
+<<<<<<< HEAD
 - [Misallar](#examples)
   - [Dinamik Kontekst](#dynamic-context)
   - [Konteksti Bir Birindən Keçən Komponentdən Yeniləmək](#updating-context-from-a-nested-component)
   - [Bir Neçə Kontekstin İstehlakı](#consuming-multiple-contexts)
 - [Xəbərdarlıqlar](#caveats)
 - [Köhnə API](#legacy-api)
+=======
+  - [Context.displayName](#contextdisplayname)
+- [Examples](#examples)
+  - [Dynamic Context](#dynamic-context)
+  - [Updating Context from a Nested Component](#updating-context-from-a-nested-component)
+  - [Consuming Multiple Contexts](#consuming-multiple-contexts)
+- [Caveats](#caveats)
+- [Legacy API](#legacy-api)
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## Nə Zaman Kontekst İşlətmək Lazımdır {#when-to-use-context}
 
@@ -197,7 +207,25 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funksional
 > 
 > 'funksiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədinə baxın.
 
+<<<<<<< HEAD
 ## Misallar {#examples}
+=======
+### `Context.displayName` {#contextdisplayname}
+
+Context object accepts a `displayName` string property. React DevTools uses this string to determine what to display for the context.
+
+For example, the following component will appear as MyDisplayName in the DevTools:
+
+```js{2}
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" in DevTools
+<MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
+```
+
+## Examples {#examples}
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ### Dinamik Kontekst {#dynamic-context}
 

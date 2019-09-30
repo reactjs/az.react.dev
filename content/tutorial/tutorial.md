@@ -118,7 +118,11 @@ Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlim
 
 ### Kömək, Mən İlişmişəm!
 
+<<<<<<< HEAD
 Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusilə, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
+=======
+If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## İcmal {#overview}
 
