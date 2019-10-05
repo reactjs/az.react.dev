@@ -25,8 +25,8 @@ Yox! Əlavə məlumat üçün ["ES6-sız React sənədinə"](/docs/react-without
 
 ```jsx
 <div>
-  {/* Çox sətrli kommentlər 
-  ilə də işlətmək mümkündür. */}
+  {/* Çox sətrli kommentlər də
+  əlavə etmək mümkündür. */}
   Salam {name}! 
 </div>
 ```
