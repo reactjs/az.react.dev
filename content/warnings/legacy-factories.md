@@ -1,22 +1,22 @@
 ---
-title: React Element Factories and JSX Warning
+title: React Element Zavodları və JSX Xəbərdarlığı
 layout: single
 permalink: warnings/legacy-factories.html
 ---
 
-You probably came here because your code is calling your component as a plain function call. This is now deprecated:
+Sizin bu xəbərdarlığa gəlməyinizin səbəbi kodunuz komponenti sadə funksiya çağırışı ilə çağırır. Bu formada komponentləri çağırmaq köhnəlib:
 
 ```javascript
 var MyComponent = require('MyComponent');
 
 function render() {
-  return MyComponent({ foo: 'bar' });  // WARNING
+  return MyComponent({ foo: 'bar' });  // Xəbərdarlıq
 }
 ```
 
 ## JSX {#jsx}
 
-React components can no longer be called directly like this. Instead [you can use JSX](/docs/jsx-in-depth.html).
+React komponentləri artıq bu formada birbaşa çağrıla bilməzlər. Əvəzinə [JSX istifadə edin](/docs/jsx-in-depth.html).
 
 ```javascript
 var React = require('react');
@@ -27,9 +27,9 @@ function render() {
 }
 ```
 
-## Without JSX {#without-jsx}
+## JSX-siz İstifadə {#without-jsx}
 
-If you don't want to, or can't use JSX, then you'll need to wrap your component in a factory before calling it:
+Əgər JSX istifadə etmək istəmirsinizsə və ya istifadə edə bilmirsinizsə, komponenti çağırmamışdan öncə zavod ilə əhatə etməlisiniz:
 
 ```javascript
 var React = require('react');
@@ -40,11 +40,11 @@ function render() {
 }
 ```
 
-This is an easy upgrade path if you have a lot of existing function calls.
+Əgər sizdə çoxlu funksiya çağırışları varsa bu asan yeniləmə yoludur.
 
-## Dynamic components without JSX {#dynamic-components-without-jsx}
+## JSX-siz Dinamik Komponentlər {#dynamic-components-without-jsx}
 
-If you get a component class from a dynamic source, then it might be unnecessary to create a factory that you immediately invoke. Instead you can just create your element inline:
+Əgər komponent klasını dinamik mənbədən alırsınızsa, dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə elementi birbaşa yaradın:
 
 ```javascript
 var React = require('react');
@@ -54,6 +54,6 @@ function render(MyComponent) {
 }
 ```
 
-## In Depth {#in-depth}
+## Dərindən {#in-depth}
 
-[Read more about WHY we're making this change.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
+[Bu səbəbi NİYƏ etdiyimiz haqqında məlumat üçün buradan oxuyun.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
