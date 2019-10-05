@@ -1,5 +1,5 @@
 ---
-title: Unknown Prop Warning
+title: Tanınmayan Prop Xəbərdarlığı
 layout: single
 permalink: warnings/unknown-prop.html
 ---
