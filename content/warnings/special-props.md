@@ -1,9 +1,9 @@
 ---
-title: Special Props Warning
+title: Xüsusi Proplar Xəbərdarlığı
 layout: single
 permalink: warnings/special-props.html
 ---
 
-Most props on a JSX element are passed on to the component, however, there are two special props (`ref` and `key`) which are used by React, and are thus not forwarded to the component.
+JSX elementində olan propların əksəriyyəti komponentə göndərilir. Lakin, React tərəfindən işlədilən iki xüsusi prop (`ref` və `key`) komponentə yönləndirilmir.
 
-For instance, attempting to access `this.props.key` from a component (i.e., the render function or [propTypes](/docs/typechecking-with-proptypes.html#proptypes)) is not defined. If you need to access the same value within the child component, you should pass it as a different prop (ex: `<ListItemWrapper key={result.id} id={result.id} />`). While this may seem redundant, it's important to separate app logic from reconciling hints.
+Məsələn, komponentdən `this.props.key`-i oxumaq (i.e., render funksiyası və ya [propTypes-dan](/docs/typechecking-with-proptypes.html#proptypes)) təyin edilməyib. Əgər sizə eyni dəyəri uşaq komponentdən oxumaq lazımdırsa bu dəyəri komponentə digər prop ilə (məsələn: `<ListItemWrapper key={result.id} id={result.id} />`) göndərin. Bunun lazımsız görünməsinə baxmayaraq, applikasiya məntiqini rekonsilyasiya işarələrindən ayırmaq vacibdir.
