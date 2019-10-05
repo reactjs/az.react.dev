@@ -208,8 +208,8 @@ Məsələn, aşağıdakı komponent DevTools-da "MyDisplayName" kimi göstəril�
 const MyContext = React.createContext(/* some value */);
 MyContext.displayName = 'MyDisplayName';
 
-<MyContext.Provider> // "MyDisplayName.Provider" in DevTools
-<MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
+<MyContext.Provider> // DevTools-da "MyDisplayName.Provider" göstəriləcək
+<MyContext.Consumer> // DevTools-da "MyDisplayName.Consumer" göstəriləcək
 ```
 
 ## Misallar {#examples}
