@@ -10,15 +10,15 @@ Portallar, valideyn komponentin DOM iyerarxiyasından kənarda olan DOM noduna u
 ReactDOM.createPortal(child, container)
 ```
 
-İlk arqument (`child`), element, mətn, və ya fraqment kimi [render oluna bilən React uşağıdır](/docs/react-component.html#render). İkinci arqument isə (`container`) DOM elementidir.
+İlk arqument (`child`) element, mətn, və ya fraqment kimi [render oluna bilən React uşağıdır](/docs/react-component.html#render). İkinci arqument isə (`container`) DOM elementidir.
 
 ## İstifadəsi {#usage}
 
-Normalda, komponentin render funksiyasından element qaytardıqda bu element ən yaxın valideyn nodunun uşağı kimi DOM-a əlavə olunur:
+Normalda, komponentin render funksiyasından qaytarılan element ən yaxın valideyn nodunun uşağı kimi DOM-a əlavə olunur:
 
 ```js{4,6}
 render() {
-  // React yeni div-i DOM-a əlavə edir və uşaqları bu elementə render edir
+  // React, yeni div-i DOM-a əlavə edir və uşaqları bu elementə render edir
   return (
     <div>
       {this.props.children}
@@ -32,7 +32,7 @@ Halbuki, bəzən uşağı DOM-da fərqli yerə əlavə etmək faydalı ola bilə
 ```js{6}
 render() {
   // React yeni div *yaratmaq* əvəzinə uşaqları `domNode` elementinə əlavə edir.
-  // `domNode` DOM-un yerindən asılı olmayan etibarlı DOM nodudur.
+  // `domNode` DOM ağacındakı yerindən asılı olmayan etibarlı DOM nodudur.
   return ReactDOM.createPortal(
     this.props.children,
     domNode
@@ -46,15 +46,15 @@ Portalları işlətməyin tipik ssenarilərdən biri validayen komponentinin `ov
 >
 > Portallar ilə işlədikdə [klaviatur fokusunu idarə etmək](/docs/accessibility.html#programmatically-managing-focus) çox vacib olur.
 >
-> Modal dialoqları hamının istifadə edə bilməsi üçün [WAI-ARIA Modal Praktikalarından](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) istifadə edin.
+> Modal dialoqlarını hamının istifadə edə bilməsi üçün [WAI-ARIA Modal Praktikalarından](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) istifadə edin.
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/yzMaBd)
 
 ## Portallarda Hadisə Bubblinqi {#event-bubbling-through-portals}
 
-Portalın hər hansı bir yerdə olmasına baxmayaraq, bu element bütün hallarda normal React uşağıdır. Kontekst kimi xüsusiyyətlər uşaqın portalda olmasına baxmayaraq işləyəcək. Bunun səbəbi portalın *DOM ağacındakı* yerindən asılı olmayaraq *React ağacında eyni yerdə yerləşir*.
+Portalın DOM-da olan yerindən asılı olmayaraq bu element bütün hallarda normal React uşağıdır. Kontekst kimi xüsusiyyətlər uşağın portalda olmasından asılı olmayaraq işləyəcək. Bunun səbəbi, portalın *DOM ağacındakı* yerindən asılı olmayaraq *React ağacında valideyn komponentin uşağı kimi yerləşir*.
 
-Bu həmçinin hadisə bubblinqinə də aiddir. Portalda baş verən hadisələr *React ağacında* olan valideyn komponentlərə (*DOM ağacında* valideyn olmamağına baxmayaraq) yayılacaq. Aşağıdaki HTML strukturuna baxaq:
+Bu işləmə prinsipi hadisə bubblinqinə də təsir edir. Portalda baş verən hadisələr *React ağacında* olan valideyn komponentlərə (*DOM ağacında* valideyn olmamağına baxmayaraq) yayılacaq. Aşağıdakı HTML strukturuna baxaq:
 
 ```html
 <html>
@@ -80,11 +80,11 @@ class Modal extends React.Component {
 
   componentDidMount() {
     // Portal elementi Modal-ın uşaqları mount edildikdən
-    // sonra DOM-a əlavə olunacaq. Bu deməkdir ki, uşaqlar
-    // ayrılmış DOM noduna mount olacaqlar. Əgər uşaq
-    // komponent DOM ağacına dərhal qoşulmalı (məsələn, 
+    // sonra DOM-a əlavə olunacaq. Bu deməkdir ki, uşaqlar,
+    // ayrılmış DOM noduna mount olunacaqlar. Əgər uşaq
+    // komponenti DOM ağacına dərhal qoşulmalıdırsa (məsələn, 
     // DOM nodu ölçmək üçün) və ya uşaqlarda `autoFocus`
-    // işlədirsə, Modal-a state əlavə edərək, uşaqları
+    // işlədirsə, Modal-a state əlavə edərək uşaqları
     // Model-in DOM ağacına əlavə edildiyi zaman render edin.
     modalRoot.appendChild(this.el);
   }
@@ -110,8 +110,8 @@ class Parent extends React.Component {
 
   handleClick() {
     // Bu funksiya, Child komponentində düymə tıklandığı
-    // zaman çağrılıb, düymənin DOM-da birbaşa uşaq olmasına
-    // baxmayaraq Parent-in state-ini yeniləyəcək
+    // zaman çağrılıb düymənin DOM-da birbaşa uşaq olmasına
+    // baxmayaraq Parent-in state-ini yeniləyəcək.
     this.setState(state => ({
       clicks: state.clicks + 1
     }));
