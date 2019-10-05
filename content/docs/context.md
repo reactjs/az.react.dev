@@ -15,6 +15,7 @@ Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uş
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
+  - [Context.displayName](#contextdisplayname)
 - [Misallar](#examples)
   - [Dinamik Kontekst](#dynamic-context)
   - [Konteksti Bir Birindən Keçən Komponentdən Yeniləmək](#updating-context-from-a-nested-component)
@@ -196,6 +197,20 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funksional
 > Qeyd
 > 
 > 'funksiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədinə baxın.
+
+### `Context.displayName` {#contextdisplayname}
+
+Kontekst obyekti `displayName` mətn parametri qəbul edir. React DevTools bu parametrdən istifadə edərək kontekti hansı adla göstərəcəyini müəyyənləşdirir.
+
+Məsələn, aşağıdakı komponent DevTools-da "MyDisplayName" kimi göstəriləcək:
+
+```js{2}
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // DevTools-da "MyDisplayName.Provider" göstəriləcək
+<MyContext.Consumer> // DevTools-da "MyDisplayName.Consumer" göstəriləcək
+```
 
 ## Misallar {#examples}
 
