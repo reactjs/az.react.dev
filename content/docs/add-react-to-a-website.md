@@ -69,13 +69,21 @@ Biz `<div>` təqinə unikal `id` HTML atributu verdik. Göstərilən ID ilə ele
 
 HTML faylının yanında `like_button.js` faylı yaradın.
 
+<<<<<<< HEAD
 Bu **[starter kodunu](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** yeni yaratdığınız fayla köçürün.
+=======
+Open **[this starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** and paste it into the file you created.
+>>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 >Məsləhət
 >
 >Bu kod, `LikeButton` adlı React komponenti təyin edir. Bunu başa düşmürsünüzsə narahat olmayın -- biz React-in əsas blokları haqqında [dərslikdə](/tutorial/tutorial.html) və [əsas konsepsiyalarda](/docs/hello-world.html) danışacağıq. İndi əsas məqsəd, kodu ekranda görməkdir!
 
+<<<<<<< HEAD
 **[Starter kodundandan sonra](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** `like_button.js` faylının sonuna iki sətr əlavə edin:
+=======
+After **[the starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, add two lines to the bottom of `like_button.js`:
+>>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 ```js{3,4}
 // ... Köçürdüyünüz starter kodu ...
@@ -195,7 +203,11 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 Bu əmrin bitməsini gözləməyin -- bu əmr JSX üçün avtomatik gözətçi başladır.
 
+<<<<<<< HEAD
 İndi, **[JSX başlama kodu ilə](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)** `src/like_button.js` faylı yaratdıqda, gözətçi brauzerlərə uyğun sadə JavaScript kodu ilə çevrilmiş `like_button.js` faylı yaradacaq. Mənbə faylını JSX ilə dəyişdikdə, çevrilmə yenidən icra olunacaq.
+=======
+If you now create a file called `src/like_button.js` with this **[JSX starter code](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, the watcher will create a preprocessed `like_button.js` with the plain JavaScript code suitable for the browser. When you edit the source file with JSX, the transform will re-run automatically.
+>>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 Bonus olaraq, bu sizə köhnə brauzerləri sındırmadan klaslar kimi modern JavaScript sintaksisininin xüsusiyyətləsindən istifadə etməyə imkan yaradır. Bizim işlətdiyimiz alətin adı Babel-dir. Siz bu alət haqqında əlavə məlumat üçün [bu alətin sənədlərinə](https://babeljs.io/docs/en/babel-cli/) baxa bilərsiniz.
 
