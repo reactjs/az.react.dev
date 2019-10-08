@@ -4,19 +4,19 @@ layout: single
 permalink: warnings/legacy-factories.html
 ---
 
-Sizin bu xəbərdarlığa gəlməyinizin səbəbi kodunuz komponenti sadə funksiya çağırışı ilə çağırır. Bu formada komponentləri çağırmaq köhnəlib:
+Komponenti sadə funksiya çağırışı ilə çağırdıqda bu xəbərdarlıq göstərilir. Bu formada komponentləri çağırmaq köhnəlib:
 
 ```javascript
 var MyComponent = require('MyComponent');
 
 function render() {
-  return MyComponent({ foo: 'bar' });  // Xəbərdarlıq
+  return MyComponent({ foo: 'bar' });  // XƏBƏRDARLIQ
 }
 ```
 
 ## JSX {#jsx}
 
-React komponentləri artıq bu formada birbaşa çağrıla bilməzlər. Əvəzinə [JSX istifadə edin](/docs/jsx-in-depth.html).
+React komponentlərinin bu formada birbaşa çağrılması dəstəklənmir. Əvəzinə [JSX istifadə edin](/docs/jsx-in-depth.html).
 
 ```javascript
 var React = require('react');
@@ -29,7 +29,7 @@ function render() {
 
 ## JSX-siz İstifadə {#without-jsx}
 
-Əgər JSX istifadə etmək istəmirsinizsə və ya istifadə edə bilmirsinizsə, komponenti çağırmamışdan öncə zavod ilə əhatə etməlisiniz:
+Əgər JSX istifadə etmək istəmirsinizsə və ya istifadə edə bilmirsinizsə komponenti çağırmamışdan öncə zavod ilə əhatə etməlisiniz:
 
 ```javascript
 var React = require('react');
@@ -40,11 +40,11 @@ function render() {
 }
 ```
 
-Əgər sizdə çoxlu funksiya çağırışları varsa bu asan yeniləmə yoludur.
+Əgər sizdə çoxlu funksiya çağırışları varsa bu kodu yenilmənənin asan yoludur.
 
 ## JSX-siz Dinamik Komponentlər {#dynamic-components-without-jsx}
 
-Əgər komponent klasını dinamik mənbədən alırsınızsa, dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə elementi birbaşa yaradın:
+Əgər komponent klasını dinamik mənbədən alırsınızsa dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə elementi birbaşa yaradın:
 
 ```javascript
 var React = require('react');
@@ -56,4 +56,4 @@ function render(MyComponent) {
 
 ## Dərindən {#in-depth}
 
-[Bu səbəbi NİYƏ etdiyimiz haqqında məlumat üçün buradan oxuyun.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
+[Bu səbəbi NİYƏ etdiyimiz haqqında məlumat üçün bu yazını oxuyun.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)

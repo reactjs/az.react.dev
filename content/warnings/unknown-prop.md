@@ -11,7 +11,7 @@ Bu xəbərdarlığın göstərilməsinin bir neçə səbəbi ola bilər:
 
 2. DOM-da standart olmayan DOM atributundan istifadə edirsiniz (məsələn xüsusi məlumatı təmsil etmək üçün). Əgər standart DOM elementinə xüsusi atribut qoşmaq istəyirsinizsə, [MDN-də](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes) göstərildiyi kimi xüsusi data atributlarından istifadə edin.
 
-3. React göstərilən atributu tanımır. Çox guman ki, bu atribut React-in gələcək versiyalarında əlavə ediləcək. Lakin, hal hazırda React bütün tanınmayan atributları silir. Bu səbəbdən, bu atributlar React applikasiyasında render edilməyəcək.
+3. Təyin edilən atributu React tanımır. Çox guman ki, bu atribut React-in gələcək versiyalarında əlavə ediləcək. Lakin, hal hazırda React-in tanımadığı bütün atributlar silinir və render edilmir.
 
 4. Siz React componentini böyük hərflə yazmırsınız. React kiçik hərf ilə yazılan komponentləri DOM təqləri kimi qəbul edir. Çünki, [React JSX çevirəni böyük və kiçik hərf konvensiyasından istifadə edərək istifadəçi tərəfindən təyin edilən komponentləri və DOM təqlərini fəqrləndirir](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
