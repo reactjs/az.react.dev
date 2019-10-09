@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### Komonentlərə CSS Klaslarını Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
+### Komponentlərə CSS Klaslarını Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
 
 Mətni `className` propuna göndərin:
 
