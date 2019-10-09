@@ -40,11 +40,11 @@ function render() {
 }
 ```
 
-Əgər sizdə çoxlu funksiya çağırışları varsa bu kodu yenilmənənin asan yoludur.
+Bu, çoxlu funksiya olduqda kodu yeniləmənin asan yoludur.
 
 ## JSX-siz Dinamik Komponentlər {#dynamic-components-without-jsx}
 
-Əgər komponent klasını dinamik mənbədən alırsınızsa dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə elementi birbaşa yaradın:
+Komponent klası dinamik mənbədən alındıqda dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə, elementi birbaşa yaradın:
 
 ```javascript
 var React = require('react');
@@ -56,4 +56,4 @@ function render(MyComponent) {
 
 ## Dərindən {#in-depth}
 
-[Bu səbəbi NİYƏ etdiyimiz haqqında məlumat üçün bu yazını oxuyun.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
+[Bu dəyişikliyin səbəbi haqqında məlumat üçün bu yazını oxuyun.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)

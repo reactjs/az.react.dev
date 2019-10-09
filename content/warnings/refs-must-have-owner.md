@@ -16,26 +16,26 @@ Siz aşağıdakı xəta mesajlarına görə buradasınız:
 >
 > addComponentAsRefTo(...): Only a ReactOwner can have refs. You might be adding a ref to a component that was not created inside a component's `render` method, or you have multiple copies of React loaded.
 
-Bunun adətən üç səbəbi var:
+Bu xəbərdarlıq adətən üç səbəbdən yarana bilər:
 
-- `ref`-i funksiya komponentinə qoşursunuz.
-- Komponentin render() funksiyasından kənarda yaranan elementə mətn `ref`-i qoşursunuz.
-- Layihənizd React-in konfliktdə olan bir neçə versiyası yüklənib (məsələn, səhv qurulmuş NPM paketinə görə).
+- `ref`-i funksiya komponentinə qoşduqda.
+- Komponentin render() funksiyasından kənarda yaranan elementə mətn `ref`-i qoşduqda.
+- Layihədə React-in konfliktdə olan bir neçə versiyası yükləndikdə (məsələn, səhv qurulmuş NPM paketinə görə).
 
 ## Funksiya Komponentlərinə Ref-lər {#refs-on-function-components}
 
-Əgər `<Foo>` funksiya komponentidirsə, bu komponentə ref əlavə etmək olmaz:
+Əgər `<Foo>` funksiya komponentidirsə bu komponentə ref əlavə etmək olmaz:
 
 ```js
 // Əgər Foo funksiyadırsa, işləməyəcək!
 <Foo ref={foo} />
 ```
 
-Əgər komponentə ref əlavə etmək lazımdırsa, bu komponenti ilk olaraq klasa çevirin. Və ya komponentlər üçün ümümiyyətlə ref işlətməyin. Çünki bu [nadir hallarda lazımdır](/docs/refs-and-the-dom.html#when-to-use-refs).
+Əgər komponentə ref əlavə etmək lazımdırsa bu komponenti ilk olaraq klasa çevirin. Və ya komponentlər üçün ümümiyyətlə ref işlətməyin. Çünki bu [nadir hallarda lazımdır](/docs/refs-and-the-dom.html#when-to-use-refs).
 
 ## Render Funksiyasından Kənarda Mətn Ref-ləri {#strings-refs-outside-the-render-method}
 
-Adətən sahibi olmayan komponentə (yəni digər komponentin `render` funksiyasından əlavə edilməyən) `ref` əlavə etdikdə xəbədarlıq baş verir. Məsələn, aşağıdaki kod işləməyəcək:
+Adətən sahibi olmayan komponentə (yəni digər komponentin `render` funksiyasından əlavə edilməyən) `ref` əlavə etdikdə xəbədarlıq göstəriləcək. Məsələn, aşağıdakı kod işləməyəcək:
 
 ```js
 // İşləmir!
@@ -54,10 +54,10 @@ ReactDOM.render(
 );
 ```
 
-Bu yolu işlətməmişdən öncə [sizə ref-lərin tam lazım olmasından](/docs/refs-and-the-dom.html#when-to-use-refs) əmin olun.
+Bu yolu işlətməmişdən öncə [ref-lərə ehtiyacı olduğunuzdan](/docs/refs-and-the-dom.html#when-to-use-refs) əmin olun.
 
 ## React-in Bir Neçə Kopiyası {#multiple-copies-of-react}
 
 Bower asılılıqların duplikasiyalarını silə bilir. NPM isə bunu etmir. Əgər siz ref-lər ilə işləmirsinizsə problem ref-lərdə olmaya bilər. Layihədə React-in bir neçə kopiyasının yükləməsindən problem yarana bilər. Bəzən, 3-cü tərəfin modulunu NPM ilə yüklədikdə, bu modul React-in fərqli kopiyasını yükləyə bilər. Bu səbəbdən problemlər yarana bilər.
 
-Əgər NPM işlədirsinizsə `npm ls` və ya `npm ls react` əmrləri nə baş verdiyinə aydınlıq gətirə bilər.
+Əgər NPM işlədirsinizsə `npm ls` və ya `npm ls react` əmrləri ilə nə baş verdiyi haqqda məlumat ala bilərsiniz.

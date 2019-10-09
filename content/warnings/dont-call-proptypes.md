@@ -55,13 +55,13 @@ Button.propTypes = {
 }
 ```
 
-Bu ssenaridə `ThirdPartyPropTypes.deprecated` funksiyası `PropTypes.bool` funksiyasını çağırır. Bu pattern-in özlüyündə normaldır. Lakin bu pattern səhv müsbətin yaranması ilə nəticələnə bilər. Çünki React PropTypes-ı birbaşa çağırdığınızı fikirləşir. Sonrakı bölmədə `ThirdPartyPropTypes` kimi kitabxananın bu problemi necə düzəldəcəyini başa salacağıq. Əgər bu kitabxana sizə məxsus deyilsə kitabxana yaradıcısını bu problemi düzəltməsi üçün məlumatlandırın.
+Bu ssenaridə `ThirdPartyPropTypes.deprecated` funksiyası `PropTypes.bool` funksiyasını çağırır. Bu pattern özlüyündə normaldır. Lakin bu pattern səhv müsbətin yaranması ilə nəticələnə bilər. Çünki React, PropTypes-ı birbaşa çağırdığınızı fikirləşir. Sonrakı bölmədə, `ThirdPartyPropTypes` kimi kitabxananın bu problemi necə düzəldəcəyini başa salacağıq. Əgər bu kitabxana sizə məxsus deyilsə kitabxana yaradıcısını bu problemi düzəltməsi üçün məlumatlandırın.
 
 ### 3-cü tərəfin PropTypes kitabxanasında səhv müsbətin düzəlişi {#fixing-the-false-positive-in-third-party-proptypes}
 
 Əgər 3-cü tərəfin PropTypes kitabxanasının yaradıcısınızsa və istifadəçilərə mövcud React PropTypes-ı əhatə etməyə imkan yaradırsınızsa, istifadəçilər sizin kitabxananızı işlətdikdə bu xəbərdarlığı görə bilərlər. Bu xəbərdarlıq React-in əl ilə çağrılan PropTypes çağırışlarını aşkar etmək üçün [göndərdiyi](https://github.com/facebook/react/pull/7132) sonuncu "gizli" arqumenti görməməsindən baş verir.
 
-Bu problemi aşağıdaki formada düzəldə bilərsiniz. Biz [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) paketindən `deprecated` funksiyasını misal kimi gətirəcəyik. Cari tətbiqdə yalnız `props`, `propName`, və `componentName` arqumentləri göndərilir:
+Bu problemi aşağıdakı formada düzəldə bilərsiniz. Biz [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) paketindən `deprecated` funksiyasını misal kimi gətirəcəyik. Cari tətbiqdə yalnız `props`, `propName` və `componentName` arqumentləri göndərilir:
 
 ```javascript
 export default function deprecated(propType, explanation) {
@@ -79,7 +79,7 @@ export default function deprecated(propType, explanation) {
 }
 ```
 
-Səhv müsbəti düzəltmək üçün PropType-a **bütün** arqumentləri göndərdiyinizdən əmin olun. Bunu ES6-ın `...rest` sintaksisi ilə asan formada tətbiq etmək mümkündür:
+Səhv müsbəti düzəltmək üçün PropTypes-a **bütün** arqumentləri göndərdiyinizdən əmin olun. Bunu ES6-ın `...rest` sintaksisi ilə asan formada tətbiq etmək mümkündür:
 
 ```javascript
 export default function deprecated(propType, explanation) {
