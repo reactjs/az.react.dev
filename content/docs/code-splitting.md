@@ -49,7 +49,7 @@ console.log(add(16, 26)); // 42
 
 Paketləmə əladır amma sizin applikasiyanız böyüdükcə paket də böyüyəcək, xüsusəndə böyük ölçülü üçüncü tərəf kitabxanalardan istifadə edildikdə. Təsadüfən paketin ölçüsünü böyüdüb applikasiyanın yüklənməsi zamanını artırmamaq üçün paketə import etdiyiniz kodlara fikir verin.
 
-Böyük paket ilə qalmamaq üçün öncədən problemin üstünə düşub paketi "parçalamağa" başlaya bilərsiniz. Webpack və Browserify ([factor-bundle](https://github.com/browserify/factor-bundle) ilə)  kimi paketləmə alətlərində bir çox paketləri yaradıb dinamik formada icra müddətində yüklənməsi xüsusiyyəti [Kod Parçalanması](https://webpack.js.org/guides/code-splitting/) adlanır.
+Böyük paket ilə qalmamaq üçün öncədən problemin üstünə düşub paketi "parçalamağa" başlaya bilərsiniz. [Webpack](https://webpack.js.org/guides/code-splitting/),[Rollup](https://rollupjs.org/guide/en/#code-splitting) və Browserify ([factor-bundle](https://github.com/browserify/factor-bundle) ilə) kimi paketləmə alətlərinin dəstəklədiyi, bir çox paketlərin yaranıb icra zamanı dinamik formada yüklənməsi xüsusiyyəti [Kod Parçalanması](https://webpack.js.org/guides/code-splitting/) adlanır.
 
 Kod Parçalanması sizin applikasiyanızda istifadəçiyə hal-hazırda lazım olanları "lazy-load" etməyə kömək edir. Bu sizin applikasiyanızın performansını dramatik şəkildə təkminləşdirir. Siz applikasiyada bütün kodun həcmini azalatmasanız da, istifadəçinin işlətməyəcəyi hissələrin yüklənmənməsini qabağını alır bə ilk yüklənən kodun həcmini azaltmış olursunuz.
 
