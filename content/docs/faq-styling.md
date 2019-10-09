@@ -36,7 +36,7 @@ render() {
 
 Bəli, stilləmək üçün [bu sənədə](/docs/dom-elements.html#style) baxın.
 
-### Eyni-sətrli Pisdir? {#are-inline-styles-bad}
+### Eyni-sətrli Stillər Pisdir? {#are-inline-styles-bad}
 
 CSS klasları eyni-sətrli stillərdən daha tez işləyir.
 
