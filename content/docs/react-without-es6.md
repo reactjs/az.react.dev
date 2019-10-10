@@ -1,10 +1,10 @@
 ---
 id: react-without-es6
-title: React Without ES6
+title: ES6-sız React
 permalink: docs/react-without-es6.html
 ---
 
-Normalda React komponenti sadə JavaScript klası kimi təyin edilir:
+Normalda, React komponenti sadə JavaScript klası kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -14,7 +14,7 @@ class Greeting extends React.Component {
 }
 ```
 
-ES6 işlətmirsinizsə, `create-react-class` modulundan istifadə edə bilərsiniz:
+ES6 işlətmədikdə `create-react-class` modulundan istifadə edə bilərsiniz:
 
 
 ```javascript
@@ -26,11 +26,11 @@ var Greeting = createReactClass({
 });
 ```
 
-ES6 klaslarının API-ı bəzi istinaslar ilə `createReactClass()`-ın API-na oxşardır.
+ES6 klaslarının API-ı bəzi istinasları çıxmaqla `createReactClass()`-ın API-na bənzəyir.
 
 ## Təyin Edilməyən Propların Müəyyənləşdirilməsi {#declaring-default-props}
 
-Funskiyalar və ES6 klaslarında `defaultProps` komponentin parametri kimi təyin edilir:
+`defaultProps` parametri, funksiya və ES6 klaslarında komponentin parametri kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -42,7 +42,7 @@ Greeting.defaultProps = {
 };
 ```
 
-`createReactClass()` funksiyasında isə, təyin edilməyən propları qaytaran `getDefaultProps()` funksiyasını təyin etməlisiniz:
+`createReactClass()` işlətdikdə isə təyin edilməyən propları qaytamaq üçün `getDefaultProps()` funksiyası təyin edilməlidir:
 
 ```javascript
 var Greeting = createReactClass({
@@ -71,7 +71,7 @@ class Counter extends React.Component {
 }
 ```
 
-`createReactClass()` funksiyasında isə ilkin state-i qaytaran əlavə `getInitialState` funksiyasını təyin etməlisiniz:
+`createReactClass()` funksiyasında isə ilkin state-i qaytaran `getInitialState` funksiyası təyin edilməlidir:
 
 ```javascript
 var Counter = createReactClass({
@@ -84,7 +84,7 @@ var Counter = createReactClass({
 
 ## Avtomatik Binding {#autobinding}
 
-ES6 klasları ilə təyin olunan React klaslarının funskiyaları standart ES6 klaslarının semantikası ilə eynidir. Bu deməkdirki, klas funksiyaları `this` instansiyasını avtomatik bind etmirlər. Bu səbəbdən, konstruktorda açıq formada `.bind(this)` yazmalısınız:
+ES6 klasları ilə təyin olunan React klaslarının funksiyaları standart ES6 klaslarının semantikası ilə eynidir. Bu deməkdir ki, klas funksiyalarında `this` instansiyasını avtomatik bind edilmir. Bu səbəbdən, konstruktorda açıq formada `.bind(this)` yazmalısınız:
 
 ```javascript
 class SayHello extends React.Component {
@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // `this.handleClick` klasa bind olduğundan biz bu funksiyanı hasidə işləyicisi kimi işlədə bilərik.
+    // `this.handleClick` klasa bind olduğundan biz bu funksiyanı hadisə işləyicisi kimi işlədə bilərik.
     return (
       <button onClick={this.handleClick}>
         Salam de
@@ -110,7 +110,7 @@ class SayHello extends React.Component {
 }
 ```
 
-`createReactClass()` funksiyasında isə bu lazım deyil. Çünki bu funksiya bütün daxili funksiyalarını avtomatik olaraq bind edir:
+`createReactClass()` işlətdikdə isə bütün daxili funksiyalar avtomatik olaraq bind olunur:
 
 ```javascript
 var SayHello = createReactClass({
@@ -132,10 +132,9 @@ var SayHello = createReactClass({
 });
 ```
 
-Bu deməkdirki ES6 klasları hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu klaslar böyük applikasiyalarda daha tez işləyirlər.
+Bu deməkdir ki, ES6 klasları hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu klaslar böyük applikasiyalarda daha tez işləyirlər.
 
-Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Klas Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-da qoşa bilərsiniz:
-
+Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Klas Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-a qoşa bilərsiniz:
 
 ```javascript
 class SayHello extends React.Component {
@@ -143,8 +142,8 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Salam!'};
   }
-  // Xəvərdarlıq: Bu sintaksis eksperimentaldır!
-  // Burada ox işlətdikdə funksiyalar avtomatik bind olunur:
+  // Xəbərdarlıq: Bu sintaksis eksperimentaldır!
+  // Ox funksiyaları funksiyalar avtomatik bind olunur:
   handleClick = () => {
     alert(this.state.message);
   }
@@ -159,9 +158,9 @@ class SayHello extends React.Component {
 }
 ```
 
-Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu səbəbdən, bu sintaksis dəyişə bilər və ya təklif dilin spefikiasiyasına çatmaya bilər.
+Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu səbəbdən, bu sintaksis dəyişə bilər və ya verilən təklif dilin spesifikasiyasına çatmaya bilər.
 
-Əgər problemsiz işlətmək istəyirsinizsə sizdə bir neçə seçim var:
+Əgər problemsiz işləmək istəyirsinizsə sizdə bir neçə seçim var:
 
 * Konstruktordan funskiyaları bind edin.
 * Ox funksiyalarından istifadə edin: `onClick={(e) => this.handleClick(e)}`.
@@ -171,15 +170,15 @@ Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu 
 
 >**Qeyd:**
 >
->ES6 miksinləri dəstəkləmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 klasları ilə istifadə etdikdə miksinlər dəstəklənmir.
+>ES6, miksinlər dəstəklənmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 klasları ilə istifadə etdikdə miksinlər dəstəklənmir.
 >
->**Əlavə olaraq miksinli kodlarda çoxlu problemlər tapdığımızdan, [yeni kodda miksinlərin istifadəsini tövsiyyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
+>**Əlavə olaraq, miksinli kodlarda çoxlu problemlər tapdığımızdan [yeni kodda miksinlərin istifadəsini tövsiyyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
 >
 >Bu bölmə yalnız arayış xarakteri daşıyır.
 
 Bəzən, fərqli komponentlər eyni funksionallığı daşıya bilərlər. Bunlar [cross-cutting konsernlər](https://en.wikipedia.org/wiki/Cross-cutting_concern) adlandırılır. `createReactClass` bu konsernlər üçün köhnəlmiş `mixins` sistemindən istifadə etməyə icazə verir.
 
-Bunun üçün çox işlənən ssenarilərdən biri, zaman intervalı ilə komponentin özünü yeniləməsidir. `setInterval()` işlətmək asaındır amma lazım olmadıqda yaddaşı qorumaq üçün intervalı ləğv etmək vacibdir. Komponent yarandıqda və ya dağıldıqda kod icra etmək üçün React [lifecycle funksiyaları](/docs/react-component.html#the-component-lifecycle) təmin edir. Gəlin lifecycle funksiyalarından istifadə edərək komponent dağıldıqda ləğv edilən `setInterval()` funksiyası təmin edək.
+Miksinləri işlətməyin çox işlənən ssenarilərdən biri zaman intervalı ilə komponentin yenilənməsidir. `setInterval()` işlətmək asan olsa belə yaddaşı qorumaq üçün lazım olmadıqda intervalı ləğv etmək vacibdir. Komponentin yanandığı və ya dağıldığı zaman kodun icrası üçün React, [lifecycle funksiyaları](/docs/react-component.html#the-component-lifecycle) təmin edir. Gəlin, lifecycle funksiyalarından istifadə edərək komponent dağıldıqda ləğv edilən `setInterval()` funksiyası təmin edək.
 
 ```javascript
 var SetIntervalMixin = {
@@ -222,4 +221,4 @@ ReactDOM.render(
 );
 ```
 
-Əgər komponent bir neçə miksindən istifadə edirsə və bu miksinlər eyni lifecycle funksiyalarını təyin edirsə (məsələn, komponent dağıldığı zaman bir neçə mixin təmizləmə işləri aparmaq istəyirsə), bütün lifecycle funksiyalarının çağırışı qarantiya olunacaq. Miksinlərdə təyin edilən metodlar miksinlərin massivdə göstərildiyi sıra ilə çağrılacaq. Ən sonda, komponentin lifecycle metodları çağrılacaq.
+Əgər komponent bir neçə miksindən istifadə edirsə və bu miksinlər eyni lifecycle funksiyalarını təyin edirsə (məsələn, komponent dağıldığı zaman bir neçə miksin təmizləmə işləri aparmaq istəyirsə) bütün lifecycle funksiyalarının çağırışı qarantiya olunacaq. Miksinlərdə təyin edilən metodlar, miksinlərin massivdə göstərildiyi sıra ilə çağrılacaq. Ən sonda, komponentin lifecycle metodları çağrılacaq.
