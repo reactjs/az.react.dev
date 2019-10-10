@@ -115,7 +115,7 @@ const MarkdownPage = ({
                       href={`https://github.com/reactjs/reactjs.org/tree/master/${
                         markdownRemark.fields.path
                       }`}>
-                      Bu səhifəni dəyişin
+                      Bu səhifəni redaktə edin
                     </a>
                   </div>
                 )}
