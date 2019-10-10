@@ -1,12 +1,12 @@
 ---
 id: react-without-jsx
-title: React Without JSX
+title: JSX-siz React
 permalink: docs/react-without-jsx.html
 ---
 
 React işlətmək üçün JSX quraşdırmaq tələb olunmur. Yaranma mühitində kompilyasiya prosesi quraşdırmaq istəmədikdə React-i JSX-siz işlətmək əlverişlidir.
 
-JSX elementləri `React.createElement(component, props, ...children)` funksiyası üçün asan sintaksisdir. Bu səbəbdən, JSX-də mümkün olan bütün əməliyyatlar, sadə JavaScript ilə mümkündür.
+JSX elementləri `React.createElement(component, props, ...children)` funksiyası üçün asan sintaksisdir. Bu səbəbdən, JSX-də mümkün olan bütün əməliyyatlar, sadə JavaScript ilə yazıla bilər.
 
 Məsələn, JSX-də yazılmış kod:
 
@@ -38,11 +38,11 @@ ReactDOM.render(
 );
 ```
 
-JSX-in JavaScript-ə çevrilməsi haqqında əlavə nümunələr üçün, [onlayn Babel kompilyatorundan](babel://jsx-simple-example) istifadə edə bilərsiniz.
+JSX-in JavaScript-ə çevrilməsi haqqında əlavə nümunələr üçün [onlayn Babel kompilyatorundan](babel://jsx-simple-example) istifadə edə bilərsiniz.
 
-Təmin olunan komponentlər mətn, `React.Component` klasının subklası. və ya funksiya komponentləri üçün sadə funksiya ola bilər.
+Təmin olunan komponentin tipi, mətn, `React.Component`-in subklası və ya sadə funksiya (funksiya komponentləri üçün) ola bilər.
 
-`React.createElement` yazısını çox yazmaqdan bezmisinizsə bu funksiyanı ilə qısa adlı dəyişənə təyin edə bilərsiniz:
+`React.createElement` ifadəsini çox yazmaqdan bezmisinizsə bu funksiyanı qısa adlı dəyişənə təyin edə bilərsiniz:
 
 ```js
 const e = React.createElement;
