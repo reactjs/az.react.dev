@@ -1,36 +1,36 @@
 ---
 id: react-without-es6
-title: React Without ES6
+title: ES6-sız React
 permalink: docs/react-without-es6.html
 ---
 
-Normally you would define a React component as a plain JavaScript class:
+Normalda, React komponenti sadə JavaScript klası kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 }
 ```
 
-If you don't use ES6 yet, you may use the `create-react-class` module instead:
+ES6 işlətmədikdə `create-react-class` modulundan istifadə edə bilərsiniz:
 
 
 ```javascript
 var createReactClass = require('create-react-class');
 var Greeting = createReactClass({
   render: function() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Salam, {this.props.name}</h1>;
   }
 });
 ```
 
-The API of ES6 classes is similar to `createReactClass()` with a few exceptions.
+ES6 klaslarının API-ı bəzi istinasları çıxmaqla `createReactClass()`-ın API-na bənzəyir.
 
-## Declaring Default Props {#declaring-default-props}
+## Təyin Edilməyən Propların Müəyyənləşdirilməsi {#declaring-default-props}
 
-With functions and ES6 classes `defaultProps` is defined as a property on the component itself:
+`defaultProps` parametri, funksiya və ES6 klaslarında komponentin parametri kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -38,17 +38,17 @@ class Greeting extends React.Component {
 }
 
 Greeting.defaultProps = {
-  name: 'Mary'
+  name: 'Ayşən'
 };
 ```
 
-With `createReactClass()`, you need to define `getDefaultProps()` as a function on the passed object:
+`createReactClass()` işlətdikdə isə təyin edilməyən propları qaytamaq üçün `getDefaultProps()` funksiyası təyin edilməlidir:
 
 ```javascript
 var Greeting = createReactClass({
   getDefaultProps: function() {
     return {
-      name: 'Mary'
+      name: 'Ayşən'
     };
   },
 
@@ -57,9 +57,9 @@ var Greeting = createReactClass({
 });
 ```
 
-## Setting the Initial State {#setting-the-initial-state}
+## İlkin State-in Təyin Edilməsi {#setting-the-initial-state}
 
-In ES6 classes, you can define the initial state by assigning `this.state` in the constructor:
+ES6 klaslarında ilkin state-i təyin etmək üçün konstruktordan `this.state`-i təyin etmək kifayətdir:
 
 ```javascript
 class Counter extends React.Component {
@@ -71,7 +71,7 @@ class Counter extends React.Component {
 }
 ```
 
-With `createReactClass()`, you have to provide a separate `getInitialState` method that returns the initial state:
+`createReactClass()` funksiyasında isə ilkin state-i qaytaran `getInitialState` funksiyası təyin edilməlidir:
 
 ```javascript
 var Counter = createReactClass({
@@ -82,16 +82,16 @@ var Counter = createReactClass({
 });
 ```
 
-## Autobinding {#autobinding}
+## Avtomatik Binding {#autobinding}
 
-In React components declared as ES6 classes, methods follow the same semantics as regular ES6 classes. This means that they don't automatically bind `this` to the instance. You'll have to explicitly use `.bind(this)` in the constructor:
+ES6 klasları ilə təyin olunan React klaslarının funksiyaları standart ES6 klaslarının semantikası ilə eynidir. Bu deməkdir ki, klas funksiyalarında `this` instansiyasını avtomatik bind edilmir. Bu səbəbdən, konstruktorda açıq formada `.bind(this)` yazmalısınız:
 
 ```javascript
 class SayHello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {message: 'Hello!'};
-    // This line is important!
+    // Bu sətr vacibdir!
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -100,22 +100,22 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // Because `this.handleClick` is bound, we can use it as an event handler.
+    // `this.handleClick` klasa bind olduğundan biz bu funksiyanı hadisə işləyicisi kimi işlədə bilərik.
     return (
       <button onClick={this.handleClick}>
-        Say hello
+        Salam de
       </button>
     );
   }
 }
 ```
 
-With `createReactClass()`, this is not necessary because it binds all methods:
+`createReactClass()` işlətdikdə isə bütün daxili funksiyalar avtomatik olaraq bind olunur:
 
 ```javascript
 var SayHello = createReactClass({
   getInitialState: function() {
-    return {message: 'Hello!'};
+    return {message: 'Salam!'};
   },
 
   handleClick: function() {
@@ -125,26 +125,25 @@ var SayHello = createReactClass({
   render: function() {
     return (
       <button onClick={this.handleClick}>
-        Say hello
+        Salam de
       </button>
     );
   }
 });
 ```
 
-This means writing ES6 classes comes with a little more boilerplate code for event handlers, but the upside is slightly better performance in large applications.
+Bu deməkdir ki, ES6 klasları hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu klaslar böyük applikasiyalarda daha tez işləyirlər.
 
-If the boilerplate code is too unattractive to you, you may enable the **experimental** [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) syntax proposal with Babel:
-
+Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Klas Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-a qoşa bilərsiniz:
 
 ```javascript
 class SayHello extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {message: 'Hello!'};
+    this.state = {message: 'Salam!'};
   }
-  // WARNING: this syntax is experimental!
-  // Using an arrow here binds the method:
+  // Xəbərdarlıq: Bu sintaksis eksperimentaldır!
+  // Ox funksiyaları funksiyalar avtomatik bind olunur:
   handleClick = () => {
     alert(this.state.message);
   }
@@ -152,34 +151,34 @@ class SayHello extends React.Component {
   render() {
     return (
       <button onClick={this.handleClick}>
-        Say hello
+        Salam de
       </button>
     );
   }
 }
 ```
 
-Please note that the syntax above is **experimental** and the syntax may change, or the proposal might not make it into the language.
+Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu səbəbdən, bu sintaksis dəyişə bilər və ya verilən təklif dilin spesifikasiyasına çatmaya bilər.
 
-If you'd rather play it safe, you have a few options:
+Əgər problemsiz işləmək istəyirsinizsə sizdə bir neçə seçim var:
 
-* Bind methods in the constructor.
-* Use arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
-* Keep using `createReactClass`.
+* Konstruktordan funskiyaları bind edin.
+* Ox funksiyalarından istifadə edin: `onClick={(e) => this.handleClick(e)}`.
+* `createReactClass` funksiyasından istifadə edin.
 
-## Mixins {#mixins}
+## Miksinlər {#mixins}
 
->**Note:**
+>**Qeyd:**
 >
->ES6 launched without any mixin support. Therefore, there is no support for mixins when you use React with ES6 classes.
+>ES6, miksinlər dəstəklənmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 klasları ilə istifadə etdikdə miksinlər dəstəklənmir.
 >
->**We also found numerous issues in codebases using mixins, [and don't recommend using them in the new code](/blog/2016/07/13/mixins-considered-harmful.html).**
+>**Əlavə olaraq, miksinli kodlarda çoxlu problemlər tapdığımızdan [yeni kodda miksinlərin istifadəsini tövsiyyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
 >
->This section exists only for the reference.
+>Bu bölmə yalnız arayış xarakteri daşıyır.
 
-Sometimes very different components may share some common functionality. These are sometimes called [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` lets you use a legacy `mixins` system for that.
+Bəzən, fərqli komponentlər eyni funksionallığı daşıya bilərlər. Bunlar [cross-cutting konsernlər](https://en.wikipedia.org/wiki/Cross-cutting_concern) adlandırılır. `createReactClass` bu konsernlər üçün köhnəlmiş `mixins` sistemindən istifadə etməyə icazə verir.
 
-One common use case is a component wanting to update itself on a time interval. It's easy to use `setInterval()`, but it's important to cancel your interval when you don't need it anymore to save memory. React provides [lifecycle methods](/docs/react-component.html#the-component-lifecycle) that let you know when a component is about to be created or destroyed. Let's create a simple mixin that uses these methods to provide an easy `setInterval()` function that will automatically get cleaned up when your component is destroyed.
+Miksinləri işlətməyin çox işlənən ssenarilərdən biri zaman intervalı ilə komponentin yenilənməsidir. `setInterval()` işlətmək asan olsa belə yaddaşı qorumaq üçün lazım olmadıqda intervalı ləğv etmək vacibdir. Komponentin yanandığı və ya dağıldığı zaman kodun icrası üçün React, [lifecycle funksiyaları](/docs/react-component.html#the-component-lifecycle) təmin edir. Gəlin, lifecycle funksiyalarından istifadə edərək komponent dağıldıqda ləğv edilən `setInterval()` funksiyası təmin edək.
 
 ```javascript
 var SetIntervalMixin = {
@@ -197,12 +196,12 @@ var SetIntervalMixin = {
 var createReactClass = require('create-react-class');
 
 var TickTock = createReactClass({
-  mixins: [SetIntervalMixin], // Use the mixin
+  mixins: [SetIntervalMixin], // Mixini istifadə et
   getInitialState: function() {
     return {seconds: 0};
   },
   componentDidMount: function() {
-    this.setInterval(this.tick, 1000); // Call a method on the mixin
+    this.setInterval(this.tick, 1000); // Mixinin funksiyasını çağır
   },
   tick: function() {
     this.setState({seconds: this.state.seconds + 1});
@@ -210,7 +209,7 @@ var TickTock = createReactClass({
   render: function() {
     return (
       <p>
-        React has been running for {this.state.seconds} seconds.
+        React {this.state.seconds} saniyə işləyir.
       </p>
     );
   }
@@ -222,4 +221,4 @@ ReactDOM.render(
 );
 ```
 
-If a component is using multiple mixins and several mixins define the same lifecycle method (i.e. several mixins want to do some cleanup when the component is destroyed), all of the lifecycle methods are guaranteed to be called. Methods defined on mixins run in the order mixins were listed, followed by a method call on the component.
+Əgər komponent bir neçə miksindən istifadə edirsə və bu miksinlər eyni lifecycle funksiyalarını təyin edirsə (məsələn, komponent dağıldığı zaman bir neçə miksin təmizləmə işləri aparmaq istəyirsə) bütün lifecycle funksiyalarının çağırışı qarantiya olunacaq. Miksinlərdə təyin edilən metodlar, miksinlərin massivdə göstərildiyi sıra ilə çağrılacaq. Ən sonda, komponentin lifecycle metodları çağrılacaq.
