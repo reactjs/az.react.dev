@@ -8,7 +8,7 @@ category: FAQ
 
 ### Komponentlərə CSS Klaslarını Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
 
-Mətni `className` propuna göndərin:
+Klasları mətn formasında `className` propuna göndərin:
 
 ```jsx
 render() {
@@ -16,7 +16,7 @@ render() {
 }
 ```
 
-CSS klaslarının proplar və ya state-dən asılı olması normaldır:
+Adətən, CSS klasları proplar və ya state-dən asılı olur:
 
 ```jsx
 render() {
@@ -30,11 +30,11 @@ render() {
 
 >Məsləhət
 >
->Əgər siz bu formalı kodu çox yazırsınızsa, [classnames](https://www.npmjs.com/package/classnames#usage-with-reactjs) paketi ilə bu kodu sadələşdirə bilərsiniz.
+>Əgər yuxarıdakı formalı kodu çox yazırsınızsa [classnames](https://www.npmjs.com/package/classnames#usage-with-reactjs) paketi ilə bu kodu sadələşdirə bilərsiniz.
 
 ### Eyni-sətrli Stillər İşlədə Bilərəm? {#can-i-use-inline-styles}
 
-Bəli, stilləmək üçün [bu sənədə](/docs/dom-elements.html#style) baxın.
+Bəli, stilləmək haqqında məlumat üçün [bu sənədə](/docs/dom-elements.html#style) baxın.
 
 ### Eyni-sətrli Stillər Pisdir? {#are-inline-styles-bad}
 
@@ -42,9 +42,9 @@ CSS klasları eyni-sətrli stillərdən daha tez işləyir.
 
 ### CSS-in-JS Nədir? {#what-is-css-in-js}
 
-CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript-də tərtib edilməsi "CSS-in-JS" adlanır. CSS-in-JS kitabxanalarının müqayisəsinə [buradan](https://github.com/MicheleBertoli/css-in-js) baxın.
+CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript-də tərtib edilməsi metodu "CSS-in-JS" adlanır. CSS-in-JS kitabxanalarının müqayisəsinə [buradan](https://github.com/MicheleBertoli/css-in-js) baxın.
 
-_Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil -- 3-cü tərəfli kitabxanalar tərəfindən təmin edilir._ React-in stillərin necə işləməsi haqqında fikri yoxdur; əgər şübhəlisinizsə stilləri ayrı `*.css` faylında yaradıb [`className`](/docs/dom-elements.html#classname) ilə istinas edilməsi yaxşı başlanğıc nöqtəsidir.
+_Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil. Bu, 3-cü tərəfli kitabxanalar tərəfindən təmin edilir._ React, stillərin necə işlənməsi haqqında heç bir fikir vermir. Əgər seçim edə bilmirsinizsə, başlanğıc nöqtəsi kimi stilləri ayrı `*.css` fayllarında yaradıb [`className`](/docs/dom-elements.html#classname) ilə istinas edə bilərsiniz.
 
 ### React-də Animasiya Edə Bilərəm? {#can-i-do-animations-in-react}
 
