@@ -1,5 +1,9 @@
 [Azərbaycan Versiyası](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md)
 
+[Glossary](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md)
+
+[Style Guide](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.md)
+
 # az.reactjs.org
 
 This repo contains the source code and documentation powering [az.reactjs.org](https://az.reactjs.org/).
@@ -60,6 +64,8 @@ The documentation is divided into several sections with a different tone and pur
 ## Translation
 
 If you are interested in translating `az.reactjs.org`, please see the current translation efforts at [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
+
+If you would like to add a new term or change an existing one please change make you changes to [glossary.md](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) file in the repository and make a PR. In this documentation, all the terms are consistent across the documentation; so, when making a PR, let us know the decision behind the change.
 
 ## Troubleshooting
 

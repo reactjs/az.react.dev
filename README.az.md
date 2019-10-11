@@ -1,5 +1,9 @@
 [English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md)
 
+[Lüğət](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md)
+
+[Stil Təlimatları](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.az.md)
+
 # az.reactjs.org
 
 Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu yerləşir.
@@ -60,6 +64,8 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 ## Tərcümə
 
 Əgər `az.reactjs.org` tərcümə etmək istəyirsinizsə [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/) səhifəsində olan cari tərcümə səylərinə baxın.
+
+Əgər tərcümə lüğətinə yeni termin əlavə etmək və ya hər hansı bir termini dəyişmək istəyirsinizsə, repoda olan [glossary.md](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) faylını redaktə edib PR yaradın. Bu sənədlərdə bütün terminlər sənəd boyu eyni formada işlədilir. Bu səbəbdən, dəyişikliklərin səbəbini PR-da izah edin.
 
 ## Problemləri Aradan Qaldırmaq
 
