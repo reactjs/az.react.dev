@@ -1,18 +1,18 @@
 ---
 id: faq-structure
-title: File Structure
+title: Fayl Strukturu
 permalink: docs/faq-structure.html
 layout: docs
 category: FAQ
 ---
 
-### Is there a recommended way to structure React projects? {#is-there-a-recommended-way-to-structure-react-projects}
+### React layihələrini hansı formada struktur etmək tövsiyyə olunur? {#is-there-a-recommended-way-to-structure-react-projects}
 
-React doesn't have opinions on how you put files into folders. That said there are a few common approaches popular in the ecosystem you may want to consider.
+React, faylları hansı direktoriyalara yerləşdirmək haqqında heç bir fikir daşımır. Lakin, ekosistemdə bir neçə populyar yanaşma var.
 
-#### Grouping by features or routes {#grouping-by-features-or-routes}
+#### Xüsusiyyətlər və ya Naviqasiya əsasında Qruplamaq {#grouping-by-features-or-routes}
 
-One common way to structure projects is locate CSS, JS, and tests together inside folders grouped by feature or route.
+Layihələri struktur etməyin bir yolu CSS, JS və testləri xüsusiyyət və ya naviqasiya əsasında qruplaşmasıdır.
 
 ```
 common/
@@ -35,11 +35,11 @@ profile/
   ProfileAPI.js
 ```
 
-The definition of a "feature" is not universal, and it is up to you to choose the granularity. If you can't come up with a list of top-level folders, you can ask the users of your product what major parts it consists of, and use their mental model as a blueprint.
+"Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər yuxarı direktoriyalar siyahısını çıxara bilmirsinizsə, produkt istifadəçilərinə bu produktun hansı əsas hissələrdən ibarət olduğunu soruşa bilər və istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
 
-#### Grouping by file type {#grouping-by-file-type}
+#### Fayl Tipi əsasında Qruplamaq {#grouping-by-file-type}
 
-Another popular way to structure projects is to group similar files together, for example:
+Layihələri struktur etməyin başqa yolu oxşar faylları bir yerdə qrup etməkdir:
 
 ```
 api/
@@ -59,16 +59,16 @@ components/
   ProfileHeader.css
 ```
 
-Some people also prefer to go further, and separate components into different folders depending on their role in the application. For example, [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) is a design methodology built on this principle. Remember that it's often more productive to treat such methodologies as helpful examples rather than strict rules to follow.
+Bəziləri daha dərinə gedərək applikasiyada rolundan asılı olaraq komponentləri fərqli direktoriyalara ayırırlar. Məsələn, [Atomik Dizayn](http://bradfrost.com/blog/post/atomic-web-design/) bu prinsip üzərində yaranmış metodologiyalardan biridir. Belə metodologiyaları sərt qanunlar kimi yox, faydarlı nümunələr kimi işlətməyin daha produktiv olduğunu unutmayın.
 
-#### Avoid too much nesting {#avoid-too-much-nesting}
+#### Çox iç-içə direktoriya yaratmaqdan çəkinin {#avoid-too-much-nesting}
 
-There are many pain points associated with deep directory nesting in JavaScript projects. It becomes harder to write relative imports between them, or to update those imports when the files are moved. Unless you have a very compelling reason to use a deep folder structure, consider limiting yourself to a maximum of three or four nested folders within a single project. Of course, this is only a recommendation, and it may not be relevant to your project.
+JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin stukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar dəyişdikdə bu idxalları yeniləmək çətinləşir. Əgər sizdə dərin struktur etməyin səbəbi yoxdursa, bir layihədə üç-dört səviyyədən dərin direktoriya strukturları etməyin. Əlbəttə ki, bu bir tövsiyyədir və sizin layihənizə dəxli olmaya bilər.
 
-#### Don't overthink it {#dont-overthink-it}
+#### Bu haqda çox fikirləşməyin {#dont-overthink-it}
 
-If you're just starting a project, [don't spend more than five minutes](https://en.wikipedia.org/wiki/Analysis_paralysis) on choosing a file structure. Pick any of the above approaches (or come up with your own) and start writing code! You'll likely want to rethink it anyway after you've written some real code.
+Yeni layihə başlayırsınızsa, fayl strukturu seçməyə [beş dəqiqədən çox zaman ayırmayın](https://en.wikipedia.org/wiki/Analysis_paralysis). Yuxarıda göstərilən hər hansı bir yanaşmanı seçib (və ya öz strukturunuzu düzəldib) kod yazmağa başlayın! Böyük ehtimalla, real kod yazdıqdan sonra seçdiyiniz yanaşmanı dəyişmək istəyəcəksiniz.
 
-If you feel completely stuck, start by keeping all files in a single folder. Eventually it will grow large enough that you will want to separate some files from the rest. By that time you'll have enough knowledge to tell which files you edit together most often. In general, it is a good idea to keep files that often change together close to each other. This principle is called "colocation".
+Əgər bu seçimdə ilişmisinizsə, bütün faylları bir direktoriyada saxlayın. Vaxt keçdikcə, applikasiya böyüdükcə bəzi faylları ayırmaq istəyəcəksiniz. Bu zaman hansı faylları birlikdə redaktə etdiyiniz haqqında məlumatınız olacaq. Adətən, birlikdə çox dəyişən faylları bir birinə yaxın saxlamaq yaxşı fikirdir. Bu prinsipin adı "kolokasiyadır".
 
-As projects grow larger, they often use a mix of both of the above approaches in practice. So choosing the "right" one in the beginning isn't very important.
+Layihələr böyüdükcə yuxarıdakı yanaşmaların bir neçəsinin kombinasiyasından istifadə edilir. Bu səbəbdən, əvvəldən düzgün yanaşma seçmək vacib deyil.
