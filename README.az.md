@@ -1,12 +1,9 @@
-[English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md)
-
-[Lüğət](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md)
-
-[Stil Təlimatları](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.az.md)
-
-# az.reactjs.org
-
+<h1 align="center">React Azərbaycan Sənədləri</h1>
+<div align="center">
 Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu yerləşir.
+
+🇺🇸 [English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md) | 📖 [Lüğət](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Stil Təlimatları](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.az.md)
+</div>
 
 ## Başlamaq
 
