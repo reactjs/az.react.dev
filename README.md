@@ -3,7 +3,7 @@
 
 This repo contains the source code and documentation powering [az.reactjs.org](https://az.reactjs.org/).
 
-🇦🇿 [Azerbaijani Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md) | 📖 [Glossary](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Style Guide](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.md)
+🇦🇿 [Azerbaijani Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md) | 📖 [Glossary](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Style Guide](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.md) | ✅ [Progress: 100% Core, 50% Other](https://www.isreacttranslatedyet.com/)
 </div>
 
 ## Getting started
