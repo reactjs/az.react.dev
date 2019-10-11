@@ -1,12 +1,10 @@
-[Azərbaycan Versiyası](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md)
-
-[Glossary](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md)
-
-[Style Guide](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.md)
-
-# az.reactjs.org
+<h1 align="center">React Azerbaijani Documentation</h1>
+<div align="center">
 
 This repo contains the source code and documentation powering [az.reactjs.org](https://az.reactjs.org/).
+
+🇦🇿 [Azerbaijani Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.az.md) | 📖 [Glossary](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Style Guide](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.md)
+</div>
 
 ## Getting started
 
