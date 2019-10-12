@@ -49,16 +49,16 @@ Bu qanun praqmatik olmaq üçün dizayn olunub. Biz sizin üçün baş ağrılar
 
 Bu siyahıda olan dəyişiklik cəmiyyətdə böyük problem yaradacaqsa, biz bu dəyişiklik üçün tədrici miqrasiya yolu təmin etməyə çalışacağıq.
 
-### If a Minor Release Includes No New Features, Why Isn't It a Patch? {#minors-versus-patches}
+### Kiçik Buraxılışda Yeni Xüsusiyyət Yoxdursa, Niyə Yamaq Buraxılışı Deyil? {#minors-versus-patches}
 
-It's possible that a minor release will not include new features. [This is allowed by semver](https://semver.org/#spec-item-7), which states **"[a minor version] MAY be incremented if substantial new functionality or improvements are introduced within the private code. It MAY include patch level changes."**
+Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna tərəfindən icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkminləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
 
-However, it does raise the question of why these releases aren't versioned as patches instead.
+Bu buraxılışların yamaq versiyasında olmaması sualı yaranır.
 
-The answer is that any change to React (or other software) carries some risk of breaking in unexpected ways. Imagine a scenario where a patch release that fixes one bug accidentally introduces a different bug. This would not only be disruptive to developers, but also harm their confidence in future patch releases. It's especially regrettable if the original fix is for a bug that is rarely encountered in practice.
+React-ə (və ya hər hansı bir proqram təminatına) dəyişikliik etdikdə, gözlənilməz problemlərin yaranmasının riksi artır. Yamaq versiyasında baq düzəldikdə yeni baqın yaranması ssenarisini fikirləşin. Bu, proqramçılar üçün pozucu olmaqdan əlavə gələcək yamaq versiyalara etibarı azaldacaq. Praktikada nadir hallarda rast gəlinən baqı düzəltdikdə bu ssenari daha acınacaqlı olur.
 
-We have a pretty good track record for keeping React releases free of bugs, but patch releases have an even higher bar for reliability because most developers assume they can be adopted without adverse consequences.
+Bizim, React buraxılışlarını baqsız dərc etmək haqqında yaxşı avtoritetimiz var. Lakin, proqramçılar yamaq buraxılışların problemsiz adaptasiyasın ehtimal edirlər deyə buraxılışların etibarlılıq dərəcəsi daha yüksək olmalıdır.
 
-For these reasons, we reserve patch releases only for the most critical bugs and security vulnerabilities.
+Bu səbəblərdən, biz, yamaq buraxılışlarını yalnız kritiki baqlar və təhlükəsizlik zəifliklərini düzəltmək üçün işlədirik.
 
-If a release includes non-essential changes — such as internal refactors, changes to implementation details, performance improvements, or minor bugfixes — we will bump the minor version even when there are no new features.
+Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkminləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmasa belə biz kiçik versiyanı artıracağıq.
