@@ -12,7 +12,7 @@ React, faylları hansı direktoriyalara yerləşdirmək haqqında heç bir fikir
 
 #### Xüsusiyyətlər və ya Naviqasiya əsasında Qruplamaq {#grouping-by-features-or-routes}
 
-Layihələri struktur etməyin bir yolu CSS, JS və testləri xüsusiyyət və ya naviqasiya əsasında qruplaşmasıdır.
+CSS, JS və testləri xüsusiyyət və ya naviqasiya əsasında qruplaşdırmaq ilə layihələri struktur etmək populyar yanaşmalardan biridir.
 
 ```
 common/
@@ -35,11 +35,11 @@ profile/
   ProfileAPI.js
 ```
 
-"Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər yuxarı direktoriyalar siyahısını çıxara bilmirsinizsə, produkt istifadəçilərinə bu produktun hansı əsas hissələrdən ibarət olduğunu soruşa bilər və istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
+"Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər yuxarı direktoriyalar siyahısını çıxara bilmirsinizsə, məhsulun əsas hissələrini istifadəçilərdən soruşaraq istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
 
 #### Fayl Tipi əsasında Qruplamaq {#grouping-by-file-type}
 
-Layihələri struktur etməyin başqa yolu oxşar faylları bir yerdə qrup etməkdir:
+Oxşar faylları bir yerdə qrup etmək layihələri struktur etməyin başqa yoludur:
 
 ```
 api/
@@ -63,12 +63,12 @@ Bəziləri daha dərinə gedərək applikasiyada rolundan asılı olaraq kompone
 
 #### Çox iç-içə direktoriya yaratmaqdan çəkinin {#avoid-too-much-nesting}
 
-JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin stukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar dəyişdikdə bu idxalları yeniləmək çətinləşir. Əgər sizdə dərin struktur etməyin səbəbi yoxdursa, bir layihədə üç-dört səviyyədən dərin direktoriya strukturları etməyin. Əlbəttə ki, bu bir tövsiyyədir və sizin layihənizə dəxli olmaya bilər.
+JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin stukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar dəyişdikdə bu idxalları yeniləmək çətinləşir. Əgər dərin struktur yaratmağın xüsusi səbəbi yoxdursa, strukturu üç-dört səviyyədən dərin etməkdən çəkinin. Əlbəttə ki, bu sadəcə bir tövsiyyədir. Bu yanaşmanın sizin layihənizə dəxli olmaya bilər.
 
 #### Bu haqda çox fikirləşməyin {#dont-overthink-it}
 
-Yeni layihə başlayırsınızsa, fayl strukturu seçməyə [beş dəqiqədən çox zaman ayırmayın](https://en.wikipedia.org/wiki/Analysis_paralysis). Yuxarıda göstərilən hər hansı bir yanaşmanı seçib (və ya öz strukturunuzu düzəldib) kod yazmağa başlayın! Böyük ehtimalla, real kod yazdıqdan sonra seçdiyiniz yanaşmanı dəyişmək istəyəcəksiniz.
+Yeni layihə başladıqda fayl strukturu seçməyə [beş dəqiqədən çox zaman ayırmayın](https://en.wikipedia.org/wiki/Analysis_paralysis). Yuxarıda göstərilən hər hansı bir yanaşmanı seçib (və ya öz strukturunuzu düzəldib) kod yazmağa başlayın! Böyük ehtimalla, real kod yazdıqdan sonra seçdiyiniz yanaşmanı dəyişmək istəyəcəksiniz.
 
-Əgər bu seçimdə ilişmisinizsə, bütün faylları bir direktoriyada saxlayın. Vaxt keçdikcə, applikasiya böyüdükcə bəzi faylları ayırmaq istəyəcəksiniz. Bu zaman hansı faylları birlikdə redaktə etdiyiniz haqqında məlumatınız olacaq. Adətən, birlikdə çox dəyişən faylları bir birinə yaxın saxlamaq yaxşı fikirdir. Bu prinsipin adı "kolokasiyadır".
+Əgər seçim edə bilmirsinizsə, bütün faylları bir direktoriyada saxlayın. Vaxt keçdikcə, applikasiya böyüdükcə bəzi faylları ayırmaq istəyəcəksiniz. Bu zaman, hansı faylları birlikdə redaktə etdiyiniz haqqda məlumatınız olacaq. Adətən, birlikdə çox dəyişən faylları bir birinə yaxın saxlamaq yaxşı fikirdir. Bu prinsipin adı "kolokasiyadır".
 
 Layihələr böyüdükcə yuxarıdakı yanaşmaların bir neçəsinin kombinasiyasından istifadə edilir. Bu səbəbdən, əvvəldən düzgün yanaşma seçmək vacib deyil.
