@@ -6,9 +6,9 @@ permalink: docs/uncontrolled-components.html
 
 Biz çox halda, anketləri tətbiq etmək üçün [kontrol olunan komponentlər](/docs/forms.html) işlətməyi tövsiyyə edirik. Kontrol olunan komponentlərdə anket məlumatları React komponenti tərəfindən idarə olunur. Buna alternativ kontrolsuz komponentlərdir. Bu komponentlərdə anket məlumatları DOM tərəfindən idarə olunur.
 
-Kontrolsuz komponent yazmaq üçün bütün state yenilikləri üçün hadisə işləyiciləri yazmaq əvəzinə DOM-dan anket dəyərlərini almaq üçün [ref-dən istifadə edə bilərsiniz](/docs/refs-and-the-dom.html).
+Kontrolsuz komponent işlətdikdə DOM-dan anket dəyərlərini almaq üçün hadisə işləyiciləri ilə state-i yeniləmək əvəzinə [ref-dən istifadə edə bilərsiniz](/docs/refs-and-the-dom.html).
 
-Məsələn, açağıdakı kodda kontrol olunmayan komponent birtək ad qəbul edir:
+Məsələn, aşağıdakı kodda kontrol olunmayan komponent tək ad qəbul edir:
 
 ```javascript{5,9,18}
 class NameForm extends React.Component {
@@ -39,13 +39,13 @@ class NameForm extends React.Component {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
-Kontrolsuz komponentlərdə həqiqət mənbəyi DOM-da saxlanır. Bu səbədən React və React olmayan kodları kontrol komponentlərdən istifadə edərək inteqrasiya etmək daha asandır. Tez kod yazmaq üçün kontrolsuz komponentlər daha az koda səbəb ola bilər. Əks halda, kontrol olunan komponentlərdən istifadə edin.
+Kontrolsuz komponentlərdə həqiqət mənbəyi DOM-da saxlanır. Bu səbədən, kontrolsuz komponentlər ilə React və React olmayan kodları inteqrasiya etmək daha asandır. Komponentlər kontrolsuz olduqda yazılmış kodun həcmi daha kiçik ola bilər. Əks halda, kontrol olunan komponentlərdən istifadə edin.
 
-Əgər xüsusi vəziyyətdə hansı tipli komponenti işlətməyi bilmirsinizsə [kontrol olunan və kontrolsuz anket sahələrinin müqayisəsi yazını](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) faydalı tapa bilərsiniz.
+Əgər xüsusi ssenaridə hansı tipli komponenti işlətməyi bilmirsinizsə, [kontrol olunan və kontrolsuz anket sahələrinin müqayisəsi yazısını](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) faydalı tapa bilərsiniz.
 
 ### Təyin Olunmayan Dəyərlər {#default-values}
 
-React-in render zamanı, anket elementlərinin `value` atribut dəyəri DOM dəyərlərininin üzərindən yazılacaq. Kontrolsuz komponentlərdə təyin olunmayan dəyərlərin React tərəfindən bildirilməsini, sonrakı yeniliklərin isə kontrolsuz olmasını istəyə bilərsiniz. Bu ssenari üçün `value` atributu yerinə `defaultValue` atributundan istifadə edə bilərsiniz.
+React-in render zamanı anket elementlərinin `value` atribut dəyəri DOM dəyərlərininin üzərindən yazılacaq. Kontrolsuz komponentlərdə təyin olunmayan dəyərlərin React tərəfindən bildirilməsini sonrakı yeniliklərin isə kontrolsuz olmasını istəyə bilərsiniz. Bu ssenari üçün `value` atributu yerinə `defaultValue` atributundan istifadə edə bilərsiniz.
 
 ```javascript{7}
 render() {
@@ -76,7 +76,7 @@ Eyni formada, `<input type="checkbox">` və `<input type="radio">` elementləri 
 
 `<input type="file" />` elementinin dəyəri yalnız istifadəçi (proqram tərəfindən mümkün deyil) tərəfindən təyin edilir. Bu səbəbdən, bu element React-də həmişə kontrolsuz komponentdir.
 
-Bu fayllar ilə işləyə bilmək üçün Fayl API-ından istifadə edin. Aşağıdakı nümunədə, göndərmə işləyicisindən fayllar ilə işləyə bilmək üçün [DOM noduna ref](/docs/refs-and-the-dom.html) əlavə olunur:
+İstifadəçi tərəfindən seçilmiş fayllar üzərində əməliyyatlar üçün Fayl API-ından istifadə edin. Aşağıdakı nümunədə, göndərmə işləyicisindən fayllardan istifadə edə bilmək üçün [DOM noduna ref](/docs/refs-and-the-dom.html) əlavə olunur:
 
 `embed:uncontrolled-components/input-type-file.js`
 
