@@ -1,34 +1,34 @@
 ---
 id: faq-versioning
-title: Versioning Policy
+title: Versiya Qaydaları
 permalink: docs/faq-versioning.html
 layout: docs
 category: FAQ
 ---
 
-React follows [semantic versioning (semver)](https://semver.org/) principles.
+React [semantik versiyalamaq (semver)](https://semver.org/) prinsiplərindən istifadə edir.
 
-That means that with a version number **x.y.z**:
+Bu deməkdirki, **x.y.z** formatlı versiyada:
 
-* When releasing **critical bug fixes**, we make a **patch release** by changing the **z** number (ex: 15.6.2 to 15.6.3).
-* When releasing **new features** or **non-critical fixes**, we make a **minor release** by changing the **y** number (ex: 15.6.2 to 15.7.0).
-* When releasing **breaking changes**, we make a **major release** by changing the **x** number (ex: 15.6.2 to 16.0.0).
+* **Kritiki baqlar düzəldildikdə** **z** rəqəmini dəyişərək (məsələn, 15.6.2-dən 15.6.3-ə) **yamaq (patch) buraxılış** dərc edilir.
+* **Yeni xüsusiyyətlər əlavə edildikdə** və ya **kritiki olmayan düzəlişlər edildikə** **y** rəqəmini dəyişərək (məsələn, 15.6.2-dən 15.7.0-a) **kiçik (minor) buraxılış** dərc edilir.
+* **Pozucu dəyişiklik edildikdə** **x** rəqəmini dəyişərək (məsələn, 15.6.2-dən 16.0.0-a **böyük (major) buraxılış** dərc edilir.
 
-Major releases can also contain new features, and any release can include bug fixes.
+Böyük buraxılışlarda yeni xüsusiyyətlər, istənilən buraxılışda isə baq düzəlişləri ola bilər.
 
-Minor releases are the most common type of release.
+Kiçik buraxılışlar ən çox dərc edilir.
 
-### Breaking Changes {#breaking-changes}
+### Pozucu Dəyişikliklər {#breaking-changes}
 
-Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017; React 17 isn't expected until 2019.
+Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, React 16 Aprel 2016-ci ildə, React 16 Sentyabr 2019-cu ildə dərc edilib. React 17-in isə 2019-dan tez dərc edilməsi gözlənilmir.
 
-Instead, we release new features in minor versions. That means that minor releases are often more interesting and compelling than majors, despite their unassuming name.
+Əvəzinə, biz yeni xüsusiyyətləri kiçik versiyalarda dərc edirik. Bu deməkdirki, adının uyğun olmamasına baxmayaraq, kiçik buraxılışlar böyük buraxılışlardan daha maraqlı olur.
 
-### Commitment to Stability {#commitment-to-stability}
+### Stabilliyə Öhdəlik {#commitment-to-stability}
 
-As we change React over time, we try to minimize the effort required to take advantage of new features. When possible, we'll keep an older API working, even if that means putting it in a separate package. For example, [mixins have been discouraged for years](/blog/2016/07/13/mixins-considered-harmful.html) but they're supported to this day [via create-react-class](/docs/react-without-es6.html#mixins) and many codebases continue to use them in stable, legacy code.
+React zaman ilə yeniləndikcə biz yeni xüsusiyyətlərdən istifadə etmək cəhdini asanlaşdırmağa çalışırıq. İmkan olduqca, biz köhnə API-ların işləməsini qorumağa çalışırıq, hətta bu, köhnə API-ı fərqli paketdə dərc edilməsidirsə. Məsələn, [miksinlərin işlədilməsinin illərlə tövsiyyə edilmədiyinə](/blog/2016/07/13/mixins-considered-harmful.html) baxmayaraq miksinlər [create-react-class](/docs/react-without-es6.html#mixins) paketində dəstəklənir və bir çox köhnə, stabil layihələrdə istifadə edilir.
 
-Over a million developers use React, collectively maintaining millions of components. The Facebook codebase alone has over 50,000 React components. That means we need to make it as easy as possible to upgrade to new versions of React; if we make large changes without a migration path, people will be stuck on old versions. We test these upgrade paths on Facebook itself – if our team of less than 10 people can update 50,000+ components alone, we hope the upgrade will be manageable for anyone using React. In many cases, we write [automated scripts](https://github.com/reactjs/react-codemod) to upgrade component syntax, which we then include in the open-source release for everyone to use.
+React, milyondan çox proqramçı (kollektiv olaraq milyondan çox komponenti) tərəfindən istifadə edilir. Facebook-un kod təklikdə 50.000-dən React komponentindən ibarətdir. Bu səbəbdən, React-in yeni versiyalara yenilənməsini mümkün qədər asanlaşdırmalıyıq. Miqrasiya yolu göstərilmədən böyük dəyişikliklər etdikdə istifadəçilər köhnə versiyalarda qalacaqlar. Biz bu yeniləmə yollarını Facebook-da yoxlayırıq. Əgər bizim 10 nəfərdən az proqramçıdan ibarət olan komandamız 50.000+ komponenti yeniləyə bilirsə, biz bu yeniliklərin React-i istifadə edən hamı üçün idarə oluna bilindiyini ümid edirik. Bir çox ssenaridə, biz komponent sintaksisini yeniləmək üçün [avtomatlaşmış skriptləri](https://github.com/reactjs/react-codemod) hər open-source buraxılışda ehtiva edirik.
 
 ### Gradual Upgrades via Warnings {#gradual-upgrades-via-warnings}
 
