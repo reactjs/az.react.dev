@@ -35,7 +35,7 @@ profile/
   ProfileAPI.js
 ```
 
-"Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər yuxarı direktoriyalar siyahısını çıxara bilmirsinizsə, məhsulun əsas hissələrini istifadəçilərdən soruşaraq istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
+"Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər üst direktoriyalar siyahısını çıxara bilmirsinizsə, məhsulun əsas hissələrini istifadəçilərdən soruşaraq istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
 
 #### Fayl Tipi əsasında Qruplamaq {#grouping-by-file-type}
 
@@ -59,11 +59,11 @@ components/
   ProfileHeader.css
 ```
 
-Bəziləri daha dərinə gedərək applikasiyada rolundan asılı olaraq komponentləri fərqli direktoriyalara ayırırlar. Məsələn, [Atomik Dizayn](http://bradfrost.com/blog/post/atomic-web-design/) bu prinsip üzərində yaranmış metodologiyalardan biridir. Belə metodologiyaları sərt qanunlar kimi yox, faydarlı nümunələr kimi işlətməyin daha produktiv olduğunu unutmayın.
+Bəziləri daha dərinə gedərək applikasiyada olan roldan asılı olaraq komponentləri fərqli direktoriyalara ayırırlar. Məsələn, [Atomik Dizayn](http://bradfrost.com/blog/post/atomic-web-design/) bu prinsip üzərində yaranmış metodologiyalardan biridir. Belə metodologiyaları sərt qanunlar kimi yox, faydarlı nümunələr kimi işlətməyin daha produktiv olduğunu unutmayın.
 
 #### Çox iç-içə direktoriya yaratmaqdan çəkinin {#avoid-too-much-nesting}
 
-JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin stukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar dəyişdikdə bu idxalları yeniləmək çətinləşir. Əgər dərin struktur yaratmağın xüsusi səbəbi yoxdursa, strukturu üç-dört səviyyədən dərin etməkdən çəkinin. Əlbəttə ki, bu sadəcə bir tövsiyyədir. Bu yanaşmanın sizin layihənizə dəxli olmaya bilər.
+JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin strukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar köçürüldükdə bu idxalları yeniləmək çətinləşir. Əgər dərin struktur yaratmağın xüsusi səbəbi yoxdursa, strukturu üç-dört səviyyədən dərin etməkdən çəkinin. Əlbəttə ki, bu sadəcə bir tövsiyyədir. Bu yanaşmanın sizin layihənizə dəxli olmaya bilər.
 
 #### Bu haqda çox fikirləşməyin {#dont-overthink-it}
 
