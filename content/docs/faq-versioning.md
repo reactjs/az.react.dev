@@ -30,24 +30,24 @@ React zaman ilə yeniləndikcə biz yeni xüsusiyyətlərdən istifadə etmək c
 
 React, milyondan çox proqramçı (kollektiv olaraq milyondan çox komponenti) tərəfindən istifadə edilir. Facebook-un kod təklikdə 50.000-dən React komponentindən ibarətdir. Bu səbəbdən, React-in yeni versiyalara yenilənməsini mümkün qədər asanlaşdırmalıyıq. Miqrasiya yolu göstərilmədən böyük dəyişikliklər etdikdə istifadəçilər köhnə versiyalarda qalacaqlar. Biz bu yeniləmə yollarını Facebook-da yoxlayırıq. Əgər bizim 10 nəfərdən az proqramçıdan ibarət olan komandamız 50.000+ komponenti yeniləyə bilirsə, biz bu yeniliklərin React-i istifadə edən hamı üçün idarə oluna bilindiyini ümid edirik. Bir çox ssenaridə, biz komponent sintaksisini yeniləmək üçün [avtomatlaşmış skriptləri](https://github.com/reactjs/react-codemod) hər open-source buraxılışda ehtiva edirik.
 
-### Gradual Upgrades via Warnings {#gradual-upgrades-via-warnings}
+### Xəbərdarlıqlar ilə Tədrici Yeniləmələr {#gradual-upgrades-via-warnings}
 
-Development builds of React include many helpful warnings. Whenever possible, we add warnings in preparation for future breaking changes. That way, if your app has no warnings on the latest release, it will be compatible with the next major release. This allows you to upgrade your apps one component at a time.
+React-in development qurmaları əlavə xəbərdarlıqlar ehtiva edir. Gələcək pozucu dəyişikliklərə hazırlıq üçün mümkün olduğu qədər xəbərdarlıqlar əlavə edirik. Bu yol ilə applikasiyanızın ən son buraxılışında xəbərdarlıq olmadıqda applikasiya React-in gələcək böyük buraxılışına hazır olacaq. Bu, applikasiyanızı komponent-komponent yeniləməyə imkan yaradır.
 
-Development warnings won't affect the runtime behavior of your app. That way, you can feel confident that your app will behave the same way between the development and production builds -- the only differences are that the production build won't log the warnings and that it is more efficient. (If you ever notice otherwise, please file an issue.)
+Development xəbədarlıqları applikasiyanın icra davranışına təsir etmir. Bu, applikasiyanın development və produksiya qurulmalarında eyni işləyəcəyindən əmin ola bilərsiniz. Produksiya qurulmasında xəbərdarlıqlar loq olunmur və produksiya qurulması daha səmərəli işləyir. (Əgər sizdə səmərəli işləmirsə və ya xəbərdarlıqlar görünürsə, bizə issue təqdim edin.)
 
-### What Counts as a Breaking Change? {#what-counts-as-a-breaking-change}
+### Nələr Pozucu Dəyişiklikdir? {#what-counts-as-a-breaking-change}
 
-In general, we *don't* bump the major version number for changes to:
+Adətən, aşağıdakı dəyişikliklərə böyük versiya artımı *etmirik*:
 
-* **Development warnings.** Since these don't affect production behavior, we may add new warnings or modify existing warnings in between major versions. In fact, this is what allows us to reliably warn about upcoming breaking changes.
-* **APIs starting with `unstable_`.** These are provided as experimental features whose APIs we are not yet confident in. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
-* **Alpha and canary versions of React.** We provide alpha versions of React as a way to test new features early, but we need the flexibility to make changes based on what we learn in the alpha period. If you use these versions, note that APIs may change before the stable release.
-* **Undocumented APIs and internal data structures.** If you access internal property names like `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` or `__reactInternalInstance$uk43rzhitjg`, there is no warranty.  You are on your own.
+* **Development xəbərdarlıqlarına.** Bu yeniliklərin produksiya davranışlarına təsir etmədiyindən biz böyük versiyalar arası yeni xəbərdarlıqlar əlavə edə bilər və ya mövcud xəbərdarlıqları dəyişə bilərik. Faktiki olaraq, biz gələcək pozucu dəyişiklər haqqında proqramçıları bu formada xəbərdar edirik.
+* **`unstable_` adı ilə başlayan API-lara.** Bu API-lar eksperimental xüsusiyyətlər üçün işlədilir. Biz bu xüsusiyyətlərin API-larından tam əmin deyilik. Bu xüsusiyyətləri `unstable_` prefiksi ilə dərc edərək biz daha tez iterasiya edə bilir və stabil API-a daha tez çata bilirik.
+* **React-in alfa və kanari versiyaların.** React-in yeni xüsusiyyətlərini tez yoxlaya bilmək üçün React-in alfa versiyasını dərc edirik. Lakin, alfa zamanı öyrəndiklərimiz əsasında dəyişiklər etmək lazımdır. Nəzərə alin ki, bu versiyaları işlətdikdə stabil versiyadan öncə API-lar dəyişə bilər.
+* **Sənədsiz API-lara və daxili məlumat strukturlarına.** `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` və ya `__reactInternalInstance$uk43rzhitjg` kimi parametrləri işlətdikdə heç bir qarantiya yoxdur. Bu zaman öz başınasınız.
 
-This policy is designed to be pragmatic: certainly, we don't want to cause headaches for you. If we bumped the major version for all of these changes, we would end up releasing more major versions and ultimately causing more versioning pain for the community. It would also mean that we can't make progress in improving React as fast as we'd like.
+Bu qanun praqmatik olmaq üçün dizayn olunub. Biz sizin üçün baş ağrıları yaratmaq istəmirik. Göstərilən hər dəyişiklik üçün böyük versiyanı artırdıqda biz daha çox böyük versiyalar yaradıb cəmiyyətə daha çox versiya problemləri yaradacaqdıq. Bu, həmçinin bizim React üzərində etdiyimiz proqresimi yavaşladacaq.
 
-That said, if we expect that a change on this list will cause broad problems in the community, we will still do our best to provide a gradual migration path.
+Bu siyahıda olan dəyişiklik cəmiyyətdə böyük problem yaradacaqsa, biz bu dəyişiklik üçün tədrici miqrasiya yolu təmin etməyə çalışacağıq.
 
 ### If a Minor Release Includes No New Features, Why Isn't It a Patch? {#minors-versus-patches}
 
