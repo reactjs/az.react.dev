@@ -6,101 +6,101 @@ layout: docs
 category: FAQ
 ---
 
-### What does `setState` do? {#what-does-setstate-do}
+### `setState` nə edir? {#what-does-setstate-do}
 
-`setState()` schedules an update to a component's `state` object. When state changes, the component responds by re-rendering.
+`setState()` funksiyası komponentin `state` obyektinin yenilənməsi əməliyyatını planlayır. Komponent, state dəyişikliklərini yenidən render etmə ilə cavablandırır.
 
-### What is the difference between `state` and `props`? {#what-is-the-difference-between-state-and-props}
+### `state` və `props` arasında fərq nedir? {#what-is-the-difference-between-state-and-props}
 
-[`props`](/docs/components-and-props.html) (short for "properties") and [`state`](/docs/state-and-lifecycle.html) are both plain JavaScript objects. While both hold information that influences the output of render, they are different in one important way: `props` get passed *to* the component (similar to function parameters) whereas `state` is managed *within* the component (similar to variables declared within a function).
+[`props`](/docs/components-and-props.html) (ingilicə, "properties" sözünün qısa forması -- parametrlər) və [`state`](/docs/state-and-lifecycle.html) sadə JavaScript obyektləridir. Bu obyektlər render nəticəninə təsir edən məlumatları saxlayırlar. `props` obyekti komponentə *göndərilir* (funksiya arqumentləri kimi), `state` isə komponent *daxilində* baş verir (funksiya daxilində olan dəyişənlər kimi).
 
-Here are some good resources for further reading on when to use `props` vs `state`:
+`props` və `state` haqqında əlavə məlumat üçün aşağıdakı resurslara baxın:
 * [Props vs State](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
 * [ReactJS: Props vs. State](https://lucybain.com/blog/2016/react-state-vs-pros/)
 
-### Why is `setState` giving me the wrong value? {#why-is-setstate-giving-me-the-wrong-value}
+### `setState` niyə yanlış dəyər qaytarır? {#why-is-setstate-giving-me-the-wrong-value}
 
-In React, both `this.props` and `this.state` represent the *rendered* values, i.e. what's currently on the screen.
+React dünyasında, `this.props` və `this.state` *render olunmuş* (ekranda görününən) dəyərləri təmsil edir.
 
-Calls to `setState` are asynchronous - don't rely on `this.state` to reflect the new value immediately after calling `setState`. Pass an updater function instead of an object if you need to compute values based on the current state (see below for details).
+`setState` çağırışlarının asinxron olduğundan `setState` çağırışından dərhal sonra `this.state` obyekti düzgün dəyər göstərməyəcək. Cari state dəyəri əsasında yeni state dəyərini hesablamaq lazımdırsa, `setState` funksiyasına obyekt əvəzinə yeniləmə funksiyası göndərin.
 
-Example of code that will *not* behave as expected:
+Aşağıdakı kod istədiyiniz kimi *işləməyəcək*:
 
 ```jsx
 incrementCount() {
-  // Note: this will *not* work as intended.
+  // Qeyd: bu nəzərdə tutulduğu kimi *işləməyəcək*.
   this.setState({count: this.state.count + 1});
 }
 
 handleSomething() {
-  // Let's say `this.state.count` starts at 0.
+  // Fərz edək ki, `this.state.count` dəyəri 0 ilə başlayır.
   this.incrementCount();
   this.incrementCount();
   this.incrementCount();
-  // When React re-renders the component, `this.state.count` will be 1, but you expected 3.
+  // Komponent yenidən render edildikdə `this.state.count` state dəyəri 3-ə yox, 1-ə berabər olacaq.
 
-  // This is because `incrementCount()` function above reads from `this.state.count`,
-  // but React doesn't update `this.state.count` until the component is re-rendered.
-  // So `incrementCount()` ends up reading `this.state.count` as 0 every time, and sets it to 1.
+  // Burada `incrementCount()` funksyası `this.state.count` dəyərini çağırır.
+  // React isə komponent yenidən render edilənə kimi `this.state.count` dəyərini yeniləmir.
+  // Bu səbəbdən `incrementCount()` funksiyası hər zaman `this.state.count` dəyərini 0 kimi görür və yeni state-ə 1 dəyərini təyin edir.
 
-  // The fix is described below!
+  // Düzəliş aşağıda göstərilib!
 }
 ```
 
-See below for how to fix this problem.
+Bu problemi düzəltmək üçün aşağıdakı bölmələrə baxın.
 
-### How do I update state with values that depend on the current state? {#how-do-i-update-state-with-values-that-depend-on-the-current-state}
+### Cari state dəyəri əsasında yeni state-i necə yeniləyə bilərəm? {#how-do-i-update-state-with-values-that-depend-on-the-current-state}
 
-Pass a function instead of an object to `setState` to ensure the call always uses the most updated version of state (see below). 
+`setState` funksiyasəna obyekt əvəzinə funksiya göndərərək cari dəyərin hər zaman ən yeni dəyər olduğunu siğortalamaq mümkündür (aşağıda baxın).
 
-### What is the difference between passing an object or a function in `setState`? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
+### `setState`-ə obyekt və funksiya göndərmək arasında olan fərq nəedir? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
 
-Passing an update function allows you to access the current state value inside the updater. Since `setState` calls are batched, this lets you chain updates and ensure they build on top of each other instead of conflicting:
+Yeniləmə funksiyası göndərdikdə cari state-i funksiya daxilindən istifadə etmək mümkündür. `setState` çağırışları dəstələndiyindən, yeniləmə funksiyaları, yenilikləri bir-birinin üzərindən zəncirləyərək konfliktsiz işləməsinə imkan yaradır:
 
 ```jsx
 incrementCount() {
   this.setState((state) => {
-    // Important: read `state` instead of `this.state` when updating.
+    // Vacıb: yenilədikdə `this.state` əvəzinə `state` obyektindən istifadə edin.
     return {count: state.count + 1}
   });
 }
 
 handleSomething() {
-  // Let's say `this.state.count` starts at 0.
+  // Fərz edək ki, `this.state.count` dəyəri 0 ilə başlayır.
   this.incrementCount();
   this.incrementCount();
   this.incrementCount();
 
-  // If you read `this.state.count` now, it would still be 0.
-  // But when React re-renders the component, it will be 3.
+  // `this.state.count`-u bu çağırışdan oxuduqda 0 dəyəri veriləcək.
+  // Lakin, React komponenti yenidən render etdikdə, yeni dəyər 3 olacaq.
 }
 ```
 
-[Learn more about setState](/docs/react-component.html#setstate)
+[setState haqqında buradan oxuyun](/docs/react-component.html#setstate)
 
-### When is `setState` asynchronous? {#when-is-setstate-asynchronous}
+### `setState` nə zaman asinxrondur? {#when-is-setstate-asynchronous}
 
-Currently, `setState` is asynchronous inside event handlers.
+Hal hazırda, `setState`, hadisə işləyiciləri daxilində asinxron baş verir.
 
-This ensures, for example, that if both `Parent` and `Child` call `setState` during a click event, `Child` isn't re-rendered twice. Instead, React "flushes" the state updates at the end of the browser event. This results in significant performance improvements in larger apps.
+Nümunə: Tıklamaq hadisəsi zamanı `Parent` və `Child` komponentləri `setState` çağırdıqda, `Child`-ın iki dəfə render edilməməsi üçün `setState`-in asinxron olması vacibdir. Əzəvinə, React, brauzer hadisəsinin sonunda state yeniliklərini "təmizləyir". Bu, böyük applikasiyalarda böyük performans qazancına səbəb olur.
 
-This is an implementation detail so avoid relying on it directly. In the future versions, React will batch updates by default in more cases.
+Bunun tətbiq detalı olduğundan, bu qanuna etibar etməyin. Gələcək versiyalarda, yeniliklər daha çox ssenaridə dəstələnəcək.
 
-### Why doesn't React update `this.state` synchronously? {#why-doesnt-react-update-thisstate-synchronously}
+### Niyə `this.state` dəyəri sinxron yenilənmir? {#why-doesnt-react-update-thisstate-synchronously}
 
-As explained in the previous section, React intentionally "waits" until all components call `setState()` in their event handlers before starting to re-render. This boosts performance by avoiding unnecessary re-renders.
+Əvvəlki bölmədə izah edildiyi kimi bütün komponentlər hadisə işləyicilərindən `setState` çağırışlarını etdikdən sonra React yenidən render etmək əməliyyatını başlayır. Bu, lazımsız render etmələrin qabağını alaraq performans qazancına səbəb olur.
 
-However, you might still be wondering why React doesn't just update `this.state` immediately without re-rendering.
+Lakin, React-in `this.state`-i render etmədən yeniləmədiyi sizi maraqlandıra bilər.
 
-There are two main reasons:
+Bunun iki səbəbi var:
 
-* This would break the consistency between `props` and `state`, causing issues that are very hard to debug.
-* This would make some of the new features we're working on impossible to implement.
+* Bu, `props` və `state` arasında olan ardıcıllığı pozaraq debaq etməni çətinləşdirə bilər.
+* Bu, bəzi yeni xüsusiyyətlərin tətbiqinin qeyri-mümkün olmasına səbəb ola bilər.
 
-This [GitHub comment](https://github.com/facebook/react/issues/11527#issuecomment-360199710) dives deep into the specific examples.
+Xüsusi nümunələr üçün [bu GitHub şərhini](https://github.com/facebook/react/issues/11527#issuecomment-360199710) oxuyun.
 
-### Should I use a state management library like Redux or MobX? {#should-i-use-a-state-management-library-like-redux-or-mobx}
+### Redux və MobX kimi state idarə edən kitabxana istifadə edim? {#should-i-use-a-state-management-library-like-redux-or-mobx}
 
-[Maybe.](https://redux.js.org/faq/general#when-should-i-use-redux)
+[Ola bilər.](https://redux.js.org/faq/general#when-should-i-use-redux)
 
-It's a good idea to get to know React first, before adding in additional libraries. You can build quite complex applications using only React.
+Yeni kitabxanalar əlavə etmədən öncə React-i yaxşı bilmək daha vacibdir. Yalnız React-dən istifadə edərək mürəkkəb applikasiyalar düzəldə bilərsiniz.
