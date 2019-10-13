@@ -53,7 +53,7 @@ Bu problemi düzəltmək üçün aşağıdakı bölmələrə baxın.
 
 `setState` funksiyasəna obyekt əvəzinə funksiya göndərərək cari dəyərin hər zaman ən yeni dəyər olduğunu siğortalamaq mümkündür (aşağıda baxın).
 
-### `setState`-ə obyekt və funksiya göndərmək arasında olan fərq nəedir? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
+### `setState`-ə obyekt və funksiya göndərmək arasında olan fərq nədir? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
 
 Yeniləmə funksiyası göndərdikdə cari state-i funksiya daxilindən istifadə etmək mümkündür. `setState` çağırışları dəstələndiyindən, yeniləmə funksiyaları, yenilikləri bir-birinin üzərindən zəncirləyərək konfliktsiz işləməsinə imkan yaradır:
 
