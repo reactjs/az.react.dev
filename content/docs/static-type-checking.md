@@ -290,13 +290,13 @@ npm run build
 
 ### Tip Tərifləri {#type-definitions}
 
-To be able to show errors and hints from other packages, the compiler relies on declaration files. A declaration file provides all the type information about a library. This enables us to use javascript libraries like those on npm in our project. 
+Kompilyator deklarasiya fayllarından istifadə edərək digər paketlərin annotasiyalarını və tip xətalarını göstərir. Deklarasiya faylı kitabxana haqqında bütün tip məlumatlarını təmin edir. Bu, layihədə npm ilə işlədilən javascript kitabxanalarının istifadəsinə imkan yaradır. 
 
-There are two main ways to get declarations for a library:
+Kitabxana deklarasiyalarını əldə etməyin iki yolu var:
 
-__Bundled__ - The library bundles its own declaration file. This is great for us, since all we need to do is install the library, and we can use it right away. To check if a library has bundled types, look for an `index.d.ts` file in the project. Some libraries will have it specified in their `package.json` under the `typings` or `types` field.
+__Paket ilə gələn__ - Kitabxana deklarasiya faylı ilə paketlənir. Belə olduqda, kitabxananı yükləyib dərhal işlətmək mümkündür. Kitabxananın tiplərinin olmasını bilmək üçün layihədə `index.d.ts` faylına baxın. Bu fayl bəzi kitabxanalarda `package.json` faylının `typings` və ya `types` bölməsində göstərilir.
 
-__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - DefinitelyTyped is a huge repository of declarations for libraries that don't bundle a declaration file. The declarations are crowd-sourced and managed by Microsoft and open source contributors. React for example doesn't bundle its own declaration file. Instead we can get it from DefinitelyTyped. To do so enter this command in your terminal.
+__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - deklarasiya faylı paket ilə gəlməyən kitabxanalar üçün DefinitelyTyped reposundan istifadə edə bilərsiniz. Bu repoda olan deklarasiyalar cəmiyyət tərəfindən əlavə edilir və Microsoft və digər open-source əməkdaşları tərəfindən idarə olunur. Məsələn, React, deklarasiya fayllarını paketləmir. Əvəzinə, tipləri DefinitelyTyped reposundan almaq mümkündür. Tipləri əlavə etmək üçün aşağıdakı əmri terminalda icra edin.
 
 ```bash
 # yarn
@@ -306,8 +306,9 @@ yarn add --dev @types/react
 npm i --save-dev @types/react
 ```
 
-__Local Declarations__
-Sometimes the package that you want to use doesn't bundle declarations nor is it available on DefinitelyTyped. In that case, we can have a local declaration file. To do this, create a `declarations.d.ts` file in the root of your source directory. A simple declaration could look like this:
+__Lokal Deklarasiyalar__
+
+Bəzən, işlədilən paketdə və ya DefinitelyTyped reposunda tip deklarasiyaları olmaya bilər. Bu halda, deklarasiyaları lokal faylda göstərmək olar. Bunu edə bilmək üçün, ana direktoriyada `declarations.d.ts` faylı əlavə edin. Sadə deklarasiya aşağıdakı formada olur:
 
 ```typescript
 declare module 'querystring' {
@@ -316,11 +317,11 @@ declare module 'querystring' {
 }
 ```
 
-You are now ready to code! We recommend to check out the following resources to learn more about TypeScript:
+İndi TypeScript ilə kod yaza bilərsiniz! TypeScript haqqında əlavə məlumat üçün aşağıdakı resurslara baxın:
 
-* [TypeScript Documentation: Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
-* [TypeScript Documentation: Migrating from Javascript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
-* [TypeScript Documentation: React and Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+* [TypeScript Sənədləri: Əsas Tiplər](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+* [TypeScript Sənədləri: Javascript-dən Miqrasiya](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+* [TypeScript Sənədləri: React və Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
 
 ## Reason {#reason}
 
