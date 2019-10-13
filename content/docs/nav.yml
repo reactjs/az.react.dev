@@ -72,7 +72,7 @@
     - id: render-props
       title: Render Etmə Propları
     - id: static-type-checking
-      title: Static Tip Yoxlaması
+      title: Statik Tip Yoxlamaları
     - id: strict-mode
       title: Strict Rejimi
     - id: typechecking-with-proptypes
