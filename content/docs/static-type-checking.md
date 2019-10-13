@@ -325,16 +325,16 @@ declare module 'querystring' {
 
 ## Reason {#reason}
 
-[Reason](https://reasonml.github.io/) is not a new language; it's a new syntax and toolchain powered by the battle-tested language, [OCaml](https://ocaml.org/). Reason gives OCaml a familiar syntax geared toward JavaScript programmers, and caters to the existing NPM/Yarn workflow folks already know.
+[Reason](https://reasonml.github.io/) yeni bir dil deyil. Bu, [OCaml](https://ocaml.org/) ilə işləyən yeni sintaksis və toolchain-dir. Reason, OCaml dilini JavaScript proqramçılarının başa düşəcəyi sintaksis ilə təmin edir. Əlavə olaraq, bu alət ilə bildiyimiz mövcud NPM/Yarn iş axınlarından istifadə etmək mümkündür.
 
-Reason is developed at Facebook, and is used in some of its products like Messenger. It is still somewhat experimental but it has [dedicated React bindings](https://reasonml.github.io/reason-react/) maintained by Facebook and a [vibrant community](https://reasonml.github.io/docs/en/community.html).
+Reason, Facebook tərəfindən yaradılıb və Messenger kimi məhsullarda istifdə olunur. Bu alət hələ də eksperimentaldır. Lakin, bu alətin Facebook və [canlı cəmiyyət](https://reasonml.github.io/docs/en/community.html) tərəfindən saxlanan [React binding-ləri](https://reasonml.github.io/reason-react/) var.
 
 ## Kotlin {#kotlin}
 
-[Kotlin](https://kotlinlang.org/) is a statically typed language developed by JetBrains. Its target platforms include the JVM, Android, LLVM, and [JavaScript](https://kotlinlang.org/docs/reference/js-overview.html). 
+[Kotlin](https://kotlinlang.org/), JetBrains tərəfindən düzəldilmiş statik tipli yazılan dildir. Bu dilin hədəf platforması JVM, Android, LLVM, və [JavaScript-dir](https://kotlinlang.org/docs/reference/js-overview.html). 
 
-JetBrains develops and maintains several tools specifically for the React community: [React bindings](https://github.com/JetBrains/kotlin-wrappers) as well as [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). The latter helps you start building React apps with Kotlin with no build configuration.
+JetBrains, React cəmiyyəti üçün bir neçə alət düzəldir və saxlayır: [React binding-ləri](https://github.com/JetBrains/kotlin-wrappers) və [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). Create React Kotlin App paketi qurulma konfiqurasiyasız React applikasiyaları yaramağa imkan yaradır.
 
-## Other Languages {#other-languages}
+## Digər Dillər {#other-languages}
 
-Note there are other statically typed languages that compile to JavaScript and are thus React compatible. For example, [F#/Fable](https://fable.io/) with [elmish-react](https://elmish.github.io/react). Check out their respective sites for more information, and feel free to add more statically typed languages that work with React to this page!
+Nəzərə alın ki, JavaScript-ə kompilyasiya olunan (bu səbəbdən, React ilə işləyə bilən) digər statik tipli yazılan dillər də mövcuddur: [F#/Fable](https://fable.io/) və [elmish-react](https://elmish.github.io/react). Əlavə məlumat üçün bu paketlərin səhifələrinə baxın. React ilə işləyən statik tipli dil bilirsinizə, yeni dili bu səhifəyə əlavə etməkdən çəkinməyin!
