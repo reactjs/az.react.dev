@@ -355,7 +355,6 @@ Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#r
 
 İndiki gündə dəstəklənməməsinə baxmayaraq, biz gələcəkdə `Suspense`-in məlumat yüklənməsi kimi ssenarilərini dəstəkləməsini planlaşdırırıq. Bu haqda əlavə məlumat üçün, [yol xəritəmizi](/blog/2018/11/27/react-16-roadmap.html) oxuya bilərsiniz.
 
-
 >Qeyd:
 >
 >`React.lazy()` və `<React.Suspense>` `ReactDOMServer` tərəfindən dəstəklənmir. Bu məlum olan məhdudiyyət gələcəkdə həll olunacaq.
