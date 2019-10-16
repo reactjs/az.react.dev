@@ -333,11 +333,7 @@ Nəzərə alın ki, `lazy` komponentləri render etmək üçün komponent ağac�
 
 ### `React.Suspense` {#reactsuspense}
 
-<<<<<<< HEAD
 `React.Suspense`, ağacda olan komponentlərin render-ə hazır olmadığı halda sizə yükləmə indikatoru müəyyənləşdirməyə icazə verir. Bugün, `<React.Suspense>` **yalnız** komponentlərin lazy yüklənməsini dəstəkləyir:
-=======
-`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 ```js
 // Bu komponent dinamik yüklənir
@@ -358,7 +354,6 @@ function MyComponent() {
 Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#reactlazy) göstərilmişdir. Qeyd edin ki, `lazy` komponentlər `Suspense` ağacının dərinliklərində də ola bilər. Suspense hər bir `lazy` komponenti əhatə etməməlidir. Yükləmə indikatoru görmək istədiyiniz yerdə `<Suspense>`-i əlavə etmək, amma `lazy()`-ni kod parçalaması etmək istədiyiniz yerdə işlətmək ən yaxşı praktikadır.
 
 İndiki gündə dəstəklənməməsinə baxmayaraq, biz gələcəkdə `Suspense`-in məlumat yüklənməsi kimi ssenarilərini dəstəkləməsini planlaşdırırıq. Bu haqda əlavə məlumat üçün, [yol xəritəmizi](/blog/2018/11/27/react-16-roadmap.html) oxuya bilərsiniz.
-
 
 >Qeyd:
 >
