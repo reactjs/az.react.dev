@@ -4,21 +4,21 @@ title: Statik Tip Yoxlamaları
 permalink: docs/static-type-checking.html
 ---
 
-[Flow](https://flow.org/) və [TypeScript](https://www.typescriptlang.org/) statik tip yoxlayıcıları kod icra olunmamışdan öncə bəzi problemləri tapa bilir. Bu alətlər avtomatik tamamlama kimi xüsusiyyətləri əlavə edərək proqramçı iş axının təkmiləşdirir. Bu səbəbdən, böyük kodlarda `PropTypes` əvəzinə Flow və ya Typescript işlətməyi tövsiyyə edirik.
+[Flow](https://flow.org/) və [TypeScript](https://www.typescriptlang.org/) statik tip yoxlayıcıları ilə kod icra olunmamışdan öncə bəzi problemlərin tapılması mümkündür. Əlavə olaraq, bu alətlər avtomatik tamamlama kimi xüsusiyyətlər əlavə edərək proqramçı iş axının təkmiləşdirir. Bu səbəbdən, böyük kodlarda `PropTypes` əvəzinə Flow və ya Typescript işlətməyi tövsiyyə edirik.
 
 ## Flow {#flow}
 
-[Flow](https://flow.org/) JavaScript kodu üçün statik tip yoxlayıcısıdır. Bu alət Facebook tərəfindən yaradılıb və React ilə çox işlənilir. Bu, sizə dəyişənləri, funksiyaları və React komponentlərini xüsusi tip sintaksisi ilə annotasiya edərək xətaları tez tutmağa imkan yaradır. Əsasları öyrənmək üçün [Flow-a giriş](https://flow.org/en/docs/getting-started/) sənədini oxuya bilərsiniz.
+[Flow](https://flow.org/), JavaScript kodu üçün statik tip yoxlayıcısıdır. Bu alət, Facebook tərəfindən yaradılıb və React ilə çox işlənilir. Bu, dəyişənləri, funksiyaları və React komponentlərini xüsusi tip sintaksisi ilə annotasiya edərək xətaların tez tutulmasına imkan yaradır. Əsasları öyrənmək üçün [Flow-a giriş](https://flow.org/en/docs/getting-started/) sənədini oxuya bilərsiniz.
 
 Flow-nu işlətmək üçün:
 
 * Flow-nu layihə asılılığı kimi əlavə edin.
 * Kompilyasiya edilən kodda Flow sintaksisinin silindiyindən əmin olun.
-* Tip annotasiyalarını əlavə edin və Flow-nu çağıraraq bu tipləri yoxlayın.
+* Tip annotasiyalarını əlavə edib Flow-nu çağıraraq bu tipləri yoxlayın.
 
-Aşağıda bu addımlar detallı başa salınır.
+Bu addımlar aşağıdalı bölmələrdə detallı başa salınır.
 
-### Flow=nu Layihəyə Əlavə Et {#adding-flow-to-a-project}
+### Flow-nu Layihəyə Əlavə Et {#adding-flow-to-a-project}
 
 İlk olaraq, terminaldan layihə direktoriyasına naviqasiya edin. Sonra, aşağıdakı əmri icra edin:
 
@@ -34,7 +34,7 @@ yarn add --dev flow-bin
 npm install --save-dev flow-bin
 ```
 
-Bu əmr layihənizə Flow-un ən son versiyasını yükləyir.
+Bu əmr, Flow-un ən son versiyasını layihəyə yükləyir.
 
 İndi, `flow` əmrini `package.json` faylının  `"scripts"` bölməsinə əlavə edin:
 
@@ -63,25 +63,25 @@ yarn run flow init
 npm run flow init
 ```
 
-Bu əmr Flow konfiqurasiya faylı yaradacaq. Bu faylı reponuza commit edin.
+Yaranan Flow konfiqurasiya faylını reponuza commit edin.
 
 ### Flow Sintaksisinin Kompilyasiya Olunan Koddan Silinməsi {#stripping-flow-syntax-from-the-compiled-code}
 
-Flow, tip annotasiyaları üçün JavaScript dilini xüsusi sintaksis ilə artırır. Lakin, brauzerlərin bu sintaksisdən xəbəri olmadığından bu sintaksisin brauzerə göndərilən, kompilyasiya olunan JavaScript paketində olmadığından əmin olmalıyıq.
+Flow, tip annotasiyaları üçün JavaScript dilinə xüsusi sintaksis əlavə edir. Lakin, brauzerlərin bu sintaksisı anlamadığından, bu sintaksis brauzerə göndərilən, kompilyasiya olunan JavaScript paketindən silinməlidir.
 
-Bunu etməyin yolu JavaScript-i kompilyasiya etmək üçün işlətdiyiniz alətlərdən asılıdır.
+Bu sintaksisin silinməsi JavaScript-i kompilyasiyası edən alətdən asılıdır.
 
 #### Create React App {#create-react-app}
 
-Əgər layihəniz [Create React App](https://github.com/facebookincubator/create-react-app) ilə qurulubsa, təbrik edirik! Flow annotasiyaları kompilyasiya zamanı silindiyindən heç nə etmək lazım deyil.
+Əgər layihəniz [Create React App](https://github.com/facebookincubator/create-react-app) ilə qurulubsa, təbrik edirik! Kompilyasiya zamanı Flow annotasiyaları silinəcək.
 
 #### Babel {#babel}
 
 >Qeyd:
 >
->Bu təlimatlar Create React App istifadəçiləri üçün *nəzərdə tutulmayıb*. Create React App-in Babel işlətdiyinə baxmayaraq Flow-nu anlaması artıq konfiqurasiya olunub. Yalnız Create React App *işlətmədikdə* bu bölmədə olan təlimatları təqib edin.
+>Bu təlimatlar Create React App istifadəçiləri üçün *nəzərdə tutulmayıb*. Create React App-in Babel işlətdiyinə baxmayaraq Flow-nu addımı artıq konfiqurasiya olunub. Bu bölmədə olan təlimatları Create React App *işlətmədikdə* təqib edin.
 
-Layihəyə Babel əl ilə quraşdırıldıqda, Flow üçün xüsusi preset yükləmək lazımdır.
+Layihəyə Babel əl ilə quraşdırıldıqda Flow üçün xüsusi preset yükləmək lazımdır.
 
 Yarn işlədirsinizsə:
 
@@ -95,7 +95,7 @@ npm işlədirsinizsə:
 npm install --save-dev @babel/preset-flow
 ```
 
-Sonra, `flow` presetini [Babel konfiqurasiyasına](https://babeljs.io/docs/usage/babelrc/) əlavə edin. Məsələn, Babel-ı `.babelrc` faylı ilə konfiqurasiya etdikdə, fayl aşağıdakı formada ola bilər:
+Sonra, `flow` presetini [Babel konfiqurasiyasına](https://babeljs.io/docs/usage/babelrc/) əlavə edin. Məsələn, Babel-ı `.babelrc` faylı ilə konfiqurasiya etdikdə fayl aşağıdakı formada ola bilər:
 
 ```js{3}
 {
@@ -110,17 +110,18 @@ Bu, kodunuzda Flow sintaksisi işlətməyə imkan yaradacaq.
 
 >Qeyd:
 >
->Flow, `react` presetini işlədilməsini tələb etmir. Lakin, adətən bu iki preset birlikdə işlənir. Flow təklikdə JSX sintaksisini anlayır.
+>Flow, `react` presetinin işlədilməsini tələb etmir. Lakin, adətən bu iki preset birlikdə işlənilir. Flow təklikdə JSX sintaksisini anlayır.
 
 #### Digər Qurulmalar {#other-build-setups}
 
 Create React App və ya Babel işlətmədikdə [flow-remove-types](https://github.com/flowtype/flow-remove-types) paketindən istifadə edərək tip annotasiyalarını silə bilərsiniz.
 
-### Flow-un İcrası {#running-flow}
+### Flow-nun İcrası {#running-flow}
 
 Yuxarıdakı təlimatları sıra ilə təqib etmisinizsə, artıq Flow-nu işlədə biləcəksiniz.
 
 Yarn işlədirsinizsə:
+
 ```bash
 yarn flow
 ```
@@ -140,15 +141,15 @@ No errors!
 
 ### Flow Tip Annotasiyalarının Əlavəsi {#adding-flow-type-annotations}
 
-Adətən, Flow, yalnız göstərilən annotasiya olan faylları yoxlayır:
+Normalda, Flow yalnız aşağıdakı annotasiya olan faylları yoxlayır:
 
 ```js
 // @flow
 ```
 
-Adətən bu annotasiya faylın tam üstündə əlavə olunur. Bəzi fayllara bu annotasiyanı əlavə edib `yarn flow` və ya `npm run flow` əmrlərini icra edərək Flow-nun səhv tapdığına baxın.
+Adətən, bu annotasiya faylın tam yuxarısına əlavə olunur. Bu annotasiyanı bəzi fayllara əlavə edib `yarn flow` və ya `npm run flow` əmrlərini icra edərək Flow-nun səhv tapdığına baxın.
 
-Annotasiyanın olmasından asılı olmayaraq Flow-nun *bütün* faylları yoxlaması üçün [bu parametrdən](https://flow.org/en/docs/config/options/#toc-all-boolean) istifadə edə bilərsiniz. Bu parametr mövcud layihələr üçün çox səhv göstərdiyindən çətin ola bilər. Lakin, yeni layihədə tipləri Flow ilə annotasiya etmək istəyirsinizsə, bu parametrdən istifadə etmək faydalı ola bilər.
+Annotasiyanın olmasından asılı olmayaraq Flow-nun *bütün* faylları yoxlaması üçün [bu parametrdən](https://flow.org/en/docs/config/options/#toc-all-boolean) istifadə edə bilərsiniz. Bu parametr mövcud layihələr üçün çox səhv göstərdiyindən ağır ola bilər. Lakin, yeni layihədə tipləri Flow ilə annotasiya etmək istəyirsinizsə, bu parametrdən istifadə etmək faydalı ola bilər.
 
 İndi Flow tam işləyir! Flow haqqında əlavə məlumat üçün aşağıdakı resurslara baxın:
 
@@ -159,19 +160,20 @@ Annotasiyanın olmasından asılı olmayaraq Flow-nun *bütün* faylları yoxlam
 
 ## TypeScript {#typescript}
 
-[TypeScript](https://www.typescriptlang.org/), Microsoft tərəfindən yaranmış proqramlaşdırma dilidir. Bu dil JavaScript-in üzərindən qurulub və öz kompilyatoru ilə gəlir. TypeScript tipli dil olduğundan xətalar və baqlar qurulma zamanı tutula bilir. React ilə TypeScript işlətməyi haqqında [buradan](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter) oxuya bilərsiniz.
+[TypeScript](https://www.typescriptlang.org/), Microsoft tərəfindən yaranmış proqramlaşdırma dilidir. JavaScript-in üzərindən qurulmuş bu dilin öz kompilyatoru var. TypeScript, tipli dil olduğundan xətalar və baqlar qurulma zamanı tutula bilir. React ilə TypeScript işlətmək haqqında [buradan](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter) oxuya bilərsiniz.
 
 TypeScript işlətmək üçün:
+
 * TypeScript-i layihə asılılığı kimi əlavə edin.
-* TypeScript kompilyator parametrlərini konfiqurasiya edin
-* Düzgün fayl genişləmnəsindən istifadə edin
-* İşlədilən kitabxanalar üçün tip tərifləri əlavə edin
+* TypeScript kompilyator parametrlərini konfiqurasiya edin.
+* Düzgün fayl genişləmnəsindən istifadə edin.
+* İşlədilən kitabxanalar üçün tip tərifləri əlavə edin.
 
 Gəlin, bu addımlara detallı baxaq.
 
 ### Create React App ilə TypeScript-in İşlədilməsi {#using-typescript-with-create-react-app}
 
-Create React App ilə TypeScript konfiqurasiyasız işləyir.
+TypeScript, Create React App-də konfiqurasiyasız işləyir.
 
 TypeScript dəstəkləyən **yeni layihə** üçün aşağıdakı əmri icra edin:
 
@@ -187,7 +189,7 @@ TypeScript-i **mövcud Create React App layihəsinə də** əlavə edə bilərsi
 
 ### Layihəyə TypeScript Əlavə Etmək {#adding-typescript-to-a-project}
 
-Proses, terminaldan aşağıdakı əmri icra etmək ilə başlayır.
+Typescript-i aşağıdakı əmri icra edərək yükləyin.
 
 [Yarn](https://yarnpkg.com/) işlədirsinizsə:
 
@@ -201,7 +203,7 @@ yarn add --dev typescript
 npm install --save-dev typescript
 ```
 
-Təbrik edirik! Siz layihənizə TypeScript-in ən sonuncu versiyasını yüklədiniz. TypeScript-i yüklədikdə `tsc` əmrindən istifadə edə bilirik. Konfiqurasiya etməkdən öncə `package.json` faylının "scripts" bölməsinə `tsc` əmrini əlavə edin:
+Təbrik edirik! Siz, layihənizə TypeScript-in ən sonuncu versiyasını yüklədiniz. TypeScript paketi `tsc` əmri ilə gelir. Konfiqurasiya etməkdən öncə `package.json` faylının "scripts" bölməsinə `tsc` əmrini əlavə edin:
 
 ```js{4}
 {
@@ -216,7 +218,7 @@ Təbrik edirik! Siz layihənizə TypeScript-in ən sonuncu versiyasını yüklə
 
 ### TypeScript Kompilyatorunun Konfiqurasiyası {#configuring-the-typescript-compiler}
 
-Kompilyatora nə etdiyiniz demədikdə bizim üçün heç bir xeyri olmayacaq. Bu qaydalar `tsconfig.json` adlı xüsusi faylda teyin edilir. Faylı yaratmaq üçün aşağıdakı əmrləri icra edin.
+Kompilyatorun nə edəcəyini demədikdə Typescript-in heç bir xeyri olmayacaq. Bu qaydalar `tsconfig.json` adlı xüsusi faylda təyin edilir. Faylı yaratmaq üçün aşağıdakı əmrləri icra edin.
 
 [Yarn](https://yarnpkg.com/) işlədirsinizsə:
 
@@ -230,11 +232,11 @@ yarn run tsc --init
 npx tsc --init
 ```
 
-Yeni yaranmış `tsconfig.json` faylında bir çox parametrlər ilə kompilyatoru konfiqurasiya etmək mümkündür. Parametrlərin dərin izahatı üçün [bu sənədə](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) baxın.
+Yeni yaranmış `tsconfig.json` faylında olan parametrlər ilə kompilyatoru konfiqurasiya etmək mümkündür. Parametrlərin dərin izahatı üçün [bu sənədə](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) baxın.
 
-Bir çox parametrin arasından `rootDir` və `outDir` parametrinə baxaq. Kompilyator typescript fayllarını qəbul edib javascript faylları yaratmalıdır. Lakin, biz mənbə faylları və yaranmış nəticələri qarışdırmaq istəmirik.
+Əsas `rootDir` və `outDir` parametlərinə baxaq. Kompilyator, typescript fayllarını qəbul edib javascript faylları yaratmalıdır. Lakin, biz mənbə fayllarını və yaranmış nəticələri qarışdırmaq istəmirik.
 
-Biz bunu iki addım ilə həll edəcəyik:
+Bunu iki addım ilə həll edəcəyik:
 
 * İlk olaraq, layihə strukturunu aşağıdakı formada düzəldəcəyik. Bütün mənbə fayllarını `src` direktoriyasında saxlayacağıq.
 
@@ -260,13 +262,13 @@ Biz bunu iki addım ilə həll edəcəyik:
 }
 ```
 
-Əla! İndi "build" skriptini icra etdikdə kompilyator yaranacaq javascript faylları `build/` direktoriyasına əlavə edəcək. [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) paketi, başlamaq üçün yaxşı qaydalar olan `tsconfig.json` faylı təmin edir.
+Əla! İndi "build" skriptini icra etdikdə kompilyator yaranacaq javascript faylları `build/` direktoriyasına əlavə edəcək. [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) paketi başlamaq üçün yaxşı qaydalar olan `tsconfig.json` faylı təmin edir.
 
-Adətən, yaranmış javascript faylını mənbə kontrolunda (source control) saxlamağı tövsiyyə etmirik. Bu səbəbdən, `build/` direktoriyasını `.gitignore`-a əlavə edin.
+Adətən, yaranmış javascript faylarını mənbə kontrolunda (source control) saxlamağı tövsiyyə etmirik. Bu səbəbdən, `build/` direktoriyasını `.gitignore`-a əlavə edin.
 
 ### Fayl genişləmələri {#file-extensions}
 
-Adətən React komponentləri `.js` faylında saxlanılır. TypeScript-də isə iki fayl geniləməsi var:
+Normalda, React komponentləri `.js` faylında saxlanılır. TypeScript-də iki fayl genişləməsindən istifadə edir:
 
 Standart fayl genişləməsi `.ts`-dir. `.tsx` isə `JSX` olan fayllar üçün istifadə edilir.
 
@@ -290,11 +292,11 @@ npm run build
 
 ### Tip Tərifləri {#type-definitions}
 
-Kompilyator deklarasiya fayllarından istifadə edərək digər paketlərin annotasiyalarını və tip xətalarını göstərir. Deklarasiya faylı kitabxana haqqında bütün tip məlumatlarını təmin edir. Bu, layihədə npm ilə işlədilən javascript kitabxanalarının istifadəsinə imkan yaradır. 
+Kompilyator, deklarasiya fayllarından istifadə edərək digər paketlərin annotasiyalarını və tip xətalarını göstərir. Deklarasiya faylı kitabxana haqqında bütün tip məlumatlarını təmin edir. Bu, layihədə npm ilə işlədilən javascript kitabxanalarının istifadəsinə imkan yaradır. 
 
 Kitabxana deklarasiyalarını əldə etməyin iki yolu var:
 
-__Paket ilə gələn__ - Kitabxana deklarasiya faylı ilə paketlənir. Belə olduqda, kitabxananı yükləyib dərhal işlətmək mümkündür. Kitabxananın tiplərinin olmasını bilmək üçün layihədə `index.d.ts` faylına baxın. Bu fayl bəzi kitabxanalarda `package.json` faylının `typings` və ya `types` bölməsində göstərilir.
+__Paket ilə gələn__ - Kitabxana, deklarasiya faylı ilə paketlənir. Belə olduqda, kitabxananı yükləyib dərhal işlədə bilərsiniz. Kitabxana tiplərinin olduğunu bilmək üçün layihədə `index.d.ts` faylına baxın. Bu fayl, bəzi kitabxanalarda `package.json` faylının `typings` və ya `types` bölməsində göstərilir.
 
 __[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - deklarasiya faylı paket ilə gəlməyən kitabxanalar üçün DefinitelyTyped reposundan istifadə edə bilərsiniz. Bu repoda olan deklarasiyalar cəmiyyət tərəfindən əlavə edilir və Microsoft və digər open-source əməkdaşları tərəfindən idarə olunur. Məsələn, React, deklarasiya fayllarını paketləmir. Əvəzinə, tipləri DefinitelyTyped reposundan almaq mümkündür. Tipləri əlavə etmək üçün aşağıdakı əmri terminalda icra edin.
 
@@ -308,7 +310,7 @@ npm i --save-dev @types/react
 
 __Lokal Deklarasiyalar__
 
-Bəzən, işlədilən paketdə və ya DefinitelyTyped reposunda tip deklarasiyaları olmaya bilər. Bu halda, deklarasiyaları lokal faylda göstərmək olar. Bunu edə bilmək üçün, ana direktoriyada `declarations.d.ts` faylı əlavə edin. Sadə deklarasiya aşağıdakı formada olur:
+Bəzən, işlədilən paketdə və ya DefinitelyTyped reposunda tip deklarasiyaları olmaya bilər. Bu halda, deklarasiyaları lokal faylda göstərmək lazımdır. Bunu edə bilmək üçün, ana direktoriyada `declarations.d.ts` faylı yaradın. Sadə deklarasiya aşağıdakı formada olur:
 
 ```typescript
 declare module 'querystring' {
@@ -327,13 +329,13 @@ declare module 'querystring' {
 
 [Reason](https://reasonml.github.io/) yeni bir dil deyil. Bu, [OCaml](https://ocaml.org/) ilə işləyən yeni sintaksis və toolchain-dir. Reason, OCaml dilini JavaScript proqramçılarının başa düşəcəyi sintaksis ilə təmin edir. Əlavə olaraq, bu alət ilə bildiyimiz mövcud NPM/Yarn iş axınlarından istifadə etmək mümkündür.
 
-Reason, Facebook tərəfindən yaradılıb və Messenger kimi məhsullarda istifdə olunur. Bu alət hələ də eksperimentaldır. Lakin, bu alətin Facebook və [canlı cəmiyyət](https://reasonml.github.io/docs/en/community.html) tərəfindən saxlanan [React binding-ləri](https://reasonml.github.io/reason-react/) var.
+Reason, Facebook tərəfindən yaradılıb və Messenger kimi məhsullarda istifdə olunur. Bu alət eksperimentaldır. Lakin, bu alətin Facebook və [canlı cəmiyyət](https://reasonml.github.io/docs/en/community.html) tərəfindən saxlanan [React binding-ləri](https://reasonml.github.io/reason-react/) var.
 
 ## Kotlin {#kotlin}
 
 [Kotlin](https://kotlinlang.org/), JetBrains tərəfindən düzəldilmiş statik tipli yazılan dildir. Bu dilin hədəf platforması JVM, Android, LLVM, və [JavaScript-dir](https://kotlinlang.org/docs/reference/js-overview.html). 
 
-JetBrains, React cəmiyyəti üçün bir neçə alət düzəldir və saxlayır: [React binding-ləri](https://github.com/JetBrains/kotlin-wrappers) və [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). Create React Kotlin App paketi qurulma konfiqurasiyasız React applikasiyaları yaramağa imkan yaradır.
+JetBrains, React cəmiyyəti üçün bir neçə alət düzəldir və saxlayır: [React binding-ləri](https://github.com/JetBrains/kotlin-wrappers) və [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). Create React Kotlin App paketi, qurulma konfiqurasiyası olmadan React applikasiyalarının yaradılmasına imkan yaradır.
 
 ## Digər Dillər {#other-languages}
 
