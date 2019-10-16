@@ -1,64 +1,64 @@
 ---
 id: faq-versioning
-title: Versioning Policy
+title: Versiya Qaydaları
 permalink: docs/faq-versioning.html
 layout: docs
 category: FAQ
 ---
 
-React follows [semantic versioning (semver)](https://semver.org/) principles.
+React-də [semantik versiyalamaq (semver)](https://semver.org/) prinsiplərindən istifadə edir.
 
-That means that with a version number **x.y.z**:
+Bu deməkdirki, **x.y.z** formatlı versiyada:
 
-* When releasing **critical bug fixes**, we make a **patch release** by changing the **z** number (ex: 15.6.2 to 15.6.3).
-* When releasing **new features** or **non-critical fixes**, we make a **minor release** by changing the **y** number (ex: 15.6.2 to 15.7.0).
-* When releasing **breaking changes**, we make a **major release** by changing the **x** number (ex: 15.6.2 to 16.0.0).
+* **Kritiki baqlar düzəldildikdə** **z** rəqəmini dəyişərək (məsələn, 15.6.2-dən 15.6.3-ə) **yamaq (patch) buraxılış** dərc edilir.
+* **Yeni xüsusiyyətlər əlavə edildikdə** və ya **kritiki olmayan düzəlişlər edildikə** **y** rəqəmini dəyişərək (məsələn, 15.6.2-dən 15.7.0-a) **kiçik (minor) buraxılış** dərc edilir.
+* **Pozucu dəyişiklik edildikdə** **x** rəqəmini dəyişərək (məsələn, 15.6.2-dən 16.0.0-a) **böyük (major) buraxılış** dərc edilir.
 
-Major releases can also contain new features, and any release can include bug fixes.
+Böyük buraxılışlarda yeni xüsusiyyətlər, istənilən buraxılışda isə baq düzəlişləri ola bilər.
 
-Minor releases are the most common type of release.
+Ən çox dərc edilən buraxılışlar kiçik buraxılışlardır.
 
-### Breaking Changes {#breaking-changes}
+### Pozucu Dəyişikliklər {#breaking-changes}
 
-Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017; React 17 isn't expected until 2019.
+Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, 2016-cı ilin Aprel ayında React 15, 2019-cu ilin Sentyabr ayında React 16 dərc edilib. React 17-nin isə 2019-dan tez dərc edilməsi gözlənilmir.
 
-Instead, we release new features in minor versions. That means that minor releases are often more interesting and compelling than majors, despite their unassuming name.
+Əvəzinə, biz yeni xüsusiyyətləri kiçik versiyalarda dərc edirik. Bu deməkdirki, adının uyğun olmamasına baxmayaraq, kiçik buraxılışlar böyük buraxılışlardan daha maraqlı olur.
 
-### Commitment to Stability {#commitment-to-stability}
+### Stabilliyə Öhdəlik {#commitment-to-stability}
 
-As we change React over time, we try to minimize the effort required to take advantage of new features. When possible, we'll keep an older API working, even if that means putting it in a separate package. For example, [mixins have been discouraged for years](/blog/2016/07/13/mixins-considered-harmful.html) but they're supported to this day [via create-react-class](/docs/react-without-es6.html#mixins) and many codebases continue to use them in stable, legacy code.
+React, zaman ilə yeniləndikcə biz yeni xüsusiyyətlərdən istifadə etmək cəhdini asanlaşdırmağa çalışırıq. İmkan olduqca, biz köhnə API-ların işləməsini qorumağa çalışırıq (köhnə API-ı fərqli paketdə dərc etmək lazım gəldikdə belə). Məsələn, [miksinlərin işlədilməsinin illərlə tövsiyyə edilmədiyinə](/blog/2016/07/13/mixins-considered-harmful.html) baxmayaraq miksinlər [create-react-class](/docs/react-without-es6.html#mixins) paketində dəstəklənir və bir çox köhnə, stabil layihələrdə istifadə edilir.
 
-Over a million developers use React, collectively maintaining millions of components. The Facebook codebase alone has over 50,000 React components. That means we need to make it as easy as possible to upgrade to new versions of React; if we make large changes without a migration path, people will be stuck on old versions. We test these upgrade paths on Facebook itself – if our team of less than 10 people can update 50,000+ components alone, we hope the upgrade will be manageable for anyone using React. In many cases, we write [automated scripts](https://github.com/reactjs/react-codemod) to upgrade component syntax, which we then include in the open-source release for everyone to use.
+React, milyondan çox proqramçı (kollektiv olaraq milyondan çox komponenti) tərəfindən istifadə edilir. Facebook-un kodu təklikdə 50.000 React komponentindən ibarətdir. Bu səbəbdən, React-in yeni versiyalara yenilənməsini mümkün qədər asanlaşdırmalıyıq. Miqrasiya yolu göstərilmədən böyük dəyişikliklər edilərsə istifadəçilər köhnə versiyalarda qalacaqlar. Biz, bu yeniləmə yollarını Facebook-da yoxlayırıq. Əgər bizim 10 nəfərdən az proqramçıdan ibarət olan komandamız 50.000+ komponenti yeniləyə bilirsə, biz bu yeniliklərin React-i istifadə edən proqramçılar üçün idarə oluna biləcəyini ümid edirik. Bir çox ssenaridə, hər open-source buraxılışında komponent sintaksisini yeniləmək üçün [avtomatlaşmış skriptlər](https://github.com/reactjs/react-codemod) ehtiva edirik.
 
-### Gradual Upgrades via Warnings {#gradual-upgrades-via-warnings}
+### Xəbərdarlıqlar ilə Tədrici Yeniləmələr {#gradual-upgrades-via-warnings}
 
-Development builds of React include many helpful warnings. Whenever possible, we add warnings in preparation for future breaking changes. That way, if your app has no warnings on the latest release, it will be compatible with the next major release. This allows you to upgrade your apps one component at a time.
+React-in development qurmaları əlavə xəbərdarlıqlar ehtiva edir. Gələcək pozucu dəyişikliklərə hazırlıq üçün mümkün olduğu qədər xəbərdarlıqlar əlavə olunur. Bu yol ilə applikasiyanızın ən son buraxılışında xəbərdarlıq olmadıqda applikasiya React-in gələcək böyük buraxılışına hazır olacaq. Bu, applikasiyanı komponent-komponent yeniləməyə imkan yaradır.
 
-Development warnings won't affect the runtime behavior of your app. That way, you can feel confident that your app will behave the same way between the development and production builds -- the only differences are that the production build won't log the warnings and that it is more efficient. (If you ever notice otherwise, please file an issue.)
+Development xəbədarlıqları applikasiyanın icra davranışına təsir etmir. Bu səbəbdən, applikasiyanın development və produksiya qurulmalarının eyni işləməsindən əmin ola bilərsiniz. Produksiya qurulmasında xəbərdarlıqlar loq olunmur və produksiya qurulması daha səmərəli işləyir. (Əgər sizdə produksiya kodu səmərəli işləmirsə və ya xəbərdarlıqlar görünürsə, bizə issue təqdim edin.)
 
-### What Counts as a Breaking Change? {#what-counts-as-a-breaking-change}
+### Nələr Pozucu Dəyişiklikdir? {#what-counts-as-a-breaking-change}
 
-In general, we *don't* bump the major version number for changes to:
+Adətən, aşağıdakı dəyişikliklərə böyük versiya artımı *etmirik*:
 
-* **Development warnings.** Since these don't affect production behavior, we may add new warnings or modify existing warnings in between major versions. In fact, this is what allows us to reliably warn about upcoming breaking changes.
-* **APIs starting with `unstable_`.** These are provided as experimental features whose APIs we are not yet confident in. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
-* **Alpha and canary versions of React.** We provide alpha versions of React as a way to test new features early, but we need the flexibility to make changes based on what we learn in the alpha period. If you use these versions, note that APIs may change before the stable release.
-* **Undocumented APIs and internal data structures.** If you access internal property names like `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` or `__reactInternalInstance$uk43rzhitjg`, there is no warranty.  You are on your own.
+* **Development xəbərdarlıqlarına.** Bu yeniliklərin produksiya davranışlarına təsir etmədiyindən biz böyük versiyalar arası yeni xəbərdarlıqlar əlavə edə bilər və ya mövcud xəbərdarlıqları dəyişə bilərik. Faktiki olaraq, proqramçıları gələcək pozucu dəyişiklər haqqında məlumatları bu formada çatdırırıq.
+* **`unstable_` adı ilə başlayan API-lara.** Bu API-lar eksperimental xüsusiyyətlər üçün işlədilir. Biz, bu xüsusiyyətlərin API-larından tam əmin deyilik. Bu xüsusiyyətləri `unstable_` prefiksi ilə dərc edərək daha tez iterasiya edə bilir və stabil API-a daha tez çata bilirik.
+* **React-in alfa və kanari versiyalarına.** React-in yeni xüsusiyyətlərini tez yoxlaya bilmək üçün React-in alfa versiyasını dərc edirik. Lakin, alfa zamanı öyrəndiklərimiz əsasında dəyişiklər etmək lazımdır. Nəzərə alin ki, bu versiyaları işlətdikdə API-lar dəyişə bilər.
+* **Sənədsiz API-lara və daxili strukturlara.** `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` və ya `__reactInternalInstance$uk43rzhitjg` kimi parametrləri işlətdikdə heç bir qarantiya yoxdur. Bu zaman öz başınasınız.
 
-This policy is designed to be pragmatic: certainly, we don't want to cause headaches for you. If we bumped the major version for all of these changes, we would end up releasing more major versions and ultimately causing more versioning pain for the community. It would also mean that we can't make progress in improving React as fast as we'd like.
+Bu qanun, praqmatik olmaq üçün dizayn olunub. Biz, sizin üçün baş ağrıları yaratmaq istəmirik. Göstərilən dəyişikliklər üçün böyük versiya artdıqda daha çox böyük versiya artımlarına və cəmiyyətə daha çox versiya problemləri yaranmasına səbəb ola bilər. Bu, həmçinin bizim React üzərində etdiyimiz proqresimi yavaşladacaq.
 
-That said, if we expect that a change on this list will cause broad problems in the community, we will still do our best to provide a gradual migration path.
+Bu siyahıda olan dəyişiklik cəmiyyətdə böyük problem yaradacaqsa, biz bu dəyişiklik üçün tədrici miqrasiya yolu təmin etməyə çalışacağıq.
 
-### If a Minor Release Includes No New Features, Why Isn't It a Patch? {#minors-versus-patches}
+### Kiçik Buraxılışda Yeni Xüsusiyyət Yoxdursa, Niyə Yamaq Buraxılışı Deyil? {#minors-versus-patches}
 
-It's possible that a minor release will not include new features. [This is allowed by semver](https://semver.org/#spec-item-7), which states **"[a minor version] MAY be incremented if substantial new functionality or improvements are introduced within the private code. It MAY include patch level changes."**
+Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkminləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
 
-However, it does raise the question of why these releases aren't versioned as patches instead.
+Bu buraxılışların yamaq versiyasında olmaması sualı yaranır.
 
-The answer is that any change to React (or other software) carries some risk of breaking in unexpected ways. Imagine a scenario where a patch release that fixes one bug accidentally introduces a different bug. This would not only be disruptive to developers, but also harm their confidence in future patch releases. It's especially regrettable if the original fix is for a bug that is rarely encountered in practice.
+React-ə (və ya hər hansı bir proqram təminatına) dəyişikliik etdikdə gözlənilməz problemlərin yaranması riksi artır. Yamaq versiyada baq düzəldikdə yeni baqın yaranması ssenarisini fikirləşin. Bu, proqramçılar üçün pozucu olaraq gələcək yamaq versiyalara etibarı azaldacaq. Praktikada nadir hallarda rast gəlinən baqı düzəltdikdə bu ssenari daha acınacaqlı olur.
 
-We have a pretty good track record for keeping React releases free of bugs, but patch releases have an even higher bar for reliability because most developers assume they can be adopted without adverse consequences.
+React buraxılışlarını baqsız dərc edilməsi haqqında bizim yaxşı avtoritetimiz var. Lakin, proqramçılar yamaq buraxılışların problemsiz adaptasiyasını ehtimal etdiklərindən buraxılışların etibarlılıq dərəcəsi daha yüksək olmalıdır.
 
-For these reasons, we reserve patch releases only for the most critical bugs and security vulnerabilities.
+Bu səbəblərdən, biz, yamaq buraxılışlarını yalnız kritiki baqları və təhlükəsizlik zəifliklərini düzəltmək üçün işlədirik.
 
-If a release includes non-essential changes — such as internal refactors, changes to implementation details, performance improvements, or minor bugfixes — we will bump the minor version even when there are no new features.
+Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkminləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmayaraq kiçik versiya artırılacaq.
