@@ -1,35 +1,35 @@
 ---
 id: reconciliation
-title: Reconciliation
+title: Rekonsilyasiya
 permalink: docs/reconciliation.html
 ---
 
-React provides a declarative API so that you don't have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React. This article explains the choices we made in React's "diffing" algorithm so that component updates are predictable while being fast enough for high-performance apps.
+Hər yenilikdə nəyin dəyişdiyi haqqda fikirləşməmək üçün React deklarativ API təmin edir. Bu, applikasiyaların yazılmasını asanlaşdırır. Lakin, React-də nə baş verdiyi aydın olmaya bilər. Bu məqalədə, komponent yeniliklərinin proqnozlaşdırıla bilən olması və applikasiyalarda tez işləməsi üçün React-in "fərqlilik" (diffing) alqoritmində etdiyimiz seçimləri izah edəcəyik.
 
-## Motivation {#motivation}
+## Motivasiya {#motivation}
 
-When you use React, at a single point in time you can think of the `render()` function as creating a tree of React elements. On the next state or props update, that `render()` function will return a different tree of React elements. React then needs to figure out how to efficiently update the UI to match the most recent tree.
+React-də, hər hansı bir zamanda `render()` funksiyasının React elementlər ağacı yaratdığını fikirləşə bilərsiniz. Sonrakı state və ya props yeniliklərində isə `render()` funksiyası fərqli React elementlər ağacı qaytaracaq. Bundan sonra, React UI-ı yeni ağaca uyğun etmək üçün səmərəli yeniləmə yolu axtaracaq.
 
-There are some generic solutions to this algorithmic problem of generating the minimum number of operations to transform one tree into another. However, the [state of the art algorithms](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) have a complexity in the order of O(n<sup>3</sup>) where n is the number of elements in the tree.
+Ən az əməliyyat ilə bir ağacı digər ağaca çevirmək probleminin həlli üçün bir neçə algoritm var. Lakin [ın yaxşı algoritmlərin](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) mürəkkəbliyi O(n<sup>3</sup>)-dür ("n" ağacda olan elementlərin sayıdır).
 
-If we used this in React, displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
+Bu alqoritmi React-də işlətdikdə 1000 elementi render etmək üçün bir milyard müqayisə əməliyyatı etməliyik. Bu çox bahalı əməliyyatdır. Bu səbəbdən, React, iki fərziyyə əsasında evristik O(n) alqoritmi tətbiq edir:
 
-1. Two elements of different types will produce different trees.
-2. The developer can hint at which child elements may be stable across different renders with a `key` prop.
+1. İki fərqli tipli element, fərqli ağac yaradır.
+2. Fərqli renderlər zamanı uşaq elementlərin stabil qalması üçün proqramçı `key` propundan istifadə edə bilər.
 
-In practice, these assumptions are valid for almost all practical use cases.
+Praktikada, bu fərqiyyələr bütün praktiki ssenarilər üçün etibarlıdır.
 
-## The Diffing Algorithm {#the-diffing-algorithm}
+## Fərqlilik Alqoritmi {#the-diffing-algorithm}
 
-When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements.
+İki ağacı müqayisə etdikdə, ilk öncə React ana elementləri müqayisə edir. Bu davranış, ana elementlərin tipindən asılı olaraq fərqlənir.
 
-### Elements Of Different Types {#elements-of-different-types}
+### Fəqrli Tiplərin Elementləri {#elements-of-different-types}
 
-Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. Going from `<a>` to `<img>`, or from `<Article>` to `<Comment>`, or from `<Button>` to `<div>` - any of those will lead to a full rebuild.
+Ana elementlərin fərqli tipi olduqda, React köhnə ağacı sökərək sıfırdan yeni ağac düzəldir. Element `<a>`-dan `<img>`-ə, `<Article>`-dan `<Comment>`-ə və ya `<Button>`-dan `<div>`-ə dəyişdikdə tam yenidən düzəlmə baş verəcək.
 
-When tearing down a tree, old DOM nodes are destroyed. Component instances receive `componentWillUnmount()`. When building up a new tree, new DOM nodes are inserted into the DOM. Component instances receive `componentWillMount()` and then `componentDidMount()`. Any state associated with the old tree is lost.
+Ağac dağıldıqda, bütün köhnə DOM nodları dağılacaq. Komponent instansiyalarında `componentWillUnmount()` funksiya çağrılır. Yeni ağac düzəldikdə DOM-a yeni DOM norları əlavə olunacaq. Komponent instansiyalarında `componentWillMount()`, sonra `componentDidMount()` funksiyası çağrılır. Köhnə ağac ilə bağlı bütün state-lər silinir.
 
-Any components below the root will also get unmounted and have their state destroyed. For example, when diffing:
+Ana komponentin daxilində olan bütün komponentlər də unmount olunur və bu komponentləri dağıdılır. Məsələn, aşağıdakı kodu fərqləndirdikdə:
 
 ```xml
 <div>
@@ -41,11 +41,11 @@ Any components below the root will also get unmounted and have their state destr
 </span>
 ```
 
-This will destroy the old `Counter` and remount a new one.
+Köhnə `Counter` dağıdılır və yeni element mount olunur.
 
-### DOM Elements Of The Same Type {#dom-elements-of-the-same-type}
+### Eyni Tipli DOM Elementləri {#dom-elements-of-the-same-type}
 
-When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. For example:
+Eyni tipli React DOM elementlərini müqayisə etdikdə hər iki elementin DOM nodları saxlanılır və yalnız atributları yenilənir. Məsələn:
 
 ```xml
 <div className="before" title="stuff" />
@@ -53,9 +53,9 @@ When comparing two React DOM elements of the same type, React looks at the attri
 <div className="after" title="stuff" />
 ```
 
-By comparing these two elements, React knows to only modify the `className` on the underlying DOM node.
+Bu iki elementi müqayisə etdikdə React, DOM nodunda yalnız `className` atributunun dəyişdiyini bilir.
 
-When updating `style`, React also knows to update only the properties that changed. For example:
+`style` atributunu dəyişdikdə React yalnız dəyişən stil parametrlərini yeniləyir. Məsələn:
 
 ```xml
 <div style={{color: 'red', fontWeight: 'bold'}} />
@@ -63,38 +63,38 @@ When updating `style`, React also knows to update only the properties that chang
 <div style={{color: 'green', fontWeight: 'bold'}} />
 ```
 
-When converting between these two elements, React knows to only modify the `color` style, not the `fontWeight`.
+Bu iki elementi fərqləndirdikdə React yalnız `color` stilini dəyişir. `fontWeight` stilini dəyişmir.
 
-After handling the DOM node, React then recurses on the children.
+DOM nodu fəqrləndirdikdən sonra React, uşaq elementlərdə eyni əməliyyatları edir.
 
-### Component Elements Of The Same Type {#component-elements-of-the-same-type}
+### Eyni Tipli Komponent Elementləri {#component-elements-of-the-same-type}
 
-When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls `componentWillReceiveProps()` and `componentWillUpdate()` on the underlying instance.
+Komponent yeniləndikdə komponent instansiyası eyni qalaraq renderlər arası state saxlanılır. Komponentin yeni elementə uyğunlaşması üçün React, komponent instansiyasının proplarını yeniləyir, və komponent instansiyasından `componentWillReceiveProps()` və `componentWillUpdate()` funksiyalarını çağırır.
 
-Next, the `render()` method is called and the diff algorithm recurses on the previous result and the new result.
+Sonra, `render()` funksiyası çağrılaraq fərqlənmə alqoritmi əvvəli və sonrakı nəticələri fərqləndirir.
 
-### Recursing On Children {#recursing-on-children}
+### Uşaqların Fərqlənməsi {#recursing-on-children}
 
-By default, when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there's a difference.
+Normalda, DOM nodun uşaqlarını fərqləndirdikdə React hər iki uşaq siyahısının üzərindən tsikl edərək fərqlilik olduqda mutasiya əməliyyatını yaradır.
 
-For example, when adding an element at the end of the children, converting between these two trees works well:
+Məsələn, uşağların sonuna yeni element element əlavə edildikdə ağacı yenisinə çevirmək yaxşı işləyir:
 
 ```xml
 <ul>
-  <li>first</li>
-  <li>second</li>
+  <li>birinci</li>
+  <li>ikinci</li>
 </ul>
 
 <ul>
-  <li>first</li>
-  <li>second</li>
-  <li>third</li>
+  <li>birinci</li>
+  <li>ikinci</li>
+  <li>üçüncü</li>
 </ul>
 ```
 
-React will match the two `<li>first</li>` trees, match the two `<li>second</li>` trees, and then insert the `<li>third</li>` tree.
+React, `<li>birinci</li>` ağacları, `<li>ikinci</li>` ağacları uyğunlaşdıracaq, sonra `<li>üçüncü</li>` ağacı əlavə edəcək.
 
-If you implement it naively, inserting an element at the beginning has worse performance. For example, converting between these two trees works poorly:
+Tətbiq sadə olduqda əvvələ yeni element əlavə edildikdə performans pis olacaq. Məsələn, aşağıdakı ağacı yenisinə çevirmək pis işləyir:
 
 ```xml
 <ul>
@@ -109,11 +109,11 @@ If you implement it naively, inserting an element at the beginning has worse per
 </ul>
 ```
 
-React will mutate every child instead of realizing it can keep the `<li>Duke</li>` and `<li>Villanova</li>` subtrees intact. This inefficiency can be a problem.
+`<li>Duke</li>` və `<li>Villanova</li>` ağaclarını saxlamaq əvəzinə React bütün uşaqları mutasiya edəcək. Bu səmərəsizlik problem yarada bilər.
 
-### Keys {#keys}
+### Açarlar {#keys}
 
-In order to solve this issue, React supports a `key` attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a `key` to our inefficient example above can make the tree conversion efficient:
+Bu problemi həll etmək üçün React-də `key` atributu var. Uşaqlarda açarlar olduqda React, orijinal ağacı yeni ağac ilə uyğunlaşdırmaq üçün açarlardan istifadə edir. Məsələn, yuxarıdakı pis işləyən nümunəyə `key` əlavə edərək çevirməni səmərəli edə bilərik:
 
 ```xml
 <ul>
@@ -128,30 +128,30 @@ In order to solve this issue, React supports a `key` attribute. When children ha
 </ul>
 ```
 
-Now React knows that the element with key `'2014'` is the new one, and the elements with the keys `'2015'` and `'2016'` have just moved.
+İndi, React `'2014'` açarlı elementin yeni olduğunu `'2015'` və `'2016'` açarlı elementlərin isə yerinin dəyişdiyini bilir.
 
-In practice, finding a key is usually not hard. The element you are going to display may already have a unique ID, so the key can just come from your data:
+Praktikada, açarın tapılması çətin deyil. Göstərdiyiniz elementin unikal ID-si ola bilər. Yəni, açar gələn məlumatda artıq ola bilər:
 
 ```js
 <li key={item.id}>{item.name}</li>
 ```
 
-When that's not the case, you can add a new ID property to your model or hash some parts of the content to generate a key. The key only has to be unique among its siblings, not globally unique.
+Unikal ID olmadıqda modelə yeni ID parametri əlavə edə bilər və ya kontentin hissələrini həş edərək açar yarada bilərsiniz. Açarlar yalnız qonşu elementlərdə unikal olmalıdır. Bütün applikasiyada unikal olmamalıdır.
 
-As a last resort, you can pass an item's index in the array as a key. This can work well if the items are never reordered, but reorders will be slow.
+Ən son variantda massiv elementin indeksini açar kimi göndərə bilərsiniz. Elementlərin yeri dəyişmədikdə indekslər yaxşı işləyəcək. Lakin, yer dəyişmələri yavaş olacaq.
 
-Reorders can also cause issues with component state when indexes are used as keys. Component instances are updated and reused based on their key. If the key is an index, moving an item changes it. As a result, component state for things like uncontrolled inputs can get mixed up and updated in unexpected ways.
+İndekslər açar kimi işlədildikdə yer dəyişmələri komponent vəziyyətində problemlər yarada bilər. Komponent instansiyaları açar əsasında yenilənir və yenidən işlədilir. İndeks açar kimi işlədildikdə elementin yerini dəyişməsi komponenti yeniləyəcək. Nəticədə, kontrolsuz anket sahələri kimi dəyərlər üçün komponent vəziyyəti qarışa bilər və istənilmədən formada yenilənə bilər.
 
-[Here](codepen://reconciliation/index-used-as-key) is an example of the issues that can be caused by using indexes as keys on CodePen, and [here](codepen://reconciliation/no-index-used-as-key) is an updated version of the same example showing how not using indexes as keys will fix these reordering, sorting, and prepending issues.
+İndeksləri açar kimi işlətdikdə yaranan problemlər üçün [CodePen nümunəsinə](codepen://reconciliation/index-used-as-key) baxın. [Bu nümunədə isə](codepen://reconciliation/no-index-used-as-key) indeksləri açar kimi işləmədikdə yer dəyişmələr, çeşidləmələr, və əvvələ əlavə edilmə problemlərinin necə düzəldiyi göstərilir.
 
-## Tradeoffs {#tradeoffs}
+## Kompromislər {#tradeoffs}
 
-It is important to remember that the reconciliation algorithm is an implementation detail. React could rerender the whole app on every action; the end result would be the same. Just to be clear, rerender in this context means calling `render` for all components, it doesn't mean React will unmount and remount them. It will only apply the differences following the rules stated in the previous sections.
+Rekonsilyasiya alqoritminin tətbiq detalı olduğunu unutmayın. React hər əməliyyatda bütün applikasiyanı render edə bilər. Sonda, nəticə eyni qalacaq. Bu kontekstdə yenidən render etmə bütün komponentlərin `render` funksiyasının çağrılması deməkdir. Bu demək deyil ki, React, komponentləri unmount edib yenidən mount edəcək. Əvvəlki bölmələrdə göstərilən qaydalar əsasında bütün dəyişikliklər tətbiq ediləcək.
 
-We are regularly refining the heuristics in order to make common use cases faster. In the current implementation, you can express the fact that a subtree has been moved amongst its siblings, but you cannot tell that it has moved somewhere else. The algorithm will rerender that full subtree.
+Biz hər zaman çox işlənən ssenariləri tezləşdirmək üçün heuristikanı yeniləyirik. Cari tətbiqdə, ağacın qonşular arasında yerini dəyişdiyini bilmək mümkündür. Lakin, ağacın başqa yerə köçürüldüytünü bilmirik. Bu halda, alqoritm bütün ağacı yenidən render edəcək.
 
-Because React relies on heuristics, if the assumptions behind them are not met, performance will suffer.
+Rekonsilyasiya heuristikalardan asılı olması deməkdir ki, fərziyyələr yerinə yetirilmədikdə performans pisləşəcək.
 
-1. The algorithm will not try to match subtrees of different component types. If you see yourself alternating between two component types with very similar output, you may want to make it the same type. In practice, we haven't found this to be an issue.
+1. Alqoritm fərqli komponent tiplərinin ağaclarını uyğunlaşdırmayacaq. Eyni nəticəli iki komponenti tez-tez əvəz edirsinizsə, bu komponentləri eyni tipli etmək daha faydalı ola bilər. Praktikada, biz bunun problem olmadığını görürük.
 
-2. Keys should be stable, predictable, and unique. Unstable keys (like those produced by `Math.random()`) will cause many component instances and DOM nodes to be unnecessarily recreated, which can cause performance degradation and lost state in child components.
+2. Açarlar stabil, proqnozlaşdırıla bilən, və unikal olmalıdır. Stabil olmayan açarlar (məsələn `Math.random()` ilə yaranan) komponent intansiyalarının və DOM nodların yenidən yaranmasına səbəb olacaq. Bu, performansa ziyan vurmasına və uşaqların komponent vəziyyətini itirməsinə səbəb ola bilər.
