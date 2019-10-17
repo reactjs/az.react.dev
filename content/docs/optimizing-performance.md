@@ -156,7 +156,7 @@ module.exports = {
 
 Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı `TerserPlugin` plaginini tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
-## Chrome Performans Təbi ilə Komponentləri Profayl Etmək {#profiling-components-with-the-chrome-performance-tab}
+## Chrome Performans Təbi ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-chrome-performance-tab}
 
 **development** modunda komponentlərin necə mount edildiyini, yeniləndiyini, və unmount edildiyini, dəstəklənən brauzerlərin performans alətləri ilə görüntülüyə bilərsiniz. Məsələn:
 
@@ -182,7 +182,7 @@ Nəzərə alin ki, **rəqəmələr nisbidir. Produksiya zamanı komponentlər da
 
 İndiki zamanda, bu xüsusiyyəti dəstəkləyən brauzerlər Chrome, Edge, və IE-dır. Lakin, bizim [User Timing API-ından](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) istifadə etdiyimizsən bu xüsusiyyətin daha çox brauzerdə işləyəcəyini gözləyirik.
 
-## DevTools Profayleri ilə Komponentləri Profayl Etmək {#profiling-components-with-the-devtools-profiler}
+## DevTools Profayleri ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-devtools-profiler}
 
 `react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modda daha inkişaf etmiş qabiliyyətləri var.
 Profaylerin icmalına ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
@@ -221,25 +221,25 @@ shouldComponentUpdate(nextProps, nextState) {
 
 Əgər bildiyiniz bəzi situasiyalarda komponent yenilənməməlidirsə, `shouldComponentUpdate` funksiyasından `false` qaytara bilərsiniz. `false` qaytarıldıqda yeninən komponentin `render()` funksiyası daxil olmaqla render etmə prosesi buraxılacaq.
 
-Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) klasından gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-i müqayisə etməyə bərabərdir.
+Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) klasından gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-in dayaz müqayisə edilməsinə bərabərdir.
 
 ## shouldComponentUpdate In Action {#shouldcomponentupdate-in-action}
 
-Here's a subtree of components. For each one, `SCU` indicates what `shouldComponentUpdate` returned, and `vDOMEq` indicates whether the rendered React elements were equivalent. Finally, the circle's color indicates whether the component had to be reconciled or not.
+Aşağıda komponentlər ağacı göstərilib. Hər komponentdə `SCU` dəyəri `shouldComponentUpdate` funksiyasından qaytarılan dəyəri, `vDOMEq` isə render olunan elementlərin bərabər olduğunu göstərir. Ən sonda, yumrunun rəngi komponentin rekonsilyasiya olacağını göstərir.
 
 <figure><img src="../images/docs/should-component-update.png" style="max-width:100%" /></figure>
 
-Since `shouldComponentUpdate` returned `false` for the subtree rooted at C2, React did not attempt to render C2, and thus didn't even have to invoke `shouldComponentUpdate` on C4 and C5.
+C2-nin `shouldComponentUpdate` funksiyası `false` qaytardığından React, C2 komponentini render etmir. Bu səbəbdən, C4 və C5-in `shouldComponentUpdate` funksiyası çağrılmır.
 
-For C1 and C3, `shouldComponentUpdate` returned `true`, so React had to go down to the leaves and check them. For C6 `shouldComponentUpdate` returned `true`, and since the rendered elements weren't equivalent React had to update the DOM.
+C1 və C3-ün `shouldComponentUpdate` funksiyası `true` qaytardığından React, komponentlərin bütün uşaqlarını yoxlayır. C6-nın `shouldComponentUpdate` funksiyası `true` qaytardığından və render olunan elementlərin eyni olmadığından React, DOM-u yeniləməli olur.
 
-The last interesting case is C8. React had to render this component, but since the React elements it returned were equal to the previously rendered ones, it didn't have to update the DOM.
+Ən sonuncu maraqlı komponent C8-dir. React bu komponenti render etməli olur. Lakin, qaytarılan React elementlərin əvvəlki render olunan elementlər ilə eyni olduğundan, DOM yenilənmir.
 
-Note that React only had to do DOM mutations for C6, which was inevitable. For C8, it bailed out by comparing the rendered React elements, and for C2's subtree and C7, it didn't even have to compare the elements as we bailed out on `shouldComponentUpdate`, and `render` was not called.
+Nəzərə alın ki, React yalnız C6 üçün DOM-u yeniləyir. C8-də elementləri müqayisə etdikdən sonra DOM yenilənmir. C2 və C7-də isə `shouldComponentUpdate` funksiyasın `false` qaytardığından elementlərin müqayisəsi əməliyyatı baş vermir. Nəticədə, `render` funksiyası çağrılmır.
 
-## Examples {#examples}
+## Nümunələr {#examples}
 
-If the only way your component ever changes is when the `props.color` or the `state.count` variable changes, you could have `shouldComponentUpdate` check that:
+Əgər komponent yalnız `props.color` və ya `state.count` dəyişənləri dəyişdikdə yenilənirsə `shouldComponentUpdate` ilə bunu yoxlaya bilərsiniz:
 
 ```javascript
 class CounterButton extends React.Component {
@@ -263,14 +263,14 @@ class CounterButton extends React.Component {
       <button
         color={this.props.color}
         onClick={() => this.setState(state => ({count: state.count + 1}))}>
-        Count: {this.state.count}
+        Tıklanma sayı: {this.state.count}
       </button>
     );
   }
 }
 ```
 
-In this code, `shouldComponentUpdate` is just checking if there is any change in `props.color` or `state.count`. If those values don't change, the component doesn't update. If your component got more complex, you could use a similar pattern of doing a "shallow comparison" between all the fields of `props` and `state` to determine if the component should update. This pattern is common enough that React provides a helper to use this logic - just inherit from `React.PureComponent`. So this code is a simpler way to achieve the same thing:
+Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə eyni formada `props` və `state`-in bütün dəyərlərini "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipin çox işlədildiyindən React bunun üçün faydalı klas təmin edir: Komponenti `React.PureComponent` klasından genişləndirin. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -291,9 +291,9 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Most of the time, you can use `React.PureComponent` instead of writing your own `shouldComponentUpdate`. It only does a shallow comparison, so you can't use it if the props or state may have been mutated in a way that a shallow comparison would miss.
+Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Burada yalnız dayaz müqayisə edildiyindən bu klas ilə proplar və ya state-in dayaz müqayisə zamanı yoxlanmadığı dəyərlər üçün istifadə etməyin.
 
-This can be a problem with more complex data structures. For example, let's say you want a `ListOfWords` component to render a comma-separated list of words, with a parent `WordAdder` component that lets you click a button to add a word to the list. This code does *not* work correctly:
+Daha mürəkkəb məlumat strukturlarında dayaz müqayisə problem yarada bilər. Məsələn, vergül ilə ayrılmış sözləri render etmək üçün `ListOfWords` komponentin və siyahıya söz əlavə etmək üçün `WordAdder` komponentinin olduğunu fikirləşin. Aşağıdakı kod düzgün *işləməyəcək*:
 
 ```javascript
 class ListOfWords extends React.PureComponent {
@@ -312,7 +312,7 @@ class WordAdder extends React.Component {
   }
 
   handleClick() {
-    // This section is bad style and causes a bug
+    // Bu bölmə səhvdir və baqlara səbəb olacaq
     const words = this.state.words;
     words.push('marklar');
     this.setState({words: words});
@@ -329,11 +329,11 @@ class WordAdder extends React.Component {
 }
 ```
 
-The problem is that `PureComponent` will do a simple comparison between the old and new values of `this.props.words`. Since this code mutates the `words` array in the `handleClick` method of `WordAdder`, the old and new values of `this.props.words` will compare as equal, even though the actual words in the array have changed. The `ListOfWords` will thus not update even though it has new words that should be rendered.
+`PureComponent` klası `this.props.words` propunu sadə müqayisə edəcək. `WordAdder` komponentinin `handleClick` funksiyası `words` massivini mutasiya etdiyindən massivdəki sözlərin fərqli olmasına baxmayaraq `this.props.words` propu eyni olacaq. Bu səbəbdən, yeni sözlərin render edilməli olmasına baxmayaraq `ListOfWords`  komponenti yenilənməyəcək.
 
-## The Power Of Not Mutating Data {#the-power-of-not-mutating-data}
+## Məlumatları Mutasiya Etməməyin Gücü {#the-power-of-not-mutating-data}
 
-The simplest way to avoid this problem is to avoid mutating values that you are using as props or state. For example, the `handleClick` method above could be rewritten using `concat` as:
+Bu problemi həll etməyin ən asan yolu props və state-in dəyərlərini mutasiya etməməkdir. Məsələn, `handleClick` metodu `concat` funksiyası ilə yazıla bilər:
 
 ```javascript
 handleClick() {
@@ -343,7 +343,7 @@ handleClick() {
 }
 ```
 
-ES6 supports a [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) for arrays which can make this easier. If you're using Create React App, this syntax is available by default.
+ES6-ın massivlər üçün [yayma sintaksisi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) ilə də massivə elementi əlavə etmək mümkündür. Create React App işlədirsinizsə bu sintaksis işləyəcək.
 
 ```js
 handleClick() {
@@ -353,32 +353,32 @@ handleClick() {
 };
 ```
 
-You can also rewrite code that mutates objects to avoid mutation, in a similar way. For example, let's say we have an object named `colormap` and we want to write a function that changes `colormap.right` to be `'blue'`. We could write:
+Siz, həmçinin obyektlərin mutasiya olunmaması üçün kodu dəyişə bilərsiniz. Məsələn, `colormap` obyektinin olduğunu və bu obyektin `colormap.right` dəyərinin `'mavi'`-yə çevirmək istədiyimizi fərz edək:
 
 ```js
 function updateColorMap(colormap) {
-  colormap.right = 'blue';
+  colormap.right = 'mavi';
 }
 ```
 
-To write this without mutating the original object, we can use [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) method:
+Orijinal obyekti mutasiya etməmək üçün [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) funksiyasından istifadə edə bilərsiniz:
 
 ```js
 function updateColorMap(colormap) {
-  return Object.assign({}, colormap, {right: 'blue'});
+  return Object.assign({}, colormap, {right: 'mavi'});
 }
 ```
 
-`updateColorMap` now returns a new object, rather than mutating the old one. `Object.assign` is in ES6 and requires a polyfill.
+İndi `updateColorMap` funksiyası köhnə obyekti mutasiya etmək əvəzinə yeni obyekt qaytarır. `Object.assign` ES6-da işləyir. Lakin polifil tələb edir.
 
-There is a JavaScript proposal to add [object spread properties](https://github.com/sebmarkbage/ecmascript-rest-spread) to make it easier to update objects without mutation as well:
+ES6-ın obyektlər üçün [yayma sintaksisi](https://github.com/sebmarkbage/ecmascript-rest-spread) ilə də obyektləri mutasiyasız yeniləmək mümkündür:
 
 ```js
 function updateColorMap(colormap) {
-  return {...colormap, right: 'blue'};
+  return {...colormap, right: 'mavi'};
 }
 ```
 
-If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
 
-When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
+Dərin obyektlərin mutasiyasız yenilənməsi çətin ola bilər. Bu problem ilə qarşılaşdıqda [Immer](https://github.com/mweststrate/immer) və ya [immutability-helper](https://github.com/kolodny/immutability-helper) kitabxanalarına baxın. Bu kitabxanalar rahat mutasiyasızlığın faydalarını itirmədən rahat oxuna bilən kod yazmağa imkan yaradır.
