@@ -1,93 +1,93 @@
 ---
 id: optimizing-performance
-title: Optimizing Performance
+title: Performansın Optimallaşdırılması
 permalink: docs/optimizing-performance.html
 redirect_from:
   - "docs/advanced-performance.html"
 ---
 
-Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
+Daxildə, React, bir neçə ağıllı texnikadan istifadə edərək UI-ı yeniləmək üçün ağır DOM əməliyyatlarının sayını azaldır. Bir çox applikasiyada, performansı xüsusi optimallaşdırmadan React istifadə etdikdə tez itifadəçi interfeysi olacaq. Buna baxmayaraq React applikasiyasını tezləşdirməyin bir neçə yolu var.
 
-## Use the Production Build {#use-the-production-build}
+## Produksiya Qurulmasından İstifadə Edin {#use-the-production-build}
 
-If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build.
+React applikasiyalarında performans problemləri olduqda, minimallaşdırılmış produksiya qurulmasından istifadə etdiyinizdən əmin olun.
 
-By default, React includes many helpful warnings. These warnings are very useful in development. However, they make React larger and slower so you should make sure to use the production version when you deploy the app.
+Normalda, React-də faydalı xəbərdarlıqlar var. Bu xəbərdarlıqlar development zamanı faydalıdır. Lakin, bu xəbərdarlıqlar React-i böyüdür və yavaşladır. Bu səbəbdən, applikasiyanı yerləşdirdikdə produksiya versiyasınını istifadəsindən əmin olun.
 
-If you aren't sure whether your build process is set up correctly, you can check it by installing [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). If you visit a site with React in production mode, the icon will have a dark background:
+Qurulma prosesinin düzgün işlədiyindən əmin olmadıqda [Chrome üçün React Developer Alətlərindən](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) istifadə edin. Produksiya modunda olan React səhifəsini ziyarət etdikdə alətin ikonunun tünd fonu olacaq:
 
-<img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React DevTools on a website with production version of React">
+<img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React-in produksiya versiyasını işlədən səhifədə React DevTools ikonu">
 
-If you visit a site with React in development mode, the icon will have a red background:
+Development modunda olan React səhifəsini ziyarət etdikdə alətin ikonunun qırmızı fonu olacaq:
 
-<img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
+<img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React-in development versiyasını işlədən səhifədə React DevTools ikonu">
 
-It is expected that you use the development mode when working on your app, and the production mode when deploying your app to the users.
+Applikasiyanı düzəltmə zamanı development modundan istifadə edilməsi, istifadəçilər üçün yerləşdirilmə zamanı isə produksiya modunda istifadə edilməsi gözlənilir.
 
-You can find instructions for building your app for production below.
+Applikasiyanın produksiya üçün düzəldilməsi üçün aşağıdakı təlimatlara baxın.
 
 ### Create React App {#create-react-app}
 
-If your project is built with [Create React App](https://github.com/facebookincubator/create-react-app), run:
+Layihə [Create React App](https://github.com/facebookincubator/create-react-app) ilə düzəldilibsə, aşağıdakı əmri icra edin:
 
 ```
 npm run build
 ```
 
-This will create a production build of your app in the `build/` folder of your project.
+Bu, layihənin `build/` direktoriyasında applikasiyanın produksiya versiyasını yaradacaq.
 
-Remember that this is only necessary before deploying to production. For normal development, use `npm start`.
+Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Normal development üçün, `npm start` əmrindən istifadə edin.
 
-### Single-File Builds {#single-file-builds}
+### Tək Fayl Qurulmaları {#single-file-builds}
 
-We offer production-ready versions of React and React DOM as single files:
+Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə təmin edirik:
 
 ```html
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Remember that only React files ending with `.production.min.js` are suitable for production.
+Yalnız `.production.min.js` ilə bitən faylların produksiya üçün uyğun olduğunu unutmayın.
 
 ### Brunch {#brunch}
 
-For the most efficient Brunch production build, install the [`terser-brunch`](https://github.com/brunch/terser-brunch) plugin:
+Ən səmərəli Brunch produksiya qurulması üçün [`terser-brunch`](https://github.com/brunch/terser-brunch) plaginin yükləyin:
 
 ```
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev terser-brunch
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev terser-brunch
 ```
 
-Then, to create a production build, add the `-p` flag to the `build` command:
+Produksiya qurulması yaratmaq üçün `build` əmrinə `-p` arqumenti əlavə edin:
 
 ```
 brunch build -p
 ```
 
-Remember that you only need to do this for production builds. You shouldn't pass the `-p` flag or apply this plugin in development, because it will hide useful React warnings and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı `-p` arqumentini və ya plagini tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### Browserify {#browserify}
 
-For the most efficient Browserify production build, install a few plugins:
+Ən səmərəli Browserify produksiya qurulması üçün bir neçə plagin yükləyin:
 
 ```
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev envify terser uglifyify 
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev envify terser uglifyify 
 ```
 
-To create a production build, make sure that you add these transforms **(the order matters)**:
+Produksiya qurulması yaratmaq üçün aşağıdakı çevirmələri əlavə edin **(sıralama vacibdir)**:
 
-* The [`envify`](https://github.com/hughsk/envify) transform ensures the right build environment is set. Make it global (`-g`).
-* The [`uglifyify`](https://github.com/hughsk/uglifyify) transform removes development imports. Make it global too (`-g`).
-* Finally, the resulting bundle is piped to [`terser`](https://github.com/terser-js/terser) for mangling ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
+* [`envify`](https://github.com/hughsk/envify) çevirməsi düzgün produksiya mühitinin təyin edilməsini siğortalayır. Bunu qlobal edin (`-g`).
+* [`uglifyify`](https://github.com/hughsk/uglifyify) çevirməsi development idxallarını silir. Bunu qlobal edin (`-g`).
+* Sonda, nəticlənənən paket [`terser`-ə](https://github.com/terser-js/terser) korlanmaq üçün (mangling) göndərilir ([səbəbini buraxan oxuyun](https://github.com/hughsk/uglifyify#motivationusage)).
 
-For example:
+Məsələn:
 
 ```
 browserify ./index.js \
@@ -96,25 +96,25 @@ browserify ./index.js \
   | terser --compress --mangle > ./bundle.js
 ```
 
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı bu plaginləri tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### Rollup {#rollup}
 
-For the most efficient Rollup production build, install a few plugins:
+Ən səmərəli Browserify Rollup qurulması üçün bir neçə plagin yükləyin:
 
 ```bash
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 ```
 
-To create a production build, make sure that you add these plugins **(the order matters)**:
+Produksiya qurulması yaratmaq üçün aşağıdakı plaginləri əlavə edin **(sıralama vacibdir)**:
 
-* The [`replace`](https://github.com/rollup/rollup-plugin-replace) plugin ensures the right build environment is set.
-* The [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plugin provides support for CommonJS in Rollup.
-* The [`terser`](https://github.com/TrySound/rollup-plugin-terser) plugin compresses and mangles the final bundle.
+* [`replace`](https://github.com/rollup/rollup-plugin-replace) plagini düzgün produksiya mühitinin təyin edilməsini siğortalayır.
+* [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plagini Rollup-da CommonJS-in işlədilməsinə imkan yaradır.
+* [`terser`](https://github.com/TrySound/rollup-plugin-terser) plagini son paketi kompresləyir və korlayır (mangles).
 
 ```js
 plugins: [
@@ -128,18 +128,18 @@ plugins: [
 ]
 ```
 
-For a complete setup example [see this gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+Tam qurulma üçün [bu gist-ə baxın](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-Remember that you only need to do this for production builds. You shouldn't apply the `terser` plugin or the `replace` plugin with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı `terser` və ya `replace` plaginini `'production'` dəyəri ilə tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### webpack {#webpack}
 
->**Note:**
+>**Qeyd:**
 >
->If you're using Create React App, please follow [the instructions above](#create-react-app).<br>
->This section is only relevant if you configure webpack directly.
+>Create React App işlədirsinizsə [yuxarıdalı təlimatlara baxın](#create-react-app).<br>
+>Bu bölmə, webpack-i birbaşa konfiqurasiyası üçün uyğundur.
 
-Webpack v4+ will minify your code by default in production mode.
+Webpack v4+ versiyası produksiya modundan kodu avtomatik minimallaşdıracaq.
 
 ```js
 const TerserPlugin = require('terser-webpack-plugin');
@@ -147,14 +147,14 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: 'production',
   optimization: {
-    minimizer: [new TerserPlugin({ /* additional options here */ })],
+    minimizer: [new TerserPlugin({ /* burada əlavə parametlər əlavə edə bilərsiniz */ })],
   },
 };
 ```
 
-You can learn more about this in [webpack documentation](https://webpack.js.org/guides/production/).
+Əlavə məlumat üçün [webpack sənədlərinə](https://webpack.js.org/guides/production/) baxın.
 
-Remember that you only need to do this for production builds. You shouldn't apply `TerserPlugin` in development because it will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı `TerserPlugin` plaginini tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ## Profiling Components with the Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
 
