@@ -156,62 +156,62 @@ module.exports = {
 
 Bunun yalnız produksiya zamanı işlədilməsini unutmayın. Development zamanı `TerserPlugin` plaginini tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
-## Profiling Components with the Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
+## Chrome Performans Təbi ilə Komponentləri Profayl Etmək {#profiling-components-with-the-chrome-performance-tab}
 
-In the **development** mode, you can visualize how components mount, update, and unmount, using the performance tools in supported browsers. For example:
+**development** modunda komponentlərin necə mount edildiyini, yeniləndiyini, və unmount edildiyini, dəstəklənən brauzerlərin performans alətləri ilə görüntülüyə bilərsiniz. Məsələn:
 
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="React components in Chrome timeline" /></center>
+<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Chrome qrafikində React komponentləri" /></center>
 
-To do this in Chrome:
+Chrome-da edə bilmək üçün:
 
-1. Temporarily **disable all Chrome extensions, especially React DevTools**. They can significantly skew the results!
+1. Müvəqqəti olaraq **React DevTools xüsusi olmaqla bütün Chrome artırmalarını söndürün**. Artırmalar nəticənin səhv göstərilməsinə səbəb ola bilər!
 
-2. Make sure you're running the application in the development mode.
+2. Applikasiyanın development modunda olduğundan əmin olun.
 
-3. Open the Chrome DevTools **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** tab and press **Record**.
+3. Chrome DevTools-un **[Performans](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** təbinə daxil olun və **Record** düyməsini tıklayın.
 
-4. Perform the actions you want to profile. Don't record more than 20 seconds or Chrome might hang.
+4. Profayl etmək istədiyiniz əməliyyatları icra edin. 20 saniyədən çox rekord etməyin. Əks halda Chrome ilişə bilər.
 
-5. Stop recording.
+5. Rekord etməni saxlayın.
 
-6. React events will be grouped under the **User Timing** label.
+6. React hadisələri **User Timing** adı altında qruplanacaqlar.
 
-For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Daha ətraflı izahat üçün [Ben Şvarsın məqaləsini oxuyun](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
-Note that **the numbers are relative so components will render faster in production**. Still, this should help you realize when unrelated UI gets updated by mistake, and how deep and how often your UI updates occur.
+Nəzərə alin ki, **rəqəmələr nisbidir. Produksiya zamanı komponentlər daha tez işləyəcək**. Bu, lazımsız UI-ın səhvən yeniləndiyini və UI yeniliklərinin hansl dərinlikdə və tezlikdə olduğunu görməyə imkan yaradacaq.
 
-Currently Chrome, Edge, and IE are the only browsers supporting this feature, but we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) so we expect more browsers to add support for it.
+İndiki zamanda, bu xüsusiyyəti dəstəkləyən brauzerlər Chrome, Edge, və IE-dır. Lakin, bizim [User Timing API-ından](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) istifadə etdiyimizsən bu xüsusiyyətin daha çox brauzerdə işləyəcəyini gözləyirik.
 
-## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+## DevTools Profayleri ilə Komponentləri Profayl Etmək {#profiling-components-with-the-devtools-profiler}
 
-`react-dom` 16.5+ and `react-native` 0.57+ provide enhanced profiling capabilities in DEV mode with the React DevTools Profiler.
-An overview of the Profiler can be found in the blog post ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
-A video walkthrough of the profiler is also [available on YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
+`react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modda daha inkişaf etmiş qabiliyyətləri var.
+Profaylerin icmalına ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
+Profaylerin video izahatına [Youtube-dan](https://www.youtube.com/watch?v=nySib7ipZdk) baxa bilərsiniz.
 
-If you haven't yet installed the React DevTools, you can find them here:
+React DevTools yükləməmisinizsə, aşağıdakı linklərdən baxa bilərsiniz:
 
-- [Chrome Browser Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Firefox Browser Extension](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Standalone Node Package](https://www.npmjs.com/package/react-devtools)
+- [Chrome Brauzer Artımı](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Firefox Brauzer Artımı](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
+- [Bağımsız Nod Paketi](https://www.npmjs.com/package/react-devtools)
 
-> Note
+> Qeyd
 >
-> A production profiling bundle of `react-dom` is also available as `react-dom/profiling`.
-> Read more about how to use this bundle at [fb.me/react-profiling](https://fb.me/react-profiling)
+> `react-dom`-un produksiyada profayl edilməsi `react-dom/profiling` paketində mövcuddur.
+> Bu paketin istifadəsi üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
-## Virtualize Long Lists {#virtualize-long-lists}
+## Böyük Siyahıların Virtuallaşdırılması {#virtualize-long-lists}
 
-If your application renders long lists of data (hundreds or thousands of rows), we recommended using a technique known as "windowing". This technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+Applikasiya böyük siyahılı məlumatlar (100-lərlə və ya 1000-lərlə sətrdən ibarət) render etdikdə "windowing" adlı texnikadan istifadə etməyi tövsiyyə edirik. Bu texnika ilə məlumatın yalnız kiçik hissəsi render olunaraq komponentlərin yenidən render edilməsi və yeni DOM nodların yaranması zamanını kəskin şəkildə azaldır.
 
-[react-window](https://react-window.now.sh/) and [react-virtualized](https://bvaughn.github.io/react-virtualized/) are popular windowing libraries. They provide several reusable components for displaying lists, grids, and tabular data. You can also create your own windowing component, like [Twitter did](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), if you want something more tailored to your application's specific use case.
+[react-window](https://react-window.now.sh/) və [react-virtualized](https://bvaughn.github.io/react-virtualized/) paketlər populyar windowing kitabxanalarıdır. Bu kitabxanalar siyahılar, qridlər, və cədvəllər göstərmək üçün bir neçə komponent təmin edirlər. Applikasiyanın xüsusi istifadəsinə uyğun olan windowing lazım olduqda, [Twitter-in etdiyi kimi](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3) öz windowing komponentinizi yarada bilərsiniz.
 
-## Avoid Reconciliation {#avoid-reconciliation}
+## Rekonsilyasidan Çəkinmək {#avoid-reconciliation}
 
-React builds and maintains an internal representation of the rendered UI. It includes the React elements you return from your components. This representation lets React avoid creating DOM nodes and accessing existing ones beyond necessity, as that can be slower than operations on JavaScript objects. Sometimes it is referred to as a "virtual DOM", but it works the same way on React Native.
+React, render olunan UI-ın daxili təmsilini yaradır və saxlayır. Bu təmsilə komponentlərdən qaytarılan React elementləri daxildir. Bu təmsil, React-ə lazım olmadıqda DOM nodların yaranmasını və istifadəsini azaldır. Çünki, DOM nodlarındə edilən əməliyyatlar, sadə JavaScript obyektlərində edilən əməliyyatlardan yavaşdır. Bu daxili təmsilin "virtual DOM" adlanmasına baxmayaraq, eyni təmsil React Native-də də işlənilir.
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
+Komponent propları və ya state-i dəyişdikdə yeni element ilə köhnə render olunmuş element müqayisə olunur. Elementlər eyni olmadıqda React, DOM-u yeniləyir.
 
-Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
+Yalnız dəyişən DOM nodların yenilənməsinə baxmayaraq, yenidən render etmə əməliyyatı zaman çəkə bilər. Bir çox ssenaridə bu problem deyil. Lakin, yavaşlama nəzərə çarpan olduqda `shouldComponentUpdate` lifecycle funksiyasını (bu funksiya yenidən render etmə prosesi başlamamışdan öncə çağrılır) tətbiq edərək sürəti çoxalda bilərsiniz. Bu funksiyanın standart tətbiqi `true` qaytarır. Bu zaman, yeniləməni hər zaman React icra edir:
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -219,9 +219,9 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 
-If you know that in some situations your component doesn't need to update, you can return `false` from `shouldComponentUpdate` instead, to skip the whole rendering process, including calling `render()` on this component and below.
+Əgər bildiyiniz bəzi situasiyalarda komponent yenilənməməlidirsə, `shouldComponentUpdate` funksiyasından `false` qaytara bilərsiniz. `false` qaytarıldıqda yeninən komponentin `render()` funksiyası daxil olmaqla render etmə prosesi buraxılacaq.
 
-In most cases, instead of writing `shouldComponentUpdate()` by hand, you can inherit from [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). It is equivalent to implementing `shouldComponentUpdate()` with a shallow comparison of current and previous props and state.
+Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) klasından gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-i müqayisə etməyə bərabərdir.
 
 ## shouldComponentUpdate In Action {#shouldcomponentupdate-in-action}
 
