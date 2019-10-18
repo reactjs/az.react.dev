@@ -1,26 +1,26 @@
 ---
 id: faq-functions
-title: Passing Functions to Components
+title: Funksiyaların Komponentlərə Göndərilməsi
 permalink: docs/faq-functions.html
 layout: docs
 category: FAQ
 ---
 
-### How do I pass an event handler (like onClick) to a component? {#how-do-i-pass-an-event-handler-like-onclick-to-a-component}
+### Komponentə hadisə işləyicisini (onClick kimi) necə göndərə bilərəm? {#how-do-i-pass-an-event-handler-like-onclick-to-a-component}
 
-Pass event handlers and other functions as props to child components:
+Hadisə işləyicilərini və digər funksiyaları uşaq komponentlərə proplar kimi göndərin:
 
 ```jsx
 <button onClick={this.handleClick}>
 ```
 
-If you need to have access to the parent component in the handler, you also need to bind the function to the component instance (see below).
+Hadisə işləyicisini valideyn komponentdən istifadə etdikdə funksiyanı komponent instansiyasına bind etmək lazımdır (aşağı bölməyə baxın).
 
-### How do I bind a function to a component instance? {#how-do-i-bind-a-function-to-a-component-instance}
+### Funksiyanı komponent instansiyasına necə bind etmək olar? {#how-do-i-bind-a-function-to-a-component-instance}
 
-There are several ways to make sure functions have access to component attributes like `this.props` and `this.state`, depending on which syntax and build steps you are using.
+Funksiyalardan `this.props` və `this.state` kimi atributların istifadəsinin qurulma addımından və sintaksisdən asılı olaraq bir neçə yolu var.
 
-#### Bind in Constructor (ES2015) {#bind-in-constructor-es2015}
+#### Konstruktorda Bind Etmək (ES2015) {#bind-in-constructor-es2015}
 
 ```jsx
 class Foo extends Component {
@@ -29,71 +29,71 @@ class Foo extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    console.log('Click happened');
+    console.log('Tıklama Hadisəsi Baş Verdi');
   }
   render() {
-    return <button onClick={this.handleClick}>Click Me</button>;
+    return <button onClick={this.handleClick}>Tıkla</button>;
   }
 }
 ```
 
-#### Class Properties (Stage 3 Proposal) {#class-properties-stage-3-proposal}
+#### Klas Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-stage-3-proposal}
 
 ```jsx
 class Foo extends Component {
-  // Note: this syntax is experimental and not standardized yet.
+  // Qeyd: bu sintaksis experimentaldır və hələ standartlaşmayıb.
   handleClick = () => {
-    console.log('Click happened');
+    console.log('Tıklama Hadisəsi Baş Verdi');
   }
   render() {
-    return <button onClick={this.handleClick}>Click Me</button>;
+    return <button onClick={this.handleClick}>Tıkla</button>;
   }
 }
 ```
 
-#### Bind in Render {#bind-in-render}
+#### Render-dən Bind Etmək {#bind-in-render}
 
 ```jsx
 class Foo extends Component {
   handleClick() {
-    console.log('Click happened');
+    console.log('Tıklama Hadisəsi Baş Verdi');
   }
   render() {
-    return <button onClick={this.handleClick.bind(this)}>Click Me</button>;
+    return <button onClick={this.handleClick.bind(this)}>Tıkla</button>;
   }
 }
 ```
 
->**Note:**
+>**Qeyd:**
 >
->Using `Function.prototype.bind` in render creates a new function each time the component renders, which may have performance implications (see below).
+>`Function.prototype.bind` funksiyanı render-dən çağrıldıqda komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bunun performansa təsiri ola bilər (aşağıdakı bölmələrə baxın).
 
-#### Arrow Function in Render {#arrow-function-in-render}
+#### Render-də Ox Funksiyası {#arrow-function-in-render}
 
 ```jsx
 class Foo extends Component {
   handleClick() {
-    console.log('Click happened');
+    console.log('Tıklama Hadisəsi Baş Verdi');
   }
   render() {
-    return <button onClick={() => this.handleClick()}>Click Me</button>;
+    return <button onClick={() => this.handleClick()}>Tıkla</button>;
   }
 }
 ```
 
->**Note:**
+>**Qeyd:**
 >
->Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison.
+>Render-dən ox funksiyası işlədildikdə komponent hər render edilməsi zamanı yeni funksiya yaranacaq. Bu, identiklik müqayisələrin optimizasiyalarını sındıra bilər.
 
-### Is it OK to use arrow functions in render methods? {#is-it-ok-to-use-arrow-functions-in-render-methods}
+### Render funksiyalarında ox funksiyalarını işlətmək olar? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
-Generally speaking, yes, it is OK, and it is often the easiest way to pass parameters to callback functions.
+Normalda, olar. Bu, parametrlərini callback funksiyalarına göndərməyin ən asan yoludur..
 
-If you do have performance issues, by all means, optimize!
+Performans problemləri olandaa, optimizasiya edin!
 
-### Why is binding necessary at all? {#why-is-binding-necessary-at-all}
+### Binding Niyə Vacibdir? {#why-is-binding-necessary-at-all}
 
-In JavaScript, these two code snippets are **not** equivalent:
+JavaScript-də bu iki kod bərabər **deyil**:
 
 ```js
 obj.method();
@@ -104,50 +104,50 @@ var method = obj.method;
 method();
 ```
 
-Binding methods helps ensure that the second snippet works the same way as the first one.
+İkinci kod ilə birinci kodun eyni işləməsi üçün binding lazımdır.
 
-With React, typically you only need to bind the methods you *pass* to other components. For example, `<button onClick={this.handleClick}>` passes `this.handleClick` so you want to bind it. However, it is unnecessary to bind the `render` method or the lifecycle methods: we don't pass them to other components.
+React-də, adətən digər komponentlərə *göndərilən* funksiyaları bind etmək lazımdır. Məsələn, `<button onClick={this.handleClick}>` kodu `this.handleClick` funksiyasını göndərdiyindən bu funksiyanı bind edin. Lakin, `render` və ya lifecycle funksiyalarını bind etmək lazım deyil. Biz bu funksiyaları digər komponentlərə göndərmirik.
 
-[This post by Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explains what binding is, and how functions work in JavaScript, in detail.
+[Yehuda Katz-ın bu məqaləsi](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) binding-in nə olduğunu və JavaScript-də funksiyaların necə işlədiyini izah edir.
 
-### Why is my function being called every time the component renders? {#why-is-my-function-being-called-every-time-the-component-renders}
+### Niye funksiya komponentin hər render etmə zamanı çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
 
-Make sure you aren't _calling the function_ when you pass it to the component:
-
-```jsx
-render() {
-  // Wrong: handleClick is called instead of passed as a reference!
-  return <button onClick={this.handleClick()}>Click Me</button>
-}
-```
-
-Instead, *pass the function itself* (without parens):
+Funksiyanı komponentə göndərdikdə _bu funksiyanı çağırmadığınızdan_ əmin olun:
 
 ```jsx
 render() {
-  // Correct: handleClick is passed as a reference!
-  return <button onClick={this.handleClick}>Click Me</button>
+  // Yanlışdır: handleClick funksiyası referans kimi göndərilmək əvəzinə çağrılır!
+  return <button onClick={this.handleClick()}>Tıkla</button>
 }
 ```
 
-### How do I pass a parameter to an event handler or callback? {#how-do-i-pass-a-parameter-to-an-event-handler-or-callback}
+Əvəzinə, *funksiyanın özünü göndərin* (mötərizəsiz):
 
-You can use an arrow function to wrap around an event handler and pass parameters:
+```jsx
+render() {
+  // Düzdür: handleClick funksiyası referans kimi göndərilir!
+  return <button onClick={this.handleClick}>Tıkla</button>
+}
+```
+
+### Hadisə işləyicisinə və callback-ə necə parametr göndərə bilərəm? {#how-do-i-pass-a-parameter-to-an-event-handler-or-callback}
+
+Ox funksiyası ilə hadisə işləyicisini əhatə edərək parametrləri göndərə bilərsiniz:
 
 ```jsx
 <button onClick={() => this.handleClick(id)} />
 ```
 
-This is equivalent to calling `.bind`:
+Bu `.bind` funksiyasını çağırmaq ilə eynidir:
 
 ```jsx
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Example: Passing params using arrow functions {#example-passing-params-using-arrow-functions}
+#### Nümunə: Parametrlərin ox funksiyalarına göndərilməsi {#example-passing-params-using-arrow-functions}
 
 ```jsx
-const A = 65 // ASCII character code
+const A = 65 // ASCII hərf kodu
 
 class Alphabet extends React.Component {
   constructor(props) {
@@ -164,7 +164,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Tıklandı: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} onClick={() => this.handleClick(letter)}>
@@ -178,9 +178,9 @@ class Alphabet extends React.Component {
 }
 ```
 
-#### Example: Passing params using data-attributes {#example-passing-params-using-data-attributes}
+#### Nümunə: Parametrlərin data-atributlarına göndərilməsi {#example-passing-params-using-data-attributes}
 
-Alternately, you can use DOM APIs to store data needed for event handlers. Consider this approach if you need to optimize a large number of elements or have a render tree that relies on React.PureComponent equality checks.
+Alternativ olaraq, DOM API-ndan istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementi optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmadan istifadə edin.
 
 ```jsx
 const A = 65 // ASCII character code
@@ -204,7 +204,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Tıklandı: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} data-letter={letter} onClick={this.handleClick}>
@@ -218,23 +218,23 @@ class Alphabet extends React.Component {
 }
 ```
 
-### How can I prevent a function from being called too quickly or too many times in a row? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
+### Funksiyanın tez-tez çağrılmasının və ya eyni zamanda bir neçə dəfə çağrılmasının qarşısını necə ala bilərəm? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
 
-If you have an event handler such as `onClick` or `onScroll` and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be done by using:
+Əgər `onClick` və ya `onScroll` kimi hadisə işləyicilərindən istifadə edirsinizsə və və bu callback-lərin tez çağrılmasının qarşısını almaq istəyirsinizsə, callback-in çağrılmasının sürətini məhdudlaşdıra bilərsiniz. Buna aşağıdakı yollar ilə nail olmaq mümkündür:
 
-- **throttling**: sample changes based on a time based frequency (eg [`_.throttle`](https://lodash.com/docs#throttle))
-- **debouncing**: publish changes after a period of inactivity (eg [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` throttling**: sample changes based on [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (eg [`raf-schd`](https://github.com/alexreardon/raf-schd))
+- **boğmaq (throttle)**: dəyişiklikləri vaxt tezliyinə görə seçin (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
+- **debounce edin**: hərəkətsizlik olduqdan sonra dəyişiklikləri dərc edin (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
+- **`requestAnimationFrame` boğması**: dəyişiklikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçin (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
-See [this visualization](http://demo.nimius.net/debounce_throttle/) for a comparison of `throttle` and `debounce` functions.
+`throttle` və `debounce` funksiyaslarının müqayisəsi üçün [bu görüntüyə baxın](http://demo.nimius.net/debounce_throttle/).
 
-> Note:
+> Qeyd:
 >
-> `_.debounce`, `_.throttle` and `raf-schd` provide a `cancel` method to cancel delayed callbacks. You should either call this method from `componentWillUnmount` _or_ check to ensure that the component is still mounted within the delayed function.
+> `_.debounce`, `_.throttle` və `raf-schd` funksiyaları gecikən callback-ləri ləğv etmək üçün `cancel` funksiyası təmin edirlər. Siz bu funksiyanı `componentWillUnmount`-dan çağırmalı _və ya_ gecikən funksiyanın daxilindən komponentin mount olunduğunu yoxlamalısınız.
 
-#### Throttle {#throttle}
+#### Boğma {#throttle}
 
-Throttling prevents a function from being called more than once in a given window of time. The example below throttles a "click" handler to prevent calling it more than once per second.
+Boğma, verilan vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısını alır.
 
 ```jsx
 import throttle from 'lodash.throttle';
@@ -262,7 +262,7 @@ class LoadMoreButton extends React.Component {
 
 #### Debounce {#debounce}
 
-Debouncing ensures that a function will not be executed until after a certain amount of time has passed since it was last called. This can be useful when you have to perform some expensive calculation in response to an event that might dispatch rapidly (eg scroll or keyboard events). The example below debounces text input with a 250ms delay.
+Debounce etmək funksiyanın son çağırışından bir qədər vaxt keçmədən çağrılmasının qabağını alır. Bu metod, tez-tez göndərilən hadisənin (məsələn, skrol və ya klaviatur hadisələri) cavabı nəticəsində bahalı hesablama apardıqda faydalıdır. Aşağıdakı nümunədə anket sakəsi 250ms gecikmə ilə yazılır.
 
 ```jsx
 import debounce from 'lodash.debounce';
@@ -290,9 +290,9 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-    // React pools events, so we read the value before debounce.
-    // Alternately we could call `event.persist()` and pass the entire event.
-    // For more info see reactjs.org/docs/events.html#event-pooling
+    // React hadisələri pool etdiyindən biz dəyəri debounce-dan əvvəl oxuyuruq.
+    // Alternativ olaraq, `event.persist()` funksiyasını çağıraraq bütün hadisəni göndərə bilərik.
+    // Əlavə məlumat üçün reactjs.org/docs/events.html#event-pooling səhifəsinə baxın.
     this.emitChangeDebounced(e.target.value);
   }
 
@@ -302,13 +302,13 @@ class Searchbox extends React.Component {
 }
 ```
 
-#### `requestAnimationFrame` throttling {#requestanimationframe-throttling}
+#### `requestAnimationFrame` boğması {#requestanimationframe-throttling}
 
-[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) is a way of queuing a function to be executed in the browser at the optimal time for rendering performance. A function that is queued with `requestAnimationFrame` will fire in the next frame. The browser will work hard to ensure that there are 60 frames per second (60 fps). However, if the browser is unable to it will naturally *limit* the amount of frames in a second. For example, a device might only be able to handle 30 fps and so you will only get 30 frames in that second. Using `requestAnimationFrame` for throttling is a useful technique in that it prevents you from doing more than 60 updates in a second. If you are doing 100 updates in a second this creates additional work for the browser that the user will not see anyway.
+[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) ilə funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün optimal olan zamanda çağrılır. `requestAnimationFrame` növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Brauzer 60 fps təmin edə bilmədikdə natural olaraq saniyəyə düşən kadrların sayını *məhdudlaşdıracaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını boğma üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
 
->**Note:**
+>**Qeyd:**
 >
->Using this technique will only capture the last published value in a frame. You can see an example of how this optimization works on [`MDN`](https://developer.mozilla.org/en-US/docs/Web/Events/scroll)
+>Bu texnika ilə ən kadrda dərc olunan ən sonuncu dəyər işlədiləcək. Bu optimizasiyanın işləməsini görmək üçün [`MDN-də`](https://developer.mozilla.org/en-US/docs/Web/Events/scroll) olan nümunəyə baxın.
 
 ```jsx
 import rafSchedule from 'raf-schd';
@@ -319,20 +319,20 @@ class ScrollListener extends React.Component {
 
     this.handleScroll = this.handleScroll.bind(this);
 
-    // Create a new function to schedule updates.
+    // Yenilikləri planlaşdırmaq üçün yeni funksiya yaradın.
     this.scheduleUpdate = rafSchedule(
       point => this.props.onScroll(point)
     );
   }
 
   handleScroll(e) {
-    // When we receive a scroll event, schedule an update.
-    // If we receive many updates within a frame, we'll only publish the latest value.
+    // Skrol hadisəsi gəldikdə yenilik planlaşdırın.
+    // Bir kadrda çoxlu yenilik gəldikdə yalnız sonuncu dəyər dərc olunacaq..
     this.scheduleUpdate({ x: e.clientX, y: e.clientY });
   }
 
   componentWillUnmount() {
-    // Cancel any pending updates since we're unmounting.
+    // Unmount edildiyi zaman bütün gələcək yenilikləri ləğv edin.
     this.scheduleUpdate.cancel();
   }
 
@@ -349,6 +349,6 @@ class ScrollListener extends React.Component {
 }
 ```
 
-#### Testing your rate limiting {#testing-your-rate-limiting}
+#### Sürətin məhdudlaşmasını test edin {#testing-your-rate-limiting}
 
-When testing your rate limiting code works correctly it is helpful to have the ability to fast forward time. If you are using [`jest`](https://facebook.github.io/jest/) then you can use [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) to fast forward time. If you are using `requestAnimationFrame` throttling then you may find [`raf-stub`](https://github.com/alexreardon/raf-stub) to be a useful tool to control the ticking of animation frames.
+Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` boğmasından istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı tapa bilərsiniz.
