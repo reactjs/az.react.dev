@@ -66,7 +66,7 @@
     - id: react-without-jsx
       title: JSX-siz React
     - id: reconciliation
-      title: Rekonsiliasiya
+      title: Rekonsilyasiya
     - id: refs-and-the-dom
       title: Ref-lər və DOM
     - id: render-props
