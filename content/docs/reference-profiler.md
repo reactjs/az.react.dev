@@ -1,27 +1,27 @@
 ---
 id: profiler
-title: Profiler API
+title: Profayler API-ı
 layout: docs
 category: Reference
 permalink: docs/profiler.html
 ---
 
-The `Profiler` measures how often a React application renders and what the "cost" of rendering is.
-Its purpose is to help identify parts of an application that are slow and may benefit from [optimizations such as memoization](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations).
+React applikasiyasının hansı tezlikdə render edilməsi və render edilmənin "qiymətini" ölçmək üçün `Profiler`-dən istifadə edilir.
+Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimizasiyalardan faydalana bilən](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations) hissələrin tapmaq üçün işlədilir.
 
-> Note:
+> Qeyd:
 >
-> Profiling adds some additional overhead, so **it is disabled in [the production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+> Profayl etmə applikasiyaya ağırlığı verə bilər. Lakin, bu xüsusiyyətlər **[produksiya qurulmasında](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) söndürülür**.
 >
-> To opt into production profiling, React provides a special production build with profiling enabled.
-> Read more about how to use this build at [fb.me/react-profiling](https://fb.me/react-profiling)
+> Produksiyada profayl edə bilmək üçün React-də profayl etməyə imkan yaradan produksiya qurulması var.
+> Bu qurulma haqqında əlavə məlumat üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
 ## Usage
 
-A `Profiler` can be added anywhere in a React tree to measure the cost of rendering that part of the tree.
-It requires two props: an `id` (string) and an `onRender` callback (function) which React calls any time a component within the tree "commits" an update.
+Profayleri, React ağacının istənilən yerini profayl edə bilmək üçün istənilən yerə əlavə etmək mümkündür.
+Bu komponent iki prop qəbul edir: `id` (mətn) və `onRender` callback-i (funksiya). `onRender` callback-i ağacda olan istənilən komponent yeniliyi "commit" etdiyi zaman çağrılır.
 
-For example, to profile a `Navigation` component and its descendants:
+Məsələn, `Navigation` komponentini və uşaqlarını profayl etmək üçün:
 
 ```js{3}
 render(
@@ -34,7 +34,8 @@ render(
 );
 ```
 
-Multiple `Profiler` components can be used to measure different parts of an application:
+Applikasiyanın fərqli hissələrini profayl etmək üçün bir neçə `Profiler` komponentindən istifadə etmək mümkündür:
+
 ```js{3,6}
 render(
   <App>
@@ -48,7 +49,8 @@ render(
 );
 ```
 
-`Profiler` components can also be nested to measure different components within the same subtree:
+Eyni ağacda bir neçə `Profiler` komponenti əlavə etmək mümkündür:
+
 ```js{2,6,8}
 render(
   <App>
@@ -66,54 +68,60 @@ render(
 );
 ```
 
-> Note
+> Qeyd
 >
-> Although `Profiler` is a light-weight component, it should be used only when necessary; each use adds some CPU and memory overhead to an application.
+> `Profiler`-in yüngül komponent olduğuna baxmayaraq bu komponenti yalnız lazım olduqda işlədin. Bu komponentin hər istifadəsi CPU və yaddaşa ağırlıq verə bilər.
 
-## `onRender` Callback
+## `onRender` Callback-i
 
-The `Profiler` requires an `onRender` function as a prop.
-React calls this function any time a component within the profiled tree "commits" an update.
-It receives parameters describing what was rendered and how long it took.
+`Profiler` komponenti `onRender` funksiyası propunu tələb edir.
+Profayl olunan ağacda hər hansı bir komponent yeniliyi "commit" etdikdə bu funksiya çağrılır.
+Bu funksiyanın render edilən elementi və render zamanını təsvir edən parametrləri var.
 
 ```js
 function onRenderCallback(
-  id, // the "id" prop of the Profiler tree that has just committed
-  phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
-  actualDuration, // time spent rendering the committed update
-  baseDuration, // estimated time to render the entire subtree without memoization
-  startTime, // when React began rendering this update
-  commitTime, // when React committed this update
-  interactions // the Set of interactions belonging to this update
+  id, // commit olunan Profayler ağacının "id" propu
+  phase, // "mount" (ağac yeni əlavə edildikdə) və ya "update" (yenidən render edildikdə)
+  actualDuration, // Commit olunan yeniliyi render etmək üçün sərf olunan zaman
+  baseDuration, // memoizasiyasız bütün ağacın render olunmasına sərf olunan zaman
+  startTime, // Yeniliyi render etmənin başlama vaxtı
+  commitTime, // Yeniliyin commit olunma vaxtı
+  interactions // Bu yeniliyə aid olan interaksiyalar siyahısı
 ) {
-  // Aggregate or log render timings...
+  // Render vaxtlarını aqreqat və ya loq edin...
 }
 ```
 
-Let's take a closer look at each of the props:
+Gəlin hər arqumentə ayrılıqda baxaq:
 
 * **`id: string`** - 
-The `id` prop of the `Profiler` tree that has just committed.
-This can be used to identify which part of the tree was committed if you are using multiple profilers.
-* **`phase: "mount" | "update"`** -
-Identifies whether the tree has just been mounted for the first time or re-rendered due to a change in props, state, or hooks.
-* **`actualDuration: number`** -
-Time spent rendering the `Profiler` and its descendants for the current update.
-This indicates how well the subtree makes use of memoization (e.g. [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)).
-Ideally this value should decrease significantly after the initial mount as many of the descendants will only need to re-render if their specific props change.
-* **`baseDuration: number`** -
-Duration of the most recent `render` time for each individual component within the `Profiler` tree.
-This value estimates a worst-case cost of rendering (e.g. the initial mount or a tree with no memoization).
-* **`startTime: number`** -
-Timestamp when React began rendering the current update.
-* **`commitTime: number`** -
-Timestamp when React committed the current update.
-This value is shared between all profilers in a commit, enabling them to be grouped if desirable.
-* **`interactions: Set`** -
-Set of ["interactions"](http://fb.me/react-interaction-tracing) that were being traced the update was scheduled (e.g. when `render` or `setState` were called).
+Commit olunan Profayler ağacının "id" propu.
+Bir neçə profayler işlətdikdə ağacın hansı hissəsinin commit olduğunu müəyyənləşdirmək üçün işlədilir.
 
-> Note
+* **`phase: "mount" | "update"`** -
+Ağacın ilk dəfə mount olmasını, və ya proplar, state, və ya hooklar əsasında yenidən render edildiyini müəyyənləşdirir.
+
+* **`actualDuration: number`** -
+Cari yenilik üçün `Profiler`-i və uşaqlarını render etmək üüçün sərf olunan zaman.
+Bu dəyər ağacın memoizasiyadan necə istifadə etdiyini göstərir (məsələn, [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)).
+İdeal olaraq, uşaqların spesifik prop dəyişikləri əsasında yeniləndini nəzərə alsaq bu dəyər ilkin mount-dan sonra kəskin azalmalıdır.
+
+* **`baseDuration: number`** -
+`Profiler` ağacında olan bütün komponentlərin render olunduğu ən sonuncu renderə sərf olunan zaman.
+Bu dəyər renderin ən bis qiymətini hesablayır (məsələn, ilkin mount zamanı və ya memoizasiyasız ağac).
+
+* **`startTime: number`** -
+Cari yeniliyi render etmənin başlama vaxtı.
+
+* **`commitTime: number`** -
+Cari yeniliyin commit olunduğu vaxt.
+Bu dəyər commit-də olan bütün profaylerlər arasında paylaşılır (lazım olduqda bu dəyəri qruplamaq olar).
+
+* **`interactions: Set`** -
+Yenilik planlaşdırılmasına səbəb olan ["interaksiyaların"](http://fb.me/react-interaction-tracing) siyahısı (məsələn, `render` və ya `setState` çağrıldıqda).
+
+> Qeyd
 >
-> Interactions can be used to identify the cause of an update, although the API for tracing them is still experimental.
+> Yenilikləri müəyyənləşdirmək üçün interaksiyalardan istifadə edə bilərsiniz. Lakin, bu API hələ ki, eksperimentaldır.
 >
-> Learn more about it at [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing)
+> Əlavə məlumat üçün [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing) səhifəyə baxın.
