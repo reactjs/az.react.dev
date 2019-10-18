@@ -1,93 +1,93 @@
 ---
 id: optimizing-performance
-title: Optimizing Performance
+title: Performansın Optimallaşdırılması
 permalink: docs/optimizing-performance.html
 redirect_from:
   - "docs/advanced-performance.html"
 ---
 
-Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
+Daxildə, React, bir neçə ağıllı texnikadan istifadə edərək UI-ı yeniləmək üçün ağır DOM əməliyyatlarının sayını azaldır. Bir çox applikasiyada performansı xüsusi optimallaşdırmadan React-dən istifadə etdikdə itifadəçi interfeysi tez işləyəcək. Buna baxmayaraq React applikasiyasını tezləşdirməyin bir neçə yolu var.
 
-## Use the Production Build {#use-the-production-build}
+## Produksiya Qurulmasından İstifadə Edin {#use-the-production-build}
 
-If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build.
+React applikasiyalarında performans problemləri olduqda minimallaşdırılmış produksiya qurulmasının istifadə edildiyindən əmin olun.
 
-By default, React includes many helpful warnings. These warnings are very useful in development. However, they make React larger and slower so you should make sure to use the production version when you deploy the app.
+Normalda, React-də faydalı xəbərdarlıqlar var. Bu xəbərdarlıqlar development zamanı faydalıdır. Lakin, bu xəbərdarlıqlar React-i böyüdür və yavaşladır. Bu səbəbdən, applikasiyanı yerləşdirdikdə produksiya versiyasının istifadəsindən əmin olun.
 
-If you aren't sure whether your build process is set up correctly, you can check it by installing [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). If you visit a site with React in production mode, the icon will have a dark background:
+Qurulma prosesinin düzgün işlədiyindən əmin olmadıqda [Chrome üçün React Developer Alətlərindən](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) istifadə edin. Produksiya modunda olan React səhifəsini ziyarət etdikdə alətin ikonu tünd fonda olacaq:
 
-<img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React DevTools on a website with production version of React">
+<img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React-in produksiya versiyasını işlədən səhifədə React DevTools ikonu">
 
-If you visit a site with React in development mode, the icon will have a red background:
+Development modunda olan React səhifəsini ziyarət etdikdə isə alətin ikonu qırmızı fonda olacaq:
 
-<img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
+<img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React-in development versiyasını işlədən səhifədə React DevTools ikonu">
 
-It is expected that you use the development mode when working on your app, and the production mode when deploying your app to the users.
+Applikasiyanı yazdıqda development modundan istifadə edin. Applikasiyanı istifadəçilər üçün yerləşdirdikdə isə produksiya modundan istifadə edin.
 
-You can find instructions for building your app for production below.
+Applikasiyanın produksiya üçün qurulması üçün aşağıdakı təlimatlara baxın.
 
 ### Create React App {#create-react-app}
 
-If your project is built with [Create React App](https://github.com/facebookincubator/create-react-app), run:
+Layihə [Create React App](https://github.com/facebookincubator/create-react-app) üzərində qurulduqda aşağıdakı əmri icra etmək kifayətdir:
 
 ```
 npm run build
 ```
 
-This will create a production build of your app in the `build/` folder of your project.
+Bu, applikasiyanın produksiya versiyasını layihənin `build/` direktoriyasında yaradacaq.
 
-Remember that this is only necessary before deploying to production. For normal development, use `npm start`.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development üçün `npm start` əmrindən istifadə edin.
 
-### Single-File Builds {#single-file-builds}
+### Tək Fayl Qurulmaları {#single-file-builds}
 
-We offer production-ready versions of React and React DOM as single files:
+Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə təmin edirik:
 
 ```html
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Remember that only React files ending with `.production.min.js` are suitable for production.
+Produksiya üçün yalnız `.production.min.js` ilə bitən faylların uyğun olduğunu unutmayın.
 
 ### Brunch {#brunch}
 
-For the most efficient Brunch production build, install the [`terser-brunch`](https://github.com/brunch/terser-brunch) plugin:
+Ən səmərəli Brunch produksiya qurulması üçün [`terser-brunch`](https://github.com/brunch/terser-brunch) plaginini yükləyin:
 
 ```
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev terser-brunch
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev terser-brunch
 ```
 
-Then, to create a production build, add the `-p` flag to the `build` command:
+Produksiya qurulması yaratmaq üçün `build` əmrinə `-p` arqumenti əlavə edin:
 
 ```
 brunch build -p
 ```
 
-Remember that you only need to do this for production builds. You shouldn't pass the `-p` flag or apply this plugin in development, because it will hide useful React warnings and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. `-p` arqumentini və ya plagini development zamanı işlətməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### Browserify {#browserify}
 
-For the most efficient Browserify production build, install a few plugins:
+Ən səmərəli Browserify produksiya qurulması üçün bir neçə plagin yükləmək lazımdır:
 
 ```
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev envify terser uglifyify 
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev envify terser uglifyify 
 ```
 
-To create a production build, make sure that you add these transforms **(the order matters)**:
+Produksiya qurulması yaratmaq üçün aşağıdakı çevirmələri əlavə edin **(sıra vacibdir)**:
 
-* The [`envify`](https://github.com/hughsk/envify) transform ensures the right build environment is set. Make it global (`-g`).
-* The [`uglifyify`](https://github.com/hughsk/uglifyify) transform removes development imports. Make it global too (`-g`).
-* Finally, the resulting bundle is piped to [`terser`](https://github.com/terser-js/terser) for mangling ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
+* [`envify`](https://github.com/hughsk/envify) çevirməsi düzgün produksiya mühitinin təyin edilməsini siğortalayır. Bunu qlobal edin (`-g`).
+* [`uglifyify`](https://github.com/hughsk/uglifyify) çevirməsi development idxallarını silir. Bunu qlobal edin (`-g`).
+* Sonda, nəticlənənən paket [`terser`-ə](https://github.com/terser-js/terser) korlanmaq üçün (mangling) göndərilir ([səbəbini buraxan oxuyun](https://github.com/hughsk/uglifyify#motivationusage)).
 
-For example:
+Məsələn:
 
 ```
 browserify ./index.js \
@@ -96,25 +96,25 @@ browserify ./index.js \
   | terser --compress --mangle > ./bundle.js
 ```
 
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Bu plaginləri development zamanı işlətməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### Rollup {#rollup}
 
-For the most efficient Rollup production build, install a few plugins:
+Ən səmərəli Rollup qurulması üçün bəzi plaginləri yükləmək lazımdır:
 
 ```bash
-# If you use npm
+# npm işlədirsinizsə
 npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 
-# If you use Yarn
+# Yarn işlədirsinizsə
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 ```
 
-To create a production build, make sure that you add these plugins **(the order matters)**:
+Produksiya qurulması yaratmaq üçün aşağıdakı plaginləri əlavə edin **(sıra vacibdir)**:
 
-* The [`replace`](https://github.com/rollup/rollup-plugin-replace) plugin ensures the right build environment is set.
-* The [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plugin provides support for CommonJS in Rollup.
-* The [`terser`](https://github.com/TrySound/rollup-plugin-terser) plugin compresses and mangles the final bundle.
+* [`replace`](https://github.com/rollup/rollup-plugin-replace) plagini düzgün produksiya mühitinin təyin edilməsini siğortalayır.
+* [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plagini Rollup-da CommonJS-in işlədilməsinə imkan yaradır.
+* [`terser`](https://github.com/TrySound/rollup-plugin-terser) plagini son paketi kompresləyir və korlayır (mangles).
 
 ```js
 plugins: [
@@ -128,18 +128,18 @@ plugins: [
 ]
 ```
 
-For a complete setup example [see this gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+Tam qurulma konfiqurasiyası üçün [bu gist-ə baxın](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-Remember that you only need to do this for production builds. You shouldn't apply the `terser` plugin or the `replace` plugin with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Development zamanı `terser` və ya `replace` plaginini `'production'` dəyəri ilə tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
 ### webpack {#webpack}
 
->**Note:**
+>**Qeyd:**
 >
->If you're using Create React App, please follow [the instructions above](#create-react-app).<br>
->This section is only relevant if you configure webpack directly.
+>Create React App işlədirsinizsə, [yuxarıdakı təlimatlara baxın](#create-react-app).<br>
+>Bu bölmə, webpack-in birbaşa konfiqurasiyası üçün uyğundur.
 
-Webpack v4+ will minify your code by default in production mode.
+Webpack v4+ versiyasının produksiya modu yazılmış kodu avtomatik minimallaşdıracaq.
 
 ```js
 const TerserPlugin = require('terser-webpack-plugin');
@@ -147,71 +147,71 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: 'production',
   optimization: {
-    minimizer: [new TerserPlugin({ /* additional options here */ })],
+    minimizer: [new TerserPlugin({ /* burada parametlər əlavə edə bilərsiniz */ })],
   },
 };
 ```
 
-You can learn more about this in [webpack documentation](https://webpack.js.org/guides/production/).
+Əlavə məlumat üçün [webpack sənədlərinə](https://webpack.js.org/guides/production/) baxın.
 
-Remember that you only need to do this for production builds. You shouldn't apply `TerserPlugin` in development because it will hide useful React warnings, and make the builds much slower.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. `TerserPlugin` plaginini development zamanı işlətməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
-## Profiling Components with the Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
+## Chrome Performans Təbi ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-chrome-performance-tab}
 
-In the **development** mode, you can visualize how components mount, update, and unmount, using the performance tools in supported browsers. For example:
+**Development** modunda komponentlərin necə mount edildiyini, yeniləndiyini və unmount edildiyini dəstəklənən brauzerlərin performans alətləri ilə görüntüləmək mümkündür. Məsələn:
 
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="React components in Chrome timeline" /></center>
+<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Chrome qrafikində React komponentləri" /></center>
 
-To do this in Chrome:
+Chrome-da istifadə edə bilmək üçün:
 
-1. Temporarily **disable all Chrome extensions, especially React DevTools**. They can significantly skew the results!
+1. Müvəqqəti olaraq **React DevTools xüsusi olmaqla bütün Chrome artırmalarını söndürün**. Artırmalar nəticənin səhv göstərilməsinə səbəb ola bilər!
 
-2. Make sure you're running the application in the development mode.
+2. Applikasiyanın development modunda olduğundan əmin olun.
 
-3. Open the Chrome DevTools **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** tab and press **Record**.
+3. Chrome DevTools-un **[Performans](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** təbinə daxil olun və **Record** düyməsini tıklayın.
 
-4. Perform the actions you want to profile. Don't record more than 20 seconds or Chrome might hang.
+4. Profayl etmək istədiyiniz əməliyyatları icra edin. 20 saniyədən çox rekord etməyin. Əks halda Chrome ilişə bilər.
 
-5. Stop recording.
+5. Rekord etməni saxlayın.
 
-6. React events will be grouped under the **User Timing** label.
+6. React hadisələri **User Timing** adı altında qruplanacaq.
 
-For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Daha ətraflı izahat üçün [Ben Şvarsın məqaləsini oxuyun](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
-Note that **the numbers are relative so components will render faster in production**. Still, this should help you realize when unrelated UI gets updated by mistake, and how deep and how often your UI updates occur.
+Nəzərə alin ki, **bu alətdə göstərilən rəqəmlər nisbidir. Produksiya zamanı komponentlər daha tez işləyəcək**. Bu, lazımsız UI-ın səhvən yeniləndiyini və UI yeniliklərinin hansı dərinlikdə və tezlikdə olduğunu görməyə imkan yaradır.
 
-Currently Chrome, Edge, and IE are the only browsers supporting this feature, but we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) so we expect more browsers to add support for it.
+İndiki zamanda, bu xüsusiyyəti dəstəkləyən brauzerlər Chrome, Edge və IE-dir. Lakin, bizim [User Timing API-ından](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) istifadə etdiyimizdən bu xüsusiyyətin gələcəkdə digər brauzerlərdə işləyəcəyini gözləyirik.
 
-## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+## DevTools Profayleri ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-devtools-profiler}
 
-`react-dom` 16.5+ and `react-native` 0.57+ provide enhanced profiling capabilities in DEV mode with the React DevTools Profiler.
-An overview of the Profiler can be found in the blog post ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
-A video walkthrough of the profiler is also [available on YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
+`react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modunda daha inkişaf etmiş qabiliyyətləri var.
+Profaylerin icmalına ["React Profayler ilə Tanışlıq"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
+Profaylerin video izahatına [Youtube-dan](https://www.youtube.com/watch?v=nySib7ipZdk) baxa bilərsiniz.
 
-If you haven't yet installed the React DevTools, you can find them here:
+React DevTools yükləməmisinizsə, aşağıdakı linklərə baxın:
 
-- [Chrome Browser Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Firefox Browser Extension](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Standalone Node Package](https://www.npmjs.com/package/react-devtools)
+- [Chrome Brauzer Artımı](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Firefox Brauzer Artımı](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
+- [Bağımsız Nod Paketi](https://www.npmjs.com/package/react-devtools)
 
-> Note
+> Qeyd
 >
-> A production profiling bundle of `react-dom` is also available as `react-dom/profiling`.
-> Read more about how to use this bundle at [fb.me/react-profiling](https://fb.me/react-profiling)
+> `react-dom`-un produksiyada profayl edilməsi `react-dom/profiling` paketində mövcuddur.
+> Bu paketin istifadəsi üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
-## Virtualize Long Lists {#virtualize-long-lists}
+## Böyük Siyahıların Virtuallaşdırılması {#virtualize-long-lists}
 
-If your application renders long lists of data (hundreds or thousands of rows), we recommended using a technique known as "windowing". This technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+Applikasiya böyük siyahılı məlumatlar (100-lərlə və ya 1000-lərlə sətrdən ibarət) render etdikdə "windowing" adlı texnikadan istifadə etməyi tövsiyyə edirik. Bu texnika ilə məlumatın yalnız kiçik hissəsi render olunaraq komponentlərin yenidən render edilməsi və yeni DOM nodların yaranması zamanını kəskin şəkildə azaldır.
 
-[react-window](https://react-window.now.sh/) and [react-virtualized](https://bvaughn.github.io/react-virtualized/) are popular windowing libraries. They provide several reusable components for displaying lists, grids, and tabular data. You can also create your own windowing component, like [Twitter did](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), if you want something more tailored to your application's specific use case.
+[react-window](https://react-window.now.sh/) və [react-virtualized](https://bvaughn.github.io/react-virtualized/) paketləri populyar windowing kitabxanalarıdır. Bu kitabxanalar siyahılar, qridlər, və cədvəllər göstərmək üçün bir neçə komponent təmin edirlər. Applikasiyanın xüsusi istifadəsinə uyğun olan windowing lazım olduqda [Twitter-in yolu ilə gedərək](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3) öz windowing komponentinizi yarada bilərsiniz.
 
-## Avoid Reconciliation {#avoid-reconciliation}
+## Rekonsilyasiyadan Çəkinmək {#avoid-reconciliation}
 
-React builds and maintains an internal representation of the rendered UI. It includes the React elements you return from your components. This representation lets React avoid creating DOM nodes and accessing existing ones beyond necessity, as that can be slower than operations on JavaScript objects. Sometimes it is referred to as a "virtual DOM", but it works the same way on React Native.
+React, render olunan UI-ın daxili təmsilini yaradır və saxlayır. Bu təmsilə komponentlərdən qaytarılan React elementləri daxildir. Bu təmsil, lazım olmadıqda DOM nodlarının yaranmasını və istifadəsini azaltmağa imkan yaradır. DOM nodlarındə edilən əməliyyatlar, sadə JavaScript obyektlərində edilən əməliyyatlardan çox yavaşdır. Bu daxili təmsilin "virtual DOM" adlanmasına baxmayaraq eyni təmsil React Native-də də işlənilir.
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
+Komponent propları və ya state-i dəyişdikdə yeni element ilə köhnə render olunmuş element müqayisə olunur. Elementlər eyni olmadıqda DOM yenilənir.
 
-Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
+Yalnız dəyişən DOM nodların yenilənməsinə baxmayaraq yenidən render etmə əməliyyatı zaman çəkə bilər. Bir çox ssenaridə bu problem deyil. Lakin, yavaşlama nəzərə çarpan olduqda `shouldComponentUpdate` lifecycle funksiyasını (bu funksiya yenidən render etmə prosesi başlamamışdan öncə çağrılır) tətbiq edərək sürəti çoxalda bilərsiniz. Bu funksiyanın standart tətbiqi `true` qaytarır. Bu zaman, yeniləmələr React tərəfindən icra olunur:
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -219,27 +219,27 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 
-If you know that in some situations your component doesn't need to update, you can return `false` from `shouldComponentUpdate` instead, to skip the whole rendering process, including calling `render()` on this component and below.
+Əgər bildiyiniz bəzi situasiyalarda komponent yenilənməməlidirsə, `shouldComponentUpdate` funksiyasından `false` qaytara bilərsiniz. `false` qaytarıldıqda yenilənən komponentin `render()` funksiyası daxil olmaqla render etmə prosesi buraxılacaq.
 
-In most cases, instead of writing `shouldComponentUpdate()` by hand, you can inherit from [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). It is equivalent to implementing `shouldComponentUpdate()` with a shallow comparison of current and previous props and state.
+Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) klasından gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-in dayaz müqayisə edilməsinə bərabərdir.
 
-## shouldComponentUpdate In Action {#shouldcomponentupdate-in-action}
+## shouldComponentUpdate Funksiyası Fəaliyyətdə {#shouldcomponentupdate-in-action}
 
-Here's a subtree of components. For each one, `SCU` indicates what `shouldComponentUpdate` returned, and `vDOMEq` indicates whether the rendered React elements were equivalent. Finally, the circle's color indicates whether the component had to be reconciled or not.
+Aşağıda komponentlər ağacı göstərilib. Hər komponentdə `SCU` dəyəri `shouldComponentUpdate` funksiyasından qaytarılan dəyəri, `vDOMEq` isə render olunan elementlərin bərabər olduğunu göstərir.  Yumrunun rəngi komponentin rekonsilyasiya olacağını göstərir.
 
 <figure><img src="../images/docs/should-component-update.png" style="max-width:100%" /></figure>
 
-Since `shouldComponentUpdate` returned `false` for the subtree rooted at C2, React did not attempt to render C2, and thus didn't even have to invoke `shouldComponentUpdate` on C4 and C5.
+C2-nin `shouldComponentUpdate` funksiyasının `false` qaytardığından C2 komponenti render edilmir. Bu səbəbdən, C4 və C5-in `shouldComponentUpdate` funksiyası çağrılmır.
 
-For C1 and C3, `shouldComponentUpdate` returned `true`, so React had to go down to the leaves and check them. For C6 `shouldComponentUpdate` returned `true`, and since the rendered elements weren't equivalent React had to update the DOM.
+C1 və C3-ün `shouldComponentUpdate` funksiyasının `true` qaytardığından komponentlərin bütün uşaqları yoxlanılır. C6-nın `shouldComponentUpdate` funksiyasının `true` qaytardığından və render olunan elementlərin eyni olmadığından DOM yenilənməli olur.
 
-The last interesting case is C8. React had to render this component, but since the React elements it returned were equal to the previously rendered ones, it didn't have to update the DOM.
+Ən sonuncu maraqlı komponent C8-dir. React bu komponenti render etməli olur. Lakin, qaytarılan React elementlərin əvvəlki render olunan elementlər ilə eyni olduğundan, DOM yenilənmir.
 
-Note that React only had to do DOM mutations for C6, which was inevitable. For C8, it bailed out by comparing the rendered React elements, and for C2's subtree and C7, it didn't even have to compare the elements as we bailed out on `shouldComponentUpdate`, and `render` was not called.
+Nəzərə alın ki, React yalnız C6 üçün DOM-u yeniləyir. C8-də elementlər müqayisə edildikdən sonra DOM yenilənmir. C2 və C7-də isə `shouldComponentUpdate` funksiyasının `false` qaytardığından elementlərin müqayisəsi əməliyyatı baş vermir. Nəticədə, `render` funksiyası çağrılmır.
 
-## Examples {#examples}
+## Nümunələr {#examples}
 
-If the only way your component ever changes is when the `props.color` or the `state.count` variable changes, you could have `shouldComponentUpdate` check that:
+Əgər komponent yalnız `props.color` və ya `state.count` dəyişənləri dəyişdikdə yenilənirsə, bunu `shouldComponentUpdate` ilə yoxlaya bilərsiniz:
 
 ```javascript
 class CounterButton extends React.Component {
@@ -263,14 +263,14 @@ class CounterButton extends React.Component {
       <button
         color={this.props.color}
         onClick={() => this.setState(state => ({count: state.count + 1}))}>
-        Count: {this.state.count}
+        Tıklama sayı: {this.state.count}
       </button>
     );
   }
 }
 ```
 
-In this code, `shouldComponentUpdate` is just checking if there is any change in `props.color` or `state.count`. If those values don't change, the component doesn't update. If your component got more complex, you could use a similar pattern of doing a "shallow comparison" between all the fields of `props` and `state` to determine if the component should update. This pattern is common enough that React provides a helper to use this logic - just inherit from `React.PureComponent`. So this code is a simpler way to achieve the same thing:
+Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərinin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə `props` və `state`-in bütün dəyərlərini eyni formada "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipinin çox işlədildiyindən bunun üçün React-də faydalı klas var: `React.PureComponent`. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -291,9 +291,9 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Most of the time, you can use `React.PureComponent` instead of writing your own `shouldComponentUpdate`. It only does a shallow comparison, so you can't use it if the props or state may have been mutated in a way that a shallow comparison would miss.
+Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Bu klas, proplar və state-i dayaz müqayisə edir. Bu səbəbdən, bu klası dayaz müqayisə ilə tam yoxlana bilməyən mürəkkəb dəyərləri yoxlamaq üçün istifadə etməyin.
 
-This can be a problem with more complex data structures. For example, let's say you want a `ListOfWords` component to render a comma-separated list of words, with a parent `WordAdder` component that lets you click a button to add a word to the list. This code does *not* work correctly:
+Daha mürəkkəb məlumat strukturlarının dayaz müqayisəsi problem yarada bilər. Məsələn, vergül ilə ayrılmış sözləri render etmək üçün `ListOfWords` komponentinin və siyahıya söz əlavə etmək üçün `WordAdder` komponentinin olduğunu fikirləşin. Aşağıdakı kod düzgün *işləməyəcək*:
 
 ```javascript
 class ListOfWords extends React.PureComponent {
@@ -312,7 +312,7 @@ class WordAdder extends React.Component {
   }
 
   handleClick() {
-    // This section is bad style and causes a bug
+    // Bu bölmə səhvdir və baqlara səbəb olacaq
     const words = this.state.words;
     words.push('marklar');
     this.setState({words: words});
@@ -329,11 +329,11 @@ class WordAdder extends React.Component {
 }
 ```
 
-The problem is that `PureComponent` will do a simple comparison between the old and new values of `this.props.words`. Since this code mutates the `words` array in the `handleClick` method of `WordAdder`, the old and new values of `this.props.words` will compare as equal, even though the actual words in the array have changed. The `ListOfWords` will thus not update even though it has new words that should be rendered.
+`PureComponent` klası `this.props.words` propunu sadə müqayisə edəcək. `WordAdder` komponentinin `handleClick` funksiyası `words` massivini mutasiya etdiyindən massivdəki sözlərin fərqli olmasına baxmayaraq `this.props.words` propu eyni qalacaq. Bu səbəbdən, yeni sözlərin render edilməli olmasına baxmayaraq `ListOfWords`  komponenti yenilənməyəcək.
 
-## The Power Of Not Mutating Data {#the-power-of-not-mutating-data}
+## Məlumatları Mutasiya Etməməyin Gücü {#the-power-of-not-mutating-data}
 
-The simplest way to avoid this problem is to avoid mutating values that you are using as props or state. For example, the `handleClick` method above could be rewritten using `concat` as:
+Bu problemi həll etməyin ən asan yolu props və state-in dəyərlərini mutasiya etməməkdir. Məsələn, `handleClick` metodu `concat` funksiyası ilə yazıla bilər:
 
 ```javascript
 handleClick() {
@@ -343,7 +343,7 @@ handleClick() {
 }
 ```
 
-ES6 supports a [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) for arrays which can make this easier. If you're using Create React App, this syntax is available by default.
+ES6-ın massivlər üçün [yayma sintaksisi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) ilə də massivə elementi əlavə etmək mümkündür. Create React App işlədirsinizsə bu sintaksis işləyəcək.
 
 ```js
 handleClick() {
@@ -353,32 +353,32 @@ handleClick() {
 };
 ```
 
-You can also rewrite code that mutates objects to avoid mutation, in a similar way. For example, let's say we have an object named `colormap` and we want to write a function that changes `colormap.right` to be `'blue'`. We could write:
+Siz, həmçinin obyektlərin mutasiya olunmaması üçün kodu dəyişə bilərsiniz. Məsələn, `colormap` obyektinin olduğunu və bu obyektin `colormap.right` dəyərini `'mavi'`-yə dəyişmək istədiyimizi fərz edək:
 
 ```js
 function updateColorMap(colormap) {
-  colormap.right = 'blue';
+  colormap.right = 'mavi';
 }
 ```
 
-To write this without mutating the original object, we can use [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) method:
+Orijinal obyekti mutasiya etməmək üçün [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) funksiyasından istifadə edə bilərsiniz:
 
 ```js
 function updateColorMap(colormap) {
-  return Object.assign({}, colormap, {right: 'blue'});
+  return Object.assign({}, colormap, {right: 'mavi'});
 }
 ```
 
-`updateColorMap` now returns a new object, rather than mutating the old one. `Object.assign` is in ES6 and requires a polyfill.
+İndi, `updateColorMap` funksiyası köhnə obyekti mutasiya etmək əvəzinə yeni obyekt qaytarır. `Object.assign` ES6-da işləyir və polifil tələb edir.
 
-There is a JavaScript proposal to add [object spread properties](https://github.com/sebmarkbage/ecmascript-rest-spread) to make it easier to update objects without mutation as well:
+ES6-ın obyektlər üçün [yayma sintaksisi](https://github.com/sebmarkbage/ecmascript-rest-spread) ilə də obyektləri mutasiyasız yeniləmək mümkündür:
 
 ```js
 function updateColorMap(colormap) {
-  return {...colormap, right: 'blue'};
+  return {...colormap, right: 'mavi'};
 }
 ```
 
-If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
 
-When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
+Dərin obyektlərin mutasiyasız yenilənməsi çətin ola bilər. Bu problem ilə qarşılaşdıqda [Immer](https://github.com/mweststrate/immer) və ya [immutability-helper](https://github.com/kolodny/immutability-helper) kitabxanalarına baxın. Bu kitabxanalar mutasiyasızlığın faydalarını itirmədən rahat oxuna bilən kodun yazılmasına imkan yaradır.
