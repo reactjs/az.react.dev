@@ -18,13 +18,13 @@ Qurulma prosesinin düzgün işlədiyindən əmin olmadıqda [Chrome üçün Rea
 
 <img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React-in produksiya versiyasını işlədən səhifədə React DevTools ikonu">
 
-Development modunda olan React səhifəsini ziyarət etdikdə alətin ikonu qırmızı fonda olacaq:
+Development modunda olan React səhifəsini ziyarət etdikdə isə alətin ikonu qırmızı fonda olacaq:
 
 <img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React-in development versiyasını işlədən səhifədə React DevTools ikonu">
 
-Applikasiyanın yazdıqda development modundan istifadə edin. Applikasiyanı istifadəçilər üçün yerləşdikdə isə produksiya modundan istifadə edin.
+Applikasiyanı yazdıqda development modundan istifadə edin. Applikasiyanı istifadəçilər üçün yerləşdirdikdə isə produksiya modundan istifadə edin.
 
-Applikasiyanın produksiya üçün qurulmasına aşağıdakı təlimatlara baxın.
+Applikasiyanın produksiya üçün qurulması üçün aşağıdakı təlimatlara baxın.
 
 ### Create React App {#create-react-app}
 
@@ -34,9 +34,9 @@ Layihə [Create React App](https://github.com/facebookincubator/create-react-app
 npm run build
 ```
 
-Bu, layihənin `build/` direktoriyasında applikasiyanın produksiya versiyasını yaradacaq.
+Bu, applikasiyanın produksiya versiyasını layihənin `build/` direktoriyasında yaradacaq.
 
-Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development üçün, `npm start` əmrindən istifadə edin.
+Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development üçün `npm start` əmrindən istifadə edin.
 
 ### Tək Fayl Qurulmaları {#single-file-builds}
 
@@ -47,7 +47,7 @@ Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə t
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Yalnız `.production.min.js` ilə bitən faylların produksiya üçün uyğun olduğunu unutmayın.
+Produksiya üçün yalnız `.production.min.js` ilə bitən faylların uyğun olduğunu unutmayın.
 
 ### Brunch {#brunch}
 
@@ -100,7 +100,7 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Bu plaginləri deve
 
 ### Rollup {#rollup}
 
-Ən səmərəli Rollup qurulması üçün bir neçə plagin yükləyin:
+Ən səmərəli Rollup qurulması üçün bəzi plaginləri yükləmək lazımdır:
 
 ```bash
 # npm işlədirsinizsə
@@ -128,7 +128,7 @@ plugins: [
 ]
 ```
 
-Tam qurulma üçün [bu gist-ə baxın](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+Tam qurulma konfiqurasiyası üçün [bu gist-ə baxın](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
 Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Development zamanı `terser` və ya `replace` plaginini `'production'` dəyəri ilə tətbiq etməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
@@ -137,7 +137,7 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Development zamanı
 >**Qeyd:**
 >
 >Create React App işlədirsinizsə, [yuxarıdakı təlimatlara baxın](#create-react-app).<br>
->Bu bölmə, webpack-i birbaşa konfiqurasiyası üçün uyğundur.
+>Bu bölmə, webpack-in birbaşa konfiqurasiyası üçün uyğundur.
 
 Webpack v4+ versiyasının produksiya modu yazılmış kodu avtomatik minimallaşdıracaq.
 
@@ -184,8 +184,8 @@ Nəzərə alin ki, **bu alətdə göstərilən rəqəmlər nisbidir. Produksiya 
 
 ## DevTools Profayleri ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-devtools-profiler}
 
-`react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modda daha inkişaf etmiş qabiliyyətləri var.
-Profaylerin icmalına ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
+`react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modunda daha inkişaf etmiş qabiliyyətləri var.
+Profaylerin icmalına ["React Profayler ilə Tanışlıq"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
 Profaylerin video izahatına [Youtube-dan](https://www.youtube.com/watch?v=nySib7ipZdk) baxa bilərsiniz.
 
 React DevTools yükləməmisinizsə, aşağıdakı linklərə baxın:
@@ -239,7 +239,7 @@ Nəzərə alın ki, React yalnız C6 üçün DOM-u yeniləyir. C8-də elementlə
 
 ## Nümunələr {#examples}
 
-Əgər komponent yalnız `props.color` və ya `state.count` dəyişənləri dəyişdikdə yenilənirsə, `shouldComponentUpdate` ilə bunu yoxlaya bilərsiniz:
+Əgər komponent yalnız `props.color` və ya `state.count` dəyişənləri dəyişdikdə yenilənirsə, bunu `shouldComponentUpdate` ilə yoxlaya bilərsiniz:
 
 ```javascript
 class CounterButton extends React.Component {
@@ -270,7 +270,7 @@ class CounterButton extends React.Component {
 }
 ```
 
-Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərinin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə `props` və `state`-in bütün dəyərlərini eyni formada "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipin çox işlədildiyindən bunun üçün React-də üçün faydalı klas var: `React.PureComponent`. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
+Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərinin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə `props` və `state`-in bütün dəyərlərini eyni formada "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipinin çox işlədildiyindən bunun üçün React-də faydalı klas var: `React.PureComponent`. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -291,9 +291,9 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Burada yalnız dayaz müqayisə edildiyindən bu klas ilə proplar və ya state-in dayaz müqayisə zamanı yoxlaya bilmədiyi dəyərlər üçün istifadə etməyin.
+Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Bu klas, proplar və state-i dayaz müqayisə edir. Bu səbəbdən, bu klası dayaz müqayisə ilə tam yoxlana bilməyən mürəkkəb dəyərləri yoxlamaq üçün istifadə etməyin.
 
-Daha mürəkkəb məlumat strukturlarında dayaz müqayisə problem yarada bilər. Məsələn, vergül ilə ayrılmış sözləri render etmək üçün `ListOfWords` komponentinin və siyahıya söz əlavə etmək üçün `WordAdder` komponentinin olduğunu fikirləşin. Aşağıdakı kod düzgün *işləməyəcək*:
+Daha mürəkkəb məlumat strukturlarının dayaz müqayisəsi problem yarada bilər. Məsələn, vergül ilə ayrılmış sözləri render etmək üçün `ListOfWords` komponentinin və siyahıya söz əlavə etmək üçün `WordAdder` komponentinin olduğunu fikirləşin. Aşağıdakı kod düzgün *işləməyəcək*:
 
 ```javascript
 class ListOfWords extends React.PureComponent {
