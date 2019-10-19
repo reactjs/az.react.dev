@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### Komponentə hadisə işləyicisini (onClick kimi) necə göndərə bilərəm? {#how-do-i-pass-an-event-handler-like-onclick-to-a-component}
+### Komponentə onClick kimi hadisə işləyicisini necə göndərə bilərəm? {#how-do-i-pass-an-event-handler-like-onclick-to-a-component}
 
 Hadisə işləyicilərini və digər funksiyaları uşaq komponentlərə proplar kimi göndərin:
 
@@ -83,13 +83,13 @@ class Foo extends Component {
 
 >**Qeyd:**
 >
->Render-dən ox funksiyası işlədildikdə komponent hər render edilməsi zamanı yeni funksiya yaranacaq. Bu, identiklik müqayisələrin optimizasiyalarını sındıra bilər.
+>Render-dən ox funksiyası işlədildikdə komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bu, identiklik müqayisələrinin optimallaşdırılmasını sındıra bilər.
 
 ### Render funksiyalarında ox funksiyalarını işlətmək olar? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
-Normalda, olar. Bu, parametrlərini callback funksiyalarına göndərməyin ən asan yoludur..
+Normalda, olar. Bu, callback funksiyalarına arqumentlər göndərməyin ən asan yoludur.
 
-Performans problemləri olandaa, optimizasiya edin!
+Performans problemləri olduqda optimizasiya edin!
 
 ### Binding Niyə Vacibdir? {#why-is-binding-necessary-at-all}
 
@@ -108,11 +108,11 @@ method();
 
 React-də, adətən digər komponentlərə *göndərilən* funksiyaları bind etmək lazımdır. Məsələn, `<button onClick={this.handleClick}>` kodu `this.handleClick` funksiyasını göndərdiyindən bu funksiyanı bind edin. Lakin, `render` və ya lifecycle funksiyalarını bind etmək lazım deyil. Biz bu funksiyaları digər komponentlərə göndərmirik.
 
-[Yehuda Katz-ın bu məqaləsi](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) binding-in nə olduğunu və JavaScript-də funksiyaların necə işlədiyini izah edir.
+[Yehuda Katzın bu məqaləsində](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) binding-in nə olduğu və JavaScript-də funksiyaların necə işlədiyini haqqında izahatlar var.
 
-### Niye funksiya komponentin hər render etmə zamanı çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
+### Niyə funksiya, komponent render edildiyi zamanı çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
 
-Funksiyanı komponentə göndərdikdə _bu funksiyanı çağırmadığınızdan_ əmin olun:
+Funksiyanı komponentə göndərdikdə _bu funksiyanı çağırmayın_:
 
 ```jsx
 render() {
@@ -130,21 +130,21 @@ render() {
 }
 ```
 
-### Hadisə işləyicisinə və callback-ə necə parametr göndərə bilərəm? {#how-do-i-pass-a-parameter-to-an-event-handler-or-callback}
+### Callback və Hadisə işləyicilərinə arqumentləri necə göndərə bilərəm? {#how-do-i-pass-a-parameter-to-an-event-handler-or-callback}
 
-Ox funksiyası ilə hadisə işləyicisini əhatə edərək parametrləri göndərə bilərsiniz:
+Ox funksiyası ilə hadisə işləyicisini əhatə edərək arqumentləri göndərmək mümkündür:
 
 ```jsx
 <button onClick={() => this.handleClick(id)} />
 ```
 
-Bu `.bind` funksiyasını çağırmaq ilə eynidir:
+Bu, `.bind` funksiyasının çağrılmasına bərabərdir:
 
 ```jsx
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Nümunə: Parametrlərin ox funksiyalarına göndərilməsi {#example-passing-params-using-arrow-functions}
+#### Nümunə: Arqumentlərin ox funksiyalarına göndərilməsi {#example-passing-params-using-arrow-functions}
 
 ```jsx
 const A = 65 // ASCII hərf kodu
@@ -178,12 +178,12 @@ class Alphabet extends React.Component {
 }
 ```
 
-#### Nümunə: Parametrlərin data-atributlarına göndərilməsi {#example-passing-params-using-data-attributes}
+#### Nümunə: Arqumentlərin data-atributlarına göndərilməsi {#example-passing-params-using-data-attributes}
 
-Alternativ olaraq, DOM API-ndan istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementi optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmadan istifadə edin.
+Alternativ olaraq, DOM API-ından istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementləri optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmadan istifadə edin.
 
 ```jsx
-const A = 65 // ASCII character code
+const A = 65 // ASCII hərf kodu
 
 class Alphabet extends React.Component {
   constructor(props) {
@@ -218,13 +218,13 @@ class Alphabet extends React.Component {
 }
 ```
 
-### Funksiyanın tez-tez çağrılmasının və ya eyni zamanda bir neçə dəfə çağrılmasının qarşısını necə ala bilərəm? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
+### Funksiyanın tez-tez və ya eyni zamanda bir neçə dəfə çağrılmasının qarşısını necə ala bilərəm? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
 
-Əgər `onClick` və ya `onScroll` kimi hadisə işləyicilərindən istifadə edirsinizsə və və bu callback-lərin tez çağrılmasının qarşısını almaq istəyirsinizsə, callback-in çağrılmasının sürətini məhdudlaşdıra bilərsiniz. Buna aşağıdakı yollar ilə nail olmaq mümkündür:
+Əgər `onClick` və ya `onScroll` kimi hadisə işləyicilərindən istifadə edir və bu callback-lərin tez çağrılmasının qarşısını almaq istəyirsinizsə, callback-in çağrılmasının sürətini aşağıdakl yollar ilə məhdudlaşdıra bilərsiniz:
 
-- **boğmaq (throttle)**: dəyişiklikləri vaxt tezliyinə görə seçin (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
-- **debounce edin**: hərəkətsizlik olduqdan sonra dəyişiklikləri dərc edin (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` boğması**: dəyişiklikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçin (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
+- **boğmaq (throttle)**: yeniliklərin vaxt tezliyinə görə seçin (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
+- **debounce edin**: hərəkətsizlik olduqdan sonra yenilikləri dərc edin (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
+- **`requestAnimationFrame` ilə boğmaq**: yenilikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçin (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
 `throttle` və `debounce` funksiyaslarının müqayisəsi üçün [bu görüntüyə baxın](http://demo.nimius.net/debounce_throttle/).
 
@@ -234,7 +234,7 @@ class Alphabet extends React.Component {
 
 #### Boğma {#throttle}
 
-Boğma, verilan vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısını alır.
+Boğma, verilən vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısı alınır.
 
 ```jsx
 import throttle from 'lodash.throttle';
@@ -251,7 +251,7 @@ class LoadMoreButton extends React.Component {
   }
 
   render() {
-    return <button onClick={this.handleClickThrottled}>Load More</button>;
+    return <button onClick={this.handleClickThrottled}>Əlavə yüklə</button>;
   }
 
   handleClick() {
@@ -262,7 +262,7 @@ class LoadMoreButton extends React.Component {
 
 #### Debounce {#debounce}
 
-Debounce etmək funksiyanın son çağırışından bir qədər vaxt keçmədən çağrılmasının qabağını alır. Bu metod, tez-tez göndərilən hadisənin (məsələn, skrol və ya klaviatur hadisələri) cavabı nəticəsində bahalı hesablama apardıqda faydalıdır. Aşağıdakı nümunədə anket sakəsi 250ms gecikmə ilə yazılır.
+Debounce ilə funksiyanın son çağırışından bir qədər vaxt keçmədən çağrılmasının qarşısı alınır. Bu metod, tez-tez göndərilən hadisənin (məsələn, skrol və ya klaviatur hadisələri) cavabı nəticəsində bahalı hesablama apardıqda faydalıdır. Aşağıdakı nümunədə anket sakəsi 250ms gecikmə ilə yazılır.
 
 ```jsx
 import debounce from 'lodash.debounce';
@@ -283,7 +283,7 @@ class Searchbox extends React.Component {
       <input
         type="text"
         onChange={this.handleChange}
-        placeholder="Search..."
+        placeholder="Axtar..."
         defaultValue={this.props.value}
       />
     );
@@ -291,8 +291,8 @@ class Searchbox extends React.Component {
 
   handleChange(e) {
     // React hadisələri pool etdiyindən biz dəyəri debounce-dan əvvəl oxuyuruq.
-    // Alternativ olaraq, `event.persist()` funksiyasını çağıraraq bütün hadisəni göndərə bilərik.
-    // Əlavə məlumat üçün reactjs.org/docs/events.html#event-pooling səhifəsinə baxın.
+    // Alternativ olaraq, `event.persist()` funksiyasını çağıraraq bütün hadisəni göndərmək mümkündür.
+    // Əlavə məlumat üçün az.reactjs.org/docs/events.html#event-pooling səhifəsinə baxın.
     this.emitChangeDebounced(e.target.value);
   }
 
@@ -302,13 +302,13 @@ class Searchbox extends React.Component {
 }
 ```
 
-#### `requestAnimationFrame` boğması {#requestanimationframe-throttling}
+#### `requestAnimationFrame` ilə boğmaq {#requestanimationframe-throttling}
 
-[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) ilə funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün optimal olan zamanda çağrılır. `requestAnimationFrame` növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Brauzer 60 fps təmin edə bilmədikdə natural olaraq saniyəyə düşən kadrların sayını *məhdudlaşdıracaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını boğma üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
+[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) funksiyası, göndərilən funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün bu funksiyanı optimal zamanda çağırır. `requestAnimationFrame` ilə növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Lakin, 60 fps təmin edilə bilmədikdə natural olaraq bir saniyəyə düşən kadrların sayı *məhdudlaşdırılacaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını boğma üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
 
 >**Qeyd:**
 >
->Bu texnika ilə ən kadrda dərc olunan ən sonuncu dəyər işlədiləcək. Bu optimizasiyanın işləməsini görmək üçün [`MDN-də`](https://developer.mozilla.org/en-US/docs/Web/Events/scroll) olan nümunəyə baxın.
+>Bu texnika ilə bir kadrda dərc olunan ən sonuncu dəyər işlədiləcək. Bu optimizasiyanın işləməsini görmək üçün [`MDN-də`](https://developer.mozilla.org/en-US/docs/Web/Events/scroll) olan nümunəyə baxın.
 
 ```jsx
 import rafSchedule from 'raf-schd';
@@ -326,8 +326,8 @@ class ScrollListener extends React.Component {
   }
 
   handleScroll(e) {
-    // Skrol hadisəsi gəldikdə yenilik planlaşdırın.
-    // Bir kadrda çoxlu yenilik gəldikdə yalnız sonuncu dəyər dərc olunacaq..
+    // Skrol hadisəsi gəldikdə yeniliyi planlaşdırın.
+    // Bir kadr zamanı çoxlu yenilik baş verdikdə yalnız sonuncu dəyər dərc olunacaq.
     this.scheduleUpdate({ x: e.clientX, y: e.clientY });
   }
 
@@ -349,6 +349,6 @@ class ScrollListener extends React.Component {
 }
 ```
 
-#### Sürətin məhdudlaşmasını test edin {#testing-your-rate-limiting}
+#### Sürətin məhdudlaşdırılmasını test edin {#testing-your-rate-limiting}
 
 Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` boğmasından istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı tapa bilərsiniz.
