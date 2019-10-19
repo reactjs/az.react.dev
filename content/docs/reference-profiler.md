@@ -6,20 +6,20 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
-React applikasiyasının hansı tezlikdə render edilməsi və render edilmənin "qiymətini" ölçmək üçün `Profiler`-dən istifadə edilir.
-Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimizasiyalardan faydalana bilən](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations) hissələrin tapmaq üçün işlədilir.
+React applikasiyasının hansı tezlikdə render edilməsini və render edilmənin "qiymətini" ölçmək üçün `Profiler`-dən istifadə edilir.
+Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimallaşdırmalardan faydalana bilən](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations) hissələrini tapmaq üçün işlədilir.
 
 > Qeyd:
 >
-> Profayl etmə applikasiyaya ağırlığı verə bilər. Lakin, bu xüsusiyyətlər **[produksiya qurulmasında](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) söndürülür**.
+> Profayl etmə əməliyyatı applikasiyaya ağırlığı verə bilər. Lakin, bu xüsusiyyətlər **[produksiya qurulmasında](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) söndürülür**.
 >
 > Produksiyada profayl edə bilmək üçün React-də profayl etməyə imkan yaradan produksiya qurulması var.
 > Bu qurulma haqqında əlavə məlumat üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
-## Usage
+## İstifadəsi
 
-Profayleri, React ağacının istənilən yerini profayl edə bilmək üçün istənilən yerə əlavə etmək mümkündür.
-Bu komponent iki prop qəbul edir: `id` (mətn) və `onRender` callback-i (funksiya). `onRender` callback-i ağacda olan istənilən komponent yeniliyi "commit" etdiyi zaman çağrılır.
+React ağacının istənilən yerini profayl edə bilmək üçün istənilən yerə Profayler əlavə etmək mümkündür.
+Bu komponent iki prop qəbul edir: `id` (mətn) və `onRender` callback-i (funksiya). `onRender` callback-i ağacda olan həs hansı bir komponent, yeniliyi "commit" etdiyi zaman çağrılır.
 
 Məsələn, `Navigation` komponentini və uşaqlarını profayl etmək üçün:
 
@@ -49,7 +49,7 @@ render(
 );
 ```
 
-Eyni ağacda bir neçə `Profiler` komponenti əlavə etmək mümkündür:
+Eyni ağaca bir neçə `Profiler` komponenti əlavə etmək mümkündür:
 
 ```js{2,6,8}
 render(
@@ -75,7 +75,7 @@ render(
 ## `onRender` Callback-i
 
 `Profiler` komponenti `onRender` funksiyası propunu tələb edir.
-Profayl olunan ağacda hər hansı bir komponent yeniliyi "commit" etdikdə bu funksiya çağrılır.
+Profayl olunan ağacda hər hansı bir komponent, yeniliyi "commit" etdikdə bu funksiya çağrılır.
 Bu funksiyanın render edilən elementi və render zamanını təsvir edən parametrləri var.
 
 ```js
@@ -96,19 +96,19 @@ Gəlin hər arqumentə ayrılıqda baxaq:
 
 * **`id: string`** - 
 Commit olunan Profayler ağacının "id" propu.
-Bir neçə profayler işlətdikdə ağacın hansı hissəsinin commit olduğunu müəyyənləşdirmək üçün işlədilir.
+Bir neçə profayler işlədildikdə ağacın hansı hissəsinin commit olunduğunu müəyyənləşdirmək üçün işlədilir.
 
 * **`phase: "mount" | "update"`** -
-Ağacın ilk dəfə mount olmasını, və ya proplar, state, və ya hooklar əsasında yenidən render edildiyini müəyyənləşdirir.
+Ağacın ilk dəfə mount olunmasını, və ya proplar, state, və ya hooklar əsasında yenidən render edildiyini müəyyənləşdirir.
 
 * **`actualDuration: number`** -
-Cari yenilik üçün `Profiler`-i və uşaqlarını render etmək üüçün sərf olunan zaman.
+Cari yenilik üçün `Profiler`-i və uşaqlarını render etmək üçün sərf olunan zaman.
 Bu dəyər ağacın memoizasiyadan necə istifadə etdiyini göstərir (məsələn, [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)).
-İdeal olaraq, uşaqların spesifik prop dəyişikləri əsasında yeniləndini nəzərə alsaq bu dəyər ilkin mount-dan sonra kəskin azalmalıdır.
+İdeal olaraq, uşaqların spesifik prop dəyişikləri əsasında yeniləndiyini nəzərə alsaq bu dəyər ilkin mount-dan sonra kəskin azalmalıdır.
 
 * **`baseDuration: number`** -
 `Profiler` ağacında olan bütün komponentlərin render olunduğu ən sonuncu renderə sərf olunan zaman.
-Bu dəyər renderin ən bis qiymətini hesablayır (məsələn, ilkin mount zamanı və ya memoizasiyasız ağac).
+Bu dəyər renderin ən pis qiymətini hesablayır (məsələn, ilkin mount zamanı və ya memoizasiyasız ağac).
 
 * **`startTime: number`** -
 Cari yeniliyi render etmənin başlama vaxtı.
