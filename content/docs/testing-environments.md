@@ -45,7 +45,7 @@ Bəzi komponentlər test mühitində yaxşı işləməyən modullardan istifadə
 
 Node.js-də Jest kimi icra edicilərdə [modulların mok edilməsi dəstəklənir](https://jestjs.io/docs/en/manual-mocks). Siz, həmçinin [`mock-require`](https://www.npmjs.com/package/mock-require) kimi kitabxanalardan istifadə edə bilərsiniz.
 
-### Mocking timers {#mocking-timers}
+### Taymerlərin mok edilməsi {#mocking-timers}
 
 Komponentlər `setTimeout`, `setInterval` və ya `Date.now` kimi funksiyalardan istifadə edə bilərlər. Test mühitlərində bu funksiyaları, zamanı əl ilə "qabağa çəkə bilən" əvəzetmələri ilə mok etmək faydalı ola bilər. Bu, testlərin tez işləməsinə imkan yaradır! Taymerlərdən asılı olan testlər yeni sıra ilə daha tez həll olunacaq [<small>(nümunə)</small>](/docs/testing-recipes.html#timers). [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) və [lolex](https://github.com/sinonjs/lolex) kimi freymvorklar taymerləri mok etməyə imkan yaradır.
 
