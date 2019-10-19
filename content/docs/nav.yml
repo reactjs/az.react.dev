@@ -150,7 +150,7 @@
     - id: faq-build
       title: Babel, JSX, və Qurulma Addımları
     - id: faq-functions
-      title: Komponentlərə Funskiyaların Göndərilməsi
+      title: Funksiyaların Komponentlərə Göndərilməsi
     - id: faq-state
       title: Komponent State-i
     - id: faq-styling
