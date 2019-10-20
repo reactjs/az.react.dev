@@ -132,7 +132,7 @@
     - id: testing-recipes
       title: Test Etmə Reseptləri
     - id: testing-environments
-      title: Test Etmə Mühiti
+      title: Test Etmə Mühitləri
 - title: İştirak Etmək
   items:
   - id: how-to-contribute
