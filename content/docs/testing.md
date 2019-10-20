@@ -7,29 +7,29 @@ redirect_from:
 next: testing-recipes.html
 ---
 
-Digər JavaScript kodları test etdiyiniz kimi React komponentlərini test edə bilərsiniz.
+React komponentlərini digər JavaScript kodlarının test edildiyi kimi test etmək mümkündür.
 
 React komponentlərini test etməyin bir neçə üsulu var. Geniş formada bu üsullar iki kateqoriyaya ayrılırlar:
 
 * Sadə test mühitində **komponent ağaclarını test edərək** nəticənin təsdiq edilməsi.
 * **Bütün applikasiyanın** real brauzer mühitində icra edilməsi (başqa adla “end-to-end” testləri).
 
-Bu sənədlərdə ilk üsul üçün test strateqiyalarından danışacağıq. End-to-end testlərin möhüm iş axınlarında olan reqressiyalar üçün faydalı olmasına baxmayaraq bu testlər React testləri ilə maraqlanmırlar. Bu səbəbdən, end-to-end testlər bu bölmənin əhatə dairəsindən kənardadır.
+Bu sənədlərdə ilk üsul üçün test strateqiyalarından danışacağıq. End-to-end testlərin möhüm iş axınlarında olan reqressiyalar üçün faydalı olmasına baxmayaraq bu testlər React komponentləri ilə maraqlanmırlar. Bu səbəbdən, end-to-end testlər bu bölmənin əhatə dairəsindən kənardadır.
 
 ### Kompromislər {#tradeoffs}
 
-Test etmə alətlərini seçdikdə biz neçə kompromisdən fikirləşin:
+Test etmə alətlərini seçdikdə biz neçə kompromislərlə üzləşə bilərsiniz:
 
-* **İterasiya sürəti və ya real mühit:** Bəzi alətlər dəyişikliyin edilməsi və nəticənin görünməsini tezləşdirir, amma brauzer davranışlarını düzgün modelləşdirmir. Digər alətlər isə real brauzer mühitindən istifadə edir, amma iterasiya sürətini azaldır və davamlı inteqrasiya serverlərində problem yaradırlar.
+* **İterasiya sürəti və ya real mühit:** Bəzi alətlər dəyişik edilməsini və nəticənin görünməsini tezləşdirir, amma brauzer davranışlarının düzgün modelini yaratmır. Digər alətlər isə real brauzer mühitindən istifadə edir, amma iterasiya sürətini azaldır və davamlı inteqrasiya serverlərində problem yaradırlar.
 * **Mokların həcmi:** Komponentlər ilə işlədikdə "vahid" (unit) və "inteqrasiya" testlərini tam ayırmaq çətinləşir. Əgər anket ilə işləyirsinizsə, anketin testi düymələri də yoxlamalıdır? Yoxsa düymə komponentinin öz test dəsti olmalıdır? Düyməni refaktorinq etdikdə anket testi sınmalıdır?
 
 Fərqli komandalar və produktlar bu suallara fərqli cavablandırırlar.
 
 ### Tövsiyə Olunan Alətlər {#tools}
 
-**[Jest](https://facebook.github.io/jest/)** JavaScript test icra edicisi [`jsdom`-dan](/docs/testing-environments.html#mocking-a-rendering-surface) istifadə edərək DOM-un istifadəsinə imkan yaradır. jsdom-un brauzerin təxmini simulyasiyası olmasına baxmayaraq React komponentlərini test etmək üçün bəs edir. Jest, sürətli iterasiya sürəti təmin edir. Əlavə olaraq, bu alətin [modulları](/docs/testing-environments.html#mocking-modules) və [taymerləri](/docs/testing-environments.html#mocking-timers) mok etmək kimi xüsusiyyətləri ilə kodun icrasını daha çox idarə etmək mümkündür.
+**[Jest](https://facebook.github.io/jest/)** JavaScript test icra edicisi [`jsdom`-dan](/docs/testing-environments.html#mocking-a-rendering-surface) istifadə edərək DOM-un istifadəsinə imkan yaradır. jsdom real brauzerin təxmini simulyasiyasıdır. Buna baxmayaraq bu simulyasiya React komponentlərini test etmək üçün kifayətdir. Jest, iterasiya sürətinin yüksək olmasına imkan yaradır. Əlavə olaraq, bu alətin [modulları](/docs/testing-environments.html#mocking-modules) və [taymerləri](/docs/testing-environments.html#mocking-timers) mok etmək kimi xüsusiyyətləri ilə kodun icrasını daha çox idarə etmək mümkündür.
 
-**[React Testing Library](https://testing-library.com/react)**, React komponentlərini tətbiq detallarından asılı olmadan test etmək üçün köməkçi funksiyalar təmin edir. Bu yanaşma ilə refaktorinq çox asanlaşır və imkanlılıq üçün ən yaxşı praktikaların istifadə edilməsi məcbur olunur. Bu alətin, uşaqları render etmədən komponentlərin "dayaz" render edilməsi üçün heç bir yol təmin etmədiyinə baxmayaraq Jest kimi render icra edicisi ilə uşaq komponentləri [mok edərək](/docs/testing-recipes.html#mocking-modules) eyni nəticəyə çatmaq mümkündür.
+**[React Testing Library](https://testing-library.com/react)**, React komponentlərini tətbiq detallarından asılı olmadan test etmək üçün köməkçi funksiyalar təmin edir. Bu yanaşma ilə refaktorinq çox asanlaşır və imkanlılıq üçün ən yaxşı praktikaların istifadə edilməsi məcbur olunur. Bu alətin, uşaqları render etmədən komponentlərin "dayaz" render edilməsi üçün heç bir yol təmin etmədiyinə baxmayaraq Jest kimi test icra edicisi ilə uşaq komponentləri [mok edərək](/docs/testing-recipes.html#mocking-modules) eyni nəticəyə çatmaq mümkündür.
 
 ### Daha Ətraflı {#learn-more}
 
