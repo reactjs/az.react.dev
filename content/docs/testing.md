@@ -1,40 +1,39 @@
 ---
 id: testing
-title: Testing Overview
+title: Test Etmənin İcmalı
 permalink: docs/testing.html
 redirect_from:
   - "community/testing.html"
 next: testing-recipes.html
 ---
 
-You can test React components similar to testing other JavaScript code.
+React komponentlərini digər JavaScript kodlarının test edildiyi kimi test etmək mümkündür.
 
-There are a few ways to test React components. Broadly, they divide into two categories:
+React komponentlərini test etməyin bir neçə üsulu var. Geniş formada bu üsullar iki kateqoriyaya ayrılırlar:
 
-* **Rendering component trees** in a simplified test environment and asserting on their output.
-* **Running a complete app** in a realistic browser environment (also known as “end-to-end” tests).
+* Sadə test mühitində **komponent ağaclarını test edərək** nəticənin təsdiq edilməsi.
+* **Bütün applikasiyanın** real brauzer mühitində icra edilməsi (başqa adla “end-to-end” testləri).
 
-This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of scope of this section.
+Bu sənədlərdə ilk üsul üçün test strateqiyalarından danışacağıq. End-to-end testlərin möhüm iş axınlarında olan reqressiyalar üçün faydalı olmasına baxmayaraq bu testlər React komponentləri ilə maraqlanmırlar. Bu səbəbdən, end-to-end testlər bu bölmənin əhatə dairəsindən kənardadır.
 
-### Tradeoffs {#tradeoffs}
+### Kompromislər {#tradeoffs}
 
+Test etmə alətlərini seçdikdə biz neçə kompromislərlə üzləşə bilərsiniz:
 
-When choosing testing tools, it is worth considering a few tradeoffs:
+* **İterasiya sürəti və ya real mühit:** Bəzi alətlər dəyişik edilməsini və nəticənin görünməsini tezləşdirir, amma brauzer davranışlarının düzgün modelini yaratmır. Digər alətlər isə real brauzer mühitindən istifadə edir, amma iterasiya sürətini azaldır və davamlı inteqrasiya serverlərində problem yaradırlar.
+* **Mokların həcmi:** Komponentlər ilə işlədikdə "vahid" (unit) və "inteqrasiya" testlərini tam ayırmaq çətinləşir. Əgər anket ilə işləyirsinizsə, anketin testi düymələri də yoxlamalıdır? Yoxsa düymə komponentinin öz test dəsti olmalıdır? Düyməni refaktorinq etdikdə anket testi sınmalıdır?
 
-* **Iteration speed vs Realistic environment:** Some tools offer a very quick feedback loop between making a change and seeing the result, but don't model the browser behavior precisely. Other tools might use a real browser environment, but reduce the iteration speed and are flakier on a continuous integration server.
-* **How much to mock:** With components, the distinction between a "unit" and "integration" test can be blurry. If you're testing a form, should its test also test the buttons inside of it? Or should a button component have its own test suite? Should refactoring a button ever break the form test?
+Fərqli komandalar və produktlar bu suallara fərqli cavablandırırlar.
 
-Different answers may work for different teams and products.
+### Tövsiyə Olunan Alətlər {#tools}
 
-### Recommended Tools {#tools}
+**[Jest](https://facebook.github.io/jest/)** JavaScript test icra edicisi [`jsdom`-dan](/docs/testing-environments.html#mocking-a-rendering-surface) istifadə edərək DOM-un istifadəsinə imkan yaradır. jsdom real brauzerin təxmini simulyasiyasıdır. Buna baxmayaraq bu simulyasiya React komponentlərini test etmək üçün kifayətdir. Jest, iterasiya sürətinin yüksək olmasına imkan yaradır. Əlavə olaraq, bu alətin [modulları](/docs/testing-environments.html#mocking-modules) və [taymerləri](/docs/testing-environments.html#mocking-timers) mok etmək kimi xüsusiyyətləri ilə kodun icrasını daha çox idarə etmək mümkündür.
 
-**[Jest](https://facebook.github.io/jest/)** is a JavaScript test runner that lets you access the DOM via [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). While jsdom is only an approximation of how the browser works, it is often good enough for testing React components. Jest provides a great iteration speed combined with powerful features like mocking [modules](/docs/testing-environments.html#mocking-modules) and [timers](/docs/testing-environments.html#mocking-timers) so you can have more control over how the code executes.
+**[React Testing Library](https://testing-library.com/react)**, React komponentlərini tətbiq detallarından asılı olmadan test etmək üçün köməkçi funksiyalar təmin edir. Bu yanaşma ilə refaktorinq çox asanlaşır və imkanlılıq üçün ən yaxşı praktikaların istifadə edilməsi məcbur olunur. Bu alətin, uşaqları render etmədən komponentlərin "dayaz" render edilməsi üçün heç bir yol təmin etmədiyinə baxmayaraq Jest kimi test icra edicisi ilə uşaq komponentləri [mok edərək](/docs/testing-recipes.html#mocking-modules) eyni nəticəyə çatmaq mümkündür.
 
-**[React Testing Library](https://testing-library.com/react)** is a set of helpers that let you test React components without relying on their implementation details. This approach makes refactoring a breeze and also nudges you towards best practices for accessibility. Although it doesn't provide a way to "shallowly" render a component without its children, a test runner like Jest lets you do this by [mocking](/docs/testing-recipes.html#mocking-modules).
+### Daha Ətraflı {#learn-more}
 
-### Learn More {#learn-more}
+Bu bölmə iki səhifəyə ayrılıb:
 
-This section is divided in two pages:
-
-- [Recipes](/docs/testing-recipes.html): Common patterns when writing tests for React components.
-- [Environments](/docs/testing-environments.html): What to consider when setting up a testing environment for React components.
+- [Reseptlər](/docs/testing-recipes.html): React komponentlərini test etmək üçün çox işlədilən üslublar.
+- [Mühitlər](/docs/testing-environments.html): React komponentləri üçün test mühiti quraşdırdıqda nələrə fikir vermək.
