@@ -46,7 +46,11 @@ React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə b
 
 ### Yeni React Applikasiyası Yarat {#create-a-new-react-app}
 
+<<<<<<< HEAD
 Yeni React layihəsinə başladıqda [script təqləri ilə sadə HTML səhifəsi işlətmək](/docs/add-react-to-a-website.html) ən yaxşı seçim ola bilər. Bunu quraşdırmaq bir dəqiqə alacaq!
+=======
+When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
+>>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
 
 Applikasiya böyüdükcə sizə inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün [JavaScript toolchain-lərindən](/docs/create-a-new-react-app.html) istifadə etməyi tövsiyyə edirik. Bu toolchain-lər biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər.
 
@@ -115,7 +119,11 @@ React sənədində işlədilən bütün terminlərin icmalı üçün [Lüğətə
 
 Siz həmçinin [@reactjs Twitter hesabını](https://twitter.com/reactjs) izləyə bilərsiniz. Lakin, bloqu oxuyursunuzsa heç bir vacib məlumatı qaçırmayacaqsınız.
 
+<<<<<<< HEAD
 Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/master/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+>>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
 
 ## Versiyalı Sənədlər {#versioned-documentation}
 
