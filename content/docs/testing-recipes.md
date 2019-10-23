@@ -16,7 +16,7 @@ Bu sahifədə, əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin
 
 - [Quraşdırma/Sökülmə](#setup--teardown)
 - [`act()`](#act)
-- [Rendr Etmə](#rendering)
+- [Render Etmə](#rendering)
 - [Məlumatların Yüklənməsi](#data-fetching)
 - [Modulların Mok Edilməsi](#mocking-modules)
 - [Hadisələr](#events)
