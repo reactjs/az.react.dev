@@ -1,6 +1,6 @@
 ---
 id: testing-recipes
-title: Testing Recipes
+title: Test Etmə Reseptləri
 permalink: docs/testing-recipes.html
 prev: testing.html
 next: testing-environments.html
@@ -10,9 +10,9 @@ React komponentləri üçün çox işlədilən test etmə nümunələri.
 
 > Qeyd:
 >
-> Bu səhifədə [Jest](https://jestjs.io/) test icra edicisinin istifadə edildiyi fərz edilir. Fərqli test icra edicisindən istifadəe edirsinizsə, API-ı dəyişmək lazım ola bilər. Lakin, həllin ümumilikdə forması eyni qalacaq. Test etmə mühitini quraşdırmaq üçün [Test Etmə Mühitləri](/docs/testing-environments.html) səhifəsinə baxın.
+> Bu səhifədə [Jest](https://jestjs.io/) test icra edicisinin istifadə edildiyi fərz edilir. Fərqli test icra edicisindən istifadə edirsinizsə, API-ı dəyişmək lazım ola bilər. Lakin, həllin ümumilikdə forması eyni qalacaq. Test etmə mühitini quraşdırmaq üçün [Test Etmə Mühitləri](/docs/testing-environments.html) səhifəsinə baxın.
 
-Bu sahifədə, əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin, burada göstərilən test etmə strategiyalarını tətbiq detallarından asılı olmadığından eyni testlər klas komponnetlərindədə işləyəcək However, these testing strategies don't depend on implementation details, and work just as well for class components too.
+Bu sahifədə əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin, burada göstərilən test etmə strategiyalarının tətbiq detallarından asılı olmadığından eyni testlər klas komponnetlərində də işləyəcək.
 
 - [Quraşdırma/Sökülmə](#setup--teardown)
 - [`act()`](#act)
@@ -29,9 +29,9 @@ Bu sahifədə, əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin
 
 ### Quraşdırma/Sökülmə {#setup--teardown}
 
-Biz, hər testdə React ağacını `document`-ə qoşulan DOM elementinə render etmək istəyirik. Bu, DOM hadisələrinin işləməsi üçün vacibdir. Test bitdikdə isə ağacı `document`-dən silmək istəyirik.
+DOM hadisələrinin düzgün işləməsi üçün testdə React ağacını `document`-ə qoşulan DOM elementinə render etmək lazımdır. Test bitdikdə isə ağacı `document`-dən silmək istəyirik.
 
-Bunu tətbiq etməyin ümumi yollarından biri `beforeEach` və `afterEach` bloklarından istifadə etməkdir. Bu bloklar hər test zamanı çağrılıb effektləri hər test üçün ayırmağa imkan yaradırlar:
+Adətən, bu əməliyyatlar, `beforeEach` və `afterEach` bloklarından icra olunur. Bu bloklar hər test zamanı çağrılıb effektlərin hər test üçün ayrılmasına imkan yaradır:
 
 ```jsx
 import { unmountComponentAtNode } from "react-dom";
@@ -51,24 +51,24 @@ afterEach(() => {
 });
 ```
 
-Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _test uğursuz olsa belə_ təmizlik işini icra edə bilərsiniz. Əks halda, testlər "sızıcı ola bilər" və bir test digər testin davranışına təsir edə bilər. Bu səbəblərdən testlərin debaq edilməsi çətinləşə bilər.
+Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğuna baxmayaraq_ təmizlik işini icra olunmalıdır. Əks halda, testlər "sızıcı" olub bir-birinin davranışlarına təsir edə bilir. Bu səbəbdən, testlərin debaq edilməsi çətinləşə bilər.
 
 ---
 
 ### `act()` {#act}
 
-UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün React, köməkçi `act()` funksiyası təmin edir:
+UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün React-də köməkçi `act()` funksiyası təmin olunur:
 
 ```js
 act(() => {
   // Komponentləri render et
 });
-// İddiaları təsqiq et
+// İddiaları təsdiq et
 ```
 
-Bu köməkçi funksiya, testləri real istifadəçilərin applikasiyanı istifadə etməyinə yaxınlaşdırır. Bu bölmədəki bütün nümunələrdə davranışları siğortalamaq üçün `act()` köməkçisindən istifadə edir.
+Bu köməkçi funksiya, testləri real istifadəçilərin applikasiyanı istifadə etməsinə yaxınlaşdırır. Bu bölmədə olan bütün nümunələrdə davranışları siğortalamaq üçün `act()` köməkçisindən istifadə edirik.
 
-`act()` köməkçisinin birbaşa istifadəsi verbose ola bilər. Bu köməkçini hər dəfə yazmamaq üçün bütün funksiyalarını `act()` ilə əhatə edən, [React Testing Library](https://testing-library.com/react) kimi kitabxanalardan istifadə edə bilərsiniz.
+`act()` köməkçisinin birbaşa istifadəsi verbose ola bilər. Bu köməkçini hər dəfə yazmamaq üçün köməkçi funksiyalarını `act()` ilə əhatə edən [React Testing Library](https://testing-library.com/react) kimi kitabxanalardan istifadə edə bilərsiniz.
 
 > Qeyd:
 >
@@ -78,7 +78,7 @@ Bu köməkçi funksiya, testləri real istifadəçilərin applikasiyanı istifad
 
 ### Render Etmə {#rendering}
 
-Komponentin verilən proplar əsasınd düzgün render edildiyini yoxlaya bilərsiniz. Prop əsasında mesaj render edən komponentə baxaq:
+Komponentin verilən proplar əsasında düzgün render edildiyini yoxlaya bilərsiniz. Prop əsasında mesaj render edən komponentə baxaq:
 
 ```jsx
 // hello.js
@@ -89,7 +89,7 @@ export default function Hello(props) {
   if (props.name) {
     return <h1>Salam, {props.name}!</h1>;
   } else {
-    return <span>Salam, qərib adam</span>;
+    return <span>Salam, qərib insan</span>;
   }
 }
 ```
@@ -123,7 +123,7 @@ it("renders with or without a name", () => {
   act(() => {
     render(<Hello />, container);
   });
-  expect(container.textContent).toBe("Salam, qərib adam");
+  expect(container.textContent).toBe("Salam, qərib insan");
 
   act(() => {
     render(<Hello name="İlkin" />, container);
@@ -139,9 +139,9 @@ it("renders with or without a name", () => {
 
 ---
 
-### Məlumatların Yüklənməsi Fetching {#data-fetching}
+### Məlumatların Yüklənməsi {#data-fetching}
 
-Testlərdə real API-lar işlətmək əvəzinə sorğuları dummy məlumat ilə mok edə bilərsiniz. Məlumat yüklənməsini "saxta" məlumat ilə mok etdikdə backend-in işləməməsinə görə testlərin işləməməsinin qarşısı alınır və testlərin sürəti artır. Qeyd: Applikasiyanın bütünlükdə işləməsini yoxlamaq üçün bəzi testlərdə ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) freymvorkundan istifadə edə bilərsiniz.
+Testlərdə real API işlətmək əvəzinə sorğuları dummy məlumat ilə mok edə bilərsiniz. Məlumat yüklənməsini "saxta" məlumat ilə mok etdikdə backend-dən asılılığın olmadığından testlərin API-a görə uğursuz başa çatmasının qarşısı alınır və testlərin sürəti artır. Qeyd: Applikasiyanın bütünlükdə işləməsini yoxlamaq üçün bəzi testlərdə ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) freymvorkundan istifadə edə bilərsiniz.
 
 ```jsx
 // user.js
@@ -175,7 +175,7 @@ export default function User(props) {
 }
 ```
 
-We can write tests for it:
+Yuxarıdakı komponenti aşağıdakı formada test edə bilərik:
 
 ```jsx{23-33,44-45}
 // user.test.js
@@ -228,9 +228,9 @@ it("renders user data", async () => {
 
 ---
 
-### Modulların Mok Edilməsi Modules {#mocking-modules}
+### Modulların Mok Edilməsi {#mocking-modules}
 
-Bəzi modullar test mühitində yaxşı işləməyə bilər və ya test üçün vacib olmaya bilər. Modulları dummy əvəzetmələri ilə mok edərək testlərin yazılması asanlaşa bilər.
+Bəzi modullar test mühitində yaxşı işləməyə bilər və ya test üçün vacib olmaya bilər. Modulları dummy əvəzetmələri ilə mok edərək testlərin yazılmasını asanlaşdıra bilərsiniz.
 
 3-cü tərəfin `GoogleMap` komponentindən istifadə edən `Contact` komponentinə baxaq:
 
@@ -420,13 +420,13 @@ Fərqli DOM elementləri və parametrləri haqqında [MDN-dən](https://develope
 
 > Qeyd:
 >
-> Hadisələrin çağrılması üçün React Testing Library-də [daha qısa köməkçi funksiyası](https://testing-library.com/docs/dom-testing-library/api-events) var.
+> Hadisələrin çağrılması üçün React Testing Library kitabxanasında [daha qısa köməkçi funksiyası](https://testing-library.com/docs/dom-testing-library/api-events) var.
 
 ---
 
 ### Taymerlər {#timers}
 
-Hər hansı bir işin gələcəkdə icra edilməsi üçün kodda `setTimeout` kimi taymer funksiyalarından istifadə edilə bilər. Aşağıdakı nümunədə, çox seçimli panel seçim gözləyir və 5 saniyə ərzində seçim edilmədikdə vaxt bitir:
+Hər hansı bir işin gələcəkdə icra edilməsi üçün kodda `setTimeout` kimi taymer funksiyalarından istifadə edilə bilər. Aşağıdakı nümunədə, çox seçimli panel, seçim gözləyir və 5 saniyə ərzində seçim edilmədikdə vaxt bitir:
 
 ```jsx
 // card.js
@@ -455,7 +455,7 @@ export default function Card(props) {
 }
 ```
 
-[Jest-in taymer moklarından](https://jestjs.io/docs/en/timer-mocks) istifadə edərək bu komponent üçün testlər yazın fəqrli vəziyyətləri yoxlaya bilərik.
+[Jest-in taymer moklarından](https://jestjs.io/docs/en/timer-mocks) istifadə edərək bu komponentin fəqrli vəziyyətlərini test edə bilərik.
 
 ```jsx{7,31,37,49,59}
 // card.test.js
@@ -537,15 +537,13 @@ it("should accept selections", () => {
 });
 ```
 
-Siz saxta taymerlərin işləməsini istənilən testdə aktivləşdirə bilərsiniz. Yuxarıdakı nümunədə, `jest.useFakeTimers()` funksiyasını çağıraraq saxta taymerləri aktivləşdirdik. Bu taymerlərin əsas üstünlüyü testlərin beş saniyə gözləməməsi və komponentin daha qarışıq olmamasldır.
+Siz saxta taymerlərin işləməsini istənilən testdə aktivləşdirə bilərsiniz. Yuxarıdakı nümunədə, `jest.useFakeTimers()` funksiyasını çağıraraq saxta taymerləri aktivləşdirdik. Bu taymerlərin əsas üstünlüyü testlərin beş saniyə gözləməməsi və komponentin daha qarışıq olmamasıdır.
 
 ---
 
 ### Snəpşotların Test Edilməsi {#snapshot-testing}
 
-With these, we can "save" the rendered component output and ensure that a change to it has to be explicitly committed as a change to the snapshot.
-
-Jest kimi freymvorklarda [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing) istifadə edərək məlumatların "snəpşotunu" saxlamaq mümkündür. Bu funksiyalar ilə render olunan komponentin nəticəsini "yadda saxlayıb" bu komponentə olan dəyişikliyin snəpşottada olmasını siğortalaya bilərik.
+Jest kimi freymvorklarda [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing) funksiyalarından istifadə edərək məlumatların "snəpşotunu" saxlamaq mümkündür. Bu funksiyalar ilə render olunan komponentin nəticəsini "yadda saxlayıb" bu komponentdə olan dəyişikliyin snəpşotda da olmasını siğortalaya bilərik.
 
 Aşağıdakı nümunədə, komponenti render edib render olunan HTML-i eynisətrli snapşot kimi yadda saxlamadan öncə [`pretty`](https://www.npmjs.com/package/pretty) paketi ilə format edirik:
 
@@ -600,7 +598,7 @@ it("should render a greeting", () => {
 });
 ```
 
-Snapşot işlətmək əvəzinə xüsusi iddialar etmək daha faydalıdır. Bu testlərin tətbiq detallarından asılı olub tez-tez sındığından komandalar snəpşot sınmalarından bezə bilərlər. [Bəzi uşaq komponentləri mok edərək](#mocking-modules) snapşotların ölçüsünü azaldıb bu faylların kod icmalında oxunmasını artıra bilərik.
+Snapşot işlətmək əvəzinə xüsusi iddialar etmək daha faydalıdır. Bu testlərin tətbiq detallarından asılı olub tez-tez sındığından komandalar snəpşot testlərindən bezə bilərlər. [Bəzi uşaq komponentləri mok edərək](#mocking-modules) snapşotların ölçüsünü azaldıb bu faylların kod icmalında oxunmasını artıra bilərik.
 
 ---
 
