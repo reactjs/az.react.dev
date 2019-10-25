@@ -246,7 +246,7 @@ Bu JavaScript sintaksisi ["massiv destrukturlaşdırılması"](https://developer
 >
 >React-in `useState`-in hansı komponentə aid olduğunu necə bildiyi sizi maraqlandıra bilər. Bu suala FAQ bölməsinin [bu cavabından](/docs/hooks-faq.html#how-does-react-associate-hook-calls-with-components) baxa bilərsiniz.
 
-### Məsləhər: Bir Neçə State Dəyişəninin İstifadəsi {#tip-using-multiple-state-variables}
+### Məsləhət: Bir Neçə State Dəyişəninin İstifadəsi {#tip-using-multiple-state-variables}
 
 State dəyişənlərinin `[something, setSomething]` cütü ilə təyin edilməsindən istifadə edərək fərqli state dəyişənlərini **fərqli** adlar ilə işlədə bilərik:
 
