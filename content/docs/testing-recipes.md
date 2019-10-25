@@ -51,7 +51,7 @@ afterEach(() => {
 });
 ```
 
-Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğuna baxmayaraq_ təmizlik işini icra olunmalıdır. Əks halda, testlər "sızıcı" olub bir-birinin davranışlarına təsir edə bilir. Bu səbəbdən, testlərin debaq edilməsi çətinləşə bilər.
+Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğuna baxmayaraq_ təmizlik işi icra olunmalıdır. Əks halda, testlər "sızıcı" olub bir-birinin davranışlarına təsir edə bilir. Bu səbəbdən, testlərin debaq edilməsi çətinləşə bilər.
 
 ---
 
@@ -623,4 +623,4 @@ expect(root).toMatchSnapshot();
 
 ### Nəsə Çatışmır? {#something-missing}
 
-Əgər hər hansı ümumi ssenari əhatə olunayıbsa, sənədlər səhifəsinin [issue tracker-indən](https://github.com/reactjs/reactjs.org/issues) bizə yazın.
+Əgər hər hansı ümumi ssenari əhatə olunmayıbsa, sənədlər səhifəsinin [issue tracker-indən](https://github.com/reactjs/reactjs.org/issues) bizə yazın.
