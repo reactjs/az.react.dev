@@ -1,84 +1,84 @@
 ---
 id: testing-recipes
-title: Testing Recipes
+title: Test Etmə Reseptləri
 permalink: docs/testing-recipes.html
 prev: testing.html
 next: testing-environments.html
 ---
 
-Common testing patterns for React components.
+React komponentləri üçün çox işlədilən test etmə nümunələri.
 
-> Note:
+> Qeyd:
 >
-> This page assumes you're using [Jest](https://jestjs.io/) as a test runner. If you use a different test runner, you may need to adjust the API, but the overall shape of the solution will likely be the same. Read more details on setting up a testing environment on the [Testing Environments](/docs/testing-environments.html) page.
+> Bu səhifədə [Jest](https://jestjs.io/) test icra edicisinin istifadə edildiyi fərz edilir. Fərqli test icra edicisindən istifadə edirsinizsə, API-ı dəyişmək lazım ola bilər. Lakin, həllin ümumilikdə forması eyni qalacaq. Test etmə mühitini quraşdırmaq üçün [Test Etmə Mühitləri](/docs/testing-environments.html) səhifəsinə baxın.
 
-On this page, we will primarily use function components. However, these testing strategies don't depend on implementation details, and work just as well for class components too.
+Bu sahifədə əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin, burada göstərilən test etmə strategiyalarının tətbiq detallarından asılı olmadığından eyni testlər klas komponnetlərində də işləyəcək.
 
-- [Setup/Teardown](#setup--teardown)
+- [Quraşdırma/Sökülmə](#setup--teardown)
 - [`act()`](#act)
-- [Rendering](#rendering)
-- [Data Fetching](#data-fetching)
-- [Mocking Modules](#mocking-modules)
-- [Events](#events)
-- [Timers](#timers)
-- [Snapshot Testing](#snapshot-testing)
-- [Multiple Renderers](#multiple-renderers)
-- [Something Missing?](#something-missing)
+- [Render Etmə](#rendering)
+- [Məlumatların Yüklənməsi](#data-fetching)
+- [Modulların Mok Edilməsi](#mocking-modules)
+- [Hadisələr](#events)
+- [Taymerlər](#timers)
+- [Snəpşotların Test Edilməsi](#snapshot-testing)
+- [Bir Neçə Render Etmə Qurğuları](#multiple-renderers)
+- [Nəsə Çatışmır?](#something-missing)
 
 ---
 
-### Setup/Teardown {#setup--teardown}
+### Quraşdırma/Sökülmə {#setup--teardown}
 
-For each test, we usually want to render our React tree to a DOM element that's attached to `document`. This is important so that it can receive DOM events. When the test ends, we want to "clean up" and unmount the tree from the `document`.
+DOM hadisələrinin düzgün işləməsi üçün testdə React ağacını `document`-ə qoşulan DOM elementinə render etmək lazımdır. Test bitdikdə isə ağacı `document`-dən silmək istəyirik.
 
-A common way to do it is to use a pair of `beforeEach` and `afterEach` blocks so that they'll always run and isolate the effects of a test to itself:
+Adətən, bu əməliyyatlar, `beforeEach` və `afterEach` bloklarından icra olunur. Bu bloklar hər test zamanı çağrılıb effektlərin hər test üçün ayrılmasına imkan yaradır:
 
 ```jsx
 import { unmountComponentAtNode } from "react-dom";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin 
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 ```
 
-You may use a different pattern, but keep in mind that we want to execute the cleanup _even if a test fails_. Otherwise, tests can become "leaky", and one test can change the behavior of another test. That makes them difficult to debug.
+Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğuna baxmayaraq_ təmizlik işi icra olunmalıdır. Əks halda, testlər "sızıcı" olub bir-birinin davranışlarına təsir edə bilir. Bu səbəbdən, testlərin debaq edilməsi çətinləşə bilər.
 
 ---
 
 ### `act()` {#act}
 
-When writing UI tests, tasks like rendering, user events, or data fetching can be considered as "units" of interaction with a user interface. React provides a helper called `act()` that makes sure all updates related to these "units" have been processed and applied to the DOM before you make any assertions:
+UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün React-də köməkçi `act()` funksiyası təmin olunur:
 
 ```js
 act(() => {
-  // render components
+  // Komponentləri render et
 });
-// make assertions
+// İddiaları təsdiq et
 ```
 
-This helps make your tests run closer to what real users would experience when using your application. The rest of these examples use `act()` to make these guarantees.
+Bu köməkçi funksiya, testləri real istifadəçilərin applikasiyanı istifadə etməsinə yaxınlaşdırır. Bu bölmədə olan bütün nümunələrdə davranışları siğortalamaq üçün `act()` köməkçisindən istifadə edirik.
 
-You might find using `act()` directly a bit too verbose. To avoid some of the boilerplate, you could use a library like [React Testing Library](https://testing-library.com/react), whose helpers are wrapped with `act()`.
+`act()` köməkçisinin birbaşa istifadəsi verbose ola bilər. Bu köməkçini hər dəfə yazmamaq üçün köməkçi funksiyalarını `act()` ilə əhatə edən [React Testing Library](https://testing-library.com/react) kimi kitabxanalardan istifadə edə bilərsiniz.
 
-> Note:
+> Qeyd:
 >
-> The name `act` comes from the [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert) pattern.
+> `act` köməkçisinin adı [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert) pattern-indən gəlir.
 
 ---
 
-### Rendering {#rendering}
+### Render Etmə {#rendering}
 
-Commonly, you might want to test whether a component renders correctly for given props. Consider a simple component that renders a message based on a prop:
+Komponentin verilən proplar əsasında düzgün render edildiyini yoxlaya bilərsiniz. Prop əsasında mesaj render edən komponentə baxaq:
 
 ```jsx
 // hello.js
@@ -87,14 +87,14 @@ import React from "react";
 
 export default function Hello(props) {
   if (props.name) {
-    return <h1>Hello, {props.name}!</h1>;
+    return <h1>Salam, {props.name}!</h1>;
   } else {
-    return <span>Hey, stranger</span>;
+    return <span>Salam, qərib insan</span>;
   }
 }
 ```
 
-We can write a test for this component:
+Bu komponent üçün testi aşağıdakı formada yaza bilərik:
 
 ```jsx{24-27}
 // hello.test.js
@@ -107,13 +107,13 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -123,25 +123,25 @@ it("renders with or without a name", () => {
   act(() => {
     render(<Hello />, container);
   });
-  expect(container.textContent).toBe("Hey, stranger");
+  expect(container.textContent).toBe("Salam, qərib insan");
 
   act(() => {
-    render(<Hello name="Jenny" />, container);
+    render(<Hello name="İlkin" />, container);
   });
-  expect(container.textContent).toBe("Hello, Jenny!");
+  expect(container.textContent).toBe("Salam, İlkin!");
 
   act(() => {
-    render(<Hello name="Margaret" />, container);
+    render(<Hello name="Cəmilə" />, container);
   });
-  expect(container.textContent).toBe("Hello, Margaret!");
+  expect(container.textContent).toBe("Salam, Cəmilə!");
 });
 ```
 
 ---
 
-### Data Fetching {#data-fetching}
+### Məlumatların Yüklənməsi {#data-fetching}
 
-Instead of calling real APIs in all your tests, you can mock requests with dummy data. Mocking data fetching with "fake" data prevents flaky tests due to an unavailable backend, and makes them run faster. Note: you may still want to run a subset of tests using an ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) framework that tells whether the whole app is working together.
+Testlərdə real API işlətmək əvəzinə sorğuları dummy məlumat ilə mok edə bilərsiniz. Məlumat yüklənməsini "saxta" məlumat ilə mok etdikdə backend-dən asılılığın olmadığından testlərin API-a görə uğursuz başa çatmasının qarşısı alınır və testlərin sürəti artır. Qeyd: Applikasiyanın bütünlükdə işləməsini yoxlamaq üçün bəzi testlərdə ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) freymvorkundan istifadə edə bilərsiniz.
 
 ```jsx
 // user.js
@@ -161,21 +161,21 @@ export default function User(props) {
   }, [props.id]);
 
   if (!user) {
-    return "loading...";
+    return "yüklənir...";
   }
 
   return (
     <details>
       <summary>{user.name}</summary>
-      <strong>{user.age}</strong> years old
+      Yaş: <strong>{user.age}</strong>
       <br />
-      lives in {user.address}
+      Adres: {user.address}
     </details>
   );
 }
 ```
 
-We can write tests for it:
+Yuxarıdakı komponenti aşağıdakı formada test edə bilərik:
 
 ```jsx{23-33,44-45}
 // user.test.js
@@ -187,13 +187,13 @@ import User from "./user";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -212,7 +212,7 @@ it("renders user data", async () => {
     })
   );
 
-  // Use the asynchronous version of act to apply resolved promises
+  // Həll olunan promise-ləri tətbiq etmək üçün act-in asinxron versiyasından istifadə edin
   await act(async () => {
     render(<User id="123" />, container);
   });
@@ -221,18 +221,18 @@ it("renders user data", async () => {
   expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
   expect(container.textContent).toContain(fakeUser.address);
 
-  // remove the mock to ensure tests are completely isolated
+  // Testlərin tam ayrılması üçün moku silin
   global.fetch.mockRestore();
 });
 ```
 
 ---
 
-### Mocking Modules {#mocking-modules}
+### Modulların Mok Edilməsi {#mocking-modules}
 
-Some modules might not work well inside a testing environment, or may not be as essential to the test itself. Mocking out these modules with dummy replacements can make it easier to write tests for your own code.
+Bəzi modullar test mühitində yaxşı işləməyə bilər və ya test üçün vacib olmaya bilər. Modulları dummy əvəzetmələri ilə mok edərək testlərin yazılmasını asanlaşdıra bilərsiniz.
 
-Consider a `Contact` component that embeds a third-party `GoogleMap` component:
+3-cü tərəfin `GoogleMap` komponentindən istifadə edən `Contact` komponentinə baxaq:
 
 ```jsx
 // map.js
@@ -257,13 +257,13 @@ function Contact(props) {
   return (
     <div>
       <address>
-        Contact {props.name} via{" "}
+        {props.name} ilə{" "}
         <a data-testid="email" href={"mailto:" + props.email}>
           email
         </a>
-        or on their <a data-testid="site" href={props.site}>
-          website
-        </a>.
+        və ya <a data-testid="site" href={props.site}>
+          veb səhifə
+        </a> ilə əlaqə saxlayın.
       </address>
       <Map center={props.center} />
     </div>
@@ -271,7 +271,7 @@ function Contact(props) {
 }
 ```
 
-If we don't want to load this component in our tests, we can mock out the dependency itself to a dummy component, and run our tests:
+Bu komponenti testlərdə yükləmək istəmədikdə asılılığı dummy komponentə mok edib testləri icra edə bilərik:
 
 ```jsx{10-18}
 // contact.test.js
@@ -295,13 +295,13 @@ jest.mock("./map", () => {
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -337,9 +337,9 @@ it("should render contact information", () => {
 
 ---
 
-### Events {#events}
+### Hadisələr {#events}
 
-We recommend dispatching real DOM events on DOM elements, and then asserting on the result. Consider a `Toggle` component:
+Biz, real DOM hadisələrini DOM elementlərinə göndərib nəticəni təsdiq etməyi tövsiyyə edirik. `Toggle` adlı komponentə baxaq:
 
 ```jsx
 // toggle.js
@@ -356,13 +356,13 @@ export default function Toggle(props) {
       }}
       data-testid="toggle"
     >
-      {state === true ? "Turn off" : "Turn on"}
+      {state === true ? "Söndür" : "Yandır"}
     </button>
   );
 }
 ```
 
-We could write tests for it:
+Bunun üçün testləri aşağıdakı kimi yaza bilərsiniz:
 
 ```jsx{13-14,35,43}
 // toggle.test.js
@@ -375,14 +375,14 @@ import Toggle from "./toggle";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
-  // container *must* be attached to document so events work correctly.
+  // Hadisələrin düzgün işləməsi üçün DOM elementi *mütləq* documentə əlavə olunmalıdır.
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -394,16 +394,16 @@ it("changes value when clicked", () => {
     render(<Toggle onChange={onChange} />, container);
   });
 
-  // get ahold of the button element, and trigger some clicks on it
+  // düymə elementini tapıq tıklama hadisəsini çağırın
   const button = document.querySelector("[data-testid=toggle]");
-  expect(button.innerHTML).toBe("Turn off");
+  expect(button.innerHTML).toBe("Söndür");
 
   act(() => {
     button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
   expect(onChange).toHaveBeenCalledTimes(1);
-  expect(button.innerHTML).toBe("Turn on");
+  expect(button.innerHTML).toBe("Yandır");
 
   act(() => {
     for (let i = 0; i < 5; i++) {
@@ -412,21 +412,21 @@ it("changes value when clicked", () => {
   });
 
   expect(onChange).toHaveBeenCalledTimes(6);
-  expect(button.innerHTML).toBe("Turn on");
+  expect(button.innerHTML).toBe("Yandır");
 });
 ```
 
-Different DOM events and their properties are described in [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note that you need to pass `{ bubbles: true }` in each event you create for it to reach the React listener because React automatically delegates events to the document.
+Fərqli DOM elementləri və parametrləri haqqında [MDN-dən](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) oxuya bilərsiniz. Nəzərə alın ki, hadisənin React dinləyicisinə çatması üçün hər hadisəyə `{ bubbles: true }` parametri əlavə edin. Əks halda, React, hadisələri avtomatik olaraq documentə göndərəcək.
 
-> Note:
+> Qeyd:
 >
-> React Testing Library offers a [more concise helper](https://testing-library.com/docs/dom-testing-library/api-events) for firing events.
+> Hadisələrin çağrılması üçün React Testing Library kitabxanasında [daha qısa köməkçi funksiyası](https://testing-library.com/docs/dom-testing-library/api-events) var.
 
 ---
 
-### Timers {#timers}
+### Taymerlər {#timers}
 
-Your code might use timer-based functions like `setTimeout` to schedule more work in the future. In this example, a multiple choice panel waits for a selection and advances, timing out if a selection isn't made in 5 seconds:
+Hər hansı bir işin gələcəkdə icra edilməsi üçün kodda `setTimeout` kimi taymer funksiyalarından istifadə edilə bilər. Aşağıdakı nümunədə, çox seçimli panel, seçim gözləyir və 5 saniyə ərzində seçim edilmədikdə vaxt bitir:
 
 ```jsx
 // card.js
@@ -455,7 +455,7 @@ export default function Card(props) {
 }
 ```
 
-We can write tests for this component by leveraging [Jest's timer mocks](https://jestjs.io/docs/en/timer-mocks), and testing the different states it can be in.
+[Jest-in taymer moklarından](https://jestjs.io/docs/en/timer-mocks) istifadə edərək bu komponentin fəqrli vəziyyətlərini test edə bilərik.
 
 ```jsx{7,31,37,49,59}
 // card.test.js
@@ -468,13 +468,13 @@ jest.useFakeTimers();
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -486,13 +486,13 @@ it("should select null after timing out", () => {
     render(<Card onSelect={onSelect} />, container);
   });
 
-  // move ahead in time by 100ms
+  // zamanı 100ms qabağa çəkin
   act(() => {
     jest.advanceTimersByTime(100);
   });
   expect(onSelect).not.toHaveBeenCalled();
 
-  // and then move ahead by 5 seconds
+  // sonra, zamanı 5 saniyə qabağa çəkin
   act(() => {
     jest.advanceTimersByTime(5000);
   });
@@ -510,7 +510,7 @@ it("should cleanup on being removed", () => {
   });
   expect(onSelect).not.toHaveBeenCalled();
 
-  // unmount the app
+  // applikasiyanı unmount edin
   act(() => {
     render(null, container);
   });
@@ -537,15 +537,15 @@ it("should accept selections", () => {
 });
 ```
 
-You can use fake timers only in some tests. Above, we enabled them by calling `jest.useFakeTimers()`. The main advantage they provide is that your test doesn't actually have to wait five seconds to execute, and you also didn't need to make the component code more convoluted just for testing.
+Siz saxta taymerlərin işləməsini istənilən testdə aktivləşdirə bilərsiniz. Yuxarıdakı nümunədə, `jest.useFakeTimers()` funksiyasını çağıraraq saxta taymerləri aktivləşdirdik. Bu taymerlərin əsas üstünlüyü testlərin beş saniyə gözləməməsi və komponentin daha qarışıq olmamasıdır.
 
 ---
 
-### Snapshot Testing {#snapshot-testing}
+### Snəpşotların Test Edilməsi {#snapshot-testing}
 
-Frameworks like Jest also let you save "snapshots" of data with [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing). With these, we can "save" the rendered component output and ensure that a change to it has to be explicitly committed as a change to the snapshot.
+Jest kimi freymvorklarda [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing) funksiyalarından istifadə edərək məlumatların "snəpşotunu" saxlamaq mümkündür. Bu funksiyalar ilə render olunan komponentin nəticəsini "yadda saxlayıb" bu komponentdə olan dəyişikliyin snəpşotda da olmasını siğortalaya bilərik.
 
-In this example, we render a component and format the rendered HTML with the [`pretty`](https://www.npmjs.com/package/pretty) package, before saving it as an inline snapshot:
+Aşağıdakı nümunədə, komponenti render edib render olunan HTML-i eynisətrli snapşot kimi yadda saxlamadan öncə [`pretty`](https://www.npmjs.com/package/pretty) paketi ilə format edirik:
 
 ```jsx{29-31}
 // hello.test.js, again
@@ -559,13 +559,13 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // Test bitdikdə təmizlik işləri aparın
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -578,7 +578,7 @@ it("should render a greeting", () => {
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... Jest tərəfindən avtomatik doldurulur ... */
 
   act(() => {
     render(<Hello name="Jenny" />, container);
@@ -586,7 +586,7 @@ it("should render a greeting", () => {
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... Jest tərəfindən avtomatik doldurulur ... */
 
   act(() => {
     render(<Hello name="Margaret" />, container);
@@ -594,17 +594,17 @@ it("should render a greeting", () => {
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... Jest tərəfindən avtomatik doldurulur ... */
 });
 ```
 
-It's typically better to make more specific assertions than to use snapshots. These kinds of tests include implementation details so they break easily, and teams can get desensitized to snapshot breakages. Selectively [mocking some child components](#mocking-modules) can help reduce the size of snapshots and keep them readable for the code review.
+Snapşot işlətmək əvəzinə xüsusi iddialar etmək daha faydalıdır. Bu testlərin tətbiq detallarından asılı olub tez-tez sındığından komandalar snəpşot testlərindən bezə bilərlər. [Bəzi uşaq komponentləri mok edərək](#mocking-modules) snapşotların ölçüsünü azaldıb bu faylların kod icmalında oxunmasını artıra bilərik.
 
 ---
 
-### Multiple Renderers {#multiple-renderers}
+### Bir Neçə Render Etmə Qurğuları {#multiple-renderers}
 
-In rare cases, you may be running a test on a component that uses multiple renderers. For example, you may be running snapshot tests on a component with `react-test-renderer`, that internally uses `ReactDOM.render` inside a child component to render some content. In this scenario, you can wrap updates with `act()`s corresponding to their renderers.
+Bəzi nadir hallarda, bir neçə render etmə qurğusundan istifadə edən komponenti render edə bilərsiniz. Məsələn, hər hansı bir kontenti render etmək üçün uşaq komponentdə `ReactDOM.render`-dən istifadə edən komponentdə `react-test-renderer`-dən istifadə edərək snapşot testləri icra edə bilərsiniz. Bu ssenaridə, hər render etmə qurğusuna məxsus `act()` ilə yenilikləri əhatə edə bilərsiniz.
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";
@@ -621,6 +621,6 @@ expect(root).toMatchSnapshot();
 
 ---
 
-### Something Missing? {#something-missing}
+### Nəsə Çatışmır? {#something-missing}
 
-If some common scenario is not covered, please let us know on the [issue tracker](https://github.com/reactjs/reactjs.org/issues) for the documentation website.
+Əgər hər hansı ümumi ssenari əhatə olunmayıbsa, sənədlər səhifəsinin [issue tracker-indən](https://github.com/reactjs/reactjs.org/issues) bizə yazın.
