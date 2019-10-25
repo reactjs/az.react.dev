@@ -106,7 +106,7 @@
       title: JS Mühitinin Tələbləri
     - id: glossary
       title: Lüğət
-- title: Hooklar (Yeni)
+- title: Hooklar
   isOrdered: true
   items:
       - id: hooks-intro
@@ -114,9 +114,9 @@
       - id: hooks-overview
         title: Hooklar Bir Baxışda
       - id: hooks-state
-        title: State Hookunun İşlənməsi
+        title: State Hookunun İstifadəsi
       - id: hooks-effect
-        title: Effect Hookunun İşlənməsi
+        title: Effect Hookunun İstifadəsi
       - id: hooks-rules
         title: Hookların Qaydaları
       - id: hooks-custom
