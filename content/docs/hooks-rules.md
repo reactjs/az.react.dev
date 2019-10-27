@@ -98,7 +98,7 @@ useEffect(updateTitle)     // 4. Səhifə başlığını yeniləmək üçün eff
 // ...
 ```
 
-Hook çağırışlarının sırasını eyni qaldığından React eyni state-i lokal dəyişənə təyin edə bilir. Hook çağırışını şərtin daxilində yazdıqda nə baş verir (məsələn, `persistForm` effekti)?
+Hook çağırışlarının sırasının eyni qaldığından React, eyni state-i lokal dəyişənə təyin edə bilir. Hook çağırışını şərtin daxilində yazdıqda nə baş verir (məsələn, `persistForm` effekti)?
 
 ```js
   // 🔴 Hooku şərt daxilində işlədərək birinci qaydanı pozuruq
@@ -109,7 +109,7 @@ Hook çağırışlarının sırasını eyni qaldığından React eyni state-i lo
   }
 ```
 
-İlk render üçün `name !== ''` şərti `true`-a bərabər olduğundan biz bu Hooku çağırırıq. Lakin, sonrakı render zamanı anket sahəsini silərək şərti `false`-a bərabər edə bilər. İndi render zamanı Hooku atladığımızdan, Hook çağırışlarının sırası dəyişir:
+İlk render üçün `name !== ''` şərti `true`-a bərabər olduğundan biz bu Hooku çağırırıq. Lakin, istifadəçi anket sahəsini sildikdə sonrakı render zamanı verilən şərt `false`-a bərabər olur. İndi, render zamanı Hooku atladığımızdan Hook çağırışlarının sırası dəyişir:
 
 ```js
 useState('Abbas')           // 1. "name" state dəyişənini oxuyun (arqument artıq işlədilmir)
@@ -118,9 +118,9 @@ useState('Qəhrəmanov')      // 🔴 2 (3 yox). "surname" state dəyişəni oxu
 useEffect(updateTitle)      // 🔴 3 (4 yox). Effekt əvəz olunmadı
 ```
 
-React `useState` Hook çağırışından nə qaytaracağını bilmir. React, əvvəlki render zamanı olduğu kimi ikinci Hookun `persistForm` effektinə uyğun gəldiyini gözləyir. Bu nöqtədən sonra atlanan Hookdan sonra gələn Hookların sırası bir növbə arxaya gedəcək. Bu baqlara səbəb olacaq.
+React, `useState` Hook çağırışından nə qaytarılacağını bilmir. React, əvvəlki render zamanı olduğu kimi ikinci Hookun `persistForm` effektinə uyğun gəldiyini gözləyir. Bu nöqtədən sonra atlanan Hookdan sonra gələn Hookların sırası bir növbə arxaya gedəcək. Bu, baqlara səbəb olacaq.
 
-**Bu səbəbdən Hooklar komponentlərin yuxarısında çağrılmalıdır.** Əgər effekti şərti çağırmaq istəyiriksə, bu şərti Hookun *daxilinə* əlavə etməliyik:
+**Bu səbəbdən Hooklar komponentlərin yuxarısında çağrılmalıdır.** Əgər effekti şərti çağırmaq istəyiriksə, bu şərti, Hookun *daxilinə* əlavə etməliyik:
 
 ```js
   useEffect(function persistForm() {
@@ -131,8 +131,8 @@ React `useState` Hook çağırışından nə qaytaracağını bilmir. React, əv
   });
 ```
 
-**Nəzərə alın ki, [təmin olunan lint qaydasını](https://www.npmjs.com/package/eslint-plugin-react-hooks) işlətdikdə bu problem haqqında fikirləşməyəcəksiniz.** Lakin, indi Hookların *niyə* belə işlədiyini bilirsiniz.
+**Nəzərə alın ki, [təmin olunan lint qaydasını](https://www.npmjs.com/package/eslint-plugin-react-hooks) işlətdikdə bu problem linter xətası qaytaracaq və sizə bu haqqda fikirləşməməyə imkan yaradacaq.** Buna baxmayaraq, indi Hookların *niyə* belə işlədiyini bilirsiniz.
 
 ## Sonrakı Addımlar {#next-steps}
 
-Axırki, biz indi [xüsusi Hookların yazılmasını](/docs/hooks-custom.html) öyrənə bilərik! Xüsusi Hooklar ilə React-in təmin etdiyi Hookları bir yerə yığıb öz abstraksiyanızı yarada bilər və fərqli komponentlər arasında işlənən eyni state-li məntiqi paylaşa bilərsiniz.
+Biz indi [xüsusi Hookların yazılmasını](/docs/hooks-custom.html) öyrənə bilərik! Xüsusi Hooklar ilə React-in təmin etdiyi Hookları bir yerə yığıb öz abstraksiyanızı yarada bilər və fərqli komponentlər arasında işlənən eyni state-li məntiqi paylaşa bilərsiniz.
