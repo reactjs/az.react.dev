@@ -429,7 +429,7 @@ ChatAPI.unsubscribeFromFriendStatus(300, handleStatusChange); // Sonuncu effekt 
 
 Bu davranış ilə ardıcıllıq təmin olunur və klas komponentlərində yeniləmə məntiqinin olmamasında yaranan baqların qarşısını alır.
 
-### Məsləhət: Effektəri Buraxaraq Performansın Optimallaşdırılması {#tip-optimizing-performance-by-skipping-effects}
+### Məsləhət: Effektləri Buraxaraq Performansın Optimallaşdırılması {#tip-optimizing-performance-by-skipping-effects}
 
 Bəzi hallarda, hər render etmədən sonra köhnə effeklərin təmizlənib yeni effektlərin tətbiqi performans problemləri yarada bilər. Klas komponentlərində bu problemləri həll etmək üçün `componentDidUpdate` funksiyasına `prevProps` və ya `prevState` əsasında əlavə müqayisə əlavə edirik:
 
