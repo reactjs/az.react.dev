@@ -18,7 +18,13 @@ Böyük buraxılışlarda yeni xüsusiyyətlər, istənilən buraxılışda isə
 
 Ən çox dərc edilən buraxılışlar kiçik buraxılışlardır.
 
+<<<<<<< HEAD
 ### Pozucu Dəyişikliklər {#breaking-changes}
+=======
+> This versioning policy does not apply to prerelease builds in the Next or Experimental channels. [Learn more about prereleases.](/docs/release-channels.html)
+
+### Breaking Changes {#breaking-changes}
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 
 Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, 2016-cı ilin Aprel ayında React 15, 2019-cu ilin Sentyabr ayında React 16 dərc edilib. React 17-nin isə 2019-dan tez dərc edilməsi gözlənilmir.
 
