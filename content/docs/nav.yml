@@ -8,6 +8,8 @@
       title: Yeni React Applikasiyası Yarat
     - id: cdn-links
       title: CDN Linkləri
+    - id: release-channels
+      title: Buraxılış Kanalları
 - title: Əsas Konsepsiyalar
   isOrdered: true
   items:
@@ -133,6 +135,19 @@
       title: Test Etmə Reseptləri
     - id: testing-environments
       title: Test Etmə Mühitləri
+- title: Konkurrent Modu (Eksperimental)
+  isOrdered: true
+  items:
+    - id: concurrent-mode-intro
+      title: Konkurrent Moda Giriş
+    - id: concurrent-mode-suspense
+      title: Məlumat Yüklənməsi üçün Suspense
+    - id: concurrent-mode-patterns
+      title: Konkurrent UI Həlləri
+    - id: concurrent-mode-adoption
+      title: Konkurrent Moda Uyğunlaşma
+    - id: concurrent-mode-reference
+      title: Konkurrent Modunun API Arayışı
 - title: İştirak Etmək
   items:
   - id: how-to-contribute
@@ -160,4 +175,8 @@
     - id: faq-versioning
       title: Versiya Qaydaları
     - id: faq-internals
+<<<<<<< HEAD
       title: Virtual DOM və React-in Daxili
+=======
+      title: Virtual DOM and Internals
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc

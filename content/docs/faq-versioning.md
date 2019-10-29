@@ -18,6 +18,8 @@ Böyük buraxılışlarda yeni xüsusiyyətlər, istənilən buraxılışda isə
 
 Ən çox dərc edilən buraxılışlar kiçik buraxılışlardır.
 
+Bu versiya qaydaları Next və Eksperimental kanallarda olan ön buraxılışları ehtiva etmir. [Ön buraxılışlar üçün buradan oxuyun.](/docs/release-channels.html)
+
 ### Pozucu Dəyişikliklər {#breaking-changes}
 
 Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, 2016-cı ilin Aprel ayında React 15, 2019-cu ilin Sentyabr ayında React 16 dərc edilib. React 17-nin isə 2019-dan tez dərc edilməsi gözlənilmir.

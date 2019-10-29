@@ -16,7 +16,7 @@ Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimallaşdır
 > Produksiyada profayl edə bilmək üçün React-də profayl etməyə imkan yaradan produksiya qurulması var.
 > Bu qurulma haqqında əlavə məlumat üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
-## İstifadəsi
+## İstifadəsi {#usage}
 
 React ağacının istənilən yerini profayl edə bilmək üçün istənilən yerə Profayler əlavə etmək mümkündür.
 Bu komponent iki prop qəbul edir: `id` (mətn) və `onRender` callback-i (funksiya). `onRender` callback-i ağacda olan həs hansı bir komponent, yeniliyi "commit" etdiyi zaman çağrılır.
@@ -72,7 +72,7 @@ render(
 >
 > `Profiler`-in yüngül komponent olduğuna baxmayaraq bu komponenti yalnız lazım olduqda işlədin. Bu komponentin hər istifadəsi CPU və yaddaşa ağırlıq verə bilər.
 
-## `onRender` Callback-i
+## `onRender` Callback-i {#onrender-callback}
 
 `Profiler` komponenti `onRender` funksiyası propunu tələb edir.
 Profayl olunan ağacda hər hansı bir komponent, yeniliyi "commit" etdikdə bu funksiya çağrılır.

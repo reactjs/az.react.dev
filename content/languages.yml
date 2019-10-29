@@ -26,7 +26,7 @@
 - name: Catalan
   translated_name: Català
   code: ca
-  status: 0
+  status: 1
 - name: Almanca
   translated_name: Deutsch
   code: de
