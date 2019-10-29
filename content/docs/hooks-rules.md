@@ -52,7 +52,7 @@ Gələcəkdə, biz bu plagini Create React App və digər toolkit-lərdə təmin
 
 ## İzahat {#explanation}
 
-Biz bir komponentdə bir neçə State və ya Effekt hookunun istifadə edilməsini [əvvəlki bölmələrdə öyrəndik](/docs/hooks-state.html#tip-using-multiple-state-variables):
+Biz bir komponentdə bir neçə State və ya Effect Hookunun istifadə edilməsini [əvvəlki bölmələrdə öyrəndik](/docs/hooks-state.html#tip-using-multiple-state-variables):
 
 ```js
 function Form() {
