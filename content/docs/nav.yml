@@ -175,8 +175,4 @@
     - id: faq-versioning
       title: Versiya Qaydaları
     - id: faq-internals
-<<<<<<< HEAD
       title: Virtual DOM və React-in Daxili
-=======
-      title: Virtual DOM and Internals
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
