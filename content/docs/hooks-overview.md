@@ -12,7 +12,7 @@ Hooklar [geriyə uyğundurlar](/docs/hooks-intro.html#no-breaking-changes). Bu s
 
 >Detallı İzahat
 >
->React-ə Hookları niyə etdiyimiz haqqda məlumat üçün [Motivasiya](/docs/hooks-intro.html#motivation) bölməsinə baxın.
+>React-ə Hookları niyə əlavə etdiyimiz haqqda məlumat üçün [Motivasiya](/docs/hooks-intro.html#motivation) bölməsinə baxın.
 
 **↑↑↑ Hər bölmə bu formalı sarı qutu ilə bitəcək.** Bu qutular, detallı məlumatlar üçün linklər təmin edəcəklər.
 
