@@ -1,17 +1,17 @@
 ---
 id: hooks-intro
-title: Introducing Hooks
+title: Hooklara Giriş
 permalink: docs/hooks-intro.html
 next: hooks-overview.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 ```js{4,5}
 import React, { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // "count" adlı state dəyişəni yaradın
   const [count, setCount] = useState(0);
 
   return (
@@ -25,18 +25,18 @@ function Example() {
 }
 ```
 
-This new function `useState` is the first "Hook" we'll learn about, but this example is just a teaser. Don't worry if it doesn't make sense yet!
+İlk öyrənəcəyimiz "Hook" yeni `useState` funksiyasıdır. Lakin, bu nümunə sadəcə icmal üçündür. Nəsə anlaşılmırsa narahat olmayın!
 
-**You can start learning Hooks [on the next page](/docs/hooks-overview.html).** On this page, we'll continue by explaining why we're adding Hooks to React and how they can help you write great applications.
+**Hooklar haqqında öyrənmək üçün [sonrakı səhifəyə](/docs/hooks-overview.html) baxın.** Bu səhifədə, Hookları React-ə niyə əlavə etdiyimizi izah edəcək və Hooklar ilə applikasiya yazmaq üçün faydalarından danışacağıq.
 
->Note
+>Qeyd
 >
->React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM.
->React Native supports Hooks since [the 0.59 release of React Native](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
+>Hookları dəstəkləyən ilk buraxılış React 16.8.0-dır. Yenilədiyiniz zaman, React DOM daxil olmaqla bütün paketləri yeniləməyi unutmayın.
+>Hooklar React Native-in [0.59-cu buraxılışından](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) dəstəklənir.
 
-## Video Introduction {#video-introduction}
+## Video Giriş {#video-introduction}
 
-At React Conf 2018, Sophie Alpert and Dan Abramov introduced Hooks, followed by Ryan Florence demonstrating how to refactor an application to use them. Watch the video here:
+React Conf 2018-də Sofi Alpert və Dan Abramov, Hookları tanıtdı. Rayn Florens isə applikasiyanı necə Hooklar ilə refaktorinq etmək haqqında danışdı. Videoya buradan baxa bilərsiniz:
 
 <br>
 
