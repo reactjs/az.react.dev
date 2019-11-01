@@ -122,7 +122,7 @@
       - id: hooks-rules
         title: Hookların Qaydaları
       - id: hooks-custom
-        title: Öz Hooklarınızın Yaradılması
+        title: Xüsusi Hookların Düzəldilməsi
       - id: hooks-reference
         title: Hookların API Arayışı
       - id: hooks-faq

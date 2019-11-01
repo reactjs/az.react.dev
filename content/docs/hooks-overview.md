@@ -1,6 +1,6 @@
 ---
 id: hooks-overview
-title: Hooklara Giriş
+title: Hooklar Bir Baxışda
 permalink: docs/hooks-overview.html
 next: hooks-state.html
 prev: hooks-intro.html
@@ -159,26 +159,26 @@ Hooklar ilə bir-birindən asılı olan yan effektləri (məsələn, abunəliyi 
 >
 >Effect Hooku haqqında əlavə məlumat üçün buna hərs olunmuş səhifəyə baxın: [Effect Hookunun İstifadəsi](/docs/hooks-effect.html).
 
-## ✌️ Rules of Hooks {#rules-of-hooks}
+## ✌️ Hookların Qaydaları {#rules-of-hooks}
 
-Hooks are JavaScript functions, but they impose two additional rules:
+Hookların JavaScript funksiyaları olmasına baxmayaraq əlavə iki qaydaya fikir vermək lazımdır:
 
-* Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
-* Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks -- your own custom Hooks. We'll learn about them in a moment.)
+* Hookları yalnız **komponentin yuxarısında yaradın**. Hookları tsikllar, şərtlər və ya funksiya daxilindən çağırmayın.
+* Hookları yalnız **React funksiya komponentlərindən** çağırın. Hookları sadə JavaScript funksiyalarından çağırmayın. (Hookları əlavə bir yerdə də yaratmaq olar -- öz Hooklarınızı yaratdıqda. Bu haqqda birazdan öyrənəcəyik.)
 
-We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically. We understand these rules might seem limiting or confusing at first, but they are essential to making Hooks work well.
+Bu qaydaları avtomatik tətbiq etmək üçün [linter plagini](https://www.npmjs.com/package/eslint-plugin-react-hooks) təmin edirik. İlk baxışda, bu qaydalar məhudlaşdırıcı və ya çaşdırı ola bilər. Lakin, Hookların düzgün işləməsi üçün bu qaydalar çox vacibdir.
 
->Detailed Explanation
+>Detallı İzahat
 >
->You can learn more about these rules on a dedicated page: [Rules of Hooks](/docs/hooks-rules.html).
+>Bu qaydalar haqqında əlavə məlumat üçün buna həsr olunmuş səhifəyə baxın: [Hookların Qaydaları](/docs/hooks-rules.html).
 
-## 💡 Building Your Own Hooks {#building-your-own-hooks}
+## 💡 Xüsusi Hookların Düzəldilməsi {#building-your-own-hooks}
 
-Sometimes, we want to reuse some stateful logic between components. Traditionally, there were two popular solutions to this problem: [higher-order components](/docs/higher-order-components.html) and [render props](/docs/render-props.html). Custom Hooks let you do this, but without adding more components to your tree.
+Bəzən, state-li məntiqi komponentlər arasında paylaşmaq istəyə bilərik. Normalda, bu problemi həll etmək üçün iki həll var idi: [yüksək dərəcəli komponentlər](/docs/higher-order-components.html) və [render propları](/docs/render-props.html). Xüsusi Hooklar ilə komponent ağacına komponent əlavə etmədən bu məntiq parçalarını paylaşa bilərsiniz.
 
-Earlier on this page, we introduced a `FriendStatus` component that calls the `useState` and `useEffect` Hooks to subscribe to a friend's online status. Let's say we also want to reuse this subscription logic in another component.
+Bu səhifənin əvvəlində, dostun onlayn statusuna abunə olmaq üçün `useState` və `useEffect` Hooklarını çağıran `FriendStatus` komponenti yaratdıq. Gəlin, abunəlik məntiqini digər komponentdə işlədək.
 
-First, we'll extract this logic into a custom Hook called `useFriendStatus`:
+İlk olaraq, mövcud məntiqi `useFriendStatus` adlı xüsusi Hooka köçürək:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -201,9 +201,9 @@ function useFriendStatus(friendID) {
 }
 ```
 
-It takes `friendID` as an argument, and returns whether our friend is online.
+Bu Hook, `friendID` dəyərini arqument kimi qəbul edib dostun onlayn statusunu qaytarır.
 
-Now we can use it from both components:
+İndi, biz bu Hooku bir neçə komponentdə istifadə edə bilərik:
 
 
 ```js{2}
@@ -213,7 +213,7 @@ function FriendStatus(props) {
   if (isOnline === null) {
     return 'Loading...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Onlayn' : 'Oflayn';
 }
 ```
 
@@ -222,26 +222,26 @@ function FriendListItem(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   return (
-    <li style={{ color: isOnline ? 'green' : 'black' }}>
+    <li style={{ color: isOnline ? 'yaşıl' : 'qara' }}>
       {props.friend.name}
     </li>
   );
 }
 ```
 
-The state of these components is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state -- so you can even use the same custom Hook twice in one component.
+Bu komponentlərin state-ləri tam ayrılır. Xüsusi Hooklar ilə state yox, *State-li məntiq* paylaşılır. Faktiki olaraq, hər Hook *çağırışının* ayrılmış state-i olduğundan eyni Hooku bir komponentdə bir neçə dəfə istifadə edə bilərsiniz.
 
-Custom Hooks are more of a convention than a feature. If a function's name starts with "`use`" and it calls other Hooks, we say it is a custom Hook. The `useSomething` naming convention is how our linter plugin is able to find bugs in the code using Hooks.
+Xüsusi Hooklar xüsusiyyət olmaq əvəzinə konvensiyadır. Biz, "`use`" ilə başlayan və digər Hookları çağıran funksiyaları Xüsusi Hooklar adlandırırıq. Təmin etdiyimiz linter plagini `useSomething` ad konvensiya əsasında Hooklarda olan baqları tapa bilir.
 
-You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. We are excited to see what custom Hooks the React community will come up with.
+Xüsusi Hooklar ilə anket idarəsi, animasiya, deklarativ abunəlik, taymerlər və digər ssenariləri əhatə etmək mümkündür.
 
->Detailed Explanation
+>Detallı İzahat
 >
->You can learn more about custom Hooks on a dedicated page: [Building Your Own Hooks](/docs/hooks-custom.html).
+>Xüsusi Hooklar haqqında əlavə məlumat üçün buna həsr olunmuş səhifəyə baxın: [Xüsusi Hookların Düzəldilməsi](/docs/hooks-custom.html).
 
-## 🔌 Other Hooks {#other-hooks}
+## 🔌 Digər Hooklar {#other-hooks}
 
-There are a few less commonly used built-in Hooks that you might find useful. For example, [`useContext`](/docs/hooks-reference.html#usecontext) lets you subscribe to React context without introducing nesting:
+Bu iki əsas Hookdan əlavə React-də bir neçə az işlədilən amma faydalı olan Hooklar var. Məsələn, [`useContext`](/docs/hooks-reference.html#usecontext) Hooku ilə React kontekstinə komponentlər yaratmadan abunə olmağa imkan yaradır:
 
 ```js{2,3}
 function Example() {
@@ -251,7 +251,7 @@ function Example() {
 }
 ```
 
-And [`useReducer`](/docs/hooks-reference.html#usereducer) lets you manage local state of complex components with a reducer:
+[`useReducer`](/docs/hooks-reference.html#usereducer) Hooku ilə mürəkkəb komponentlərdə lokal state-i reducer-lər ilə yaratmaq mümkündür:
 
 ```js{2}
 function Todos() {
@@ -259,14 +259,14 @@ function Todos() {
   // ...
 ```
 
->Detailed Explanation
+>Detallı İzahat
 >
->You can learn more about all the built-in Hooks on a dedicated page: [Hooks API Reference](/docs/hooks-reference.html).
+>React-də olan bütün Hooklar haqqında əlavə məlumat üçün buna həsr olunmuş səhifəyə baxın: [Hookların API Arayışı](/docs/hooks-reference.html).
 
-## Next Steps {#next-steps}
+## Sonrakı Addımlar {#next-steps}
 
-Phew, that was fast! If some things didn't quite make sense or you'd like to learn more in detail, you can read the next pages, starting with the [State Hook](/docs/hooks-state.html) documentation.
+Phew, bu tez oldu! Əgər Hooklar haqqında anlaşılmaz hissələr qaldısa, bu haqqda sonrakı səhifələrdən detallı məlumat üçün [State Hooku](/docs/hooks-state.html) sənədi ilə başlayaraq sonrakı səhifələrə baxa bilərsiniz.
 
-You can also check out the [Hooks API reference](/docs/hooks-reference.html) and the [Hooks FAQ](/docs/hooks-faq.html).
+Əlavə olaraq [Hookların API arayışı](/docs/hooks-reference.html) və [Hooklar FAQ](/docs/hooks-faq.html) səhifələrinə baxa bilərsiniz.
 
-Finally, don't miss the [introduction page](/docs/hooks-intro.html) which explains *why* we're adding Hooks and how we'll start using them side by side with classes -- without rewriting our apps.
+Əlavə olaraq Hookları *niyə* əlavə etdiyimizin izahatı və applikasiyanı yenidən yazmadan Hooklar ilə klas komponentlərini eyni zamanda necə istifadə edilməsi haqqda məlumat almaq üçün [giriş səhifəsinə](/docs/hooks-intro.html) baxın.
