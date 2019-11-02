@@ -42,33 +42,33 @@ React Conf 2018-də Sofi Alpert və Dan Abramov, Hookları tanıtdı. Rayn Flore
 
 <iframe width="650" height="366" src="//www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allowfullscreen></iframe>
 
-## No Breaking Changes {#no-breaking-changes}
+## Pozucu Dəyişikliklər Yoxdur {#no-breaking-changes}
 
-Before we continue, note that Hooks are:
+Davam etmədən öncə aşağıdakı qeydləri nəzərə alın:
 
-* **Completely opt-in.** You can try Hooks in a few components without rewriting any existing code. But you don't have to learn or use Hooks right now if you don't want to.
-* **100% backwards-compatible.** Hooks don't contain any breaking changes.
-* **Available now.** Hooks are now available with the release of v16.8.0.
+* **Hooklar tam fakultativdir.** Heç bir mövcud kodu yenidən yazmadan Hookları sınaya bilərsiniz. Əgər Hookları öyrənmək və ya işlətmək istəmirsinizsə, Hooklar kodunuzu köhnə üsulda yazmağa davam edə bilərsiniz.
+* **100% geriyə uyğundur.** Hooklarda heç bir pozucu dəyişiklik yoxdur.
+* **İndi mövcuddur.** Hooklar v16.8.0-dan başlayaraq mövcuddur.
 
-**There are no plans to remove classes from React.** You can read more about the gradual adoption strategy for Hooks in the [bottom section](#gradual-adoption-strategy) of this page.
+**React klaslarını silmək haqqında heç bir planımız yoxdur.** Bu səhifənin [aşağı bölməsində](#gradual-adoption-strategy) Hookların tədrici adaptasiya stategiyası haqqında məlumat ala bilərsiniz.
 
-**Hooks don't replace your knowledge of React concepts.** Instead, Hooks provide a more direct API to the React concepts you already know: props, state, context, refs, and lifecycle. As we will show later, Hooks also offer a new powerful way to combine them.
+**Hooklar, bildiyiniz React konsepsiyalarını əvəz etmir.** Əvəzinə, Hooklar ilə bildiyiniz React konsepsiyalarını (proplar, state, kontekst, ref-lər, və lifecycle) daha düz API ilə istifadə edə bilərsiniz. Sonra göstərəcəyimiz kimi Hooklar ilə bu xüsusiyyətləri daha güclü formada kombinə etmək mümkündür.
 
-**If you just want to start learning Hooks, feel free to [jump directly to the next page!](/docs/hooks-overview.html)** You can also keep reading this page to learn more about why we're adding Hooks, and how we're going to start using them without rewriting our applications.
+**Hookları öyrənmək istəyirsinizsə, [birbaşa sonrakı səhifəyə atlayın!](/docs/hooks-overview.html)** Əgər Hookların niyə əlavə olunduğu haqqda məlumat almaq və mövcud applikasiyaları yenidən yazmadan Hookları necə istifadə edəyəcimizi bilmək istəyirsinizsə, bu səhifəni oxumağa davam edin.
 
-## Motivation {#motivation}
+## Motivasiya {#motivation}
 
-Hooks solve a wide variety of seemingly unconnected problems in React that we've encountered over five years of writing and maintaining tens of thousands of components. Whether you're learning React, use it daily, or even prefer a different library with a similar component model, you might recognize some of these problems.
+Hooklar, son beş ildə on minlərlə komponenti yazdığımız zaman qarşılaşdığımız bir çox bir-birindən asılı olmayan problemləri həll edir. React-i öyrənirsinizsə, hər gün işlədirsinizsə və ya oxşar komponent modeli əsasında qurulmuş fərqli kitabxanaya üstünlük verirsinizsə, siz bu problemlər ilə qarşılaşmısınız.
 
-### It's hard to reuse stateful logic between components {#its-hard-to-reuse-stateful-logic-between-components}
+### State-li məntiqi komponentlər arası paylaşmaq çətindir {#its-hard-to-reuse-stateful-logic-between-components}
 
-React doesn't offer a way to "attach" reusable behavior to a component (for example, connecting it to a store). If you've worked with React for a while, you may be familiar with patterns like [render props](/docs/render-props.html) and [higher-order components](/docs/higher-order-components.html) that try to solve this. But these patterns require you to restructure your components when you use them, which can be cumbersome and make code harder to follow. If you look at a typical React application in React DevTools, you will likely find a "wrapper hell" of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions. While we could [filter them out in DevTools](https://github.com/facebook/react-devtools/pull/503), this points to a deeper underlying problem: React needs a better primitive for sharing stateful logic.
+React ilə paylaşıa bilən davranışları komponentə "qoşmaq" mümkün deyil (məsələn, qlobla store-a qoşulmaq). React ilə işlədiyiniz zaman bu problemləri həə etmək üçün [render propları](/docs/render-props.html) və [yüksək dərəcəli komponentlər](/docs/higher-order-components.html) yollar ilə tanış olmusunuz. Lakin, bu yolları işlətdikdə komponentlərin strukturunu dəyişmək lazım olur. Bu yolu tətbiq etmək vaxt alır və kodu izləməyi çətinləşdirir. Normal React applikasiyasına React DevTools-dan baxdıqda çox gümanki komponentləri əhatə edən provayderlər, istehlakçılar, yüksək dərəcəli komponentlər, render propları və digər abstraksiyaların yaratdığı "əhatə cəhənnəmi" ilə qarşılaşacaqsınız. Bu əhatə komponentlərini [DevTools-dan filtr etməyin mümkün olduğuna baxmayaraq](https://github.com/facebook/react-devtools/pull/503) burada daha dərin problemin olduğunu göstərir: React-dən state-li məntiqi paylaşmaq üçün daha yazşı primitiv lazımdır.
 
-With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. **Hooks allow you to reuse stateful logic without changing your component hierarchy.** This makes it easy to share Hooks among many components or with the community.
+Hooklar ilə state-li məntiqi komponentdən ixrac edib müstəqil test edə bilmək və yenidən istifadə edə bilmək mümkündür. **Hooklar ilə komponetn iyerarxiyasını dəyişmədən state-li məntiqi paylaşmaq mümkündür.** Bu, Hookların komponentlər arasında və ya cəmiyyətdə paylaşılmasını asanlaşdırır.
 
-We'll discuss this more in [Building Your Own Hooks](/docs/hooks-custom.html).
+Biz bu haqqda [Xüsusi Hooklar](/docs/hooks-custom.html) bölməsində daha ətraflı danışacağıq.
 
-### Complex components become hard to understand {#complex-components-become-hard-to-understand}
+### Mürəkkəb komponentləri başa düşmək çətindir {#complex-components-become-hard-to-understand}
 
 We've often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects. Each lifecycle method often contains a mix of unrelated logic. For example, components might perform some data fetching in `componentDidMount` and `componentDidUpdate`. However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`. Mutually related code that changes together gets split apart, but completely unrelated code ends up combined in a single method. This makes it too easy to introduce bugs and inconsistencies.
 
