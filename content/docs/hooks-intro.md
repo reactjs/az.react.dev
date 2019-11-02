@@ -70,13 +70,13 @@ Biz bu haqqda [Xüsusi Hooklar](/docs/hooks-custom.html) bölməsində daha ətr
 
 ### Mürəkkəb komponentləri başa düşmək çətindir {#complex-components-become-hard-to-understand}
 
-We've often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects. Each lifecycle method often contains a mix of unrelated logic. For example, components might perform some data fetching in `componentDidMount` and `componentDidUpdate`. However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`. Mutually related code that changes together gets split apart, but completely unrelated code ends up combined in a single method. This makes it too easy to introduce bugs and inconsistencies.
+Bir çox zaman, komponentlərin sadə başlamasına baxmayaraq böyüyərək state-li məntiq və yan effektlər qarışıqlığı ilə rastlaşmışıq. Hər lifecyle funksiyasında bir-biri ilə əlaqəli olmayan məntiqlər yerləşdirilirdi. Məsələn, komponentlər `componentDidMount` və `componentDidUpdate` funksiyalarından məlumat yükləyə bilməkdən əlavə `componentDidMount` funksiyasında əvvəlki əməliyyata aidiyyatı olmayan hadisə işləyicilərini quraşdıran məntiqlər, `componentWillUnmount` funksiyasında bu hadisə işləyicilərini silən təmizlik əməliyyatları ola bilər. Bir-birinə aid olan kodlar parçalanır, bir-birinə aid olmayan kodlar isə eyni funksiyada yığılır. Bu, baqları və uyğunsuzluqların şansını artırır.
 
-In many cases it's not possible to break these components into smaller ones because the stateful logic is all over the place. It's also difficult to test them. This is one of the reasons many people prefer to combine React with a separate state management library. However, that often introduces too much abstraction, requires you to jump between different files, and makes reusing components more difficult.
+Bir çox ssenaridə state-li məntiqin hər yerdə olduğundan bu komponentləri kiçik hissələrə ayırmaq mümkün olmur. Əlavə olaraq komponentləri test etmək çətinləşir. Bu, React-i kənar state idarəsi kitabxanası ilə işlətməyin səbəblərindən biridir. Lakin, kənar state idarəsi kitabxanaları çox abstraksiya əlavə edir, bir neçə fayl arasında atlamaq məcburiyyəti yaradır və komponentlərin yenidən istifadəsini çətinləşdirir.
 
-To solve this, **Hooks let you split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data)**, rather than forcing a split based on lifecycle methods. You may also opt into managing the component's local state with a reducer to make it more predictable.
+Bu problemləri həll etmək üçün **Hooklar ilə komponentin bir-biri ilə əlaqəli bloklarını (məsələn, abunəliyin quraşdırılması və ya məlumatın yüklənməsi)** lifecycle metodları əsasında parçalamaq əvəzinə **kiçik funksiyalara ayırmaq mümkündür**. Əlavə olaraq, komponentin lokal state-ini reducer ilə idarə edə bilərsiniz.
 
-We'll discuss this more in [Using the Effect Hook](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns).
+Biz bu haqqda [Effekt Hookunun İstifadəsi](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) səhifəsində dərindən danışacağıq.
 
 ### Classes confuse both people and machines {#classes-confuse-both-people-and-machines}
 
