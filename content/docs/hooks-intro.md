@@ -102,10 +102,10 @@ We also understand that the bar for adding a new primitive to React is extremely
 
 We intend for Hooks to cover all existing use cases for classes, but **we will keep supporting class components for the foreseeable future.** At Facebook, we have tens of thousands of components written as classes, and we have absolutely no plans to rewrite them. Instead, we are starting to use Hooks in the new code side by side with classes.
 
-## Frequently Asked Questions {#frequently-asked-questions}
+## Çox Verilən Suallar {#frequently-asked-questions}
 
-We've prepared a [Hooks FAQ page](/docs/hooks-faq.html) that answers the most common questions about Hooks.
+Hooklar haqqında ümumi sualları cavablandırmaq üçün [Hooklar FAQ səhifəsini](/docs/hooks-faq.html) yaratdıq.
 
-## Next Steps {#next-steps}
+## Sonrakı Addımlar {#next-steps}
 
-By the end of this page, you should have a rough idea of what problems Hooks are solving, but many details are probably unclear. Don't worry! **Let's now go to [the next page](/docs/hooks-overview.html) where we start learning about Hooks by example.**
+Bu səhifənin sonunda Hookların hansı problemləri həll etdiyi haqqda ümumi ideyanız olacaq. Lakin, bir çox detallar hələ də aydın olmaya bilər. Narahat olmayın! **[Sonrakı səhifədə](/docs/hooks-overview.html) Hookları nümunələrə baxaraq öyrənəcəyik.**
