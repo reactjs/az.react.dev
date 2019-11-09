@@ -1,16 +1,16 @@
 ---
 id: hooks-custom
-title: Building Your Own Hooks
+title: Xüsusi Hookların Düzəldilməsi
 permalink: docs/hooks-custom.html
 next: hooks-reference.html
 prev: hooks-rules.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
-Building your own Hooks lets you extract component logic into reusable functions.
+Xüsusi Hookları düzəldərək komponent məntiqini yenidən istifadə oluna bilən funksiyalara ixrac etmək mümkündür.
 
-When we were learning about [using the Effect Hook](/docs/hooks-effect.html#example-using-hooks-1), we saw this component from a chat application that displays a message indicating whether a friend is online or offline:
+[Effect Hookunun İstifadəsini](/docs/hooks-effect.html#example-using-hooks-1) öyrəndiyimiz zaman çat applikasiyasında dostun onlayn və ya oflayn olduğunu mesaj ilə göstərmək üçün istifadə olunan komponentə baxdıq:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -30,13 +30,13 @@ function FriendStatus(props) {
   });
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Yüklənir...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Onlayn' : 'Oflayn';
 }
 ```
 
-Now let's say that our chat application also has a contact list, and we want to render names of online users with a green color. We could copy and paste similar logic above into our `FriendListItem` component but it wouldn't be ideal:
+Gəlin, kontakt siyahısının olduğunu və onlayn istifadəçiləri yaşıl rəngdə göstərmək istədiyimizi fərz edək. Yuxarıdakı kodu `FriendListItem` komponentinə kopiyalaya bilərik. Lakin, bu ideal olmayacaq:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -63,9 +63,9 @@ function FriendListItem(props) {
 }
 ```
 
-Instead, we'd like to share this logic between `FriendStatus` and `FriendListItem`.
+Əvəzinə, biz eyni məntiqi `FriendStatus` və `FriendListItem` komponentləri arasında paylaşmaq istəyirik.
 
-Traditionally in React, we've had two popular ways to share stateful logic between components: [render props](/docs/render-props.html) and [higher-order components](/docs/higher-order-components.html). We will now look at how Hooks solve many of the same problems without forcing you to add more components to the tree.
+React-də state-li məntiqi komponentlər arasında paylaşmaq üçün iki məşhur üsul var: [render propları](/docs/render-props.html) və [yüksək dərəcəli komponentlər](/docs/higher-order-components.html). Bu sənəddə, Hooklar ilə komponent ağacına yeni komponentlər əlavə etmədən bir çox problemi necə həll edə biləcəyimizə baxacağıq.
 
 ## Extracting a Custom Hook {#extracting-a-custom-hook}
 
