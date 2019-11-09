@@ -78,29 +78,29 @@ Bu problemləri həll etmək üçün **Hooklar ilə komponentin bir-biri ilə ə
 
 Biz bu haqqda [Effekt Hookunun İstifadəsi](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) səhifəsində dərindən danışacağıq.
 
-### Classes confuse both people and machines {#classes-confuse-both-people-and-machines}
+### Klaslar həm insanları həm də maşınları çaşdırır {#classes-confuse-both-people-and-machines}
 
-In addition to making code reuse and code organization more difficult, we've found that classes can be a large barrier to learning React. You have to understand how `this` works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers. Without unstable [syntax proposals](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/), the code is very verbose. People can understand props, state, and top-down data flow perfectly well but still struggle with classes. The distinction between function and class components in React and when to use each one leads to disagreements even between experienced React developers.
+Klasların kodun yenidən istifadəsini və kod təşkilini çətinləşdirməsindən əlavə React-i öyrənmək üçün böyük baryer yaradır. Klasları anlamaq üçün JavaScript-də `this`-in necə işlədiyini (digər dillərdə `this`-in işləməsindən fərqlidir) anlamaq lazımdır. Hadisə işləyicilərini bind etməyi unutmamaq lazımdır. Stabil olmayan [sintaksis təklifini](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) işlətmədikdə kodun oxunuşu çətinləşir. Proqramçılar propları, state-i və yuxarıdan aşağı məlumat axınını öyrənməkdə heç bir problem yaşamadıqlarına baxmayaraq klasları anlamaqda çətinlik çəkirlər. React-də funksiya və klas komponentlərinin fərqi və hansı komponent tipini işlətmək hətta təcrübəli React proqramçılarında fikir müxtəlifliyi yaradır.
 
-Additionally, React has been out for about five years, and we want to make sure it stays relevant in the next five years. As [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), and others show, [ahead-of-time compilation](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) of components has a lot of future potential. Especially if it's not limited to templates. Recently, we've been experimenting with [component folding](https://github.com/facebook/react/issues/7323) using [Prepack](https://prepack.io/), and we've seen promising early results. However, we found that class components can encourage unintentional patterns that make these optimizations fall back to a slower path. Classes present issues for today's tools, too. For example, classes don't minify very well, and they make hot reloading flaky and unreliable. We want to present an API that makes it more likely for code to stay on the optimizable path.
+Əlavə olaraq, React artıq beş ildir ki mövcuddur və biz bunun gələcək beş ildə də müvafiq qalmasını istəyirik. [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/) və digər kitabxanaların göstərdiyi kimi komponentlərin [öncədən kompilyasiyanın](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) və şablon ilə məhdudlaşmamasının gələcəkdə böyük potensiyalı var. Bu yaxınlarda, [Prepack](https://prepack.io/) ilə [komponenent qatlanmasını (folding)](https://github.com/facebook/react/issues/7323) eksperiment etməyə başlayaraq erkən nəticələrin ümidli olduğunu görürük. Lakin, klas komponentlərin istənilməz pattern-ləri təşviq edərək bu optimallaşmaları etibarsız edə bilir. Klaslar bugünün alətləri üçün də problemlər yaradır. Məsələn, klaslar yaxşı minimallaşmır və isti yenidən yüklənməni etibarsız edir. Biz, kodun optimallaşa bilən yolda olması üçün API təqdim etmək istəyirik.
 
-To solve these problems, **Hooks let you use more of React's features without classes.** Conceptually, React components have always been closer to functions. Hooks embrace functions, but without sacrificing the practical spirit of React. Hooks provide access to imperative escape hatches and don't require you to learn complex functional or reactive programming techniques.
+Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlərini klaslarsız istifadə edə bilərsiniz.** Konseptual olaraq React komponentləri hər zaman funksiyalara yaxın olurlar. Hooklar ilə React-in praktiki ruhunu fəda etmədən funksiyaları işlədə bilirik. Hooklar ilə mürəkkəb funksional və ya reaktiv proqramlaşdırma texnikalarına tələb olmadan imperativ çıxış yollarından istifadə etmək mümkündür.
 
->Examples
+>Nümunələr
 >
->[Hooks at a Glance](/docs/hooks-overview.html) is a good place to start learning Hooks.
+>Hookları öyrənmək üçün [Hookların İcmalı](/docs/hooks-overview.html) bölməsindən başlamağı tövsiyyə edirik.
 
-## Gradual Adoption Strategy {#gradual-adoption-strategy}
+## Tədrici Adaptasiya Strategiyası {#gradual-adoption-strategy}
 
->**TLDR: There are no plans to remove classes from React.**
+>**Qısacası, React-dən klasları silmək üçün heç bir planımız yoxdur.**
 
-We know that React developers are focused on shipping products and don't have time to look into every new API that's being released. Hooks are very new, and it might be better to wait for more examples and tutorials before considering learning or adopting them.
+React proqramçıları üçün məhsulların buraxılışını etmək hər yeni çıxan API-ı öyrənməkdən daha vacibdir. Hookların çox yeni olduğundan daha çox nümunələri və dərslikləri gözləmək daha faydalı ola bilər.
 
-We also understand that the bar for adding a new primitive to React is extremely high. For curious readers, we have prepared a [detailed RFC](https://github.com/reactjs/rfcs/pull/68) that dives into motivation with more details, and provides extra perspective on the specific design decisions and related prior art.
+Həmçinin, biz React-ə yeni primitivin əlavə edilməsinin çox böyük dəyişiklik olduğunu bilirik. Maralanan oxuyucular üçün biz [detallı RFC](https://github.com/reactjs/rfcs/pull/68) təqdim edirik. Bu RFC-də motivasiya haqqında daha detallı danışır və və xüsusi dizayn qərarından və buna aid olan resursları paylaşırıq.
 
-**Crucially, Hooks work side-by-side with existing code so you can adopt them gradually.** There is no rush to migrate to Hooks. We recommend avoiding any "big rewrites", especially for existing, complex class components. It takes a bit of a mindshift to start "thinking in Hooks". In our experience, it's best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. After you give Hooks a try, please feel free to [send us feedback](https://github.com/facebook/react/issues/new), positive or negative.
+**Hookslar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən yazmalara," xüsusilə də mövcud mürəkkəb klasların yenidən yazılmalarını tövsiyyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponenlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
 
-We intend for Hooks to cover all existing use cases for classes, but **we will keep supporting class components for the foreseeable future.** At Facebook, we have tens of thousands of components written as classes, and we have absolutely no plans to rewrite them. Instead, we are starting to use Hooks in the new code side by side with classes.
+Hooklar ilə klaslarda olan bütün metodları əhatə etmək istəməyimizə baxmayaraq **uzaq gələcəyə kimi klas komponentlərini dəstəkləmək istəyirik.** Facebook-da bizim klaslar ilə yazılmış on minlərlə komponentlərimiz var və bizim bu komponentləri yenidən yazmağa heç bir planımız yoxdur. Əvəzinə, biz yeni kodları klasları ilə yanaşı Hooklar ilə yazırıq.
 
 ## Çox Verilən Suallar {#frequently-asked-questions}
 
