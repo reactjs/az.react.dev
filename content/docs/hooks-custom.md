@@ -67,11 +67,11 @@ function FriendListItem(props) {
 
 React-də state-li məntiqi komponentlər arasında paylaşmaq üçün iki məşhur üsul var: [render propları](/docs/render-props.html) və [yüksək dərəcəli komponentlər](/docs/higher-order-components.html). Bu sənəddə, Hooklar ilə komponent ağacına yeni komponentlər əlavə etmədən bir çox problemi necə həll edə biləcəyimizə baxacağıq.
 
-## Extracting a Custom Hook {#extracting-a-custom-hook}
+## Xüsusi Hookun İxracı {#extracting-a-custom-hook}
 
-When we want to share logic between two JavaScript functions, we extract it to a third function. Both components and Hooks are functions, so this works for them too!
+İki JavaScript funksiyası arasında məntiq paylaşmaq istədikdə bu məntiqi üçüncü funksiyaya ixrc edirik. Komponent və Hookların funksiya olduğundan eyni məntiq bu primitivlərə də aiddir!
 
-**A custom Hook is a JavaScript function whose name starts with "`use`" and that may call other Hooks.** For example, `useFriendStatus` below is our first custom Hook:
+**Adı "`use`" ilə başlayan və digər Hookları çağıran JavaScript funksiyası xüsusi Hook adlanır.** Məsələn, aşağıdakı `useFriendStatus` funksiyası bizim ilk xüsusi Hookumuzdur:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -94,11 +94,11 @@ function useFriendStatus(friendID) {
 }
 ```
 
-There's nothing new inside of it -- the logic is copied from the components above. Just like in a component, make sure to only call other Hooks unconditionally at the top level of your custom Hook.
+Bu funksiyada heç bir yenilik yoxdur -- yuxarıdakı komponentlərdə olan məntiq bura köçürülüb. Komponentdə olduğu kimi xüsusi Hooklarda olan digər Hook çağırışlarını şərtsiz və funksiyanın yuxarısında yazın.
 
-Unlike a React component, a custom Hook doesn't need to have a specific signature. We can decide what it takes as arguments, and what, if anything, it should return. In other words, it's just like a normal function. Its name should always start with `use` so that you can tell at a glance that the [rules of Hooks](/docs/hooks-rules.html) apply to it.
+React komponentindən fərqli olaraq xüsusi Hookun xüsusi imzası olmamalıdır. Arqument kimi nə qəbul edəcəyinə və nə qaytaracağına (əgər qaytaracaqsa) biz qərar veririk. Digər sözlə, bu sadə funksiyadır. [Hookların qaydalarının](/docs/hooks-rules.html) bu funksiyaya tətbiq olunması üçün bu funksiyanın adı `use` ilə başlamalıdır.
 
-The purpose of our `useFriendStatus` Hook is to subscribe us to a friend's status. This is why it takes `friendID` as an argument, and returns whether this friend is online:
+`useFriendStatus` Hookunun məqsədi dostun statusuna abunə olmaqdır. Bu səbəbdən, bu Hook, arqument kimi `friendID` dəyərini qəbul edir və dostun onlayn olmasını qaytarır:
 
 ```js
 function useFriendStatus(friendID) {
@@ -110,22 +110,22 @@ function useFriendStatus(friendID) {
 }
 ```
 
-Now let's see how we can use our custom Hook.
+İndi, gəlin xüsusi Hookumuzu işlədək.
 
-## Using a Custom Hook {#using-a-custom-hook}
+## Xüsusi Hookun İşlədilməsi {#using-a-custom-hook}
 
-In the beginning, our stated goal was to remove the duplicated logic from the `FriendStatus` and `FriendListItem` components. Both of them want to know whether a friend is online.
+Başlanğıcda, məqsədimiz kopiyalanmış məntiqi `FriendStatus` və `FriendListItem` komponentlərindən silmək idi. Hər iki komponent dostun onlayn olmasını bilmək istəyir.
 
-Now that we've extracted this logic to a `useFriendStatus` hook, we can *just use it:*
+Bu məntiqi `useFriendStatus` Hookuna ixrac etdiyimizdən biz bu Hooku *işlədə bilərik:*
 
 ```js{2}
 function FriendStatus(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Yüklənir...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Onlayn' : 'Oflayn';
 }
 ```
 
@@ -141,25 +141,25 @@ function FriendListItem(props) {
 }
 ```
 
-**Is this code equivalent to the original examples?** Yes, it works in exactly the same way. If you look closely, you'll notice we didn't make any changes to the behavior. All we did was to extract some common code between two functions into a separate function. **Custom Hooks are a convention that naturally follows from the design of Hooks, rather than a React feature.**
+**Bu kod orijinal nümunələr ilə eynidir?** Bəli, bu kod tam olaraq eyni işləyir. Yaxından baxdıqda, davranışa heç bir dəyişiklik etmədiyimizi görəcəksiniz. Sadəcə olaraq iki funksiya arasında olan ümumu kodu ayrı funksiyaya ixrac etdik. **Xüsusi Hooklar, React xüsusiyyəti deyil, əvəzinə Hookların dizaynını izləyərək yaranan konvensiyadır.**
 
-**Do I have to name my custom Hooks starting with “`use`”?** Please do. This convention is very important. Without it, we wouldn't be able to automatically check for violations of [rules of Hooks](/docs/hooks-rules.html) because we couldn't tell if a certain function contains calls to Hooks inside of it.
+**Xüsusi Hookları “`use`” başlayan adlar ilə adlandırım?** Xahiş edirik ki, belə edəsiniz. Bu konvensiya çox vacibdir. Ad belə belə olmadıqda [Hookların qaydalarının](/docs/hooks-rules.html) pozulmasını avtomatik olaraq yoxlaya bilməyəcəyik. Çünki, hansı funksiyaların daxilində Hookların olduğunu bilməyəcəyik.
 
-**Do two components using the same Hook share state?** No. Custom Hooks are a mechanism to reuse *stateful logic* (such as setting up a subscription and remembering the current value), but every time you use a custom Hook, all state and effects inside of it are fully isolated.
+**İki komponent eyni Hookun state-ini paylaşır?** Xeyr. Xüsusi Hookların *state-li məntiqi* (məsələn, abunəlik quraşdırıb cari dəyərini yadda saxlamaq kimi) paylaşmaq üçün mexaniz olmasına baxmayaraq xüsusi Hooku çağrıldıqda state və effektlər təcrid olunur.
 
-**How does a custom Hook get isolated state?** Each *call* to a Hook gets isolated state. Because we call `useFriendStatus` directly, from React's point of view our component just calls `useState` and `useEffect`. And as we [learned](/docs/hooks-state.html#tip-using-multiple-state-variables) [earlier](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns), we can call `useState` and `useEffect` many times in one component, and they will be completely independent.
+**Xüsusi Hook ilə state necə paylaşılmır?** Hər Hook *çağırışı* təcrid olunmuş state yaradır. `useFriendStatus` Hookunu birbaşa çağırdığımızdan React-in perspektivindən baxdıqda komponentlər `useState` və `useEffect` Hooklarını çağırırlar. [Əvvəl](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) [öyrəndiyimiz kimi](/docs/hooks-state.html#tip-using-multiple-state-variables) bir komponentdən `useState` və `useEffect` Hooklarını bir neçə dəfə çağıra bilərik.
 
-### Tip: Pass Information Between Hooks {#tip-pass-information-between-hooks}
+### Məsləhət: Hooklar Arasında Məlumatları Göndər {#tip-pass-information-between-hooks}
 
-Since Hooks are functions, we can pass information between them.
+Hookların funksiya olduğundan biz Hooklar arasında məlumat göndərə bilərik.
 
-To illustrate this, we'll use another component from our hypothetical chat example. This is a chat message recipient picker that displays whether the currently selected friend is online:
+Bubu göstərmək üçün çat nümunəmizə yeni komponent əlavə edəcəyik. Bu çat mesajını qəbul edəcək istifadəçini seçən komponent, istifadəçinin onlayn olacağını göstərir:
 
 ```js{8-9,13}
 const friendList = [
-  { id: 1, name: 'Phoebe' },
-  { id: 2, name: 'Rachel' },
-  { id: 3, name: 'Ross' },
+  { id: 1, name: 'Aysel' },
+  { id: 2, name: 'Aynur' },
+  { id: 3, name: 'Nazim' },
 ];
 
 function ChatRecipientPicker() {
@@ -184,16 +184,16 @@ function ChatRecipientPicker() {
 }
 ```
 
-We keep the currently chosen friend ID in the `recipientID` state variable, and update it if the user chooses a different friend in the `<select>` picker.
+Cari seçilmiş dost ID-ini `recipientID` adlı state dəyişənində saxlayır, istifadəçi `<select>` seçicisindən fərqli dostu seçdikdə isə bu state-i yeniləyirik.
 
-Because the `useState` Hook call gives us the latest value of the `recipientID` state variable, we can pass it to our custom `useFriendStatus` Hook as an argument:
+`useState` çağırışı ilə `recipientID` state dəyişəninin ən yeni dəyərini aldığımızdan bu dəyəri xüsusi `useFriendStatus` Hookuna arqument kimi göndərə bilərik:
 
 ```js
   const [recipientID, setRecipientID] = useState(1);
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-This lets us know whether the *currently selected* friend is online. If we pick a different friend and update the `recipientID` state variable, our `useFriendStatus` Hook will unsubscribe from the previously selected friend, and subscribe to the status of the newly selected one.
+Bunun ilə biz *cari seçilmiş* dostun onlayn olduğunu bilirik. Fərqli dost seçib `recipientID` state dəyişənini yenilədikdə `useFriendStatus` Hooku köhnə dostun onlayn statusundan abunəliyi silib yeni seçilmiş dostun onlayn statusuna abunə olacaq.
 
 ## `useYourImagination()` {#useyourimagination}
 
