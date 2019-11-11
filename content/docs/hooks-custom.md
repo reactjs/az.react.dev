@@ -197,11 +197,11 @@ Bunun ilə biz *cari seçilmiş* dostun onlayn olduğunu bilirik. Fərqli dost s
 
 ## `useYourImagination()` {#useyourimagination}
 
-Custom Hooks offer the flexibility of sharing logic that wasn't possible in React components before. You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. What's more, you can build Hooks that are just as easy to use as React's built-in features.
+Xüsusi Hooklar ilə məntiqləri paylaşmaq mümkündür. Xüsusi Hooklar ilə anket idarəsi, animasiya, deklarativ abunəliklər, taymerlər və bizim nəzərə almadığımız digər ssenariləri əhatə etmək mümkündür. Əlavə olaraq, yatatdığınız Hookları React xüsusiyyətləri kimi rahat işlədə bilərsiniz.
 
-Try to resist adding abstraction too early. Now that function components can do more, it's likely that the average function component in your codebase will become longer. This is normal -- don't feel like you *have to* immediately split it into Hooks. But we also encourage you to start spotting cases where a custom Hook could hide complex logic behind a simple interface, or help untangle a messy component.
+Abstraksiyaları öncədən əlavə etməkdən çəkinin. Funksiya komponentləri ilə çox problemləri həll etmək olur deyə standart funksiya komponentinin kodu daha uzun olacaq. Bu normaldır. Məntiqi dərhal ayırmaq *lazım deyil.* Lakin, xüsusi Hook ilə mürəkkəb məntiqi sadə interfeys arxasında gizlədə biləcək halları axtarmağı və qarışıq komponentləri sadələşdirməyi tövsiyyə edirik.
 
-For example, maybe you have a complex component that contains a lot of local state that is managed in an ad-hoc way. `useState` doesn't make centralizing the update logic any easier so you might prefer to write it as a [Redux](https://redux.js.org/) reducer:
+Məsələn, sizdə çoxlu lokal state-dən istifadə edən mürəkkəb komponent ola bilər. `useState` ilə yeniləmə məntiqini mərkəzləşdirmək çətin olduğundan bu state-ləri [Redux](https://redux.js.org/) reducer-i ilə işlədə bilərsiniz:
 
 ```js
 function todosReducer(state, action) {
@@ -218,9 +218,9 @@ function todosReducer(state, action) {
 }
 ```
 
-Reducers are very convenient to test in isolation, and scale to express complex update logic. You can further break them apart into smaller reducers if necessary. However, you might also enjoy the benefits of using React local state, or might not want to install another library.
+Reducer-ləri ayrılıqda test emək və reducer-lər ilə mürəkkəb yeniləmə məntiqini böyütmək daha rahatdır. Lazım olduqda, bir reducer-i bir neçə kiçik reducer-lərə də parçalaya bilərsiniz. Lakin, React-in lokal state-inin faydalarını bəyənə bilər və ya digər kitabxana yükləmək istəməyə bilərsiniz.
 
-So what if we could write a `useReducer` Hook that lets us manage the *local* state of our component with a reducer? A simplified version of it might look like this:
+Komponentin *lokal* state-ini reducer ilə idaraə etmək üçün `useReducer` Hooku yaza bilərik? Sadə formada bu funksiya aşağıdakı formada olacaq:
 
 ```js
 function useReducer(reducer, initialState) {
@@ -235,7 +235,7 @@ function useReducer(reducer, initialState) {
 }
 ```
 
-Now we could use it in our component, and let the reducer drive its state management:
+İndi, biz bu Hooku öz komponentimizdə istifadə edə bilər və reducer ilə state-i idarə edə bilərik:
 
 ```js{2}
 function Todos() {
@@ -249,4 +249,4 @@ function Todos() {
 }
 ```
 
-The need to manage local state with a reducer in a complex component is common enough that we've built the `useReducer` Hook right into React. You'll find it together with other built-in Hooks in the [Hooks API reference](/docs/hooks-reference.html).
+Mürəkkəb komponentdə lokal state-i reducer ilə idarə etmək çox lazım olduğundan biz `useReducer` Hookunu React-ə əlavə etmişik. Bu və digər daxili Hooklar haqqında əlavə məlumat almaq üçün [Hookların API arayışı](/docs/hooks-reference.html) sənədinə baxa bilərsiniz.
