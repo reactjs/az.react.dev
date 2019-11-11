@@ -33,33 +33,33 @@ Bu səhifədə React-in daxili Hooklarının API-ları təsvir edilir.
 const [state, setState] = useState(initialState);
 ```
 
-Returns a stateful value, and a function to update it.
+State dəyəri və bu dəyəri yeniləmək üçün funksiya qaytarır.
 
-During the initial render, the returned state (`state`) is the same as the value passed as the first argument (`initialState`).
+İlk render zamanı, qaytarılan state (`state`) ilk arqumentə göndərilən dəyərə (`initialState`) bərabərdir.
 
-The `setState` function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
+`setState` funksiyası state-i yeniləmək üçün işlədilir. Bu funksiya yeni state dəyəri qəbul edir və komponenti yeniden render etmə sırasına əlavə edir.
 
 ```js
 setState(newState);
 ```
 
-During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
+Sonrakı render etmələr zamanı `useState` funksiyasından qaytarılan dəyər ən yeni state dəyəri olacaq.
 
->Note
+>Qeyd
 >
->React guarantees that `setState` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+>React, `setState` funksiyasının identikliyinin stabil olmasını və yenidən render etmələr zamanı dəyişmədiyini siğortalayır. Bu səbəbdən, bu funksiyanı `useEffect` və ya `useCallback` Hooklarının asılılıq siyahısına əlavə etmək lazım deyil.
 
-#### Functional updates {#functional-updates}
+#### Funksional yeniliklər {#functional-updates}
 
-If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value. Here's an example of a counter component that uses both forms of `setState`:
+Yeni state-i əvvəlki state əsasında hesablamaq üçün `setState` funksiyasına funksiya göndərə bilərsiniz. Bu funksiya, əvvəlki state dəyərini arqument kimi qəbul edir və yenilənəcək dəyəri qaytarır. Aşağıdakı sayğac nümunəsində `setState` funksiyasının hər iki (funksiya və sadə) forması göstərilir:
 
 ```js
 function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-      Count: {count}
-      <button onClick={() => setCount(initialCount)}>Reset</button>
+      Say: {count}
+      <button onClick={() => setCount(initialCount)}>Sıfırla</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
     </>
@@ -67,24 +67,24 @@ function Counter({initialCount}) {
 }
 ```
 
-The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to the initial value.
+"+" və "-" düymələri tıklandıqda yeniliyin əvvəlki state-dən asılı olduğundan bu düymələrdə funksiya formasından istifadə edilir. Lakin, "Sıfırla" düyməsi sayğacın dəyərini ilkin dəyərə qaytardığından bu düymədə sadə formadan istifadə edilir.
 
-> Note
+> Qeyd
 >
-> Unlike the `setState` method found in class components, `useState` does not automatically merge update objects. You can replicate this behavior by combining the function updater form with object spread syntax:
+> Klas komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək klas komponentlərində olan state davranışını tətbiq edə bilərsiniz:
 >
 > ```js
 > setState(prevState => {
->   // Object.assign would also work
+>   // Burada Object.assign funksiyası da işləyəcək
 >   return {...prevState, ...updatedValues};
 > });
 > ```
 >
-> Another option is `useReducer`, which is more suited for managing state objects that contain multiple sub-values.
+> Digər yol, `useReducer` işlətməkdir. Bu Hook, bir neçə sub-dəyərdən asılı state obyektlərini idarə etmək üçün daha uyğundur.
 
-#### Lazy initial state {#lazy-initial-state}
+#### İlkin state-in "lazy" təyini {#lazy-initial-state}
 
-The `initialState` argument is the state used during the initial render. In subsequent renders, it is disregarded. If the initial state is the result of an expensive computation, you may provide a function instead, which will be executed only on the initial render:
+`initialState` arqumenti yalnız ilk render zamanı işlədilir. Sonrakı render etmələr zamanı bu dəyər işlədilmir. Əgər ilkin state bahalı hesablamanın nəticəsidirsə, ilkin dəyərə yalnız ilkin render zamanı çağrılan funksiya göndərə bilərsiniz:
 
 ```js
 const [state, setState] = useState(() => {
@@ -93,11 +93,11 @@ const [state, setState] = useState(() => {
 });
 ```
 
-#### Bailing out of a state update {#bailing-out-of-a-state-update}
+#### State yeniliyini atlamaq {#bailing-out-of-a-state-update}
 
-If you update a State Hook to the same value as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Əgər State Hooku cari dəyərinə bərabər dəyər ilə yeniləyirsinizsə, React, uşaqları render etmədən və effektləri çağırmadan bu yeniliyi atlayacaq. (React, [`Object.is` müqayisə arqumentindən](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description) istifadə edir.)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Nəzərə alın ki, React, yeniliyi atlamadan öncə spesifik komponenti render edə bilər. Bu davranışdan narahat olmaq lazım deyil. Çünki, React lazımsız yerə ağacın "dərinliyinə" getməyəcək. Əgər render zamanı bahalı hesablamalar edirsinizsə bu hesablamaları `useMemo` Hooku ilə optimallaşdıra bilərsiniz.
 
 ### `useEffect` {#useeffect}
 
