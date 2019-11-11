@@ -1,22 +1,22 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: Hookların API Arayışı
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
-This page describes the APIs for the built-in Hooks in React.
+Bu səhifədə React-in daxili Hooklarının API-ları təsvir edilir.
 
-If you're new to Hooks, you might want to check out [the overview](/docs/hooks-overview.html) first. You may also find useful information in the [frequently asked questions](/docs/hooks-faq.html) section.
+Əgər Hooklara yeni başlamısınızsa, [icmal səhifəsindən](/docs/hooks-overview.html) başlamağı tövsiyyə edirik. Əlavə olaraq, [çox verilən suallar](/docs/hooks-faq.html) bölməsindən faydalı məlumatlar ala bilərsiniz.
 
-- [Basic Hooks](#basic-hooks)
+- [Əsas Hooklar](#basic-hooks)
   - [`useState`](#usestate)
   - [`useEffect`](#useeffect)
   - [`useContext`](#usecontext)
-- [Additional Hooks](#additional-hooks)
+- [Əlavə Hooklar](#additional-hooks)
   - [`useReducer`](#usereducer)
   - [`useCallback`](#usecallback)
   - [`useMemo`](#usememo)
@@ -25,7 +25,7 @@ If you're new to Hooks, you might want to check out [the overview](/docs/hooks-o
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Basic Hooks {#basic-hooks}
+## Əsas Hooklar {#basic-hooks}
 
 ### `useState` {#usestate}
 
