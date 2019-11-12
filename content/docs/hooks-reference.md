@@ -105,45 +105,45 @@ Nəzərə alın ki, React, yeniliyi atlamadan öncə spesifik komponenti render 
 useEffect(didUpdate);
 ```
 
-Accepts a function that contains imperative, possibly effectful code.
+İmperativ və ola bilsin effektli kod ehtiva edən funksiya qəbul edir.
 
-Mutations, subscriptions, timers, logging, and other side effects are not allowed inside the main body of a function component (referred to as React's _render phase_). Doing so will lead to confusing bugs and inconsistencies in the UI.
+Mutasiyalar, abunəliklər, taymerlər, loqqinqlər və digər yan effektlərini funksiya komponentinin əsas gövdəsindən (digər sözlə React-in _render fazası_) çağırmaq olmaz. Bu, qarışıq baqlara və UI-da uyğunsuzluqlara səbəb ola bilər.
 
-Instead, use `useEffect`. The function passed to `useEffect` will run after the render is committed to the screen. Think of effects as an escape hatch from React's purely functional world into the imperative world.
+Əvəzinə `useEffect` Hookundan istifadə edin. `useEffect`-ə göndərilən funksiya, render olunan komponent ekranda göründükdən sonra çağrılacaq. Effektlərin React-in funksional dünyasından imperativ dünyaya açılan qapısı kimi fikirləşin.
 
-By default, effects run after every completed render, but you can choose to fire them [only when certain values have changed](#conditionally-firing-an-effect).
+Normalda, effetlər hər render olmadam sonra icra edilir. Lakin, siz [yalnız müəyyən dəyərlər dəyişəndə](#conditionally-firing-an-effect) effektləri icra edə bilərsiniz.
 
-#### Cleaning up an effect {#cleaning-up-an-effect}
+#### Effektin təmizlənməsi {#cleaning-up-an-effect}
 
-Often, effects create resources that need to be cleaned up before the component leaves the screen, such as a subscription or timer ID. To do this, the function passed to `useEffect` may return a clean-up function. For example, to create a subscription:
+Adətən, abunəlik və ya taymer kimi effektlər yarandıqda bu effektlər komponentlər silinmədən öncə təmizlənməlidir. `useEffect`-ə göndərilən funksiya təmizləmə funksiyası qaytararaq təmizlik işlərini icra edə bilər. Məsələn, abunəlik düzəltmək üçün:
 
 ```js
 useEffect(() => {
   const subscription = props.source.subscribe();
   return () => {
-    // Clean up the subscription
+    // Abunəliyi sil
     subscription.unsubscribe();
   };
 });
 ```
 
-The clean-up function runs before the component is removed from the UI to prevent memory leaks. Additionally, if a component renders multiple times (as they typically do), the **previous effect is cleaned up before executing the next effect**. In our example, this means a new subscription is created on every update. To avoid firing an effect on every update, refer to the next section.
+Yaddaş sızmalarının qabağını almaq üçün təmizləmə funksiyası komponent silinməmişdən öncə çağrılır. Əlavə olaraq, əgər komponent bir neçə dəfə render olunursa (normalda belə olur), **yeni effekt icra olunmamışdan öncə köhnə effekt silinəcək**. Göstərdiyimiz nümunədə hər yeniləmədən sonra yeni abunəlik yaranır. Effektlərin hər yenilik zamanı çağrılmaması üçün sonrakı bölməyə baxın.
 
-#### Timing of effects {#timing-of-effects}
+#### Effektlərin zamanı {#timing-of-effects}
 
-Unlike `componentDidMount` and `componentDidUpdate`, the function passed to `useEffect` fires **after** layout and paint, during a deferred event. This makes it suitable for the many common side effects, like setting up subscriptions and event handlers, because most types of work shouldn't block the browser from updating the screen.
+`componentDidMount` və `componentDidUpdate` metodlarından fərqli olaraq `useEffect`-ə göndərilən funksiya brauzer rənglənməsindən **sonra** (təxira salınmış hadisə ilə) çaqrılır. Bu səbəbə görə bir çox yan effetlərdən (abunəlik və hadisə işləyiciləri kimi) istifadə etmək mümkündür. Çünki, bu işlərinin çoxu brauzerin səhifəni render etməsinin qarşısını almamalıdır.
 
-However, not all effects can be deferred. For example, a DOM mutation that is visible to the user must fire synchronously before the next paint so that the user does not perceive a visual inconsistency. (The distinction is conceptually similar to passive versus active event listeners.) For these types of effects, React provides one additional Hook called [`useLayoutEffect`](#uselayouteffect). It has the same signature as `useEffect`, and only differs in when it is fired.
+Lakin, bütün effetlər təxirə salına bilmir. Məsələn, istifadəçinin vizual uyğunsuzluğu görməməsi üçün üçün istifadəçinin dərhal görəcəyi DOM mutasiyası sonrakı rənglənmədən öncə sinxron çağrılmalıdır. (Bu fərq, passiv və ya aktiv hadisə dinləyiciləri ilə konseptual olaraq eynidir.) Bu tip effektlər üçün React-də[`useLayoutEffect`](#uselayouteffect) adlı əlavə Hook mövcuddur. Bu Hookun imzası `useEffect` ilə eynidir. Bu iki Hook arasındakı əsas fərq effektlərin nə zaman çağrılması ilə əlaqəlidir.
 
-Although `useEffect` is deferred until after the browser has painted, it's guaranteed to fire before any new renders. React will always flush a previous render's effects before starting a new update.
+`useEffect` çağırışının brauzer rəngləndikdən sonraya təxirə salınmağına baxmayaraq bu Hookun yeni render etmədən öncə çağrılmasına zəmanat verilir. React həmişə yeni yenilik olmadan öncə köhnə render effektlərini çağıracaq.
 
-#### Conditionally firing an effect {#conditionally-firing-an-effect}
+#### Effektin şərti çağrılması {#conditionally-firing-an-effect}
 
-The default behavior for effects is to fire the effect after every completed render. That way an effect is always recreated if one of its dependencies changes.
+Normalda, effektlər hər render etmə zamanı çağrılırlar. Belə olduqda effekin asılıqlarından biri dəyişdikdə effekt yenidən yaranacaq.
 
-However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` props has changed.
+Lakin, əvvəlki bölmədə olan abunəlik nümunəsində olduğu kimi hallarda bu çox ola bilər. Biz, hər yenilikdən sonra abunəlik yaratmalı deyilik. Yalnız `source` propu dəyişdikdə yaratmaq bəsdir.
 
-To implement this, pass a second argument to `useEffect` that is the array of values that the effect depends on. Our updated example now looks like this:
+Bunu tətbiq etmək üçün `useEffect` Hookunun ikinci arqumentinə effektin asılı olduğu dəyərləri massiv şəklində göndərə bilərik. Bizim yeni nümunəmiz aşağıdakı formada olacaq:
 
 ```js
 useEffect(
@@ -157,20 +157,20 @@ useEffect(
 );
 ```
 
-Now the subscription will only be recreated when `props.source` changes.
+İndi, abunəlik yalnız `props.source` dəyişdikdə yenidən yaradılacaq.
 
->Note
+>Qeyd
 >
->If you use this optimization, make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. Learn more about [how to deal with functions](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) and what to do when the [array values change too often](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>Bu optimallaşmadan istifadə etdikdə massivdə **effektin istifadə etdiyi, vaxt ilə dəyişən və komponentin scope-unda olan (state və proplar kimi) bütün dəyərləri təyin edin**. Əks halda, kodunuz əvvəlki render etmələr zamanından qalan köhnə dəyərləri görəcək. [Funksiyaları necə idarə etməyi](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) və [massiv dəyərləri tez-tez dəyişdikdə](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) nə ediləcəyi haqqda əlavə məlumat üçün göstərilən linklərə baxın.
 >
->If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the dependencies array always works.
+>Əgər effekti bir dəfə çağırıb və bir dəfə təmizləmək (mount və unmount zamanı) istəyirsinizsə, ikinci arqumentə box massiv (`[]`) göndərə bilərsiniz. Bu, React-ə effektin *heç bir* state və ya proplardan asılı olmadığını və bu səbəbdən heç bir zaman çağrılmayacağını bildirir. Bu xüsusi ssenari deyil -- asılılıqlar massiv bu formada işləyir.
 >
->If you pass an empty array (`[]`), the props and state inside the effect will always have their initial values. While passing `[]` as the second argument is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, there are usually [better](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [solutions](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) to avoid re-running effects too often. Also, don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
+>Effektə boş massiv (`[]`) göndərdikdə effektdə olan state və proplar hər zaman ilkin dəyəri saxlayacaqlar. İkinci arqumentə `[]` massivi göndərməyin `componentDidMount` və `componentWillUnmount` metodlarını işlətməyə yaxın olmasına baxmayaraq effektlərin tez-tez çağrılmasının qabağını almaq üçün [daha yaxşı](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [həllər](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) var. Əlavə olaraq, React-in `useEffect` çağırışlarını brauzer rənglənməsindən sonraya kimi təxirə saldığını və bu səbəbdən əlavə işin problem olmadığını unutmayın.
 >
 >
->We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv göstərildiyini göstərir və düzəliş təklif edir.
 
-The array of dependencies is not passed as arguments to the effect function. Conceptually, though, that's what they represent: every value referenced inside the effect function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+Asılılıqlar massivi effekt funksiyasına arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edir. Bu səbədən effektdə olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, daha təkminləşmiş kompilyator ilə bu massiv avtomatik düzələ bilər.
 
 ### `useContext` {#usecontext}
 
