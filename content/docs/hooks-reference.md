@@ -178,25 +178,26 @@ Asılılıqlar massivi effekt funksiyasına arqument kimi göndərilmir. Lakin, 
 const value = useContext(MyContext);
 ```
 
-Accepts a context object (the value returned from `React.createContext`) and returns the current context value for that context. The current context value is determined by the `value` prop of the nearest `<MyContext.Provider>` above the calling component in the tree.
+Kontekst obyekti qəbul edir (`React.createContext`-dan qaytarılan dəyər) və kontekstin cari dəyərini qaytarır. Cari kontekst dəyəri ağacda komponentə ən yaxın olan `<MyContext.Provider>`-in `value` propu ilə müəyyən edilir.
 
-When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider.
+Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenidən render edilərək Hookun dəyəri `MyContext` provayderinin yeni `value` dəyəri ilə yenilənəcək.
 
-Don't forget that the argument to `useContext` must be the *context object itself*:
+`useContext` Hookunun arqumentinin *kontekst obyekti* olduğunu unutmayın:
 
- * **Correct:** `useContext(MyContext)`
- * **Incorrect:** `useContext(MyContext.Consumer)`
- * **Incorrect:** `useContext(MyContext.Provider)`
+ * **Düzgün:** `useContext(MyContext)`
+ * **Yanlış:** `useContext(MyContext.Consumer)`
+ * **Yanlış:** `useContext(MyContext.Provider)`
 
-A component calling `useContext` will always re-render when the context value changes. If re-rendering the component is expensive, you can [optimize it by using memoization](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
+`useContext`-i çağıran komponent kontekst dəyəri dəyişdikdə hər zaman yenidən render olunacaq. Əgər komponentin render edilməsi bahalıdırsa, [memoizasiyadan istifadə edərək komponenti optimallaşdıra bilərsiniz](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
 
->Tip
+>Məsləhət
 >
->If you're familiar with the context API before Hooks, `useContext(MyContext)` is equivalent to `static contextType = MyContext` in a class, or to `<MyContext.Consumer>`.
+>Əgər Hooklardan öncə kontekst API-ı tanışlığınız varsa, `useContext(MyContext)` Hooku klasda `static contextType = MyContext` dəyişəni və ya `<MyContext.Consumer>` komponenti ilə eynidir.
 >
->`useContext(MyContext)` only lets you *read* the context and subscribe to its changes. You still need a `<MyContext.Provider>` above in the tree to *provide* the value for this context.
+>`useContext(MyContext)` Hooku yalnız kontekst dəyərini *oxumağa* və kontekstin dəyişikliklərinə abunə olmağa imkan yaradır. Kontekstə dəyəri *təmin etmək üçün* ağacda yuxarıda `<MyContext.Provider>` əlavə etmək lazımdır.
 
-**Putting it together with Context.Provider**
+**Context.Provider ilə nümunə**
+
 ```js{31-36}
 const themes = {
   light: {
@@ -232,17 +233,17 @@ function ThemedButton() {
 
   return (
     <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
+      Mən tema konteksti əsasında stillənmişən!
     </button>
   );
 }
 ```
-This example is modified for hooks from a previous example in the [Context Advanced Guide](/docs/context.html), where you can find more information about when and how to use Context.
 
+Bu nümunə, [Kontekst sənədində](/docs/context.html) olan nümunənin Hooklar üçün dəyişdirilmiş formasıdır. Kontekst sənədindən Kontekst haqqında əlavə məlumat ala bilərsiniz.
 
-## Additional Hooks {#additional-hooks}
+## Əlavə Hooklar {#additional-hooks}
 
-The following Hooks are either variants of the basic ones from the previous section, or only needed for specific edge cases. Don't stress about learning them up front.
+Bu bölmədə göstərilən Hooklar, ya əvvəlki bölmədə göstərilən əsas Hookların fərqli variantlarıdır, ya da xüsusi kənar ssenariləri əhatə etmək üçündür. Bu Hookları indi öyrənmək vacib deyil.
 
 ### `useReducer` {#usereducer}
 
@@ -250,11 +251,11 @@ The following Hooks are either variants of the basic ones from the previous sect
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
-An alternative to [`useState`](#usestate). Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method. (If you're familiar with Redux, you already know how this works.)
+[`useState`](#usestate) üçün alternativ. `(state, action) => newState` formalı reducer tipi qəbul edir və cari state-i `dispatch` metodu ilə birlikdə qaytarır. (Redux ilə tanışlığınız varsa, bunu necə işlədiyini bilirsiniz.)
 
-`useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. `useReducer` also lets you optimize performance for components that trigger deep updates because [you can pass `dispatch` down instead of callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+Bir neçə sub-dəyərlərdən və ya əvvalki state-dən asılı olan mürəkkəb state məntiqi olduqda `useReducer` işlətmək `useState` işlətməkdən daha üstündür. Əlavə olarq, [callback-lər əvəzinə `dispatch`-i göndərməyin mümkün olduğundan](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down) `useReducer` ilə dərində yeniliklər edən komponentlərin performansını optimallaşdırmaq mümkündür.
 
-Here's the counter example from the [`useState`](#usestate) section, rewritten to use a reducer:
+Aşağıdakı nümunədə, [`useState`](#usestate) bölməsində olan sayğac nümunəsi reducer ilə yazılıb:
 
 ```js
 const initialState = {count: 0};
@@ -274,7 +275,7 @@ function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      Count: {state.count}
+      Say: {state.count}
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
@@ -282,13 +283,13 @@ function Counter() {
 }
 ```
 
->Note
+>Qeyd
 >
->React guarantees that `dispatch` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+>React, `dispatch` funksiyasının identikliyinin stabil olmasını və render etmələr arasında dəyişmədiyini siğortalayır. Bu səbəbdən, bu funksiyanı `useEffect` və ya `useCallback` Hooklarının asılılıq siyahısına əlavə etmək lazım deyil.
 
-#### Specifying the initial state {#specifying-the-initial-state}
+#### İlkin state-in təyin edilməsi {#specifying-the-initial-state}
 
-There are two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way is to pass the initial state as a second argument:
+`useReducer` state-ini iki formada inisializasiya etmək mümkündür. Ssenaridən asılı olaraq istənilən seçimi edə bilərsiniz. İlkin state-i ikinci arqumet kimi göndərmək ən sadə yoldur:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -297,15 +298,15 @@ There are two different ways to initialize `useReducer` state. You may choose ei
   );
 ```
 
->Note
+>Qeyd
 >
->React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
+>React, Redux ilə populyarlaşan `state = initialState` arqument konvensiyasından istifadə etmir. İlkin dəyər proplardan asılı ola bilər deyə bu dəyəri Hook çağırışından təyin edilir. Əgər Redux-ın davranışını təqlid etmək istəyirsinizsə, `useReducer(reducer, undefined, reducer)` çağıra bilərsiniz. Lakin, biz bunu tövsiyyə etmirik.
 
-#### Lazy initialization {#lazy-initialization}
+#### Lazy inisializasiya {#lazy-initialization}
 
-You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
+Əlavə olaraq, ilkin state-i lazy formada yarada bilərsiniz. Bunun üçün `init` funksiyasını üçüncü arqumentə göndərin. İlkin state `init(initialArg)`-a bərabər olacaq.
 
-It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+Bu funksiya ilə ilkin state-i reducer-dən kənara ixrac etmək mümkündür. Bu, state-i fəaliyyət (action) əsasında sıfırlamaq üçün də faydalıdır:
 
 ```js{1-3,11-12,19,24}
 function init(initialCount) {
@@ -329,10 +330,10 @@ function Counter({initialCount}) {
   const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
-      Count: {state.count}
+      Say: {state.count}
       <button
         onClick={() => dispatch({type: 'reset', payload: initialCount})}>
-        Reset
+        Sıfırla
       </button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
@@ -341,11 +342,11 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Bailing out of a dispatch {#bailing-out-of-a-dispatch}
+#### Dispatch-i atlamaq {#bailing-out-of-a-dispatch}
 
-If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Reducer Hookundan qatarılan dəyər cari state dəyəri ilə eynidirsə, React, uşaqları render etmədən və effektləri çağırmadan bu yeniliyi atlayacaq. (React, [`Object.is` müqayisə arqumentindən](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description) istifadə edir.)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Nəzərə alın ki, React, dispatch-i atlamadan öncə spesifik komponenti render edə bilər. Bu davranışdan narahat olmaq lazım deyil. Çünki, React lazımsız yerə ağacın "dərinliyinə" getməyəcək. Əgər render zamanı bahalı hesablamalar edirsinizsə bu hesablamaları `useMemo` Hooku ilə optimallaşdıra bilərsiniz.
 
 ### `useCallback` {#usecallback}
 
