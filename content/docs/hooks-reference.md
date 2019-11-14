@@ -359,17 +359,17 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
+[Memoizasiya olunmuş](https://en.wikipedia.org/wiki/Memoization) callback qaytarır.
 
-Pass an inline callback and an array of dependencies. `useCallback` will return a memoized version of the callback that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. `shouldComponentUpdate`).
+Eyni sətrli callback və asılılıqlar massivi göndərin. `useCallback` Hooku callback-in memoizasiya olunmuş versiyasını qaytaracaq və yalnız asılılıqlar dəyişdikdə callback yenilənəcək. Bu Hook, uşaq komponentlərdə referans bərabərliyi əsasında render etmələrin qarşısını almaq üçün (məsələn, `shouldComponentUpdate`) faydalıdır.
 
-`useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
+`useCallback(fn, deps)` funksiyası `useMemo(() => fn, deps)` funksiyasına bərabərdir.
 
-> Note
+> Qeyd
 >
-> The array of dependencies is not passed as arguments to the callback. Conceptually, though, that's what they represent: every value referenced inside the callback should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar funksiyada işlədilən dəyərləri təmsil edir. Bu səbədən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, daha təkminləşmiş kompilyator ilə bu massiv avtomatik düzələ bilər.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv göstərildiyini göstərir və düzəliş təklif edir.
 
 ### `useMemo` {#usememo}
 
@@ -377,21 +377,21 @@ Pass an inline callback and an array of dependencies. `useCallback` will return 
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) value.
+[Memoizasiya olunan](https://en.wikipedia.org/wiki/Memoization) dəyər qaytarır.
 
-Pass a "create" function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+"Yaranma" funksiyası və asılılıqlar massivi göndərin. `useMemo` Hooku memoizasiya olunan dəyəri yalnız asılılıqlar dəyişdikdə yenidən hesablayır. Bu optimallaşdırma, hər render etmə zamanı bahalı hesablamalardan qaçınmaq üçün faydalıdır.
 
-Remember that the function passed to `useMemo` runs during rendering. Don't do anything there that you wouldn't normally do while rendering. For example, side effects belong in `useEffect`, not `useMemo`.
+`useMemo`-ya göndərilən funksiyanın render zamanı çağrıldığını unutmayın. Normalda render zamanı etmədiyiniz əməliyyatları burada da etməyin. Məsələn, yan effektlər `useMemo`-da yox `useEffect`-də icra olunmalıdır.
 
-If no array is provided, a new value will be computed on every render.
+Asılılıq massivi göndərilmədikdə hər render etmə zamanı yeni dəyər hesablanacaq.
 
-**You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance.
+**`useMemo` Hookuna semantik siğorta kimi yox performans optimallaşdırması kimi baxın.** Gələcəkdə, React bəzi əvvəlki memoizasiya olunan dəyəri "unudub" sonrakı renderdə bu dəyəri yenidən hesablaya bilər (məsələn, ekrandan görünməyən komponentləri yaddaşdan silərək). Bu səbəbdən, həmişə kodu elə yazın ki, `useMemo`-suz da işləsin. Sonra, performansı optimallaşdırmaq üçün əlavə edin.
 
-> Note
+> Qeyd
 >
-> The array of dependencies is not passed as arguments to the function. Conceptually, though, that's what they represent: every value referenced inside the function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar funksiyada işlədilən dəyərləri təmsil edir. Bu səbədən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, daha təkminləşmiş kompilyator ilə bu massiv avtomatik düzələ bilər.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv göstərildiyini göstərir və düzəliş təklif edir.
 
 ### `useRef` {#useref}
 
@@ -399,15 +399,15 @@ If no array is provided, a new value will be computed on every render.
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). The returned object will persist for the full lifetime of the component.
+`useRef` Hooku `.current` parametri göndərilən arqument (`initialValue`) ilə inisializasiya olunan dəyişən ref obyekti qaytarır. Qaytarılan obyekt komponentin ömrü boyu mövcud olacaq.
 
-A common use case is to access a child imperatively:
+Bu Hookun çox işlənən ssenarilərindən biri uşaq komponentdıb imperativ istifadə etməkdir:
 
 ```js
 function TextInputWithFocusButton() {
   const inputEl = useRef(null);
   const onButtonClick = () => {
-    // `current` points to the mounted text input element
+    // `current` dəyəri mount olunuş mətn anket sahəsi elementinə referens edir
     inputEl.current.focus();
   };
   return (
@@ -419,15 +419,15 @@ function TextInputWithFocusButton() {
 }
 ```
 
-Essentially, `useRef` is like a "box" that can hold a mutable value in its `.current` property.
+Mahiyyətcə `useRef` Hooku `.current` parametrində dəyişə bilən dəyər saxlayan "qutudur.".
 
-You might be familiar with refs primarily as a way to [access the DOM](/docs/refs-and-the-dom.html). If you pass a ref object to React with `<div ref={myRef} />`, React will set its `.current` property to the corresponding DOM node whenever that node changes.
+Sizin ref-lər ilə [DOM-dan istifadə etmək](/docs/refs-and-the-dom.html) əməliyyatı ilə tanışlığınız ola bilər. Ref obyektini `<div ref={myRef} />` formada React-ə göndərdikdə React bu ref obyektinin `.current.` parametrini müvafiq DOM noduna təyin edəcək.
 
-However, `useRef()` is useful for more than the `ref` attribute. It's [handy for keeping any mutable value around](/docs/hooks-faq.html#is-there-something-like-instance-variables) similar to how you'd use instance fields in classes.
+Lakin, `useRef()` Hooku yalnız `ref` attributu üçün faydalı deyil. Bu Hook ilə klaslarda olan instansiya sahələri kimi [dəyişə bilən dəyəri saxlamaq mümkündür](/docs/hooks-faq.html#is-there-something-like-instance-variables).
 
-This works because `useRef()` creates a plain JavaScript object. The only difference between `useRef()` and creating a `{current: ...}` object yourself is that `useRef` will give you the same ref object on every render.
+Bunun işləməyinin səbəbi `useRef()` Hookunun sadə JavaScript obyektini yaranmasından gəlir. `useRef()` işlətmək ilə `{current: ...}` obyektini yaratmağın əsas fərqi `useRef`-in render etmələr arası eyni obyekti qaytarmasıdır.
 
-Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutating the `.current` property doesn't cause a re-render. If you want to run some code when React attaches or detaches a ref to a DOM node, you may want to use a [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) instead.
+`useRef`-in dəyəri dəyişdikdə sizə *heç bir* bildiriş etmədiyini unutmayın. `.current` parametrini dəyişdikdə yenidən render etmə baş vermir. React-in DOM noduna ref əlavə etməsi və ya silməsi üçün [callback ref-indən](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) istifadə edə bilərsiniz.
 
 
 ### `useImperativeHandle` {#useimperativehandle}
@@ -436,7 +436,7 @@ Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutati
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with `forwardRef`:
+`useImperativeHandle` Hooku valideyn komponentdə olan `ref`-i özəlləşdirmək üçün faydalıdır. Həmişə dediyimiz kimi `ref`-lər ilə imperativ kod yazmaqdan çəkinin. `useImperativeHandle` Hookunu `forwardRef` ilə işlətməyi tövsiyyə edirik:
 
 ```js
 function FancyInput(props, ref) {
@@ -451,7 +451,7 @@ function FancyInput(props, ref) {
 FancyInput = forwardRef(FancyInput);
 ```
 
-In this example, a parent component that renders `<FancyInput ref={fancyInputRef} />` would be able to call `fancyInputRef.current.focus()`.
+Yuxarıdakı nümunədə `<FancyInput ref={fancyInputRef} />` komponentini render edən valideyn komponenti `fancyInputRef.current.focus()` funksiyasını çağıra biləcək.
 
 ### `useLayoutEffect` {#uselayouteffect}
 
