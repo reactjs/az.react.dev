@@ -455,17 +455,17 @@ Yuxarıdakı nümunədə `<FancyInput ref={fancyInputRef} />` komponentini rende
 
 ### `useLayoutEffect` {#uselayouteffect}
 
-The signature is identical to `useEffect`, but it fires synchronously after all DOM mutations. Use this to read layout from the DOM and synchronously re-render. Updates scheduled inside `useLayoutEffect` will be flushed synchronously, before the browser has a chance to paint.
+Bu funksiyanın imzasının `useEffect` ilə eyni olduğuna baxmayaraq bu Hook bütün DOM mutasiyalarından sonra sinxron icra edilir. Bu funksiyanı DOM-dan şablonu oxumaq və sinxron yenidən render etmək üçün istifadə edin. `useLayoutEffect` ilə planlaşdırılan yeniliklər brauzer rəngləməsindən öncə icra edilərək.
 
-Prefer the standard `useEffect` when possible to avoid blocking visual updates.
+Vizual yenilikləri blok etməmək üçün standart `useEffect` Hookundan istifadə edin.
 
-> Tip
+> Məsləhət
 >
-> If you're migrating code from a class component, note `useLayoutEffect` fires in the same phase as `componentDidMount` and `componentDidUpdate`. However, **we recommend starting with `useEffect` first** and only trying `useLayoutEffect` if that causes a problem.
+> Klas komponent kodunu Hooklara miqrasiya edirsinizsə, `useLayoutEffect`-in `componentDidMount` və `componentDidUpdate` metodlar ilə eyni fazada icra edildiyini nəzərə alın. Lakin, **biz `useEffect` ilə başlamağı** və problem yarandıqda `useLayoutEffect` işlətməyi tövsiyyə edirik.
 >
->If you use server rendering, keep in mind that *neither* `useLayoutEffect` nor `useEffect` can run until the JavaScript is downloaded. This is why React warns when a server-rendered component contains `useLayoutEffect`. To fix this, either move that logic to `useEffect` (if it isn't necessary for the first render), or delay showing that component until after the client renders (if the HTML looks broken until `useLayoutEffect` runs).
+>Serverdə render edildikdə JavaScript yüklənənə kimi *nə* `useLayoutEffect` nə də `useEffect` icra oluna bilər. Bu səbəbdən, server ilə render edilən komponentdə `useLayoutEffect` olduqda React xəbərdarlıq göstərir. Bunu həll etmək üçün ya məntiqi `useEffect` Hookuna köçürün (əgər effekt ilk render zamanı vacib deyilsə) ya da komponenti klient render edənə kimi gecikdirin (yəni `useLayoutEffect` çağrılana kimi HTML sınmış göstərilsə).
 >
->To exclude a component that needs layout effects from the server-rendered HTML, render it conditionally with `showChild && <Child />` and defer showing it with `useEffect(() => { setShowChild(true); }, [])`. This way, the UI doesn't appear broken before hydration.
+>Server tərəfindən render edildiyi zaman şablon effekti işlədən komponenti render etməmək üçün komponenti `showChild && <Child />` formada şərti render edin və komponenti göstərməyi `useEffect(() => { setShowChild(true); }, [])` formada təxirə salın. Bu yol ilə hidrasiya olmamışdan öncə komponent sınıq görsənməyəcək.
 
 ### `useDebugValue` {#usedebugvalue}
 
@@ -473,9 +473,9 @@ Prefer the standard `useEffect` when possible to avoid blocking visual updates.
 useDebugValue(value)
 ```
 
-`useDebugValue` can be used to display a label for custom hooks in React DevTools.
+React DevTools-da xüsusi Hooklar üçün etiket göstərmək üçün `useDebugValue` Hookundan istifadə edə bilərsiniz.
 
-For example, consider the `useFriendStatus` custom Hook described in ["Building Your Own Hooks"](/docs/hooks-custom.html):
+Məsələn, ["Xüsusi Hookların Yaradılması"](/docs/hooks-custom.html) səhifəsində olan `useFriendStatus` Hookuna baxaq:
 
 ```js{6-8}
 function useFriendStatus(friendID) {
@@ -483,25 +483,25 @@ function useFriendStatus(friendID) {
 
   // ...
 
-  // Show a label in DevTools next to this Hook
+  // DevTools-da bu Hookun yanında etiket göstərin
   // e.g. "FriendStatus: Online"
-  useDebugValue(isOnline ? 'Online' : 'Offline');
+  useDebugValue(isOnline ? '̄Online' : 'Offline');
 
   return isOnline;
 }
 ```
 
-> Tip
+> Məsləhət
 >
-> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+> Hər xüsusi Hooka debaq dəyəri əlavə etməyi tövsiyyə etmirik. Bu funksiya ən çox paylaşılan kitabxanaların xüsusi Hookları üçün faydalıdır.
 
-#### Defer formatting debug values {#defer-formatting-debug-values}
+#### Debaq dəyərlərinin formatını təxirə salın {#defer-formatting-debug-values}
 
-In some cases formatting a value for display might be an expensive operation. It's also unnecessary unless a Hook is actually inspected.
+Bəzi hallarda, göstəriləcək dəyəri format etmək bahalı əməliyyat ola bilər. Əlavə olaraq, xüsusi Hook, DevTools-dan yoxlanmayana kimi bu dəyəri hesablamaq mənasız ola bilər.
 
-For this reason `useDebugValue` accepts a formatting function as an optional second parameter. This function is only called if the Hooks are inspected. It receives the debug value as a parameter and should return a formatted display value.
+Bu səbəbdən, `useDebugValue` Hooku format funksiyasını fakultativ arqument kimi qəbul edir. Bu funksiya yalnız Hooklar yoxlandıqda çağrılır. Bu funksiya debaq dəyərini arqument kimi qəbul edir və format olunmuş dəyəri qaytarır.
 
-For example a custom Hook that returned a `Date` value could avoid calling the `toDateString` function unnecessarily by passing the following formatter:
+Məsələn, `Date` dəyəri qaytaran xüsusi Hookdan `toDateString` funksiyasını lazımsız yerə çağırmamaq üçün aşağıdakı formatlayıcı funksiyanı işlətmək olar:
 
 ```js
 useDebugValue(date, date => date.toDateString());
