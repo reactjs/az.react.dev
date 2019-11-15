@@ -57,11 +57,11 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
   * [React, Hookları komponentlər ilə necə əlaqələndirir?](#how-does-react-associate-hook-calls-with-components)
   * [Hooklardan əvvəl nə var idi?](#what-is-the-prior-art-for-hooks)
 
-## Adoption Strategy {#adoption-strategy}
+## Adaptasiya Strategiyası {#adoption-strategy}
 
-### Which versions of React include Hooks? {#which-versions-of-react-include-hooks}
+### Hooklar React-in hansı versiyalarında mövcuddur? {#which-versions-of-react-include-hooks}
 
-Starting with 16.8.0, React includes a stable implementation of React Hooks for:
+16.8.0-dan başlayaraq aşağıdakı paketlərdə React Hooklarının stabil tətbiqi mövcuddur:
 
 * React DOM
 * React Native
@@ -69,13 +69,13 @@ Starting with 16.8.0, React includes a stable implementation of React Hooks for:
 * React Test Renderer
 * React Shallow Renderer
 
-Note that **to enable Hooks, all React packages need to be 16.8.0 or higher**. Hooks won't work if you forget to update, for example, React DOM.
+Nəzərə alin ki, **Hookları aktivləşdirmək üçün bütün React paketlərinin versiyaları 16.8.0-dan yuxarı olmalıdır**. Paketləri (məsələn React DOM) yeniləməyi yaddan çıxardıqda Hooklar işləməyəcək.
 
-[React Native 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) and above support Hooks.
+Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
 
-### Do I need to rewrite all my class components? {#do-i-need-to-rewrite-all-my-class-components}
+### Bütün klas komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
-No. There are [no plans](/docs/hooks-intro.html#gradual-adoption-strategy) to remove classes from React -- we all need to keep shipping products and can't afford rewrites. We recommend trying Hooks in new code.
+Xeyir. React-dən klasları silmək üçün [heç bir plan](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodu Hooklar ilə işlətməyi tövsiyyə edirik.
 
 ### What can I do with Hooks that I couldn't with classes? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
