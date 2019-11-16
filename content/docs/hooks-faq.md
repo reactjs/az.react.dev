@@ -24,7 +24,7 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
   * [Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [React biliklərimin nə qədəri eyni qalır?](#how-much-of-my-react-knowledge-stays-relevant)
   * [Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı?](#should-i-use-hooks-classes-or-a-mix-of-both)
-  * [Hooklar klasların bütün sesnarilərini əhatə edir?](#do-hooks-cover-all-use-cases-for-classes)
+  * [Hooklar klasların bütün ssenarilərini əhatə edir?](#do-hooks-cover-all-use-cases-for-classes)
   * [Hooklar render proplarını və yüksək dərəcəli komponentləri əvəzləyir?](#do-hooks-replace-render-props-and-higher-order-components)
   * [Hooklar Redux connect() və React Router kimi populyar API-lara necə təsir edir?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Hooklar statik tiplər ilə işləyirlər?](#do-hooks-work-with-static-typing)
@@ -77,41 +77,41 @@ Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/20
 
 Xeyir. React-dən klasları silmək üçün [heç bir plan](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodu Hooklar ilə işlətməyi tövsiyyə edirik.
 
-### What can I do with Hooks that I couldn't with classes? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
+### Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
-Hooks offer a powerful and expressive new way to reuse functionality between components. ["Building Your Own Hooks"](/docs/hooks-custom.html) provides a glimpse of what's possible. [This article](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) by a React core team member dives deeper into the new capabilities unlocked by Hooks.
+Hooklar ilə komponentlər arası funksional məntiqi paylaşmaq mümkündür. ["Xüsusi Hookların İstifadəsi"](/docs/hooks-custom.html) səhifəsində bu qabilliyətlərdən danışılır. React core komandasının üzvünün yazdığı [bu məqalədə](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) Hookların yaratdığı yeni imkanlar haqqında dərindən danışılır.
 
-### How much of my React knowledge stays relevant? {#how-much-of-my-react-knowledge-stays-relevant}
+### React biliklərimin nə qədəri eyni qalır? {#how-much-of-my-react-knowledge-stays-relevant}
 
-Hooks are a more direct way to use the React features you already know -- such as state, lifecycle, context, and refs. They don't fundamentally change how React works, and your knowledge of components, props, and top-down data flow is just as relevant.
+Hooklar ilə state, lifecycle, kontekst, və ref-lər kimi React xüsusiyyətlərini daha birbaşa işlətmək olur. Hooklar, React-in işləmə prinsiplərini dəyişmirlər. Bu səbəbdən komponentlər, proplar və yuxarıdan aşağı məlumat axınından bilikli olmaq vacibdir.
 
-Hooks do have a learning curve of their own. If there's something missing in this documentation, [raise an issue](https://github.com/reactjs/reactjs.org/issues/new) and we'll try to help.
+Hookların özünün öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [bizə issue yazın](https://github.com/reactjs/reactjs.org/issues/new) və biz sizə kömək etməyə çalışacağıq.
 
-### Should I use Hooks, classes, or a mix of both? {#should-i-use-hooks-classes-or-a-mix-of-both}
+### Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-When you're ready, we'd encourage you to start trying Hooks in new components you write. Make sure everyone on your team is on board with using them and familiar with this documentation. We don't recommend rewriting your existing classes to Hooks unless you planned to rewrite them anyway (e.g. to fix bugs).
+Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyyə edirik. Bunu etməmişdən öncə komandada hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud klasları yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyyə etmirik.
 
-You can't use Hooks *inside* of a class component, but you can definitely mix classes and function components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is an implementation detail of that component. In the longer term, we expect Hooks to be the primary way people write React components.
+Hookları klas komponentlərinin *daxilindən* istifadə etmək olmaz. Lakin, eyni ağacda klas və Hooklar ilə funksiya komponentlərini istifadə edə bilərsiniz. Komponentin klas və ya Hooklar ilə işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
 
-### Do Hooks cover all use cases for classes? {#do-hooks-cover-all-use-cases-for-classes}
+### Hooklar klasların bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
-Our goal is for Hooks to cover all use cases for classes as soon as possible. There are no Hook equivalents to the uncommon `getSnapshotBeforeUpdate` and `componentDidCatch` lifecycles yet, but we plan to add them soon.
+Bizim məqsədimiz Hooklar ilə klasların bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, bu metodları da Hooklar ilə yaza biləcəyik.
 
-It is an early time for Hooks, and some third-party libraries might not be compatible with Hooks at the moment.
+Hookların hələ ki cavan olduğundan bəzi 3-cü tərəfin kitabxanaları ilə uyğun olmaya bilər.
 
-### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+### Hooklar render proplarını və yüksək dərəcəli komponentləri əvəzləyir? {#do-hooks-replace-render-props-and-higher-order-components}
 
-Often, render props and higher-order components render only a single child. We think Hooks are a simpler way to serve this use case. There is still a place for both patterns (for example, a virtual scroller component might have a `renderItem` prop, or a visual container component might have its own DOM structure). But in most cases, Hooks will be sufficient and can help reduce nesting in your tree.
+Adətən, render proplar və yüksən dərəcəli komponentlər yalnız bir uşaq render edirlər. Belə ssenariləri Hooklar ilə əvəz etmək olar. Hər iki pattern-in öz yeri var (məsələn, virtual skrol edən komponentin `renderItem` propu və ya vizual konteyner komponentinin öz DOM strukturu ola bilər). Lakin, bir çox halda Hookları işlətmək bəz edir. Hookları işlətdikdə ağacdakı elementlərin sayı azalır.
 
-### What do Hooks mean for popular APIs like Redux `connect()` and React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
+### Hooklar Redux connect() və React Router kimi populyar API-lara necə təsir edir? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
-You can continue to use the exact same APIs as you always have; they'll continue to work.
+İşlətdiyiniz eyni API-ları işlətməyə davam edə bilərsiniz.
 
-React Redux since v7.1.0 [supports Hooks API](https://react-redux.js.org/api/hooks) and exposes hooks like `useDispatch` or `useSelector`.
+React Redux v7.1.0-dən başlayaraq [Hookları dəstəkləyir](https://react-redux.js.org/api/hooks) və proqramçıları `useDispatch` və ya `useSelector` kimi Hooklar ilə təmin edir.
 
-React Router [supports hooks](https://reacttraining.com/react-router/web/api/Hooks) since v5.1.
+React Router v5.1-dən başlayaraq [Hookları dəstəkləyir](https://reacttraining.com/react-router/web/api/Hooks).
 
-Other libraries might support hooks in the future too.
+Gələcəkdə, digər kitabxanalar da Hookaları dəstəkləyə bilər.
 
 ### Do Hooks work with static typing? {#do-hooks-work-with-static-typing}
 
