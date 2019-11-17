@@ -113,40 +113,40 @@ React Router v5.1-dən başlayaraq [Hookları dəstəkləyir](https://reacttrain
 
 Gələcəkdə, digər kitabxanalar da Hookaları dəstəkləyə bilər.
 
-### Do Hooks work with static typing? {#do-hooks-work-with-static-typing}
+### Hooklar statik tiplər ilə işləyirlər? {#do-hooks-work-with-static-typing}
 
-Hooks were designed with static typing in mind. Because they're functions, they are easier to type correctly than patterns like higher-order components. The latest Flow and TypeScript React definitions include support for React Hooks.
+Hooklar statik tiplər ilə dizayn olunublar. Hookların sadə funksiya olduğundan bunlara tip əlavə etmək yüksək dərəcəli komponentlər kimi pattern-lərə tip əlavə etməkdən daha asandır. Ən son Flow və TypeScritp React tərifləri React Hooklarını dəstəkləyir.
 
-Importantly, custom Hooks give you the power to constrain React API if you'd like to type them more strictly in some way. React gives you the primitives, but you can combine them in different ways than what we provide out of the box.
+Daha vacib olaraq xüsusi Hooklar ilə React API-ını tiplər ilə daha sərt şəkildə məhdudlaşdırmaq mümkündür. React sizə primitivləri verir. Lakin, siz bu primitivləri fərqli formada billəşdirə bilərsiniz.
 
-### How to test components that use Hooks? {#how-to-test-components-that-use-hooks}
+### Hooklar işlədən React komponentlərini necə test etmək mümkündür? {#how-to-test-components-that-use-hooks}
 
-From React's point of view, a component using Hooks is just a regular component. If your testing solution doesn't rely on React internals, testing components with Hooks shouldn't be different from how you normally test components.
+React-in nöqteyi nəzərindən Hooklar işlədən komponent sadə komponentdir. Əgər test etmə həlliniz React-in daxili xüsusiyyətlərindən istifadə etmirsə, Hooklar ilə olan komponentləri adi komponentlər kimi test edə bilərsiniz.
 
->Note
+>Qeyd
 >
->[Testing Recipes](/docs/testing-recipes.html) include many examples that you can copy and paste.
+>[Test Etmə Reseptlərində](/docs/testing-recipes.html) kopiyalaya biləcəyiniz bir neçə nümunə var.
 
-For example, let's say we have this counter component:
+Məsələn, gəlin bu sayğac komponentinə baxaq:
 
 ```js
 function Example() {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `${count} dəfə tıklandı`;
   });
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>{count} dəfə tıklandı</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Tıkla
       </button>
     </div>
   );
 }
 ```
 
-We'll test it using React DOM. To make sure that the behavior matches what happens in the browser, we'll wrap the code rendering and updating it into [`ReactTestUtils.act()`](/docs/test-utils.html#act) calls:
+Biz bu komponenti React DOM ilə test edəcəyik. Davranışın brauzer ilə uyğunlaşması üçün biz render etmə və yeniləmə kodunu [`ReactTestUtils.act()`](/docs/test-utils.html#act) çağırışlarına əlavə edəcəyik:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -173,36 +173,36 @@ it('can render and update a counter', () => {
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
-  expect(label.textContent).toBe('You clicked 0 times');
-  expect(document.title).toBe('You clicked 0 times');
+  expect(label.textContent).toBe('0 dəfə tıklandı');
+  expect(document.title).toBe('0 dəfə tıklandı');
 
   // Test second render and effect
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
-  expect(label.textContent).toBe('You clicked 1 times');
-  expect(document.title).toBe('You clicked 1 times');
+  expect(label.textContent).toBe('1 dəfə tıklandı');
+  expect(document.title).toBe('1 dəfə tıklandı');
 });
 ```
 
-The calls to `act()` will also flush the effects inside of them.
+`act()` çağırışları effektləri də icra edəcək.
 
-If you need to test a custom Hook, you can do so by creating a component in your test, and using your Hook from it. Then you can test the component you wrote.
+Xüsusi Hooku test etmək istəyirsinizsə, testdə komponent yaradıb bu Hooku işlədə bilərsiniz. Sonra, yazdığınız komponenti test edə bilərsiniz.
 
-To reduce the boilerplate, we recommend using [React Testing Library](https://testing-library.com/react) which is designed to encourage writing tests that use your components as the end users do.
+Çox kod yazmamaq üçün komponentləri son istifadəçilərin işlətdiyi kimi test etmək fikri ilə dizayn olunmuş [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik.
 
-For more information, check out [Testing Recipes](/docs/testing-recipes.html).
+Əlavə məlumat üçün [Test Etmə Reseptləri](/docs/testing-recipes.html) səhifəsinə baxın.
 
-### What exactly do the [lint rules](https://www.npmjs.com/package/eslint-plugin-react-hooks) enforce? {#what-exactly-do-the-lint-rules-enforce}
+### [Lint qaydaları](https://www.npmjs.com/package/eslint-plugin-react-hooks) nələri tətbiq edirlər? {#what-exactly-do-the-lint-rules-enforce}
 
-We provide an [ESLint plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) that enforces [rules of Hooks](/docs/hooks-rules.html) to avoid bugs. It assumes that any function starting with "`use`" and a capital letter right after it is a Hook. We recognize this heuristic isn't perfect and there may be some false positives, but without an ecosystem-wide convention there is just no way to make Hooks work well -- and longer names will discourage people from either adopting Hooks or following the convention.
+Baqları tez tuta bilmək üçün [Hookların qaydalarını](/docs/hooks-rules.html) tətbiq edən [ESLint plagini](https://www.npmjs.com/package/eslint-plugin-react-hooks) təmin edirik. Bu plagin, "`use`" ilə başlayan və dərhal sonrakı hərfi böyük hərf ilə yazlıan funksiyanın Hook olduğunu ehtimal edir. Bu evristikanın əla olmadığını və bəzən səhv-positivlərin olacağını bilirik. Lakin, ekosistem səviyyəsində konvesiya olmadıqda Hooklar yaxşı işləməyəcək. Uzun adlar ilə də Hookların adaptasiyası və ya konvensiyanın təqibini yavaşladacaq.
 
-In particular, the rule enforces that:
+Xüsusilə bu qayda aşağıdakı nöqtələri tətbiq edir:
 
-* Calls to Hooks are either inside a `PascalCase` function (assumed to be a component) or another `useSomething` function (assumed to be a custom Hook).
-* Hooks are called in the same order on every render.
+* Hookların çağırışları `PascalCase` kimi yazılan funksiyalarının (komponent olduğu ehtimal edilir) və ya digər `useSomething` funksiyasının (xüsusi Hook olduğu ehtimal edilir) daxilindən çağrılır.
+* Hooklar hər render zamanı eyni sıra ilə çağrılırlar.
 
-There are a few more heuristics, and they might change over time as we fine-tune the rule to balance finding bugs with avoiding false positives.
+Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baqların tapılmasının balansını saxalayaraq zaman ilə dəyişə bilərlər.
 
 ## From Classes to Hooks {#from-classes-to-hooks}
 
