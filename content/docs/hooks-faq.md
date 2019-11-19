@@ -204,31 +204,31 @@ Xüsusilə bu qayda aşağıdakı nöqtələri tətbiq edir:
 
 Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baqların tapılmasının balansını saxalayaraq zaman ilə dəyişə bilərlər.
 
-## From Classes to Hooks {#from-classes-to-hooks}
+## Klaslardan Hooklara {#from-classes-to-hooks}
 
-### How do lifecycle methods correspond to Hooks? {#how-do-lifecycle-methods-correspond-to-hooks}
+### Lifecycle metodlarının Hooklar ilə uyğunluqları necədir? {#how-do-lifecycle-methods-correspond-to-hooks}
 
-* `constructor`: Function components don't need a constructor. You can initialize the state in the [`useState`](/docs/hooks-reference.html#usestate) call. If computing the initial state is expensive, you can pass a function to `useState`.
+* `constructor`: Funksiya komponentlərinə konstruktor lazım deyil. Siz state-i [`useState`](/docs/hooks-reference.html#usestate) çağırışında inisializasiya edə bilərsiniz. Əgər ilkin state-in hesablanması bahalıdırsa, siz `useState` Hookuna funksiya göndərə bilərsiniz.
 
-* `getDerivedStateFromProps`: Schedule an update [while rendering](#how-do-i-implement-getderivedstatefromprops) instead.
+* `getDerivedStateFromProps`: [Render zamanı](#how-do-i-implement-getderivedstatefromprops) yenilik planlaşdırın.
 
-* `shouldComponentUpdate`: See `React.memo` [below](#how-do-i-implement-shouldcomponentupdate).
+* `shouldComponentUpdate`: [aşağıda](#how-do-i-implement-shouldcomponentupdate) `React.memo` funksiyasına baxın.
 
-* `render`: This is the function component body itself.
+* `render`: Bu, funksiya komponentinin gövdəsidir.
 
-* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: The [`useEffect` Hook](/docs/hooks-reference.html#useeffect) can express all combinations of these (including [less](#can-i-skip-an-effect-on-updates) [common](#can-i-run-an-effect-only-on-updates) cases).
+* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Bu funksiyaların bütün kombinasiyalarını [`useEffect` Hooku](/docs/hooks-reference.html#useeffect) ilə ([daha](#can-i-skip-an-effect-on-updates) [az](#can-i-run-an-effect-only-on-updates) işlənən ssenarilər daxil olmaqla) tətbiq edə bilərsiniz.
 
-* `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
+* `componentDidCatch` və `getDerivedStateFromError`: Bu funksiyaların üçün Hook ekvivalenti yoxdur. Lakin, gəcələcəkdə bunları da funksiya komponentləri ilə əvəz etmək mümkün olacaq.
 
-### How can I do data fetching with Hooks? {#how-can-i-do-data-fetching-with-hooks}
+### Hooklar ilə məlumat yüklənməsini necə tətbiq edə bilərəm? {#how-can-i-do-data-fetching-with-hooks}
 
-Here is a [small demo](https://codesandbox.io/s/jvvkoo8pq3) to get you started. To learn more, check out [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) about data fetching with Hooks.
+Başlamaq üçün [kiçik demo-ya](https://codesandbox.io/s/jvvkoo8pq3) baxın. Hooklar ilə məlumat mübadiləsi haqqında əlavə məlumat üçün [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
 
-### Is there something like instance variables? {#is-there-something-like-instance-variables}
+### İnstansiya dəyişənləri üçün Hook var? {#is-there-something-like-instance-variables}
 
-Yes! The [`useRef()`](/docs/hooks-reference.html#useref) Hook isn't just for DOM refs. The "ref" object is a generic container whose `current` property is mutable and can hold any value, similar to an instance property on a class.
+Bəli! [`useRef()`](/docs/hooks-reference.html#useref) Hooku yalnız DOM referansları üçün işlədilmir. "ref" obyekti ümumi konteynerdir və bu obyektin `current` parametri klasın instansiya parametri kimi mutasiya oluna bilən istənilən dəyəri saxlaya bilər.
 
-You can write to it from inside `useEffect`:
+Siz bu dəyəri `useEffect`-dən yeniləyə bilərsiniz:
 
 ```js{2,8}
 function Timer() {
@@ -248,7 +248,7 @@ function Timer() {
 }
 ```
 
-If we just wanted to set an interval, we wouldn't need the ref (`id` could be local to the effect), but it's useful if we want to clear the interval from an event handler:
+İnterval lazım olduqda ref lazım deyil (intervalın `id` dəyəri effektə lokal olacaq). Lakin, hadisə işləyicisindən intervalı təmizləmək lazım olduqda ref-lərdən istifadə edə bilərsiniz:
 
 ```js{3}
   // ...
@@ -258,11 +258,11 @@ If we just wanted to set an interval, we wouldn't need the ref (`id` could be lo
   // ...
 ```
 
-Conceptually, you can think of refs as similar to instance variables in a class. Unless you're doing [lazy initialization](#how-to-create-expensive-objects-lazily), avoid setting refs during rendering -- this can lead to surprising behavior. Instead, typically you want to modify refs in event handlers and effects.
+Konseptual olaraq ref-lər klasın instansiya dəyərlərinə bənzəyirlər. [Lazy inisializasiya](#how-to-create-expensive-objects-lazily) edirsinizsə, ref-ləri render zamanı yeniləməyin. Bu, gözlənilməz davranışlara səbəb ola bilər. Əvəzinə, ref-ləri hadisə işləyicilərindən və effektlərdən yeniləyin.
 
-### Should I use one or many state variables? {#should-i-use-one-or-many-state-variables}
+### Bir və ya bir neçə state dəyişəni işlətməliyəm? {#should-i-use-one-or-many-state-variables}
 
-If you're coming from classes, you might be tempted to always call `useState()` once and put all state into a single object. You can do it if you'd like. Here is an example of a component that follows the mouse movement. We keep its position and size in the local state:
+Klaslar işlətmisinizsə, `useState()` Hookunu bir dəfə çağırıb bütün state-i bir obyektdə saxlamaq istəyə bilərsiniz. Əgər istəyirsinizsə, bunu edə bilərsiniz. Aşağıdakı nümunədə maus hərətinin pozisiyası və ölçüsü lokal state-də saxlanır:
 
 ```js
 function Box() {
@@ -271,27 +271,27 @@ function Box() {
 }
 ```
 
-Now let's say we want to write some logic that changes `left` and `top` when the user moves their mouse. Note how we have to merge these fields into the previous state object manually:
+İstifadəçi mausu tərpətdikdə `left` və `top` dəyərlərini dəyişən məntiqu yazmaq üçün bu dəyərləri əvvəlki state ilə özümüz biləşdirməliyik:
 
 ```js{4,5}
   // ...
   useEffect(() => {
     function handleWindowMouseMove(e) {
-      // Spreading "...state" ensures we don't "lose" width and height
+      // "...state" yayması ilə" width və height dəyərlərini itirməyəcəyimizdən əmin oluruq.
       setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
     }
-    // Note: this implementation is a bit simplified
+    // Qeyd: Bu tətbiq sadələşdirilib
     window.addEventListener('mousemove', handleWindowMouseMove);
     return () => window.removeEventListener('mousemove', handleWindowMouseMove);
   }, []);
   // ...
 ```
 
-This is because when we update a state variable, we *replace* its value. This is different from `this.setState` in a class, which *merges* the updated fields into the object.
+State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* klasın `this.setState` funksiyasından fərqlidir.
 
-If you miss automatic merging, you can write a custom `useLegacyState` Hook that merges object state updates. However, instead **we recommend to split state into multiple state variables based on which values tend to change together.**
+Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyyə edirik.**
 
-For example, we could split our component state into `position` and `size` objects, and always replace the `position` with no need for merging:
+Məslən, biz komponent state-ini `position` və `size` obyektlərinə parçalayıb obyektləri biləşdirmədən `position` dəyərini yeni dəyər ilə əvəz edə bilərik:
 
 ```js{2,7}
 function Box() {
@@ -305,7 +305,7 @@ function Box() {
     // ...
 ```
 
-Separating independent state variables also has another benefit. It makes it easy to later extract some related logic into a custom Hook, for example:
+State dəyişənlərini parçalamağın başqa faydası da var. State-lər məntiq əsasında ayrıldıqda əlaqəli məntiqləri xüsusi Hooka ixrac etmək asanlaşır. Məsələn:
 
 ```js{2,7}
 function Box() {
@@ -323,17 +323,17 @@ function useWindowPosition() {
 }
 ```
 
-Note how we were able to move the `useState` call for the `position` state variable and the related effect into a custom Hook without changing their code. If all state was in a single object, extracting it would be more difficult.
+`position` state dəyəri üçün olan `useState` çağırışını və bu state üçün lazım olan effekti state-li məntiqi dəyişmədən xüsusi Hooka necə köçürdüyümüzə fikir verin. Bütün state bir obyektdə olduqda state-ləri ixrac etmək daha çətin olacaqdı.
 
-Both putting all state in a single `useState` call, and having a `useState` call per each field can work. Components tend to be most readable when you find a balance between these two extremes, and group related state into a few independent state variables. If the state logic becomes complex, we recommend [managing it with a reducer](/docs/hooks-reference.html#usereducer) or a custom Hook.
+Bütün state-ləri bir `useState` çağırışında saxlamaq və ya hər state üçün ayrı `useState` çağırışı işlətmək eyni nəticəya çıxacaqlar. Bu iki ekstremlər arasında balans tapıb əlaqəli state-ləri müstəqil state dəyişənlərinə qruplaşdırdıqda komponentləri oxumaq asanlaşır. State məntiqi mürəkkəbləşdirkdə xüsusi Hook və ya [reducer](/docs/hooks-reference.html#usereducer) işlətməyi tövsiyyə edirik.
 
-### Can I run an effect only on updates? {#can-i-run-an-effect-only-on-updates}
+### Effekti yalnız yenilik zamanı icra edə bilərəm? {#can-i-run-an-effect-only-on-updates}
 
-This is a rare use case. If you need it, you can [use a mutable ref](#is-there-something-like-instance-variables) to manually store a boolean value corresponding to whether you are on the first or a subsequent render, then check that flag in your effect. (If you find yourself doing this often, you could create a custom Hook for it.)
+Bu çox nadir ssenaridir. Bu lazım olduqda ilk və ya sonrakı render etməni təyin etmək üçün boolin dəyəri saxlayan [mutasiya olunan ref](#is-there-something-like-instance-variables) saxlayıb, bu ref-in dəyərini effekt çağırışında yoxlayın. (Bunu çox elədiyinizi görürsünüzsə, bu məntiq üçün xüsusi Hook yarada bilərsiniz.)
 
-### How to get the previous props or state? {#how-to-get-the-previous-props-or-state}
+### Keçmiş props və state-i necə əldə edə bilərəm? {#how-to-get-the-previous-props-or-state}
 
-Currently, you can do it manually [with a ref](#is-there-something-like-instance-variables):
+İndiki zamanda, siz köhnə dəyərləri [ref-də](#is-there-something-like-instance-variables) saxlaya bilərsiniz:
 
 ```js{6,8}
 function Counter() {
@@ -345,17 +345,17 @@ function Counter() {
   });
   const prevCount = prevCountRef.current;
 
-  return <h1>Now: {count}, before: {prevCount}</h1>;
+  return <h1>İndi: {count}, əvvəl: {prevCount}</h1>;
 }
 ```
 
-This might be a bit convoluted but you can extract it into a custom Hook:
+Bu, biraz çaşdırıcı ola bilər. Lakin, siz bunu xüsusi Hooka ixrac edə bilərsiniz:
 
 ```js{3,7}
 function Counter() {
   const [count, setCount] = useState(0);
   const prevCount = usePrevious(count);
-  return <h1>Now: {count}, before: {prevCount}</h1>;
+  return <h1>İndi: {count}, əvvəl: {prevCount}</h1>;
 }
 
 function usePrevious(value) {
@@ -367,7 +367,7 @@ function usePrevious(value) {
 }
 ```
 
-Note how this would work for props, state, or any other calculated value.
+Bu məntiq ilə proplar, state və ya digər hesablanmış dəyərlər saxlana bilər.
 
 ```js{5}
 function Counter() {
@@ -378,9 +378,9 @@ function Counter() {
   // ...
 ```
 
-It's possible that in the future React will provide a `usePrevious` Hook out of the box since it's a relatively common use case.
+Bu ssenarinin çox işlədildiyindən gələcəkdə React-də `usePrevious` Hooku ola bilər.
 
-See also [the recommended pattern for derived state](#how-do-i-implement-getderivedstatefromprops).
+[Törənən state üçün tövsiyyə olunan pattern-ə də](#how-do-i-implement-getderivedstatefromprops) baxın.
 
 ### Why am I seeing stale props or state inside my function? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
