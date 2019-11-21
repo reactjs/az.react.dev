@@ -38,10 +38,10 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
   * [Effekti yalnız yenilik zamanı icra edə bilərəm?](#can-i-run-an-effect-only-on-updates)
   * [Keçmiş props və state-i necə əldə edə bilərəm?](#how-to-get-the-previous-props-or-state)
   * [Niyə funksiya daxilində köhnə state və prop dəyərləri görürəm?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
-  * [getDerivedStateFromProps funksiyasını necə tətbiq etməliyəm?](#how-do-i-implement-getderivedstatefromprops)
+  * [getDerivedStateFromProps funksiyasını necə tətbiq edə bilərəm?](#how-do-i-implement-getderivedstatefromprops)
   * [forceUpdate kimi funksiya var?](#is-there-something-like-forceupdate)
   * [Funksiya komponentinə ref qoşa bilərəm?](#can-i-make-a-ref-to-a-function-component)
-  * [DOM nodunu necə ölçüm?](#how-can-i-measure-a-dom-node)
+  * [DOM nodunu necə ölçə bilərəm?](#how-can-i-measure-a-dom-node)
   * [const [thing, setThing] = useState() nə deməkdir?](#what-does-const-thing-setthing--usestate-mean)
 * **[Performans Optimallaşdırması](#performance-optimizations)**
   * [Yeniliklər olduqda effekti atlaya bilərəm?](#can-i-skip-an-effect-on-updates)
@@ -382,9 +382,9 @@ Bu ssenarinin çox işlədildiyindən gələcəkdə React-də `usePrevious` Hook
 
 [Törənən state üçün tövsiyyə olunan pattern-ə də](#how-do-i-implement-getderivedstatefromprops) baxın.
 
-### Why am I seeing stale props or state inside my function? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
+### Niyə funksiya daxilində köhnə state və prop dəyərləri görürəm? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
-Any function inside a component, including event handlers and effects, "sees" the props and state from the render it was created in. For example, consider code like this:
+Komponent daxilində olan bütün funksiyalar (hadisə işləyiciləri və effektlər daxil olmaqla) render zamanı yaranan bütün state və propları "görürlər." Məsələn, aşağıdakı kimi koda baxaq:
 
 ```js
 function Example() {
@@ -392,39 +392,39 @@ function Example() {
 
   function handleAlertClick() {
     setTimeout(() => {
-      alert('You clicked on: ' + count);
+      alert('Tıklandı: ' + count);
     }, 3000);
   }
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>{count} dəfə tıklandı</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Tıkla
       </button>
       <button onClick={handleAlertClick}>
-        Show alert
+        Xəbərdarlığı göstər
       </button>
     </div>
   );
 }
 ```
 
-If you first click "Show alert" and then increment the counter, the alert will show the `count` variable **at the time you clicked the "Show alert" button**. This prevents bugs caused by the code assuming props and state don't change.
+"Xəbərdarlığı göstər" düyməsini tıklayıb sayqacı artırdıqda xəbərdarlıqda **"Xəbərdarlığı göstər" tıklandığı zaman təyin edilən** `count` dəyişəninin dəyəri göstəriləcək. Bu, state və propların dəyişmədiyini fikirləşən kodlarda baqların qarşısını alır.
 
-If you intentionally want to read the *latest* state from some asynchronous callback, you could keep it in [a ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutate it, and read from it.
+Əgər asinxron callback-dən *ən son* state-i oxumaq istəyirsinizsə, bu dəyəri [ref-də](/docs/hooks-faq.html#is-there-something-like-instance-variables) saxlayıb, mutasiya edib və oxuya bilərsiniz.
 
-Finally, another possible reason you're seeing stale props or state is if you use the "dependency array" optimization but didn't correctly specify all the dependencies. For example, if an effect specifies `[]` as the second argument but reads `someProp` inside, it will keep "seeing" the initial value of `someProp`. The solution is to either remove the dependency array, or to fix it. Here's [how you can deal with functions](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), and here's [other common strategies](#what-can-i-do-if-my-effect-dependencies-change-too-often) to run effects less often without incorrectly skipping dependencies.
+Ən sonda, köhnə state və ya propları görməyin səbəblərindən biri "asılılıq massivi* optimallaşdırmasından istifadə etdikdə bütün asılılıqların təyin edilməməsidir. Məsələn, əgər effektin ikinci arqumentində `[]` massivi təyin edilib amma effektin daxilində `someProp` işlədilibsə, effektdə `someProp` dəyərinin ilkin propu "görünəcək*. Bunu həll etmək üçün asılılıq massivini silmək və ya düzəltmək lazımdır. [Funksiyaları massivdə işlətmək](#is-it-safe-to-omit-functions-from-the-list-of-dependencies) və asılılıqları səhvən buraxmadan effektləri daha az icra etmək üçün [digər strategiyalar](#what-can-i-do-if-my-effect-dependencies-change-too-often) haqqında məlumat almaq üçün göstərilən linklərə baxın.
 
->Note
+>Qeyd
 >
->We provide an [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv göstərildiyini göstərir və düzəliş təklif edir.
 
-### How do I implement `getDerivedStateFromProps`? {#how-do-i-implement-getderivedstatefromprops}
+### `getDerivedStateFromProps` funksiyasını necə tətbiq edə bilərəm? {#how-do-i-implement-getderivedstatefromprops}
 
-While you probably [don't need it](/blog/2018/06/07/you-probably-dont-need-derived-state.html), in rare cases that you do (such as implementing a `<Transition>` component), you can update the state right during rendering. React will re-run the component with updated state immediately after exiting the first render so it wouldn't be expensive.
+Bir çox halda [bunun lazım olmadığına](/blog/2018/06/07/you-probably-dont-need-derived-state.html) baxmayaraq lazım olan bəzi nadir hallarda (məsələn, `<Transition>` komponentini tətbiq etdikdə) siz state-i render etmə zamanı yeniləyə bilərsiniz. React, ilk renderdən dərhal sonra komponenti yenilənmiş state ilə yenilədiyindən bu əməliyyat bahalı olmayacaq.
 
-Here, we store the previous value of the `row` prop in a state variable so that we can compare:
+Aşağıdakı nümunədə biz `row` propunun əvvəlki dəyərini state dəyişənində saxlayaraq dəyərləri müqayisə edirik:
 
 ```js
 function ScrollView({row}) {
@@ -432,22 +432,22 @@ function ScrollView({row}) {
   let [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
-    // Row changed since last render. Update isScrollingDown.
+    // Son render etmədən sonra row dəyəri dəyişdiyindən isScrollingDown state-ini yenilə.
     setIsScrollingDown(prevRow !== null && row > prevRow);
     setPrevRow(row);
   }
 
-  return `Scrolling down: ${isScrollingDown}`;
+  return `Aşağı sckrol edilir: ${isScrollingDown}`;
 }
 ```
 
-This might look strange at first, but an update during rendering is exactly what `getDerivedStateFromProps` has always been like conceptually.
+İlk baxışda bu qəribə görünə bilər. Lakin, render etmə zamanı yeniləmə əməliyyatı `getDerivedStateFromProps` funksiyası ilə konseptual olaraq eynidir.
 
-### Is there something like forceUpdate? {#is-there-something-like-forceupdate}
+### forceUpdate kimi funksiya var? {#is-there-something-like-forceupdate}
 
-Both `useState` and `useReducer` Hooks [bail out of updates](/docs/hooks-reference.html#bailing-out-of-a-state-update) if the next value is the same as the previous one. Mutating state in place and calling `setState` will not cause a re-render.
+Əgər yeni dəyər köhnə dəyər ilə eynidirsə, `useState` və `useReducer` Hookları [komponenti yeniləməyəcəklər](/docs/hooks-reference.html#bailing-out-of-a-state-update). State-i yerində dəyişib `setState` çağırdıqda yenidən render etmə baş verməyəcək.
 
-Normally, you shouldn't mutate local state in React. However, as an escape hatch, you can use an incrementing counter to force a re-render even if the state has not changed:
+Normalda, React-in lokal state-i mutasiya olunmur. Lakin, çıxış yolu kimi artan sayğac işlədərək yenidən render etməni məcbur edə bilərsiniz:
 
 ```js
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -457,15 +457,15 @@ Normally, you shouldn't mutate local state in React. However, as an escape hatch
   }
 ```
 
-Try to avoid this pattern if possible.
+Bu həlli çalışdığınız qədər az işlədin.
 
-### Can I make a ref to a function component? {#can-i-make-a-ref-to-a-function-component}
+### Funksiya komponentinə ref qoşa bilərəm? {#can-i-make-a-ref-to-a-function-component}
 
-While you shouldn't need this often, you may expose some imperative methods to a parent component with the [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle) Hook.
+Adətən bunun lazım olmadığına baxmayaraq [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle) Hooku ilə bəzi imperativ metodları valideyn komponentə göstərə bilərsiniz.
 
-### How can I measure a DOM node? {#how-can-i-measure-a-dom-node}
+### DOM nodunu necə ölçə bilərəm? {#how-can-i-measure-a-dom-node}
 
-In order to measure the position or size of a DOM node, you can use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
+DOM nodunun ölçüsünü və ya pozisiyasını hesablamaq üçün [callback ref-dən](/docs/refs-and-the-dom.html#callback-refs) istifadə edə bilərsiniz. Fərqli noda ref qoşulduqda React callback-i çağıracaq. Bu, [kiçik demo-ya](https://codesandbox.io/s/l7m0v5x4v9) baxın:
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -479,27 +479,27 @@ function MeasureExample() {
 
   return (
     <>
-      <h1 ref={measuredRef}>Hello, world</h1>
-      <h2>The above header is {Math.round(height)}px tall</h2>
+      <h1 ref={measuredRef}>Salam dünya</h1>
+      <h2>Yuxarıdakı başlığın hündürlüyü: {Math.round(height)}px</h2>
     </>
   );
 }
 ```
 
-We didn't choose `useRef` in this example because an object ref doesn't notify us about *changes* to the current ref value. Using a callback ref ensures that [even if a child component displays the measured node later](https://codesandbox.io/s/818zzk8m78) (e.g. in response to a click), we still get notified about it in the parent component and can update the measurements.
+Obyekt ref-inin cari ref dəyərinə edilən *dəyişikliklər* haqqında xəbərdarlıq vermədiyindən bu nümunədə `useRef`-dən istifadə etmirik. Callback ref-i işlətdikdə [hesablanan nodun uşaq komponentdən göstərilməsinə baxmayaraq](https://codesandbox.io/s/818zzk8m78) (e.g. məsələn düymə tıklandıqda) dəyişikliklər valideyn komponentə bildirilir. Bu səbəbdən, biz hesablamaları yeniləyə bilirik.
 
-Note that we pass `[]` as a dependency array to `useCallback`. This ensures that our ref callback doesn't change between the re-renders, and so React won't call it unnecessarily.
+`useCallback`-in asılılıqlar massivinə `[]` göndərildiyində fikir verin. Boş massivi, ref callback-inin dəyişmədiyini və yenidən render etmələr zamanı eyni qaldığını siğortaladığından React, bu funksiyanı lazımsız yerə çağırmayacaq.
 
-If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
+İstədiyiniz zaman bu məntiqi xüsusi Hooka [ixrac edə bilərsiniz](https://codesandbox.io/s/m5o42082xy):
 
 ```js{2}
 function MeasureExample() {
   const [rect, ref] = useClientRect();
   return (
     <>
-      <h1 ref={ref}>Hello, world</h1>
+      <h1 ref={ref}>Salam dünya</h1>
       {rect !== null &&
-        <h2>The above header is {Math.round(rect.height)}px tall</h2>
+        <h2>uxarıdakı başlığın hündürlüyü: {Math.round(rect.height)}px</h2>
       }
     </>
   );
@@ -517,9 +517,9 @@ function useClientRect() {
 ```
 
 
-### What does `const [thing, setThing] = useState()` mean? {#what-does-const-thing-setthing--usestate-mean}
+### `const [thing, setThing] = useState()` nə deməkdir? {#what-does-const-thing-setthing--usestate-mean}
 
-If you're not familiar with this syntax, check out the [explanation](/docs/hooks-state.html#tip-what-do-square-brackets-mean) in the State Hook documentation.
+Bu sintaksis ilə tanışlığınız yoxdursa, State Hook sənədində olan [izahatı](/docs/hooks-state.html#tip-what-do-square-brackets-mean) oxuyun.
 
 
 ## Performance Optimizations {#performance-optimizations}
