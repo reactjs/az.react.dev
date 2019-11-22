@@ -47,10 +47,10 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
   * [Yeniliklər olduqda effekti atlaya bilərəm?](#can-i-skip-an-effect-on-updates)
   * [Asılılıqlar siyahısına funksiyaları əlavə etməmək təhlükəsizdir?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
   * [Effekt asılılıqları tez-tez dəyişdikdə nə etməliyəm?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
-  * [shouldComponentUpdate funksiyasını necə tətbiq etməliyəm?](#how-do-i-implement-shouldcomponentupdate)
-  * [Hesablamaları necə memoizasiya etməliyəm?](#how-to-memoize-calculations)
+  * [shouldComponentUpdate funksiyasını necə tətbiq edə bilərəm?](#how-do-i-implement-shouldcomponentupdate)
+  * [Hesablamaları necə memoizasiya edə bilərəm?](#how-to-memoize-calculations)
   * [Bahalı obyektləri lazy formada necə yarada bilərəm?](#how-to-create-expensive-objects-lazily)
-  * [Render zamanı funksiyaların yarandığına görə Hooklar yavaşdır?](#are-hooks-slow-because-of-creating-functions-in-render)
+  * [Render zamanı funksiyaların yaranması Hookları yavaşladır?](#are-hooks-slow-because-of-creating-functions-in-render)
   * [Callback-ləri göndərməkdən necə çəkinə bilərəm?](#how-to-avoid-passing-callbacks-down)
   * [useCallback-dən tez-tez dəyişən dəyəri necə oxuya bilərəm?](#how-to-read-an-often-changing-value-from-usecallback)
 * **[Daxilində](#under-the-hood)**
@@ -522,15 +522,15 @@ function useClientRect() {
 Bu sintaksis ilə tanışlığınız yoxdursa, State Hook sənədində olan [izahatı](/docs/hooks-state.html#tip-what-do-square-brackets-mean) oxuyun.
 
 
-## Performance Optimizations {#performance-optimizations}
+## Performans Optimallaşdırması {#performance-optimizations}
 
-### Can I skip an effect on updates? {#can-i-skip-an-effect-on-updates}
+### Yeniliklər olduqda effekti atlaya bilərəm? {#can-i-skip-an-effect-on-updates}
 
-Yes. See [conditionally firing an effect](/docs/hooks-reference.html#conditionally-firing-an-effect). Note that forgetting to handle updates often [introduces bugs](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update), which is why this isn't the default behavior.
+Bəli. [Effektlərin şərti icra olunması](/docs/hooks-reference.html#conditionally-firing-an-effect) səhifəsinə baxın. Yeniliklərin idarə olunmasının unudulmasının [baqlara səbəb olduğundan](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update) biz bunu normal davranış kimi tətbiq etmirik.
 
-### Is it safe to omit functions from the list of dependencies? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
+### Asılılıqlar siyahısına funksiyaları əlavə etməmək təhlükəsizdir? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
 
-Generally speaking, no.
+Ümumilikdə, xeyir.
 
 ```js{3,8}
 function Example({ someProp }) {
@@ -540,11 +540,11 @@ function Example({ someProp }) {
 
   useEffect(() => {
     doSomething();
-  }, []); // 🔴 This is not safe (it calls `doSomething` which uses `someProp`)
+  }, []); // 🔴 Bu problem yaradacaq (`doSomething` funksiyası `someProp` işlədir)
 }
 ```
 
-It's difficult to remember which props or state are used by functions outside of the effect. This is why **usually you'll want to declare functions needed by an effect *inside* of it.** Then it's easy to see what values from the component scope that effect depends on:
+Effektdən kənarda olan funksiyaların hansı state və propları işlətdiyini yadda saxlamaq çətindir. Bu səbədən **effektdə işlədiləcək funksiyaları effektin *daxilində* yaratmağı tövsiyyə edirik.** Bu həll ilə komponent effektin komponent scope-unda olan hansı dəyərlərdən asılı olduğunu daha aydın görmək mümkündür:
 
 ```js{4,8}
 function Example({ someProp }) {
@@ -554,11 +554,11 @@ function Example({ someProp }) {
     }
 
     doSomething();
-  }, [someProp]); // ✅ OK (our effect only uses `someProp`)
+  }, [someProp]); // ✅ OK (effekt `someProp` propunu işlədir)
 }
 ```
 
-If after that we still don't use any values from the component scope, it's safe to specify `[]`:
+Əgər bu həll ilə komponent scope-undan heç bir dəyər işlətmiriksə, asılılıq massivini `[]` dəyər ilə təyin etmək problem yaratmayacaq:
 
 ```js{7}
 useEffect(() => {
@@ -567,46 +567,46 @@ useEffect(() => {
   }
 
   doSomething();
-}, []); // ✅ OK in this example because we don't use *any* values from component scope
+}, []); // ✅ OK. bu nümunədə komponent scope-unda olan *heç bir* dəyəri işlətmirik
 ```
 
-Depending on your use case, there are a few more options described below.
+Ssenaridən asılı olaraq aşağıda digər seçimlər də göstərilir.
 
->Note
+>Qeyd
 >
->We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It helps you find components that don't handle updates consistently.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv göstərildiyini göstərir və düzəliş təklif edir.
 
-Let's see why this matters.
+Gəlin bunun niyə vacib olduğuna baxaq.
 
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.
+`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir.
 
-It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
+Asılılıq massivindən **yalnız** funksiyanın daxilində (və ya bu funksiyanın çağırdığı funksiyaların daxilində) state, proplar və ya bu dəyərlərdən yaranmış dəyərlərə referans olmadıqda bu funksiyanı buraxmaq mümkündür. Aşağıdakı nümunədə baq var:
 
 ```js{5,12}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-    const response = await fetch('http://myapi/product' + productId); // Uses productId prop
+    const response = await fetch('http://myapi/product' + productId); // productId propunu işlədir
     const json = await response.json();
     setProduct(json);
   }
 
   useEffect(() => {
     fetchProduct();
-  }, []); // 🔴 Invalid because `fetchProduct` uses `productId`
+  }, []); // 🔴 Yanlış. `fetchProduct` funksiyası `productId` işlədir
   // ...
 }
 ```
 
-**The recommended fix is to move that function _inside_ of your effect**. That makes it easy to see which props or state your effect uses, and to ensure they're all declared:
+**Bunu düzəltmək üçün funksiyanı effektin _daxilinə_ köçürməyi tövsiyyə edirik**. Bu həll ilə effektin hansı state və ya proplar işlətdiyini bilmək asanlaşır və bu dəyərlərin həmişə təyin olunduğu siğortalanır:
 
 ```js{5-10,13}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // By moving this function inside the effect, we can clearly see the values it uses.
+    // Funksiyanı effektin daxilinə köçürərək bu effektin hansı dəyərləri işlətdiyini görmək mümkündür.
     async function fetchProduct() {
       const response = await fetch('http://myapi/product' + productId);
       const json = await response.json();
@@ -614,12 +614,12 @@ function ProductPage({ productId }) {
     }
 
     fetchProduct();
-  }, [productId]); // ✅ Valid because our effect only uses productId
+  }, [productId]); // ✅ Effektin productId propundan istifadə etdiyindən bu massiv etibarlıdır
   // ...
 }
 ```
 
-This also allows you to handle out-of-order responses with a local variable inside the effect:
+Bu kod ilə effektin daxilində lokal state yaradaraq lazımsız cavabları idarə etmək mümkündür:
 
 ```js{2,6,10}
   useEffect(() => {
@@ -635,24 +635,24 @@ This also allows you to handle out-of-order responses with a local variable insi
   }, [productId]);
 ```
 
-We moved the function inside the effect so it doesn't need to be in its dependency list.
+Funksiyanı effektin daxilinə əlavə etdiyimizdən artıq bu funksiyanı asılılıqlar massivinə əlavə etməməliyik.
 
->Tip
+>Məsləhət
 >
->Check out [this small demo](https://codesandbox.io/s/jvvkoo8pq3) and [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) to learn more about data fetching with Hooks.
+>Hooklar ilə məlumat yüklənməsi haqqında əlavə məlumat almaq üçün [bu kiçik demo-ya](https://codesandbox.io/s/jvvkoo8pq3) və [bu məqaləyə](https://www.robinwieruch.de/react-hooks-fetch-data/) baxın.
 
-**If for some reason you _can't_ move a function inside an effect, there are a few more options:**
+**Əgər funksiyanı effektin daxilinə əlavə edə _bilmirsinizsə_, aşağıda göstərilə digər seçimlərə baxın:**
 
-* **You can try moving that function outside of your component**. In that case, the function is guaranteed to not reference any props or state, and also doesn't need to be in the list of dependencies.
-* If the function you're calling is a pure computation and is safe to call while rendering, you may **call it outside of the effect instead,** and make the effect depend on the returned value.
-* As a last resort, you can **add a function to effect dependencies but _wrap its definition_** into the [`useCallback`](/docs/hooks-reference.html#usecallback) Hook. This ensures it doesn't change on every render unless *its own* dependencies also change:
+* **Funksiyanı komponentdən kənarda köçürün**. Bu yol ilə funksiyanın heç bir state və ya proplardan asılı olmayacağı qarantiyalanır. Bu səbəbdən funksiyanı asılılıqlar massivinə əlavə etmək mümkün deyil.
+* Əgər çağırdığınız funksiya təmiz hesablamadırsa və render etmə zamanı çağrıla bilirsə, siz **bu funkisyanı effektin kənarından çağıra bilər** və effekti funksiyanın qaytardığı dəyərdən asılı edə bilərsiniz.
+* Ən son variant kimi **funksiyanı effektin asılılıqlar massivinə əlavə edib _bu funksiyanın tətbiqini_** [`useCallback`](/docs/hooks-reference.html#usecallback) Hooku ilə əhatə edə bilərsiniz. Bu, funksiyanın **öz asılılıqları** dəyişməyənə kimi hər render zamanı yeni funksiyanın olmayacağını təmin edir:
 
 ```js{2-5}
 function ProductPage({ productId }) {
-  // ✅ Wrap with useCallback to avoid change on every render
+  // ✅ Render etmə zamanı funksiyanın dəyişməməsi üçün funksiyanı useCallback ilə əhatə edin
   const fetchProduct = useCallback(() => {
-    // ... Does something with productId ...
-  }, [productId]); // ✅ All useCallback dependencies are specified
+    // ... productId ilə nəsə et ...
+  }, [productId]); // ✅ useCallback-in bütün asılılıqları təyin edilib
 
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
@@ -660,12 +660,12 @@ function ProductPage({ productId }) {
 function ProductDetails({ fetchProduct }) {
   useEffect(() => {
     fetchProduct();
-  }, [fetchProduct]); // ✅ All useEffect dependencies are specified
+  }, [fetchProduct]); // ✅ Bütün useEffect asılılıqları təyin edilib
   // ...
 }
 ```
 
-Note that in the above example we **need** to keep the function in the dependencies list. This ensures that a change in the `productId` prop of `ProductPage` automatically triggers a refetch in the `ProductDetails` component.
+Yuxarıdakı nümunədə funksiyanın asılılıqlar massivində **olduğuna** fikir verin. Bu, `ProductPage`-in `productId` propunda olan dəyişikliyin `ProductDetails` komponentində yenidən yüklənməni avtomatik icra edir.
 
 ### What can I do if my effect dependencies change too often? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
@@ -735,9 +735,9 @@ function Example(props) {
 
 Only do this if you couldn't find a better alternative, as relying on mutation makes components less predictable. If there's a specific pattern that doesn't translate well, [file an issue](https://github.com/facebook/react/issues/new) with a runnable example code and we can try to help.
 
-### How do I implement `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
+### `shouldComponentUpdate` funksiyasını necə tətbiq edə bilərəm? {#how-do-i-implement-shouldcomponentupdate}
 
-You can wrap a function component with `React.memo` to shallowly compare its props:
+Propları dayaz müqayisə etmək üçün funksiya komponentini `React.memo` ilə əhatə edin:
 
 ```js
 const Button = React.memo((props) => {
@@ -745,9 +745,9 @@ const Button = React.memo((props) => {
 });
 ```
 
-It's not a Hook because it doesn't compose like Hooks do. `React.memo` is equivalent to `PureComponent`, but it only compares props. (You can also add a second argument to specify a custom comparison function that takes the old and new props. If it returns true, the update is skipped.)
+Bu Hook deyil. Çünki, bunu Hooklar kimi kompozisiya etmək mümkün deyil. `React.memo` funksiyası `PureComponent` klasına oxşayır. Lakin, bu funksiya yalnız propları müqayisə edir. (Xüsusi müqayisə funksiyasını təyin etmək üçün ikinci arqument əlavə edə bilərsiniz. Bu funksiya keçmiş və yeni propları qəbul edir və true qaytardıqda yeniliyi buraxır.)
 
-`React.memo` doesn't compare state because there is no single state object to compare. But you can make children pure too, or even [optimize individual children with `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
+Müqayisə etmək üçün tək state yeniliyinin olmadığından `React.memo` funksiyası state-i müqayisə etmir. Lakin, siz uşaqları saf edə bilər, hətta [fərdi uşaqları `useMemo` ilə optimallaşdıra bilərsiniz](/docs/hooks-faq.html#how-to-memoize-calculations).
 
 ### How to memoize calculations? {#how-to-memoize-calculations}
 
