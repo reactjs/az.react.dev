@@ -73,6 +73,7 @@ import("./math").then(math => {
 });
 ```
 
+<<<<<<< HEAD
 > Qeyd:
 >
 > Dinamik `import()` sintaksisi ECMAScript (JavaScript) 
@@ -80,6 +81,12 @@ import("./math").then(math => {
 > bir hissəsi deyil. Bu təklif yaxın gələcəkdə standarta qəbul ediləcək.
 
 Webpack bu sintaksisi görən kimi, sizin applikasiyanızın kodunu avtomatik parçalayacaq. Əgər siz Create React App işlədirsinizsə, bu xüsusiyyət artiq sizin üçün konfiqurasiya olunub və siz dərhal bunu [işlədə bilərsiniz](https://facebook.github.io/create-react-app/docs/code-splitting). Bu xusiyyəti həmçinin [Next.js](https://github.com/zeit/next.js/#dynamic-import) də dəstəkləyir.
+=======
+When Webpack comes across this syntax, it automatically starts code-splitting
+your app. If you're using Create React App, this is already configured for you
+and you can [start using it](https://facebook.github.io/create-react-app/docs/code-splitting) immediately. It's also supported
+out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+>>>>>>> 99b790188735016c72a9265a42dbfc87c3221729
 
 Əgər Webpack-i özünüz quraşdırırsınızsa, Webpack-in [kod parçalaması haqqında təlimatını](https://webpack.js.org/guides/code-splitting/) oxumaq sizə lazım olacaq. Sizin Webpack konfiqurasiyanız təxminən [belə bir formada](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269) görünəcək.
 
