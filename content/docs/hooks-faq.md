@@ -667,28 +667,9 @@ function ProductDetails({ fetchProduct }) {
 
 Yuxarıdakı nümunədə funksiyanın asılılıqlar massivində **olduğuna** fikir verin. Bu, `ProductPage`-in `productId` propunda olan dəyişikliyin `ProductDetails` komponentində yenidən yüklənməni avtomatik icra edir.
 
-### What can I do if my effect dependencies change too often? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
+### Effekt asılılıqları tez-tez dəyişdikdə nə etməliyəm? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Sometimes, your effect may be using state that changes too often. You might be tempted to omit that state from a list of dependencies, but that usually leads to bugs:
-
-```js{6,9}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount(count + 1); // This effect depends on the `count` state
-    }, 1000);
-    return () => clearInterval(id);
-  }, []); // 🔴 Bug: `count` is not specified as a dependency
-
-  return <h1>{count}</h1>;
-}
-```
-
-The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
-
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimeout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+Bəzən effetlərdə tez-tez dəyişən state işlədilə bilər. Bu səbəbdən, siz state-i effektin asılılıqlarından silmək istəyə bilərsiniz. Lakin, bu baqlara səbəb olacaq:
 
 ```js{6,9}
 function Counter() {
@@ -696,26 +677,45 @@ function Counter() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount(c => c + 1); // ✅ This doesn't depend on `count` variable outside
+      setCount(count + 1); // Bu effet `count` state-indən asılıdır
     }, 1000);
     return () => clearInterval(id);
-  }, []); // ✅ Our effect doesn't use any variables in the component scope
+  }, []); // 🔴 Baq: `count` state-i asılılıq kimi təyin edilməyib
 
   return <h1>{count}</h1>;
 }
 ```
 
-(The identity of the `setCount` function is guaranteed to be stable so it's safe to omit.)
+Boş asılılıqlar massivi (`[]`) effektin yalnız komponentin mount olunduğu zaman icra ediləcəyini bildirir. Lakin, yaratdığımız closure-da `count` state-inin dəyərinin `0` olduğundan `setInterval` callback-inin daxilində olan `count` dəyəri dəyişməyəcək. Hər keçən saniyədə intervalın callback-i `setCount(0 + 1)` funkisyasını çağıracaq və bu səbəbdən sayğac heç vaxt 1-dən yüksək olmayacaq.
 
-Now, the `setInterval` callback executes once a second, but each time the inner call to `setCount` can use an up-to-date value for `count` (called `c` in the callback here.)
+`[count]` dəyərini asılılıqlar siyahısına əlavə etdikdə baqlar düzələcək. Lakin, interval hər dəyişiklik zamanı sıfırlanacaq. Effektiv olaraq `setInterval` təmizlənməmişdən qabaq yalnız bir dəfə icra olunacaq (`setTimeout` kimi). Bu, istənilməz nəticələnə bilər. Bunu həll etmək üçün [`setState`-in funksional yeniləmə formasından istifadə edə bilərik](/docs/hooks-reference.html#functional-updates). Bu forma ilə *cari* state-i referans etmədən state-in *necə* dəyişəcəyini təyin etmək mümkündür:
 
-In more complex cases (such as if one state depends on another state), try moving the state update logic outside the effect with the [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [This article](https://adamrackis.dev/state-and-use-reducer/) offers an example of how you can do this. **The identity of the `dispatch` function from `useReducer` is always stable** — even if the reducer function is declared inside the component and reads its props.
+```js{6,9}
+function Counter() {
+  const [count, setCount] = useState(0);
 
-As a last resort, if you want something like `this` in a class, you can [use a ref](/docs/hooks-faq.html#is-there-something-like-instance-variables) to hold a mutable variable. Then you can write and read to it. For example:
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + 1); // ✅ Bu, `count` dəyişənindən asılı deyil
+    }, 1000);
+    return () => clearInterval(id);
+  }, []); // ✅ Effetimiz komponent scope-unda olan heç bir dəyərdən istifadə etmir
+
+  return <h1>{count}</h1>;
+}
+```
+
+(`setCount` funksiyasının stabil olduğundan bu funksiyanı effektə asılılıq kimi əlavə etmək lazım deyil.)
+
+İndi, `setInterval` callback-inin hər saniyə icra olunduğuna baxmayaraq `setCount`-un daxili funkisyası `count` dəyərinin (callback-də `c` adlanır) ən yeni dəyərini istifadə edir.
+
+Daha mürəkkəb ssenarilərdə (məsələn, bir state-in başqa state-dən asılı olduğu hallar kimi) state yeniləməsi məntiqini [`useReducer` Hooku](/docs/hooks-reference.html#usereducer) ilə effektdən kənara çıxarın. Bunu etmək üçün [bu məqalədəki](https://adamrackis.dev/state-and-use-reducer/) nümunəyə baxın. Reducer funksiyasının komponentin daxilində təyin olunub komponentin proplarını oxumasına baxmayaraq **`useReducer`-in `dispatch` funksiyası həmişə stabil qalır.**
+
+Ən son hallda klasın `this` dəyəri kimi bir dəyər işlətmək istəyirsinizsə mutasiya oluna bilən dəyişəni saxlamaq üçün [ref-dən](/docs/hooks-faq.html#is-there-something-like-instance-variables) istifadə edin. Sonra, siz bu ref-i oxuya bilər və dəyişə bilərsiniz. Məsələn:
 
 ```js{2-6,10-11,16}
 function Example(props) {
-  // Keep latest props in a ref.
+  // Ən son propları ref-də saxla.
   let latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
@@ -723,17 +723,17 @@ function Example(props) {
 
   useEffect(() => {
     function tick() {
-      // Read latest props at any time
+      // Ən son propları ref-dən oxu
       console.log(latestProps.current);
     }
 
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []); // This effect never re-runs
+  }, []); // Bu effekt heç vaxt çağrılmır
 }
 ```
 
-Only do this if you couldn't find a better alternative, as relying on mutation makes components less predictable. If there's a specific pattern that doesn't translate well, [file an issue](https://github.com/facebook/react/issues/new) with a runnable example code and we can try to help.
+Yalnız daha yaxşı alternativ olmadıqda bu yoldan istifadə edin. Əgər xüsusi bir pattern işləmirsə bizə nümunə ilə [issue göndərin](https://github.com/facebook/react/issues/new).
 
 ### `shouldComponentUpdate` funksiyasını necə tətbiq edə bilərəm? {#how-do-i-implement-shouldcomponentupdate}
 
