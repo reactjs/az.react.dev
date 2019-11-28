@@ -487,11 +487,7 @@ NVDA-nı ən əlverişli üsulla istifadə etmək üçün təlimatlar aşağıda
 
 VoiceOver Apple cihazlarında istifadə olunan inteqrasiya olunmuş ekran oxucusudur.
 
-<<<<<<< HEAD
-VoiceOver-in aktivləşdirilməsi və istifadəsi ilə bağlı təlimatlar aşağıdakı kimidir:
-=======
-Refer to the following guides on how to activate and use VoiceOver:
->>>>>>> 99b790188735016c72a9265a42dbfc87c3221729
+VoiceOver-in aktivləşdirilməsi və istifadəsi üçün aşağıdakı təlimatlara baxın:
 
 - [WebAIM - Veb İmkanlılığı hesablamaq üçün VoiceOver-in istifadəsi](https://webaim.org/articles/voiceover/)
 - [Deque - OS X Klaviatur qısayolları üçün VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
