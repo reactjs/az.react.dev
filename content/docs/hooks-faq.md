@@ -749,27 +749,27 @@ Bu Hook deyil. Çünki, bunu Hooklar kimi kompozisiya etmək mümkün deyil. `Re
 
 Müqayisə etmək üçün tək state yeniliyinin olmadığından `React.memo` funksiyası state-i müqayisə etmir. Lakin, siz uşaqları saf edə bilər, hətta [fərdi uşaqları `useMemo` ilə optimallaşdıra bilərsiniz](/docs/hooks-faq.html#how-to-memoize-calculations).
 
-### How to memoize calculations? {#how-to-memoize-calculations}
+### Hesablamaları necə memoizasiya edə bilərəm? {#how-to-memoize-calculations}
 
-The [`useMemo`](/docs/hooks-reference.html#usememo) Hook lets you cache calculations between multiple renders by "remembering" the previous computation:
+[`useMemo`](/docs/hooks-reference.html#usememo) Hooku ilə "əvvəlki" hesablamanı saxlayaraq render etmələr arası hesablamaları kəş edə bilərsiniz:
 
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-This code calls `computeExpensiveValue(a, b)`. But if the dependencies `[a, b]` haven't changed since the last value, `useMemo` skips calling it a second time and simply reuses the last value it returned.
+Yuxarıdakı kodda `computeExpensiveValue(a, b)` funksiya çağrılır. Lakin, əgər `[a, b]` asılılıqları dəyişmirsə, `useMemo` ilə bu bu funksiya ikinci dəfə çağrılmayacaq və son çağırışın dəyəri qaytarılacaq.
 
-Remember that the function passed to `useMemo` runs during rendering. Don't do anything there that you wouldn't normally do while rendering. For example, side effects belong in `useEffect`, not `useMemo`.
+`useMemo` Hookuna göndərilən funksiyanın render etmə zamanı çağrıldığını unutmayın. Bu funksiyada render etmə zamanı etmədiyiniz heç bir əməliyyatı etməyin. Məsələn, yan effektləri `useEffect` Hookunda işlədin, `useMemo`-da yox.
 
-**You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance. (For rare cases when a value must *never* be recomputed, you can [lazily initialize](#how-to-create-expensive-objects-lazily) a ref.)
+**`useMemo` Hookuna semantik qarantiya kimi yox performans optimallaşdırması kimi etibar edin.** Gələcəkdə, React, əvvəlki memoizasiya olunmuş dəyərləri "unudub" sonrakı render etmə zamanı yenidən hesablana bilər (məsələn, ekranda görünməyən komponentləri yaddaşdan sildikdə). Kodunuzu bu Hooku işlətmədən yazın. Sonra, `useMemo` əlavə edərək performansı optimallaşdırın. (Dəyərin *heç vaxt* yenidən hesablanmaması lazımdırsa, siz ref-i [lazy formada inisializasiya](#how-to-create-expensive-objects-lazily) edə bilərsiniz.)
 
-Conveniently, `useMemo` also lets you skip an expensive re-render of a child:
+Rahatçılıq üçün `useMemo` ilə uşağın bahalı yenidən render etməsini atlaya bilərsiniz:
 
 ```js
 function Parent({ a, b }) {
-  // Only re-rendered if `a` changes:
+  // Yalnız `a` dəyişdikdə yenidən render etmə baş verir:
   const child1 = useMemo(() => <Child1 a={a} />, [a]);
-  // Only re-rendered if `b` changes:
+  // Yalnız `b` dəyişdikdə yenidən render etmə baş verir:
   const child2 = useMemo(() => <Child2 b={b} />, [b]);
   return (
     <>
@@ -780,7 +780,7 @@ function Parent({ a, b }) {
 }
 ```
 
-Note that this approach won't work in a loop because Hook calls [can't](/docs/hooks-rules.html) be placed inside loops. But you can extract a separate component for the list item, and call `useMemo` there.
+Qeyd edin ki, Hookları [tsıkllardan çağırmaq mümkün olmadığından](/docs/hooks-rules.html) bu yanaşma tsıkl ilə işləmir. Lakin, siyahı elementi üçün ayrı komponent ixrac edib bu komponentdən `useMemo` çağıra bilərsiniz.
 
 ### How to create expensive objects lazily? {#how-to-create-expensive-objects-lazily}
 
