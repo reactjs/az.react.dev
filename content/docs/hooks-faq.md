@@ -49,7 +49,7 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
   * [Effekt asılılıqları tez-tez dəyişdikdə nə etməliyəm?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
   * [shouldComponentUpdate funksiyasını necə tətbiq edə bilərəm?](#how-do-i-implement-shouldcomponentupdate)
   * [Hesablamaları necə memoizasiya edə bilərəm?](#how-to-memoize-calculations)
-  * [Bahalı obyektləri lazy formada necə yarada bilərəm?](#how-to-create-expensive-objects-lazily)
+  * [Bahalı obyektləri lazy formada necə yaratmaq mümkündür?](#how-to-create-expensive-objects-lazily)
   * [Render zamanı funksiyaların yaranması Hookları yavaşladır?](#are-hooks-slow-because-of-creating-functions-in-render)
   * [Callback-ləri göndərməkdən necə çəkinə bilərəm?](#how-to-avoid-passing-callbacks-down)
   * [useCallback-dən tez-tez dəyişən dəyəri necə oxuya bilərəm?](#how-to-read-an-often-changing-value-from-usecallback)
@@ -780,51 +780,51 @@ function Parent({ a, b }) {
 }
 ```
 
-Qeyd edin ki, Hookları [tsıkllardan çağırmaq mümkün olmadığından](/docs/hooks-rules.html) bu yanaşma tsıkl ilə işləmir. Lakin, siyahı elementi üçün ayrı komponent ixrac edib bu komponentdən `useMemo` çağıra bilərsiniz.
+Nəzərə alın ki, Hookları [tsıkllardan çağırmaq mümkün olmadığından](/docs/hooks-rules.html) bu yanaşma tsıkl ilə işləmir. Lakin, siyahı elementi üçün ayrı komponent ixrac edib bu komponentdən `useMemo` çağıra bilərsiniz.
 
-### How to create expensive objects lazily? {#how-to-create-expensive-objects-lazily}
+### Bahalı obyektləri lazy formada necə yaratmaq mümkündür? {#how-to-create-expensive-objects-lazily}
 
-`useMemo` lets you [memoize an expensive calculation](#how-to-memoize-calculations) if the dependencies are the same. However, it only serves as a hint, and doesn't *guarantee* the computation won't re-run. But sometimes you need to be sure an object is only created once.
+Asılılıqlar dəyişmədikdə `useMemo` ilə [bahalı hesablamaları memoizasiya](#how-to-memoize-calculations) etmək mümkündür. Lakin, bu Hook yalnız işarə kimi işlədilir və hesablamanın yenidən icra olmadığını *siğortalamır*. Amma, bəzən obyektin yalnız bir dəfə yaranmasını siğortalamaq lazım olur.
 
-**The first common use case is when creating the initial state is expensive:**
+**İlkin state-i yaratmağın bahalı olması ilk ssenarilərdən biridir:**
 
 ```js
 function Table(props) {
-  // ⚠️ createRows() is called on every render
+  // ⚠️ createRows() funksiyası hər render etmə zamanı çağrılır
   const [rows, setRows] = useState(createRows(props.count));
   // ...
 }
 ```
 
-To avoid re-creating the ignored initial state, we can pass a **function** to `useState`:
+İlkin state-i hər dəfə hesablamamaq üçün `useState` Hookuna **funksiya** göndərə bilərik:
 
 ```js
 function Table(props) {
-  // ✅ createRows() is only called once
+  // ✅ createRows() funksiyası yalnız bir dəfə çağrılır
   const [rows, setRows] = useState(() => createRows(props.count));
   // ...
 }
 ```
 
-React will only call this function during the first render. See the [`useState` API reference](/docs/hooks-reference.html#usestate).
+React bu funksiyanı yalnız ilk render zamanı çağıracaq. [`useState` API arayışına](/docs/hooks-reference.html#usestate) baxın.
 
-**You might also occasionally want to avoid re-creating the `useRef()` initial value.** For example, maybe you want to ensure some imperative class instance only gets created once:
+**Bəzən, `useRef()`-in ilkin dəyərini də yaramaqdan çəkinmək istəyə bilərsiniz.** Məsələn, imperativ klas instansiyasının yalnız bir dəfə yaranmasını təmin etmək istəyə bilərsiniz:
 
 ```js
 function Image(props) {
-  // ⚠️ IntersectionObserver is created on every render
+  // ⚠️ yeni IntersectionObserver obyekti hər render etmə zamanı yaranır
   const ref = useRef(new IntersectionObserver(onIntersect));
   // ...
 }
 ```
 
-`useRef` **does not** accept a special function overload like `useState`. Instead, you can write your own function that creates and sets it lazily:
+`useRef` Hooku `useState` Hooku kimi xüsusi funksiya **qəbul etmir**. Əvəzinə, bu obyekti lazy formada yaradan funksiya yarada bilərsiniz:
 
 ```js
 function Image(props) {
   const ref = useRef(null);
 
-  // ✅ IntersectionObserver is created lazily once
+  // ✅ IntersectionObserver obyekti lazy formada yaranır
   function getObserver() {
     if (ref.current === null) {
       ref.current = new IntersectionObserver(onIntersect);
@@ -832,50 +832,50 @@ function Image(props) {
     return ref.current;
   }
 
-  // When you need it, call getObserver()
+  // Lazım olduqda getObserver() funksiyasını çağırın
   // ...
 }
 ```
 
-This avoids creating an expensive object until it's truly needed for the first time. If you use Flow or TypeScript, you can also give `getObserver()` a non-nullable type for convenience.
+Bu həll ilə obyekt lazım olmayana kimi bu obyekti yaratmaya bilərsiniz. Əlavə olaraq Flow və ya TypeScript işlətdikdə rahatlıq üçün `getObserver()` funksiyasına null olmayan tip təyin edə bilərsiniz.
 
 
-### Are Hooks slow because of creating functions in render? {#are-hooks-slow-because-of-creating-functions-in-render}
+### Render zamanı funksiyaların yaranması Hookları yavaşladır? {#are-hooks-slow-because-of-creating-functions-in-render}
 
-No. In modern browsers, the raw performance of closures compared to classes doesn't differ significantly except in extreme scenarios.
+Xeyir. Modern brauzerlərdə extremal ssenarilər istisna olmaqla closure-ları klaslar ilə müqayisə etdikdə əhəmiyyətli performans fərqi olmur.
 
-In addition, consider that the design of Hooks is more efficient in a couple ways:
+Əlavə olaraq, Hookların dizaynı bir neçə formada daha səmərəlidir:
 
-* Hooks avoid a lot of the overhead that classes require, like the cost of creating class instances and binding event handlers in the constructor.
+* Hooklar ilə klaslarda olan klas instansiyalarının yaranması və hadisə işləyicilərinin konstruktorda bind edilməsi ağırlıqlardan çəkinmək mümkündür.
 
-* **Idiomatic code using Hooks doesn't need the deep component tree nesting** that is prevalent in codebases that use higher-order components, render props, and context. With smaller component trees, React has less work to do.
+* **Hookların idiomatik kodu ilə komponent ağacında** yüksək dərəcəli komponentlər, render etmə propları və kontekst işlədən kodlarda olduğu kimi **dərin nesting-lər etmək lazım deyil.** React, daha kiçik komponent ağaclarında daha az iş görür.
 
-Traditionally, performance concerns around inline functions in React have been related to how passing new callbacks on each render breaks `shouldComponentUpdate` optimizations in child components. Hooks approach this problem from three sides.
+Adətən, React-də eyni sətrli funksiyaların performansı ilə bağlı qayğılar hər render etmə zamanı göndərilən callback-lərin uşaq komponentlərində `shouldComponentUpdate` optimallaşdırmasını sındırmasından gəlir. Hooklar ilə bu problemi üç tərəfdən düzəltmək mümkündür.
 
-* The [`useCallback`](/docs/hooks-reference.html#usecallback) Hook lets you keep the same callback reference between re-renders so that `shouldComponentUpdate` continues to work:
+* [`useCallback`](/docs/hooks-reference.html#usecallback) Hooku ilə yenidən render etmələr arasında eyni callback-ə refaransı saxlayaraq `shouldComponentUpdate`-in düzgün işləməsini təmin etmək mümkündür:
 
     ```js{2}
-    // Will not change unless `a` or `b` changes
+    // `a` və ya `b` dəyişməyənə kimi funksiya dəyişməyəcək
     const memoizedCallback = useCallback(() => {
       doSomething(a, b);
     }, [a, b]);
     ```
 
-* The [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) Hook makes it easier to control when individual children update, reducing the need for pure components.
+* [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) Hooku ilə fərdi uşaq komponentlərinin yenilənməsini idarə edib Pure komponentlərə ehtiyacı azaltmaq mümkündür.
 
-* Finally, the [`useReducer`](/docs/hooks-reference.html#usereducer) Hook reduces the need to pass callbacks deeply, as explained below.
+* Ən sonda [`useReducer`](/docs/hooks-reference.html#usereducer) Hooku ilə callback-ləri dərinə göndərməyi azaltmaq mümkündür (aşağıdakı bölmədə izah edilir).
 
-### How to avoid passing callbacks down? {#how-to-avoid-passing-callbacks-down}
+### Callback-ləri göndərməkdən necə çəkinə bilərəm? {#how-to-avoid-passing-callbacks-down}
 
-We've found that most people don't enjoy manually passing callbacks through every level of a component tree. Even though it is more explicit, it can feel like a lot of "plumbing".
+Biz, proqramçıların callback-ləri əl ilə komponent ağacının hər dərəcəsinə göndərilməsini sevmədiyini bilirik. Bunun daha açıq göründüyünə baxmayaraq bu, çox iş kimi görünə bilir.
 
-In large component trees, an alternative we recommend is to pass down a `dispatch` function from [`useReducer`](/docs/hooks-reference.html#usereducer) via context:
+Böyük ağaclarında alternativ kimi [`useReducer`-in](/docs/hooks-reference.html#usereducer) `dispatch` funksiyasını kontekst ilə göndərməyi tövsiyyə edirik:
 
 ```js{4,5}
 const TodosDispatch = React.createContext(null);
 
 function TodosApp() {
-  // Note: `dispatch` won't change between re-renders
+  // Qeyd: `dispatch` funksiyası render etmələr arasında dəyişmir
   const [todos, dispatch] = useReducer(todosReducer);
 
   return (
@@ -886,26 +886,26 @@ function TodosApp() {
 }
 ```
 
-Any child in the tree inside `TodosApp` can use the `dispatch` function to pass actions up to `TodosApp`:
+`TodosApp`-in ağacının daxilində olan bütün uşaqlar `dispatch` funksiyasından istifadə edib əməliyyatları `TodosApp`-ə göndərə bilərlər:
 
 ```js{2,3}
 function DeepChild(props) {
-  // If we want to perform an action, we can get dispatch from context.
+  // Əməliyyat icra etmək istədikdə `dispatch` funksiyasını kontekstdən ala bilərik.
   const dispatch = useContext(TodosDispatch);
 
   function handleClick() {
-    dispatch({ type: 'add', text: 'hello' });
+    dispatch({ type: 'add', text: 'salam' });
   }
 
   return (
-    <button onClick={handleClick}>Add todo</button>
+    <button onClick={handleClick}>Todo əlavə et</button>
   );
 }
 ```
 
-This is both more convenient from the maintenance perspective (no need to keep forwarding callbacks), and avoids the callback problem altogether. Passing `dispatch` down like this is the recommended pattern for deep updates.
+Bu yanaşma ilə callback-ləri daha rahat idarə edə bilər (callback-ləri yönləndirmək lazım deyil) və callback problemini tam aradan qaldıra bilərik. Dərin yeniləmə əməliyyatları üçün `dispatch` funksiyasını bu formada göndərməyi tövsiyyə edirik.
 
-Note that you can still choose whether to pass the application *state* down as props (more explicit) or as context (more convenient for very deep updates). If you use context to pass down the state too, use two different context types -- the `dispatch` context never changes, so components that read it don't need to rerender unless they also need the application state.
+Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya kontekst (dərin yeniləmələr üçün daha rahatdır) ilə göndərə bilərsiniz. Əgər state-i kontekst ilə göndərirsinizsə, iki fərqli kontekst tipindən istifadə edin -- `dispatch` konteskti heç vact dəyişmədiyindən bu funksiyanı işlədən komponentlər yenidən render edilməyəcəklər. Yalnız, applikasiya state-i lazım olduqda komponentlər yeniden render ediləcəklər.
 
 ### How to read an often-changing value from `useCallback`? {#how-to-read-an-often-changing-value-from-usecallback}
 
