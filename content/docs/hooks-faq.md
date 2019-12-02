@@ -907,15 +907,15 @@ Bu yanaşma ilə callback-ləri daha rahat idarə edə bilər (callback-ləri y�
 
 Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya kontekst (dərin yeniləmələr üçün daha rahatdır) ilə göndərə bilərsiniz. Əgər state-i kontekst ilə göndərirsinizsə, iki fərqli kontekst tipindən istifadə edin -- `dispatch` konteskti heç vact dəyişmədiyindən bu funksiyanı işlədən komponentlər yenidən render edilməyəcəklər. Yalnız, applikasiya state-i lazım olduqda komponentlər yeniden render ediləcəklər.
 
-### How to read an often-changing value from `useCallback`? {#how-to-read-an-often-changing-value-from-usecallback}
+### `useCallback`-dən tez-tez dəyişən dəyəri necə oxuya bilərəm? {#how-to-read-an-often-changing-value-from-usecallback}
 
->Note
+>Qeyd
 >
->We recommend to [pass `dispatch` down in context](#how-to-avoid-passing-callbacks-down) rather than individual callbacks in props. The approach below is only mentioned here for completeness and as an escape hatch.
+>Biz, fərdi callback-ləri proplar ilə göndərmək əvəzinə [`dispatch` funksiyasını kontekst ilə göndərməyi](#how-to-avoid-passing-callbacks-down) tövsiyyə edirik. Aşağıdakı yanaşma bütünlük və çıxış yolu məqsədi ilə göstərilib.
 >
->Also note that this pattern might cause problems in the [concurrent mode](/blog/2018/03/27/update-on-async-rendering.html). We plan to provide more ergonomic alternatives in the future, but the safest solution right now is to always invalidate the callback if some value it depends on changes.
+>Əlavə olaraq, bu pattern-in [konsurrent modunda](/blog/2018/03/27/update-on-async-rendering.html) problemlər yarada biləcəyini unutmayın. Biz, gələcəkdə daha erqonomik alternativlər təmin etməyi planlayırıq. Lakin, indi zamanda callback-in dəyəri dəyişdikdə callback-i yeniləməkdir ən təhlükəsiz yoldur.
 
-In some rare cases you might need to memoize a callback with [`useCallback`](/docs/hooks-reference.html#usecallback) but the memoization doesn't work very well because the inner function has to be re-created too often. If the function you're memoizing is an event handler and isn't used during rendering, you can use [ref as an instance variable](#is-there-something-like-instance-variables), and save the last committed value into it manually:
+Bəzi nadir ssenarilərdə callback-i [`useCallback`](/docs/hooks-reference.html#usecallback) ilə memoizasiya etmək lazım olur. Lakin, daxili funksiyanın tez-tez yenidən yarandığından memoizasiya işləmir. Əgər memoizasiya etdiyiniz funksiya hadisə işləyicidirsə və render etmə zamanı işlədilmirsə, [ref-i instansiya dəyişəni kimi istifadə edərək](#is-there-something-like-instance-variables) ən son dəyəri bu ref-ə əl ilə yaza bilərsiniz:
 
 ```js{6,10}
 function Form() {
@@ -923,13 +923,13 @@ function Form() {
   const textRef = useRef();
 
   useEffect(() => {
-    textRef.current = text; // Write it to the ref
+    textRef.current = text; // Ref-ə yaz
   });
 
   const handleSubmit = useCallback(() => {
-    const currentText = textRef.current; // Read it from the ref
+    const currentText = textRef.current; // Ref-dən oxu
     alert(currentText);
-  }, [textRef]); // Don't recreate handleSubmit like [text] would do
+  }, [textRef]); // handleSubmit funksiyasını [text] asılılığı əlavə etdikdə yenidən yaranmasının qarşısını al
 
   return (
     <>
@@ -940,7 +940,7 @@ function Form() {
 }
 ```
 
-This is a rather convoluted pattern but it shows that you can do this escape hatch optimization if you need it. It's more bearable if you extract it to a custom Hook:
+Bunun çaşdırıcı pattern olmasına baxmyaraq siz bu formalı çıxış yolu optimallaşdırması tətbiq edə bilərsiniz. Bunu, xüsusi Hooka ixrac etdikdə funksiyanı işlətmək asanlaşa bilər:
 
 ```js{4,16}
 function Form() {
@@ -960,7 +960,7 @@ function Form() {
 
 function useEventCallback(fn, dependencies) {
   const ref = useRef(() => {
-    throw new Error('Cannot call an event handler while rendering.');
+    throw new Error('Render etmə zamanı hadisə işləyicisini çağırmaq mümkün deyil.');
   });
 
   useEffect(() => {
@@ -974,27 +974,27 @@ function useEventCallback(fn, dependencies) {
 }
 ```
 
-In either case, we **don't recommend this pattern** and only show it here for completeness. Instead, it is preferable to [avoid passing callbacks deep down](#how-to-avoid-passing-callbacks-down).
+Hər iki halda biz **bu pattern-i işlətməyi tövsiyyə etmirik.** Bu yanaşma yalnız bütünlük üçün göstərilib. Əvəzinə, [callback-ləri dərinə göndərməkdən çəkinmək ən yaxşı yoldur](#how-to-avoid-passing-callbacks-down).
 
 
-## Under the Hood {#under-the-hood}
+## Daxilində {#under-the-hood}
 
-### How does React associate Hook calls with components? {#how-does-react-associate-hook-calls-with-components}
+### React, Hookları komponentlər ilə necə əlaqələndirir? {#how-does-react-associate-hook-calls-with-components}
 
-React keeps track of the currently rendering component. Thanks to the [Rules of Hooks](/docs/hooks-rules.html), we know that Hooks are only called from React components (or custom Hooks -- which are also only called from React components).
+React, cari render olunan komponenti izləyir. [Hookların Qaydalarına](/docs/hooks-rules.html) görə Hookların yalnız React komponentlərindən çağrıldığını (və ya React komponentlərindən çağrılan xüsusi Hooklardan çağrıldığını) bilirik.
 
-There is an internal list of "memory cells" associated with each component. They're just JavaScript objects where we can put some data. When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one. This is how multiple `useState()` calls each get independent local state.
+React-də, hər komponent ilə əlaqəli "yaddaş sahələrinin" daxili siyahısı mövcuddur. Bu sahələr məlumat saxlamaq üçün sadə JavaScript obyektləridir. `useState()` kimi Hooku çağırdıqda bu Hook, cari daxili sahəni oxuyur (və ya ilk render etmə zamanı inisializasiya edir) və pointer-i sonrakı sahəyə köçürür. Bu səbəbdən, `useState` çağırışlarının müstəqil lokal state-lərinin olması mümkündür.
 
-### What is the prior art for Hooks? {#what-is-the-prior-art-for-hooks}
+### Hooklardan əvvəl nə var idi? {#what-is-the-prior-art-for-hooks}
 
-Hooks synthesize ideas from several different sources:
+Hooklar bir neçə mənbələrdən olan fikirlərin sintezidir:
 
-* Our old experiments with functional APIs in the [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) repository.
-* React community's experiments with render prop APIs, including [Ryan Florence](https://github.com/ryanflorence)'s [Reactions Component](https://github.com/reactions/component).
-* [Dominic Gannaway](https://github.com/trueadm)'s [`adopt` keyword](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) proposal as a sugar syntax for render props.
-* State variables and state cells in [DisplayScript](http://displayscript.org/introduction.html).
-* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) in ReasonReact.
-* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) in Rx.
-* [Algebraic effects](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) in Multicore OCaml.
+* [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) reposunda olan funksional API-lər ilə etdiyimiz köhnə eksperimentlər.
+* [Ryan Florence-in](https://github.com/ryanflorence) [Reactions Component](https://github.com/reactions/component) eksperimenti daxil olmaqla React cəmiyyətinin render prop API-ları ilə etdiyi eksperimentlər.
+* [Dominic Gannaway-in](https://github.com/trueadm) render proplarının asan sintaksisi üçün [`adopt` açarı](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) təklifi.
+* [DisplayScript-də](http://displayscript.org/introduction.html) dəyişən və state sahələrinin saxlanması.
+* ReasonReact-də olan [Reducer komponentləri](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html).
+* Rx-də olan [Abunəliklər](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html).
+* Multicore OCaml-da olan [Cəbr (Algebraic) effektləri](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting).
 
-[Sebastian Markbåge](https://github.com/sebmarkbage) came up with the original design for Hooks, later refined by [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), and other members of the React team.
+Hookların orijinal dizaynını [Sebastian Markbåge](https://github.com/sebmarkbage) tapdı. Sonra, bu dizayn [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm) və React komandasının digər üzləri tərəfindən təmizləndi.
