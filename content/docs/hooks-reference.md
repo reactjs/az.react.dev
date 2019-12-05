@@ -451,7 +451,7 @@ function FancyInput(props, ref) {
 FancyInput = forwardRef(FancyInput);
 ```
 
-Yuxarıdakı nümunədə `<FancyInput ref={fancyInputRef} />` komponentini render edən valideyn komponenti `fancyInputRef.current.focus()` funksiyasını çağıra biləcək.
+Yuxarıdakı nümunədə `<FancyInput ref={inputRef} />` komponentini render edən valideyn komponenti `inputRef.current.focus()` funksiyasını çağıra biləcək.
 
 ### `useLayoutEffect` {#uselayouteffect}
 
