@@ -8,10 +8,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'React: A JavaScript library for building user interfaces',
+    title: 'React: UI yaratmaq üçün Javascript Kitabxanası',
     siteUrl: 'https://reactjs.org',
     rssFeedTitle: 'React',
-    rssFeedDescription: 'A JavaScript library for building user interfaces',
+    rssFeedDescription: 'UI yaratmaq üçün Javascript Kitabxanası',
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -162,10 +162,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'React Docs',
-        short_name: 'React', // eg. React [%LANG_CODE%]
+        name: 'React Sənədləri',
+        short_name: 'React [az]', // eg. React [%LANG_CODE%]
         // Translators: please change this and two above options (see https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/#feature-configuration---optional)
-        lang: 'en',
+        lang: 'az',
         start_url: '/',
         background_color: '#20232a',
         theme_color: '#20232a',
