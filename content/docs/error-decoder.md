@@ -1,9 +1,9 @@
 ---
 id: error-decoder
-title: Error Decoder
+title: Xəta Dekoderi
 permalink: docs/error-decoder.html
 ---
 
-In the minified production build of React, we avoid sending down full error messages in order to reduce the number of bytes sent over the wire.
+React-ın minimallaşdırılmış produksiya versiyasında göndərilən baytların sayını azaltmaq üçün xəta mesajlarının tam variantlarını göndərmirik.
 
-We highly recommend using the development build locally when debugging your app since it tracks additional debug info and provides helpful warnings about potential problems in your apps, but if you encounter an exception while using the production build, this page will reassemble the original text of the error.
+React-in development versiyasının əlavə debaq informasiyasını izlədiyindən və applikasiyada olan potensial problemlər üçün faydalı xəbərdarıqları göstərdiyindən biz applikasiyanı yazdıqda development versiyasını işlətməyi tövsiyyə edirik. Lakin, applikasiyanın produksiya versiyasında xəta ilə qarşılaşdıqda xətanın orijinal yazısını bu səhifədən oxuya bilərsiniz.
