@@ -69,7 +69,7 @@ React-də state-li məntiqi komponentlər arasında paylaşmaq üçün iki məş
 
 ## Xüsusi Hookun İxracı {#extracting-a-custom-hook}
 
-İki JavaScript funksiyası arasında məntiq paylaşmaq istədikdə bu mənti üçüncü funksiyaya ixrac edilir. Komponent və Hookların JavaScript funksiyaları olduğundan eyni məntiq bu primitivlərə də aiddir!
+Eyni məntiqi iki JavaScript funksiyası arasında paylaşmaq üçün bu məntiq üçüncü funksiyaya ixrac edilir. Komponent və Hookların JavaScript funksiyaları olduğundan eyni yanaşma bu primitivlərə də aiddir!
 
 **Adı "`use`" ilə başlayan və digər Hookları çağıran JavaScript funksiyası xüsusi Hook adlanır.** Məsələn, aşağıdakı `useFriendStatus` funksiyası bizim ilk xüsusi Hookumuzdur:
 
@@ -96,7 +96,7 @@ function useFriendStatus(friendID) {
 
 Bu funksiyada heç bir yenilik yoxdur -- yuxarıdakı komponentlərdə olan məntiq bura köçürülüb. Komponentdə olduğu kimi xüsusi Hooklarda olan digər Hook çağırışlarını şərtsiz və funksiyanın yuxarısında yazın.
 
-React komponentindən fərqli olaraq xüsusi Hookun xüsusi imzası olmamalıdır. Arqument kimi nə qəbul edəcəyinə və nə qaytaracağına (əgər qaytaracaqsa) özümüz qərar veririk. Digər sözlə, bu sadə funksiyadır. [Hookların qaydalarının](/docs/hooks-rules.html) bu funksiyaya tətbiq olunması üçün bu funksiyanın adı `use` ilə başlamalıdır.
+React komponentindən fərqli olaraq xüsusi Hookun xüsusi imzası olmamalıdır. Hookun arqument kimi nə qəbul etdiyinə və nə qaytardığına (əgər qaytaracaqsa) özümüz qərar veririk. Digər sözlə, bu sadə JavaScript funksiyasıdır. [Hookların qaydalarının](/docs/hooks-rules.html) bu funksiyaya tətbiq olunması üçün bu funksiyanın adı `use` ilə başlamalıdır.
 
 Dostun statusuna abunə olmaq `useFriendStatus` Hookunun əsas məqsədidir. Bu səbəbdən, bu Hook `friendID` dəyərini arqument kimi qəbul edərək dostun onlayn olmasını qaytarır:
 
@@ -114,7 +114,7 @@ function useFriendStatus(friendID) {
 
 ## Xüsusi Hookun İşlədilməsi {#using-a-custom-hook}
 
-Başlanğıcda, məqsədimiz kopiyalanmış məntiqi `FriendStatus` və `FriendListItem` komponentlərindən silmək idi. Hər iki komponent dostun onlayn olmasını bilmək istəyir.
+Başlanğıcda, məqsədimiz kopiyalanmış məntiqi `FriendStatus` və `FriendListItem` komponentlərindən silmək idi. Hər iki komponentdə dostun onlayn olmasını bilmək lazımdır.
 
 Bu məntiqi `useFriendStatus` Hookuna ixrac etdiyimizdən biz bu Hooku *işlədə bilərik:*
 
@@ -143,17 +143,17 @@ function FriendListItem(props) {
 
 **Bu kod orijinal nümunələr ilə eynidir?** Bəli, bu kod tam olaraq eyni işləyir. Yaxından baxdıqda, davranışa heç bir dəyişiklik etmədiyimizi görəcəksiniz. Sadəcə olaraq iki funksiya arasında olan ümumu kodu ayrı funksiyaya ixrac etdik. **Xüsusi Hooklar React-in xüsusiyyəti deyil, əvəzinə Hookların dizaynını izləyərək yaranmış konvensiyadır.**
 
-**Xüsusi Hookları “`use`” ilə başlayan adlar ilə adlandırmaq lazımdır?** Xahiş edirik ki, belə edəsiniz. Bu konvensiya çox vacibdir. Ad bu formada olmadıqda [Hookların qaydalarının](/docs/hooks-rules.html) pozulması avtomatik olaraq yoxlana bilməyəck. Çünki, hansı funksiyaların daxilində Hookların olduğunu bilməyəcəyik.
+**Xüsusi Hookları “`use`” ilə başlayan adlar ilə adlandırmaq lazımdır?** Xahiş edirik ki, belə edəsiniz. Bu konvensiya çox vacibdir. Hookun adı bu formada olmadıqda [Hookların qaydalarının](/docs/hooks-rules.html) pozulması avtomatik olaraq yoxlanmayacaq. Çünki, hansı funksiyaların daxilində Hookların olduğunu bilməyəcəyik.
 
-**İki komponent eyni Hookun state-ini paylaşır?** Xeyr. Xüsusi Hookların *state-li məntiqi* (məsələn, abunəlik quraşdırıb cari dəyərini yadda saxlamaq kimi) paylaşmaq üçün mexanizm olmasına baxmayaraq xüsusi Hooku çağrıldıqda state və effektlər təcrid olunur.
+**İki komponent eyni Hookun state-ini paylaşır?** Xeyr. Xüsusi Hookların *state-li məntiqi* (məsələn, abunəlik quraşdırıb cari dəyərini yadda saxlamaq kimi) paylaşmaq üçün mexanizm olmasına baxmayaraq xüsusi Hooku çağrıldıqda state və effektlər çağrılan komponentə təcrid olunur.
 
-**Xüsusi Hook ilə state necə paylaşılmır?** Hər Hook *çağırışı* təcrid olunmuş state yaradır. React-in perspektivindən baxdıqda `useFriendStatus` Hookunu birbaşa çağırdığımızda `useState` və `useEffect` Hooklarını komponentlər çağırırlar. [Əvvəl](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) [öyrəndiyimiz kimi](/docs/hooks-state.html#tip-using-multiple-state-variables) bir komponentdən `useState` və `useEffect` Hooklarını bir neçə dəfə çağıra bilərik.
+**Xüsusi Hook ilə state necə paylaşılmır?** Hər Hook *çağırışı* təcrid olunmuş state yaradır. React-in perspektivindən baxdıqda `useFriendStatus` Hookunu birbaşa çağırdıqda komponentlər `useState` və `useEffect` Hooklarını çağırırlar. [Əvvəl](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) [öyrəndiyimiz kimi](/docs/hooks-state.html#tip-using-multiple-state-variables) bir komponentdən `useState` və `useEffect` Hooklarını bir neçə dəfə çağıra bilərik.
 
 ### Məsləhət: Hooklar Arasında Məlumatları Göndər {#tip-pass-information-between-hooks}
 
 Hookların funksiya olduğundan biz Hooklar arasında məlumat göndərə bilərik.
 
-Bunu göstərmək üçün çat nümunəmizə yeni komponent əlavə edəcəyik. Bu komponent çat mesajını qəbul edən istifadəçini seçərək bu istifadəçinin onlayn olacağını göstərir:
+Bunu göstərmək üçün çat nümunəsinə yeni komponent əlavə edəcəyik. Bu komponent çat mesajını qəbul edən istifadəçini seçərək bu istifadəçinin onlayn olduğunu göstərir:
 
 ```js{8-9,13}
 const friendList = [
@@ -184,7 +184,7 @@ function ChatRecipientPicker() {
 }
 ```
 
-Cari seçilmiş dost ID-siini `recipientID` adlı state dəyişənində saxlayır, istifadəçi `<select>` seçicisindən fərqli dostu seçdikdə isə bu state-i yeniləyirik.
+Bu komponent, cari seçilmiş dost ID-sini `recipientID` adlı state dəyişənində saxlayır, istifadəçi `<select>` seçicisindən fərqli dostu seçdikdə isə bu state-i yeniləyir.
 
 `useState` çağırışı ilə `recipientID` state dəyişəninin ən yeni dəyərini aldığımızdan bu dəyəri xüsusi `useFriendStatus` Hookuna arqument kimi göndərə bilərik:
 
@@ -193,13 +193,13 @@ Cari seçilmiş dost ID-siini `recipientID` adlı state dəyişənində saxlayı
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-Biz bu formada *cari seçilmiş* dostun onlayn olduğunu bilirik. Fərqli dost seçib `recipientID` state dəyişənini yenilədikdə `useFriendStatus` Hooku köhnə dostun onlayn statusundan abunəliyi silib yeni seçilmiş dostun onlayn statusuna yeni abunəlik yaradacaq.
+Bu formada *cari seçilmiş* dostun onlayn olduğunu bilmək mümkündür. Fərqli dost seçib `recipientID` state dəyişənini yenilədikdə `useFriendStatus` Hooku köhnə dostun onlayn statusundan abunəliyi silib yeni seçilmiş dostun onlayn statusuna yeni abunəlik yaradacaq.
 
 ## `useYourImagination()` {#useyourimagination}
 
 Xüsusi Hooklar ilə məntiqləri paylaşmaq mümkündür. Xüsusi Hooklar ilə anket idarəsi, animasiya, deklarativ abunəliklər, taymerlər və bizim nəzərə almadığımız digər ssenariləri əhatə etmək mümkündür. Əlavə olaraq, yaratdığınız Hookları React xüsusiyyətləri kimi rahat işlədə bilərsiniz.
 
-Abstraksiyaları öncədən əlavə etməkdən çəkinin. Funksiya komponentləri ilə çox problemləri həll etmək olur deyə standart funksiya komponentinin kodu daha uzun olacaq. Bu normaldır. Məntiqi dərhal ayırmaq *lazım deyil.* Lakin, xüsusi Hook ilə mürəkkəb məntiqi sadə interfeys arxasında gizlədə biləcək halları axtarmağı və qarışıq komponentləri sadələşdirməyi tövsiyyə edirik.
+Abstraksiyaları öncədən əlavə etməkdən çəkinin. Funksiya komponentləri ilə çox problemləri həll etmək olur deyə standart funksiya komponentinin kodu daha uzun olacaq. Bu normaldır. Məntiqi dərhal ayırmaq *lazım deyil.* Lakin, xüsusi Hook ilə mürəkkəb məntiqi sadə interfeys arxasında gizlədə biləcəyiniz halları axtarmağı və qarışıq komponentləri sadələşdirməyi tövsiyyə edirik.
 
 Məsələn, sizdə çoxlu lokal state-dən istifadə edən mürəkkəb komponent ola bilər. `useState` ilə yeniləmə məntiqini mərkəzləşdirmək çətin olduğundan bu state-ləri [Redux](https://redux.js.org/) reducer-i ilə işlədə bilərsiniz:
 
@@ -218,9 +218,9 @@ function todosReducer(state, action) {
 }
 ```
 
-Reducer-ləri ayrılıqda test emək və reducer-lər ilə mürəkkəb yeniləmə məntiqini böyütmək daha rahatdır. Lazım olduqda, bir reducer-i bir neçə kiçik reducer-lərə də parçalaya bilərsiniz. Lakin, React-in lokal state-inin faydalarını bəyənə bilər və ya digər kitabxana yükləmək istəməyə bilərsiniz.
+Reducer-ləri ayrılıqda test etmək və reducer-lər ilə mürəkkəb yeniləmə məntiqini böyütmək daha rahatdır. Lazım olduqda, bir reducer-i bir neçə kiçik reducer-lərə də parçalaya bilərsiniz. Lakin, React-in lokal state-inin faydalarını bəyənə bilər və ya digər kitabxana yükləmək istəməyə bilərsiniz.
 
-Komponentin *lokal* state-ini reducer ilə idarə etmək üçün `useReducer` Hooku yaza bilərik? Sadə formada bu funksiya aşağıdakı formada olacaq:
+Komponentin *lokal* state-ini reducer ilə idarə etmək üçün `useReducer` Hooku yaza bilərik. Sadə formada bu funksiya aşağıdakı formada olacaq:
 
 ```js
 function useReducer(reducer, initialState) {
