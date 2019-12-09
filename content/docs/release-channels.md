@@ -74,22 +74,22 @@ Adətən, Next-ə edilən yeniliyə müvafiq Experimental yenilik də edilir. Bu
 
 Experimental buraxılışlar Next və Latest buraxılışlarından tam fərqli ola bilərlər. **İstifadəçilər üçün applikasiyalarda Experimental buraxılışlardan istifadə etməyin.**  Experimental kanalın buraxılışları arasında tez-tez sınan dəyişiklərinin olacağını gözləyin.
 
-Experimental buraxılışlar NPM-ə `experimental` təqi ilə dərc olunurlar. Bu buraxılışların versiyaları qurumun kontentinin həşi əsasında yaranır. Məsələn, `0.0.0-experimental-1022ee0ec`.
+Experimental buraxılışlar NPM-də `experimental` təqi ilə dərc olunurlar. Bu buraxılışların versiyaları qurumun kontentinin həşi əsasında yaranır. Məsələn, `0.0.0-experimental-1022ee0ec`.
 
-#### What Goes Into an Experimental Release? {#what-goes-into-an-experimental-release}
+#### Experimental Buraxılışına Nələr Daxildir? {#what-goes-into-an-experimental-release}
 
-Experimental features are ones that are not ready to be released to the wider public, and may change drastically before they are finalized. Some experiments may never be finalized -- the reason we have experiments is to test the viability of proposed changes.
+Hamı üçün dərc olunmağa hazər olmayan və yekunlaşana kimi kəskin dəyişə bilən xüsusiyyətlər eksperimentaldır. Bəzi eksperimentalər heç vaxt yekunlaşmaya bilər. Eksperimentlərin olmasının səbəbi təklif edilən dəyişikliklərin canlılığının yoxlanılmasıdır.
 
-For example, if the Experimental channel had existed when we announced Hooks, we would have released Hooks to the Experimental channel weeks before they were available in Latest.
+Məsələn, Hooklar elan ediləndə eksperimental kanal olsa idi, bu xüsusiyyət Latest kanalında olmaqda həftələrlə öncə Experimental kanalında dərc olunacaqdı.
 
-You may find it valuable to run integration tests against Experimental. This is up to you. However, be advised that Experimental is even less stable than Next. **We do not guarantee any stability between Experimental releases.**
+Sizin üçün experimental kanala qarşı inteqrasiya testlərini icra etmək faydalı ola bilər. Bu sizdən asılıdır. Lakin, Experimental buraxılışların Next buraxılışlarından daha da az stabil olduğunu unutmayın. **Biz Experimental buraxılışlar arasında heç bir stabilliyi siğortalamırıq.**
 
-#### How Can I Learn More About Experimental Features? {#how-can-i-learn-more-about-experimental-features}
+#### Eksperimental Xüsusiyyətlər Haqqında Haradan Öyrənə Bilərəm? {#how-can-i-learn-more-about-experimental-features}
 
-Experimental features may or may not be documented. Usually, experiments aren't documented until they are close to shipping in Next or Stable.
+Eksperimental xüsusiyyətlər sənədləşmiş olmaya bilərlər. Adətən, eksperimentlər Next və ya Latest kanallarına daxil olmayana kimi sənədləşmirlər.
 
-If a feature is not documented, they may be accompanied by an [RFC](https://github.com/reactjs/rfcs).
+Əgər xüsusiyyət sənədləşməyibsə, bu xüsusiyyətin [RFC-si](https://github.com/reactjs/rfcs) ola bilər.
 
-We will post to the [React blog](/blog) when we're ready to announce new experiments, but that doesn't mean we will publicize every experiment.
+Yeni eksperimentləri elan etməyə hazır olduqda biz bunları [React bloqunda](/blog) dərc edəcəyik. Lakin, bu demək deyil ki, biz hər eksperimenti elan edəcəyik.
 
-You can always refer to our public GitHub repository's [history](https://github.com/facebook/react/commits/master) for a comprehensive list of changes.
+Dəyişikliklərin əhatəli siyahısını görmək üçün bizim ictimati GitHub repomuzun [tarixinə](https://github.com/facebook/react/commits/master) istinad edə bilərsiniz.
