@@ -17,7 +17,7 @@ redirect_from:
 
 Bu səhifədə React komponent klas təriflərinin ətraflı API arayışı var. Bu səhifə, sizin [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyaları haqqında məlumatınızın olduğunu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
 
-## İcmal
+## İcmal {#overview}
 
 React, komponentləri klas və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React klas komponenti yaratmaq üçün klasları `React.Component`-dən genişləndirmək lazımdır:
 
