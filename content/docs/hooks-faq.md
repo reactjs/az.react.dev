@@ -1,6 +1,6 @@
 ---
 id: hooks-faq
-title: Hooks FAQ
+title: Hooklar FAQ
 permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
@@ -69,13 +69,13 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
 * React Test Renderer
 * React Shallow Renderer
 
-Nəzərə alin ki, **Hookları aktivləşdirmək üçün bütün React paketlərinin versiyaları 16.8.0-dan yuxarı olmalıdır**. Paketləri (məsələn React DOM) yeniləməyi yaddan çıxardıqda Hooklar işləməyəcək.
+Nəzərə alın ki, **Hookları aktivləşdirmək üçün bütün React paketlərinin versiyaları 16.8.0-dan yuxarı olmalıdır**. Paketləri (məsələn React DOM) yeniləməyi yaddan çıxardıqda Hooklar işləməyəcək.
 
 Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
 
 ### Bütün klas komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
-Xeyr. React-dən klasları silmək üçün [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodu Hooklar ilə işlətməyi tövsiyyə edirik.
+Xeyr. React-dən klasları silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyyə edirik.
 
 ### Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
@@ -83,15 +83,15 @@ Hooklar ilə komponentlər arası funksional məntiqi paylaşmaq mümkündür. [
 
 ### React biliklərimin nə qədəri eyni qalır? {#how-much-of-my-react-knowledge-stays-relevant}
 
-Hooklar ilə state, lifecycle, kontekst, və ref-lər kimi React xüsusiyyətlərini daha birbaşa işlətmək olur. Hooklar, React-in işləmə prinsiplərini dəyişmirlər. Bu səbəbdən komponentlər, proplar və yuxarıdan aşağı məlumat axınından bilikli olmaq vacibdir.
+Hooklar ilə state, lifecycle, kontekst və ref-lər kimi React xüsusiyyətlərini birbaşa işlətmək mümkündür. Hooklar React-in işləmə prinsiplərini dəyişmirlər. Bu səbəbdən komponentlər, proplar və yuxarıdan aşağı məlumat axınından bilikli olmaq vacibdir.
 
-Hookların özünün öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [bizə issue yazın](https://github.com/reactjs/reactjs.org/issues/new) və biz sizə kömək etməyə çalışacağıq.
+Hookların öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [bizə issue yazın](https://github.com/reactjs/reactjs.org/issues/new) və biz sizə kömək etməyə çalışacağıq.
 
 ### Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyyə edirik. Bunu etməmişdən öncə komandada hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponeneləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyyə etmirik.
+Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyyə etmirik.
 
-Hookları klas *komponentlərindən* istifadə etmək mümkün deyil. Lakin, eyni komponent ağacında klas komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin klas və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
+Klas *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında klas komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin klas və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
 
 ### Hooklar klasların bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
@@ -127,7 +127,7 @@ React-in nöqteyi nəzərindən Hooklar işlədən komponent sadə komponentdir.
 >
 >[Test Etmə Reseptlərində](/docs/testing-recipes.html) kopiyalaya biləcəyiniz bir neçə nümunə var.
 
-Məsələn, gəlin bu sayğac komponentinə baxaq:
+Məsələn, gəlin aşağıdakı sayğac komponentinə baxaq:
 
 ```js
 function Example() {
@@ -146,7 +146,7 @@ function Example() {
 }
 ```
 
-Biz bu komponenti React DOM ilə test edəcəyik. Davranışın brauzer ilə uyğunlaşması üçün render etmə və yeniləmə kodunu [`ReactTestUtils.act()`](/docs/test-utils.html#act) çağırışlarına əlavə edəcəyik:
+Biz bu komponenti React DOM ilə test edəcəyik. Davranışın brauzer ilə uyğunlaşması üçün render etmə və yeniləmə kodlarını [`ReactTestUtils.act()`](/docs/test-utils.html#act) çağırışları ilə əhatə edəcəyik:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -195,12 +195,12 @@ Xüsusi Hooku test etmək istədikdə testdə komponent yaradıb bu Hooku işlə
 
 ### [Lint qaydaları](https://www.npmjs.com/package/eslint-plugin-react-hooks) nələri tətbiq edirlər? {#what-exactly-do-the-lint-rules-enforce}
 
-Baqları tez tuta bilmək üçün [Hookların qaydalarını](/docs/hooks-rules.html) tətbiq edən [ESLint plagini](https://www.npmjs.com/package/eslint-plugin-react-hooks) təmin edirik. Bu plagin, "`use`" ilə başlayan və dərhal sonrakı hərfi böyük hərf ilə yazlıan funksiyanın Hook olduğunu ehtimal edir. Bu evristikanın əla olmadığını və bəzən saxta müsbətlərin yaratdığını bilirik. Lakin, ekosistem səviyyəsində konvesiya olmadıqda Hooklar yaxşı işləməyəcək. Uzun adlar işlətdikdə isə Hookların adaptasiyası və ya bu konvensiyanın təqibi yavaşlayacaq.
+Baqları tez tuta bilmək üçün [Hookların qaydalarını](/docs/hooks-rules.html) tətbiq edən [ESLint plagini](https://www.npmjs.com/package/eslint-plugin-react-hooks) təmin edirik. Bu plagin, "`use`" ilə başlayan və dərhal sonrakı hərfi böyük hərf ilə yazılan funksiyanın Hook olduğunu ehtimal edir. Bu evristikanın əla olmadığını və bəzən saxta müsbətlərin yaratdığını bilirik. Lakin, ekosistem səviyyəsində konvesiya olmadıqda Hooklar yaxşı işləməyəcək. Uzun adlar işlətdikdə isə Hookların adaptasiyası və ya bu konvensiyanın tətbiqi yavaşlayacaq.
 
 Bu qayda xüsusilə aşağıdakı nöqtələri tətbiq edir:
 
 * Hook çağırışları `PascalCase` kimi yazılan funksiyaların (komponent olduğu ehtimal edilir) və ya digər `useSomething` funksiyasının (xüsusi Hook olduğu ehtimal edilir) daxilindən çağrılır.
-* Hooklar hər render zamanı eyni sıra ilə çağrılırlar.
+* Hooklar hər render zamanı eyni sıra ilə çağrılır.
 
 Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baqların tapılmasının balansını saxlayaraq zaman ilə dəyişə bilərlər.
 
@@ -262,7 +262,7 @@ Konseptual olaraq ref-lər klasın instansiya dəyərlərinə bənzəyirlər. Ə
 
 ### Bir və ya bir neçə state dəyişəni işlətməliyəm? {#should-i-use-one-or-many-state-variables}
 
-Klaslar ilə tanışığınız olduqda `useState()` Hookunu bir dəfə çağırıb bütün state-i bir obyektdə saxlamaq istəyə bilərsiniz. Əgər istəyirsinizsə, bunu edə bilərsiniz. Aşağıdakı nümunədə maus hərətinin pozisiyası və ölçüsü lokal state-də saxlanır:
+Klaslar ilə tanışığınız olduqda `useState()` Hookunu bir dəfə çağırıb bütün state-i bir obyektdə saxlamaq istəyə bilərsiniz. Əgər istəyirsinizsə, bunu edə bilərsiniz. Aşağıdakı nümunədə maus hərəkətinin pozisiyası və ölçüsü lokal state-də saxlanır:
 
 ```js
 function Box() {
@@ -271,13 +271,13 @@ function Box() {
 }
 ```
 
-İstifadəçi mausu tərpətdikdə `left` və `top` dəyərlərini dəyişən məntiqu yazmaq üçün bu dəyərləri əvvəlki state ilə özümüz biləşdirməliyik:
+İstifadəçi mausu tərpətdikdə `left` və `top` dəyərlərini dəyişən məntiqi yazmaq üçün bu dəyərləri əvvəlki state ilə özümüz biləşdirməliyik:
 
 ```js{4,5}
   // ...
   useEffect(() => {
     function handleWindowMouseMove(e) {
-      // "...state" yayması ilə" width və height dəyərlərini itirməyəcəyimizdən əmin oluruq.
+      // "...state" yayması ilə width və height dəyərlərini itirməyəcəyimizdən əmin oluruq.
       setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
     }
     // Qeyd: Bu tətbiq sadələşdirilib
@@ -325,7 +325,7 @@ function useWindowPosition() {
 
 `position` state dəyəri üçün olan `useState` çağırışınının və bu state üçün lazım olan effektin state-li məntiqi dəyişmədən xüsusi Hooka necə köçürüldüyünə fikir verin. Bütün state bir obyektdə yerləşdirildikdə state-ləri ixrac etmək çətinləşəcək.
 
-Bütün state-ləri bir `useState` çağırışında saxlamaq və ya hər state üçün ayrı `useState` çağırışı işlətmək eyni nəticəyə çıxacaqlar. Bu iki hədd arasında balans tapıb əlaqəli state-ləri müstəqil state dəyişənlərinə qruplaşdırdıqda komponentləri oxumaq asanlaşır. State məntiqi mürəkkəbləşdikdə xüsusi Hook və ya [reducer](/docs/hooks-reference.html#usereducer) işlətməyi tövsiyyə edirik.
+Bütün state-ləri bir `useState` çağırışında saxlamaq və ya hər state üçün ayrı `useState` çağırışı işlətmək eyni nəticəni verəcəklər. Bu iki hədd arasında balans tapıb əlaqəli state-ləri müstəqil state dəyişənlərinə qruplaşdırdıqda komponentləri oxumaq asanlaşır. State məntiqi mürəkkəbləşdikdə xüsusi Hook və ya [reducer](/docs/hooks-reference.html#usereducer) işlətməyi tövsiyyə edirik.
 
 ### Effekti yalnız yenilik zamanı icra edə bilərəm? {#can-i-run-an-effect-only-on-updates}
 
@@ -349,7 +349,7 @@ function Counter() {
 }
 ```
 
-Bu, biraz çaşdırıcı ola bilər. Lakin, siz bunu xüsusi Hooka ixrac edə bilərsiniz:
+Bu biraz çaşdırıcı ola bilər. Lakin, siz bunu xüsusi Hooka ixrac edə bilərsiniz:
 
 ```js{3,7}
 function Counter() {
@@ -378,7 +378,7 @@ function Counter() {
   // ...
 ```
 
-Bu ssenarinin çox işlədildiyindən gələcəkdə React-də `usePrevious` Hooku əlavə edə bilərik.
+Bu ssenarinin çox işlədildiyindən gələcəkdə React-ə `usePrevious` Hooku əlavə edə bilərik.
 
 [Törənən state üçün tövsiyyə olunan pattern-ə də](#how-do-i-implement-getderivedstatefromprops) baxın.
 
@@ -645,7 +645,7 @@ Funksiyanı effektin daxilinə əlavə etdiyimizdən artıq bu funksiyanı asıl
 
 * **Funksiyanı komponentdən kənara köçürün**. Bu yol ilə funksiyanın heç bir state və ya proplardan asılı olmayacağı siğortalanır. Bu səbəbdən funksiyanı asılılıqlar massivinə əlavə etmək lazım deyil.
 * Əgər çağırdığınız funksiya təmiz hesablamadırsa və render etmə zamanı çağrıla bilirsə, siz **bu funksiyanı effektin kənarından çağıra bilər** və effekti funksiyanın qaytardığı dəyərdən asılı edə bilərsiniz.
-* Ən son variant kimi **funksiyanı effektin asılılıqlar massivinə əlavə edib _bu funksiyanın tətbiqini_** [`useCallback`](/docs/hooks-reference.html#usecallback) Hooku ilə əhatə edə bilərsiniz. Bu, funksiyanın **öz asılılıqları** dəyişməyənə kimi hər render zamanı yeni identikliyini saxalayağını təmin edir:
+* Ən son variant kimi **funksiyanı effektin asılılıqlar massivinə əlavə edib _bu funksiyanın tətbiqini_** [`useCallback`](/docs/hooks-reference.html#usecallback) Hooku ilə əhatə edə bilərsiniz. Bu, funksiyanın **öz asılılıqları** dəyişməyənə kimi hər render zamanı eyni identikliyini saxlayağını təmin edir:
 
 ```js{2-5}
 function ProductPage({ productId }) {
@@ -711,7 +711,7 @@ function Counter() {
 
 Daha mürəkkəb ssenarilərdə (məsələn, bir state-in başqa state-dən asılı olduğu hallar kimi) state yeniləməsi məntiqini [`useReducer` Hooku](/docs/hooks-reference.html#usereducer) ilə effektdən kənara çıxarın. Bunu etmək üçün [bu məqalədəki](https://adamrackis.dev/state-and-use-reducer/) nümunəyə baxın. Reducer funksiyasının komponentin daxilində təyin olunub komponentin proplarını oxumasına baxmayaraq **`useReducer`-in `dispatch` funksiyası həmişə stabil qalır.**
 
-Ən son hallda, klasın `this` dəyəri kimi bir dəyər işlətmək istəyirsinizsə, mutasiya oluna bilən dəyişəni saxlamaq üçün [ref-dən](/docs/hooks-faq.html#is-there-something-like-instance-variables) istifadə edin. Sonra, siz bu ref-i oxuya bilər və dəyişə bilərsiniz. Məsələn:
+Ən son hallda, klasın `this` dəyəri kimi bir dəyər işlətmək istəyirsinizsə, mutasiya oluna bilən dəyişəni saxlamaq üçün [ref-dən](/docs/hooks-faq.html#is-there-something-like-instance-variables) istifadə edin. Sonra, siz bu ref-i oxuya və dəyişə bilərsiniz. Məsələn:
 
 ```js{2-6,10-11,16}
 function Example(props) {
@@ -757,11 +757,11 @@ Müqayisə etmək üçün tək state yeniliyinin olmadığından `React.memo` fu
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Yuxarıdakı kodda `computeExpensiveValue(a, b)` funksiya çağrılır. Lakin, `[a, b]` asılılıqları dəyişmədikdə `useMemo` ilə bu funksiya ikinci dəfə çağrılmayacaq və son çağırışın dəyəri qaytarılacaq.
+Yuxarıdakı kodda `computeExpensiveValue(a, b)` funksiyası çağrılır. Lakin, `[a, b]` asılılıqları dəyişmədikdə `useMemo` ilə bu funksiya ikinci dəfə çağrılmayacaq və son çağırışın dəyəri qaytarılacaq.
 
 `useMemo` Hookuna göndərilən funksiyanın render etmə zamanı çağrıldığını unutmayın. Bu funksiyada render etmə zamanı etmədiyiniz heç bir əməliyyatı etməyin. Məsələn, yan effektləri `useEffect` Hookunda işlədin, `useMemo`-da yox.
 
-**`useMemo` Hookuna semantik qarantiya kimi yox performans optimallaşdırması kimi etibar edin.** Gələcəkdə, React, əvvəlki memoizasiya olunmuş dəyərləri "unudub" sonrakı render etmə zamanı yenidən hesablana bilər (məsələn, ekranda görünməyən komponentləri yaddaşdan sildikdə). Kodunuzu bu Hooku işlətmədən yazın. Sonra, `useMemo` əlavə edərək performansı optimallaşdırın. (Dəyərin *heç vaxt* yenidən hesablanmaması lazımdırsa, siz ref-i [lazy formada inisializasiya](#how-to-create-expensive-objects-lazily) edə bilərsiniz.)
+**`useMemo` Hookuna semantik qarantiya kimi yox performans optimallaşdırması kimi etibar edin.** Gələcəkdə, React, əvvəlki memoizasiya olunmuş dəyərləri "unudub" bu dəyərləri sonrakı render etmə zamanı yenidən hesablaya bilər (məsələn, ekranda görünməyən komponentləri yaddaşdan sildikdə). Kodunuzu bu Hooku işlətmədən yazın. Sonra, `useMemo` əlavə edərək performansı optimallaşdırın. (Dəyərin *heç vaxt* yenidən hesablanmaması lazımdırsa, siz ref-i [lazy formada inisializasiya](#how-to-create-expensive-objects-lazily) edə bilərsiniz.)
 
 Rahatlıq üçün `useMemo` ilə uşağın bahalı yenidən render etməsini atlaya bilərsiniz:
 
@@ -905,7 +905,7 @@ function DeepChild(props) {
 
 Bu yanaşma ilə callback-ləri daha rahat idarə edə bilər (callback-ləri yönləndirmək lazım deyil) və callback problemini tam aradan qaldıra bilərik. Dərin yeniləmə əməliyyatları üçün `dispatch` funksiyasını bu formada göndərməyi tövsiyyə edirik.
 
-Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya kontekst (dərin yeniləmələr üçün daha rahatdır) ilə göndərə bilərsiniz. Əgər state-i kontekst ilə göndərirsinizsə, iki fərqli kontekst tipindən istifadə edin -- `dispatch` konteskti heç vact dəyişmədiyindən bu funksiyanı işlədən komponentlər yenidən render edilməyəcəklər. Yalnız, applikasiya state-i lazım olduqda komponentlər yeniden render ediləcəklər.
+Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya kontekst (dərin yeniləmələr üçün daha rahatdır) ilə göndərə bilərsiniz. Əgər state-i kontekst ilə göndərirsinizsə, iki fərqli kontekst tipindən istifadə edin -- `dispatch` funksiyası konteskti heç vaxt dəyişmədiyindən bu funksiyanı işlədən komponentlər yenidən render edilməyəcəklər. Yalnız, applikasiya state-i lazım olduqda komponentlər yeniden render ediləcəklər.
 
 ### `useCallback`-dən tez-tez dəyişən dəyəri necə oxuya bilərəm? {#how-to-read-an-often-changing-value-from-usecallback}
 
@@ -940,7 +940,7 @@ function Form() {
 }
 ```
 
-Bunun çaşdırıcı pattern olmasına baxmyaraq siz bu formalı çıxış yolu optimallaşdırması tətbiq edə bilərsiniz. Bunu, xüsusi Hooka ixrac etdikdə funksiyanı işlətmək asanlaşa bilər:
+Bunun çaşdırıcı pattern olmasına baxmayaraq siz bu formalı çıxış yolu optimallaşdırması tətbiq edə bilərsiniz. Bunu xüsusi Hooka ixrac etdikdə funksiyanı işlətmək asanlaşa bilər:
 
 ```js{4,16}
 function Form() {
