@@ -10,7 +10,7 @@ permalink: warnings/invalid-hook-call-warning.html
 
 Bu mesajı görməyinizin üç səbəbi var:
 
-1. Sizdə React və React DOM-un **versiyaları uyğun gelmir**.
+1. Sizdə React və React DOM-un **versiyaları uyğun gəlmir**.
 2. Siz, **[Hookların Qaydalarına](/docs/hooks-rules.html) riayət etmirsiniz**.
 3. Sizdə eyni applikasiyada **React-in bir neçə kopiyası var**.
 
@@ -43,7 +43,7 @@ function useWindowWidth() {
 }
 ```
 
-Qarışıqlığın olmaması üçün Hooklar aşağıdakı ssenarilərdə işlətmək **dəstəklənmir**:
+Qarışıqlığın olmaması üçün Hookları aşağıdakı ssenarilərdə işlətmək **dəstəklənmir**:
 
 * 🔴 Hookları klas komponentlərindən çağırmayın.
 * 🔴 Hookları hadisə işləyicilərindən çağırmayın.
@@ -82,20 +82,20 @@ Bu səhvlərin bəzilərini tutmaq üçün [`eslint-plugin-react-hooks` plaginin
 
 >Qeyd
 >
->[Xüsusi Hooklardan](/docs/hooks-custom.html) digər Hookları çağırmaq *mümkündür* (bu, xüsusi Hookların əsas məqsədidir). Bunun işləməsinin səbəbi xüsusi Hookların da funksiya komponentinin render edildiyi zamanı çağrılmasıdır.
+>[Xüsusi Hooklardan](/docs/hooks-custom.html) digər Hookları çağırmaq *mümkündür* (bu, xüsusi Hookların əsas məqsədidir). Bunun işləməsinin səbəbi xüsusi Hookların da funksiya komponentinin render edildiyi zaman çağrılmasıdır.
 
 
 ## Dublikat React {#duplicate-react}
 
-Hookların işləməsi üçün `react-dom` paketi ilə applikasiya kodu eyni eyni versiyalı `react` modulunu idxal etməlidir.
+Hookların işləməsi üçün `react-dom` paketi ilə applikasiya kodu eyni versiyalı `react` modulunu idxal etməlidir.
 
-Əgər `react` idxalları iki fərqli ixrac obyektləri tapırsa, siz bu xəbərdarlığı görəcəksiniz. Bu, sizdə `react` paketinin **təsadüfən iki kopiyası olduqda** baş verir.
+`react` idxalları iki fərqli ixrac obyekti tapdıqda siz bu xəbərdarlığı görəcəksiniz. Bu, `react` paketinin **təsadüfən iki kopiyası olduqda** baş verir.
 
-Paket idarə etməsi üçün Node işlətdikdə layihə direktoriyasından React-in versiyasını aşağıdakı əmr ilə yoxlaya bilərsiniz:
+Paket idarə etməsi üçün Node işlətdikdə layihə direktoriyasından React-in versiyasını yoxlamaq üçün aşağıdakı əmri icra edə bilərsiniz:
 
     npm ls react
 
-Sizdə React-in birdən çox versiyası olduqda bunun niyə olduğunun səbəbini tapıb asılılıqlar ağacını düzəltməlisiniz. Məsələn, işlətdiyiniz hər hansı bir kitabxana `react`-i asılılıq kimi (peer asılılıq əvəzinə) təyin edə bilər. Bu kitabxana düzələnə kimi bunu düzəltmək üçün həllərdən biri [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/)-dır.
+Sizdə React-in birdən çox versiyası olduqda bunun niyə olduğunun səbəbini tapıb asılılıqlar ağacını düzəltməlisiniz. Məsələn, işlətdiyiniz hər hansı bir kitabxana `react`-i asılılıq kimi (peer asılılıq əvəzinə) təyin edə bilər. Bu kitabxana düzələnə kimi bu problemi düzəltmək üçün həllərdən biri [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/)-dır.
 
 Bu problemi debaq etmək üçün bəzi loqları əlavə edib development serverini yenidən başlada bilərsiniz:
 
@@ -115,8 +115,8 @@ Bəzən `npm link` və ya ekvivalentini işlətdikdə bu problem ilə uzlaşa bi
 
 >Qeyd
 >
->Normalda, React-in bir neçə müstəqi kopiyası ola bilər (məsələn, əgər applikasiya və 3-cü tərəfin yaratdığı vidcet başqa versiyalar işlədə bilər). Bunun sınmasının əsas səbəbi `require('react')` idxalının komponent və `react-dom`-da React-in fərqli kopiyalarını tapmasıdır.
+>Normalda, React-in bir neçə müstəqi kopiyası ola bilər (məsələn, applikasiya və 3-cü tərəfin yaratdığı vidcet başqa versiyalar işlədə bilər). Bunun sınmasının əsas səbəbi `require('react')` idxalının, komponent və `react-dom`-da React-in fərqli kopiyasını tapmasıdır.
 
 ## Digər Səbəblər {#other-causes}
 
-Əgər yuxarıdakı heç bir həll işləmədisə, sizə kömək edə bilməmiz üçün [bu issue-ya](https://github.com/facebook/react/issues/13991) komment atın. Bu problemi göstərə bilərək kiçik nümunə yaradın. Bu nümunəni düzəltdikcə problemi tapmaq şansınız artacaq.
+Əgər yuxarıdakı heç bir həll işləmirsə, sizə kömək edə bilməmiz üçün [bu issue-ya](https://github.com/facebook/react/issues/13991) komment atın. Bu problemi göstərə bilərək kiçik nümunə yaradın. Bu nümunəni düzəltdikcə problemi tapmaq şansınız da artacaq.
