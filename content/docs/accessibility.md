@@ -4,15 +4,15 @@ title: İmkanlılıq
 permalink: docs/accessibility.html
 ---
 
-## Niyə İmkanlılıq?
+## Niyə İmkanlılıq? {#why-accessibility}
 
 Veb imkanlılığı (və ya [**a11y**](https://en.wiktionary.org/wiki/a11y)) hər kəs tərəfindən istifadə oluna biləcək dizayn edilmiş səhifə adlandırılır. İmkanlılıq dəstəyi köməkçi texnologiyaların interperasiyası üçün vacib amildir.
 
 React daha çox standart HTML metodlarının istifadə etməklə hər kəs üçün imkanlı veb səhifə yaratmağı dəstəkləyir.
 
-## Normativlər və Təlimatlar
+## Normativlər və Təlimatlar {#standards-and-guidelines}
 
-### VKİT
+### VKİT {#wcag}
 
 [Veb Kontent İmkanlılıq Təlimatları](https://www.w3.org/WAI/intro/wcag) əsasında siz əlilliyi olan şəxslərin istifadə edəcəyi veb səhifə hazırlaya bilərsiniz. 
 
@@ -22,7 +22,7 @@ Aşağıdakı siyahılar VKİT haqqında icmalı təqdim edir:
 - [WebAIM tərəfində VKİT siyahısı](https://webaim.org/standards/wcag/checklist)
 - [A11Y Layihəsi tərəfində VKİT siyahısı](https://a11yproject.com/checklist.html)
 
-### VİT-İZİA
+### VİT-İZİA {#wai-aria}
 
 [Veb İmkanlılığı Təşəbbüsü - İmkanlı Zəngin İnternet Applikasiyaları](https://www.w3.org/WAI/intro/aria) (Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)) sənədinə tamamilə imkanlı JavaScript vicetlərini yaratmaq üçün metodlar daxildir.
 
@@ -39,7 +39,7 @@ Qeyd etmək lazımdır ki, bütün `aria-*` HTML atributları JSX-də dəstəkl�
 />
 ```
 
-## Semantik HTML
+## Semantik HTML {#semantic-html}
 Veb applikasiyasında imkanlılıq ideyasının əsasını Semantik HTML təşkil edir. Veb səhifədə imkanlılığı birdəfəlik yaradan amillərdən biri məlumatın mənasını gücləndirmək üçün müxtəlif HTML elementlərinin istifadəsidir.
 
 - [MDN HTML elementlərinə istinad](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
@@ -105,9 +105,10 @@ function ListItem({ item }) {
 
 Əlavə məlumat üçün [Fraqment sənədləşməsini](/docs/fragments.html) nəzərdən keçirin.
 
-## İmkanlı Anketlər
+## İmkanlı Anketlər {#accessible-forms}
 
-### Markalanma
+### Markalanma  {#labeling}
+
 Hər bir HTML anket kontrolu, məsələn `<input>` və `<textarea>`, imkanlı şəkildə markalanmalıdır. Ekran oxucularına datəsvir edilməsi üçün biz təsviri markaları təmin etməliyik.
 
 Aşağıdakı vəsaitlər bizə bunu necə etməyi göstərir:
@@ -123,20 +124,20 @@ Bu standart HTML praktikalarının birbaşa React-də istifadə olunacağına ba
 <input id="namedInput" type="text" name="name"/>
 ```
 
-### İstifadəçiyə xətalar haqqında bildirilmək 
+### İstifadəçiyə xətalar haqqında bildirilmək {#notifying-the-user-of-errors}
 
 Xəta vəziyyəti hər bir istifadəçi üçün başa düşülən olmalıdır. Aşağıdakı linklər ekran oxucularına da xəta mətnlərinin necə ifşa edilə biləcəyini göstərir:
 
 - [W3C istifadəçi bidirişlərini nümayiş edir](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [WebAIM anket yoxlamasını nəzərdən keçirir](https://webaim.org/techniques/formvalidation/)
 
-## Fokus Nəzarəti
+## Fokus Nəzarəti {#focus-control}
 
 Əmin olun ki, sizin veb applikasiyanız yalnız klaviatur ilə idarə oluna bilər:
 
 - [WebAIM klaviatur imkanlılığı haqqında danışır](https://webaim.org/techniques/keyboard/)
 
-### Klaviatur fokusu və fokus konturu
+### Klaviatur fokusu və fokus konturu {#keyboard-focus-and-focus-outline}
 
 Klaviatur fokusu DOM-da yerləşən klaviaturdən daxiletməni qəbul etmək üçün seçilmiş cari elementə yönləndirilir. Aşağıdakı nümunədə göstərildiyi kimi biz hər yerdə fokus konturunu belə görürük:
 
@@ -144,7 +145,7 @@ Klaviatur fokusu DOM-da yerləşən klaviaturdən daxiletməni qəbul etmək ü�
 
 Bu konturu CSS (məsələn, `outline: 0` yazdıqda) ilə yalnız onu başqa bir fokusu göstərən tətbiq ilə əvəz edəcəyiniz halda silin.
 
-### Lazım olan kontentə ötmək üçün mexanizmlər
+### Lazım olan kontentə ötmək üçün mexanizmlər {#mechanisms-to-skip-to-desired-content}
 
 Öz növbəsində applikasiyada klaviatur naviqasiyasına kömək etmək və sürətləndirmək üçün istifadəçilərə naviqasiya bölməsində ötmə mexanizmini təmin edin.
 
@@ -158,7 +159,7 @@ Həmçinin, səhifənin sahələrini sərhədləmək üçün `<main>` və `<asid
 
 - [Imkanlı Landmarklar](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Proqram yolu ilə fokusun idarə edilməsi 
+### Proqram yolu ilə fokusun idarə edilməsi {#programmatically-managing-focus}
 
 Bizim React applikasiyalarımız icra müddətində davamlı şəkildə HTML DOM-u modifikasi edir, bəzən bu klaviatur fokusunun itməsi və ya gözlənilməz elementin keçməsinə gətirir. Bunu təmir etmək üçün biz proqram yolu ilə klaviatur fokusunu düzgün istiqamətdə dümsükləməliyik. Məsələn, modal pəncərə bağlandıqdan sonra klaviatur fokusu modal pəncərəni açan düyməyə geri qayıtmalıdır.
 
@@ -233,7 +234,7 @@ Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forw
 >
 >Bunun çox vacib imkanlılıq xüsusiyyəti olmasına baxmayaraq, bu həm də məntiqi şəkildə istifadə olunmalı texnologiyadır. Bu texnologiyanı istifadəçilərin applikasiyaları necə istifadə etmək istədiklərini əvvəlcədən bilmək üçün yox, klaviatur fokusunun axınını düzəltmək üçün istifadə edin. 
 
-## Maus və kursor hadisələri
+## Maus və kursor hadisələri {#mouse-and-pointer-events}
 
 Əmin olun ki, bütün funksionallıq maus və ya kursor hadisəsi ilə göstərilib və yalnız klaviatur istifadə etməklə də giriş edilə bilər. Kursor cihazından asılı olaraq siz klaviatur istifadəçilərinin applikasiyanı istifadə edə bilməyəcəyi müxtəlif ssenarilərlə üzləşəcəksiniz.
 
@@ -363,7 +364,7 @@ Bu kod həm kursor cihazı, həm də klaviaturda işləyir. Həmçinin, ekran ox
 
 Bu yalnız kursor və maus hadisələrindən asılı olmağın klaviatur istifadəçiləri üçün funksionallığın sınmasına səbəb olacağını göstərən ssenarilərdən biridir. Həmişə klaviatur ilə test edərkən klaviatur xəbərdarlıq hadisələr işləyicilərinin köməkliyi ilə düzəldilə bilən problemlı sahələr dərhal üzə çıxaracaqdır.
 
-## Daha Kompleks Vidcetlər
+## Daha Kompleks Vidcetlər {#more-complex-widgets}
 
 Daha kompleks istifadəçi təcrübəsi, daha az imkanlılıq demək deyil. Halbuki imkanlılıq ən rahatlıqla əldə etməyin yolu HTML-ə ən yaxın şəkildə kodlaşdırmaqdır, hətta ən kompleks vidcetlər imkanlı şəkildə kodlaşdırıla bilər. 
 
@@ -376,15 +377,15 @@ Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən m�
 - [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical_aria_examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Nəzərə Alınmalı Digər Məqamlar
+## Nəzərə Alınmalı Digər Məqamlar {#other-points-for-consideration}
 
-### Dilin təyin olunması
+### Dilin təyin olunması {#setting-the-language}
 
 Ekran oxuyucularının düzgun səs xarakteristikalarını seçməsi üçün səhifə mətnlərinin dilini təyin edin:
 
 - [WebAIM - Sənəd Dili](https://webaim.org/techniques/screenreader/#language)
 
-### Sənədin başlığının təyin olunması
+### Sənədin başlığının təyin olunması {#setting-the-document-title}
 
 Cari səhifənin məzmununu düzgün təsvir etmək üçün sənədin `<title>` hissəsini düzgün təyin edin, belə ki bu istifadəçinin cari səhifənin məzmunu haqqında xəbərdar olduğunu təmin edir:
 
@@ -392,7 +393,7 @@ Cari səhifənin məzmununu düzgün təsvir etmək üçün sənədin `<title>` 
 
 Biz bunu React-də [React Sənəd Başlığı Komponentindən](https://github.com/gaearon/react-document-title) istifadə edərək qura bilərik.
 
-### Rəng Kontrastı
+### Rəng Kontrastı {#color-contrast}
 
 Əmin olun ki, veb səhifənizdəki oxuna bilən bütün yazıları kifayət qədər rəng konstrastına malikdir ki, zəif görmə problemi olan istifadəçilər üçün maksimum oxuna biləndir:
 
@@ -409,11 +410,11 @@ Aşağıda qeyd olunmuş aXe and WAVE alətlərinə rəng kontrastı testləri d
 - [WebAIM - Rəng Kontrastı Yoxlayıcısı](https://webaim.org/resources/contrastchecker/)
 - [The Paciello Group - Rəng Kontrastı Təhlil Edicisi](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-## Development və Test Etmə Alətləri
+## Development və Test Etmə Alətləri {#development-and-testing-tools}
 
 İmkanlı veb applikasiyaların yaradılmasına kömək etmək üçün istifadə edə biləcəyimiz çöxlu sayda alətlər var.
 
-### Klaviatur
+### Klaviatur {#the-keyboard}
 
 Test üçün ən asan və ən vacib xanalardan biri sizin bütün veb səhifəniz təkcə klaviatur ilə istifadə oluna bilməsidir. Siz bunu belə edə bilərsiz:
 
@@ -422,11 +423,11 @@ Test üçün ən asan və ən vacib xanalardan biri sizin bütün veb səhifəni
 3. Elementləri aktivləşdirmək üçün `Enter` istifadə edin.
 4. Lazım olan yerlərdə klaviaturun üzərində ox olan klavişin menus və dropdown kimi bəzi elementlər ilə qarşılıqlı əlaqəyə girməsi üçün istifadə edin.
 
-### Development köməyi
+### Development köməyi {#development-assistance}
 
 Biz bəzi imkanlılıq xüsusiyyətlərinə birdəfəlik JSX kodumuzda baxa bilərik. Çox vaxt ARIA rolları, vəziyyəti və parametrləri JSX anlayan IDE-lərin "intellisense" yoxlamalarında göstərilir. Həmçinin biz aşağıdakı alətlərdən də istifadə edə bilərik:
 
-#### eslint-plugin-jsx-a11y
+#### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
 
 ESLint plugini olan [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) sizin JSX-izdə imkanlılıqla bağlı problemlərlə əlaqədar AST linting rəyini təmin edir. Çoxlu IDE-lar sizi bu tapıntıları birdəfəlik kod analitikasında və mənbə kod pəncərəsində inteqrasiya etməyə icazə verir.
 
@@ -439,12 +440,12 @@ ESLint plugini olan [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-p
   }
   ```
 
-### İmkanlılığın brauzerdə test edilməsi
+### İmkanlılığın brauzerdə test edilməsi {#testing-accessibility-in-the-browser}
 
 Bir sıra əlatlər mövcuddur ki, sizin brauzerinizdə veb səhifələrin imkanlılıq auditlərini işlədə bilərsiniz.
 Zəhmət olmasa, onları burada qeyd olunmuş digər imkanlılıq yoxlamaları ilə birlikdə istifadə edin, necə ki onlar yalnız sizin HTML-inizin texniki imkanlılığını yoxlaya bilirlər. 
 
-#### aXe, aXe-core və react-axe
+#### aXe, aXe-core və react-axe {#axe-axe-core-and-react-axe}
 
 Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tərəfli açıq imkanlılıq testləri üçün [aXe-core](https://github.com/dequelabs/axe-core) təklif edir. Bu modul Selenium üçün inteqrasiyaları daxil edir.
 
@@ -452,11 +453,11 @@ Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tər
 
 Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [react-axe](https://github.com/dylanb/react-axe) modulunu istifadə edə bilərsiniz.
 
-#### WebAIM WAVE
+#### WebAIM WAVE {#webaim-wave}
 
 [Veb İmkanlılıq Məlumat Qiymətləndirmə Aləti](https://wave.webaim.org/extension/) digər bir brauzer imkanlılıq proqram əlavəsidir.
 
-#### İmkanlılıq daxiletmələri və İmkanlılıq Ağacı
+#### İmkanlılıq daxiletmələri və İmkanlılıq Ağacı {#accessibility-inspectors-and-the-accessibility-tree}
 
 [İmkanlılıq Ağacı](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) DOM ağacının bir hissəsidir ki, ekran oxucuları kimi köməkçi texnologiyalara göstərilməli hər bir DOM elementi üçün imkanlı obyektləri daxil edir.
 
@@ -466,15 +467,15 @@ Bəzi brauzerlərdə biz asanlıqla imkanlılıq ağacındakı hər bir element 
 - [Chrome-da İmkanlılıq İnspektorunun İstifadəsi](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [OS X Safari-də İmkanlılıq İnspektorunun İstifadəsi](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
-### Ekran Oxucuları
+### Ekran Oxucuları {#screen-readers}
 
 Ekran oxucusu ilə test etmək sizin imkanlılıq testlərinizə daxil olmalıdır.
 
 Zəhmət olmasa nəzərə alın ki, brauzer / ekran oxucusu kombinasiyası vacibdir. Sizin applikasiyanızı ekran oxucusunun seçdiyi brauzer üzərindən yoxlamağınız tövsiyyə olunur.
 
-### Tez-tez İstifadə olunan Ekran Oxucuları
+### Tez-tez İstifadə olunan Ekran Oxucuları {#commonly-used-screen-readers}
 
-#### Firefox-da NVDA
+#### Firefox-da NVDA {#nvda-in-firefox}
 
 [NonVisual Desktop Access](https://www.nvaccess.org/) və ya NVDA geniş şəkildə istifadə olunan open source Windows-un oxucusudur.
 
@@ -483,7 +484,7 @@ NVDA-nı ən əlverişli üsulla istifadə etmək üçün təlimatlar aşağıda
 - [WebAIM - Veb İmkanlılığı hesablamaq üçün NVDA-nın istifadəsi](https://webaim.org/articles/nvda/)
 - [Deque - NVDA Klaviatur qısayolları](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
-#### Safari-də VoiceOver
+#### Safari-də VoiceOver {#voiceover-in-safari}
 
 VoiceOver Apple cihazlarında istifadə olunan inteqrasiya olunmuş ekran oxucusudur.
 
@@ -493,7 +494,7 @@ VoiceOver-in aktivləşdirilməsi və istifadəsi üçün aşağıdakı təlimat
 - [Deque - OS X Klaviatur qısayolları üçün VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
 - [Deque - iOS qısayolları üçün VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
-#### Internet Explorer-də JAWS
+#### Internet Explorer-də JAWS {#jaws-in-internet-explorer}
 
 [Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) və ya JAWS, Windows-da məhsuldar istifadə olunan ekran oxucusudur.
 
@@ -502,9 +503,9 @@ JAWS-ı ən əlverişli üsulla istifadə etmək üçün təlimatlar aşağıdak
 - [WebAIM - Veb İmkanlılığı hesablamaq üçün JAWS-ın istifadəsi](https://webaim.org/articles/jaws/)
 - [Deque - JAWS Klaviatur qısayolları](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
-### Digər Ekran Oxucuları
+### Digər Ekran Oxucuları {#other-screen-readers}
 
-#### Google Chrome-da ChromeVox
+#### Google Chrome-da ChromeVox {#chromevox-in-google-chrome}
 
 [ChromeVox](https://www.chromevox.com/) Crome Books-a integrasiya olunmuş ekran oxucusudur və [proqram əlavəsi kimi](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) Google Chrome üçün mövcuddur.
 

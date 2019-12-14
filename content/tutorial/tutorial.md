@@ -116,7 +116,7 @@ Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlim
 
 </details>
 
-### Kömək, Mən İlişmişəm!
+### Kömək, Mən İlişmişəm! {#help-im-stuck}
 
 Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusilə, [Reactiflux Chat](https://discord.gg/reactiflux) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
