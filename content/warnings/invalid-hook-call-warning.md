@@ -1,60 +1,60 @@
 ---
-title: Invalid Hook Call Warning
+title: Etibarsız Hook Çağırışı Xəbərdarlığı
 layout: single
 permalink: warnings/invalid-hook-call-warning.html
 ---
 
- You are probably here because you got the following error message:
+ Siz hər halda aşağıdakı xəta mesajını gördüyünüz üçün bu səhifədəsiniz:
 
  > Hooks can only be called inside the body of a function component.
 
-There are three common reasons you might be seeing it:
+Bu mesajı görməyinizin üç səbəbi var:
 
-1. You might have **mismatching versions** of React and React DOM.
-2. You might be **breaking the [Rules of Hooks](/docs/hooks-rules.html)**.
-3. You might have **more than one copy of React** in the same app.
+1. Sizdə React və React DOM-un **versiyaları uyğun gəlmir**.
+2. Siz, **[Hookların Qaydalarına](/docs/hooks-rules.html) riayət etmirsiniz**.
+3. Sizdə eyni applikasiyada **React-in bir neçə kopiyası var**.
 
-Let's look at each of these cases.
+Gəlin hər ssenariyə baxaq.
 
-## Mismatching Versions of React and React DOM {#mismatching-versions-of-react-and-react-dom}
+## React və React DOM versiyalarının uyğunsuzluğu {#mismatching-versions-of-react-and-react-dom}
 
-You might be using a version of `react-dom` (< 16.8.0) or `react-native` (< 0.59) that doesn't yet support Hooks. You can run `npm ls react-dom` or `npm ls react-native` in your application folder to check which version you're using. If you find more than one of them, this might also create problems (more on that below).
+Siz, `react-dom` (< 16.8.0) və ya `react-native`-in (< 0.59) dəstəklənməyən versiyalarını işlətmiş ola bilərsiniz. Bu paketlərin versiyalarını bilmək üçün applikasiya direktoriyasından `npm ls react-dom` və ya `npm ls react-native` əmrlərini çağırın. Bu əmr birdən çox versiya göstərdikdə sizdə digər problemlər yarana bilər (aşağıda izah olunub).
 
-## Breaking the Rules of Hooks {#breaking-the-rules-of-hooks}
+## Hookların Qaydalarına Riayət Edilməməsi {#breaking-the-rules-of-hooks}
 
-You can only call Hooks **while React is rendering a function component**:
+Hookları yalnız **React-in funksiya komponentini render etdikdə** çağırmaq mümkündür:
 
-* ✅ Call them at the top level in the body of a function component.
-* ✅ Call them at the top level in the body of a [custom Hook](/docs/hooks-custom.html).
+* ✅ Hookları funksiya komponentinin gövdəsinin yuxarısından çağırın.
+* ✅ Hookları [xüsusi Hookun](/docs/hooks-custom.html) gövdəsinin yuxarısından çağırın.
 
-**Learn more about this in the [Rules of Hooks](/docs/hooks-rules.html).**
+**Bu qaydalar haqqında əlavə məlumat üçün [Hookların Qaydaları](/docs/hooks-rules.html) səhifəsinə baxın.**
 
 ```js{2-3,8-9}
 function Counter() {
-  // ✅ Good: top-level in a function component
+  // ✅ Yaxşı: Funksiya komponentinin yuxarısındadır
   const [count, setCount] = useState(0);
   // ...
 }
 
 function useWindowWidth() {
-  // ✅ Good: top-level in a custom Hook
+  // ✅ Yaxşı: Xüsusi Hookun yuxarısındadır
   const [width, setWidth] = useState(window.innerWidth);
   // ...
 }
 ```
 
-To avoid confusion, it’s **not** supported to call Hooks in other cases:
+Qarışıqlığın olmaması üçün Hookları aşağıdakı ssenarilərdə işlətmək **dəstəklənmir**:
 
-* 🔴 Do not call Hooks in class components.
-* 🔴 Do not call in event handlers.
-* 🔴 Do not call Hooks inside functions passed to `useMemo`, `useReducer`, or `useEffect`.
+* 🔴 Hookları klas komponentlərindən çağırmayın.
+* 🔴 Hookları hadisə işləyicilərindən çağırmayın.
+* 🔴 Hookları `useMemo`, `useReducer` və ya `useEffect` Hooklara göndərilən funksiyalardan çağırmayın.
 
-If you break these rules, you might see this error.
+Bu qaydalara riayət etmədikdə yuxarıdakı xətanı görəcəksiniz.
 
 ```js{3-4,11-12,20-21}
 function Bad1() {
   function handleClick() {
-    // 🔴 Bad: inside an event handler (to fix, move it outside!)
+    // 🔴 Pis: hadisə işləyicisinin daxilindədir (həll etmək üçün Hooku bu funksiyadan çıxarın!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -62,7 +62,7 @@ function Bad1() {
 
 function Bad2() {
   const style = useMemo(() => {
-    // 🔴 Bad: inside useMemo (to fix, move it outside!)
+    // 🔴 Pis: useMemo-un daxilindədir (həll etmək üçün Hooku bu funksiyadan çıxarın!)
     const theme = useContext(ThemeContext);
     return createStyle(theme);
   });
@@ -71,52 +71,52 @@ function Bad2() {
 
 class Bad3 extends React.Component {
   render() {
-    // 🔴 Bad: inside a class component
+    // 🔴 Pis: klas komponentindədir
     useEffect(() => {})
     // ...
   }
 }
 ```
 
-You can use the [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to catch some of these mistakes.
+Bu səhvlərin bəzilərini tutmaq üçün [`eslint-plugin-react-hooks` plaginindən](https://www.npmjs.com/package/eslint-plugin-react-hooks) istifadə edə bilərsiniz.
 
->Note
+>Qeyd
 >
->[Custom Hooks](/docs/hooks-custom.html) *may* call other Hooks (that's their whole purpose). This works because custom Hooks are also supposed to only be called while a function component is rendering.
+>[Xüsusi Hooklardan](/docs/hooks-custom.html) digər Hookları çağırmaq *mümkündür* (bu, xüsusi Hookların əsas məqsədidir). Bunun işləməsinin səbəbi xüsusi Hookların da funksiya komponentinin render edildiyi zaman çağrılmasıdır.
 
 
-## Duplicate React {#duplicate-react}
+## Dublikat React {#duplicate-react}
 
-In order for Hooks to work, the `react` import from your application code needs to resolve to the same module as the `react` import from inside the `react-dom` package.
+Hookların işləməsi üçün `react-dom` paketi ilə applikasiya kodu eyni versiyalı `react` modulunu idxal etməlidir.
 
-If these `react` imports resolve to two different exports objects, you will see this warning. This may happen if you **accidentally end up with two copies** of the `react` package.
+`react` idxalları iki fərqli ixrac obyekti tapdıqda siz bu xəbərdarlığı görəcəksiniz. Bu, `react` paketinin **təsadüfən iki kopiyası olduqda** baş verir.
 
-If you use Node for package management, you can run this check in your project folder:
+Paket idarə etməsi üçün Node işlətdikdə layihə direktoriyasından React-in versiyasını yoxlamaq üçün aşağıdakı əmri icra edə bilərsiniz:
 
     npm ls react
 
-If you see more than one React, you'll need to figure out why this happens and fix your dependency tree. For example, maybe a library you're using incorrectly specifies `react` as a dependency (rather than a peer dependency). Until that library is fixed, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) is one possible workaround.
+Sizdə React-in birdən çox versiyası olduqda bunun niyə olduğunun səbəbini tapıb asılılıqlar ağacını düzəltməlisiniz. Məsələn, işlətdiyiniz hər hansı bir kitabxana `react`-i asılılıq kimi (peer asılılıq əvəzinə) təyin edə bilər. Bu kitabxana düzələnə kimi bu problemi düzəltmək üçün həllərdən biri [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/)-dır.
 
-You can also try to debug this problem by adding some logs and restarting your development server:
+Bu problemi debaq etmək üçün bəzi loqları əlavə edib development serverini yenidən başlada bilərsiniz:
 
 ```js
-// Add this in node_modules/react-dom/index.js
+// Bunu node_modules/react-dom/index.js faylına əlavə edin
 window.React1 = require('react');
 
-// Add this in your component file
+// Bunu komponent faylına əlavə edin
 require('react-dom');
 window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
-If it prints `false` then you might have two Reacts and need to figure out why that happened. [This issue](https://github.com/facebook/react/issues/13991) includes some common reasons encountered by the community.
+Bu, `false` qaytardıqda sizdə React-in iki versiyasının olduğunu biləcəksiniz. Cəmiyyət üzvlərinin tapdığı səbəblərə [bu issue-dan](https://github.com/facebook/react/issues/13991) baxa bilərsiniz.
 
-This problem can also come up when you use `npm link` or an equivalent. In that case, your bundler might "see" two Reacts — one in application folder and one in your library folder. Assuming `myapp` and `mylib` are sibling folders, one possible fix is to run `npm link ../myapp/node_modules/react` from `mylib`. This should make the library use the application's React copy.
+Bəzən `npm link` və ya ekvivalentini işlətdikdə bu problem ilə uzlaşa bilərsiniz. Bu ssenaridə paketləmə qurğusu React-in iki versiyasını "görür" — applikasiya direktoriyasında və kitabxana direktoriyasında. `myapp` və `mylib` direktoriyalarının qardaş direktoriyalar olduğunu fərz etsək düzəlişlərdən biri `mylib` direktoriyasından `npm link ../myapp/node_modules/react` əmrini çağırmaqdır. Bu əmr ilə kitabxanaya eyni React versiyasını işlətməyi təyin edə bilərsiniz.
 
->Note
+>Qeyd
 >
->In general, React supports using multiple independent copies on one page (for example, if an app and a third-party widget both use it). It only breaks if `require('react')` resolves differently between the component and the `react-dom` copy it was rendered with.
+>Normalda, React-in bir neçə müstəqi kopiyası ola bilər (məsələn, applikasiya və 3-cü tərəfin yaratdığı vidcet başqa versiyalar işlədə bilər). Bunun sınmasının əsas səbəbi `require('react')` idxalının, komponent və `react-dom`-da React-in fərqli kopiyasını tapmasıdır.
 
-## Other Causes {#other-causes}
+## Digər Səbəblər {#other-causes}
 
-If none of this worked, please comment in [this issue](https://github.com/facebook/react/issues/13991) and we'll try to help. Try to create a small reproducing example — you might discover the problem as you're doing it.
+Əgər yuxarıdakı heç bir həll işləmirsə, sizə kömək edə bilməmiz üçün [bu issue-ya](https://github.com/facebook/react/issues/13991) komment atın. Bu problemi göstərə bilərək kiçik nümunə yaradın. Bu nümunəni düzəltdikcə problemi tapmaq şansınız da artacaq.
