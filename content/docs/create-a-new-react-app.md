@@ -73,9 +73,13 @@ Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif 
 
 - **[Neutrino](https://neutrinojs.org/)** aləti [webpack-in](https://webpack.js.org/) gücünü əvvəlcədən hazırlanmış şablonların sadəliyi ilə birləşdirir. Bu alət, [React applikasiyaları](https://neutrinojs.org/packages/react/) və [React komponentləri](https://neutrinojs.org/packages/react-components/) üçün şablonlar təmin edir.
 
+<<<<<<< HEAD
 - **[nwb](https://github.com/insin/nwb)** [React komponentlərini npm-ə dərc etməyi](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb) asanlaşdırır. Bu aləti React applikasiyalarında [işlətmək də](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) mümkündür.
 
 - **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
+=======
+- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+>>>>>>> 401b97e9591ac573eaf35c7cf57e5f145276d140
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 
