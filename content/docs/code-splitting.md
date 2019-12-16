@@ -83,11 +83,7 @@ Webpack bu sintaksisi görən kimi sizin applikasiyanızın kodunu avtomatik par
 
 > Qeyd:
 >
-<<<<<<< HEAD
-> `React.lazy` və Suspense serverdə render etmək üçün hazır deyil. Əgər sizə kod parçalanması server-də render olunan applikasiya üçün lazımdırsa, biz [Loadable Components](https://github.com/smooth-code/loadable-components) işlətməyi tövsiyyə edirik. Bunun [server rendering üçün yaxşı təlimatı var](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/).
-=======
-> `React.lazy` and Suspense are not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/gregberge/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
->>>>>>> 401b97e9591ac573eaf35c7cf57e5f145276d140
+> `React.lazy` və Suspense, serverdə render etmək üçün hazır deyil. Əgər sizə serverdə render olunan applikasiya üçün kod parçalaması lazımdırsa, biz [Loadable Components](https://github.com/gregberge/loadable-components) işlətməyi tövsiyyə edirik. Bunun [server render etməsi üçün yaxşı təlimatı var](https://loadable-components.com/docs/server-side-rendering/).
 
 `React.lazy` funskiyası dinamik import olunmuş komponenti adi komponent kimi render etməyə imkan yaradır.
 
