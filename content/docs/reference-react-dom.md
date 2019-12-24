@@ -37,7 +37,11 @@ React bütün populyar brauzerləri (Internet Explorer 9 və yuxarı daxil olmaq
 ReactDOM.render(element, container[, callback])
 ```
 
-DOM-da göstərilən `container`-ə React elementini render et və komponent [referansı](/docs/more-about-refs.html) qaytar ([state-siz komponentlər](/docs/components-and-props.html#functional-and-class-components) üçün `null` qaytarır).
+<<<<<<< HEAD
+DOM-da göstərilən `container`-ə React elementini render et və komponent [referansı](/docs/more-about-refs.html) qaytar ([state-siz komponentlər](/docs/components-and-props.html#function-and-class-components) üçün `null` qaytarır).
+=======
+Render a React element into the DOM in the supplied `container` and return a [reference](/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/docs/components-and-props.html#function-and-class-components)).
+>>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
 
 Əgər `container`-ə əvvəl başqa React elementi render edilmişdirsə, bu funksiya olan `container`-i yalnız yeniləyəcək və DOM-u yeni React elementini göstərmək üçün dəyişəcək.
 
