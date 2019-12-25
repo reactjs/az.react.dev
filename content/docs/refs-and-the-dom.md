@@ -1,6 +1,6 @@
 ---
 id: refs-and-the-dom
-title: Refs and the DOM
+title: Ref-lər və DOM
 redirect_from:
   - "docs/working-with-the-browser.html"
   - "docs/more-about-refs.html"
@@ -11,33 +11,33 @@ redirect_from:
 permalink: docs/refs-and-the-dom.html
 ---
 
-Refs provide a way to access DOM nodes or React elements created in the render method.
+Ref-lər ilə render metodundan DOM-a və ya React elementlərinə istinad etmək mümkündür.
 
-In the typical React dataflow, [props](/docs/components-and-props.html) are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.
+Normal React məlumat axınında valideyn komponentlərin uşaqlar ilə əlaqəsi üçün yeganə yol [proplardır](/docs/components-and-props.html). Uşaq komponenti dəyişmək üçün bu komponenti yeni proplar ilə render etmək lazımdır. Lakin, bəzi hallarda uşaq komponentini normal imperativ şəkildə məlumat axınından kənarda dəyişmək lazım olur. Dəyişiləcək uşaq komponenti React komponentinin instansiyası və ya DOM elementi ola bilər. React-də hər iki ssenari üçün çıxış yolu var.
 
-### When to Use Refs {#when-to-use-refs}
+### Ref-lərdən Nə Vaxt İstifadə Etmək Lazımdır {#when-to-use-refs}
 
-There are a few good use cases for refs:
+Bir neçə ssenarilərdə ref-lərdən istifadə etmək faydalıdır:
 
-* Managing focus, text selection, or media playback.
-* Triggering imperative animations.
-* Integrating with third-party DOM libraries.
+* Fokusun, yazı seleksiyasının, və ya media ifasının idarə edilməsi.
+* İmperativ animasiyaların çağırışı.
+* 3-cü tərəfin DOM kitabxanaları ilə inteqrasiya edilməsi.
 
-Avoid using refs for anything that can be done declaratively.
+Deklarativ tətbiq edilə bilən əməliyyatlarda ref-lərdən istifadə etməkdən çəkinin.
 
-For example, instead of exposing `open()` and `close()` methods on a `Dialog` component, pass an `isOpen` prop to it.
+Məsələn, `Dialog` komponentinə `open()` və ya `close()` metodlarını ifşa etmək əvəzinə bu komponentə `isOpen` propu göndərin.
 
-### Don't Overuse Refs {#dont-overuse-refs}
+### Ref-lərdən Çox İstifadə Etməyin {#dont-overuse-refs}
 
-Your first inclination may be to use refs to "make things happen" in your app. If this is the case, take a moment and think more critically about where state should be owned in the component hierarchy. Often, it becomes clear that the proper place to "own" that state is at a higher level in the hierarchy. See the [Lifting State Up](/docs/lifting-state-up.html) guide for examples of this.
+Applikasiyada "işləri həll etmək" üçün ref-lərdən istifadə etmək istəyə bilərsiniz. Əgər buna meyliniz varsa, state-in komponent iyerarxiyasına malik olması haqqda kritiki fikirləşin. Adətən, state-in iyerarxiyanın üst səviyyələrində yerləşdirilməsi aydın olur. Nümunələr üçün [State-in Qaldırılması](/docs/lifting-state-up.html) təlimatına baxın.
 
-> Note
+> Qeyd
 >
-> The examples below have been updated to use the `React.createRef()` API introduced in React 16.3. If you are using an earlier release of React, we recommend using [callback refs](#callback-refs) instead.
+> Aşağıdakı nümunələrdə React-in 16.3-cü versiyasında təqdim edilən `React.createRef()` API-ndan istifadə edilir. Əgər React-in əvvəlki versiyalarından istifadə edirsinizsə, [callback ref-lərindən](#callback-refs) istifadə etməyi tövsiyyə edirik.
 
-### Creating Refs {#creating-refs}
+### Ref-lərin Yaradılması {#creating-refs}
 
-Refs are created using `React.createRef()` and attached to React elements via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
+Ref-lər `React.createRef()` funksiyası ilə yaranaraq React elementlərinə `ref` atributu ilə qoşulur. Adətən, ref-lərin komponentin hər yerində istinad edilə bilməsi üçün komponent yarandılan zaman komponentin instansiya parametrinə təyin edilir.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -51,23 +51,23 @@ class MyComponent extends React.Component {
 }
 ```
 
-### Accessing Refs {#accessing-refs}
+### Ref-lərin İstifadəsi {#accessing-refs}
 
-When a ref is passed to an element in `render`, a reference to the node becomes accessible at the `current` attribute of the ref.
+Ref-i `render` funksiyasında olan elementə göndərdikdə noda göstərilən referansa ref-in `current` atributundan istinad etmək mümkündür.
 
 ```javascript
 const node = this.myRef.current;
 ```
 
-The value of the ref differs depending on the type of the node:
+Ref-in dəyəri nodun tipinə görə dəyişir:
 
-- When the `ref` attribute is used on an HTML element, the `ref` created in the constructor with `React.createRef()` receives the underlying DOM element as its `current` property.
-- When the `ref` attribute is used on a custom class component, the `ref` object receives the mounted instance of the component as its `current`.
-- **You may not use the `ref` attribute on function components** because they don't have instances.
+- `ref` atributunu HTML elementində işlətdikdə kontruktorda `React.createRef()` ilə yaradılan `ref` obyektinin `current` parametri DOM element obyektini qəbul edir.
+- `ref` atributunu xüsusi klas komponentində işlətdikdə `ref` obyektinin `current` parametri mount olunan klasın instansiyasını qəbul edir.
+- Funksiyaların instansiyaları olmadığından **`ref` atributunu funksiya komponentlərində işlətmək mümkün deyil**.
 
-The examples below demonstrate the differences.
+Aşağıdakı nümunələrdə bu tiplərin fərqləri göstəriləcək.
 
-#### Adding a Ref to a DOM Element {#adding-a-ref-to-a-dom-element}
+#### Ref-i DOM Elementinə Əlavə Et {#adding-a-ref-to-a-dom-element}
 
 This code uses a `ref` to store a reference to a DOM node:
 
