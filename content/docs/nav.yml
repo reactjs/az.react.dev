@@ -72,7 +72,7 @@
     - id: refs-and-the-dom
       title: Ref-lər və DOM
     - id: render-props
-      title: Render Etmə Propları
+      title: Render Propları
     - id: static-type-checking
       title: Statik Tip Yoxlamaları
     - id: strict-mode
