@@ -67,28 +67,28 @@ Ref-in dəyəri nodun tipinə görə dəyişir:
 
 Aşağıdakı nümunələrdə bu tiplərin fərqləri göstəriləcək.
 
-#### Ref-i DOM Elementinə Əlavə Et {#adding-a-ref-to-a-dom-element}
+#### Ref-in DOM Elementinə Əlavə Edilməsi {#adding-a-ref-to-a-dom-element}
 
-This code uses a `ref` to store a reference to a DOM node:
+Aşağıdakı kodda DOM noduna referans etmək üçün `ref`-dən istifadə olunur:
 
 ```javascript{5,12,22}
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // create a ref to store the textInput DOM element
+    // textInput DOM elementi üçün ref yarat
     this.textInput = React.createRef();
     this.focusTextInput = this.focusTextInput.bind(this);
   }
 
   focusTextInput() {
-    // Explicitly focus the text input using the raw DOM API
-    // Note: we're accessing "current" to get the DOM node
+    // DOM API-ından istifadə edərək mətn anket sahəsinə fokus et
+    // Qeyd: DOM noduna istinad edə bilmək üçün "current" parametrindən istifadə edirik
     this.textInput.current.focus();
   }
 
   render() {
-    // tell React that we want to associate the <input> ref
-    // with the `textInput` that we created in the constructor
+    // React-ə <input> ref-ini konstruktorda yaratdığımız
+    // `textInput` ilə əlaqələndirmək istədiyimizi bildiririk
     return (
       <div>
         <input
@@ -96,7 +96,7 @@ class CustomTextInput extends React.Component {
           ref={this.textInput} />
         <input
           type="button"
-          value="Focus the text input"
+          value="Mətn anket sahəsinə fokus et"
           onClick={this.focusTextInput}
         />
       </div>
@@ -105,11 +105,11 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React will assign the `current` property with the DOM element when the component mounts, and assign it back to `null` when it unmounts. `ref` updates happen before `componentDidMount` or `componentDidUpdate` lifecycle methods.
+Komponent mount olunduqda React `current` parametrini DOM elementi ilə təyin edəcək, unmount olunduqda isə bu parametri `null` ilə sıfırlayacaq. `ref` yenilikləri `componentDidMount` və ya `componentDidUpdate` lifecycle metodlarından öncə baş verir.
 
-#### Adding a Ref to a Class Component {#adding-a-ref-to-a-class-component}
+#### Ref-in Klas Komponentinə Əlavə Edilməsi {#adding-a-ref-to-a-class-component}
 
-If we wanted to wrap the `CustomTextInput` above to simulate it being clicked immediately after mounting, we could use a ref to get access to the custom input and call its `focusTextInput` method manually:
+Yuxarıdakı `CustomTextInput` komponentini əhatə edərək mount olunan kimi tıklandığını simulyasiya etmək üçün bu komponentə ref qoşaraq daxilindəki `focusTextInput` funksiyasını əl ilə çağıra bilərik:
 
 ```javascript{4,8,13}
 class AutoFocusTextInput extends React.Component {
@@ -130,7 +130,7 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
-Note that this only works if `CustomTextInput` is declared as a class:
+Nəzərə alın ki, bu yalnız `CustomTextInput` komponentinin klas kimi təyin edildiyini zaman işləyir:
 
 ```js{1}
 class CustomTextInput extends React.Component {
@@ -138,9 +138,9 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-#### Refs and Function Components {#refs-and-function-components}
+#### Ref-lər və Funksiya Komponentləri {#refs-and-function-components}
 
-**You may not use the `ref` attribute on function components** because they don't have instances:
+Funksiyaların instansiyalarının olmadığından **Funksiya komponentlərində `ref` atributundan istifadə etmək mümkün deyil:**
 
 ```javascript{1,8,13}
 function MyFunctionComponent() {
@@ -153,7 +153,7 @@ class Parent extends React.Component {
     this.textInput = React.createRef();
   }
   render() {
-    // This will *not* work!
+    // Bu *işləməyəcək*!
     return (
       <MyFunctionComponent ref={this.textInput} />
     );
@@ -161,13 +161,13 @@ class Parent extends React.Component {
 }
 ```
 
-You should convert the component to a class if you need a ref to it, just like you do when you need lifecycle methods or state.
+Bu komponentə ref lazım olduqda komponenti klasa çevirin (state və ya lifecycle metodları lazım olduğu kimi).
 
-You can, however, **use the `ref` attribute inside a function component** as long as you refer to a DOM element or a class component:
+Lakin, DOM elementi və ya klas komponentinə istinad edildiyi hallarda **funksiya komponentinin daxilindən `ref` atributunu işlətmək mümkündür**:
 
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
-  // textInput must be declared here so the ref can refer to it
+  // ref-in buna istinad edə bilməsi üçün textInput burada təyin edildilməlidir
   let textInput = React.createRef();
 
   function handleClick() {
@@ -181,7 +181,7 @@ function CustomTextInput(props) {
         ref={textInput} />
       <input
         type="button"
-        value="Focus the text input"
+        value="Mətn anket sahəsinə fokus et"
         onClick={handleClick}
       />
     </div>
@@ -189,25 +189,25 @@ function CustomTextInput(props) {
 }
 ```
 
-### Exposing DOM Refs to Parent Components {#exposing-dom-refs-to-parent-components}
+### DOM Ref-lərinin Valideyn Komponentlərinə İfşa Edilməsi {#exposing-dom-refs-to-parent-components}
 
-In rare cases, you might want to have access to a child's DOM node from a parent component. This is generally not recommended because it breaks component encapsulation, but it can occasionally be useful for triggering focus or measuring the size or position of a child DOM node.
+Bəzi nadir hallarda uşağın DOM noduna valideyn komponentdən istinad etmək lazım ola bilər. Bunun komponent inkapsulyasiyasını sındırdığından biz bunu tövsiyyə etmirik. Lakin, bu texnika ilə fokusu aktiv etmək və ya uşaq DOM nodunun ölçü və pozisiyalarını hesablamaq faydalı ola bilər.
 
-While you could [add a ref to the child component](#adding-a-ref-to-a-class-component), this is not an ideal solution, as you would only get a component instance rather than a DOM node. Additionally, this wouldn't work with function components.
+[Ref-i uşaq komponentinə əlavə edə bildiyimizə](#adding-a-ref-to-a-class-component) baxmayaraq burada DOM nodu əvəzinə komponent instansiyasının əldə edildiyindən bu ideal həll olmaya bilər. Əlavə olaraq bunu funksiya komponentləri ilə işlətmək mümkün olmayacaq.
 
-If you use React 16.3 or higher, we recommend to use [ref forwarding](/docs/forwarding-refs.html) for these cases. **Ref forwarding lets components opt into exposing any child component's ref as their own**. You can find a detailed example of how to expose a child's DOM node to a parent component [in the ref forwarding documentation](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
+React-in 16.3-cü versiyasından başlayaraq biz bu hallar üçün [ref-lərin yönləndirilməsindən](/docs/forwarding-refs.html) istifadə edirik. **Ref yönləndirilməsi komponentə uşaq komponentinin ref-ini ifşa etməyə imkan yaradır**. Uşaq DOM nodunu valideyn komponentə ifşa etmək üçün detallı nümunə üçün [ref-lərin yönləndirilməsi sənədinə](/docs/forwarding-refs.html#forwarding-refs-to-dom-components) baxın.
 
-If you use React 16.2 or lower, or if you need more flexibility than provided by ref forwarding, you can use [this alternative approach](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) and explicitly pass a ref as a differently named prop.
+Əgər React-in 16.2-dən aşağı versiyasını işlədir və ya ref yönləndirilməsindən daha çox azadlıq lazımdırsa, siz [bu alternativ yanaşmadan](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) istifadə edərək ref-i fərqli adlı prop ilə göndərə bilərsiniz.
 
-When possible, we advise against exposing DOM nodes, but it can be a useful escape hatch. Note that this approach requires you to add some code to the child component. If you have absolutely no control over the child component implementation, your last option is to use [`findDOMNode()`](/docs/react-dom.html#finddomnode), but it is discouraged and deprecated in [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+Biz, DOM nodlarının bu formada ifşa edilməsini tövsiyyə etmirik, amma bu çıxış yolu kimi faydalı ola bilər. Bu yanaşmanın işləməsi üçün uşaq komponentinə əlavə kodun əlavə olunacağını unutmayın. Əgər sizin uşaq komponentinin tətbiqi üzərində heç bir kontrolunuz yoxdursa, ən son yol kimi [`findDOMNode()`-dan](/docs/react-dom.html#finddomnode) istifadə edə bilərsiniz. Lakin, [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage) işlətdikdə bu funksiyanın istifadəsi mümkün deyil.
 
-### Callback Refs {#callback-refs}
+### Callback Ref-ləri {#callback-refs}
 
-React also supports another way to set refs called "callback refs", which gives more fine-grain control over when refs are set and unset.
+React ilə ref-ləri digər formada yaratmaq mümkündür. "Callback ref-ləri" adlanan bu ref-lər, ref-lərin yaradılması və silinməsi üçün daha çox kontrol təmin edir.
 
-Instead of passing a `ref` attribute created by `createRef()`, you pass a function. The function receives the React component instance or HTML DOM element as its argument, which can be stored and accessed elsewhere. 
+`createRef()` ilə yaranmış `ref` atributu göndərmək əvəzinə `createRef()` funksiya göndərilir. Bu funksiya arqumet kimi React komponent instansiyasını və ya HTML DOM elementini qəbul edir. 
 
-The example below implements a common pattern: using the `ref` callback to store a reference to a DOM node in an instance property.
+Aşağıdakı nümunədə çox işlədilən ssenari tətbiq olunur: callback `ref`-dindən istifadə edərək DOM nodunun referansı instansiya parametrinə təyin edilir.
 
 ```javascript{5,7-9,11-14,19,29,34}
 class CustomTextInput extends React.Component {
@@ -221,19 +221,19 @@ class CustomTextInput extends React.Component {
     };
 
     this.focusTextInput = () => {
-      // Focus the text input using the raw DOM API
+      // DOM API-ından istifadə edərək mətn anket sahəsinə fokus et
       if (this.textInput) this.textInput.focus();
     };
   }
 
   componentDidMount() {
-    // autofocus the input on mount
+    // anket sahəsi mount olunduğu zaman avtomatik fokus et
     this.focusTextInput();
   }
 
   render() {
-    // Use the `ref` callback to store a reference to the text input DOM
-    // element in an instance field (for example, this.textInput).
+    // Callback `ref`-indən istifadə edərək mətn anket sahəsinin DOM elementini
+    // instansiya sahəsinə (məsələn, this.textInput) təyin et.
     return (
       <div>
         <input
@@ -242,7 +242,7 @@ class CustomTextInput extends React.Component {
         />
         <input
           type="button"
-          value="Focus the text input"
+          value="Mətn anket sahəsinə fokus et"
           onClick={this.focusTextInput}
         />
       </div>
@@ -251,9 +251,9 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React will call the `ref` callback with the DOM element when the component mounts, and call it with `null` when it unmounts. Refs are guaranteed to be up-to-date before `componentDidMount` or `componentDidUpdate` fires.
+Komponent mount olunduğu zaman React, `ref` callback-ini DOM elementi ilə, unmount olunduqda isə `null` ilə çağıracaq. Ref-lərin `componentDidMount` və ya `componentDidUpdate` çağrılmadan öncə yenilənməsi siğortalanır.
 
-You can pass callback refs between components like you can with object refs that were created with `React.createRef()`.
+`React.createRef()` ilə yaranan obyekt ref-lərini komponentlər arasında göndərdiyimiz kimi callback ref-lərini də komponentlər arasında göndərmək mümkündür.
 
 ```javascript{4,13}
 function CustomTextInput(props) {
@@ -275,16 +275,16 @@ class Parent extends React.Component {
 }
 ```
 
-In the example above, `Parent` passes its ref callback as an `inputRef` prop to the `CustomTextInput`, and the `CustomTextInput` passes the same function as a special `ref` attribute to the `<input>`. As a result, `this.inputElement` in `Parent` will be set to the DOM node corresponding to the `<input>` element in the `CustomTextInput`.
+Yuxarıdakı nümunədə `Parent` komponenti ref callback-ini `CustomTextInput`-a `inputRef` propu ilə göndərir. `CustomTextInput` isə bu funksiyanı `<input>` elementinə xüsusi `ref` atributu ilə göndərir. Nəticədə, `Parent`-in `this.inputElement`-i `CustomTextInput`-da olan `<input>` elementinin DOM noduna istinad edəcək.
 
-### Legacy API: String Refs {#legacy-api-string-refs}
+### Köhnə API: Mətn Ref-ləri {#legacy-api-string-refs}
 
-If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `"textInput"`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because string refs have [some issues](https://github.com/facebook/react/pull/8333#issuecomment-271648615), are considered legacy, and **are likely to be removed in one of the future releases**. 
+Əgər React ilə çoxdandır işləyirsinizsə, sizə `ref`-in mətn olması (məsələn, `"textInput"` kimi) və DOM nodunun `this.refs.textInput` formada istifadə edilməsi olan köhnə API tanış gələ bilər. Mətn ref-lərinin [problemləri olduğundan](https://github.com/facebook/react/pull/8333#issuecomment-271648615), köhnə sayıldığından və *gələcək buraxılışlarda silinəcəyi ehtimal edildiyindən biz bu ref tipindən istifadə etməyi tövsiyyə etmirik. 
 
-> Note
+> Qeyd
 >
-> If you're currently using `this.refs.textInput` to access refs, we recommend using either the [callback pattern](#callback-refs) or the [`createRef` API](#creating-refs) instead.
+> Əgər ref-lərdən istifadə etmək üçün `this.refs.textInput`-dan istifadə edirsinizsə, biz [callback pattern-indən](#callback-refs) və ya [`createRef` API-ından](#creating-refs) istifadə etməyi tövsiyyə edirik.
 
-### Caveats with callback refs {#caveats-with-callback-refs}
+### Callback Ref-lərin Problemləri {#caveats-with-callback-refs}
 
-If the `ref` callback is defined as an inline function, it will get called twice during updates, first with `null` and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the `ref` callback as a bound method on the class, but note that it shouldn't matter in most cases.
+`ref` callback-i eyni-sətrli funksiya kimi təyin edildikdə bu funksiya iki dəfə çağrılacaq: ilk öncə `null` ilə, sonra isə DOM elementi ilə. Bunun səbəbi, hər render zamanı funksiyanın yeni instansiyasının yaranması və React-in köhnə ref-i silib yenisini təyin etməsidir. Bu problemi həll etmək üçün `ref` callback-ini klas funksiyası kimi təyin edə bilərsiniz. Lakin, bir çox hallda bunun vacib olmadığını unutmayın.
