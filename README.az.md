@@ -26,7 +26,7 @@ Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu 
 1. `yarn dev` yazaraq hot-reload olan təkminləşdirmə serverini başladın ([Gatsby](https://www.gatsbyjs.org) ilə işləyir)
 1. `open http://localhost:8000` yazaraq səhifəni sevdiyiniz brauzerdə açın
 
-## Kontribusiya
+## İştirak Etmək
 
 ### Qaydalar
 
