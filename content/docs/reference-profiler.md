@@ -118,10 +118,18 @@ Cari yeniliyin commit olunduğu vaxt.
 Bu dəyər commit-də olan bütün profaylerlər arasında paylaşılır (lazım olduqda bu dəyəri qruplamaq olar).
 
 * **`interactions: Set`** -
+<<<<<<< HEAD
 Yenilik planlaşdırılmasına səbəb olan ["interaksiyaların"](http://fb.me/react-interaction-tracing) siyahısı (məsələn, `render` və ya `setState` çağrıldıqda).
+=======
+Set of ["interactions"](https://fb.me/react-interaction-tracing) that were being traced the update was scheduled (e.g. when `render` or `setState` were called).
+>>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 > Qeyd
 >
 > Yenilikləri müəyyənləşdirmək üçün interaksiyalardan istifadə edə bilərsiniz. Lakin, bu API hələ ki, eksperimentaldır.
 >
+<<<<<<< HEAD
 > Əlavə məlumat üçün [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing) səhifəyə baxın.
+=======
+> Learn more about it at [fb.me/react-interaction-tracing](https://fb.me/react-interaction-tracing)
+>>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
