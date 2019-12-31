@@ -56,11 +56,7 @@ function ActionLink() {
 
 Burada `e` sintetik hadisədir. React sintetik hadisələri [W3C spesifikasiyasına](https://www.w3.org/TR/DOM-Level-3-Events/) uyğun olaraq təyin edir. Bu isə o deməkdir ki, brauzerlər arası uyğunluqdan narahat olmamaq olar. Daha ətraflı məlumat üçün [`SyntheticEvent`](/docs/events.html) referans təlimatına nəzər yetirin.
 
-<<<<<<< HEAD
-React istifadə edərkən DOM elementi yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə işləyicini element ilk dəfə render olunduqda ötürmək olar.
-=======
-When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
+React istifadə edərkən DOM elementi yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə, işləyicini element ilk dəfə render olunduqda təmin edin.
 
 Komponent [ES6 klası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) kimi təyin olunduqda hadisə işləyicisi klasın metodlarından biri ola bilər. Məsələn, aşağıdakı `Toggle` komponenti istifadəçiyə "ON" və "OFF" halları arasında dəyişməyə imkan verən düyməyə render olunur:
 
@@ -146,11 +142,7 @@ Bu sintaksisin çatışmazlığı ondan ibarətdir ki, hər dəfə `LoggingButto
 
 ## Arqumentlərin hadisə işləyicilərinə ötürülməsi {#passing-arguments-to-event-handlers}
 
-<<<<<<< HEAD
-Loop-un daxilində hadisə işləyicisinə əlavə parametr ötürmək lazım ola bilər. Məsələn, əgər `id` sıra ID-sidirsə aşağıdakı variantlardan birini istifadə etmək olar:
-=======
-Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
+Tsıklın daxilindən hadisə işləyicisinə əlavə parametr ötürmək lazım ola bilər. Məsələn, əgər `id` sıra ID-sidirsə aşağıdakı variantlardan birini istifadə etmək olar:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Sıranı sil</button>
