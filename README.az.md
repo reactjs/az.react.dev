@@ -3,7 +3,7 @@
 
 Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu yerləşir.
 
-🇺🇸 [English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md) | 📖 [Lüğət](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Stil Təlimatları](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.az.md) | ✅ [Proqress: Əsas 100%, Digər 80%](https://www.isreacttranslatedyet.com/)
+🇺🇸 [English Version](https://github.com/reactjs/az.reactjs.org/blob/master/README.md) | 📖 [Lüğət](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) | 💅 [Stil Təlimatları](https://github.com/reactjs/az.reactjs.org/blob/master/style-guide.az.md) | ✅ [Proqres: Əsas 100%, Digər 80%](https://www.isreacttranslatedyet.com/)
 </div>
 
 ## Başlamaq
@@ -23,7 +23,7 @@ Bu repo-da [az.reactjs.org](https://az.reactjs.org/) səhifəsinin mənbə kodu 
 
 ### Lokal İstifadə
 
-1. `yarn dev` yazaraq hot-reload olan təkminləşdirmə serverini başladın ([Gatsby](https://www.gatsbyjs.org) ilə işləyir)
+1. `yarn dev` yazaraq hot-reload olan təkmilləşdirmə serverini başladın ([Gatsby](https://www.gatsbyjs.org) ilə işləyir)
 1. `open http://localhost:8000` yazaraq səhifəni sevdiyiniz brauzerdə açın
 
 ## İştirak Etmək
@@ -34,7 +34,7 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 
 ### Branch yaradın
 
-1. `az.reactjs.org` repo-su olan lokal directoriyadan `git checkout master` çağırın
+1. `az.reactjs.org` repo-su olan lokal direktoriyadan `git checkout master` çağırın
 1. Ən yeni kodun olduğundan əmin olmaq üçün `git pull origin master` yazın
 1. Branch yaratmaq üçün `git checkout -b the-name-of-my-branch` (`the-name-of-my-branch`-i uyğun ad ilə dəyişin) yazın
 
@@ -44,12 +44,12 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 1. Faylları yaddaşa yazın və brauzerdə yoxlayın
   1. `src`-da React komponentlərə olan dəyişikliklər hot-reload ediləcək
   1. `content`-də olan markdown fayllarına olan dəyişikliklər hot-reload ediləcək
-  1. Pluginlər işə işləyirsinizsə `.cache` direktoriyasını silib serveri restart edin
+  1. Pluginlər ilə işləyirsinizsə `.cache` direktoriyasını silib serveri restart edin
 
 ### Dəyişiklikləri yoxlayın
 
 1. Əgər mümkündürsə vizual dəyişiklikləri bütün sıravi mobil və desktop brauzerlərinin ən yeni versiyalarında yoxlayın.
-1. Layihə direktoriyasından `yarn check-all` çağırın. (Bu Prettier, ESLint, və Flow çağıracaq.)
+1. Layihə direktoriyasından `yarn check-all` çağırın. (Bu Prettier, ESLint və Flow-nu işə salacaq.)
 
 ### Push edin
 
@@ -67,7 +67,7 @@ Sənədlər fərqli ton və məqsəd ilə yazılmış bir neçə bölməyə böl
 
 ## Problemləri Aradan Qaldırmaq
 
-- `yarn reset` çağıraraq lokal kəşi təmizləyin
+- `yarn reset` çağıraraq lokal keşi təmizləyin
 
 ## Lisenziya
 
