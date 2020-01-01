@@ -38,7 +38,7 @@ Strict rejimdən yaranan problemləri _indi_ həll etdikdə React-in gələcək 
 
 ### Köhnə mətn ref API-ının istifadə edilməsi haqqında xəbərdarlıq {#warning-about-legacy-string-ref-api-usage}
 
-Əvəllər, React-də ref-lərin iki növ istifadəsi var idi: köhnə mətn ref API-ı və callback API-ı ilə. Mətn ref-lərin işlədilməsinin daha asan olduğuna baxmayaraq bu ref-lərin [bir neçə problemləri](https://github.com/facebook/react/issues/1373) var. Bu səbəbdən, rəsmi tövsiyyəmiz [callback ref-dən istifadə etmək idi](/docs/refs-and-the-dom.html#legacy-api-string-refs).
+Əvəllər, React-də ref-lərin iki növ istifadəsi var idi: köhnə mətn ref API-ı və callback API-ı ilə. Mətn ref-lərin işlədilməsinin daha asan olduğuna baxmayaraq bu ref-lərin [bir neçə problemləri](https://github.com/facebook/react/issues/1373) var. Bu səbəbdən, rəsmi tövsiyəmiz [callback ref-dən istifadə etmək idi](/docs/refs-and-the-dom.html#legacy-api-string-refs).
 
 React 16.3-də, mətn ref-lərinin asanlığı olan və heç bir problemini daşımayan yeni ref API-ı əlavə edildi:
 

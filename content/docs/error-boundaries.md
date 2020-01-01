@@ -82,7 +82,7 @@ Bu dəyişikliklə siz React 16-a miqrasiya etdikdə, sizin applikasiyanızda ə
 
 Məsələn, Facebook Messenger sidebar-ı, məlumat panelini, chat yazılarını, və mesaj daxil etməsini ayrılıqda xəta sərhədləri ilə əhətə edir. Əgər hər hansı bir UI sahəsində bir komponent sınırsa, applikasiyanın qalanı interaktiv qalır.
 
-Biz həmçinin sizin Javascript xəta servislərindən (və ya özünüz düzəldin) istifadə etməyi tövsiyyə edirik. Bu servislər ilə production-da baş verən xətaları tapıb, bu xətaları düzədə bilərsiniz.
+Biz həmçinin sizin Javascript xəta servislərindən (və ya özünüz düzəldin) istifadə etməyi tövsiyə edirik. Bu servislər ilə production-da baş verən xətaları tapıb, bu xətaları düzədə bilərsiniz.
 
 ## Komponent Stek İzləri {#component-stack-traces}
 

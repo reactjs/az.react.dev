@@ -10,7 +10,7 @@ next: hooks-faq.html
 
 Bu səhifədə React-in daxili Hooklarının API-ları təsvir edilir.
 
-Əgər Hooklara yeni başlamısınızsa, [icmal səhifəsindən](/docs/hooks-overview.html) başlamağı tövsiyyə edirik. Əlavə olaraq, [çox verilən suallar](/docs/hooks-faq.html) bölməsindən faydalı məlumatlar ala bilərsiniz.
+Əgər Hooklara yeni başlamısınızsa, [icmal səhifəsindən](/docs/hooks-overview.html) başlamağı tövsiyə edirik. Əlavə olaraq, [çox verilən suallar](/docs/hooks-faq.html) bölməsindən faydalı məlumatlar ala bilərsiniz.
 
 - [Əsas Hooklar](#basic-hooks)
   - [`useState`](#usestate)
@@ -168,7 +168,7 @@ useEffect(
 >Effektə boş massiv (`[]`) göndərdikdə effektdə olan state və proplar hər zaman ilkin dəyəri saxlayacaqlar. İkinci arqumentə `[]` massivi göndərməyin `componentDidMount` və `componentWillUnmount` metodlarını işlətməyə yaxın olmasına baxmayaraq effektlərin tez-tez çağrılmasının qabağını almaq üçün [daha yaxşı](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [həllər](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) var. Əlavə olaraq, React-in `useEffect` çağırışlarını brauzer rənglənməsindən sonraya kimi təxirə saldığını və bu səbəbdən əlavə işin problem olmadığını unutmayın.
 >
 >
->Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
 Asılılıqlar massivi effekt funksiyasına arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən effektdə olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 
@@ -300,7 +300,7 @@ function Counter() {
 
 >Qeyd
 >
->React, Redux ilə populyarlaşan `state = initialState` arqument konvensiyasından istifadə etmir. İlkin dəyərin proplardan asılı ola bildiyindən bu dəyər Hook çağırışından təyin edilir. Əgər Redux-ın davranışını təqlid etmək istəyirsinizsə, `useReducer(reducer, undefined, reducer)` çağıra bilərsiniz. Lakin, biz bunu tövsiyyə etmirik.
+>React, Redux ilə populyarlaşan `state = initialState` arqument konvensiyasından istifadə etmir. İlkin dəyərin proplardan asılı ola bildiyindən bu dəyər Hook çağırışından təyin edilir. Əgər Redux-ın davranışını təqlid etmək istəyirsinizsə, `useReducer(reducer, undefined, reducer)` çağıra bilərsiniz. Lakin, biz bunu tövsiyə etmirik.
 
 #### Lazy inisializasiya {#lazy-initialization}
 
@@ -369,7 +369,7 @@ Eyni sətrli callback və asılılıqlar massivi göndərin. `useCallback` Hooku
 >
 > Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 >
-> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
+> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
 ### `useMemo` {#usememo}
 
@@ -391,7 +391,7 @@ Asılılıq massivi göndərilmədikdə hər render etmə zamanı yeni dəyər h
 >
 > Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 >
-> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
+> Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
 ### `useRef` {#useref}
 
@@ -436,7 +436,7 @@ Bunun işləməsinin səbəbi `useRef()` Hookunun sadə JavaScript obyekti yarat
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` Hooku valideyn komponentdə olan `ref`-i özəlləşdirmək üçün faydalıdır. Həmişə dediyimiz kimi `ref`-lər ilə imperativ kod yazmaqdan çəkinin. `useImperativeHandle` Hookunu `forwardRef` ilə işlətməyi tövsiyyə edirik:
+`useImperativeHandle` Hooku valideyn komponentdə olan `ref`-i özəlləşdirmək üçün faydalıdır. Həmişə dediyimiz kimi `ref`-lər ilə imperativ kod yazmaqdan çəkinin. `useImperativeHandle` Hookunu `forwardRef` ilə işlətməyi tövsiyə edirik:
 
 ```js
 function FancyInput(props, ref) {
@@ -461,7 +461,7 @@ Vizual yenilikləri blok etməmək üçün standart `useEffect` Hookundan istifa
 
 > Məsləhət
 >
-> Klas komponent kodunu Hooklara miqrasiya edirsinizsə, `useLayoutEffect`-in `componentDidMount` və `componentDidUpdate` metodlar ilə eyni fazada icra edildiyini nəzərə alın. Lakin, **biz `useEffect` ilə başlamağı** və problem yarandıqda `useLayoutEffect` işlətməyi tövsiyyə edirik.
+> Klas komponent kodunu Hooklara miqrasiya edirsinizsə, `useLayoutEffect`-in `componentDidMount` və `componentDidUpdate` metodlar ilə eyni fazada icra edildiyini nəzərə alın. Lakin, **biz `useEffect` ilə başlamağı** və problem yarandıqda `useLayoutEffect` işlətməyi tövsiyə edirik.
 >
 >Serverdə render edildikdə JavaScript yüklənənə kimi *nə* `useLayoutEffect` nə də `useEffect` icra oluna bilər. Bu səbəbdən, server ilə render edilən komponentdə `useLayoutEffect` olduqda React xəbərdarlıq göstərir. Bunu həll etmək üçün ya məntiqi `useEffect` Hookuna köçürün (əgər effekt ilk render zamanı vacib deyilsə) ya da komponenti klient render edənə kimi gecikdirin (əgər `useLayoutEffect` çağrılana kimi HTML sınmış göstərilirsə).
 >
@@ -493,7 +493,7 @@ function useFriendStatus(friendID) {
 
 > Məsləhət
 >
-> Hər xüsusi Hooka debaq dəyəri əlavə etməyi tövsiyyə etmirik. Bu funksiya ən çox paylaşılan kitabxanaların xüsusi Hookları üçün faydalıdır.
+> Hər xüsusi Hooka debaq dəyəri əlavə etməyi tövsiyə etmirik. Bu funksiya ən çox paylaşılan kitabxanaların xüsusi Hookları üçün faydalıdır.
 
 #### Debaq dəyərlərinin formatını təxirə salın {#defer-formatting-debug-values}
 

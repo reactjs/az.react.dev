@@ -248,7 +248,7 @@ Brauzer dəstəyi haqqında qeyd:
 
 Pointer hadisələri bütün brauzerlər tərəfindən dəstəklənmirlər (bu sənədin yazıldığı zamanda yalnız Chrome, Firefox, Edge, və Internet Explorer bu hadisələri dəstəkləyir). React bilərəkdən digər brauzerlər üçün polifil dəstəkləmir. Bunun səbəni polifilin `react-dom` paketini ölçüsünü çox böyütməsidir.
 
-Əgər sizin applikasiyanıza pointer hadisələri lazımdırsa biz 3-cü tərəfli pointer hadisəsi polifili işlətməyi tövsiyyə edirik.
+Əgər sizin applikasiyanıza pointer hadisələri lazımdırsa biz 3-cü tərəfli pointer hadisəsi polifili işlətməyi tövsiyə edirik.
 
 * * *
 

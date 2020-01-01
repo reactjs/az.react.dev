@@ -8,7 +8,7 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
-React-in çox güclü kompozisiya modeli olduğundan komponentlər arasında kodu paylaşa bilmək üçün varislik əvəzinə kompozisiyadan istifadə etməyi tövsiyyə edirik.
+React-in çox güclü kompozisiya modeli olduğundan komponentlər arasında kodu paylaşa bilmək üçün varislik əvəzinə kompozisiyadan istifadə etməyi tövsiyə edirik.
 
 Bu bölmədə, React-ə yeni başlayan proqramçıların ilk yanaşmada varisliyə əl atdıqları problemləri nəzərə alıb, bu problemlərin kompozisiya ilə həllini göstərəcəyik.
 
@@ -16,7 +16,7 @@ Bu bölmədə, React-ə yeni başlayan proqramçıların ilk yanaşmada varisliy
 
 Bəzi komponentlərin əvvəlcədən uşaqları haqqında məlumatları yoxdur. Bu vəziyyət daha çox ümumi konteynerlər təsvir edən `Sidebar` və ya `Dialog` kimi komponentlərdə baş verir.
 
-Belə komponentlərin nəticəsinə uşaq komponentləri birbaşa göndərə bilmək üçün xüsusi `children` propundan istifadə etməyi tövsiyyə edirik:
+Belə komponentlərin nəticəsinə uşaq komponentləri birbaşa göndərə bilmək üçün xüsusi `children` propundan istifadə etməyi tövsiyə edirik:
 
 ```js{4}
 function FancyBorder(props) {

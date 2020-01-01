@@ -38,7 +38,7 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Glitch-də](https://glitch.com/edit/#!/remix/starter-react-template) sınayın.
 
-Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyyə edirik.
+Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
 
 ### React-i Veb Səhifəyə Əlavə Et {#add-react-to-a-website}
 
@@ -48,7 +48,7 @@ React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə b
 
 Yeni React layihəsinə başladıqda [script təqləri ilə sadə HTML səhifəsi işlətmək](/docs/add-react-to-a-website.html) ən yaxşı seçim ola bilər. Bunu quraşdırmaq bir dəqiqə alacaq!
 
-Applikasiya böyüdükcə sizə inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün [JavaScript toolchain-lərindən](/docs/create-a-new-react-app.html) istifadə etməyi tövsiyyə edirik. Bu toolchain-lər biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər.
+Applikasiya böyüdükcə sizə inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün [JavaScript toolchain-lərindən](/docs/create-a-new-react-app.html) istifadə etməyi tövsiyə edirik. Bu toolchain-lər biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər.
 
 ## React-i Öyrən {#learn-react}
 
@@ -75,15 +75,15 @@ Hər bir tanımadığınız texnologiya kimi, React-in də öyrənmək əyriliyi
 
 React sənədləri JavaScript dili haqqında məlumatı olduğunuzu fərz edir. Bu sahədə mütəxəssis olmasanız belə React ilə JavaScript-i eyni vaxtda öyrənmək çətindir.
 
-JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağı tövsiyyə edirik. Bu sənəd 30 dəqiqə və bir saat arası çəkəcək amma sizi React-i öyrənməyə daha arxayın edəcək.
+JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağı tövsiyə edirik. Bu sənəd 30 dəqiqə və bir saat arası çəkəcək amma sizi React-i öyrənməyə daha arxayın edəcək.
 
 >Məsləhət
 >
->JavaScript-də hər hansı bir konsepsiya sizi çaşdırdığında [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) və [javascript.info](https://javascript.info/) veb səhifələrinə baxmağı tövsiyyə edirik. Əlavə olaraq kömək üçün [cəmiyyət dəstək forumlarından](/community/support.html) istifadə edin.
+>JavaScript-də hər hansı bir konsepsiya sizi çaşdırdığında [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) və [javascript.info](https://javascript.info/) veb səhifələrinə baxmağı tövsiyə edirik. Əlavə olaraq kömək üçün [cəmiyyət dəstək forumlarından](/community/support.html) istifadə edin.
 
 ### Praktiki Dərslik {#practical-tutorial}
 
-Əgər **edə edə öyrənməyə** üstünlük verirsinizsə [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *hər hansı* React applikasiyaları düzəltmək üçün vacibdir. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
+Əgər **edə edə öyrənməyə** üstünlük verirsinizsə [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *hər hansı* React applikasiyaları düzəltmək üçün vacibdir. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
 
 ### Addım Addım Öyrənmək {#step-by-step-guide}
 
@@ -93,9 +93,9 @@ JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://
 
 Bir çox React istifadəçiləri, [React ilə Düşünmək](/docs/thinking-in-react.html) sənədini tərifləyirlər. Onlar üçün bu sənədi oxuduqdan sonra React tam anlaşıldı. Bizim ən yaşlı sənədlərimizdən biri olmasına baxmayaraq bu sənəddə olan məlumatlar indiki zamana da münasibdir.
 
-### Tövsiyyə Edilən Kurslar {#recommended-courses}
+### Tövsiyə Edilən Kurslar {#recommended-courses}
 
-Bəzən adamlar 3-cü şəxslər tərəfindən yazılmış kitablar və kursları rəsmi sənəddən daha faydalı görürlər. Biz [cəmiyyət tərəfindən tövsiyyə edilən resursların siyahısını](/community/courses.html) saxlayırıq. Bu resursların bəziləri pulsuzdur.
+Bəzən adamlar 3-cü şəxslər tərəfindən yazılmış kitablar və kursları rəsmi sənəddən daha faydalı görürlər. Biz [cəmiyyət tərəfindən tövsiyə edilən resursların siyahısını](/community/courses.html) saxlayırıq. Bu resursların bəziləri pulsuzdur.
 
 ### Genişləndirilmiş Konsepsiyalar {#advanced-concepts}
 
@@ -123,4 +123,4 @@ Bu sənədlər hər zaman React-in ən son və stabil versiyasını əks etdirir
 
 ## Nəsə Çatışmır? {#something-missing}
 
-Sənədlərdə nəsə çatışmırsa və ya hər hansı bir hissəsi başa düşülməzdirsə, düzəlişlər üçün tövsiyyələrinizi [sənədlər reposunda yeni issue açaraq](https://github.com/reactjs/reactjs.org/issues/new) bildirin və ya [@reactjs Twitter hesabına](https://twitter.com/reactjs) tvit atın. Biz sizdən eşitməyi sevirik!
+Sənədlərdə nəsə çatışmırsa və ya hər hansı bir hissəsi başa düşülməzdirsə, düzəlişlər üçün tövsiyələrinizi [sənədlər reposunda yeni issue açaraq](https://github.com/reactjs/reactjs.org/issues/new) bildirin və ya [@reactjs Twitter hesabına](https://twitter.com/reactjs) tvit atın. Biz sizdən eşitməyi sevirik!

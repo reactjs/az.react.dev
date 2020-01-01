@@ -24,7 +24,7 @@ Stabil buraxılışlar üçün istifadə etdiyimiz registry-yə ön buraxılış
 
 ### Latest Kanalı {#latest-channel}
 
-Latest Kanal React-in stabil buraxılışları üçün istifadə edilir. Bu kanal, NPM-də olan `latest` təqə uyğundur. Real istifadəçilər üçün dərc edilən React applikasiyaları üçün bu kanaldan istifadə etməyi tövsiyyə edirik.
+Latest Kanal React-in stabil buraxılışları üçün istifadə edilir. Bu kanal, NPM-də olan `latest` təqə uyğundur. Real istifadəçilər üçün dərc edilən React applikasiyaları üçün bu kanaldan istifadə etməyi tövsiyə edirik.
 
 **Əgər hansı kanaldan istifadə edəcəyinizi bilmirsinizsə, Latest kanalından istifadə edin.** Əgər React proqramçısınızsa, siz artıq bu kanaldan istifadə edirsiniz.
 

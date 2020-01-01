@@ -75,7 +75,7 @@ Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/20
 
 ### Bütün klas komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
-Xeyr. React-dən klasları silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyyə edirik.
+Xeyr. React-dən klasları silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyə edirik.
 
 ### Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
@@ -89,7 +89,7 @@ Hookların öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [biz�
 
 ### Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyyə etmirik.
+Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyə etmirik.
 
 Klas *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında klas komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin klas və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
 
@@ -189,7 +189,7 @@ it('can render and update a counter', () => {
 
 Xüsusi Hooku test etmək istədikdə testdə komponent yaradıb bu Hooku işlədə bilərsiniz. Sonra, yazdığınız komponenti test edə bilərsiniz.
 
-Çox kod yazmamaq üçün komponentləri son istifadəçilərin işlətdiyi kimi test etmək fikri ilə dizayn olunmuş [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik.
+Çox kod yazmamaq üçün komponentləri son istifadəçilərin işlətdiyi kimi test etmək fikri ilə dizayn olunmuş [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyə edirik.
 
 Əlavə məlumat üçün [Test Etmə Reseptləri](/docs/testing-recipes.html) səhifəsinə baxın.
 
@@ -289,7 +289,7 @@ function Box() {
 
 State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* klasın `this.setState` funksiyasından fərqlidir.
 
-Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyyə edirik.**
+Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
 
 Məsələn, biz komponent state-ini `position` və `size` obyektlərinə parçalayıb obyektləri biləşdirmədən `position` dəyərini yeni dəyər ilə əvəz edə bilərik:
 
@@ -325,7 +325,7 @@ function useWindowPosition() {
 
 `position` state dəyəri üçün olan `useState` çağırışınının və bu state üçün lazım olan effektin state-li məntiqi dəyişmədən xüsusi Hooka necə köçürüldüyünə fikir verin. Bütün state bir obyektdə yerləşdirildikdə state-ləri ixrac etmək çətinləşəcək.
 
-Bütün state-ləri bir `useState` çağırışında saxlamaq və ya hər state üçün ayrı `useState` çağırışı işlətmək eyni nəticəni verəcəklər. Bu iki hədd arasında balans tapıb əlaqəli state-ləri müstəqil state dəyişənlərinə qruplaşdırdıqda komponentləri oxumaq asanlaşır. State məntiqi mürəkkəbləşdikdə xüsusi Hook və ya [reducer](/docs/hooks-reference.html#usereducer) işlətməyi tövsiyyə edirik.
+Bütün state-ləri bir `useState` çağırışında saxlamaq və ya hər state üçün ayrı `useState` çağırışı işlətmək eyni nəticəni verəcəklər. Bu iki hədd arasında balans tapıb əlaqəli state-ləri müstəqil state dəyişənlərinə qruplaşdırdıqda komponentləri oxumaq asanlaşır. State məntiqi mürəkkəbləşdikdə xüsusi Hook və ya [reducer](/docs/hooks-reference.html#usereducer) işlətməyi tövsiyə edirik.
 
 ### Effekti yalnız yenilik zamanı icra edə bilərəm? {#can-i-run-an-effect-only-on-updates}
 
@@ -380,7 +380,7 @@ function Counter() {
 
 Bu ssenarinin çox işlədildiyindən gələcəkdə React-ə `usePrevious` Hooku əlavə edə bilərik.
 
-[Törənən state üçün tövsiyyə olunan pattern-ə də](#how-do-i-implement-getderivedstatefromprops) baxın.
+[Törənən state üçün tövsiyə olunan pattern-ə də](#how-do-i-implement-getderivedstatefromprops) baxın.
 
 ### Niyə funksiya daxilində köhnə state və prop dəyərləri görürəm? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
@@ -418,7 +418,7 @@ function Example() {
 
 >Qeyd
 >
->Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv təyin edildiyini göstərir və düzəliş təklif edir.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, asılılıqların səhv təyin edildiyini göstərir və düzəliş təklif edir.
 
 ### `getDerivedStateFromProps` funksiyasını necə tətbiq edə bilərəm? {#how-do-i-implement-getderivedstatefromprops}
 
@@ -544,7 +544,7 @@ function Example({ someProp }) {
 }
 ```
 
-Effektdən kənarda olan funksiyaların hansı state və propları işlətdiyini yadda saxlamaq çətindir. Bu səbədən **effektdə işlədiləcək funksiyaları effektin *daxilində* yaratmağı tövsiyyə edirik.** Bu həll ilə effektin komponent scope-unda olan hansı dəyərlərdən asılı olduğunu daha aydın görmək mümkündür:
+Effektdən kənarda olan funksiyaların hansı state və propları işlətdiyini yadda saxlamaq çətindir. Bu səbədən **effektdə işlədiləcək funksiyaları effektin *daxilində* yaratmağı tövsiyə edirik.** Bu həll ilə effektin komponent scope-unda olan hansı dəyərlərdən asılı olduğunu daha aydın görmək mümkündür:
 
 ```js{4,8}
 function Example({ someProp }) {
@@ -574,7 +574,7 @@ Aşağıda, fərqli ssenarilərdə işlədilən digər seçimlər də göstəril
 
 >Qeyd
 >
->Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyyə edirik. Bu qayda, asılılıqların səhv təyin edildiyini göstərir və düzəliş təklif edir.
+>Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, asılılıqların səhv təyin edildiyini göstərir və düzəliş təklif edir.
 
 Gəlin bunun niyə vacib olduğuna baxaq.
 
@@ -599,7 +599,7 @@ function ProductPage({ productId }) {
 }
 ```
 
-**Bunu düzəltmək üçün funksiyanı effektin _daxilinə_ köçürməyi tövsiyyə edirik**. Bu həll ilə effektin hansı state və ya propları işlətdiyini bilmək asanlaşır və bu dəyərlərin həmişə təyin olunduğu siğortalanır:
+**Bunu düzəltmək üçün funksiyanı effektin _daxilinə_ köçürməyi tövsiyə edirik**. Bu həll ilə effektin hansı state və ya propları işlətdiyini bilmək asanlaşır və bu dəyərlərin həmişə təyin olunduğu siğortalanır:
 
 ```js{5-10,13}
 function ProductPage({ productId }) {
@@ -869,7 +869,7 @@ Adətən, React-də eyni sətrli funksiyaların performansı ilə bağlı qayğ�
 
 Biz, proqramçıların callback-ləri əl ilə komponent ağacının hər dərəcəsinə göndərilməsini sevmədiyini bilirik. Bunun daha açıq göründüyünə baxmayaraq bu, çox iş kimi görünə bilir.
 
-Böyük ağaclarda alternativ kimi [`useReducer`](/docs/hooks-reference.html#usereducer)-in `dispatch` funksiyasını kontekst ilə göndərməyi tövsiyyə edirik:
+Böyük ağaclarda alternativ kimi [`useReducer`](/docs/hooks-reference.html#usereducer)-in `dispatch` funksiyasını kontekst ilə göndərməyi tövsiyə edirik:
 
 ```js{4,5}
 const TodosDispatch = React.createContext(null);
@@ -903,7 +903,7 @@ function DeepChild(props) {
 }
 ```
 
-Bu yanaşma ilə callback-ləri daha rahat idarə edə bilər (callback-ləri yönləndirmək lazım deyil) və callback problemini tam aradan qaldıra bilərik. Dərin yeniləmə əməliyyatları üçün `dispatch` funksiyasını bu formada göndərməyi tövsiyyə edirik.
+Bu yanaşma ilə callback-ləri daha rahat idarə edə bilər (callback-ləri yönləndirmək lazım deyil) və callback problemini tam aradan qaldıra bilərik. Dərin yeniləmə əməliyyatları üçün `dispatch` funksiyasını bu formada göndərməyi tövsiyə edirik.
 
 Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya kontekst (dərin yeniləmələr üçün daha rahatdır) ilə göndərə bilərsiniz. Əgər state-i kontekst ilə göndərirsinizsə, iki fərqli kontekst tipindən istifadə edin -- `dispatch` funksiyası konteskti heç vaxt dəyişmədiyindən bu funksiyanı işlədən komponentlər yenidən render edilməyəcəklər. Yalnız, applikasiya state-i lazım olduqda komponentlər yeniden render ediləcəklər.
 
@@ -911,7 +911,7 @@ Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya
 
 >Qeyd
 >
->Biz, fərdi callback-ləri proplar ilə göndərmək əvəzinə [`dispatch` funksiyasını kontekst ilə göndərməyi](#how-to-avoid-passing-callbacks-down) tövsiyyə edirik. Aşağıdakı yanaşma bütünlük və çıxış yolu məqsədi ilə göstərilib.
+>Biz, fərdi callback-ləri proplar ilə göndərmək əvəzinə [`dispatch` funksiyasını kontekst ilə göndərməyi](#how-to-avoid-passing-callbacks-down) tövsiyə edirik. Aşağıdakı yanaşma bütünlük və çıxış yolu məqsədi ilə göstərilib.
 >
 >Əlavə olaraq, bu pattern-in [konkurrent modunda](/blog/2018/03/27/update-on-async-rendering.html) problemlər yarada biləcəyini unutmayın. Biz, gələcəkdə daha erqonomik alternativlər təmin etməyi planlayırıq. Lakin, indiki zamanda callback-in dəyəri dəyişdikdə callback-i yeniləmək ən təhlükəsiz yoldur.
 
@@ -974,7 +974,7 @@ function useEventCallback(fn, dependencies) {
 }
 ```
 
-Hər iki halda biz **bu pattern-i işlətməyi tövsiyyə etmirik.** Bu yanaşma yalnız bütünlük üçün göstərilib. Əvəzinə, [callback-ləri dərinə göndərməkdən çəkinmək ən yaxşı yoldur](#how-to-avoid-passing-callbacks-down).
+Hər iki halda biz **bu pattern-i işlətməyi tövsiyə etmirik.** Bu yanaşma yalnız bütünlük üçün göstərilib. Əvəzinə, [callback-ləri dərinə göndərməkdən çəkinmək ən yaxşı yoldur](#how-to-avoid-passing-callbacks-down).
 
 
 ## Daxilində {#under-the-hood}

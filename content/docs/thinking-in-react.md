@@ -110,7 +110,7 @@ State aşağıdaki siyahıda göstərilib:
 
 Biz applikasiyaya lazım olan minimum state-i müəyyənləşdirdik. İndi biz dəyişən və ya state-i *saxlayan* komponenti müəyyənləşdirməliyik.
 
-Yadda saxlayın: React həmişə komponent iyerarxiyasının bir tərəfli məlumat axınından ibarətdir. Hansı komponentin state-i saxlaması ilk zamanlar aydın olmaya bilər. **Yeni başlayanlar üçün state-in yerini müəyyənləşdirmək ən çətin hissələrdən biri olduğundan,** aşağıdaki addımlardan istifadə etməyi tövsiyyə edirik.
+Yadda saxlayın: React həmişə komponent iyerarxiyasının bir tərəfli məlumat axınından ibarətdir. Hansı komponentin state-i saxlaması ilk zamanlar aydın olmaya bilər. **Yeni başlayanlar üçün state-in yerini müəyyənləşdirmək ən çətin hissələrdən biri olduğundan,** aşağıdaki addımlardan istifadə etməyi tövsiyə edirik.
 
 Applikasiyada olan hər state parçası üçün:
 

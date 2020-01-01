@@ -54,7 +54,7 @@ Render a React element into the DOM in the supplied `container` and return a [re
 > `ReactDOM.render()` konteyner nodunu dəyişmir (yalnız konteynerin uşaqlarını dəyişir). Mövcud olan uşaqları silmədən yeni komponenti mövcud olan DOM noduna əlavə etmək mümkündür.
 >
 > Hal hazırda `ReactDOM.render()` ana  `ReactComponent` instansiyasına referansı qaytarır. Amma bu dəyərin istifadəsi köhnəlib və bu dəyərdən istifadə etməyin.
-> Çünki React gələcəkdə bəzi hallarda komponentləri asinxron formada render edə bilər. Əgər sizə ana `ReactComponent` instansiyasına referans lazımdırsa, tövsiyyə olunan həll ana elementə
+> Çünki React gələcəkdə bəzi hallarda komponentləri asinxron formada render edə bilər. Əgər sizə ana `ReactComponent` instansiyasına referans lazımdırsa, tövsiyə olunan həll ana elementə
 > [callback ref-i](/docs/more-about-refs.html#the-ref-callback-attribute) qoşmaqdır.
 >
 > `ReactDOM.render()` ilə server-də render edilən komponenti hidrat (hydrate) etmək köhnəlib və React 17-də silinəcək. Bunun yerinə [`hydrate()`-dən](#hydrate) istifadə edin.
@@ -93,7 +93,7 @@ Mount olunmuş React komponenti DOM-dan silir və bütün aid olan hadisə işl�
 
 > Qeyd:
 >
-> `findDOMNode` DOM noduna daxil olmaq üçün bir üsuldur. Bu üsulun komponent abstraksiyasını sındırdığına görə bir çox hallarda bu üsuldan istifadə etməyi tövsiyyə etmirik. [`StrictMode`-da bu üsul köhnəlib.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` DOM noduna daxil olmaq üçün bir üsuldur. Bu üsulun komponent abstraksiyasını sındırdığına görə bir çox hallarda bu üsuldan istifadə etməyi tövsiyə etmirik. [`StrictMode`-da bu üsul köhnəlib.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)

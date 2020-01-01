@@ -138,7 +138,7 @@ Dəyəri React tərəfindən kontrol edilən anket sahəsi elementi **kontrol ol
 
 *Kontrolsuz komponentlər*, React-dən kənarda işləyən anket elementləri ilə eyni formada işləyirlər. İstifadəçi anket sahəsinə (input, dropdown və s) məlumat daxil etdikdə React-dən asılı olmayaraq yenilənmiş dəyər anket sahəsində əks olunacaq. Bu deməkdir ki, siz sahədə müəyyən bir dəyərin olmasını idarə edə bilmirsiniz.
 
-Bir çox hallarda kontrol olunan komponent işlətməyi tövsiyyə edirik.
+Bir çox hallarda kontrol olunan komponent işlətməyi tövsiyə edirik.
 
 ## [Açarlar](/docs/lists-and-keys.html) {#keys}
 

@@ -88,7 +88,7 @@ Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlər
 
 >Nümunələr
 >
->Hookları öyrənmək üçün [Hookların İcmalı](/docs/hooks-overview.html) bölməsindən başlamağı tövsiyyə edirik.
+>Hookları öyrənmək üçün [Hookların İcmalı](/docs/hooks-overview.html) bölməsindən başlamağı tövsiyə edirik.
 
 ## Tədrici Adaptasiya Strategiyası {#gradual-adoption-strategy}
 
@@ -98,7 +98,7 @@ React proqramçıları üçün məhsulların buraxılışını etmək hər yeni 
 
 Həmçinin, biz React-ə yeni primitivin əlavə edilməsinin çox böyük dəyişiklik olduğunu bilirik. Maraqlanan oxuyucular üçün biz [detallı RFC](https://github.com/reactjs/rfcs/pull/68) təqdim edirik. Bu RFC-də motivasiyamız haqqında daha detallı danışır və xüsusi dizayn qərarından və buna aid olan resursları paylaşırıq.
 
-**Hooklar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən kod yazılmalarını," xüsusilə də mövcud mürəkkəb klasların yenidən yazılmalarını tövsiyyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponentlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
+**Hooklar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən kod yazılmalarını," xüsusilə də mövcud mürəkkəb klasların yenidən yazılmalarını tövsiyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponentlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
 
 Hooklar ilə klaslarda olan bütün metodları əhatə etmək istəməyimizə baxmayaraq **uzaq gələcəyə kimi klas komponentlərini dəstəkləmək istəyirik.** Facebook-da bizim klaslar ilə yazılmış on minlərlə komponentlərimiz var və bizim bu komponentləri yenidən yazmağa heç bir planımız yoxdur. Əvəzinə, biz yeni kodları klaslar ilə yanaşı Hooklar ilə yazırıq.
 

@@ -172,7 +172,7 @@ Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu 
 >
 >ES6, miksinlər dəstəklənmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 klasları ilə istifadə etdikdə miksinlər dəstəklənmir.
 >
->**Əlavə olaraq, miksinli kodlarda çoxlu problemlər tapdığımızdan [yeni kodda miksinlərin istifadəsini tövsiyyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
+>**Əlavə olaraq, miksinli kodlarda çoxlu problemlər tapdığımızdan [yeni kodda miksinlərin istifadəsini tövsiyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
 >
 >Bu bölmə yalnız arayış xarakteri daşıyır.
 

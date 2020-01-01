@@ -37,7 +37,7 @@ Bu dərslikdə biz React ilə interaktiv "X O oyununu" düzəltməyi göstərəc
 
 Bizim düzəltdiyimizə buradan baxa bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Əgər kod sizə aydın deyilsə və ya sintaksis sizə tanış deyilsə, narahat olmayın! Bu dərsliyin məqsədi sizə React və onun sintaksisini anlamağa kömək etməkdir.
 
-Dərsliyə başlamamışdan qabaq oyuna baxmağınızı tövsiyyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
+Dərsliyə başlamamışdan qabaq oyuna baxmağınızı tövsiyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
 
 Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu dərslikdə sadə bir şablon ilə başlayacağıq. Sonraki addım sizi oyunu yazmağa hazır etməkdir.
 
@@ -45,7 +45,7 @@ Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu 
 
 Biz sizin HTML və Javascript ilə tanışlığınızı təxmin edirik amma siz başqa proqramlaşdırma dilindən gəlsəniz belə davam etməyi bacarmalısınız. Biz sizin proqramlaşdırma konsepsiyaları ilə (funksiyalar, obyektlər, massivlər, və daha az dərəcədə, klaslar) tanışlığınızı təxmin edirik.
 
-Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
+Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
 ## Dərslik üçün Qurulma {#setup-for-the-tutorial}
 
@@ -112,7 +112,7 @@ import './index.css';
 
 İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəni açsanız, boş "X O oyunu" taxtası.
 
-Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlimatları](https://babeljs.io/docs/editors/) izləməniz tövsiyyə olunur.
+Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlimatları](https://babeljs.io/docs/editors/) izləməniz tövsiyə olunur.
 
 </details>
 
@@ -188,7 +188,7 @@ Koda yaxından baxdığınızda, üç React komponentin olacağını görəcəks
 
 Gəlin Board komponentindən Square komponentinə məlumat göndərək.
 
-Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
+Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
 
 Board-un `renderSquare` funksiyasında, Square-ə `value` propu əlavə edin:
 
@@ -354,7 +354,7 @@ Indi bizdə "X O oyununun" əsas blokları hazırdı. Oyunu tamamlamaq üçün b
 
 İndi, hər Square komponenti oyunun vəziyyətini saxlayır. Qalibi təyin etmək üçün biz bu 9 kvadratın dəyərini bir yerdə saxlamalıyıq.
 
-Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsini fikirləşə bilərik. Bunun React-da mümkün olmasına baxmayaraq, biz bu yol ilə getməyi tövsiyyə etmirik. Çünki belə üsulla yazılan kodu başa düşmək və refaktor etmək çətinləşir və baqların şansı artır. Bunu duzəltməyin ən yaxşı yolu oyunun state-ini hissə-hissə hər Square komponentdə saxlamaq əvəzinə bütünlüklə Board komponentində saxlamaqdır. Board komponenti hər Square-ə nə göstərəcəyini, [Square-ə rəqəm göndərdiyimiz kimi](#passing-data-through-props), prop ilə göndərə bilər.
+Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsini fikirləşə bilərik. Bunun React-da mümkün olmasına baxmayaraq, biz bu yol ilə getməyi tövsiyə etmirik. Çünki belə üsulla yazılan kodu başa düşmək və refaktor etmək çətinləşir və baqların şansı artır. Bunu duzəltməyin ən yaxşı yolu oyunun state-ini hissə-hissə hər Square komponentdə saxlamaq əvəzinə bütünlüklə Board komponentində saxlamaqdır. Board komponenti hər Square-ə nə göstərəcəyini, [Square-ə rəqəm göndərdiyimiz kimi](#passing-data-through-props), prop ilə göndərə bilər.
 
 **Çoxlu uşaqdan məlumat yığması və ya iki uşaq komponentin bir-biri ilə kommunikasiya etməsi üçün paylaşılan state-i valideyn komponentində bəyan edin. Valideyn komponent bu state-i  uşaq komponentlərə proplar vasisəti ilə göndərə bilər. Bu metod uşaq komponentlər və valideyn komponentlər arasındakı məlumatları sinxron saxlayır.**
 
@@ -525,7 +525,7 @@ Qeydə alin ki, biz `handleClick` funksiyasında mövcud `squares` massivini də
 
 ### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
-Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
+Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
 
 Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişikliklər olan kopiyası ilə əvəz etməkdir.
 
@@ -1085,9 +1085,9 @@ Siyahı yenidən render etdikdə, React hər siyahı elementinin açarını göt
 
 `key` React-də xüsusi və reservlənmiş parametrdir (daha təkminli xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
 
-**Dinamik siyahılar yaratdığınız zaman düzgün açarların təyin edilməsi ciddi şəkildə tövsiyyə olunur.** Əgər sizdə lazımi açar yoxdursa, sizin açar olana kimi məlumatınızın strukturunu dəyişməniz lazım ola bilər.
+**Dinamik siyahılar yaratdığınız zaman düzgün açarların təyin edilməsi ciddi şəkildə tövsiyə olunur.** Əgər sizdə lazımi açar yoxdursa, sizin açar olana kimi məlumatınızın strukturunu dəyişməniz lazım ola bilər.
 
-Əgər açar təyin edilməyibsə, React sizə xəbərdarlıq edib, massivin indeksini açar kimi işlədəcək. Massiv indeksini açar kimi işlətdikdə, siyahıdakı elementlərin yerini dəyişmək və ya elementləri əlavə edib/silmək problemli olur. Açıq-aydın `key={i}` göndərildikdə xəbərdarlıq susdurulur amma massiv indeksini göndərmək ilə olan problemlər yenədə qalır. Bu səbəbdən, bir çox halda belə formada xəbərdarlığı susdurmaq tövsiyyə edilmir.
+Əgər açar təyin edilməyibsə, React sizə xəbərdarlıq edib, massivin indeksini açar kimi işlədəcək. Massiv indeksini açar kimi işlətdikdə, siyahıdakı elementlərin yerini dəyişmək və ya elementləri əlavə edib/silmək problemli olur. Açıq-aydın `key={i}` göndərildikdə xəbərdarlıq susdurulur amma massiv indeksini göndərmək ilə olan problemlər yenədə qalır. Bu səbəbdən, bir çox halda belə formada xəbərdarlığı susdurmaq tövsiyə edilmir.
 
 Açarlar qlobal formada unikal olmamalıdırlar. Yalnız komponentlər və qonşular arası unikal olmalıdırlar.
 

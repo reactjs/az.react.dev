@@ -95,7 +95,7 @@ function BlueDatePicker() {
 
 Element tipi kiçik hərf ilə yazıldıqda `<div>` və ya `<span>` kimi daxili komponentlərə istinad edilir. Nəticədə, `React.createElement` funksiyasına `'div'` və ya `'span'` kimi mətnlər göndərilir. `<Foo />` formasında böyük hərf ilə yazılan tiplər `React.createElement(Foo)` funksiyasına kompilyasiya olunur və JavaScript faylında təyin edilən və ya modula idxal edilən komponentə istinad edilir.
 
-Biz komponentlərin böyük hərf ilə yazılmasını tövsiyyə edirik. Əgər sizdə kiçik hərf ilə başlayan komponent varsa, bu komponenti böyük hərf ilə yazılmış dəyişənə təyin edib yeni dəyişəni JSX-də işlədin.
+Biz komponentlərin böyük hərf ilə yazılmasını tövsiyə edirik. Əgər sizdə kiçik hərf ilə başlayan komponent varsa, bu komponenti böyük hərf ilə yazılmış dəyişənə təyin edib yeni dəyişəni JSX-də işlədin.
 
 Məsələn, aşağıdakı kod istədiyiniz kimi işləməyəcək:
 
@@ -228,7 +228,7 @@ Propa heç bir dəyər göndərilmədikdə bu dəyər `true` olur. Aşağıdakı
 <MyTextBox autocomplete={true} />
 ```
 
-Normalda, biz dəyərin bu formada istifadəsini tövsiyyə etmirik. Çünki, bu dəyər [ES6 obyekt qısaltması ilə](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) çaşdırıla bilər. `{foo}` ifadəsi, `{foo: true}` ifadəsinin yox `{foo: foo}` ifadəsinin qısaldılmış formasıdır. Bu davranışın burada olmasının səbəbi HTML davranışı ilə uyğunlaşmasından gəlir.
+Normalda, biz dəyərin bu formada istifadəsini tövsiyə etmirik. Çünki, bu dəyər [ES6 obyekt qısaltması ilə](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) çaşdırıla bilər. `{foo}` ifadəsi, `{foo: true}` ifadəsinin yox `{foo: foo}` ifadəsinin qısaldılmış formasıdır. Bu davranışın burada olmasının səbəbi HTML davranışı ilə uyğunlaşmasından gəlir.
 
 ### Yayma Atributlar {#spread-attributes}
 
@@ -268,7 +268,7 @@ const App = () => {
 Yuxarıdakı nümunədə `kind` propu udulub DOM-da olan `<button>` elementinə göndərilmir.
 Bütün digər proplara `...other` obyekti ötürülərək komponenti əyilən edir. Gördüyünüz kimi bu komponent `onClick` və `children` proplarını göndərir.
 
-Yayma atributlarını faydalı olmasına baxmayaraq, bu operator ilə lazımsız propları komponentlərə göndərmək və ya etibarsız HTML atributlarını DOM-a göndərmək asanlaşır. Bu sintaksisdən az istifadə etməyi tövsiyyə edirik.
+Yayma atributlarını faydalı olmasına baxmayaraq, bu operator ilə lazımsız propları komponentlərə göndərmək və ya etibarsız HTML atributlarını DOM-a göndərmək asanlaşır. Bu sintaksisdən az istifadə etməyi tövsiyə edirik.
 
 ## JSX-də Uşaqlar {#children-in-jsx}
 

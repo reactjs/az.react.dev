@@ -24,7 +24,7 @@ Yuxarıda göstərilən versiyalar yalnız development üçündür. Bu linkləri
 
 ### Niyə `crossorigin` Atributu? {#why-the-crossorigin-attribute}
 
-React-i CDN-dən yükləyirsinizsə [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) atributunu saxlamağı tövsiyyə edirik:
+React-i CDN-dən yükləyirsinizsə [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) atributunu saxlamağı tövsiyə edirik:
 
 ```html
 <script crossorigin src="..."></script>

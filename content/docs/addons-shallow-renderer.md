@@ -51,7 +51,7 @@ Dayaz render etmənin bəzi məhdudiyyətləri var. Hal-hazırda ref-lər dəst�
 
 > Qeyd:
 >
-> Biz həmçinin Enzyme-ın [Dayaz Render Etmə API-na](https://airbnb.io/enzyme/docs/api/shallow.html) baxmağınızı tövsiyyə edirik. Bu sizə eyni funksionallıq üzərindən  yuxarı dərəcəli API təmin edir.
+> Biz həmçinin Enzyme-ın [Dayaz Render Etmə API-na](https://airbnb.io/enzyme/docs/api/shallow.html) baxmağınızı tövsiyə edirik. Bu sizə eyni funksionallıq üzərindən  yuxarı dərəcəli API təmin edir.
 
 ## Arayış {#reference}
 

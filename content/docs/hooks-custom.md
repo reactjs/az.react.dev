@@ -199,7 +199,7 @@ Bu formada *cari seçilmiş* dostun onlayn olduğunu bilmək mümkündür. Fərq
 
 Xüsusi Hooklar ilə məntiqləri paylaşmaq mümkündür. Xüsusi Hooklar ilə anket idarəsi, animasiya, deklarativ abunəliklər, taymerlər və bizim nəzərə almadığımız digər ssenariləri əhatə etmək mümkündür. Əlavə olaraq, yaratdığınız Hookları React xüsusiyyətləri kimi rahat işlədə bilərsiniz.
 
-Abstraksiyaları öncədən əlavə etməkdən çəkinin. Funksiya komponentləri ilə çox problemləri həll etmək olur deyə standart funksiya komponentinin kodu daha uzun olacaq. Bu normaldır. Məntiqi dərhal ayırmaq *lazım deyil.* Lakin, xüsusi Hook ilə mürəkkəb məntiqi sadə interfeys arxasında gizlədə biləcəyiniz halları axtarmağı və qarışıq komponentləri sadələşdirməyi tövsiyyə edirik.
+Abstraksiyaları öncədən əlavə etməkdən çəkinin. Funksiya komponentləri ilə çox problemləri həll etmək olur deyə standart funksiya komponentinin kodu daha uzun olacaq. Bu normaldır. Məntiqi dərhal ayırmaq *lazım deyil.* Lakin, xüsusi Hook ilə mürəkkəb məntiqi sadə interfeys arxasında gizlədə biləcəyiniz halları axtarmağı və qarışıq komponentləri sadələşdirməyi tövsiyə edirik.
 
 Məsələn, sizdə çoxlu lokal state-dən istifadə edən mürəkkəb komponent ola bilər. `useState` ilə yeniləmə məntiqini mərkəzləşdirmək çətin olduğundan bu state-ləri [Redux](https://redux.js.org/) reducer-i ilə işlədə bilərsiniz:
 

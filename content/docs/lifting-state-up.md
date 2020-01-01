@@ -9,7 +9,7 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-Bir çox zaman, bir neçə komponent eyni zamanda dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan valideyn komponentə qaldırmağı tövsiyyə edirik. Gəlin bunun necə işlədiyinə baxaq.
+Bir çox zaman, bir neçə komponent eyni zamanda dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan valideyn komponentə qaldırmağı tövsiyə edirik. Gəlin bunun necə işlədiyinə baxaq.
 
 Bu bölmədə, verilən temperaturda suyun qaynayacağını hesablayan temperatur kalkulyatoru düzəldəcəyik.
 

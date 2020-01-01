@@ -130,7 +130,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) Robin Pokorninin məqaləsini oxuyun. Siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
+Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) Robin Pokorninin məqaləsini oxuyun. Siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
 
 Əlavə məlumat üçün [açarların vacibliyi haqqında dərin izahatı](/docs/reconciliation.html#recursing-on-children) sənədini oxuya bilərsiniz.
 

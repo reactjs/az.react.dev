@@ -33,7 +33,7 @@ Applikasiyada "işləri həll etmək" üçün ref-lərdən istifadə etmək ist�
 
 > Qeyd
 >
-> Aşağıdakı nümunələrdə React-in 16.3-cü versiyasında təqdim edilən `React.createRef()` API-ından istifadə edilir. Əgər React-in əvvəlki versiyalarından istifadə edirsinizsə, [callback ref-lərindən](#callback-refs) istifadə etməyi tövsiyyə edirik.
+> Aşağıdakı nümunələrdə React-in 16.3-cü versiyasında təqdim edilən `React.createRef()` API-ından istifadə edilir. Əgər React-in əvvəlki versiyalarından istifadə edirsinizsə, [callback ref-lərindən](#callback-refs) istifadə etməyi tövsiyə edirik.
 
 ### Ref-lərin Yaradılması {#creating-refs}
 
@@ -191,7 +191,7 @@ function CustomTextInput(props) {
 
 ### DOM Ref-lərinin Valideyn Komponentlərinə İfşa Edilməsi {#exposing-dom-refs-to-parent-components}
 
-Bəzi nadir hallarda valideyn komponentdən uşağın DOM noduna istinad etmək lazım ola bilər. Bunun komponent inkapsulyasiyasını sındırdığından biz bunu tövsiyyə etmirik. Lakin, bu texnika ilə fokusu aktiv etmək və ya uşaq DOM nodunun ölçü və pozisiyasını hesablamaq faydalı ola bilər.
+Bəzi nadir hallarda valideyn komponentdən uşağın DOM noduna istinad etmək lazım ola bilər. Bunun komponent inkapsulyasiyasını sındırdığından biz bunu tövsiyə etmirik. Lakin, bu texnika ilə fokusu aktiv etmək və ya uşaq DOM nodunun ölçü və pozisiyasını hesablamaq faydalı ola bilər.
 
 [Ref-i uşaq komponentinə qoşa bildiyimizə](#adding-a-ref-to-a-class-component) baxmayaraq burada DOM nodu əvəzinə komponent instansiyasını əldə etdiyimizdən bu ideal həll olmaya bilər. Əlavə olaraq bunu funksiya komponentləri ilə işlətmək mümkün olmayacaq.
 
@@ -199,7 +199,7 @@ React-in 16.3-cü versiyasından başlayaraq bu ssenarilər üçün [ref-lərin 
 
 Əgər React-in 16.2-dən aşağı versiyasını işlədirsinizsə və ya ref yönləndirilməsindən daha çox azadlıq lazımdırsa, siz [bu alternativ yanaşmadan](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) istifadə edərək ref-i fərqli adlı prop ilə göndərə bilərsiniz.
 
-Biz, DOM nodlarının bu formada ifşa edilməsini tövsiyyə etmirik. Amma bu, çıxış yolu kimi faydalı ola bilər. Bu yanaşmanın işləməsi üçün uşaq komponentinə əlavə kodun əlavə olunacağını unutmayın. Əgər sizin uşaq komponentinin tətbiqi üzərində heç bir kontrolunuz yoxdursa, ən son yol kimi [`findDOMNode()`-dan](/docs/react-dom.html#finddomnode) istifadə edə bilərsiniz. Lakin, [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage) işlətdikdə bu funksiyanın istifadəsi qadağandır.
+Biz, DOM nodlarının bu formada ifşa edilməsini tövsiyə etmirik. Amma bu, çıxış yolu kimi faydalı ola bilər. Bu yanaşmanın işləməsi üçün uşaq komponentinə əlavə kodun əlavə olunacağını unutmayın. Əgər sizin uşaq komponentinin tətbiqi üzərində heç bir kontrolunuz yoxdursa, ən son yol kimi [`findDOMNode()`-dan](/docs/react-dom.html#finddomnode) istifadə edə bilərsiniz. Lakin, [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage) işlətdikdə bu funksiyanın istifadəsi qadağandır.
 
 ### Callback Ref-ləri {#callback-refs}
 
@@ -279,11 +279,11 @@ Yuxarıdakı nümunədə `Parent` komponenti ref callback-ini `CustomTextInput` 
 
 ### Köhnə API: Mətn Ref-ləri {#legacy-api-string-refs}
 
-Əgər React ilə çoxdandır işləyirsinizsə, sizə `ref`-in mətn kimi yazılması (məsələn, `"textInput"` kimi) və DOM noduna `this.refs.textInput` formada istinad edilməsi olan köhnə API tanış gələ bilər. Mətn ref-lərinin [çoxlu problemləri olduğundan](https://github.com/facebook/react/pull/8333#issuecomment-271648615), köhnə sayıldığından və **gələcək buraxılışlarda silinəcəyi ehtimal edildiyindən** biz bu ref tipindən istifadə etməyi tövsiyyə etmirik. 
+Əgər React ilə çoxdandır işləyirsinizsə, sizə `ref`-in mətn kimi yazılması (məsələn, `"textInput"` kimi) və DOM noduna `this.refs.textInput` formada istinad edilməsi olan köhnə API tanış gələ bilər. Mətn ref-lərinin [çoxlu problemləri olduğundan](https://github.com/facebook/react/pull/8333#issuecomment-271648615), köhnə sayıldığından və **gələcək buraxılışlarda silinəcəyi ehtimal edildiyindən** biz bu ref tipindən istifadə etməyi tövsiyə etmirik. 
 
 > Qeyd
 >
-> Əgər ref-lərdən istifadə etmək üçün `this.refs.textInput`-dan istifadə edirsinizsə, biz [callback pattern-indən](#callback-refs) və ya [`createRef` API-ından](#creating-refs) istifadə etməyi tövsiyyə edirik.
+> Əgər ref-lərdən istifadə etmək üçün `this.refs.textInput`-dan istifadə edirsinizsə, biz [callback pattern-indən](#callback-refs) və ya [`createRef` API-ından](#creating-refs) istifadə etməyi tövsiyə edirik.
 
 ### Callback Ref-lərinin Problemləri {#caveats-with-callback-refs}
 

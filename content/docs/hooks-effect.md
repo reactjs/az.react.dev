@@ -478,7 +478,7 @@ Gələcəkdə ikinci arqument qurulma çevrilməsi tərəfindən avtomatik əlav
 >
 >Boş massiv (`[]`) göndərdikdə effektdə olan proplar və state ilkin dəyəri saxlayacaqlar. İkinci arqument kimi `[]` massivi göndərməyin `componentDidMount` və `componentWillUnmount` modelinə uyğun olmasına baxmayaraq effektlərin çox icra olunmasının qabağını almaq üçün [daha yaxşı](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [həllər var](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often). Əlavə olaraq, `useEffect` Hooku yalnız brauzer səhifəni çəkdikdən sonra çağrıldığından əlavə işin böyük problem olmadığını yaddan çıxarmayın.
 >
->[`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketi ilə gələn [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasını işlətməyi tövsiyyə edirik. Bu paket, səhv göstərilən asılılıqları göstərir və səhvləri düzəltmək üçün düzəlişlər təklif edir.
+>[`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketi ilə gələn [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasını işlətməyi tövsiyə edirik. Bu paket, səhv göstərilən asılılıqları göstərir və səhvləri düzəltmək üçün düzəlişlər təklif edir.
 
 ## Sonrakı Addımlar {#next-steps}
 
