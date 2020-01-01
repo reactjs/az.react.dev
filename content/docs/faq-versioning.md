@@ -53,7 +53,7 @@ Bu siyahıda olan dəyişiklik cəmiyyətdə böyük problem yaradacaqsa, biz bu
 
 ### Kiçik Buraxılışda Yeni Xüsusiyyət Yoxdursa, Niyə Yamaq Buraxılışı Deyil? {#minors-versus-patches}
 
-Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkminləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
+Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkmilləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
 
 Bu buraxılışların yamaq versiyasında olmaması sualı yaranır.
 
@@ -63,4 +63,4 @@ React buraxılışlarını baqsız dərc edilməsi haqqında bizim yaxşı avtor
 
 Bu səbəblərdən, biz, yamaq buraxılışlarını yalnız kritiki baqları və təhlükəsizlik zəifliklərini düzəltmək üçün işlədirik.
 
-Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkminləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmayaraq kiçik versiya artırılacaq.
+Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkmilləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmayaraq kiçik versiya artırılacaq.

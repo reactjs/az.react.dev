@@ -170,7 +170,7 @@ useEffect(
 >
 >Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
-Asılılıqlar massivi effekt funksiyasına arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən effektdə olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
+Asılılıqlar massivi effekt funksiyasına arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən effektdə olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkmilləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 
 ### `useContext` {#usecontext}
 
@@ -367,7 +367,7 @@ Eyni sətrli callback və asılılıqlar massivi göndərin. `useCallback` Hooku
 
 > Qeyd
 >
-> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
+> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkmilləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 >
 > Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
@@ -389,7 +389,7 @@ Asılılıq massivi göndərilmədikdə hər render etmə zamanı yeni dəyər h
 
 > Qeyd
 >
-> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkminləşmiş kompilyator ilə avtomatik təyin edilə bilər.
+> Asılılıqlar massivi funksiyaya arqument kimi göndərilmir. Lakin, konseptual olaraq bu asılılıqlar effektdə işlədilən dəyərləri təmsil edirlər. Bu səbəbdən funksiyada olan hər bir dəyər asılılıqlar massivində də olmalıdır. Gələcəkdə, bu massiv daha təkmilləşmiş kompilyator ilə avtomatik təyin edilə bilər.
 >
 > Biz, [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) paketinin [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) qaydasından istifadə etməyi tövsiyə edirik. Bu qayda, səhv təyin edilən asılılıqları göstərir və düzəliş təklif edir.
 
