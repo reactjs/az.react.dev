@@ -12,11 +12,11 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-Bu dərslik heç bir mövcud React biliyini təxmin etmir.
+Bu dərsliyə başlamaq üçün React biliyinizin olması vacib deyil.
 
 ## Dərsliyi Başlamazdan Əvvəl {#before-we-start-the-tutorial}
 
-Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyası yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
+Bu dərslikdə biz kiçik bir oyun yazacağıq. **Oyun tərtibatçısı olmadığınız üçün bu dərsliyi ötürmək istəyə bilərsiniz, ancaq cəhd etməyə dəyər.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyası yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
 
 >Məsləhət
 >
@@ -24,7 +24,7 @@ Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan b
 
 Bu dərslik bir neçə bölməyə bölünmüşdür:
 
-* [Dərslik üçün Qurulma](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
+* [Dərslik mühitinin qurulması](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
 * [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, proplar, və state.
 * [Oyunu Tamamlamaq](#completing-the-game) React-in təkmilləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
 * [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
@@ -43,36 +43,36 @@ Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu 
 
 ### Ön şərtlər {#prerequisites}
 
-Biz sizin HTML və Javascript ilə tanışlığınızı təxmin edirik amma siz başqa proqramlaşdırma dilindən gəlsəniz belə davam etməyi bacarmalısınız. Biz sizin proqramlaşdırma konsepsiyaları ilə (funksiyalar, obyektlər, massivlər, və daha az dərəcədə, klaslar) tanışlığınızı təxmin edirik.
+Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə siniflər anlayışlarıyla tanışsınız.
 
-Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
+Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [siniflər](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
-## Dərslik üçün Qurulma {#setup-for-the-tutorial}
+## Dərslik mühitinin qurulması {#setup-for-the-tutorial}
 
-Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə yaza və ya kompyuterinizdə lokal təkminləşmə mühiti yarada bilərsiniz.
+Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə və ya lokal mühit yaradaraq kompüterinizdə yaza bilərsiniz.
 
-### Seçim 1: Brauzerdə Kodu Yaz {#setup-option-1-write-code-in-the-browser}
+### Seçim 1: Kodu Brauzerdə Yaz {#setup-option-1-write-code-in-the-browser}
 
-Bu başlamaq üçün ən tez yoldur!
+Bu başlamaq üçün ən sürətli üsuldur!
 
-İlk olaraq, bu **[Başlama Kodunu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** yeni təbdə açın. Yeni təb sizə boş "X O oyun" taxtası və React kodu göstərəcək. Biz bu dərslikdə React kodu üstündə işləyəcəyik.
+İlk olaraq, bu **[hazır kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** yeni tabda açın. Yeni tabda siz, boş "X O oyun" lövhəsini və bu dərslikdə tədricən dəyişdirəcəyimiz React kodu görəcəksiniz.
 
-Siz indi ikinci seçimi ötüb, [İcmal](#overview) bölməsinə keçə bilərsiniz.
+Siz indi ikinci seçimi ötürə və React barədə ümumi məlumat əldə etmək üçün [İcmal](#overview) bölməsinə keçə bilərsiniz.
 
-### Seçim 2: Lokal Təkminləşmə Mühiti {#setup-option-2-local-development-environment}
+### Seçim 2: Lokal Təkmilləşmə Mühiti {#setup-option-2-local-development-environment}
 
-Bu tam istəyə bağlıdır və bu dərslik üçün məcburi deyil!
+Bu tamamilə istəyə bağlıdır və bu dərs üçün tələb olunmur!
 
 <br>
 
 <details>
 
-<summary><b>Məcburi Deyil: Üstünlük verdiyiniz kod redaktoru ilə lokal qurulmasının təlimatları</b></summary>
+<summary><b>İstəyə bağlıdır: Layihəni üstünlük verdiyiniz redaktor ilə yazmağınız üçün təlimat</b></summary>
 
-Bu qurulma daha çox vaxt tələb edir amma sizə bu dərsliyi seçdiyiniz redaktor ilə tamamlamağa icazə verir. İzləmək üçün addımlar:
+Lokal mühitin sazlanması daha çox vaxt tələb edir, amma sizə bu dərsliyi seçdiyiniz redaktor ilə tamamlamağa imkan verir. Bunun üçün aşağıdakı addımlara əməl edin:
 
-1. Əmin olunki [Node.js](https://nodejs.org/en/) son versiyası qurulub.
-2. Yeni layihə yaratmaq üçün [Create React App qurulma təlimatlarını](/docs/create-a-new-react-app.html#create-react-app) izləyin.
+1. Əmin olun ki, [Node.js](https://nodejs.org/en/) son versiyası qurulub.
+2. Yeni layihə yaratmaq üçün [Create React App qurulma təlimatlarına](/docs/create-a-new-react-app.html#create-react-app) əməl edin.
 
 ```bash
 npx create-react-app my-app
@@ -100,9 +100,9 @@ cd ..
 
 4. `index.css` adlı faylı `src/` direktoriyasına [bu CSS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0100) ilə əlavə edin.
 
-5. `index.js` adlı faylı `src/` directoriyasına [bu JS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) ilə əlavə edin.
+5. `index.js` adlı faylı `src/` direktoriyasına [bu JS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) ilə əlavə edin.
 
-6. `src/` directoriyasında olan `index.js` faylının ən yuxarısınz aşağıdalı üç sətri əlavə edin:
+6. `src/` direktoriyasında olan `index.js` faylının başlanğıcına aşağıdakı üç sətri əlavə edin:
 
 ```js
 import React from 'react';
@@ -110,25 +110,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəni açsanız, boş "X O oyunu" taxtası.
+İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəsini açsanız, boş "X O oyunu" lövhəsini görməlisiniz.
 
-Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlimatları](https://babeljs.io/docs/editors/) izləməniz tövsiyə olunur.
+Redaktorunuzda sintaktik işıqlandırılmanı sazlamaq üçün [bu təlimatlara](https://babeljs.io/docs/editors/) əməl etməyiniz tövsiyə olunur.
 
 </details>
 
-### Kömək, Mən İlişmişəm! {#help-im-stuck}
+### Kömək edin, Mən İlişmişəm! {#help-im-stuck}
 
-Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusilə, [Reactiflux Chat](https://discord.gg/reactiflux) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
+Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Tez bir zamanda kömək almaq üçün [Reactiflux Chat](https://discord.gg/reactiflux) xüsusilə əla bir yoldur. Əgər cavab almırsınızsa və ya yenə də ilişmisinizsə, xahiş olunur bizə Github üzərindən Issue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
 ## İcmal {#overview}
 
-İndi sizdə hər şey qurulub deyə gəlin of React haqqında məlumat alaq!
+Quraşdırmanı artıq tamamladığınıza görə, gəlin indi React haqqında məlumat alaq!
 
 ### React Nədir? {#what-is-react}
 
-React UI yaratmaq üçen deklarativ, səmərəli, və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan balaca və sərbəst kod hissələrinin birləşməsi ilə kompleks UI yaratmağa icazə verir.
+React - istifadəçi interfeysləri (UI) yaratmaq üçün deklarativ, səmərəli və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan kiçik sərbəst kod hissələrindən mürəkkəb UI yaratmağa icazə verir.
 
-React-də bir neçə növ komponent var amma gəlin `React.Component` subklassından yaranan komponentlər ilə başlayaq:
+React-də bir neçə növ komponent var, amma biz `React.Component` alt siniflərindən başlayacağıq:
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -149,11 +149,11 @@ class ShoppingList extends React.Component {
 // İşlətmə nümunəsi: <ShoppingList name="Rufat" />
 ```
 
-Biz bu maraqlı XML-a oxşar təqlərdən sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyirik. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
+Biz bu maraqlı XML-a oxşar təqlərdən, sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyirik. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
 
 Yuxarıdakı nümunədə, ShoppingList bir **React komponent klassı** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funksiyasından qaytarır.
 
-`render` funksiyası görmək istədiyiniz *məzmunu* qaytarır. React bu məzmun əsasında nəticəni göstərir. Xüsusi ilə, `render` **React elementi** (nə render edildiyinin yüngül məzmununu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksik belə iyerarxiyalı strukturların yazılışını asanlaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdakı nümunənin JSX-siz forması aşağıdakı kimi yazılır:
+`render` funksiyası görmək istədiyiniz *məzmunu* qaytarır. React bu məzmun əsasında nəticəni göstərir. Xüsusi ilə, `render` **React elementi** (nə render edildiyinin yüngül məzmununu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksis belə iyerarxiyalı strukturların yazılışını asanlaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdakı nümunənin JSX-siz forması aşağıdakı kimi yazılır:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -166,9 +166,9 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Əgər sizə maraqlıdırsa, `createElement()` [API arayışında](/docs/react-api.html#createelement) daha detallı izah edilir. Biz bu dərslikdə `createElement()` əvəzinə JSX-dən istifadə etməyə davam edəcəyik.
 
-JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqurlu mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyekti obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funksiyalara və s. göndərə bilərsiniz.
+JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqurlu mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funksiyalara və s. göndərə bilərsiniz.
 
-Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Amma siz başqa xüsusi komponentləri belə biləşdirə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən kompleks UI-lar yaratmağa icazə verir.
+Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Lakin, siz həmçinin öz komponentlərinizi də yarada bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən mürəkkəb UI-lər yaratmağa icazə verir.
 
 ## Başlanğıc Kodunu Yoxlamaq {#inspecting-the-starter-code}
 
