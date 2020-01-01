@@ -85,7 +85,7 @@ Webpack bu sintaksisi görən kimi sizin applikasiyanızın kodunu avtomatik par
 >
 > `React.lazy` və Suspense, serverdə render etmək üçün hazır deyil. Əgər sizə serverdə render olunan applikasiya üçün kod parçalaması lazımdırsa, biz [Loadable Components](https://github.com/gregberge/loadable-components) işlətməyi tövsiyyə edirik. Bunun [server render etməsi üçün yaxşı təlimatı var](https://loadable-components.com/docs/server-side-rendering/).
 
-`React.lazy` funskiyası dinamik import olunmuş komponenti adi komponent kimi render etməyə imkan yaradır.
+`React.lazy` funksiyası dinamik import olunmuş komponenti adi komponent kimi render etməyə imkan yaradır.
 
 **Əvvəl:**
 
@@ -101,7 +101,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 Bu avtomatik olaraq `OtherComponent` render olduğu zaman, komponent olan paketi yükləyəcək.
 
-`React.lazy` funskiyası mütləq olaraq dinamik `import()` funskiyasını çağırmalıdır. Bu mütləq `default` eksportunda React komponenti olan modulu "resolve" edən `Promise`-ə qaytarmalıdır.
+`React.lazy` funksiyası mütləq olaraq dinamik `import()` funksiyasını çağırmalıdır. Bu mütləq `default` eksportunda React komponenti olan modulu "resolve" edən `Promise`-ə qaytarmalıdır.
 
 ### Suspense {#suspense}
 

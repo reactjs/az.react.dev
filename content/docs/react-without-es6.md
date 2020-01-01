@@ -162,7 +162,7 @@ Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu 
 
 Əgər problemsiz işləmək istəyirsinizsə sizdə bir neçə seçim var:
 
-* Konstruktordan funskiyaları bind edin.
+* Konstruktordan funksiyaları bind edin.
 * Ox funksiyalarından istifadə edin: `onClick={(e) => this.handleClick(e)}`.
 * `createReactClass` funksiyasından istifadə edin.
 

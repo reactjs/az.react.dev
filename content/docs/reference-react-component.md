@@ -309,7 +309,7 @@ Məsələn:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
-Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funskiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
+Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funksiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
 
 * * *
 
