@@ -1,6 +1,6 @@
 ---
 id: how-to-contribute
-title: How to Contribute
+title: Necə İştirak Etmək
 layout: contributing
 permalink: docs/how-to-contribute.html
 next: codebase-overview.html
@@ -9,35 +9,35 @@ redirect_from:
   - "tips/introduction.html"
 ---
 
-React is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody on [facebook.com](https://www.facebook.com). We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
+React, Facebook-un aktiv təkmilləşmədə olan və [facebook.com](https://www.facebook.com)-da olan hamı üçün işlədilən ilk open source layihələrdən biridir. Biz, bu layihədə iştirak etməyin asan və şəffaf olması üzərində işləyirik. Lakin, biz hələdə istədiyimizə çatmamışıq. Arzu edirik ki, bu sənəd iştirak etmək prosesini aydınlaşdırır və sizin bəzi suallarınızı cavablandırılır.
 
-### [Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+### [Davranış Qaydaları](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
-Facebook has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+Facebook, [Contributor Covenant](https://www.contributor-covenant.org/)-ı öz Davranış Qaydaları kimi adaptasiya edib və biz layihə iştirakçılarının bu qaydalara riayət edəcəyini gözləyirik. Hansı hərəkətlərin dözülüb dözülməyəcəyini anlamaq üçün [bütün mətni](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) ozumağınız xahiş olunur.
 
-### Open Development {#open-development}
+### Açıq Təkmilləşmə {#open-development}
 
-All work on React happens directly on [GitHub](https://github.com/facebook/react). Both core team members and external contributors send pull requests which go through the same review process.
+React-də baş verən bütün işlər [GitHub-da](https://github.com/facebook/react) baş verir. Həm core komandanın üzvlərinin, həm də xarici iştirakçıların pull request-ləri eyni rəy prosesindən keçir.
 
-### Semantic Versioning {#semantic-versioning}
+### Semantik Veresiyalama {#semantic-versioning}
 
-React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](https://reactjs.org/docs/faq-versioning.html).
+React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarda kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri və böyük versiyalarda pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda, istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat üçün [bizim versiya qaydalarımızı](https://reactjs.org/docs/faq-versioning.html) oxuyun.
 
 Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
-### Branch Organization {#branch-organization}
+### Branch Orqanizasiyası {#branch-organization}
 
-Submit all changes directly to the [`master branch`](https://github.com/facebook/react/tree/master). We don't use separate branches for development or for upcoming releases. We do our best to keep `master` in good shape, with all tests passing.
+Bütün dəyişiklikləri [`master branch`-inə](https://github.com/facebook/react/tree/master) göndərin. Biz təkmilləşmə və gələcək buraxılışlar üçün ayrı branch-lər işlətmirik. Biz, `master`-in hər zaman yaxşı formada qalması və bütün testlərin keçməsi üçün əlimizdən gələni edirik.
 
-Code that lands in `master` must be compatible with the latest stable release. It may contain additional features, but no breaking changes. We should be able to release a new minor version from the tip of `master` at any time.
+`master`-ə çatan kod ən yeni stabil versiya buraxılış ilə işləməlidir. Burada, əlavə xüsusiyyətlər ola bilər. Lakin, pozucu dəyişikliklər ola bilməz. Biz `master`-dən istədiyimiz zaman yeni kiçik versiya dərc edə bilməliyik.
 
-### Feature Flags {#feature-flags}
+### Xüsusiyyət Flaqları {#feature-flags}
 
-To keep the `master` branch in a releasable state, breaking changes and experimental features must be gated behind a feature flag.
+`master` branch-ini buraxılışa hazır vəziyyətdə saxlaya bilmək üçün bütün pozucu dəyişikliklər və eksperimental xüsusiyyətlər "xüsusiyyət flaqı" ilə gizlənirlər.
 
-Feature flags are defined in [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Some builds of React may enable different sets of feature flags; for example, the React Native build may be configured differently than React DOM. These flags are found in [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Feature flags are statically typed by Flow, so you can run `yarn flow` to confirm that you've updated all the necessary files.
+Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js) faylda təyin edilir. React-in fərqli qurulmaları fərqli xüsusiyyət flaqlarını aktiv edir. Məsələn, React Native qurulması React DOM qurulmasından fərqli konfiqurasiya olunur. Bu flaqları [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks) direktoriyadan tapa bilərsiniz. Xüsusiyyət flaqlarına Flow ilə statik tiplər əlavə edilir. Bu səbəbdən, lazımi faylların yenilənməsini təsdiqləmək üçün `yarn flow` əmrindən istifadə edə bilərsiniz.
 
-React's build system will strip out disabled feature branches before publishing. A continuous integration job runs on every commit to check for changes in bundle size. You can use the change in size as a signal that a feature was gated correctly.
+React-in qurma sistemi bütün deaktik edilmiş xüsusiyyətləri dərc etməmişdən öncə siləcək. Continuous integration işi hər commit-dən sonra paket ölçüsünü yoxlayır. Siz ölçüdə baş verən dəyişiklik əsasında xüsusiyyətin düzgün gizlədildiyindən əmin ola bilərsiniz.
 
 ### Bugs {#bugs}
 
