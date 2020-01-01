@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Dəsrlik: React-ə Giriş"
+title: "Dərslik: React-ə Giriş"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
