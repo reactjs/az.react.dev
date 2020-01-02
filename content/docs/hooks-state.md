@@ -269,7 +269,7 @@ Yuxarıdakı komponentdə, `age`, `fruit` və `todos` lokal dəyişənləri və 
 
 Çoxlu state dəyişənləri işlətmək **vacib deyil**. State dəyişənləri obyekt və massiv saxlaya bilərlər. Siz bu formada bir birinə bağlı məlumatları qruplaşdıra bilərsiniz. Lakin, klasdakı `this.setState` funksiyasından fərqli olaraq state dəyişənini yenilədikdə dəyərlər birləşmək əvəzinə *əvəz olunur*.
 
-Müstəqil state dəyişənlərini ayırmaq üçün [FAQ-da olan](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) tövsiyyələrə baxın.
+Müstəqil state dəyişənlərini ayırmaq üçün [FAQ-da olan](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) tövsiyələrə baxın.
 
 ## Sonrakı Addımlar {#next-steps}
 

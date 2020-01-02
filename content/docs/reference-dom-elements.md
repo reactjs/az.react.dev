@@ -62,7 +62,7 @@ function MyComponent() {
 
 >Qeyd
 >
->Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyyə etmirik.** Bir çox halda kənar CSS stil cədvəlində (stylesheet) olan klaslara referans etmək üçün [`className`](#classname) işlətməyi tövsiyyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
+>Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyə etmirik.** Bir çox halda kənar CSS stil cədvəlində (stylesheet) olan klaslara referans etmək üçün [`className`](#classname) işlətməyi tövsiyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
 
 `style` atributu CSS mətn əvəzinə camelCased parametrləri olan Javascript obyekti qəbul edir. Bu Javascriptin DOM `style` parametri ilə uyğundur, daha səmərəlidir və istifadəçini XSS-dən qoruyur. Məsələn:
 

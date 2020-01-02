@@ -7,7 +7,7 @@ prev: testing-recipes.html
 
 <!-- This document is intended for folks who are comfortable with JavaScript, and have probably written tests with it. It acts as a reference for the differences in testing environments for React components, and how those differences affect the tests that they write. This document also assumes a slant towards web-based react-dom components, but has notes for other renderers. -->
 
-Bu sənəddə mühitə təsir edə bilən amillərdən və bəzi ssenarilər üçün tövsiyyələrdən danışacağıq.
+Bu sənəddə mühitə təsir edə bilən amillərdən və bəzi ssenarilər üçün tövsiyələrdən danışacağıq.
 
 ### Test icra ediciləri {#test-runners}
 
@@ -19,7 +19,7 @@ Bu sənəddə mühitə təsir edə bilən amillərdən və bəzi ssenarilər ü�
 
 ### Render sahəsinin mok edilməsi {#mocking-a-rendering-surface}
 
-Adətən, testlər brauzer kimi real render sahəsi olmayan mühitlərdə icra olunurlar. Bu mühitlər üçün brauzeri [`jsdom`](https://github.com/jsdom/jsdom) (Node.js-də işləyən yüngül brauzer tətbiqi) ilə simulyasiya etməyi tövsiyyə edirik.
+Adətən, testlər brauzer kimi real render sahəsi olmayan mühitlərdə icra olunurlar. Bu mühitlər üçün brauzeri [`jsdom`](https://github.com/jsdom/jsdom) (Node.js-də işləyən yüngül brauzer tətbiqi) ilə simulyasiya etməyi tövsiyə edirik.
 
 Bir çox halda, jsdom normal brauzer kimi işləyir. Lakin, bu alətin [şablon və naviqasiya kimi](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform) xüsusiyyətləri yoxdur. Buna baxmayaraq, bu alət ilə hər test üçün yeni brauzerin açılmasının lazım olmadığından əksər veb əsaslı komponentlərin test edilməsi sürətli olacaq. Əlavə olaraq, bu alətin testlər ilə eyni sistem prosesində işlədiyindən render olunan DOM-u yoxlayıb təsdiq edə bilərsiniz.
 

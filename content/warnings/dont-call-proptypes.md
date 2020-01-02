@@ -38,7 +38,7 @@ var apiShape = PropTypes.shape({
 var error = apiShape(json, 'response');
 ```
 
-Əgər sizə PropTypes-ı bu formada işlətmək lazımdırsa PropTypes-ın forkunu yaratmağı ([bu](https://github.com/aackerman/PropTypes) [iki](https://github.com/developit/proptypes) paket kimi) tövsiyyə edirik.
+Əgər sizə PropTypes-ı bu formada işlətmək lazımdırsa PropTypes-ın forkunu yaratmağı ([bu](https://github.com/aackerman/PropTypes) [iki](https://github.com/developit/proptypes) paket kimi) tövsiyə edirik.
 
 Bu xəbərdarlığı düzəltmədikdə React 16-da yazılmış applikasiya produksiyada sınacaq.
 

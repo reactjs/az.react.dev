@@ -12,7 +12,7 @@ React ilə istədiyiniz Ajax kitabxanasını işlədə bilərsiniz. Populyar kit
 
 ### Komponent yaşama tsiklinin harasında Ajax çağırışları etməliyəm? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
-Ajax çağırışdan gələn bütün məlumatları [`componentDidMount`](/docs/react-component.html#mounting) yaşama tsikli funskiyasından tətbiq etməlisiniz. Bunun səbəbi, məlumat alındıqda `setState` ilə komponenti yeniləməkdən imkanının olmasıdır.
+Ajax çağırışdan gələn bütün məlumatları [`componentDidMount`](/docs/react-component.html#mounting) yaşama tsikli funksiyasından tətbiq etməlisiniz. Bunun səbəbi, məlumat alındıqda `setState` ilə komponenti yeniləməkdən imkanının olmasıdır.
 
 ### Nümunə: AJAX nəticələrinin lokal veziyyətə yazılması {#example-using-ajax-results-to-set-local-state}
 

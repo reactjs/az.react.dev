@@ -18,17 +18,17 @@ Bu səhifə, göstərilən məsələləri həll etməyə kömək edən React too
 * Development-də CSS və JS-in canlı redaktə edilməsi.
 * Produksiya üçün nəticənin optimallaşdırılması.
 
-Bu səhifədə tövsiyyə olunan toolchain-lər **heç bir konfiqurasiya tələb etmir**.
+Bu səhifədə tövsiyə olunan toolchain-lər **heç bir konfiqurasiya tələb etmir**.
 
 ## Sizə Toolchain Lazım Olmaya Bilər {#you-might-not-need-a-toolchain}
 
-Əgər yuxarıda göstərilən problemlər ilə qarşılaşmır və ya JavaScript alətlərindən istifadə etmək istəmirsinizsə [React-i HTML səhifəsinə `<script>` təqi ilə əlavə etməyi](/docs/add-react-to-a-website.html) (fakultativ olaraq [JSX ilə](/docs/add-react-to-a-website.html#optional-try-react-with-jsx)) tövsiyyə edirik.
+Əgər yuxarıda göstərilən problemlər ilə qarşılaşmır və ya JavaScript alətlərindən istifadə etmək istəmirsinizsə [React-i HTML səhifəsinə `<script>` təqi ilə əlavə etməyi](/docs/add-react-to-a-website.html) (fakultativ olaraq [JSX ilə](/docs/add-react-to-a-website.html#optional-try-react-with-jsx)) tövsiyə edirik.
 
 Bu, **React-i mövcud veb səhifəsinə əlavə etməyin ən asan yoludur.** Siz, faydalı gördüyünüz halda istədiyiniz zaman daha böyük toolchain əlavə edə bilərsiniz!
 
-## Tövsiyyə Edilən Toolchain-lər {#recommended-toolchains}
+## Tövsiyə Edilən Toolchain-lər {#recommended-toolchains}
 
-React komandası əsasən aşağıdaki həlləri tövsiyyə edir:
+React komandası əsasən aşağıdaki həlləri tövsiyə edir:
 
 - **React-i öyrənmək** və ya **[tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya yaratmaq üçün** [Create React App-dən](#create-react-app) istifadə edin.
 - **Node.js ilə server tərəfindən render edilmiş veb səhifə yaratmaq üçün** [Next.js-dən](#nextjs) istifadə edin.
@@ -69,7 +69,7 @@ Gatsby haqqında öyrənmək üçün [rəsmi sənədlərə](https://www.gatsbyjs
 
 ### Daha Elastik Toolchain-lər {#more-flexible-toolchains}
 
-Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif edirlər. Biz bu alətləri daha təcrübəli istifadəçilərə tövsiyyə edirik:
+Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif edirlər. Biz bu alətləri daha təcrübəli istifadəçilərə tövsiyə edirik:
 
 - **[Neutrino](https://neutrinojs.org/)** aləti [webpack-in](https://webpack.js.org/) gücünü əvvəlcədən hazırlanmış şablonların sadəliyi ilə birləşdirir. Bu alət, [React applikasiyaları](https://neutrinojs.org/packages/react/) və [React komponentləri](https://neutrinojs.org/packages/react-components/) üçün şablonlar təmin edir.
 

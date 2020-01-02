@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### React layihələrini hansı formada struktur etmək tövsiyyə olunur? {#is-there-a-recommended-way-to-structure-react-projects}
+### React layihələrini hansı formada struktur etmək tövsiyə olunur? {#is-there-a-recommended-way-to-structure-react-projects}
 
 React, faylları hansı direktoriyalara yerləşdirmək haqqında heç bir fikir daşımır. Lakin, ekosistemdə bir neçə populyar yanaşma var.
 
@@ -63,7 +63,7 @@ Bəziləri daha dərinə gedərək applikasiyada olan roldan asılı olaraq komp
 
 #### Çox iç-içə direktoriya yaratmaqdan çəkinin {#avoid-too-much-nesting}
 
-JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin strukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar köçürüldükdə bu idxalları yeniləmək çətinləşir. Əgər dərin struktur yaratmağın xüsusi səbəbi yoxdursa, strukturu üç-dört səviyyədən dərin etməkdən çəkinin. Əlbəttə ki, bu sadəcə bir tövsiyyədir. Bu yanaşmanın sizin layihənizə dəxli olmaya bilər.
+JavaScript layihələrində dərin direktoriya strukturları yaratmağın çoxlu problemləri var. Dərin strukturlar olduqda fayllar arasında nisbi idxallar yazmaq və fayllar köçürüldükdə bu idxalları yeniləmək çətinləşir. Əgər dərin struktur yaratmağın xüsusi səbəbi yoxdursa, strukturu üç-dört səviyyədən dərin etməkdən çəkinin. Əlbəttə ki, bu sadəcə bir tövsiyədir. Bu yanaşmanın sizin layihənizə dəxli olmaya bilər.
 
 #### Bu haqda çox fikirləşməyin {#dont-overthink-it}
 

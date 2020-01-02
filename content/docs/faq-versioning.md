@@ -28,7 +28,7 @@ Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böy�
 
 ### Stabilliyə Öhdəlik {#commitment-to-stability}
 
-React, zaman ilə yeniləndikcə biz yeni xüsusiyyətlərdən istifadə etmək cəhdini asanlaşdırmağa çalışırıq. İmkan olduqca, biz köhnə API-ların işləməsini qorumağa çalışırıq (köhnə API-ı fərqli paketdə dərc etmək lazım gəldikdə belə). Məsələn, [miksinlərin işlədilməsinin illərlə tövsiyyə edilmədiyinə](/blog/2016/07/13/mixins-considered-harmful.html) baxmayaraq miksinlər [create-react-class](/docs/react-without-es6.html#mixins) paketində dəstəklənir və bir çox köhnə, stabil layihələrdə istifadə edilir.
+React, zaman ilə yeniləndikcə biz yeni xüsusiyyətlərdən istifadə etmək cəhdini asanlaşdırmağa çalışırıq. İmkan olduqca, biz köhnə API-ların işləməsini qorumağa çalışırıq (köhnə API-ı fərqli paketdə dərc etmək lazım gəldikdə belə). Məsələn, [miksinlərin işlədilməsinin illərlə tövsiyə edilmədiyinə](/blog/2016/07/13/mixins-considered-harmful.html) baxmayaraq miksinlər [create-react-class](/docs/react-without-es6.html#mixins) paketində dəstəklənir və bir çox köhnə, stabil layihələrdə istifadə edilir.
 
 React, milyondan çox proqramçı (kollektiv olaraq milyondan çox komponenti) tərəfindən istifadə edilir. Facebook-un kodu təklikdə 50.000 React komponentindən ibarətdir. Bu səbəbdən, React-in yeni versiyalara yenilənməsini mümkün qədər asanlaşdırmalıyıq. Miqrasiya yolu göstərilmədən böyük dəyişikliklər edilərsə istifadəçilər köhnə versiyalarda qalacaqlar. Biz, bu yeniləmə yollarını Facebook-da yoxlayırıq. Əgər bizim 10 nəfərdən az proqramçıdan ibarət olan komandamız 50.000+ komponenti yeniləyə bilirsə, biz bu yeniliklərin React-i istifadə edən proqramçılar üçün idarə oluna biləcəyini ümid edirik. Bir çox ssenaridə, hər open-source buraxılışında komponent sintaksisini yeniləmək üçün [avtomatlaşmış skriptlər](https://github.com/reactjs/react-codemod) ehtiva edirik.
 
@@ -53,7 +53,7 @@ Bu siyahıda olan dəyişiklik cəmiyyətdə böyük problem yaradacaqsa, biz bu
 
 ### Kiçik Buraxılışda Yeni Xüsusiyyət Yoxdursa, Niyə Yamaq Buraxılışı Deyil? {#minors-versus-patches}
 
-Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkminləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
+Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir](https://semver.org/#spec-item-7). Semver qeyd edir ki, **"bağlı kodda təkmilləşmələr və ya funksionallıqlar təqdim edildikdə [kiçik versiyadan] istifadə etmək olar. Kiçik versiyada yamaq dərəcəli dəyişikliklər də ola bilər."**
 
 Bu buraxılışların yamaq versiyasında olmaması sualı yaranır.
 
@@ -63,4 +63,4 @@ React buraxılışlarını baqsız dərc edilməsi haqqında bizim yaxşı avtor
 
 Bu səbəblərdən, biz, yamaq buraxılışlarını yalnız kritiki baqları və təhlükəsizlik zəifliklərini düzəltmək üçün işlədirik.
 
-Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkminləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmayaraq kiçik versiya artırılacaq.
+Buraxılışda vacib olmayan dəyişikliklər olduqda (daxili kod refaktorinqləri, tətbiq detallarına dəyişikliklər, performans təkmilləşmələri, və ya kiçik baq düzəlişləri), yeni xüsusiyyətin mövcudluğundan asılı olmayaraq kiçik versiya artırılacaq.

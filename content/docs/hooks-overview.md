@@ -60,7 +60,7 @@ function ExampleWithManyStates() {
 
 #### Hook Nədir? {#but-what-is-a-hook}
 
-React state-ini və lifecycle xüsusiyyətlərini funksiya komponentlərindən istifadə etmək üçün Hooklar istifadə olunur. Hookları klas daxilində işlətmək mümkün deyil. Lakin, Hooklar ilə klaslarsız applikasiya yaza bilərsiniz. (Biz, mövcud komponentləri bir dəfəyə funksiya komponentlərinə çevirməyi [tövsiyyə etmirik](/docs/hooks-intro.html#gradual-adoption-strategy). Lakin, yeni komponentləri Hooklar ilə yazmağa başlaya bilərsiniz.)
+React state-ini və lifecycle xüsusiyyətlərini funksiya komponentlərindən istifadə etmək üçün Hooklar istifadə olunur. Hookları klas daxilində işlətmək mümkün deyil. Lakin, Hooklar ilə klaslarsız applikasiya yaza bilərsiniz. (Biz, mövcud komponentləri bir dəfəyə funksiya komponentlərinə çevirməyi [tövsiyə etmirik](/docs/hooks-intro.html#gradual-adoption-strategy). Lakin, yeni komponentləri Hooklar ilə yazmağa başlaya bilərsiniz.)
 
 React, `useState` kimi hazır Hooklar təmin edir. Siz öz Hooklarınızı da yaradıb state-li davranışları fərqli komponentlər arasında paylaşa bilərsiniz. İlk olaraq, hazır Hooklara baxacağıq.
 

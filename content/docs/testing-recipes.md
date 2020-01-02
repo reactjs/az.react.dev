@@ -339,7 +339,7 @@ it("should render contact information", () => {
 
 ### Hadisələr {#events}
 
-Biz, real DOM hadisələrini DOM elementlərinə göndərib nəticəni təsdiq etməyi tövsiyyə edirik. `Toggle` adlı komponentə baxaq:
+Biz, real DOM hadisələrini DOM elementlərinə göndərib nəticəni təsdiq etməyi tövsiyə edirik. `Toggle` adlı komponentə baxaq:
 
 ```jsx
 // toggle.js

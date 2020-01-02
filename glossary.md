@@ -79,7 +79,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | framework | freymvork |
 | guide | təlimat |
 | hierarchy | ierarxiya |
-| higher order function | yüksək dərəcəli funskiya |
+| higher order function | yüksək dərəcəli funksiya |
 | immutability | dəyişməzlik |
 | imperative | imperativ |
 | implementation | tətbiq |

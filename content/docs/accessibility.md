@@ -471,7 +471,7 @@ Bəzi brauzerlərdə biz asanlıqla imkanlılıq ağacındakı hər bir element 
 
 Ekran oxucusu ilə test etmək sizin imkanlılıq testlərinizə daxil olmalıdır.
 
-Zəhmət olmasa nəzərə alın ki, brauzer / ekran oxucusu kombinasiyası vacibdir. Sizin applikasiyanızı ekran oxucusunun seçdiyi brauzer üzərindən yoxlamağınız tövsiyyə olunur.
+Zəhmət olmasa nəzərə alın ki, brauzer / ekran oxucusu kombinasiyası vacibdir. Sizin applikasiyanızı ekran oxucusunun seçdiyi brauzer üzərindən yoxlamağınız tövsiyə olunur.
 
 ### Tez-tez İstifadə olunan Ekran Oxucuları {#commonly-used-screen-readers}
 

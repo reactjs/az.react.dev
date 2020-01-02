@@ -4,7 +4,7 @@ title: Statik Tip Yoxlamaları
 permalink: docs/static-type-checking.html
 ---
 
-[Flow](https://flow.org/) və [TypeScript](https://www.typescriptlang.org/) statik tip yoxlayıcıları ilə kod icra olunmamışdan öncə bəzi problemlərin tapılması mümkündür. Əlavə olaraq, bu alətlər avtomatik tamamlama kimi xüsusiyyətlər əlavə edərək proqramçı iş axının təkmiləşdirir. Bu səbəbdən, böyük kodlarda `PropTypes` əvəzinə Flow və ya Typescript işlətməyi tövsiyyə edirik.
+[Flow](https://flow.org/) və [TypeScript](https://www.typescriptlang.org/) statik tip yoxlayıcıları ilə kod icra olunmamışdan öncə bəzi problemlərin tapılması mümkündür. Əlavə olaraq, bu alətlər avtomatik tamamlama kimi xüsusiyyətlər əlavə edərək proqramçı iş axının təkmiləşdirir. Bu səbəbdən, böyük kodlarda `PropTypes` əvəzinə Flow və ya Typescript işlətməyi tövsiyə edirik.
 
 ## Flow {#flow}
 
@@ -264,7 +264,7 @@ Bunu iki addım ilə həll edəcəyik:
 
 Əla! İndi "build" skriptini icra etdikdə kompilyator yaranacaq javascript faylları `build/` direktoriyasına əlavə edəcək. [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) paketi başlamaq üçün yaxşı qaydalar olan `tsconfig.json` faylı təmin edir.
 
-Adətən, yaranmış javascript faylarını mənbə kontrolunda (source control) saxlamağı tövsiyyə etmirik. Bu səbəbdən, `build/` direktoriyasını `.gitignore`-a əlavə edin.
+Adətən, yaranmış javascript faylarını mənbə kontrolunda (source control) saxlamağı tövsiyə etmirik. Bu səbəbdən, `build/` direktoriyasını `.gitignore`-a əlavə edin.
 
 ### Fayl genişləmələri {#file-extensions}
 

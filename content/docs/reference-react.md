@@ -32,7 +32,7 @@ React komponentləri həmçinin funksiyalar ilə də müəyyənləşdirilə bil�
 
 ### React Elementlərinin Düzəldilməsi {#creating-react-elements}
 
-Biz UI-ın nə olacağını təsvir etmək üçün [JSX işlətməyi](/docs/introducing-jsx.html) tövsiyyə edirik. Hər bir JSX elementi [`React.createElement()`](#createelement) funksiyasını çağırmaq üçün gözəl sintaksisdir. JSX işlətdikdə adətən aşağıdakı funksiyaları birbaşa çağırmırsınız.
+Biz UI-ın nə olacağını təsvir etmək üçün [JSX işlətməyi](/docs/introducing-jsx.html) tövsiyə edirik. Hər bir JSX elementi [`React.createElement()`](#createelement) funksiyasını çağırmaq üçün gözəl sintaksisdir. JSX işlətdikdə adətən aşağıdakı funksiyaları birbaşa çağırmırsınız.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)

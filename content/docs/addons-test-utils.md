@@ -19,7 +19,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // NPM ilə ES5
 
 > Qeyd:
 >
-> Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
+> Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
 >
 > Alternativ olaraq, Airbnb-in test etmək üçün yaratdığı [Enzyme](https://airbnb.io/enzyme/) qurğusundan istifadə edə bilərsiniz. Bu qurğu React komponentləri asan şəkildə test etməyə imkan yaradır.
 
@@ -141,7 +141,7 @@ Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əla
 
 > Qeyd:
 >
-> `mockComponent()` köhnə API-dır. Biz [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyyə edirik.
+> `mockComponent()` köhnə API-dır. Biz [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyə edirik.
 
 * * *
 

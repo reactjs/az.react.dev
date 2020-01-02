@@ -27,7 +27,7 @@ Yuxarıdakı misalın addım-addım izahatına aşağıda baxa bilərsiniz:
 
 1. Biz `React.createRef` çağıraraq [React ref](/docs/refs-and-the-dom.html) yaradırıq və onu `ref` dəyişəninə təyin edirik.
 2. Biz `ref`-imizi JSX atributu kimi təyin edərək `<FancyButton ref={ref}>` komponentinə ötürürük.
-3. React `ref`-i `forwardRef` funskiyasının içində olan `(props, ref) => ...` funksiyasının ikinci arqumentinə ötürür.
+3. React `ref`-i `forwardRef` funksiyasının içində olan `(props, ref) => ...` funksiyasının ikinci arqumentinə ötürür.
 4. Biz bu `ref` arqumentini JSX atributu kimi təyin edərək `<button ref={ref}>` komponentinə yönləndiririk.
 5. ref qoşulduğu zaman, `ref.current`-i `<button>` DOM nodu göstərəcək. 
 

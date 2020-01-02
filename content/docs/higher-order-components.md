@@ -272,7 +272,7 @@ const enhance = connect(commentListSelector, commentListActions);
 // Redux store-a qoşaraq qaytarır
 const ConnectedComment = enhance(CommentList);
 ```
-Başqa sözlə, `connect` yüksək dərəcəli komponenti qaytaran yüksək dərəcəli funskiyadır!
+Başqa sözlə, `connect` yüksək dərəcəli komponenti qaytaran yüksək dərəcəli funksiyadır!
 
 Bu forma çaşdırıcı və ya lazımsız görünə bilər, lakin faydalı xassəyə malikdir. `connect` funksiyasından geri qaytarılan HOC tək arqumentlidir və `Component => Component` imzasına sahibdir. Qaydış növü ilə giriş növü eyni olan funksiyaları birlikdə tərtib etmək çox asandır.
 

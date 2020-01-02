@@ -262,5 +262,5 @@ Bu problemi həll etmək üçün, dəyəri valideynin state-inə qaldırın:
 
 > Qeyd
 > 
-> Əvvəl React eksperimental bir kontekst API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [Köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
+> Əvvəl React eksperimental bir kontekst API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [Köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
  

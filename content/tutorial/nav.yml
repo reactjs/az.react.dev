@@ -23,7 +23,7 @@
           href: /tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
           forceInternal: true
         - id: setup-option-2-local-development-environment
-          title: "Seçim 2: Lokal Təkminləşmə Mühiti"
+          title: "Seçim 2: Lokal Təkmilləşmə Mühiti"
           href: /tutorial/tutorial.html#setup-option-2-local-development-environment
           forceInternal: true
         - id: help-im-stuck

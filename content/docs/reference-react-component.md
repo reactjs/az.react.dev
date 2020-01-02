@@ -31,7 +31,7 @@ class Welcome extends React.Component {
 
 `React.Component` subklasında yeganə müəyyənləşdirilməsi olan funksiya [`render()`](#render) funksiyasıdır. Bu səhifədə göstərilən digər bütün funksiyaların müəyyənləşdirilməsi məcburi deyil.
 
-**Biz xüsusi baza komponent klası yaratmağı tövsiyyə etmirik.** React komponentlərində [kodun yenidən işlədilməsinə varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
+**Biz xüsusi baza komponent klası yaratmağı tövsiyə etmirik.** React komponentlərində [kodun yenidən işlədilməsinə varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
 
 >Qeyd:
 >
@@ -254,7 +254,7 @@ Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər kompon
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-`shouldComponentUpdate()` funksiyasından istifadə edərək React-ə komponentdə state və ya propların dəyişməsinin komponentin nəticəsinə təsir etmədiyini göstərin. Normalda hər state dəyişikliyində komponent yenidən render edir. Biz əksər hallarda normativə etibar etməyi tövsiyyə edirik.
+`shouldComponentUpdate()` funksiyasından istifadə edərək React-ə komponentdə state və ya propların dəyişməsinin komponentin nəticəsinə təsir etmədiyini göstərin. Normalda hər state dəyişikliyində komponent yenidən render edir. Biz əksər hallarda normativə etibar etməyi tövsiyə edirik.
 
 `shouldComponentUpdate()` proplar və ya state dəyişdikdə hər render-dən öncə çağrılır. Defoltda bu funksiya `true` qaytarır. Bu funksiya ilkin render zamanı və ya `forceUpdate()` işlədildikdə çağrılmır.
 
@@ -309,7 +309,7 @@ Məsələn:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
-Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funskiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
+Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` funksiyasında oxumaq daha düzgündür. Çünki "render" fazası lifecycle-ları (məsələn `render`) və "commit" fazası lifecycle-ları (məsələn `getSnapshotBeforeUpdate` və `componentDidUpdate`) arasında gecikmə ola bilər.
 
 * * *
 
@@ -420,7 +420,7 @@ class ErrorBoundary extends React.Component {
 
 ### Köhnə Lifecycle Funksiyaları {#legacy-lifecycle-methods}
 
-Aşağıdakı lifecycle funksiyalar köhnədirlər. Bu funksiyaların indi işləməyinə baxmayaraq, biz yeni kodda bu lifecycle-ları işlətməyi tövsiyyə etmirik. Siz [bu bloq yazısında](/blog/2018/03/27/update-on-async-rendering.html) köhnə lifecycle funksiyalarından miqrasiya etmək üçün əlavə məlumat ala bilərsiniz.
+Aşağıdakı lifecycle funksiyalar köhnədirlər. Bu funksiyaların indi işləməyinə baxmayaraq, biz yeni kodda bu lifecycle-ları işlətməyi tövsiyə etmirik. Siz [bu bloq yazısında](/blog/2018/03/27/update-on-async-rendering.html) köhnə lifecycle funksiyalarından miqrasiya etmək üçün əlavə məlumat ala bilərsiniz.
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
@@ -458,7 +458,7 @@ UNSAFE_componentWillReceiveProps(nextProps)
 > * Əgər sizə **prop dəyişdikdə hər hansı bir məlumatı yenidən hesablamaq lazımdırsa** [memoizasiya koməkçisindən istifadə edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 > * Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə** komponenti ya [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 >
-> Digər alternativlər üçün [bu törənmiş state haqqında bloq yazısında olan tövsiyyələri tətbiq edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Digər alternativlər üçün [bu törənmiş state haqqında bloq yazısında olan tövsiyələri tətbiq edin](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 `UNSAFE_componentWillReceiveProps()` funksiyası mount olunmuş komponent propları qəbul etməmişdən öncə çağrılırır. Əgər sizə prop dəyişiklikləri əsasında state-i yeniləmək lazımdırsa (məsələn, state-i sıfırlamaq üçün) siz `this.props`-u `nextProps` ilə müqayisə edib state-i `this.setState()` ilə yeniləyə bilərsiniz.
 
@@ -526,7 +526,7 @@ this.setState((state, props) => {
 
 `updater` funksiyasında olan `state` və `props` dəyərlərinin yeni olmasında qarantiya var. `updater`-in nəticəsi `state` ilə dayaz birləşdirilir (merge).
 
-`setState()`-in ikinci arqumenti məcburi olmayan callback funksiyasıdır. Bu funksiya `setState` başa çatdıqda və komponent yenidən render etdikdə icra olunur. Normalda biz belə məntiq üçün `componentDidUpdate()` işlətməyi tövsiyyə edirik.
+`setState()`-in ikinci arqumenti məcburi olmayan callback funksiyasıdır. Bu funksiya `setState` başa çatdıqda və komponent yenidən render etdikdə icra olunur. Normalda biz belə məntiq üçün `componentDidUpdate()` işlətməyi tövsiyə edirik.
 
 Siz `setState()`-in `updater` arqumentinə funksiya əvəzinə obyekt də göndərə bilərsiniz:
 
@@ -551,7 +551,7 @@ Object.assign(
 )
 ```
 
-Bir tsiklda bir neçə çağırış əvvəlki çağırışları "ləğv edəcək" və bu miqdarın yalnız bir dəfə artması ilə nəticələnəcək. Əgər sonrakı state cari state-dən asılıdırsa, biz `updater`-i funksiya formasında istifadə etməyi tövsiyyə edirik:
+Bir tsiklda bir neçə çağırış əvvəlki çağırışları "ləğv edəcək" və bu miqdarın yalnız bir dəfə artması ilə nəticələnəcək. Əgər sonrakı state cari state-dən asılıdırsa, biz `updater`-i funksiya formasında istifadə etməyi tövsiyə edirik:
 
 ```js
 this.setState((state) => {

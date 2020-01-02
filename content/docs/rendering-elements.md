@@ -20,7 +20,7 @@ Brauzerin DOM elementlərindən fərqli olaraq React elementləri ucuz qiymətə
 
 >**Qeyd:** 
 >
->Elementləri daha çox tanınan "komponentlər" konsepsiyası ilə çaşdırmaq olar. [Gələcək bölmədə](/docs/components-and-props.html) biz komponentlər ilə tanış olacağıq. Komponentlərin elementlərdən düzəldiyindən biz qabağa atlamadan öncə bu bölməni oxumağı tövsiyyə edirik.
+>Elementləri daha çox tanınan "komponentlər" konsepsiyası ilə çaşdırmaq olar. [Gələcək bölmədə](/docs/components-and-props.html) biz komponentlər ilə tanış olacağıq. Komponentlərin elementlərdən düzəldiyindən biz qabağa atlamadan öncə bu bölməni oxumağı tövsiyə edirik.
 
 ## Elementləri DOM-a Render Edin {#rendering-an-element-into-the-dom}
 
@@ -60,7 +60,7 @@ Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/W
 >
 >Praktikada, React applikasiyaları `ReactDOM.render()` funksiyasını yalnız bir dəfə çağırırlar. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
 >
->Biz mövzuları ötürməyi tövsiyyə etmirik. Çünki bu mövzular bir-birilərindən asılıdırlar.
+>Biz mövzuları ötürməyi tövsiyə etmirik. Çünki bu mövzular bir-birilərindən asılıdırlar.
 
 ## React Yalnız Lazım Olanları Yeniləyir {#react-only-updates-whats-necessary}
 

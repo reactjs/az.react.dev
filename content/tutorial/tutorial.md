@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Dəsrlik: React-ə Giriş"
+title: "Dərslik: React-ə Giriş"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,11 +12,11 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-Bu dərslik heç bir mövcud React biliyini təxmin etmir.
+Bu dərsliyə başlamaq üçün React biliyinizin olması vacib deyil.
 
 ## Dərsliyi Başlamazdan Əvvəl {#before-we-start-the-tutorial}
 
-Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan bunu ötürmək istəyə bilərsiniz -- amma buna bir şans verin.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyası yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
+Bu dərslikdə biz kiçik bir oyun yazacağıq. **Oyun tərtibatçısı olmadığınız üçün bu dərsliyi ötürmək istəyə bilərsiniz, ancaq cəhd etməyə dəyər.** Bu dərslikdə öyrənəcəyiniz metodlar React applikasiyası yazmaq üçün əsasdır və bu metodları mənimsəmək sizə React-i dərindən başa düşməyə kömək edəcək.
 
 >Məsləhət
 >
@@ -24,7 +24,7 @@ Bu dərslikdə biz kiçik bir oyun yazacağıq. **Siz oyun yazmadığınızdan b
 
 Bu dərslik bir neçə bölməyə bölünmüşdür:
 
-* [Dərslik üçün Qurulma](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
+* [Dərslik Mühitinin Qurulması](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
 * [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, proplar, və state.
 * [Oyunu Tamamlamaq](#completing-the-game) React-in təkmilləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
 * [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
@@ -37,42 +37,42 @@ Bu dərslikdə biz React ilə interaktiv "X O oyununu" düzəltməyi göstərəc
 
 Bizim düzəltdiyimizə buradan baxa bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Əgər kod sizə aydın deyilsə və ya sintaksis sizə tanış deyilsə, narahat olmayın! Bu dərsliyin məqsədi sizə React və onun sintaksisini anlamağa kömək etməkdir.
 
-Dərsliyə başlamamışdan qabaq oyuna baxmağınızı tövsiyyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
+Dərsliyə başlamamışdan qabaq oyuna baxmağınızı tövsiyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
 
 Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu dərslikdə sadə bir şablon ilə başlayacağıq. Sonraki addım sizi oyunu yazmağa hazır etməkdir.
 
 ### Ön şərtlər {#prerequisites}
 
-Biz sizin HTML və Javascript ilə tanışlığınızı təxmin edirik amma siz başqa proqramlaşdırma dilindən gəlsəniz belə davam etməyi bacarmalısınız. Biz sizin proqramlaşdırma konsepsiyaları ilə (funksiyalar, obyektlər, massivlər, və daha az dərəcədə, klaslar) tanışlığınızı təxmin edirik.
+Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə klaslar anlayışlarıyla tanışsınız.
 
-Əgər sizə Javascriptə baxmaq lazımdırsa, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyyə edirik. Qeyd edirikki, biz həmçinin bəzi ES6 (Javascriptin yeni versiyası) xüsusiyyətlərindən istifadə edirik. Bu dərslikdə, biz [arrow funskiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorlarından istifadə edirik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
+Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
-## Dərslik üçün Qurulma {#setup-for-the-tutorial}
+## Dərslik Mühitinin Qurulması {#setup-for-the-tutorial}
 
-Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə yaza və ya kompyuterinizdə lokal təkminləşmə mühiti yarada bilərsiniz.
+Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə və ya lokal mühit yaradaraq kompüterinizdə yaza bilərsiniz.
 
-### Seçim 1: Brauzerdə Kodu Yaz {#setup-option-1-write-code-in-the-browser}
+### Seçim 1: Kodu Brauzerdə Yaz {#setup-option-1-write-code-in-the-browser}
 
-Bu başlamaq üçün ən tez yoldur!
+Bu başlamaq üçün ən sürətli üsuldur!
 
-İlk olaraq, bu **[Başlama Kodunu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** yeni təbdə açın. Yeni təb sizə boş "X O oyun" taxtası və React kodu göstərəcək. Biz bu dərslikdə React kodu üstündə işləyəcəyik.
+İlk olaraq, bu **[hazır kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** yeni tabda açın. Yeni tabda siz, boş "X O oyun" lövhəsini və bu dərslikdə tədricən dəyişdirəcəyimiz React kodu görəcəksiniz.
 
-Siz indi ikinci seçimi ötüb, [İcmal](#overview) bölməsinə keçə bilərsiniz.
+Siz indi ikinci seçimi ötürə və React barədə ümumi məlumat əldə etmək üçün [İcmal](#overview) bölməsinə keçə bilərsiniz.
 
-### Seçim 2: Lokal Təkminləşmə Mühiti {#setup-option-2-local-development-environment}
+### Seçim 2: Lokal Təkmilləşmə Mühiti {#setup-option-2-local-development-environment}
 
-Bu tam istəyə bağlıdır və bu dərslik üçün məcburi deyil!
+Bu tamamilə istəyə bağlıdır və bu dərs üçün tələb olunmur!
 
 <br>
 
 <details>
 
-<summary><b>Məcburi Deyil: Üstünlük verdiyiniz kod redaktoru ilə lokal qurulmasının təlimatları</b></summary>
+<summary><b>İstəyə bağlıdır: Layihəni üstünlük verdiyiniz redaktor ilə yazmağınız üçün təlimat</b></summary>
 
-Bu qurulma daha çox vaxt tələb edir amma sizə bu dərsliyi seçdiyiniz redaktor ilə tamamlamağa icazə verir. İzləmək üçün addımlar:
+Lokal mühitin sazlanması daha çox vaxt tələb edir, amma sizə bu dərsliyi seçdiyiniz redaktor ilə tamamlamağa imkan verir. Bunun üçün aşağıdakı addımlara əməl edin:
 
-1. Əmin olunki [Node.js](https://nodejs.org/en/) son versiyası qurulub.
-2. Yeni layihə yaratmaq üçün [Create React App qurulma təlimatlarını](/docs/create-a-new-react-app.html#create-react-app) izləyin.
+1. Əmin olun ki, [Node.js](https://nodejs.org/en/) son versiyası qurulub.
+2. Yeni layihə yaratmaq üçün [Create React App qurulma təlimatlarına](/docs/create-a-new-react-app.html#create-react-app) əməl edin.
 
 ```bash
 npx create-react-app my-app
@@ -100,9 +100,9 @@ cd ..
 
 4. `index.css` adlı faylı `src/` direktoriyasına [bu CSS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0100) ilə əlavə edin.
 
-5. `index.js` adlı faylı `src/` directoriyasına [bu JS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) ilə əlavə edin.
+5. `index.js` adlı faylı `src/` direktoriyasına [bu JS kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) ilə əlavə edin.
 
-6. `src/` directoriyasında olan `index.js` faylının ən yuxarısınz aşağıdalı üç sətri əlavə edin:
+6. `src/` direktoriyasında olan `index.js` faylının başlanğıcına aşağıdakı üç sətri əlavə edin:
 
 ```js
 import React from 'react';
@@ -110,25 +110,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəni açsanız, boş "X O oyunu" taxtası.
+İndi, əgər siz layihə direktoriyasından `npm start` icra etsəniz və brauzerdə `http://localhost:3000` səhifəsini açsanız, boş "X O oyunu" lövhəsini görməlisiniz.
 
-Editorunuz üçün sintaks seçilməsini konfiqurasiya etmək üçün [bu təlimatları](https://babeljs.io/docs/editors/) izləməniz tövsiyyə olunur.
+Redaktorunuzda sintaktik işıqlandırılmanı sazlamaq üçün [bu təlimatlara](https://babeljs.io/docs/editors/) əməl etməyiniz tövsiyə olunur.
 
 </details>
 
-### Kömək, Mən İlişmişəm! {#help-im-stuck}
+### Kömək Edin, Mən İlişmişəm! {#help-im-stuck}
 
-Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Xüsusilə, [Reactiflux Chat](https://discord.gg/reactiflux) kömək almaq üçün ən tez yoldur. Əgər siz cavab almırsınızsa və ya siz yenədə ilişmisinizsə, xahiş olunur bizə İssue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
+Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Tez bir zamanda kömək almaq üçün [Reactiflux Chat](https://discord.gg/reactiflux) xüsusilə əla bir yoldur. Əgər cavab almırsınızsa və ya yenə də ilişmisinizsə, xahiş olunur bizə Github üzərindən Issue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
 ## İcmal {#overview}
 
-İndi sizdə hər şey qurulub deyə gəlin of React haqqında məlumat alaq!
+Quraşdırmanı artıq tamamladığınıza görə, gəlin indi React haqqında məlumat alaq!
 
 ### React Nədir? {#what-is-react}
 
-React UI yaratmaq üçen deklarativ, səmərəli, və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan balaca və sərbəst kod hissələrinin birləşməsi ilə kompleks UI yaratmağa icazə verir.
+React - istifadəçi interfeysləri (UI) yaratmaq üçün deklarativ, səmərəli və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan kiçik sərbəst kod hissələrindən mürəkkəb UI yaratmağa icazə verir.
 
-React-də bir neçə növ komponent var amma gəlin `React.Component` subklassından yaranan komponentlər ilə başlayaq:
+React-də bir neçə növ komponent var, amma biz `React.Component` alt klaslarından başlayacağıq:
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -149,11 +149,11 @@ class ShoppingList extends React.Component {
 // İşlətmə nümunəsi: <ShoppingList name="Rufat" />
 ```
 
-Biz bu maraqlı XML-a oxşar təqlərdən sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyirik. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
+Biz bu maraqlı XML-a oxşar təqlərdən, sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyirik. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
 
-Yuxarıdakı nümunədə, ShoppingList bir **React komponent klassı** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funskiyasından qaytarır.
+Yuxarıdakı nümunədə, ShoppingList bir **React komponent klassı** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funksiyasından qaytarır.
 
-`render` funskiyası görmək istədiyiniz *məzmunu* qaytarır. React bu məzmun əsasında nəticəni göstərir. Xüsusi ilə, `render` **React elementi** (nə render edildiyinin yüngül məzmununu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksik belə iyerarxiyalı strukturların yazılışını asanlaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdakı nümunənin JSX-siz forması aşağıdakı kimi yazılır:
+`render` funksiyası görmək istədiyiniz *məzmunu* qaytarır. React bu məzmun əsasında nəticəni göstərir. Xüsusi ilə, `render` **React elementi** (nə render edildiyinin yüngül məzmununu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksis belə iyerarxiyalı strukturların yazılışını asanlaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdakı nümunənin JSX-siz forması aşağıdakı kimi yazılır:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -166,9 +166,9 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Əgər sizə maraqlıdırsa, `createElement()` [API arayışında](/docs/react-api.html#createelement) daha detallı izah edilir. Biz bu dərslikdə `createElement()` əvəzinə JSX-dən istifadə etməyə davam edəcəyik.
 
-JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqurlu mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyekti obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funskiyalara və s. göndərə bilərsiniz.
+JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqurlu mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funksiyalara və s. göndərə bilərsiniz.
 
-Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Amma siz başqa xüsusi komponentləri belə biləşdirə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən kompleks UI-lar yaratmağa icazə verir.
+Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Lakin, siz həmçinin öz komponentlərinizi də yarada və render edə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən mürəkkəb UI-lar yaratmağa icazə verir.
 
 ## Başlanğıc Kodunu Yoxlamaq {#inspecting-the-starter-code}
 
@@ -188,9 +188,9 @@ Koda yaxından baxdığınızda, üç React komponentin olacağını görəcəks
 
 Gəlin Board komponentindən Square komponentinə məlumat göndərək.
 
-Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
+Dərslikdə irəliləyərkən kodları copy-paste etmək normaldır amma biz kodları əl ilə yazmağınızı tövsiyə edirik. Bu sizə əzələ yaddaşı yaratmağa və daha güclü anlamağa kömək edəcək.
 
-Board-un `renderSquare` funskiyasında, Square-ə `value` propu əlavə edin:
+Board-un `renderSquare` funksiyasında, Square-ə `value` propu əlavə edin:
 
 ```js{3}
 class Board extends React.Component {
@@ -200,7 +200,7 @@ class Board extends React.Component {
 }
 ```
 
-Square-in `render` funskiyasında məlumatı göstərmək üçün `{/* TODO */}` kodunu `{this.props.value}` ilə əvəz edin:
+Square-in `render` funksiyasında məlumatı göstərmək üçün `{/* TODO */}` kodunu `{this.props.value}` ilə əvəz edin:
 
 ```js{5}
 class Square extends React.Component {
@@ -230,7 +230,7 @@ Təbriklər! Siz valideyn olan Board komponentindən "propu" uşaq olan Square k
 
 Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 
-İlk öncə Square komponentindəki `render()` funskiyasında olan "button" təqini aşağıdakı koda çevirin:
+İlk öncə Square komponentindəki `render()` funksiyasında olan "button" təqini aşağıdakı koda çevirin:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -248,7 +248,7 @@ class Square extends React.Component {
 
 >Qeyd
 >
->Yazını qısaltmaq və [`this`-in baş qarışdırıcı işləmə prinsipinindən](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) kənar olmaq üçün, biz buradakı və sonrakı hadisə işləyicilərində [arrow funskiyaları sintaksisindən istifadə edəcəyik](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
+>Yazını qısaltmaq və [`this`-in baş qarışdırıcı işləmə prinsipinindən](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) kənar olmaq üçün, biz buradakı və sonrakı hadisə işləyicilərində [arrow funksiyaları sintaksisindən istifadə edəcəyik](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -262,7 +262,7 @@ class Square extends React.Component {
 >}
 >```
 >
->Diqqət edin ki, biz `onClick` propuna *funskiya* göndəririk: `onClick={() => alert('click')}`. React, bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
+>Diqqət edin ki, biz `onClick` propuna *funksiya* göndəririk: `onClick={() => alert('click')}`. React, bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
 
 Sıradakı addımda, biz Square komponentinin tıklandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. Komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
@@ -291,15 +291,15 @@ class Square extends React.Component {
 
 >Qeyd
 >
->[JavaScript klaslarında](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), subklasın konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funskiya çağırışı ilə başlamalıdır.
+>[JavaScript klaslarında](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), subklasın konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funksiya çağırışı ilə başlamalıdır.
 
-Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funskiyasından istifadə edəcəyik:
+Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funksiyasından istifadə edəcəyik:
 
 * `<button>` təqində `this.props.value`-nu `this.state.value` ilə əvəz et.
 * `onClick={...}` hadisə işləyicisini `onClick={() => this.setState({value: 'X'})}` ilə əvəz et.
 * Oxunaqlığı artırmaq üçün `className` və `onClick` proplarını ayrı sətrlərdə yazın.
 
-Bu dəyişikliklərdən sonra Square-in `render` funskiyasından qaytarılan `<button>` təqi aşağıdakı koda oxşamalıdır:
+Bu dəyişikliklərdən sonra Square-in `render` funksiyasından qaytarılan `<button>` təqi aşağıdakı koda oxşamalıdır:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -323,7 +323,7 @@ class Square extends React.Component {
 }
 ```
 
-Square komponentinin `render` funskiyasında olan `onClick` işləyicisində `this.setState` çağırmaq ilə biz React-ə `<button>` tıklananda komponenti yenidən render etməyi deyirik. Yeniləmədən sonra, Square-in `this.state.value` dəyəri `'X'` olacaq və bu səbəbdən biz oyun taxtasında `X` görəcəyik. Hər hansı bir Square-i tıklayanda, `X` görünəcək.
+Square komponentinin `render` funksiyasında olan `onClick` işləyicisində `this.setState` çağırmaq ilə biz React-ə `<button>` tıklananda komponenti yenidən render etməyi deyirik. Yeniləmədən sonra, Square-in `this.state.value` dəyəri `'X'` olacaq və bu səbəbdən biz oyun taxtasında `X` görəcəyik. Hər hansı bir Square-i tıklayanda, `X` görünəcək.
 
 Komponentdən `setState` çağırdıqda, React avtomatik olaraq komponentin içinsəki uşaq komponentləridə  yeniləyir.
 
@@ -354,7 +354,7 @@ Indi bizdə "X O oyununun" əsas blokları hazırdı. Oyunu tamamlamaq üçün b
 
 İndi, hər Square komponenti oyunun vəziyyətini saxlayır. Qalibi təyin etmək üçün biz bu 9 kvadratın dəyərini bir yerdə saxlamalıyıq.
 
-Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsini fikirləşə bilərik. Bunun React-da mümkün olmasına baxmayaraq, biz bu yol ilə getməyi tövsiyyə etmirik. Çünki belə üsulla yazılan kodu başa düşmək və refaktor etmək çətinləşir və baqların şansı artır. Bunu duzəltməyin ən yaxşı yolu oyunun state-ini hissə-hissə hər Square komponentdə saxlamaq əvəzinə bütünlüklə Board komponentində saxlamaqdır. Board komponenti hər Square-ə nə göstərəcəyini, [Square-ə rəqəm göndərdiyimiz kimi](#passing-data-through-props), prop ilə göndərə bilər.
+Biz Board komponentinin hər Square komponentdən Square-in state-ini istəməsini fikirləşə bilərik. Bunun React-da mümkün olmasına baxmayaraq, biz bu yol ilə getməyi tövsiyə etmirik. Çünki belə üsulla yazılan kodu başa düşmək və refaktor etmək çətinləşir və baqların şansı artır. Bunu duzəltməyin ən yaxşı yolu oyunun state-ini hissə-hissə hər Square komponentdə saxlamaq əvəzinə bütünlüklə Board komponentində saxlamaqdır. Board komponenti hər Square-ə nə göstərəcəyini, [Square-ə rəqəm göndərdiyimiz kimi](#passing-data-through-props), prop ilə göndərə bilər.
 
 **Çoxlu uşaqdan məlumat yığması və ya iki uşaq komponentin bir-biri ilə kommunikasiya etməsi üçün paylaşılan state-i valideyn komponentində bəyan edin. Valideyn komponent bu state-i  uşaq komponentlərə proplar vasisəti ilə göndərə bilər. Bu metod uşaq komponentlər və valideyn komponentlər arasındakı məlumatları sinxron saxlayır.**
 
@@ -386,7 +386,7 @@ Kvadratları doldurduqda, oyun taxtasının vəziyyəti (`this.state.squares` ma
 ]
 ```
 
-Board-un `renderSquare` funskiyası indi belə görsənir:
+Board-un `renderSquare` funksiyası indi belə görsənir:
 
 ```javascript
   renderSquare(i) {
@@ -396,7 +396,7 @@ Board-un `renderSquare` funskiyası indi belə görsənir:
 
 Bu dərsliyi başlayanda biz hər Square-də 0-dan 8-ə kimi rəqəmləri göstərmək üçün Board-dan [`value` propunu göndərdik](#passing-data-through-props). Əvvəlki başqa bir bölmədə isə biz rəqəmləri [Square-in daxili state-indən istifadə edərək](#making-an-interactive-component) "X" ilə əvəz etdik. Bu səbəbdən Square komponenti Board-dan göndərilən `value` propunu saymır.
 
-Biz yenidən propu göndərmək mexanizmindən istifadə edəcəyik. Board komponentindən hər Square-ə kvadratın dəyərini göndərəcəyik (`'X'`, `'O'`, və ya `null`). Biz artıq `squares` massivini Board-un konstrukturunda yaratmışıq və indi biz `renderSquare` funskiyasından bu massivi oxuyacağıq:
+Biz yenidən propu göndərmək mexanizmindən istifadə edəcəyik. Board komponentindən hər Square-ə kvadratın dəyərini göndərəcəyik (`'X'`, `'O'`, və ya `null`). Biz artıq `squares` massivini Board-un konstrukturunda yaratmışıq və indi biz `renderSquare` funksiyasından bu massivi oxuyacağıq:
 
 ```javascript{2}
   renderSquare(i) {
@@ -410,7 +410,7 @@ Biz yenidən propu göndərmək mexanizmindən istifadə edəcəyik. Board kompo
 
 İndi biz Square tıklananda nə olacağını dəyişməliyik. Board komponenti kvadratların dəyərlərini özündə saxlayır. Bu səbəbdən biz Square komponentinə Board-un state-ini dəyişməsini bildirməliyik. State, yarandığı komponentə (bu misalda Board komponentinə) privat olduğundan, biz Square komponentindən Board-un state-ini dəyişə bilmirik.
 
-Bunun əvəzinə, biz Board-dan Sqquare-ə funksiya göndərəcəyik. Bu funskiya Square tıklananda çağrılacaq. Board-un `renderSquare` funskiyasını aşağıdakına dəyişəcəyik:
+Bunun əvəzinə, biz Board-dan Sqquare-ə funksiya göndərəcəyik. Bu funksiya Square tıklananda çağrılacaq. Board-un `renderSquare` funksiyasını aşağıdakına dəyişəcəyik:
 
 ```javascript{5}
   renderSquare(i) {
@@ -429,8 +429,8 @@ Bunun əvəzinə, biz Board-dan Sqquare-ə funksiya göndərəcəyik. Bu funskiy
 
 İndi biz Board-dan Square-ə iki prop göndəririk: `value` və `onClick`. `onClick` propu funksiyadır və Square tıklananda çağrılacaq. Square komponentinə aşağıdakı dəyişiklikləri edəcəyik:
 
-* Square-in `render` funskiyasında `this.state.value`-nu `this.props.value` ilə əvəz edəcəyik
-* Square-in `render` funskiyasında `this.setState()`-i `this.props.onClick()` ilə əvəz edəcəyik
+* Square-in `render` funksiyasında `this.state.value`-nu `this.props.value` ilə əvəz edəcəyik
+* Square-in `render` funksiyasında `this.setState()`-i `this.props.onClick()` ilə əvəz edəcəyik
 * Square state saxlamadığından `constructor`-u Square-dən siləcəyik
 
 Bu dəyişikliklərdən sonra Square komponenti belə olacaq:
@@ -453,16 +453,16 @@ class Square extends React.Component {
 Square tıklandıqda Board-un təmin etdiyi `onClick` funksiyası çağrılır. Bu prosesin icmalı:
 
 1. DOM qurulan `<button>` komponentinin `onClick` propu React-ə tıklama hadisəsi üçün hadisə qəbuledicisi qurmasını deyir.
-2. Düymə tıklandığı zaman, React, Square-in `render()` funskiyasında olan `onClick` hadisə işləyicisini çağırır.
-3. Bu hadisə işləyicisi `this.props.onClick()` funskiyasını çağırır. Square-in `onClick` propu Board tərəfindən müəyyənləşdirilib.
-4. Board-un Square-ə `onClick={() => this.handleClick(i)}` göndərməsindən, Square tıklandığında `this.handleClick(i)` funskiyasını çağırır.
+2. Düymə tıklandığı zaman, React, Square-in `render()` funksiyasında olan `onClick` hadisə işləyicisini çağırır.
+3. Bu hadisə işləyicisi `this.props.onClick()` funksiyasını çağırır. Square-in `onClick` propu Board tərəfindən müəyyənləşdirilib.
+4. Board-un Square-ə `onClick={() => this.handleClick(i)}` göndərməsindən, Square tıklandığında `this.handleClick(i)` funksiyasını çağırır.
 5. Biz `handleClick()` funksiyasını hələ tətbiq etmədiyimizdən bizim kod çökür. Əgər siz indi düyməni tıklasanız, sizdə qırmızı rəngdə xəta səhifəsi "this.handleClick is not a function" formasında çıxacaq.
 
 >Qeyd
 >
->DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-ə xüsusi mənası var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funskiyasını başqa cür də adlandıra bilərik və kod eyni formada işləyəcək. React-də hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
+>DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-ə xüsusi mənası var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funksiyasını başqa cür də adlandıra bilərik və kod eyni formada işləyəcək. React-də hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
 
-Square-i tıkladıqda, `handleClick` funskiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board klasında tətbiq edək:
+Square-i tıkladıqda, `handleClick` funksiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board klasında tətbiq edək:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -521,11 +521,11 @@ Bu dəyişikliklərdən sonra biz Square-ə tıklayaraq oyun taxtasını doldura
 
 Square komponentində state olmadığından, bütün Square komponentləri Board komponentindən dəyərləri alir və tıklandığı zaman Board komponentinə xəbər verir. React terminalogiyasında, Square komponentləri **kontrol olunan komponentlər** adlanırlar. Board komponentinin bu komponentlər üzərində tam kontrolu var.
 
-Qeydə alin ki, biz `handleClick` funskiyasında mövcud `squares` massivini dəyişmək əvəzinə `.slice()` funskiyasını çağırıb massivin kopiyasını düzəldirik. Gələn bölmədə biz `squares`-in kopiyasını çıxarmağın səbəbini izah edəcəyik.
+Qeydə alin ki, biz `handleClick` funksiyasında mövcud `squares` massivini dəyişmək əvəzinə `.slice()` funksiyasını çağırıb massivin kopiyasını düzəldirik. Gələn bölmədə biz `squares`-in kopiyasını çıxarmağın səbəbini izah edəcəyik.
 
 ### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
-Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
+Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
 
 Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişikliklər olan kopiyası ilə əvəz etməkdir.
 
@@ -571,7 +571,7 @@ Biz indi Square-i **funskional komponentə** çevirəcəyik.
 
 React-də **funskional komponentlər** komponentlərin sadə formada yazılması üçündür. Bu komponentlərin state-i olmur; yalnız `render` funksiyası olur. `React.Component`-dən törənən klas yazmaq əvəzinə, biz `props` qəbul edən və nəyi render etməyi qaytaran funksiya yaradırıq. Funksional komponentləri yazmaq klas komponentləri yazmaqdan daha az yorucudur. Bir çox komponent belə formada yazıla bilər.
 
-Square klasını aşağıdakı funskiya ilə əvəz edin:
+Square klasını aşağıdakı funksiya ilə əvəz edin:
 
 ```javascript
 function Square(props) {
@@ -609,7 +609,7 @@ class Board extends React.Component {
   }
 ```
 
-Hər zaman oyunçu hərəkət etdikdə, `xIsNext` (bulin) kimin sonrakı addımı atdığını müəyyənləşdirmək üçün çevriləcək. `xIsNext`-in dəyərini çevirmək üçün gəlin `handleClick` funskiyasını yeniləyək:
+Hər zaman oyunçu hərəkət etdikdə, `xIsNext` (bulin) kimin sonrakı addımı atdığını müəyyənləşdirmək üçün çevriləcək. `xIsNext`-in dəyərini çevirmək üçün gəlin `handleClick` funksiyasını yeniləyək:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -695,7 +695,7 @@ class Board extends React.Component {
 
 ### Qalibi Bəyan Etmək {#declaring-a-winner}
 
-Biz indi kimin sonrakı addımı atacağını bildiyimizdən, gəlin oyunun qalibini və ya oyunda heç bir gedişin qalmadığını göstərək. Qalibi tapmaq üçün aşağıdakı köməkçi funskiyanı faylın sonuna əlavə edin:
+Biz indi kimin sonrakı addımı atacağını bildiyimizdən, gəlin oyunun qalibini və ya oyunda heç bir gedişin qalmadığını göstərək. Qalibi tapmaq üçün aşağıdakı köməkçi funksiyanı faylın sonuna əlavə edin:
 
 ```javascript
 function calculateWinner(squares) {
@@ -719,9 +719,9 @@ function calculateWinner(squares) {
 }
 ```
 
-9 kvadratdan ibarət olan massiv verildikdə, bu funskiya qalibi müəyyənləşdirib, "X", "O" və ya "null" qaytaracaq.
+9 kvadratdan ibarət olan massiv verildikdə, bu funksiya qalibi müəyyənləşdirib, "X", "O" və ya "null" qaytaracaq.
 
-Biz Board-un `render` funskiyasında oyunçunun qazandığını yoxlamaq üçün `calculateWinner(squares)` funskiyasını çağıracağıq. Əgər oyunçu qalib olubsa, biz "Qalib: X" və ya "Qalib: O" formalı mətn göstərəcəyik. Board-un `render` funskiyasındakı `status`-u aşağıdakı formada dəyişəcəyik:
+Biz Board-un `render` funksiyasında oyunçunun qazandığını yoxlamaq üçün `calculateWinner(squares)` funksiyasını çağıracağıq. Əgər oyunçu qalib olubsa, biz "Qalib: X" və ya "Qalib: O" formalı mətn göstərəcəyik. Board-un `render` funksiyasındakı `status`-u aşağıdakı formada dəyişəcəyik:
 
 ```javascript{2-8}
   render() {
@@ -765,7 +765,7 @@ Son bir tapşırıq kimi, gəlin əvvəlki gedişlərə qayıtmağı tətbiq ed�
 
 Əgər biz `squares` massivini mutasiya etsə idik, zaman səyahətinin tətbiqi çətin olacaqdı.
 
-Lakin, biz hər gedişdən sonra `slide()` funskiyasından istifadə edərək, `squares` massivinin kopiyasını çıxardıq və bu massivə [mutasiya olunmayan](#why-immutability-is-important) kimi davrandıq. Bu bizə `squares` massivinin bütün köhnə versiyalarını saxlamağa və bu versiyalar arasında naviqasiya etməyə imkan yaradır.
+Lakin, biz hər gedişdən sonra `slide()` funksiyasından istifadə edərək, `squares` massivinin kopiyasını çıxardıq və bu massivə [mutasiya olunmayan](#why-immutability-is-important) kimi davrandıq. Bu bizə `squares` massivinin bütün köhnə versiyalarını saxlamağa və bu versiyalar arasında naviqasiya etməyə imkan yaradır.
 
 Biz köhnə `squares` massivlərini `history` adında bir massivdə saxlayacağıq. `history` massivi, birinci gedişdən axırıncı gedişə kimi olan oyun taxtasının bütün vəziyyətlərinin təsviridir. Bu massiv aşağıdakı struktura malikdir:
 
@@ -840,8 +840,8 @@ class Game extends React.Component {
 Sonra biz Board-a `squares` və `onClick` proplarını Game komponentindən almasını təmin edəcəyik. İndi Board-da bütün Square-lər üçün yalnız bir tıklamaq hadisə işləyicisi olduğundan, biz hansı Square-in tıklandığını bilmək üçün, hər Square-in yerini `onClick` işləyicisinə göndərməliyik. Aşağıda Board komponentini yeniləmək üçün olan addımlar göstərilib:
 
 * Board-dan `constructor`-u silin.
-* Board-un `renderSquare` funskiyasında, `this.state.squares[i]`-i `this.props.squares[i]` ilə əvəz edin.
-* Board-un `renderSquare` funskiyasında, `this.handleClick(i)`-i `this.props.onClick(i)` ilə əvəz edin.
+* Board-un `renderSquare` funksiyasında, `this.state.squares[i]`-i `this.props.squares[i]` ilə əvəz edin.
+* Board-un `renderSquare` funksiyasında, `this.handleClick(i)`-i `this.props.onClick(i)` ilə əvəz edin.
 
 Board komponenti aşağıdakı formada olacaq:
 
@@ -901,7 +901,7 @@ class Board extends React.Component {
 }
 ```
 
-İndi biz Game komponentinin `render` funskiyasında, tarixçənin ən yeni qeydindən istifadə edərək, qalibi müəyyənləşdirib oyunun statusunu göstərəcəyik:
+İndi biz Game komponentinin `render` funksiyasında, tarixçənin ən yeni qeydindən istifadə edərək, qalibi müəyyənləşdirib oyunun statusunu göstərəcəyik:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -933,7 +933,7 @@ class Board extends React.Component {
   }
 ```
 
-Game komponentinin oyun statusunu göstərdiyindən, biz bu eyni kodu Board-un `render` funskiyasından silə bilərik. Refaktor etdikdən sonra, Board-un `render` funskiyası belə görünəcək:
+Game komponentinin oyun statusunu göstərdiyindən, biz bu eyni kodu Board-un `render` funksiyasından silə bilərik. Refaktor etdikdən sonra, Board-un `render` funksiyası belə görünəcək:
 
 ```js{1-4}
   render() {
@@ -959,7 +959,7 @@ Game komponentinin oyun statusunu göstərdiyindən, biz bu eyni kodu Board-un `
   }
 ```
 
-Ən sonda, biz `handleClick` funskiyasını Board komponentindən Game komponentinə köçürməliyik. Həmçinin biz oyun komponentində state-in stukturunun fərqli olduğunu nəzərə alaraq `handleClick`-i dəyişməliyik. Game-in `handleClick` funskiyasında, biz yeni tarixçə qeydlərini `history` massivinə birləşdiririk.
+Ən sonda, biz `handleClick` funksiyasını Board komponentindən Game komponentinə köçürməliyik. Həmçinin biz oyun komponentində state-in stukturunun fərqli olduğunu nəzərə alaraq `handleClick`-i dəyişməliyik. Game-in `handleClick` funksiyasında, biz yeni tarixçə qeydlərini `history` massivinə birləşdiririk.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -981,9 +981,9 @@ Game komponentinin oyun statusunu göstərdiyindən, biz bu eyni kodu Board-un `
 
 >Qeyd
 >
->Bizim tanıdığımız massivdə olan `push()` funskiyasından fərqli olaraq, `concat()` funskiyası orijinal massivi mutasiya etmir. Bu səbəbdən biz `concat`-ə üstünlük veririk.
+>Bizim tanıdığımız massivdə olan `push()` funksiyasından fərqli olaraq, `concat()` funksiyası orijinal massivi mutasiya etmir. Bu səbəbdən biz `concat`-ə üstünlük veririk.
 
-Bu nöqtədə, Board komponentinə yalnız `renderSquare` və `render` funkisyaları lazımdır. Oyunun vəziyyəti və `handleClick` funskiyası Game komponentində olmalıdır.
+Bu nöqtədə, Board komponentinə yalnız `renderSquare` və `render` funkisyaları lazımdır. Oyunun vəziyyəti və `handleClick` funksiyası Game komponentində olmalıdır.
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
@@ -993,16 +993,16 @@ Biz "X O oyununun" tarixçəsini saxladığımızdan, biz indi gedişlərin siya
 
 Biz React elementlərinin 1-ci klas Javascript obyetkləri olduğunu və bu obyektərin applikasiyada fərqli yerlərə göndərilə bildiyini öyrəndik. Bir neçə elementi render etmək üçün, biz React elementlərinin massivindən istifadə edə bilərik.
 
-JavaScriptdə massivlərdə məlumatları başqa məlumatlara uzlaşdırmaq üçün [`map()` funskiyası var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Məsələn:
+JavaScriptdə massivlərdə məlumatları başqa məlumatlara uzlaşdırmaq üçün [`map()` funksiyası var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Məsələn:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ``` 
 
-`map` funskiyasından istifadə edərək, biz gedişlərin tarixçəsini ekranda düymələri göstərən React elementlərinə uzlaşdırıb, keçmiş gedişlərə "tullanmaq" üçün düymələr siyahısını göstərə bilərik.
+`map` funksiyasından istifadə edərək, biz gedişlərin tarixçəsini ekranda düymələri göstərən React elementlərinə uzlaşdırıb, keçmiş gedişlərə "tullanmaq" üçün düymələr siyahısını göstərə bilərik.
 
-Gəlin Game-in `render funskiyasında `history`-nin üzərindən `map` edək:
+Gəlin Game-in `render funksiyasında `history`-nin üzərindən `map` edək:
 
 ```javascript{6-15,34}
   render() {
@@ -1047,7 +1047,7 @@ Gəlin Game-in `render funskiyasında `history`-nin üzərindən `map` edək:
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-"X O oyununun" tarixində olan bütün gedişlər üçün biz içərisində düymə `<button>` olan siyahı bəndi `<li>` yaradırıq. Düymənin `onClick` işləyicisi `this.jumpTo()` adlanan funskiyanı çağırır. Biz `jumpTo` funskiyasını hələki tətbiq etməmişik. İndi, biz oyunda baş vermiş bütün gedişlərin siyahısını və developer alətləri konsolunda aşağıdakı xəbərdarlığı görməliyik:
+"X O oyununun" tarixində olan bütün gedişlər üçün biz içərisində düymə `<button>` olan siyahı bəndi `<li>` yaradırıq. Düymənin `onClick` işləyicisi `this.jumpTo()` adlanan funksiyanı çağırır. Biz `jumpTo` funksiyasını hələki tətbiq etməmişik. İndi, biz oyunda baş vermiş bütün gedişlərin siyahısını və developer alətləri konsolunda aşağıdakı xəbərdarlığı görməliyik:
 
 >  Xəbərdarlıq:
 >  Massiv və ya iteratorda hər bir uşağın unikal "key" propu olmalıdır. "Game" komponentinin render funksiyasına baxın.
@@ -1083,11 +1083,11 @@ Sayın çoxalmağından əlavə, bunu oxuyan insan, bizim Aydan ilə Elnurun sı
 
 Siyahı yenidən render etdikdə, React hər siyahı elementinin açarını götürür və keçmiş siyahıda eyni açarlı elementləri axtarır. Əgər cari siyahıda olan açar əvvəl mövcud deyildisə, React yeni komponent yaradır. Əgər keçmiş siyahıda olan açar cari siyahıda yoxdursa, React əvvəlki komponenti dağıdır. Əgər açarlar eynidirsə, açarı saxlayan element yerini dəyişir. Açarlar React-ə hər komponentin şəxsiyyəti haqqında məlumat verir və React-ə yenidən renderlər arası state-i saxlayır. Əgər komponentin açarı dəyişirsə, komponent dağılıb və yeni state ilə düzəlir.
 
-`key` React-də xüsusi və reservlənmiş parametrdir (daha təkminli xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
+`key` React-də xüsusi və reservlənmiş parametrdir (daha təkmil xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
 
-**Dinamik siyahılar yaratdığınız zaman düzgün açarların təyin edilməsi ciddi şəkildə tövsiyyə olunur.** Əgər sizdə lazımi açar yoxdursa, sizin açar olana kimi məlumatınızın strukturunu dəyişməniz lazım ola bilər.
+**Dinamik siyahılar yaratdığınız zaman düzgün açarların təyin edilməsi ciddi şəkildə tövsiyə olunur.** Əgər sizdə lazımi açar yoxdursa, sizin açar olana kimi məlumatınızın strukturunu dəyişməniz lazım ola bilər.
 
-Əgər açar təyin edilməyibsə, React sizə xəbərdarlıq edib, massivin indeksini açar kimi işlədəcək. Massiv indeksini açar kimi işlətdikdə, siyahıdakı elementlərin yerini dəyişmək və ya elementləri əlavə edib/silmək problemli olur. Açıq-aydın `key={i}` göndərildikdə xəbərdarlıq susdurulur amma massiv indeksini göndərmək ilə olan problemlər yenədə qalır. Bu səbəbdən, bir çox halda belə formada xəbərdarlığı susdurmaq tövsiyyə edilmir.
+Əgər açar təyin edilməyibsə, React sizə xəbərdarlıq edib, massivin indeksini açar kimi işlədəcək. Massiv indeksini açar kimi işlətdikdə, siyahıdakı elementlərin yerini dəyişmək və ya elementləri əlavə edib/silmək problemli olur. Açıq-aydın `key={i}` göndərildikdə xəbərdarlıq susdurulur amma massiv indeksini göndərmək ilə olan problemlər yenədə qalır. Bu səbəbdən, bir çox halda belə formada xəbərdarlığı susdurmaq tövsiyə edilmir.
 
 Açarlar qlobal formada unikal olmamalıdırlar. Yalnız komponentlər və qonşular arası unikal olmalıdırlar.
 
@@ -1095,7 +1095,7 @@ Açarlar qlobal formada unikal olmamalıdırlar. Yalnız komponentlər və qonş
 
 "X O oyununun" tarixində, hər bir keçmiş gedişin unkial ID-si var: gedişin ardıcıllıq rəqəmi. Bu gedişlərin yeri heç vaxt dəyişmir, silinmir, və ya ortadan gediş əlavə olunmur. Bu səbəbdən, gedişin indeksini açar kimi işlətmək təhlükəsizdir.
 
-Game komponentinin `render` funskiyasında, açarı `<li key={move}>` formada yaza bilərik. React-in açarlar haqqında olan xəbərdarlığı itəcək:
+Game komponentinin `render` funksiyasında, açarı `<li key={move}>` formada yaza bilərik. React-in açarlar haqqında olan xəbərdarlığı itəcək:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1112,7 +1112,7 @@ Game komponentinin `render` funskiyasında, açarı `<li key={move}>` formada ya
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-`jumpTo` funskiyasın olmadığından siyahıdakı hər hansı bir düyməni tıkladıqda xəta baş verir. `jumpTo` funskiyasını tətbiq etməmişdən qabaq, biz hansı gedişdə olduğumuzu bilmək üçün `stepNumber` state-ini Game komponentinə əlavə edəcəyik.
+`jumpTo` funksiyasının olmadığından siyahıdakı hər hansı bir düyməni tıkladıqda xəta baş verir. `jumpTo` funksiyasını tətbiq etməmişdən qabaq, biz hansı gedişdə olduğumuzu bilmək üçün `stepNumber` state-ini Game komponentinə əlavə edəcəyik.
 
 İlk olaraq, `stepNumber: 0`-ı Game `constructor`-da başlanğıc state-ə əlavə edin:
 
@@ -1130,7 +1130,7 @@ class Game extends React.Component {
   }
 ```
 
-Sonra, biz `stepNumber`-i yeniləmək üçün Game komponentində `jumpTo` funskiyasını tətbiq edəcəyik. Əlavə olaraq, biz `stepNumber` cüt rəqəm olduqda `xIsNext` state-ini true edəcəyik:
+Sonra, biz `stepNumber`-i yeniləmək üçün Game komponentində `jumpTo` funksiyasını tətbiq edəcəyik. Əlavə olaraq, biz `stepNumber` cüt rəqəm olduqda `xIsNext` state-ini true edəcəyik:
 
 ```javascript{5-10}
   handleClick(i) {
@@ -1151,7 +1151,7 @@ Sonra, biz `stepNumber`-i yeniləmək üçün Game komponentində `jumpTo` funsk
 
 Biz həmçinin Game-in `handleClick` funksiyasında kiçik dəyişikliklər edəcəyik.
 
-Əlavə etdiyimiz `stepNumber` state-i istifadəçiyə gedişi göstərir. Yeni gediş etdikdə isə, biz `stepNumber`-i yeniləmək üçün `stepNumber: history.length`-nu `this.setState` funskiyasının arqumentinin bir hissəsi kimi əlavə etməliyik. Bu biz yeni gediş əlavə etdikdə eyni gedişi göstərməyin qabağını alır.
+Əlavə etdiyimiz `stepNumber` state-i istifadəçiyə gedişi göstərir. Yeni gediş etdikdə isə, biz `stepNumber`-i yeniləmək üçün `stepNumber: history.length`-nu `this.setState` funksiyasının arqumentinin bir hissəsi kimi əlavə etməliyik. Bu biz yeni gediş əlavə etdikdə eyni gedişi göstərməyin qabağını alır.
 
 Biz həmçinin `this.state.history`-ni oxumağı `this.state.history.slice(0, this.state.stepNumber + 1)` ilə əvəz edəcəyik. Bu, biz keçmişdə olduğumuz zaman hərəkət etdikdə, olduğumuz nöqtədən yeni gedişin əlavə edilməsi və qalan "gələcək" gedişləri tarixinin silinməsini təmin edir.
 
@@ -1174,7 +1174,7 @@ Biz həmçinin `this.state.history`-ni oxumağı `this.state.history.slice(0, th
   }
 ```
 
-Son olaraq, biz Game komponentinin `render` funskiyasında ən sonuncu gedişi göstərmək əvəzinə `stepNumber` indeksi ilə olan gedişi göstərməliyik:
+Son olaraq, biz Game komponentinin `render` funksiyasında ən sonuncu gedişi göstərmək əvəzinə `stepNumber` indeksi ilə olan gedişi göstərməliyik:
 
 ```javascript{3}
   render() {
@@ -1202,7 +1202,7 @@ Arzulayırıq ki, siz də React-in işləməyi ilə bağlı fikir yarandı.
 
 Son nəticəni buradan göndərə bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Əgər sizdə əlavə vaxt varsa və ya yeni React bacarıqlarını möhkəmləndirmək istəyirsinizsə, aşağıda bu oyunu təkminləşdirmək üçün bəzi ideayalar var (çətinliyin artırılması sırası ilə):
+Əgər sizdə əlavə vaxt varsa və ya yeni React bacarıqlarını möhkəmləndirmək istəyirsinizsə, aşağıda bu oyunu təkmilləşdirmək üçün bəzi ideayalar var (çətinliyin artırılması sırası ilə):
 
 1. Hər gedişin yerini gediş tarixi siyahısında (sütun, sıra) formatında göstərmək.
 2. Seçilmiş gediş siyahısını qalın şrift ilə göstər.

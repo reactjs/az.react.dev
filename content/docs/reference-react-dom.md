@@ -54,7 +54,7 @@ Render a React element into the DOM in the supplied `container` and return a [re
 > `ReactDOM.render()` konteyner nodunu dəyişmir (yalnız konteynerin uşaqlarını dəyişir). Mövcud olan uşaqları silmədən yeni komponenti mövcud olan DOM noduna əlavə etmək mümkündür.
 >
 > Hal hazırda `ReactDOM.render()` ana  `ReactComponent` instansiyasına referansı qaytarır. Amma bu dəyərin istifadəsi köhnəlib və bu dəyərdən istifadə etməyin.
-> Çünki React gələcəkdə bəzi hallarda komponentləri asinxron formada render edə bilər. Əgər sizə ana `ReactComponent` instansiyasına referans lazımdırsa, tövsiyyə olunan həll ana elementə
+> Çünki React gələcəkdə bəzi hallarda komponentləri asinxron formada render edə bilər. Əgər sizə ana `ReactComponent` instansiyasına referans lazımdırsa, tövsiyə olunan həll ana elementə
 > [callback ref-i](/docs/more-about-refs.html#the-ref-callback-attribute) qoşmaqdır.
 >
 > `ReactDOM.render()` ilə server-də render edilən komponenti hidrat (hydrate) etmək köhnəlib və React 17-də silinəcək. Bunun yerinə [`hydrate()`-dən](#hydrate) istifadə edin.
@@ -69,7 +69,7 @@ ReactDOM.hydrate(element, container[, callback])
 
 [`render()`](#render)-dən fərqli olaraq bu funksiya [`ReactDOMServer`](/docs/react-dom-server.html) tərəfindən render edilən HTML kontenti olan konteyneri hidrat etmək üçün işlədilir. React mövcud markapa hadisə işləyicilərini qoşmağa çalışacaq.
 
-React render edilən kontentin server və klientdə eyni olmasını umur. Bu, mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışın. Təkminləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir çox applikasiyalarda uyğunsuzluqlar nadir olduğundan bütün markapları validasiya etmək çox bahalıdır.
+React render edilən kontentin server və klientdə eyni olmasını umur. Bu, mətnlərdə olan fərqlilikləri düzəldə bilir amma siz bütün uyğunsuzlara baq kimi davranıb düzəltməyə çalışın. Təkmilləşmə modunda, React hidrasiya zamanı baş verən bütün uyğunsuzluqlar haqqında xəbərdarlıq edir. Uyğunsuzluqlar zamanı attribut fərqlərinin düzəlməsinə heç bir qarantiya yoxdur. Bunun səbəbi performan ilə bağlıdır. Bir çox applikasiyalarda uyğunsuzluqlar nadir olduğundan bütün markapları validasiya etmək çox bahalıdır.
 
 Əgər elementin atributu və ya mətn kontenti server və klientdə qaçılmaz şəkildə fərqlənirsə (məsələn tarix), siz elementə `suppressHydrationWarning={true}` əlavə etməklə xəbərdarlığı söndürə bilərsiniz. Bu yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Mətn kontenti olmadıqda, React yenə də uyğunsuzluqları düzəltməyə bilər və bu gələcək yeniliklərə kimi eyni qala bilər.
 
@@ -93,7 +93,7 @@ Mount olunmuş React komponenti DOM-dan silir və bütün aid olan hadisə işl�
 
 > Qeyd:
 >
-> `findDOMNode` DOM noduna daxil olmaq üçün bir üsuldur. Bu üsulun komponent abstraksiyasını sındırdığına görə bir çox hallarda bu üsuldan istifadə etməyi tövsiyyə etmirik. [`StrictMode`-da bu üsul köhnəlib.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` DOM noduna daxil olmaq üçün bir üsuldur. Bu üsulun komponent abstraksiyasını sındırdığına görə bir çox hallarda bu üsuldan istifadə etməyi tövsiyə etmirik. [`StrictMode`-da bu üsul köhnəlib.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)

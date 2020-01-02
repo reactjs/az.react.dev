@@ -47,7 +47,7 @@ Bu konsepsiyaların daha dəqiq misalı üçün `<select>` sahələrinə əlavə
 
 >**Qeyd:**
 >
->Bu həllin mümkün olması React applikasiyaları üçün ən yaxşı yol anlamına gəlmir. Biz işlədə bildiyiniz halda React komponentləri işlətməyi tövsiyyə edirik. React komponentlərini React applikasiyalarında işlətmək daha asandır. Əlavə olaraq bu komponentlərin üzərində davranış və görünüş dəyişikləri üçün daha çox kontrol var.
+>Bu həllin mümkün olması React applikasiyaları üçün ən yaxşı yol anlamına gəlmir. Biz işlədə bildiyiniz halda React komponentləri işlətməyi tövsiyə edirik. React komponentlərini React applikasiyalarında işlətmək daha asandır. Əlavə olaraq bu komponentlərin üzərində davranış və görünüş dəyişikləri üçün daha çox kontrol var.
 
 İlk olaraq, gəlin Chosen plugininin DOM-un üzərində nə etdiyinə baxaq.
 
@@ -283,7 +283,7 @@ React ağacı *daxilində olan* komponent silindikdə, bu təmizlik işi avtomat
 
 ## Model Təbəqələri ilə İnteqrasiya {#integrating-with-model-layers}
 
-Adətən, [React state](/docs/lifting-state-up.html), [Flux](https://facebook.github.io/flux/) və ya [Redux](https://redux.js.org/) kimi bir tərəfli məlumat axından istifadə etməyi tövsiyyə etməyimizə baxmayaraq React komponentləri, digər freymvork və kitabxanaların model təbəqələrindən də istifadə edə bilərlər.
+Adətən, [React state](/docs/lifting-state-up.html), [Flux](https://facebook.github.io/flux/) və ya [Redux](https://redux.js.org/) kimi bir tərəfli məlumat axından istifadə etməyi tövsiyə etməyimizə baxmayaraq React komponentləri, digər freymvork və kitabxanaların model təbəqələrindən də istifadə edə bilərlər.
 
 ### React Komponentlərində Backbone Modellərindən İstifadə {#using-backbone-models-in-react-components}
 

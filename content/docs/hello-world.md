@@ -27,7 +27,7 @@ Təlimatda, React-in fundamental blokları haqqında bəhs edəcəyik: element v
 
 >Məsləhət
 >
->Bu təlimat **addım-addım öyrənməyi** tərcih edən insanlar üçün nəzərdə tutulub. Əgər siz praktika edərək öyrənməyi tərcih edirsinizsə, [praktiki dəsrliyi](/tutorial/tutorial.html) nəzərdən keçirin. Bu təlimatlar bir-birini tamamlayır.
+>Bu təlimat **addım-addım öyrənməyi** tərcih edən insanlar üçün nəzərdə tutulub. Əgər siz praktika edərək öyrənməyi tərcih edirsinizsə, [praktiki dərsliyi](/tutorial/tutorial.html) nəzərdən keçirin. Bu təlimatlar bir-birini tamamlayır.
 
 Bu sənəd, React-in əsas konseptlərini addım-addım öyrənmək üçün ilk hissədir. Sağdakı siyahıda bütün sənədlər ilə tanış ola bilərsiniz. Siz bu sənədi mobildə cihazdan oxuyursunuzsa yuxarı sağda olan düymədən istifadə edərək siyahını görə bilərsiniz.
 
