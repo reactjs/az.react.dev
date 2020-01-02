@@ -93,43 +93,43 @@ Pull request-ləri core komandası işləyir. Biz, sizin pull request-inizə bax
 7. Kodunuzu [prettier](https://github.com/prettier/prettier) ilə format edin (`yarn prettier`).
 8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
 9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).
-10. CLA-ı doldurun (əgər etməmisinizsə).
+10. CLA-i doldurun (əgər etməmisinizsə).
 
-### Contributor License Agreement (CLA) {#contributor-license-agreement-cla}
+### İştirakçı Lisenziyası Müqaviləsi (CLA) {#contributor-license-agreement-cla}
 
-In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
+Pull request-ini qəbul edə bilməmiz üçün CLA-ı imzalamanız lazımdır. Siz bunu bir dəfə etməlisiniz. Əgər Facebook-un digər open source layihəsində imzalamısınızsa, sizə yenidən imzalamaq lazım deyil. Əgər pull request-i ilk dəfə göndərirsinizsə, CLA-i doldurduğunuzu bizə bildirin ki, biz müqaviləni sizin Github istifadəçi adınız ilə yoxla bilək.
 
-**[Complete your CLA here.](https://code.facebook.com/cla)**
+**[CLA-i buradan doldurun.](https://code.facebook.com/cla)**
 
-### Contribution Prerequisites {#contribution-prerequisites}
+### İştirak Etmək üçün Ön Şərtlər {#contribution-prerequisites}
 
-* You have [Node](https://nodejs.org) installed at v8.0.0+ and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
-* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
-* You are familiar with Git.
+* [Node](https://nodejs.org)-un v8.0.0+ versiyasının və [Yarn](https://yarnpkg.com/en/)-ın v1.2.0+ versiyasını yükləyin.
+* `gcc`-in yükləndiyinizdən və ya lazım olduqda kompilyatoru yükləməkdə probleminizin olmadığından əmin olun. Bəzi asılılıqlara kompilyasiya addımı lazım ola bilər. OS X-də Xcode Command Line Tools-u yükləmək bəsdir. Ubuntu-da `apt-get install build-essential` əmr ilə lazımi paketləri yükləyə bilərsiniz. Digər Linux disto-larında buna oxşar əmrlər var. Windoüs-da bir neçə əlavə addımdır. Əlavə məlumat üçün [`node-gyp` yükləmə təlimatlarına baxın](https://github.com/nodejs/node-gyp#installation).
+* Git ilə tanışlığınız var.
 
-### Development Workflow {#development-workflow}
+### Təkmilləşmə İş Axını {#development-workflow}
 
-After cloning React, run `yarn` to fetch its dependencies.
-Then, you can run several commands:
+React-i clone etdikdən sonra, `yarn` əmrini çağıraraq asılılıqları yükləyin.
+Bundan sonra bir neçə əmri icra edə bilərsiniz:
 
-* `yarn lint` checks the code style.
-* `yarn linc` is like `yarn lint` but faster because it only checks files that differ in your branch.
-* `yarn test` runs the complete test suite.
-* `yarn test --watch` runs an interactive test watcher.
-* `yarn test <pattern>` runs tests with matching filenames.
-* `yarn test-prod` runs tests in the production environment. It supports all the same options as `yarn test`.
-* `yarn debug-test` is just like `yarn test` but with a debugger. Open `chrome://inspect` and press "Inspect".
-* `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
-* `yarn build` creates a `build` folder with all the packages.
-* `yarn build react/index,react-dom/index --type=UMD` creates UMD builds of just React and ReactDOM.
+* `yarn lint` kod stilini yoxlayır.
+* `yarn linc` əmri `yarn lint` əmrinə bənzəyir, amma bu yalnız branch-də dəyişən faylları yoxlayır deyə daha tez işləyir.
+* `yarn test` bütün test dəstini yoxlayır.
+* `yarn test --watch` interaktiv test gözətçisini başladır.
+* `yarn test <pattern>` fayl adları uyğun gələn testləri icra edir.
+* `yarn test-prod` testləri produksiya mühitində icra edir. Bu əmr `yarn test` əmri ilə eyni parametrləri dəstəkləyir.
+* `yarn debug-test` əmri debaqqeri olan `yarn test` əmridi. `chrome://inspect` səhifəsini açıb "Inspect" düyməsini tıklayın.
+* `yarn flow` [Flow](https://flowtype.org/) tip yoxlamalarını başladır.
+* `yarn build` əmri bütün paketləri saxlayan `build` direktoriyası yaradır.
+* `yarn build react/index,react-dom/index --type=UMD` əmri React və ReactDOM üçün UMD qurulmalarını yaradır.
 
-We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However it can be handy to try your build of React in a real project.
+Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test` (və ya yuxarıdakı variasiyalarını) icra etməyi tövsiyyə edirik. Lakin, React qurulmasını real layihədə işlətmək faydalı ola bilər.
 
-First, run `yarn build`. This will produce pre-built bundles in `build` folder, as well as prepare npm packages inside `build/packages`.
+İlk öncə, `yarn build` əmrini icra edin. Bu, qurulan paketləri `build` direktoriyasında, npm paketləri isə `build/packages` direktoriyasında yaradacaq.
 
-The easiest way to try your changes is to run `yarn build react/index,react-dom/index --type=UMD` and then open `fixtures/packaging/babel-standalone/dev.html`. This file already uses `react.development.js` from the `build` folder so it will pick up your changes.
+Dəyişiklikləri yoxlamağın ən asan yolu `yarn build react/index,react-dom/index --type=UMD` əmri çağırıb `fixtures/packaging/babel-standalone/dev.html` səhifəsini açmaqdır. Bu fayl, `build` direktoriyasında olan `react.development.js` faylından istifadə edir.
 
-If you want to try your changes in your existing React project, you may copy `build/dist/react.development.js`, `build/dist/react-dom.development.js`, or any other build products into your app and use them instead of the stable version. If your project uses React from npm, you may delete `react` and `react-dom` in its dependencies and use `yarn link` to point them to your local `build` folder:
+Mövcud React layihəsində olan dəyişiklikləri sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin. Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin:
 
 ```sh
 cd ~/path_to_your_react_clone/build/node_modules/react
@@ -140,45 +140,45 @@ cd /path/to/your/project
 yarn link react react-dom
 ```
 
-Every time you run `yarn build` in the React folder, the updated versions will appear in your project's `node_modules`. You can then rebuild your project to try your changes.
+`yarn build` əmrini React direktoriyasında icra etdikdə yeni versiyalar layihənin `node_modules` direktoriyasında görünəcək. Siz, layihənizi bu dəyişikliklər ilə yenidən quruns.
 
-We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
+Biz, yeni xüsusiyyətlər üçün pull request-də testlərin olmasını tələb edirik. Biz, bu yol ilə gələcəkdə sizin kodunuzun sinmanasını təmin edirik.
 
-### Style Guide {#style-guide}
+### Stil Təlimatları {#style-guide}
 
-We use an automatic code formatter called [Prettier](https://prettier.io/).
-Run `yarn prettier` after making any changes to the code.
+Biz, [Prettier](https://prettier.io/) adlı avtomatik kod format edicisindən istifadə edirik.
+Kodunuza etdiyiniz dəyişikliklərdən sonra `yarn prettier` əmrini çağırın.
 
-Then, our linter will catch most issues that may exist in your code.
-You can check the status of your code styling by simply running `yarn linc`.
+Sonra, kodunuzda olan bir çox problemləri tuta biləcək.
+Kod stilinini statusunu yoxlamaq üçün `yarn linc` əmrini icra edin.
 
-However, there are still some styles that the linter cannot pick up. If you are unsure about something, looking at [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
+Lakin, bəzi stilləri linter tutmaya bilər. Əgər nədənsə əmin deyilsinizsə, [Airbnb-nin Stil Təlimatlarına](https://github.com/airbnb/javascript) baxın.
 
-### Introductory Video {#introductory-video}
+### Giriş Videosu {#introductory-video}
 
-You may be interested in watching [this short video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 mins) which gives an introduction on how to contribute to React.
+Bu [qısa videoda](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 dəq) React layihəsində iştirak etmək üçün giriş kimi istifadə edə bilərsiniz.
 
-#### Video highlights: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Building and testing React locally
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Creating and sending pull requests
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizing code
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adding new React features
+#### Videoda olan məqamlar: {#video-highlights}
+- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - React-in lokal mühitdə qurulması və test edilməsi
+- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Pull request-lərin yaradılması və göndərilməsi
+- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Kodun organizasiyası
+- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm paketləri
+- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Yeni React xüsusiyyətlərinin əlavəsi
 
-For a realistic overview of what it _feels_ like to contribute to React for the first time, check out [this entertaining ReactNYC talk](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
+React layihəsində ilk dəfə iştirak etməyin _necə_ olduğunun realistik icmalı üçün [bu əyləncəli ReactNYC danışığına baxın](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
-### Request for Comments (RFC) {#request-for-comments-rfc}
+### Kommentlər üçün Sorğu (RFC) {#request-for-comments-rfc}
 
-Many changes, including bug fixes and documentation improvements can be implemented and reviewed via the normal GitHub pull request workflow.
+Baq düzəlişləri və sənəd təkmilləşdirmələri daxil olmaqla bir çox dəyişiklikləri normal Github pull request iş axını ilə tətbiq edib yoxlamaq mümkündür.
 
-Some changes though are "substantial", and we ask that these be put through a bit of a design process and produce a consensus among the React core team.
+Lakin, bəzi dəyişikliklərin daha böyük ola bildiyindən biz bunların xüsusi dizayn prosesindən keçməsini və React core komandasında razılıq yaratmasını istəyə bilərik.
 
-The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the project. You can contribute by visiting the [rfcs repository](https://github.com/reactjs/rfcs).
+"RFC" (ingiliscə, request for comments; kommentlər üçün sorğu) prosesi yeni xüsusiyyətlərin layihəyə daxil olması üçün ardıcıl və idarə olunan yoldur. Siz, [rfcs repo-sundan](https://github.com/reactjs/rfcs) iştirak edə bilərsiniz.
 
-### License {#license}
+### Lisenziya {#license}
 
-By contributing to React, you agree that your contributions will be licensed under its MIT license.
+React layihəsində iştirak etdikdə, siz bütün tövfələrinizin MIT lisenziyası ilə lisenziyalanması ilə razılaşırsınız.
 
-### What Next? {#what-next}
+### Sırada Nə Var? {#what-next}
 
-Read the [next section](/docs/codebase-overview.html) to learn how the codebase is organized.
+Kodun necə orqanizə olduğunu haqqında öyrənmək üçün [sonrakı bölməni](/docs/codebase-overview.html) oxuyun.
