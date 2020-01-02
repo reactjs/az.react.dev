@@ -10,17 +10,16 @@ Bu sənədlərdə React sözünü "Reəkt" kimi tələffüz edirik. Bu səbəbd�
 - React-lə
 - React-də
 
-# API sözünün işlədilməsi
+# İngilis Terminlərinin Qısaldılmalarının Şəkilçiləri
 
-API sözü ingiliscə bu formada tələffüz edilir: https://www.youtube.com/watch?v=gZTn6AQDy1g. Bu səbəbdən şəkilçilər qalın saitlər ilə yazılır:
+Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ingilis tələffüzü əsasında təyin edirik:
 
-- API-ı
-- API-a
-- API ilə
-- API-la
-- API-da
+| Termin | Tələffüz | Sait | Nümunə |
+| :---: | :---: | :---: | :---: |
+| API | https://youtu.be/fVEQzKHp5Vs | qalın | API-a, API-ı |
+| UI | https://youtu.be/WtoK7BzaIsA?t=26 | qalın | UI-a, UI-ı |
 
-*Əlavə olaraq API sözünü APİ kimi yazmayın*
+*Əlavə olaraq bu sözləri işlətdikdə I hərfinin yazılışına fikir verin. İ əvəzinə I yazın*
 
 ## React Terminləri
 
