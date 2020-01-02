@@ -28,7 +28,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | class component | klas komponent |
 | controlled component | kontrol olunan komponent |
 | click | tıklamaq |
-| context | 
+| context | kontekst |
 | component | komponent |
 | fragments | fraqmentlər |
 | functional component | funskional komponent |
@@ -94,7 +94,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | local | lokal |
 | map | uzlaşdırmaq |
 | maintainer | saxlayıcı |
-| mock |  |
+| mock | mok |
 | nested | |
 | node | nod |
 | note | qeyd |
