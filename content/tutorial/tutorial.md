@@ -24,7 +24,7 @@ Bu dərslikdə biz kiçik bir oyun yazacağıq. **Oyun tərtibatçısı olmadı�
 
 Bu dərslik bir neçə bölməyə bölünmüşdür:
 
-* [Dərslik mühitinin qurulması](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
+* [Dərslik Mühitinin Qurulması](#setup-for-the-tutorial) bu dərsliyi izləmək üçün **başlanğıc nöqtəsidir.**
 * [İcmal](#overview) React-in **əsaslarını** öyrədəcək: komponentlər, proplar, və state.
 * [Oyunu Tamamlamaq](#completing-the-game) React-in təkmilləşdirilməsi üçün **ən çox işlənən metodları** öyrədəcək.
 * [Zaman Səyahətinin Əlavəsi](#adding-time-travel) React-in unikal gücləri haqqında **dərin məlumatlar** verəcək.
@@ -47,7 +47,7 @@ Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, 
 
 Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [siniflər](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
-## Dərslik mühitinin qurulması {#setup-for-the-tutorial}
+## Dərslik Mühitinin Qurulması {#setup-for-the-tutorial}
 
 Bu dərsliyi iki yol ilə tamamlamaq olar: siz kodu brauzerdə və ya lokal mühit yaradaraq kompüterinizdə yaza bilərsiniz.
 
