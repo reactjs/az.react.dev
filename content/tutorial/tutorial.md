@@ -43,9 +43,9 @@ Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu 
 
 ### Ön şərtlər {#prerequisites}
 
-Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə siniflər anlayışlarıyla tanışsınız.
+Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə klaslar anlayışlarıyla tanışsınız.
 
-Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [siniflər](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
+Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [klaslar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
 ## Dərslik Mühitinin Qurulması {#setup-for-the-tutorial}
 
@@ -128,7 +128,7 @@ Quraşdırmanı artıq tamamladığınıza görə, gəlin indi React haqqında m
 
 React - istifadəçi interfeysləri (UI) yaratmaq üçün deklarativ, səmərəli və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan kiçik sərbəst kod hissələrindən mürəkkəb UI yaratmağa icazə verir.
 
-React-də bir neçə növ komponent var, amma biz `React.Component` alt siniflərindən başlayacağıq:
+React-də bir neçə növ komponent var, amma biz `React.Component` alt klaslarından başlayacağıq:
 
 ```javascript
 class ShoppingList extends React.Component {
