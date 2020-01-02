@@ -116,7 +116,7 @@ Redaktorunuzda sintaktik işıqlandırılmanı sazlamaq üçün [bu təlimatlara
 
 </details>
 
-### Kömək edin, Mən İlişmişəm! {#help-im-stuck}
+### Kömək Edin, Mən İlişmişəm! {#help-im-stuck}
 
 Əgər ilişmisinizsə, [cəmiyyətimizin dəstək resurslarını](/community/support.html) nəzərdən keçirin. Tez bir zamanda kömək almaq üçün [Reactiflux Chat](https://discord.gg/reactiflux) xüsusilə əla bir yoldur. Əgər cavab almırsınızsa və ya yenə də ilişmisinizsə, xahiş olunur bizə Github üzərindən Issue göndərin və biz sizə kömək etməyə cəhd edəcəyik.
 
@@ -168,7 +168,7 @@ return React.createElement('div', {className: 'shopping-list'},
 
 JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifadəsini JSX-də fiqurlu mötərizənin içərisindən çağıra bilərsiniz. Hər React elementi bir sadə Javascript obyektidir. Siz bu obyekti dəyişənə təyin edə bilər və ya applikasiyanızda funksiyalara və s. göndərə bilərsiniz.
 
-Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Lakin, siz həmçinin öz komponentlərinizi də yarada bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən mürəkkəb UI-lər yaratmağa icazə verir.
+Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Lakin, siz həmçinin öz komponentlərinizi də yarada və render edə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən mürəkkəb UI-lar yaratmağa icazə verir.
 
 ## Başlanğıc Kodunu Yoxlamaq {#inspecting-the-starter-code}
 
@@ -1083,7 +1083,7 @@ Sayın çoxalmağından əlavə, bunu oxuyan insan, bizim Aydan ilə Elnurun sı
 
 Siyahı yenidən render etdikdə, React hər siyahı elementinin açarını götürür və keçmiş siyahıda eyni açarlı elementləri axtarır. Əgər cari siyahıda olan açar əvvəl mövcud deyildisə, React yeni komponent yaradır. Əgər keçmiş siyahıda olan açar cari siyahıda yoxdursa, React əvvəlki komponenti dağıdır. Əgər açarlar eynidirsə, açarı saxlayan element yerini dəyişir. Açarlar React-ə hər komponentin şəxsiyyəti haqqında məlumat verir və React-ə yenidən renderlər arası state-i saxlayır. Əgər komponentin açarı dəyişirsə, komponent dağılıb və yeni state ilə düzəlir.
 
-`key` React-də xüsusi və reservlənmiş parametrdir (daha tli xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
+`key` React-də xüsusi və reservlənmiş parametrdir (daha təkmil xüsusiyyət olan `ref` ilə birlikdə). Element yarandığı zaman React `key` parametrini çıxarır və bu açarı birbaşa qaytarılan elementdə saxlayır. `key`-in `props`-a aid olduğu görünsə belə, `key`, `this.props.key` ilə çağrıla bilməz. React avtomatik olaraq `key`-dən istifadə edərək hansı komponentin yenilənəcəyinə qərar verir. Komponent öz `key`-ini soruşa bilməz.
 
 **Dinamik siyahılar yaratdığınız zaman düzgün açarların təyin edilməsi ciddi şəkildə tövsiyə olunur.** Əgər sizdə lazımi açar yoxdursa, sizin açar olana kimi məlumatınızın strukturunu dəyişməniz lazım ola bilər.
 
@@ -1112,7 +1112,7 @@ Game komponentinin `render` funksiyasında, açarı `<li key={move}>` formada ya
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-`jumpTo` funksiyasın olmadığından siyahıdakı hər hansı bir düyməni tıkladıqda xəta baş verir. `jumpTo` funksiyasını tətbiq etməmişdən qabaq, biz hansı gedişdə olduğumuzu bilmək üçün `stepNumber` state-ini Game komponentinə əlavə edəcəyik.
+`jumpTo` funksiyasının olmadığından siyahıdakı hər hansı bir düyməni tıkladıqda xəta baş verir. `jumpTo` funksiyasını tətbiq etməmişdən qabaq, biz hansı gedişdə olduğumuzu bilmək üçün `stepNumber` state-ini Game komponentinə əlavə edəcəyik.
 
 İlk olaraq, `stepNumber: 0`-ı Game `constructor`-da başlanğıc state-ə əlavə edin:
 
@@ -1202,7 +1202,7 @@ Arzulayırıq ki, siz də React-in işləməyi ilə bağlı fikir yarandı.
 
 Son nəticəni buradan göndərə bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Əgər sizdə əlavə vaxt varsa və ya yeni React bacarıqlarını möhkəmləndirmək istəyirsinizsə, aşağıda bu oyunu tləşdirmək üçün bəzi ideayalar var (çətinliyin artırılması sırası ilə):
+Əgər sizdə əlavə vaxt varsa və ya yeni React bacarıqlarını möhkəmləndirmək istəyirsinizsə, aşağıda bu oyunu təkmilləşdirmək üçün bəzi ideayalar var (çətinliyin artırılması sırası ilə):
 
 1. Hər gedişin yerini gediş tarixi siyahısında (sütun, sıra) formatında göstərmək.
 2. Seçilmiş gediş siyahısını qalın şrift ilə göstər.
