@@ -1,22 +1,22 @@
-- title: Community Resources
+- title: Cəmiyyət Resursları
   items:
     - id: support
-      title: Support
+      title: Dəstək
     - id: team
-      title: Team
+      title: Komanda
     - id: courses
-      title: Courses
+      title: Kurslar
     - id: examples
       title: Examples
     - id: meetups
-      title: Meetups
+      title: Meetuplar
     - id: conferences
-      title: Conferences
+      title: Konfranslar
     - id: articles
-      title: Articles
+      title: Məqalələr
     - id: podcasts
-      title: Podcasts
+      title: Podkastlar
     - id: videos
-      title: Videos
+      title: Videolar
     - id: external-resources
-      title: External Resources
+      title: Kənar Resurslar
