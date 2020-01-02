@@ -39,61 +39,61 @@ Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.c
 
 React-in qurma sistemi bütün deaktik edilmiş xüsusiyyətləri dərc etməmişdən öncə siləcək. Continuous integration işi hər commit-dən sonra paket ölçüsünü yoxlayır. Siz ölçüdə baş verən dəyişiklik əsasında xüsusiyyətin düzgün gizlədildiyindən əmin ola bilərsiniz.
 
-### Bugs {#bugs}
+### Baqlar {#bugs}
 
-#### Where to Find Known Issues {#where-to-find-known-issues}
+#### Bilinən Problemləri Haradan Tapmaq Olar {#where-to-find-known-issues}
 
-We are using [GitHub Issues](https://github.com/facebook/react/issues) for our public bugs. We keep a close eye on this and try to make it clear when we have an internal fix in progress. Before filing a new task, try to make sure your problem doesn't already exist.
+Biz açıq baqlar üçün [GitHub Issues-dan](https://github.com/facebook/react/issues) istifadə edirik. Biz bu baqlara yazından baxir və daxili düzəlişin üzərində işləndiyini zaman bunu göstərməyə çalışırıq. Yeni issue əlavə etmədən öncə sizin probleminizin olmadığından əmin olun.
 
-#### Reporting New Issues {#reporting-new-issues}
+#### Yeni Problemlərin Göndərilməsi {#reporting-new-issues}
 
-The best way to get your bug fixed is to provide a reduced test case. This [JSFiddle template](https://jsfiddle.net/Luktwrdm/) is a great starting point.
+Baqınızın düzəldilməsinin ən yaxşı yolu kiçildilmiş test göstərməkdir. Başlanğıc üçün bu [JSFiddle şablonundan](https://jsfiddle.net/Luktwrdm/) istifadə edin.
 
-#### Security Bugs {#security-bugs}
+#### Təhlükəsizlik Baqları {#security-bugs}
 
-Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. With that in mind, please do not file public issues; go through the process outlined on that page.
+Təhlükəsizlik baqlarının təhlükəsiz şəkildə bildirilməsi üçün Facebook-un [bounty proqramı](https://www.facebook.com/whitehat/) var. Bunu nəzərə alaraq xahiş edirik ki, təhlükəsizlik baqlarını açıq issue kimi göndərməyin. Problemi səhifədə göstərilən proses ilə göndərin.
 
-### How to Get in Touch {#how-to-get-in-touch}
+### Bizimlə Əlaqə {#how-to-get-in-touch}
 
-* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* [Discussion forums](https://reactjs.org/community/support.html#popular-discussion-forums)
+* IRC: [freenode-da #reactjs](https://webchat.freenode.net/?channels=reactjs)
+* [Müzakirə Forumları](https://reactjs.org/community/support.html#popular-discussion-forums)
 
-There is also [an active community of React users on the Discord chat platform](https://www.reactiflux.com/) in case you need help with React.
+Əgər sizə React-dən kömək lazımdırsa, bizim [React istifadəçilərindən ibarət olan Discord çat platformasında yerləşən cəmiyyətimiz](https://www.reactiflux.com/) var.
 
-### Proposing a Change {#proposing-a-change}
+### Dəyişikliyi Təklif Edin {#proposing-a-change}
 
-If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react/issues/new). This lets us reach an agreement on your proposal before you put significant effort into it.
+Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmək istəyirsinizsə, biz [issue göndərməyi](https://github.com/facebook/react/issues/new) tövsiyyə edirik. Burada, təklifiniz üzərində çox zəhmət çəkmədən öncə bir razılığa gəlməyimiz mümkündür.
 
-If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
+Əgər baq düzəlişi deirsinizsə, yalnız PR göndərə bilərsiniz. Lakin, biz yenə də nəyi düzəltdiyiniz haqqında issue göndərməyi tövsiyyə edirik. Bu, sizin düzəlişinizi qəbul etmədiyimiz amma yenə də problemi işləmək istədiyimiz hallar üçün faydalıdır.
 
-### Your First Pull Request {#your-first-pull-request}
+### İlk Pull Request-iniz {#your-first-pull-request}
 
-Working on your first Pull Request? You can learn how from this free video series:
+İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında aşağıda göstərilən pulsuz video seriyasından istifadə edə bilərsiniz:
 
-**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of **[good first issues](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** that contain bugs that have a relatively limited scope. This is a great place to get started.
+Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu scope-u olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don't accidentally duplicate your effort.
+Problemi düzəltmək istədiyiniz zaman kiminsə düzəliş üzərində işlədiyini bilmək üçün kommentləri oxuyun. Əgər düzəliş üzərində heç kim işləmirsə, bunun üzərində işləyəcəyiniz komment ilə bildirin ki, başqaları sizin zəhmətinizin kopiyasını etməsinlər.
 
-If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take it over but you should still leave a comment.
+Əgər kimsə problemi götürür, amma iki həftə ərzində heç bir yenilik etmirsə, bu issue-nu özünüzə götürə bilərsiniz. Lakin, yenə də komment işləyəcəyiniz haqqda komment yazmağı unutmayın.
 
-### Sending a Pull Request {#sending-a-pull-request}
+### Pull Request-in Göndərilməsi {#sending-a-pull-request}
 
-The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. For API changes we may need to fix our internal uses at Facebook.com, which could cause some delay. We'll do our best to provide updates and feedback throughout the process.
+Pull request-ləri core komandası işləyir. Biz, sizin pull request-inizə baxıb ya PR-ı biləşdirəcək, ya bu PR-a dəyişikliklərin ediləcəyini bildirəcək, yada ki bu PR-ı izahatlı bağlayacağıq. API dəyişiklikləri olduqda biz Facebook.com-da daxili düzəlişlər etməli ola bilərik. Bu səbəbdən bu biraz vaxt ala bilər. Biz yeniliklər verməyə və proses zamanı rəylərimi bildirməyə çalışacağıq.
 
-**Before submitting a pull request,** please make sure the following is done:
+**Pull request göndərməmişdən öncə,** aşağıdakı addımları atmağınızı xahiş edirik:
 
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
-2. Run `yarn` in the repository root.
-3. If you've fixed a bug or added code that should be tested, add tests!
-4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
-5. Run `yarn test-prod` to test in the production environment. It supports the same options as `yarn test`.
-6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
-7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
-8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
-9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
-10. If you haven't already, complete the CLA.
+1. [repo-nu](https://github.com/facebook/react) fork edib branch-inizi `master`-dən yaradın.
+2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
+3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
+4. Test dəstinin keçdiyindən əmin olun (`yarn test`). Məsləhət: Təkmilləşmə zamanı `yarn test --watch TestName` formalı əmr çağırmaq faydalıdır.
+5. Testləri produksiya mühitində yoxlamaq üçün `yarn test-prod` əmrini icra edin. Bu əmr, `yarn test` ilə eyni parametrləri dəstəkləyir.
+6. Əgər sizə debaqqer lazımdırsa, `yarn debug-test --watch TestName` əmrini icra edin, `chrome://inspect` səhifəsini açın və "Inspect" düyməsini tıklayın.
+7. Kodunuzu [prettier](https://github.com/prettier/prettier) ilə format edin (`yarn prettier`).
+8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
+9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).
+10. CLA-ı doldurun (əgər etməmisinizsə).
 
 ### Contributor License Agreement (CLA) {#contributor-license-agreement-cla}
 
