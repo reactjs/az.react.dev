@@ -1,6 +1,6 @@
 ---
 id: how-to-contribute
-title: How to Contribute
+title: Necə İştirak Etmək
 layout: contributing
 permalink: docs/how-to-contribute.html
 next: codebase-overview.html
@@ -9,127 +9,127 @@ redirect_from:
   - "tips/introduction.html"
 ---
 
-React is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody on [facebook.com](https://www.facebook.com). We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
+React, Facebook-un aktiv təkmilləşmədə olan və [facebook.com](https://www.facebook.com)-da olan bütün istifadəçilər tərəfindən yüklənilən ilk open source layihələrdən biridir. Biz, bu layihədə iştirak etməyin asan və şəffaf olması üzərində işləyirik. Lakin, biz hələdə istəyimizə tam çatmamışıq. Arzu edirik ki, bu sənəd iştirak etmək prosesini aydınlaşdırır və sizin bəzi suallarınızı cavablandırılır.
 
-### [Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+### [Davranış Qaydaları](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
-Facebook has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+Facebook, [Contributor Covenant](https://www.contributor-covenant.org/)-ı öz Davranış Qaydaları kimi adaptasiya etdiyindən biz layihə iştirakçılarının bu qaydalara riayət edəcəyini gözləyirik. Hansı hərəkətlərin dözülüb dözülməyəcəyini anlamaq üçün [bütün mətni](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxumağınız xahiş olunur.
 
-### Open Development {#open-development}
+### Açıq Təkmilləşmə {#open-development}
 
-All work on React happens directly on [GitHub](https://github.com/facebook/react). Both core team members and external contributors send pull requests which go through the same review process.
+React üzərində işlənilən bütün işlər [GitHub-da](https://github.com/facebook/react) baş verir. Həm core komandanın üzvlərinin, həm də xarici iştirakçıların pull request-ləri eyni rəy prosesindən keçirilir.
 
-### Semantic Versioning {#semantic-versioning}
+### Semantik Versiyalama {#semantic-versioning}
 
-React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](https://reactjs.org/docs/faq-versioning.html).
+React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](https://reactjs.org/docs/faq-versioning.html) oxuyun.
 
-Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/master/CHANGELOG.md) sənədləşdirilir.
 
-### Branch Organization {#branch-organization}
+### Branch Orqanizasiyası {#branch-organization}
 
-Submit all changes directly to the [`master branch`](https://github.com/facebook/react/tree/master). We don't use separate branches for development or for upcoming releases. We do our best to keep `master` in good shape, with all tests passing.
+Bütün dəyişiklikləri [`master branch`-inə](https://github.com/facebook/react/tree/master) göndərin. Biz təkmilləşmə və gələcək buraxılışlar üçün ayrı branch-lər işlətmirik. Biz, `master`-in hər zaman yaxşı formada qalması və bütün testlərin keçməsi üçün əlimizdən gələni edirik.
 
-Code that lands in `master` must be compatible with the latest stable release. It may contain additional features, but no breaking changes. We should be able to release a new minor version from the tip of `master` at any time.
+`master`-ə çatan kod ən yeni stabil versiya buraxılışı ilə işləməlidir. Burada, əlavə xüsusiyyətlər ola bilər. Lakin, pozucu dəyişikliklər ola bilməz. Biz `master`-dən istədiyimiz zaman yeni kiçik versiya dərc edə bilməliyik.
 
-### Feature Flags {#feature-flags}
+### Xüsusiyyət Flaqları {#feature-flags}
 
-To keep the `master` branch in a releasable state, breaking changes and experimental features must be gated behind a feature flag.
+`master` branch-ini buraxılışa hazır vəziyyətdə saxlaya bilmək üçün bütün pozucu dəyişikliklər və eksperimental xüsusiyyətlər "xüsusiyyət flaqı" ilə gizlədilir.
 
-Feature flags are defined in [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Some builds of React may enable different sets of feature flags; for example, the React Native build may be configured differently than React DOM. These flags are found in [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Feature flags are statically typed by Flow, so you can run `yarn flow` to confirm that you've updated all the necessary files.
+Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js) faylında təyin edilir. React-in fərqli qurulmaları fərqli xüsusiyyət flaqlarını aktiv edir. Məsələn, React Native qurulması React DOM qurulmasından fərqli konfiqurasiyada olunur. Bu flaqları [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks) direktoriyasından tapa bilərsiniz. Xüsusiyyət flaqlarına Flow ilə statik tiplər əlavə edilir. Bu səbəbdən, lazımi faylların yenilənməsini təsdiqləmək üçün `yarn flow` əmrindən istifadə edə bilərsiniz.
 
-React's build system will strip out disabled feature branches before publishing. A continuous integration job runs on every commit to check for changes in bundle size. You can use the change in size as a signal that a feature was gated correctly.
+React-in qurma sistemi React-i dərc etməmişdən öncə deaktiv edilmiş bütün xüsusiyyətləri siləcək. Continuous integration işi hər commit-dən sonra paket ölçüsünü yoxlayır. Siz ölçüdə baş verən dəyişiklik əsasında xüsusiyyətin düzgün gizlədildiyindən əmin ola bilərsiniz.
 
-### Bugs {#bugs}
+### Baqlar {#bugs}
 
-#### Where to Find Known Issues {#where-to-find-known-issues}
+#### Bilinən Problemləri Haradan Tapmaq Olar {#where-to-find-known-issues}
 
-We are using [GitHub Issues](https://github.com/facebook/react/issues) for our public bugs. We keep a close eye on this and try to make it clear when we have an internal fix in progress. Before filing a new task, try to make sure your problem doesn't already exist.
+Biz açıq baqlar üçün [GitHub Issues-dan](https://github.com/facebook/react/issues) istifadə edirik. Biz bu baqlara yaxından baxır və daxili düzəlişin üzərində işləndiyini zaman bunu göstərməyə çalışırıq. Yeni issue əlavə etmədən öncə probleminizin artıq mövcud olmadığından əmin olun.
 
-#### Reporting New Issues {#reporting-new-issues}
+#### Yeni Problemlərin Göndərilməsi {#reporting-new-issues}
 
-The best way to get your bug fixed is to provide a reduced test case. This [JSFiddle template](https://jsfiddle.net/Luktwrdm/) is a great starting point.
+Baqınızın düzəldilməsinin ən yaxşı yolu baq üçün kiçik demo göstərməkdir. Başlanğıc üçün bu [JSFiddle şablonundan](https://jsfiddle.net/Luktwrdm/) istifadə edə bilərsiniz.
 
-#### Security Bugs {#security-bugs}
+#### Təhlükəsizlik Baqları {#security-bugs}
 
-Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. With that in mind, please do not file public issues; go through the process outlined on that page.
+Təhlükəsizlik baqlarının təhlükəsiz şəkildə bildirilməsi üçün Facebook-un [bounty proqramı](https://www.facebook.com/whitehat/) var. Bunu nəzərə alaraq xahiş edirik ki, təhlükəsizlik baqlarını açıq issue kimi göndərməyin. Baqları səhifədə göstərilən proses ilə göndərin.
 
-### How to Get in Touch {#how-to-get-in-touch}
+### Bizimlə Əlaqə {#how-to-get-in-touch}
 
-* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* [Discussion forums](https://reactjs.org/community/support.html#popular-discussion-forums)
+* IRC: [freenode-da #reactjs](https://webchat.freenode.net/?channels=reactjs)
+* [Müzakirə Forumları](https://reactjs.org/community/support.html#popular-discussion-forums)
 
-There is also [an active community of React users on the Discord chat platform](https://www.reactiflux.com/) in case you need help with React.
+Əgər sizə React ilə bağlı kömək lazımdırsa, bizim [React istifadəçilərindən ibarət olan Discord çat platformasında yerləşən cəmiyyətimizə](https://www.reactiflux.com/) müraciət edə bilərsiniz.
 
-### Proposing a Change {#proposing-a-change}
+### Dəyişikliyi Təklif Edin {#proposing-a-change}
 
-If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react/issues/new). This lets us reach an agreement on your proposal before you put significant effort into it.
+Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmək istəyirsinizsə, biz [issue göndərməyi](https://github.com/facebook/react/issues/new) tövsiyyə edirik. Burada, təklifiniz üzərində çox zəhmət çəkmədən öncə bir razılığa gəlməyimiz mümkündür.
 
-If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
+Əgər baq düzəlişi edirsinizsə, yalnız PR göndərə bilərsiniz. Lakin, biz yenə də nəyi düzəltdiyiniz haqqında issue göndərməyi tövsiyyə edirik. Bu, sizin düzəlişinizi qəbul etmədiyimiz amma yenə də problemi izləmək istədiyimiz hallar üçün faydalıdır.
 
-### Your First Pull Request {#your-first-pull-request}
+### İlk Pull Request {#your-first-pull-request}
 
-Working on your first Pull Request? You can learn how from this free video series:
+İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında öyrənmək istəyirsinizsə, göstərilən pulsuz video seriyasına baxa bilərsiniz:
 
-**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of **[good first issues](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** that contain bugs that have a relatively limited scope. This is a great place to get started.
+Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu əhatə dairəsi olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don't accidentally duplicate your effort.
+Problemi düzəltmək istədiyiniz zaman kiminsə düzəliş üzərində işlədiyini bilmək üçün kommentləri oxuyun. Əgər düzəliş üzərində heç kim işləmirsə, bunun üzərində işləmək istədiyinizi komment ilə bildirin ki, başqaları sizin zəhmətinizin kopiyasını etməsinlər.
 
-If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take it over but you should still leave a comment.
+Əgər kimsə problemi götürdükdən sonra iki həftə ərzində heç bir yenilik etməyibsə, siz bu issue-nu özünüzə götürə bilərsiniz. Lakin, yenə də bunun üzərində işləmək istədiyinizi komment ilə bildirməyi unutmayın.
 
-### Sending a Pull Request {#sending-a-pull-request}
+### Pull Request-in Göndərilməsi {#sending-a-pull-request}
 
-The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. For API changes we may need to fix our internal uses at Facebook.com, which could cause some delay. We'll do our best to provide updates and feedback throughout the process.
+Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə baxıb ya PR-ı biləşdirəcək, ya bu PR-a dəyişikliklərin ediləcəyini bildirəcək, yada ki bu PR-ı izahatlı bağlayacağıq. API dəyişiklikləri olduqda biz Facebook.com-da daxili düzəlişlər etməli ola bilərik. Bu səbəbdən bu biraz vaxt ala bilər. Biz yeniliklər verməyə və proses zamanı rəylərimi bildirməyə çalışacağıq.
 
-**Before submitting a pull request,** please make sure the following is done:
+**Pull request göndərməmişdən öncə** aşağıdakı addımları atmağınızı xahiş edirik:
 
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
-2. Run `yarn` in the repository root.
-3. If you've fixed a bug or added code that should be tested, add tests!
-4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
-5. Run `yarn test-prod` to test in the production environment. It supports the same options as `yarn test`.
-6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
-7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
-8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
-9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
-10. If you haven't already, complete the CLA.
+1. [repo-nu](https://github.com/facebook/react) fork edib `master`-dən branch yaradın.
+2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
+3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
+4. Test dəstinin uğurlu keçdiyindən əmin olun (`yarn test`). Məsləhət: Təkmilləşmə zamanı `yarn test --watch TestName` formalı əmr çağırmaq faydalıdır.
+5. Testləri produksiya mühitində yoxlamaq üçün `yarn test-prod` əmrini icra edin. Bu əmr, `yarn test` ilə eyni parametrləri dəstəkləyir.
+6. Əgər sizə debaqqer lazımdırsa, `yarn debug-test --watch TestName` əmrini icra edin, `chrome://inspect` səhifəsini açın və "Inspect" düyməsini tıklayın.
+7. Kodunuzu [prettier](https://github.com/prettier/prettier) ilə format edin (`yarn prettier`).
+8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
+9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).
+10. CLA-i doldurun (əgər etməmisinizsə).
 
-### Contributor License Agreement (CLA) {#contributor-license-agreement-cla}
+### İştirakçı Lisenziyası Müqaviləsi (CLA) {#contributor-license-agreement-cla}
 
-In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
+Pull request-i qəbul edə bilməmiz üçün CLA-ı imzalamanız lazımdır. Siz bunu bir dəfə etməlisiniz. Əgər Facebook-un digər open source layihəsində imzalamısınızsa, sizə yenidən imzalamaq lazım deyil. Əgər pull request-i ilk dəfə göndərirsinizsə, CLA-i doldurduğunuzu bizə bildirin ki, biz müqaviləni sizin Github istifadəçi adınız ilə yoxlaya bilək.
 
-**[Complete your CLA here.](https://code.facebook.com/cla)**
+**[CLA-i buradan doldurun.](https://code.facebook.com/cla)**
 
-### Contribution Prerequisites {#contribution-prerequisites}
+### İştirak Etmək üçün Ön Şərtlər {#contribution-prerequisites}
 
-* You have [Node](https://nodejs.org) installed at v8.0.0+ and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
-* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
-* You are familiar with Git.
+* [Node](https://nodejs.org)-un v8.0.0+ versiyasını və [Yarn](https://yarnpkg.com/en/)-ın v1.2.0+ versiyasını yükləyin.
+* `gcc`-in yükləndiyinizdən və ya lazım olduqda kompilyatoru yükləməkdə probleminizin olmadığından əmin olun. Bəzi asılılıqlara kompilyasiya addımı lazım ola bilər. macOS-da Xcode Command Line Tools-u yükləmək bəsdir. Ubuntu-da `apt-get install build-essential` əmri ilə lazımi paketləri yükləyə bilərsiniz. Digər Linux disto-larında buna oxşar əmrlər var. Windows-da bir neçə əlavə addım etmək lazımdır. Əlavə məlumat üçün [`node-gyp`-nin yükləmə təlimatlarına baxın](https://github.com/nodejs/node-gyp#installation).
+* Git ilə tanışlığınız olmalıdır.
 
-### Development Workflow {#development-workflow}
+### Təkmilləşmə İş Axını {#development-workflow}
 
-After cloning React, run `yarn` to fetch its dependencies.
-Then, you can run several commands:
+React-i clone etdikdən sonra `yarn` əmrini çağıraraq asılılıqları yükləyin.
+Bundan sonra bir neçə əmri icra edə bilərsiniz:
 
-* `yarn lint` checks the code style.
-* `yarn linc` is like `yarn lint` but faster because it only checks files that differ in your branch.
-* `yarn test` runs the complete test suite.
-* `yarn test --watch` runs an interactive test watcher.
-* `yarn test <pattern>` runs tests with matching filenames.
-* `yarn test-prod` runs tests in the production environment. It supports all the same options as `yarn test`.
-* `yarn debug-test` is just like `yarn test` but with a debugger. Open `chrome://inspect` and press "Inspect".
-* `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
-* `yarn build` creates a `build` folder with all the packages.
-* `yarn build react/index,react-dom/index --type=UMD` creates UMD builds of just React and ReactDOM.
+* `yarn lint` kod stilini yoxlayır.
+* `yarn linc` əmri `yarn lint` əmrinə bənzəyir, amma yalnız branch-də dəyişən faylları yoxladığından daha tez işləyir.
+* `yarn test` bütün test dəstini yoxlayır.
+* `yarn test --watch` interaktiv test gözətçisini başladır.
+* `yarn test <pattern>` fayl adları uyğun gələn testləri icra edir.
+* `yarn test-prod` əmri, testləri produksiya mühitində icra edir. Bu əmr `yarn test` əmri ilə eyni parametrləri dəstəkləyir.
+* `yarn debug-test` əmri debaqqeri olan `yarn test` əmridir. `chrome://inspect` səhifəsini açıb "Inspect" düyməsini tıklayın.
+* `yarn flow` əmri [Flow](https://flowtype.org/) tip yoxlamalarını başladır.
+* `yarn build` əmri bütün paketləri saxlayan `build` direktoriyasını yaradır.
+* `yarn build react/index,react-dom/index --type=UMD` əmri React və ReactDOM üçün UMD qurmalarını yaradır.
 
-We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However it can be handy to try your build of React in a real project.
+Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test` (və ya yuxarıdakı variasiyalarını) icra etməyi tövsiyyə edirik. Lakin, React qurulmasını real layihədə işlətmək də faydalı ola bilər.
 
-First, run `yarn build`. This will produce pre-built bundles in `build` folder, as well as prepare npm packages inside `build/packages`.
+İlk öncə, `yarn build` əmrini icra edin. Bu, qurulan paketləri `build` direktoriyasında, npm paketlərini isə `build/packages` direktoriyasında yaradacaq.
 
-The easiest way to try your changes is to run `yarn build react/index,react-dom/index --type=UMD` and then open `fixtures/packaging/babel-standalone/dev.html`. This file already uses `react.development.js` from the `build` folder so it will pick up your changes.
+Dəyişiklikləri yoxlamağın ən asan yolu `yarn build react/index,react-dom/index --type=UMD` əmrini çağırıb `fixtures/packaging/babel-standalone/dev.html` səhifəsini açmaqdır. Bu fayl, `build` direktoriyasında olan `react.development.js` faylından istifadə edir.
 
-If you want to try your changes in your existing React project, you may copy `build/dist/react.development.js`, `build/dist/react-dom.development.js`, or any other build products into your app and use them instead of the stable version. If your project uses React from npm, you may delete `react` and `react-dom` in its dependencies and use `yarn link` to point them to your local `build` folder:
+Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin. Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin:
 
 ```sh
 cd ~/path_to_your_react_clone/build/node_modules/react
@@ -140,45 +140,45 @@ cd /path/to/your/project
 yarn link react react-dom
 ```
 
-Every time you run `yarn build` in the React folder, the updated versions will appear in your project's `node_modules`. You can then rebuild your project to try your changes.
+`yarn build` əmrini React direktoriyasında icra etdikdə yeni versiyalar layihənin `node_modules` direktoriyasında görünəcək. Siz, layihənizi bu dəyişikliklər ilə yenidən qurun.
 
-We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
+Biz, yeni xüsusiyyətlər üçün pull request-də testlərin olmasını tələb edirik. Bu yol ilə, biz gələcəkdə sizin kodunuzun sınmayacağını təmin edə bilirik.
 
-### Style Guide {#style-guide}
+### Stil Təlimatları {#style-guide}
 
-We use an automatic code formatter called [Prettier](https://prettier.io/).
-Run `yarn prettier` after making any changes to the code.
+Biz, [Prettier](https://prettier.io/) adlı avtomatik kod format edicisindən istifadə edirik.
+Kodunuza etdiyiniz dəyişikliklərdən sonra `yarn prettier` əmrini çağırın.
 
-Then, our linter will catch most issues that may exist in your code.
-You can check the status of your code styling by simply running `yarn linc`.
+Sonra, kodunuzda olan bir çox problemləri tuta biləcək.
+Kod stilinini statusunu yoxlamaq üçün `yarn linc` əmrini icra edin.
 
-However, there are still some styles that the linter cannot pick up. If you are unsure about something, looking at [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
+Lakin, bəzi stilləri linter tutmaya bilər. Əgər nədənsə əmin deyilsinizsə, [Airbnb-nin Stil Təlimatlarına](https://github.com/airbnb/javascript) baxın.
 
-### Introductory Video {#introductory-video}
+### Giriş Videosu {#introductory-video}
 
-You may be interested in watching [this short video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 mins) which gives an introduction on how to contribute to React.
+Bu [qısa videodan](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 dəq) React layihəsində iştirak etmək üçün giriş kimi istifadə edə bilərsiniz.
 
-#### Video highlights: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Building and testing React locally
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Creating and sending pull requests
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizing code
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adding new React features
+#### Videoda olan məqamlar: {#video-highlights}
+- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - React-in lokal mühitdə qurulması və test edilməsi
+- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Pull request-lərin yaradılması və göndərilməsi
+- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Kodun orqanizasiyası
+- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm paketləri
+- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Yeni React xüsusiyyətlərinin əlavəsi
 
-For a realistic overview of what it _feels_ like to contribute to React for the first time, check out [this entertaining ReactNYC talk](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
+React layihəsində ilk dəfə iştirak etməyin _necə_ olduğunun realistik icmalı üçün [bu əyləncəli ReactNYC danışığına baxın](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
-### Request for Comments (RFC) {#request-for-comments-rfc}
+### Kommentlər üçün Sorğu (RFC) {#request-for-comments-rfc}
 
-Many changes, including bug fixes and documentation improvements can be implemented and reviewed via the normal GitHub pull request workflow.
+Baq düzəlişləri və sənəd təkmilləşdirmələri daxil olmaqla bir çox dəyişiklikləri normal Github pull request iş axını ilə tətbiq edib yoxlamaq mümkündür.
 
-Some changes though are "substantial", and we ask that these be put through a bit of a design process and produce a consensus among the React core team.
+Lakin, bəzi dəyişikliklərin daha böyük ola bildiyindən biz bunların xüsusi dizayn prosesindən keçməsini və React core komandasında razılıq yaratmasını istəyə bilərik.
 
-The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the project. You can contribute by visiting the [rfcs repository](https://github.com/reactjs/rfcs).
+"RFC" (ingiliscə, request for comments; kommentlər üçün sorğu) prosesi yeni xüsusiyyətlərin layihəyə daxil olması üçün ardıcıl və idarə olunan yoldur. Siz, ["rfcs" repo-sunda](https://github.com/reactjs/rfcs) iştirak edə bilərsiniz.
 
-### License {#license}
+### Lisenziya {#license}
 
-By contributing to React, you agree that your contributions will be licensed under its MIT license.
+React layihəsində iştirak etdikdə siz bütün tövfələrinizin MIT lisenziyası ilə lisenziyalanması ilə razılaşırsınız.
 
-### What Next? {#what-next}
+### Sırada Nə Var? {#what-next}
 
-Read the [next section](/docs/codebase-overview.html) to learn how the codebase is organized.
+Kodun necə orqanizə olduğu haqqda öyrənmək üçün [sonrakı bölməni](/docs/codebase-overview.html) oxuyun.
