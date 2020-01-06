@@ -183,4 +183,8 @@ Sonrakı bölmədə DOM-a Reakt elementlərini render edilməyini araşdıracay�
 
 >**Məsləhət:**
 >
+<<<<<<< HEAD
 >ES6 və JSX kodlarının daha düzgün seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük. Bu səhifədə qeyd olunan link ilə uyğun olan [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) rəngləndirməsindən istifadə olunur.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
