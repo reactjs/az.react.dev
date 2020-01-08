@@ -108,11 +108,6 @@ Bu metod uşaqları yaxın valideyndən ayırmaq üçün kifayətdir. Əgər uş
 
 Lakin, bəzən eyni məlumatlar komponent ağacında fərqli səviyyələrdə bir neçə komponent tərəfindən işlədilə bilməlidirlər. Kontekst belə məlumatları və bu məlumatlarda olan dəyişiklikləri, bütün aşağısında olan komponentlərə "yayımlaya" bilir. Bəzi nümunələrdə kontekst işlətmək alternativlərdən daha sadə ola bilər (dilin seçimi, şablon, məlumat keşi).
 
-<<<<<<< HEAD
-=======
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
-
 ## API {#api}
 
 ### `React.createContext` {#reactcreatecontext}
@@ -135,23 +130,13 @@ Hər bir Context obyekti Provider adlı React komponenti ilə gəlir. Bu kompone
 
 Provayder `value` propu qəbul edir. Bu propun dəyəri abunə olan komponentlərə ötürülür. Bir Provider bir neçə Consumer komponentə goşula bilər. Provayderlər eyni komponent ağacında bir neçə səviyyədə ola bilər. Ağacda dərində yerləşən provayderlər, yuxarıda olan provayderlərin dəyərlərini əvəz edir.
 
-<<<<<<< HEAD
-Provayderin aşağısında olan bütün istehlakçılar, Provayderin `value` propu dəyişdikdə yenidən render edir. Provayderdən aşağıya məlumatların yayınlaması, `shouldComponentUpdate` funksiyasından asılı deyil. Bu deməkdir ki, yuxarı komponentdə heç bir komponent yenilənməsə belə Provider-ə abunə olan komponent yenilənəcək.
+Provayderin aşağısında olan bütün istehlakçılar, Provayderin `value` propu dəyişdikdə yenidən render edir. Provayderdən aşağıya məlumatların yayımlanması ([`.contextType`](#classcontexttype) və [`useContext`](/docs/hooks-reference.html#usecontext) daxil olmaqla) `shouldComponentUpdate` funksiyasından asılı deyil. Bu deməkdir ki, yuxarı komponentdə heç bir komponent yenilənmədikdə belə Provider-ə abunə olan komponent yenilənəcək.
 
 Dəyişikliklər yeni və köhnə dəyərlərin [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description) alqoritminə bənzər bir alqoritm ilə müqayisəsi ilə təyin olunur.
 
 > Qeyd
 > 
-> Dəyişikliklər `value`-a obyekti göndərdikdə problem yarada bilərlər: [Dəyişikliklər](#caveats) bölməsinə baxın.
-=======
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers (including [`.contextType`](#classcontexttype) and [`useContext`](/docs/hooks-reference.html#usecontext)) is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component skips an update.
-
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
-
-> Note
->
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Dəyişikliklər `value`-a obyekti göndərdikdə problem yarada bilərlər: [Problemlər](#caveats) bölməsinə baxın.
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -208,15 +193,9 @@ Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funksional
 
 [Funksiyanın uşaq kimi olmasını](/docs/render-props.html#using-props-other-than-render) tələb edir. Bu funksiya, kontekstin cari dəyərini qəbul edir və React nodu qaytarır. Funksiyaya göndərilən `value` arqumenti, komponent ağacında bu komponentə ən yaxın olan Provider-in `value` propu ilə eynidir. Əgər provayder yoxdursa, `value` arqumenti `createContext()`-ə keçirilən `defaultValue` propuna bərabər olacaq.
 
-<<<<<<< HEAD
 > Qeyd
 > 
-> 'funksiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render proplar](/docs/render-props.html) sənədinə baxın.
-=======
-> Note
->
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> 'funksiyanın uşaq kimi olması' patterni haqqında daha ətraflı məlumat üçün, [render propları](/docs/render-props.html) sənədinə baxın.
 
 ### `Context.displayName` {#contextdisplayname}
 
@@ -262,17 +241,13 @@ MyContext.displayName = 'MyDisplayName';
 
 ### Bir Neçə Kontekstin İstehlakı {#consuming-multiple-contexts}
 
-<<<<<<< HEAD
-Kontekstin yenidən render edilməsinin tez olması üçün, React hər kontekst consumer-inin komponent ağacında yeni bir nod yaratmalıdır. 
-=======
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Kontekstin yenidən render edilməsinin tez olması üçün React hər kontekst consumer-i üçün komponent ağacında yeni nod yaratmalıdır. 
 
 `embed:context/multiple-contexts.js`
 
 Əgər 2 və ya daha çox kontekst dəyəri tez-tez birlikdə işlədilirsə, siz bu kontekstlərin dəyərlərini birlikdə təmin edən xüsusi bir render prop komponenti düzəldə bilərsiniz.
 
-## Xəbərdarlıq {#caveats}
+## Problemlər {#caveats}
 
 Konteskt yenidən render etmə zamanını, dəyərin referensi əsasında müəyyənləşdirir. Bu səbəbdən, provider yenidən render etdikdə, consumer-lərdə istənilməyən renderlər ola bilər. Məsələn, aşağıdakı kodda `value` üçün hər zaman yeni obyekt yarandığından, bütün consumer-lər yenidən render edirlər:
 
@@ -284,14 +259,7 @@ Bu problemi həll etmək üçün, dəyəri valideynin state-inə qaldırın:
 
 ## Köhnə API {#legacy-api}
 
-<<<<<<< HEAD
 > Qeyd
 > 
-> Əvvəl React eksperimental bir kontekst API ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyə edilir. Köhnə API gələcəkdə buraxılan ƏSAS versiyalardan silinəcək. [Köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
+> Əvvəl React eksperimental kontekst API-ı ilə gəlirdi. Bu köhnə API, React-in bütün 16.x buraxılışlarında dəstəklənəcək. Lakin applikasiyaların yeni API-a miqrasiya edilməyi tövsiyə edilir. Köhnə API, React-in gələcək buraxılışlarında silinəcək. [Köhnə kontekst haqqında buradan](/docs/legacy-context.html) oxuya bilərsiniz.
  
-=======
-> Note
->
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
-
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4

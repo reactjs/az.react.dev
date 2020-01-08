@@ -465,11 +465,7 @@ Adətən bunun lazım olmadığına baxmayaraq [`useImperativeHandle`](/docs/hoo
 
 ### DOM nodunu necə ölçə bilərəm? {#how-can-i-measure-a-dom-node}
 
-<<<<<<< HEAD
 DOM nodunun ölçüsünü və ya pozisiyasını hesablamaq üçün [callback ref-indən](/docs/refs-and-the-dom.html#callback-refs) istifadə edə bilərsiniz. Fərqli noda ref qoşulduqda React bu callback-i çağıracaq. Aşağıdakı [kiçik demo-ya](https://codesandbox.io/s/l7m0v5x4v9) baxın:
-=======
-One rudimentary way to measure the position or size of a DOM node is to use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -494,13 +490,9 @@ Obyekt ref-inin cari ref dəyərinə edilən *dəyişikliklər* haqqında xəbə
 
 `useCallback`-in asılılıqlar massivinə boş massivin (`[]`) göndərildiyinə fikir verin. Boş massivin ref callback-inin dəyişmədiyini və yenidən render etmələr zamanı eyni qaldığını siğortaladığından React bu funksiyanı lazımsız yerə çağırmayacaq.
 
-<<<<<<< HEAD
-İstədiyiniz zaman bu məntiqi xüsusi Hooka [ixrac edə bilərsiniz](https://codesandbox.io/s/m5o42082xy):
-=======
-In this example, the callback ref will be called only when the component mounts and unmounts, since the rendered `<h1>` component stays present throughout any rerenders. If you want to be notified any time a component resizes, you may want to use [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) or a third-party Hook built on it.
+Bu nümunədə `<h1>` komponentinin bütün render etmələr zamanı mövcud olduğundan callback ref-i yalnız komponent mount və unmount edildiyi zaman çağrılacaq. Əgər komponentin ölçüsü dəyişdiyi zaman bildirişli olmaq istəyirsinizsə, [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) və ya bunun üzərində düzəlmiş 3-cü tərəfin Hookundan istifadə edə bilərsiniz.
 
-If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+İstədiyiniz zaman bu məntiqi xüsusi Hooka [ixrac edə bilərsiniz](https://codesandbox.io/s/m5o42082xy):
 
 ```js{2}
 function MeasureExample() {
@@ -725,13 +717,8 @@ Daha mürəkkəb ssenarilərdə (məsələn, bir state-in başqa state-dən ası
 
 ```js{2-6,10-11,16}
 function Example(props) {
-<<<<<<< HEAD
   // Ən son propları ref-də saxla.
-  let latestProps = useRef(props);
-=======
-  // Keep latest props in a ref.
   const latestProps = useRef(props);
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
   useEffect(() => {
     latestProps.current = props;
   });

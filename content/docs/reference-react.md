@@ -105,11 +105,7 @@ class Greeting extends React.Component {
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-<<<<<<< HEAD
-`React.PureComponent` [`React.Component-inə`](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyasının dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
-=======
-`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+`React.PureComponent`-i [`React.Component`-inə](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyanın dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
 
 Əgər React komponentin `render()` funksiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
 
@@ -133,13 +129,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Əgər sizin komponent funksiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
 
-<<<<<<< HEAD
-Default halda, bu props obyektində olan kompleks obyektləri dayaz formada müqayisə edəcək. Əgər siz müqayisəni kontrol etmək istəyirsinizsə, siz xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
-=======
-`React.memo` only affects props changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+`React.memo` funksiyası yalnız prop dəyişikliklərinə təsir edir. Əgər `React.memo` ilə əhatə etdiyiniz funksiya komponentində [`useState`](/docs/hooks-state.html) və ya [`useContext`](/docs/hooks-reference.html#usecontext) Hookunu istifadə etdikdə bu komponent state və ya kontekst yenilikləri olduqda yenidən render ediləcək.
 
-By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Bu funksiya default halda props obyektində olan mürəkkəb obyektləri dayaz formada müqayisə edəcək. Əgər müqayisəni idarə etmək istəyirsinizsə, xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
 
 ```javascript
 function MyComponent(props) {

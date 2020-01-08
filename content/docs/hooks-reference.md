@@ -69,13 +69,9 @@ function Counter({initialCount}) {
 
 "+" və "-" düymələri tıklandıqda yeniliyin əvvəlki state-dən asılı olduğundan bu düymələrdə yeniləmə funksiyasının funksional formasından istifadə edilir. Lakin, "Sıfırla" düyməsi sayğacın dəyərini ilkin dəyərə qaytardığından bu düymədə yeniləmə funksiyasının sadə formasından istifadə edilir.
 
-<<<<<<< HEAD
-> Qeyd
-=======
-If your update function returns the exact same value, the subsequent rerender will be skipped completely.
+Yeniləmə funksiyası eyni dəyəri qatardıqda sonrakı yenidən render etmələr tamamilə atlanacaq.
 
-> Note
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Qeyd
 >
 > Klas komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək klas komponentlərində olan state davranışını tətbiq edə bilərsiniz:
 >
@@ -186,11 +182,7 @@ const value = useContext(MyContext);
 
 Kontekst obyekti qəbul edir (`React.createContext`-dan qaytarılan dəyər) və kontekstin cari dəyərini qaytarır. Cari kontekst dəyəri ağacda komponentə ən yaxın olan `<MyContext.Provider>`-in `value` propu ilə müəyyən edilir.
 
-<<<<<<< HEAD
-Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenidən render edilərək Hookun dəyəri `MyContext` provayderinin yeni `value` dəyəri ilə yenilənəcək.
-=======
-When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider. Even if an ancestor uses [`React.memo`](/docs/react-api.html#reactmemo) or [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), a rerender will still happen starting at the component itself using `useContext`.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenidən render edilərir və Hookun dəyəri `MyContext` provayderinin yeni `value` dəyəri ilə yenilənir.
 
 `useContext` Hookunun arqumentinin *kontekst obyekti* olduğunu unutmayın:
 

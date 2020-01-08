@@ -9,7 +9,7 @@ next: rendering-elements.html
 Bu dəyişən bəyannaməsini nəzərdən keçirin:
 
 ```js
-const element = <h1>Hello, world!</h1>;
+const element = <h1>Salam dünya!</h1>;
 ```
 
 Bu məzəli təq sintaksisi nə bir sətrdir(string), nə də HTML.
@@ -33,8 +33,8 @@ Burdan yola çıxaraq, gəlin başlayaq!
 Aşağıdakı misalda `name` adlı bir dəyişən elan edirik və onu JSX daxilində fiqurlu mötərizə ilə istifadə edirik:
 
 ```js{1,2}
-const name = 'Josh Perez';
-const element = <h1>Hello, {name}</h1>;
+const name = 'Səbuhi Qurbanov';
+const element = <h1>Salam, {name}</h1>;
 
 ReactDOM.render(
   element,
@@ -52,13 +52,13 @@ function formatName(user) {
 }
 
 const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
+  firstName: 'Orxan',
+  lastName: 'Hacıyev'
 };
 
 const element = (
   <h1>
-    Hello, {formatName(user)}!
+    Salam, {formatName(user)}!
   </h1>
 );
 
@@ -81,9 +81,9 @@ Bu o deməkdir ki, JSX daxilində siz `if` və `for` ifadələrindən istifadə 
 ```js{3,5}
 function getGreeting(user) {
   if (user) {
-    return <h1>Hello, {formatName(user)}!</h1>;
+    return <h1>Salam, {formatName(user)}!</h1>;
   }
-  return <h1>Hello, Stranger.</h1>;
+  return <h1>Salam, qərib insan.</h1>;
 }
 ```
 
@@ -123,8 +123,8 @@ JSX tag daxilində başqa taglar ehtiva edə bilər:
 ```js
 const element = (
   <div>
-    <h1>Hello!</h1>
-    <h2>Good to see you here.</h2>
+    <h1>Salam!</h1>
+    <h2>Sizi görməyə şadıq.</h2>
   </div>
 );
 ```
@@ -135,7 +135,7 @@ JSX-də istifadəçi girişini yerləşdirə bilərsiniz:
 
 ```js
 const title = response.potentiallyMaliciousInput;
-// This is safe:
+// Bu təhlükəsizdir:
 const element = <h1>{title}</h1>;
 ```
 
@@ -150,7 +150,7 @@ Bu iki ifadə identikdir:
 ```js
 const element = (
   <h1 className="greeting">
-    Hello, world!
+    Salam dünya!
   </h1>
 );
 ```
@@ -159,19 +159,19 @@ const element = (
 const element = React.createElement(
   'h1',
   {className: 'greeting'},
-  'Hello, world!'
+  'Salam dünya!'
 );
 ```
 
 `React.createElement()` bir neçə yoxlama edərək sizə bug-sız kod yazmağa kömək edir, lakin əsasən aşağıda qeyd oluna kimi obyekt yaradır:
 
 ```js
-// Note: this structure is simplified
+// Qeyd: Burada göstərilən struktur sadələşdirilib
 const element = {
   type: 'h1',
   props: {
     className: 'greeting',
-    children: 'Hello, world!'
+    children: 'Salam dünya!'
   }
 };
 ```
@@ -183,8 +183,4 @@ Sonrakı bölmədə DOM-a Reakt elementlərini render edilməyini araşdıracay�
 
 >**Məsləhət:**
 >
-<<<<<<< HEAD
->ES6 və JSX kodlarının daha düzgün seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük. Bu səhifədə qeyd olunan link ilə uyğun olan [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) rəngləndirməsindən istifadə olunur.
-=======
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+>ES6 və JSX kodlarının daha düzgün seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük.
