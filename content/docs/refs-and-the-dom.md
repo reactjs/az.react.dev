@@ -37,7 +37,7 @@ Applikasiyada "işləri həll etmək" üçün ref-lərdən istifadə etmək ist�
 
 ### Ref-lərin Yaradılması {#creating-refs}
 
-Ref-lər `React.createRef()` funksiyası ilə yaranaraq `ref` atributu ilə React elementlərinə qoşulur. Adətən, ref-lərə komponentin hər yerindən istinad edilə bilməsi üçün ref-lər komponent yaradılan zaman komponent sinifinin instansiya parametrinə təyin edilir.
+Ref-lər `React.createRef()` funksiyası ilə yaranaraq `ref` atributu ilə React elementlərinə qoşulur. Adətən, ref-lərə komponentin hər yerindən istinad edilə bilməsi üçün ref-lər komponent yaradılan zaman komponent sinfinin instansiya parametrinə təyin edilir.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -161,7 +161,7 @@ class Parent extends React.Component {
 }
 ```
 
-Bu komponentə ref lazım olduqda komponenti sinifə çevirin (state və ya lifecycle metodları lazım olduğu kimi).
+Bu komponentə ref lazım olduqda komponenti sinfə çevirin (state və ya lifecycle metodları lazım olduğu kimi).
 
 Lakin, DOM elementinə və ya sinif komponentinə istinad edildiyi hallarda **`ref` atributunu funksiya komponentinin daxilindən işlətmək mümkündür**:
 

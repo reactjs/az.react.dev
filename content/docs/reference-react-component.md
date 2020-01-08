@@ -585,7 +585,7 @@ Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli v
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` parametri sinifə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
+`defaultProps` parametri sinfə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
 
 ```js
 class CustomButton extends React.Component {

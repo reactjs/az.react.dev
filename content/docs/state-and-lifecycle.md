@@ -78,7 +78,7 @@ State prop-a bənzəyir, lakin komponent tərəfindən tam idarə olunur və yal
 
 1. İlkin komponentlə adı eyni olan, `React.Component` sinfini genişləndirən [ES6 sinfi](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) yaradaq.
 
-2. Bu sinifə `render()` adlı boş metod əlavə edək.
+2. Bu sinfə `render()` adlı boş metod əlavə edək.
 
 3. Funksiyanın kodunu `render()` metoduna köçürək.
 
@@ -245,7 +245,7 @@ Bu metodlara "lifecycle metodları" deyilir.
 
 Diqqət yetirsək, taymerin ID-sini `this` də saxladığımızı görərsiniz (`this.timerID`).
 
-`this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı sinifə hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
+`this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı sinfə hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
 
 `componentWillUnmount()` metodunda taymeri yaddaşdan siləcəyik:
 
