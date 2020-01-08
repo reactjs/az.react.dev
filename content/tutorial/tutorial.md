@@ -43,7 +43,7 @@ Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu 
 
 ### Ön şərtlər {#prerequisites}
 
-Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə klaslar anlayışlarıyla tanışsınız.
+Biz güman edirik ki, siz HTML və JavaScript-lə bir az tanışsınız, lakin, tanışlığınız fərqli proqramlaşdırma dilləriylə olduğu təqdirdə də davam edə bilərsiniz. Biz həmçinin güman edirik ki, siz proqramlaşdırmanın funksiyalar, obyektlər, massivlər və ən azı ilkin səviyyədə siniflər anlayışlarıyla tanışsınız.
 
 Əgər JavaScripti nəzərdən keçirmək istəyirsinizsə, biz [bu təlimatı](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) oxumağınızı tövsiyə edirik. Diqqət yetirin ki, biz həmçinin [arrow funksiyaları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [siniflər](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) və [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) operatorları kimi bəzi ES6 (Javascriptin son versiyası) özəlliklərindən istifadə edəcəyik. Siz [Babel REPL](babel://es5-syntax-example) istifadə edərək ES6 kodunun nəyə kompilyasiya olunduğunu görə bilərsiniz.
 
@@ -128,7 +128,7 @@ Quraşdırmanı artıq tamamladığınıza görə, gəlin indi React haqqında m
 
 React - istifadəçi interfeysləri (UI) yaratmaq üçün deklarativ, səmərəli və elastik Javascript kitabxanasıdır. Bu kitabxana sizə "komponent" adlanan kiçik sərbəst kod hissələrindən mürəkkəb UI yaratmağa icazə verir.
 
-React-də bir neçə növ komponent var, amma biz `React.Component` alt klaslarından başlayacağıq:
+React-də bir neçə növ komponent var, amma biz `React.Component` alt siniflərindən başlayacağıq:
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -151,7 +151,7 @@ class ShoppingList extends React.Component {
 
 Biz bu maraqlı XML-a oxşar təqlərdən, sonra danışacağıq. Biz komponentlərdən istifadə edərək React-ə ekranda nə görmək istədiyimizi deyirik. Məlumat dəyişəndə React səmərəli şəkildə komponentləri yeniləyir və yenidən render edir.
 
-Yuxarıdakı nümunədə, ShoppingList bir **React komponent klassı** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funksiyasından qaytarır.
+Yuxarıdakı nümunədə, ShoppingList bir **React komponent sinifi** və ya **React komponent növüdür**. Komponent `props` ("properties" sözünün qısa yazılışı) adında parametrlər qəbul edir və görünüş üçün iyerarxiyalı formada `render` funksiyasından qaytarır.
 
 `render` funksiyası görmək istədiyiniz *məzmunu* qaytarır. React bu məzmun əsasında nəticəni göstərir. Xüsusi ilə, `render` **React elementi** (nə render edildiyinin yüngül məzmununu) qaytarır. Əksər React proqramçıları "JSX" adında xüsusi sintaksis işlədir. Bu sintaksis belə iyerarxiyalı strukturların yazılışını asanlaşdırır. `<div />` sintaksisi qurulma zamanı `React.createElement('div')`-ə çevrilir. Yuxarıdakı nümunənin JSX-siz forması aşağıdakı kimi yazılır:
 
@@ -244,7 +244,7 @@ class Square extends React.Component {
 }
 ```
 
-Əgər indi siz Square-ə tıklasanız, brauzerdə "click" yazısı ilə xəbərdarlıq alacaqsınız.
+Əgər indi siz Square-ə tısinfinianız, brauzerdə "click" yazısı ilə xəbərdarlıq alacaqsınız.
 
 >Qeyd
 >
@@ -266,9 +266,9 @@ class Square extends React.Component {
 
 Sıradakı addımda, biz Square komponentinin tıklandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. Komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
-React komponentlərinin state-ləri olması üçün klas konstrukturunda `this.state`-dən istifadə edilir. `this.state` yalnız onu müəyyənləşdirən React komponentinə privat olmalıdır. Gəlin Square-in cari dəyərini `this.state`-də saxlayaq və Square tıklanarkən bu dəyəri dəyişək.
+React komponentlərinin state-ləri olması üçün sinif konstrukturunda `this.state`-dən istifadə edilir. `this.state` yalnız onu müəyyənləşdirən React komponentinə privat olmalıdır. Gəlin Square-in cari dəyərini `this.state`-də saxlayaq və Square tıklanarkən bu dəyəri dəyişək.
 
-İlk olaraq state-i inisializasiya etmək üçün klasa konstruktor əlavə edək:
+İlk olaraq state-i inisializasiya etmək üçün sinifə konstruktor əlavə edək:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -291,7 +291,7 @@ class Square extends React.Component {
 
 >Qeyd
 >
->[JavaScript klaslarında](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), subklasın konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funksiya çağırışı ilə başlamalıdır.
+>[JavaScript siniflərində](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), alt sinifinin konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funksiya çağırışı ilə başlamalıdır.
 
 Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funksiyasından istifadə edəcəyik:
 
@@ -462,7 +462,7 @@ Square tıklandıqda Board-un təmin etdiyi `onClick` funksiyası çağrılır. 
 >
 >DOM `<button>` elementinin qurulmuş komponent olduğundan, bu elementin `onClick` atributunun React-ə xüsusi mənası var. Square kimi xüsusi komponentlər üçün bu atributu adlandırmaq sizdən asılıdır. Biz Square-in `onClick` propunu və ya Board-un `handleClick` funksiyasını başqa cür də adlandıra bilərik və kod eyni formada işləyəcək. React-də hadisələr üçün `on[Event]` və hadisə işləyiciləri üçün `handle[Event]` adları işlətmək adətdir.
 
-Square-i tıkladıqda, `handleClick` funksiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board klasında tətbiq edək:
+Square-i tıkladıqda, `handleClick` funksiyasının olmadığından bizə xəta gələcək. Gəlin indi bu funksiyanı Board sinfində tətbiq edək:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -569,9 +569,9 @@ Dəyişməzliyin əsas faydası React-da bizə _təmiz komponentlərin_ yaranmas
 
 Biz indi Square-i **funskional komponentə** çevirəcəyik.
 
-React-də **funskional komponentlər** komponentlərin sadə formada yazılması üçündür. Bu komponentlərin state-i olmur; yalnız `render` funksiyası olur. `React.Component`-dən törənən klas yazmaq əvəzinə, biz `props` qəbul edən və nəyi render etməyi qaytaran funksiya yaradırıq. Funksional komponentləri yazmaq klas komponentləri yazmaqdan daha az yorucudur. Bir çox komponent belə formada yazıla bilər.
+React-də **funskional komponentlər** komponentlərin sadə formada yazılması üçündür. Bu komponentlərin state-i olmur; yalnız `render` funksiyası olur. `React.Component`-dən törənən sinif yazmaq əvəzinə, biz `props` qəbul edən və nəyi render etməyi qaytaran funksiya yaradırıq. Funksional komponentləri yazmaq sinif komponentləri yazmaqdan daha az yorucudur. Bir çox komponent belə formada yazıla bilər.
 
-Square klasını aşağıdakı funksiya ilə əvəz edin:
+Square sinfini aşağıdakı funksiya ilə əvəz edin:
 
 ```javascript
 function Square(props) {
@@ -991,7 +991,7 @@ Bu nöqtədə, Board komponentinə yalnız `renderSquare` və `render` funkisyal
 
 Biz "X O oyununun" tarixçəsini saxladığımızdan, biz indi gedişlərin siyahısını oyunçuya göstərə bilərik.
 
-Biz React elementlərinin 1-ci klas Javascript obyetkləri olduğunu və bu obyektərin applikasiyada fərqli yerlərə göndərilə bildiyini öyrəndik. Bir neçə elementi render etmək üçün, biz React elementlərinin massivindən istifadə edə bilərik.
+Biz React elementlərinin 1-ci sinif Javascript obyetkləri olduğunu və bu obyektərin applikasiyada fərqli yerlərə göndərilə bildiyini öyrəndik. Bir neçə elementi render etmək üçün, biz React elementlərinin massivindən istifadə edə bilərik.
 
 JavaScriptdə massivlərdə məlumatları başqa məlumatlara uzlaşdırmaq üçün [`map()` funksiyası var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Məsələn:
 
