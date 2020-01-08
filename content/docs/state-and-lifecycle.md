@@ -105,7 +105,7 @@ class Clock extends React.Component {
 
 `render` metodu hər dəfə yeniləmə baş tutduqda çağırılacaq. Lakin eyni DOM düyünü daxilində `<Clock />` komponentini neçə dəfə istifadə etsək də, `Clock` sinfinin yalnız bir nüsxəsi istifadə olunacaq. Bu hal bizə lokal state və lifecycle kimi əlavə xüsusiyyətləri istifadə etmə imkanı verir.
 
-## Klasa lokal state əlavə edilməsi {#adding-local-state-to-a-class}
+## Sinfə lokal state əlavə edilməsi {#adding-local-state-to-a-class}
 
 `date` prop-unu state-ə üç addımda çevirək:
 
@@ -152,7 +152,7 @@ Diqqət yetirin ki, `props` arqumenti baza konstruktora da ötürülür:
   }
 ```
 
-Klas komponentləri həmişə baza konstruktoru `props` arqumentini ötürərək çağırmalıdırlar.
+Sinif komponentləri həmişə baza konstruktoru `props` arqumentini ötürərək çağırmalıdırlar.
 
 3) `<Clock />` elementindən `date` prop-unu silək:
 
@@ -194,7 +194,7 @@ ReactDOM.render(
 
 İndi isə `Clock` komponentində taymer quraşdıraq və özünü hər saniyə yeniləməsini təmin edək.
 
-## Klasa lifecycle metodlarının əlavə edilməsi {#adding-lifecycle-methods-to-a-class}
+## Sinfə lifecycle metodlarının əlavə edilməsi {#adding-lifecycle-methods-to-a-class}
 
 Tərkibində çox sayda komponent olan applikasiyalarda həmin komponentlər silinəndə, onların tutduğu resursların azad olunması olduqca önəmlidir.
 

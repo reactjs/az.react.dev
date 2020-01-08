@@ -108,7 +108,7 @@ function Welcome(props) {
 }
 ```
 
-Klas komponentlərində `this.props.children` dəyişənindən istifadə edin:
+Sinif komponentlərində `this.props.children` dəyişənindən istifadə edin:
 
 ```js
 class Welcome extends React.Component {

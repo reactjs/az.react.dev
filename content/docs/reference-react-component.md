@@ -19,7 +19,7 @@ Bu səhifədə React komponent sinif təriflərinin ətraflı API arayışı var
 
 ## İcmal {#overview}
 
-React, komponentləri sinif və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React sinif komponenti yaratmaq üçün sinifləri `React.Component`-dən genişləndirmək lazımdır:
+React, komponentləri sinif və ya funksiya kimi müəyyənləşdirməyə icazə verir. Sinif ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React sinif komponenti yaratmaq üçün sinifləri `React.Component`-dən genişləndirmək lazımdır:
 
 ```js
 class Welcome extends React.Component {
@@ -93,7 +93,7 @@ Komponentlər həmçinin aşağıdakı API-ları təmin edirlər:
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Klas Parametrləri {#class-properties}
+### Sinif Parametrləri {#class-properties}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
@@ -317,7 +317,7 @@ Yuxarıdakı nümunədə, `scrollHeight` parametrini `getSnapshotBeforeUpdate` f
 
 [Xəta Sərhədləri](/docs/error-boundaries.html) uşaq komponent ağacında xətaları tutan, tutulan xətaları loq edən, və sınmış komponent ağacında xəta UI-ı göstərən React komponentləridir. Xəta sərhədləri uşaq komponent ağacında render zamanı, lifecycle funksiyalarında və konstruktorlarda baş verən xətaları tutur.
 
-Klas komponenti `static getDerivedStateFromError()` və ya `componentDidCatch()` lifecycle funksiyalarından hər hansınısa (və ya hər ikisini) tətbiq edirsə bu komponent xəta sərhədi olur. Bu lifecycle funksiyalarından state-i yeniləyərək uşaq komponentlərdə tutulmayan Javascript xətalarını tutmaq və xəta UI-ı göstərmək mümkündür.
+Sinif komponenti `static getDerivedStateFromError()` və ya `componentDidCatch()` lifecycle funksiyalarından hər hansınısa (və ya hər ikisini) tətbiq edirsə bu komponent xəta sərhədi olur. Bu lifecycle funksiyalarından state-i yeniləyərək uşaq komponentlərdə tutulmayan Javascript xətalarını tutmaq və xəta UI-ı göstərmək mümkündür.
 
 Xəta sərhədlərini yalnız gözlənilməz xətalardan bərpa üçün işlədin. **Kontrol axını üçün istifadə etməyin.**
 
@@ -581,7 +581,7 @@ Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli v
 
 * * *
 
-## Klas Parametrləri {#class-properties-1}
+## Sinif Parametrləri {#class-properties-1}
 
 ### `defaultProps` {#defaultprops}
 

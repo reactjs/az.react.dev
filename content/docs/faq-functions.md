@@ -37,7 +37,7 @@ class Foo extends Component {
 }
 ```
 
-#### Klas Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-stage-3-proposal}
+#### Sinif Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-stage-3-proposal}
 
 ```jsx
 class Foo extends Component {

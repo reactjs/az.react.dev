@@ -20,7 +20,7 @@ Komponentlər sizə UI-ı müstəqil, yenidən istifadə oluna bilən hissələr
 
 Konseptual olaraq, komponentlər JavaScript funksiyalarına bənzəyir. Komponentlər özbaşına daxiletmələri ("proplar" adlanan) qəbul edir və ekranda nə olacağını təsvir edən React elementlərini qaytarırlar.
 
-## Funksiya və Klass Komponentlər {#function-and-class-components}
+## Funksiya və Sinif Komponentləri {#function-and-class-components}
 
 Komponenti müəyyən etməyin ən asan yolu JavaScript funksiyasını yazmaqdır:
 
@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Yuxarıdakı iki komponentlər React-ə nəzərən bərabərdirlər.
 
-Klasların [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
+Siniflərin [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
 
 ## Komponenti Render Etmək {#rendering-a-component}
 

@@ -6,9 +6,9 @@ layout: docs
 category: FAQ
 ---
 
-### Komponentlərə CSS Klaslarını Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
+### Komponentlərə CSS Siniflərini Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
 
-Klasları mətn formasında `className` propuna göndərin:
+Sinifləri mətn formasında `className` propuna göndərin:
 
 ```jsx
 render() {

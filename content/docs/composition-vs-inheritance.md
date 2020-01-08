@@ -113,7 +113,7 @@ function WelcomeDialog() {
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
 
-Klas ilə müəyyənləşdirilmiş komponentlərdə belə kompozisiya yaxşı işləyir:
+Sinif ilə müəyyənləşdirilmiş komponentlərdə belə kompozisiya yaxşı işləyir:
 
 ```js{10,27-31}
 function Dialog(props) {

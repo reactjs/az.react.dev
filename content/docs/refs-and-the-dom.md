@@ -107,7 +107,7 @@ class CustomTextInput extends React.Component {
 
 Komponent mount olunduqda `current` parametri DOM elementi ilə təyin ediləcək, unmount olunduqda isə bu parametr `null` ilə sıfırlanacaq. `ref` yenilikləri `componentDidMount` və ya `componentDidUpdate` lifecycle metodlarından öncə baş verir.
 
-#### Ref-in Klas Komponentinə Əlavə Edilməsi {#adding-a-ref-to-a-class-component}
+#### Ref-in Sinif Komponentinə Əlavə Edilməsi {#adding-a-ref-to-a-class-component}
 
 Yuxarıdakı `CustomTextInput` komponentini əhatə edərək komponentin mount olunduqdan həmən sonra tıklandığını simulyasiya etmək üçün bu komponentə ref qoşaraq daxilindəki `focusTextInput` funksiyasını əl ilə çağıra bilərik:
 

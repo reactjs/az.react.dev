@@ -151,7 +151,7 @@ Bu metod yalnız **[performans optimizasiyası](/docs/optimizing-performance.htm
 
 > Qeyd
 >
-> Klass komponentlərdə [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasından fərqli olaraq, `areEqual` funksiyası proplar eyni olduqda `true`, fərqli olduqda isə `false` qaytarır. Bu `shouldComponentUpdate` funksiyasının tərsidir.
+> Sinif komponentlərdə [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasından fərqli olaraq, `areEqual` funksiyası proplar eyni olduqda `true`, fərqli olduqda isə `false` qaytarır. Bu `shouldComponentUpdate` funksiyasının tərsidir.
 
 * * *
 

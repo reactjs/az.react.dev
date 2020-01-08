@@ -223,7 +223,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Klas adları `className` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
+Sinif adları `className` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
 
 * * *
 

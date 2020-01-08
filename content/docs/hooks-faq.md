@@ -77,7 +77,7 @@ Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/20
 
 Xeyr. React-dən sinifləri silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından sinif komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyə edirik.
 
-### Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
+### Siniflər ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
 Hooklar ilə komponentlər arası funksional məntiqi paylaşmaq mümkündür. ["Xüsusi Hookların İstifadəsi"](/docs/hooks-custom.html) səhifəsində bu qabiliyyətlərdən danışılır. React core komandasının üzvünün yazdığı [bu məqalədə](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) Hookların yaratdığı yeni imkanlar haqqında dərindən danışılır.
 
@@ -91,7 +91,7 @@ Hookların öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [biz�
 
 Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud sinifləri Hooklar ilə yenidən yazmağı tövsiyə etmirik.
 
-Klas *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında sinif komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin sinif və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
+Sinif *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında sinif komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin sinif və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
 
 ### Hooklar siniflərin bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
@@ -262,7 +262,7 @@ Konseptual olaraq ref-lər sinfin instansiya dəyərlərinə bənzəyirlər. Əg
 
 ### Bir və ya bir neçə state dəyişəni işlətməliyəm? {#should-i-use-one-or-many-state-variables}
 
-Klaslar ilə tanışığınız olduqda `useState()` Hookunu bir dəfə çağırıb bütün state-i bir obyektdə saxlamaq istəyə bilərsiniz. Əgər istəyirsinizsə, bunu edə bilərsiniz. Aşağıdakı nümunədə maus hərəkətinin pozisiyası və ölçüsü lokal state-də saxlanır:
+Siniflər ilə tanışığınız olduqda `useState()` Hookunu bir dəfə çağırıb bütün state-i bir obyektdə saxlamaq istəyə bilərsiniz. Əgər istəyirsinizsə, bunu edə bilərsiniz. Aşağıdakı nümunədə maus hərəkətinin pozisiyası və ölçüsü lokal state-də saxlanır:
 
 ```js
 function Box() {

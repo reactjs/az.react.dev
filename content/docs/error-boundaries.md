@@ -21,7 +21,7 @@ Xəta sərhədləri **uşaq komponent ağacında baş verən Javascript xətalar
 > * Serverdə render edilməsi zamanı
 > * Xəta sərhədinin daxilində atılan xətalar (uşaqda atılmağın yerinə)
 
-Klass komponenti göstərilən [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) və ya [`componentDidCatch()`](/docs/react-component.html#componentdidcatch) lifecycle metodlarının birini (və ya hər ikisini)  tətbiq etdikdə xəta sərhədinə çevrilir. `static getDerivedStateFromError()` funksiyasını xəta atıldıqdan sonra fallback UI render etmək üçün işlədin. `componentDidCatch()` funksiyasını xətaları qeydiyyata almaq üçün işlədin.
+Sinif komponenti göstərilən [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) və ya [`componentDidCatch()`](/docs/react-component.html#componentdidcatch) lifecycle metodlarının birini (və ya hər ikisini)  tətbiq etdikdə xəta sərhədinə çevrilir. `static getDerivedStateFromError()` funksiyasını xəta atıldıqdan sonra fallback UI render etmək üçün işlədin. `componentDidCatch()` funksiyasını xətaları qeydiyyata almaq üçün işlədin.
 
 ```js{7-10,12-15,18-21}
 class ErrorBoundary extends React.Component {
