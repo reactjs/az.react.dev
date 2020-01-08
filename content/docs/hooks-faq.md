@@ -428,8 +428,8 @@ Aşağıdakı nümunədə biz `row` propunun əvvəlki dəyərini state dəyiş�
 
 ```js
 function ScrollView({row}) {
-  let [isScrollingDown, setIsScrollingDown] = useState(false);
-  let [prevRow, setPrevRow] = useState(null);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
     // Son render etmədən sonra row dəyəri dəyişdiyindən isScrollingDown state-ini yenilə.
@@ -489,6 +489,8 @@ function MeasureExample() {
 Obyekt ref-inin cari ref dəyərinə edilən *dəyişikliklər* haqqında xəbərdarlıq vermədiyindən bu nümunədə `useRef`-dən istifadə etmirik. Callback ref-i işlətdikdə [hesablanan nodun uşaq komponentdən göstərilməsinə baxmayaraq](https://codesandbox.io/s/818zzk8m78) (e.g. məsələn düymə tıklandıqda) dəyişikliklər valideyn komponentə bildirilir. Bu səbəbdən, biz hesablamaları yeniləyə bilirik.
 
 `useCallback`-in asılılıqlar massivinə boş massivin (`[]`) göndərildiyinə fikir verin. Boş massivin ref callback-inin dəyişmədiyini və yenidən render etmələr zamanı eyni qaldığını siğortaladığından React bu funksiyanı lazımsız yerə çağırmayacaq.
+
+Bu nümunədə `<h1>` komponentinin bütün render etmələr zamanı mövcud olduğundan callback ref-i yalnız komponent mount və unmount edildiyi zaman çağrılacaq. Əgər komponentin ölçüsü dəyişdiyi zaman bildirişli olmaq istəyirsinizsə, [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) və ya bunun üzərində düzəlmiş 3-cü tərəfin Hookundan istifadə edə bilərsiniz.
 
 İstədiyiniz zaman bu məntiqi xüsusi Hooka [ixrac edə bilərsiniz](https://codesandbox.io/s/m5o42082xy):
 
@@ -716,7 +718,7 @@ Daha mürəkkəb ssenarilərdə (məsələn, bir state-in başqa state-dən ası
 ```js{2-6,10-11,16}
 function Example(props) {
   // Ən son propları ref-də saxla.
-  let latestProps = useRef(props);
+  const latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
   });

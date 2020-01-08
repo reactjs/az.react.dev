@@ -69,6 +69,8 @@ function Counter({initialCount}) {
 
 "+" və "-" düymələri tıklandıqda yeniliyin əvvəlki state-dən asılı olduğundan bu düymələrdə yeniləmə funksiyasının funksional formasından istifadə edilir. Lakin, "Sıfırla" düyməsi sayğacın dəyərini ilkin dəyərə qaytardığından bu düymədə yeniləmə funksiyasının sadə formasından istifadə edilir.
 
+Yeniləmə funksiyası eyni dəyəri qatardıqda sonrakı yenidən render etmələr tamamilə atlanacaq.
+
 > Qeyd
 >
 > Klas komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək klas komponentlərində olan state davranışını tətbiq edə bilərsiniz:
@@ -180,7 +182,7 @@ const value = useContext(MyContext);
 
 Kontekst obyekti qəbul edir (`React.createContext`-dan qaytarılan dəyər) və kontekstin cari dəyərini qaytarır. Cari kontekst dəyəri ağacda komponentə ən yaxın olan `<MyContext.Provider>`-in `value` propu ilə müəyyən edilir.
 
-Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenidən render edilərək Hookun dəyəri `MyContext` provayderinin yeni `value` dəyəri ilə yenilənəcək.
+Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenidən render edilərir və Hookun dəyəri `MyContext` provayderinin yeni `value` dəyəri ilə yenilənir.
 
 `useContext` Hookunun arqumentinin *kontekst obyekti* olduğunu unutmayın:
 

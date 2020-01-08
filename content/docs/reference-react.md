@@ -105,7 +105,7 @@ class Greeting extends React.Component {
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` [`React.Component-inə`](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyasının dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
+`React.PureComponent`-i [`React.Component`-inə](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyanın dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
 
 Əgər React komponentin `render()` funksiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
 
@@ -129,7 +129,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Əgər sizin komponent funksiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
 
-Default halda, bu props obyektində olan kompleks obyektləri dayaz formada müqayisə edəcək. Əgər siz müqayisəni kontrol etmək istəyirsinizsə, siz xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
+`React.memo` funksiyası yalnız prop dəyişikliklərinə təsir edir. Əgər `React.memo` ilə əhatə etdiyiniz funksiya komponentində [`useState`](/docs/hooks-state.html) və ya [`useContext`](/docs/hooks-reference.html#usecontext) Hookunu istifadə etdikdə bu komponent state və ya kontekst yenilikləri olduqda yenidən render ediləcək.
+
+Bu funksiya default halda props obyektində olan mürəkkəb obyektləri dayaz formada müqayisə edəcək. Əgər müqayisəni idarə etmək istəyirsinizsə, xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
 
 ```javascript
 function MyComponent(props) {

@@ -48,7 +48,7 @@ React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə b
 
 Yeni React layihəsinə başladıqda [script təqləri ilə sadə HTML səhifəsi işlətmək](/docs/add-react-to-a-website.html) ən yaxşı seçim ola bilər. Bunu quraşdırmaq bir dəqiqə alacaq!
 
-Applikasiya böyüdükcə sizə inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün [JavaScript toolchain-lərindən](/docs/create-a-new-react-app.html) istifadə etməyi tövsiyə edirik. Bu toolchain-lər biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər.
+Applikasiya böyüdükcə sizə inteqrasiya olunmuş quraşdırma lazım ola bilər. Böyük applikasiyalar üçün JavaScript toolchain-lərindən istifadə etməyi tövsiyə edirik. Bu toolchain-lər biraz və ya heç bir konfiqurasiya lazım olmadan işləyərək React ekosistemindən tam istifadə edə bilirlər. [İstifadə haqqında buradan öyrənə bilərsiniz.](/docs/create-a-new-react-app.html)
 
 ## React-i Öyrən {#learn-react}
 
