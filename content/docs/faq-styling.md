@@ -6,9 +6,9 @@ layout: docs
 category: FAQ
 ---
 
-### Komponentlərə CSS Klaslarını Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
+### Komponentlərə CSS Siniflərini Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
 
-Klasları mətn formasında `className` propuna göndərin:
+Sinifləri mətn formasında `className` propuna göndərin:
 
 ```jsx
 render() {
@@ -16,7 +16,7 @@ render() {
 }
 ```
 
-Adətən, CSS klasları proplar və ya state-dən asılı olur:
+Adətən, CSS sinifləri proplar və ya state-dən asılı olur:
 
 ```jsx
 render() {
@@ -38,7 +38,7 @@ Bəli, stilləmək haqqında məlumat üçün [bu sənədə](/docs/dom-elements.
 
 ### Eyni-sətrli Stillər Pisdir? {#are-inline-styles-bad}
 
-CSS klasları eyni-sətrli stillərdən daha tez işləyir.
+CSS sinifləri eyni-sətrli stillərdən daha tez işləyir.
 
 ### CSS-in-JS Nədir? {#what-is-css-in-js}
 

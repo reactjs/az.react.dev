@@ -6,7 +6,7 @@ next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Hookların sadə JavaScript funksiyaları olmasına baxmayaraq bu funksiyaları işlətdikdə iki qaydaya riayət etmək lazımdır. Bu qaydaları avtomatik tətbiq etmək üçün [linter plagini](https://www.npmjs.com/package/eslint-plugin-react-hooks) təmin edirik:
 

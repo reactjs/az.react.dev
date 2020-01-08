@@ -6,7 +6,7 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Funksiya komponentlərindən yan effektləri icra etmək üçün *Effect Hookundan* istifadə edilir:
 
@@ -39,19 +39,19 @@ Məlumat yüklənməsi, abunəliyin qurulması və React komponentlərindən DOM
 
 >Məsləhət
 >
->Əgər sizin React klas lifecycle metodları ilə tanışlığınız varsa, `useEffect` hookuna `componentDidMount`, `componentDidUpdate` və `componentWillUnmount` funksiyalarının birləşməsi kimi baxa bilərsiniz.
+>Əgər sizin React sinif lifecycle metodları ilə tanışlığınız varsa, `useEffect` hookuna `componentDidMount`, `componentDidUpdate` və `componentWillUnmount` funksiyalarının birləşməsi kimi baxa bilərsiniz.
 
 React komponentlərində iki cür yan effektlər var: təmizlik tələb edən və etməyən effektlər. Gəlin bu fərqə datallı baxaq.
 
 ## Təmizlik Tələb Etməyən Effektlər {#effects-without-cleanup}
 
-Bəzən, **React-in DOM-u yeniləməsindən sonra əlavə kod icra etmək** lazım olur. Məlumat yüklənməsi, əl ilə DOM mutasiyaları və logginq kimi əməliyyatlar təmizlik tələb etmirlər. Çünki, biz bu əməliyyatları icra edib bu əməliyyatlar haqqında unuda bilərik. Gəlin bu yan effektlərin yazılmasına klas və Hooklarda baxaq.
+Bəzən, **React-in DOM-u yeniləməsindən sonra əlavə kod icra etmək** lazım olur. Məlumat yüklənməsi, əl ilə DOM mutasiyaları və logginq kimi əməliyyatlar təmizlik tələb etmirlər. Çünki, biz bu əməliyyatları icra edib bu əməliyyatlar haqqında unuda bilərik. Gəlin bu yan effektlərin yazılmasına sinif və Hooklarda baxaq.
 
-### Klaslar Nümunəsi {#example-using-classes}
+### Siniflər Nümunəsi {#example-using-classes}
 
-React klas komponentlərində `render` funksiyasından yan effektlər olmamalıdır. Çünki, bu funksiya yan effektlərin olması üçün çox tezdir. Biz, adətən yan effektləri DOM yeniləndikdən *sonra* icra etmək istəyirik.
+React sinif komponentlərində `render` funksiyasından yan effektlər olmamalıdır. Çünki, bu funksiya yan effektlərin olması üçün çox tezdir. Biz, adətən yan effektləri DOM yeniləndikdən *sonra* icra etmək istəyirik.
 
-Bu səbəbdən, biz yan effektləri `componentDidMount` və `componentDidUpdate` funksiyalarından icra edirik. Gəlin əvvəlki sayğac nümunəsini klas komponentləri ilə yazaq:
+Bu səbəbdən, biz yan effektləri `componentDidMount` və `componentDidUpdate` funksiyalarından icra edirik. Gəlin əvvəlki sayğac nümunəsini sinif komponentləri ilə yazaq:
 
 ```js{9-15}
 class Example extends React.Component {
@@ -83,9 +83,9 @@ class Example extends React.Component {
 }
 ```
 
-**Klasın lifecycle funksiyaları arasında dublikat kodun olduğuna** fikir verin.
+**Sinfin lifecycle funksiyaları arasında dublikat kodun olduğuna** fikir verin.
 
-Adətən biz eyni yan effekti komponentin yarandığı və ya yeniləndiyindən asılı olmayaraq icra etmək istəyirik. Konseptual olaraq biz bu effektləri hər renderdən sonra icra etmək istəyirik. Lakin, React klas komponentlərində belə funksiya yoxdur. Biz yan effekt funksiyasını çıxara bilərik. Lakin, bu funksiya yenə də iki yerdən çağrılmalıdır.
+Adətən biz eyni yan effekti komponentin yarandığı və ya yeniləndiyindən asılı olmayaraq icra etmək istəyirik. Konseptual olaraq biz bu effektləri hər renderdən sonra icra etmək istəyirik. Lakin, React sinif komponentlərində belə funksiya yoxdur. Biz yan effekt funksiyasını çıxara bilərik. Lakin, bu funksiya yenə də iki yerdən çağrılmalıdır.
 
 Gəlin eyni məntiqi `useEffect` Hooku ilə yazaq.
 
@@ -144,11 +144,11 @@ Təcrübəli JavaScript proqramçıları `useEffect` Hookuna göndərilən funks
 
 ## Təmizlik Tələb Edən Effektlər {#effects-with-cleanup}
 
-Əvvəlki bölmədə təmizlik tələb etməyən yan effektlərə baxdıq. Lakin, bəzi effektlərə təmizlik işləri lazımdır. Məsələn, kənar məlumat mənbəsinə **abunəlik quraşdırmaq** lazım ola bilər. Bu ssenaridə, yaddaş sızmasının qabağını almaq üçün effektləri təmizləmək lazımdır! Gəlin təmizlik əməliyyatına klas və Hooklarda baxaq.
+Əvvəlki bölmədə təmizlik tələb etməyən yan effektlərə baxdıq. Lakin, bəzi effektlərə təmizlik işləri lazımdır. Məsələn, kənar məlumat mənbəsinə **abunəlik quraşdırmaq** lazım ola bilər. Bu ssenaridə, yaddaş sızmasının qabağını almaq üçün effektləri təmizləmək lazımdır! Gəlin təmizlik əməliyyatına sinif və Hooklarda baxaq.
 
-### Klaslar Nümunəsi {#example-using-classes-1}
+### Siniflər Nümunəsi {#example-using-classes-1}
 
-React klası istifadə etdikdə abunələr `componentDidMount` funksiyasında qurulur və `componentWillUnmount` funksiyasında silinir. Məsələn, dostların onlayn statusuna abunəlik yaradan `ChatAPI` modulunun olduğunu fikirləşək. Aşağıdakı nümunədə bu abunəlik klas ilə qurulur və göstərilir:
+React sinfi istifadə etdikdə abunələr `componentDidMount` funksiyasında qurulur və `componentWillUnmount` funksiyasında silinir. Məsələn, dostların onlayn statusuna abunəlik yaradan `ChatAPI` modulunun olduğunu fikirləşək. Aşağıdakı nümunədə bu abunəlik sinif ilə qurulur və göstərilir:
 
 ```js{8-26}
 class FriendStatus extends React.Component {
@@ -271,7 +271,7 @@ Effect Hooku ilə hər iki ssenari tək API altında yazılır.
 
 ### Məsləhət: Problemləri Ayırmaq üçün Bir Neçə Effekt İşlədin {#tip-use-multiple-effects-to-separate-concerns}
 
-Hookların [Motivasiyası](/docs/hooks-intro.html#complex-components-become-hard-to-understand) bölməsində klas lifecycle metodlarında bir-birinə aid olmayan kodların olmasını və bir-birinə aid olan kodların bir neçə funksiya arasında bölündüyünü qeyd etdik. Gəlin, sayğac və dost statusu göstəricisi nümunələrində olan məntiqləri birləşdirən komponentə baxaq:
+Hookların [Motivasiyası](/docs/hooks-intro.html#complex-components-become-hard-to-understand) bölməsində sinif lifecycle metodlarında bir-birinə aid olmayan kodların olmasını və bir-birinə aid olan kodların bir neçə funksiya arasında bölündüyünü qeyd etdik. Gəlin, sayğac və dost statusu göstəricisi nümunələrində olan məntiqləri birləşdirən komponentə baxaq:
 
 ```js
 class FriendStatusWithCounter extends React.Component {
@@ -338,9 +338,9 @@ function FriendStatusWithCounter(props) {
 
 ### İzahat: Effektlər Niyə Hər Yenilikdən Sonra İcra Olunurlar {#explanation-why-effects-run-on-each-update}
 
-Klaslara öyrəşmisinizsə, effekt təmizləməsinin niyə yalnız komponent silindikdən sonra yox hər render etmədən sonra icra olunduğu sizi maraqlandıra bilər. Gəlin, bu dizayn ilə az baqlı komponentlər düzəltdiyinə praktiki nümunə ilə baxaq.
+Siniflərə öyrəşmisinizsə, effekt təmizləməsinin niyə yalnız komponent silindikdən sonra yox hər render etmədən sonra icra olunduğu sizi maraqlandıra bilər. Gəlin, bu dizayn ilə az baqlı komponentlər düzəltdiyinə praktiki nümunə ilə baxaq.
 
-[Bu səhifənin əvvəlki bölməsində](#example-using-classes-1) dostun onlayn olub olmamasını göstərən `FriendStatus` komponentinə baxdıq. Bizim klasımız `this.props`-dan `friend.id` dəyərini oxuyub komponent mount olunduqdan sonra dost statusu resursuna abunə olur və unmount edildikdə abunəliyi silir:
+[Bu səhifənin əvvəlki bölməsində](#example-using-classes-1) dostun onlayn olub olmamasını göstərən `FriendStatus` komponentinə baxdıq. Bizim sinfimiz `this.props`-dan `friend.id` dəyərini oxuyub komponent mount olunduqdan sonra dost statusu resursuna abunə olur və unmount edildikdə abunəliyi silir:
 
 ```js
   componentDidMount() {
@@ -360,7 +360,7 @@ Klaslara öyrəşmisinizsə, effekt təmizləməsinin niyə yalnız komponent si
 
 Komponent ekranda göstərildikdən sonra **`friend` propu dəyişdikdə** nə baş verir? Komponentimiz fərqli dostun onlayn statusunu göstərməyə davam edəcək. Bu baqdır. Əlavə olaraq, komponentin yanlış dost ID-indən istifadə etdiyindən unmount zamanı yaddaş sızması və ya applikasiya qəzası baş verəcək.
 
-Klas komponentində bu ssenarini dəstəkləmək üçün `componentDidUpdate` funksiyası əlavə etməliyik:
+Sinif komponentində bu ssenarini dəstəkləmək üçün `componentDidUpdate` funksiyası əlavə etməliyik:
 
 ```js{8-19}
   componentDidMount() {
@@ -427,11 +427,11 @@ ChatAPI.subscribeToFriendStatus(300, handleStatusChange);     // Sonrakı effekt
 ChatAPI.unsubscribeFromFriendStatus(300, handleStatusChange); // Sonuncu effekt təmizlənir
 ```
 
-Bu davranış ilə ardıcıllıq təmin olunur və klas komponentlərində yeniləmə məntiqinin olmamasında yaranan baqların qarşısını alır.
+Bu davranış ilə ardıcıllıq təmin olunur və sinif komponentlərində yeniləmə məntiqinin olmamasında yaranan baqların qarşısını alır.
 
 ### Məsləhət: Effektləri Buraxaraq Performansın Optimallaşdırılması {#tip-optimizing-performance-by-skipping-effects}
 
-Bəzi hallarda, hər render etmədən sonra köhnə effeklərin təmizlənib yeni effektlərin tətbiqi performans problemləri yarada bilər. Klas komponentlərində bu problemləri həll etmək üçün `componentDidUpdate` funksiyasına `prevProps` və ya `prevState` əsasında əlavə müqayisə bloku əlavə edirik:
+Bəzi hallarda, hər render etmədən sonra köhnə effeklərin təmizlənib yeni effektlərin tətbiqi performans problemləri yarada bilər. Sinif komponentlərində bu problemləri həll etmək üçün `componentDidUpdate` funksiyasına `prevProps` və ya `prevState` əsasında əlavə müqayisə bloku əlavə edirik:
 
 ```js
 componentDidUpdate(prevProps, prevState) {
@@ -482,8 +482,8 @@ Gələcəkdə ikinci arqument qurulma çevrilməsi tərəfindən avtomatik əlav
 
 ## Sonrakı Addımlar {#next-steps}
 
-Təbrik Edirik! Bunun çox uzun səhifə olmasına baxmayaraq effektlər haqqında olan sualların əksəriyyətinə cavab verdiyimizi arzulayırıq. Siz, State Hook və Effect Hookları öyrəndiniz. Bu iki Hookdan istifadə edərək *bir çox* məsələni həll edə bilərsiniz. Bu Hooklar klaslarda olan bir çox ssenarini əhatə edirlər. Əgər bu Hooklar sizin ssenarinizi əhatə etmirsə sizin üçün [digər Hooklar](/docs/hooks-reference.html) faydalı ola bilər.
+Təbrik Edirik! Bunun çox uzun səhifə olmasına baxmayaraq effektlər haqqında olan sualların əksəriyyətinə cavab verdiyimizi arzulayırıq. Siz, State Hook və Effect Hookları öyrəndiniz. Bu iki Hookdan istifadə edərək *bir çox* məsələni həll edə bilərsiniz. Bu Hooklar siniflərdə olan bir çox ssenarini əhatə edirlər. Əgər bu Hooklar sizin ssenarinizi əhatə etmirsə sizin üçün [digər Hooklar](/docs/hooks-reference.html) faydalı ola bilər.
 
-Əlavə olaraq [Motivasiyada](/docs/hooks-intro.html#motivation) qeyd edildiyi kimi Hookların problemləri necə həll etdiyini görməyə başlayırıq. Biz, effekt təmizləmələrinin `componentDidUpdate` və `componentWillUnmount` funksiyalarında kod dublikatı etdiyini, bir-birinə aid olan kodları bir yerə gətirdiyiniz, və baqların çəkindiyini gördük. Biz həmçinin fərqli effektləri məqsədlərinə görə ayırmağı (klaslar ilə mümkün deyildi) gördük.
+Əlavə olaraq [Motivasiyada](/docs/hooks-intro.html#motivation) qeyd edildiyi kimi Hookların problemləri necə həll etdiyini görməyə başlayırıq. Biz, effekt təmizləmələrinin `componentDidUpdate` və `componentWillUnmount` funksiyalarında kod dublikatı etdiyini, bir-birinə aid olan kodları bir yerə gətirdiyiniz, və baqların çəkindiyini gördük. Biz həmçinin fərqli effektləri məqsədlərinə görə ayırmağı (siniflər ilə mümkün deyildi) gördük.
 
 Bu nöqtədən sonra sizi Hookların necə işlədiyi maraqlandıra bilər. React, render etmələr arası `useState` çağırışının hansı state dəyərinə aid olduğunu haradan bilir? React, hər yenilikdə köhnə və yeni effektləri necə uyğunlaşdırır? **Sonrakı səhifədə [Hookların Qaydaları](/docs/hooks-rules.html) haqqında danışacağıq**. **Bu qaydalar Hookların işləməsi üçün çox vacibdir.**

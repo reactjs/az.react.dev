@@ -21,7 +21,7 @@ Xəta sərhədləri **uşaq komponent ağacında baş verən Javascript xətalar
 > * Serverdə render edilməsi zamanı
 > * Xəta sərhədinin daxilində atılan xətalar (uşaqda atılmağın yerinə)
 
-Klass komponenti göstərilən [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) və ya [`componentDidCatch()`](/docs/react-component.html#componentdidcatch) lifecycle metodlarının birini (və ya hər ikisini)  tətbiq etdikdə xəta sərhədinə çevrilir. `static getDerivedStateFromError()` funksiyasını xəta atıldıqdan sonra fallback UI render etmək üçün işlədin. `componentDidCatch()` funksiyasını xətaları qeydiyyata almaq üçün işlədin.
+Sinif komponenti göstərilən [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) və ya [`componentDidCatch()`](/docs/react-component.html#componentdidcatch) lifecycle metodlarının birini (və ya hər ikisini)  tətbiq etdikdə xəta sərhədinə çevrilir. `static getDerivedStateFromError()` funksiyasını xəta atıldıqdan sonra fallback UI render etmək üçün işlədin. `componentDidCatch()` funksiyasını xətaları qeydiyyata almaq üçün işlədin.
 
 ```js{7-10,12-15,18-21}
 class ErrorBoundary extends React.Component {
@@ -59,7 +59,7 @@ Sonra siz bunu normal komponent kimi işlədə bilərsiniz:
 </ErrorBoundary>
 ```
 
-Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız klas komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
+Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız sinif komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
 
 Qeyd edək ki, **xəta sərhədləri yalnız altındakı ağacda olan komponentlərin xətalarını tuta bilir**. Xəta sərhədi daxilində baş verən xətanı tuta bilmir. Əgər xəta sərhədin xəta mesajını render edə bilmirsə, xəta bu komponentin yuxarısında olan ən yaxın xəta sərhədinə yayılacaq. Javascriptin catch {} funksiyasıda bunun kimi işləyir.
 

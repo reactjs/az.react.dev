@@ -31,7 +31,7 @@ Bu xəbərdarlıq adətən üç səbəbdən yarana bilər:
 <Foo ref={foo} />
 ```
 
-Əgər komponentə ref əlavə etmək lazımdırsa bu komponenti ilk olaraq klasa çevirin. Və ya komponentlər üçün ümümiyyətlə ref işlətməyin. Çünki bu [nadir hallarda lazımdır](/docs/refs-and-the-dom.html#when-to-use-refs).
+Əgər komponentə ref əlavə etmək lazımdırsa bu komponenti sinfə çevirin və ya komponentlər üçün ümümiyyətlə ref işlətməyin. Çünki bu [nadir hallarda lazımdır](/docs/refs-and-the-dom.html#when-to-use-refs).
 
 ## Render Funksiyasından Kənarda Mətn Ref-ləri {#strings-refs-outside-the-render-method}
 

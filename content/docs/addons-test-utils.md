@@ -184,7 +184,7 @@ isDOMComponent(instance)
 isCompositeComponent(instance)
 ```
 
-`instance` xüsusi yaradılmış komponent olduqda (klas və ya funksiya komponentləri kimi) `true` qaytarır.
+`instance` xüsusi yaradılmış komponent olduqda (sinif və ya funksiya komponentləri kimi) `true` qaytarır.
 
 * * *
 
@@ -223,7 +223,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Klas adları `className` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
+Sinif adları `className` olan, render edilmiş komponent ağacında bütün DOM elementləri tapın.
 
 * * *
 

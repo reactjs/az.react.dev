@@ -5,7 +5,7 @@ permalink: docs/hooks-intro.html
 next: hooks-overview.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 ```js{4,5}
 import React, { useState } from 'react';
@@ -50,7 +50,7 @@ Davam etmədən öncə aşağıdakı qeydləri nəzərə alın:
 * **100% geriyə uyğundur.** Hooklarda heç bir pozucu dəyişiklik yoxdur.
 * **İndi mövcuddur.** Hooklar v16.8.0-dan başlayaraq mövcuddur.
 
-**React klaslarını silmək haqqında heç bir planımız yoxdur.** Bu səhifənin [aşağı bölməsində](#gradual-adoption-strategy) Hookların tədrici adaptasiya stategiyası haqqında məlumat ala bilərsiniz.
+**React siniflərini silmək haqqında heç bir planımız yoxdur.** Bu səhifənin [aşağı bölməsində](#gradual-adoption-strategy) Hookların tədrici adaptasiya stategiyası haqqında məlumat ala bilərsiniz.
 
 **Hooklar, bildiyiniz React konsepsiyalarını əvəz etmir.** Əvəzinə, Hooklar ilə bildiyiniz React konsepsiyalarını (proplar, state, kontekst, ref-lər və lifecycle) daha düz API ilə istifadə edə bilərsiniz. Sonrakı bölmələrdə göstərəcəyimiz kimi Hooklar ilə bu xüsusiyyətləri daha güclü formada kombinə etmək mümkündür.
 
@@ -70,7 +70,7 @@ Hooklar ilə state-li məntiqi komponentdən ixrac edib müstəqil test edə bil
 
 ### Mürəkkəb komponentləri başa düşmək çətindir {#complex-components-become-hard-to-understand}
 
-Bir çox zaman, komponentlərin sadə başlamasına baxmayaraq böyüyərək state-li məntiq və yan effektlər qarışıqlığı ilə rastlaşmışıq. Klas komponentlərində hər lifecyle funksiyasına bir-biri ilə əlaqəli olmayan məntiqlər yerləşdirilirdi. Məsələn, `componentDidMount` və `componentDidUpdate` funksiyalarında məlumat yükləməsi məntiqindən əlavə `componentDidMount` funksiyasında əvvəlki əməliyyata aidiyyatı olmayan hadisə işləyicilərini quraşdıran məntiq, `componentWillUnmount` funksiyasında isə bu hadisə işləyicilərini silən təmizlik əməliyyatları ola bilər. Bir-birinə aid olan kodlar parçalanır, bir-birinə aid olmayan kodlar isə eyni funksiyada yığılır. Bu, baq və uyğunsuzluqların şansını artırır.
+Bir çox zaman, komponentlərin sadə başlamasına baxmayaraq böyüyərək state-li məntiq və yan effektlər qarışıqlığı ilə rastlaşmışıq. Sinif komponentlərində hər lifecyle funksiyasına bir-biri ilə əlaqəli olmayan məntiqlər yerləşdirilirdi. Məsələn, `componentDidMount` və `componentDidUpdate` funksiyalarında məlumat yükləməsi məntiqindən əlavə `componentDidMount` funksiyasında əvvəlki əməliyyata aidiyyatı olmayan hadisə işləyicilərini quraşdıran məntiq, `componentWillUnmount` funksiyasında isə bu hadisə işləyicilərini silən təmizlik əməliyyatları ola bilər. Bir-birinə aid olan kodlar parçalanır, bir-birinə aid olmayan kodlar isə eyni funksiyada yığılır. Bu, baq və uyğunsuzluqların şansını artırır.
 
 State-li məntiqin hər yerdə olduğundan bir çox ssenaridə bu komponentləri kiçik hissələrə ayırmaq mümkün olmur. Əlavə olaraq komponentləri test etmək çətinləşir. Bu, React-i kənar state idarəsi kitabxanası ilə işlətməyin səbəblərindən biridir. Lakin, kənar state idarəsi kitabxanaları istifadə etdikdə abstraksiya çoxalır, bir neçə fayl arasında atlamaq məcburiyyəti yaranır və komponentlərin yenidən istifadəsi çətinləşir.
 
@@ -78,13 +78,13 @@ Bu problemləri həll etmək üçün **Hooklar ilə komponentin bir-biri ilə ə
 
 [Effekt Hookunun İstifadəsi](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) səhifəsində bu haqqda daha ətraflı danışacağıq.
 
-### Klaslar həm insanları həm də maşınları çaşdırır {#classes-confuse-both-people-and-machines}
+### Siniflər həm insanları həm də maşınları çaşdırır {#classes-confuse-both-people-and-machines}
 
-Klaslar, kodun yenidən istifadəsini və kod təşkilini çətinləşdirməsindən əlavə React-i öyrənmək üçün böyük baryer yaradır. Klasları anlamaq üçün JavaScript-də `this`-in necə işlədiyini (digər dillərdə `this`-in işləməsindən fərqlidir) anlamaq lazımdır. Hadisə işləyicilərini bind etməyi unutmamaq lazımdır. Stabil olmayan [sintaksis təklifini](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) işlətmədikdə kodun oxunuşu çətinləşir. Proqramçıların proplar, state və yuxarıdan aşağı məlumat axınını öyrənməkdə heç bir problem yaşamadıqlarına baxmayaraq klasları anlamaqda çətinlik çəkirlər. React-də funksiya və klas komponentlərinin fərqi və hansı komponent tipini işlətmək hətta təcrübəli React proqramçılarında fikir müxtəlifliyi yaradır.
+Siniflər, kodun yenidən istifadəsini və kod təşkilini çətinləşdirməsindən əlavə React-i öyrənmək üçün böyük baryer yaradır. Sinifləri anlamaq üçün JavaScript-də `this`-in necə işlədiyini (digər dillərdə `this`-in işləməsindən fərqlidir) anlamaq lazımdır. Hadisə işləyicilərini bind etməyi unutmamaq lazımdır. Stabil olmayan [sintaksis təklifini](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) işlətmədikdə kodun oxunuşu çətinləşir. Proqramçıların proplar, state və yuxarıdan aşağı məlumat axınını öyrənməkdə heç bir problem yaşamadıqlarına baxmayaraq sinifləri anlamaqda çətinlik çəkirlər. React-də funksiya və sinif komponentlərinin fərqi və hansı komponent tipini işlətmək hətta təcrübəli React proqramçılarında fikir müxtəlifliyi yaradır.
 
-Əlavə olaraq, React artıq beş ildir ki mövcuddur və biz bunun gələcək beş ildə də müvafiq qalmasını istəyirik. [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/) və digər kitabxanaların göstərdiyi kimi komponentlərin [öncədən kompilyasiyasının](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) və şablon ilə məhdudlaşmamasının gələcəkdə böyük potensiyalı var. Bu yaxınlarda, [Prepack](https://prepack.io/) ilə [komponenent qatlanmasını (folding)](https://github.com/facebook/react/issues/7323) eksperiment etməyə başlayaraq erkən nəticələrin ümidli olduğunu görürük. Lakin, klas komponentləri istənilməz pattern-ləri təşviq edərək bu optimallaşdırmaları etibarsız edə bilir. Klaslar bugünün alətləri üçün də problemlər yaradır. Məsələn, klaslar minimallaşdırmanı pisləşdirir və isti yüklənməni etibarsız edir. Biz, kodun optimallaşa bilən yolda olması üçün yeni API təqdim etmək istəyirik.
+Əlavə olaraq, React artıq beş ildir ki mövcuddur və biz bunun gələcək beş ildə də müvafiq qalmasını istəyirik. [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/) və digər kitabxanaların göstərdiyi kimi komponentlərin [öncədən kompilyasiyasının](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) və şablon ilə məhdudlaşmamasının gələcəkdə böyük potensiyalı var. Bu yaxınlarda, [Prepack](https://prepack.io/) ilə [komponenent qatlanmasını (folding)](https://github.com/facebook/react/issues/7323) eksperiment etməyə başlayaraq erkən nəticələrin ümidli olduğunu görürük. Lakin, sinif komponentləri istənilməz pattern-ləri təşviq edərək bu optimallaşdırmaları etibarsız edə bilir. Siniflər bugünün alətləri üçün də problemlər yaradır. Məsələn, siniflər minimallaşdırmanı pisləşdirir və isti yüklənməni etibarsız edir. Biz, kodun optimallaşa bilən yolda olması üçün yeni API təqdim etmək istəyirik.
 
-Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlərini klassız istifadə edə bilərsiniz.** Konseptual olaraq React komponentləri hər zaman funksiyalara daha yaxın olublar. Hooklar ilə React-in praktiki ruhunu fəda etmədən funksiyaları işlədə bilirik. Hooklar ilə mürəkkəb funksional və ya reaktiv proqramlaşdırma texnikalarına ehtiyac olmadan imperativ çıxış yollarından istifadə etmək mümkündür.
+Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlərini sinifsiz istifadə edə bilərsiniz.** Konseptual olaraq React komponentləri hər zaman funksiyalara daha yaxın olublar. Hooklar ilə React-in praktiki ruhunu fəda etmədən funksiyaları işlədə bilirik. Hooklar ilə mürəkkəb funksional və ya reaktiv proqramlaşdırma texnikalarına ehtiyac olmadan imperativ çıxış yollarından istifadə etmək mümkündür.
 
 >Nümunələr
 >
@@ -92,15 +92,15 @@ Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlər
 
 ## Tədrici Adaptasiya Strategiyası {#gradual-adoption-strategy}
 
->**Qısacası, React-dən klasları silmək üçün heç bir planımız yoxdur.**
+>**Qısacası, React-dən sinifləri silmək üçün heç bir planımız yoxdur.**
 
 React proqramçıları üçün məhsulların buraxılışını etmək hər yeni çıxan API-ı öyrənməkdən daha vacibdir. Hookların çox yeni olduğundan nümunələri və dərslikləri gözləmək daha faydalı ola bilər.
 
 Həmçinin, biz React-ə yeni primitivin əlavə edilməsinin çox böyük dəyişiklik olduğunu bilirik. Maraqlanan oxuyucular üçün biz [detallı RFC](https://github.com/reactjs/rfcs/pull/68) təqdim edirik. Bu RFC-də motivasiyamız haqqında daha detallı danışır və xüsusi dizayn qərarından və buna aid olan resursları paylaşırıq.
 
-**Hooklar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən kod yazılmalarını," xüsusilə də mövcud mürəkkəb klasların yenidən yazılmalarını tövsiyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponentlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
+**Hooklar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən kod yazılmalarını," xüsusilə də mövcud mürəkkəb siniflərin yenidən yazılmalarını tövsiyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponentlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
 
-Hooklar ilə klaslarda olan bütün metodları əhatə etmək istəməyimizə baxmayaraq **uzaq gələcəyə kimi klas komponentlərini dəstəkləmək istəyirik.** Facebook-da bizim klaslar ilə yazılmış on minlərlə komponentlərimiz var və bizim bu komponentləri yenidən yazmağa heç bir planımız yoxdur. Əvəzinə, biz yeni kodları klaslar ilə yanaşı Hooklar ilə yazırıq.
+Hooklar ilə siniflərdə olan bütün metodları əhatə etmək istəməyimizə baxmayaraq **uzaq gələcəyə kimi sinif komponentlərini dəstəkləmək istəyirik.** Facebook-da bizim siniflər ilə yazılmış on minlərlə komponentlərimiz var və bizim bu komponentləri yenidən yazmağa heç bir planımız yoxdur. Əvəzinə, biz yeni kodları siniflər ilə yanaşı Hooklar ilə yazırıq.
 
 ## Çox Verilən Suallar {#frequently-asked-questions}
 

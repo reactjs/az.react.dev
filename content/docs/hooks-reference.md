@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Bu səhifədə React-in daxili Hooklarının API-ları təsvir edilir.
 
@@ -73,7 +73,7 @@ Yeniləmə funksiyası eyni dəyəri qatardıqda sonrakı yenidən render etməl
 
 > Qeyd
 >
-> Klas komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək klas komponentlərində olan state davranışını tətbiq edə bilərsiniz:
+> Sinif komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək sinif komponentlərində olan state davranışını tətbiq edə bilərsiniz:
 >
 > ```js
 > setState(prevState => {
@@ -194,7 +194,7 @@ Komponentə yaxın olan `<MyContext.Provider>` yeniləndikdə bu komponent yenid
 
 >Məsləhət
 >
->Əgər Hooklardan öncə kontekst API-ı ilə tanışlığınız varsa, `useContext(MyContext)` Hooku klasda `static contextType = MyContext` dəyişəni və ya `<MyContext.Consumer>` komponenti ilə eynidir.
+>Əgər Hooklardan öncə kontekst API-ı ilə tanışlığınız varsa, `useContext(MyContext)` Hooku sinifdə `static contextType = MyContext` dəyişəni və ya `<MyContext.Consumer>` komponenti ilə eynidir.
 >
 >`useContext(MyContext)` Hooku yalnız kontekst dəyərini *oxumağa* və kontekstin dəyişikliklərinə abunə olmağa imkan yaradır. Kontekstə dəyər *təmin etmək üçün* ağacda komponentdən yuxarıda `<MyContext.Provider>` əlavə etmək lazımdır.
 
@@ -425,7 +425,7 @@ Mahiyyətcə `useRef` Hooku, `.current` parametrində mutasiya oluna bilən dəy
 
 Sizin ref-lər ilə [DOM-dan istifadə etmək](/docs/refs-and-the-dom.html) əməliyyatı ilə tanışlığınız ola bilər. Ref obyektini `<div ref={myRef} />` formada React-ə göndərdikdə React bu ref obyektinin `.current` parametrinə müvafiq DOM nodunu təyin edəcək.
 
-Lakin, `useRef()` Hooku yalnız `ref` attributu üçün faydalı deyil. Bu Hook ilə klaslarda olan instansiya sahələri kimi [dəyişə bilən dəyəri saxlamaq mümkündür](/docs/hooks-faq.html#is-there-something-like-instance-variables).
+Lakin, `useRef()` Hooku yalnız `ref` attributu üçün faydalı deyil. Bu Hook ilə siniflərdə olan instansiya sahələri kimi [dəyişə bilən dəyəri saxlamaq mümkündür](/docs/hooks-faq.html#is-there-something-like-instance-variables).
 
 Bunun işləməsinin səbəbi `useRef()` Hookunun sadə JavaScript obyekti yaratmasıdır. `useRef()` işlətmək ilə `{current: ...}` obyektini yaratmağın əsas fərqi `useRef`-in render etmələr arası eyni obyekti qaytarmasıdır.
 
@@ -463,7 +463,7 @@ Vizual yenilikləri blok etməmək üçün standart `useEffect` Hookundan istifa
 
 > Məsləhət
 >
-> Klas komponent kodunu Hooklara miqrasiya edirsinizsə, `useLayoutEffect`-in `componentDidMount` və `componentDidUpdate` metodlar ilə eyni fazada icra edildiyini nəzərə alın. Lakin, **biz `useEffect` ilə başlamağı** və problem yarandıqda `useLayoutEffect` işlətməyi tövsiyə edirik.
+> Sinif komponent kodunu Hooklara miqrasiya edirsinizsə, `useLayoutEffect`-in `componentDidMount` və `componentDidUpdate` metodlar ilə eyni fazada icra edildiyini nəzərə alın. Lakin, **biz `useEffect` ilə başlamağı** və problem yarandıqda `useLayoutEffect` işlətməyi tövsiyə edirik.
 >
 >Serverdə render edildikdə JavaScript yüklənənə kimi *nə* `useLayoutEffect` nə də `useEffect` icra oluna bilər. Bu səbəbdən, server ilə render edilən komponentdə `useLayoutEffect` olduqda React xəbərdarlıq göstərir. Bunu həll etmək üçün ya məntiqi `useEffect` Hookuna köçürün (əgər effekt ilk render zamanı vacib deyilsə) ya da komponenti klient render edənə kimi gecikdirin (əgər `useLayoutEffect` çağrılana kimi HTML sınmış göstərilirsə).
 >

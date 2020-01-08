@@ -30,7 +30,7 @@ React-in gələcək buraxılışlarında bu moda yeni xüsusiyyətlər əlavə e
 
 [Bu bloq yazısında göstərildiyi kimi](/blog/2018/03/27/update-on-async-rendering.html), asinxron React applikasiyalarında bəzi lifecycle funksiyalarının işlədilməsi təhlükəlidir. Lakin, 3-cü tərəfinin kitabxanalarını işlətdikdə bu lifecycle-ların işlənmədiyindən əmin olmaq çətinləşir. Xoşbəxtlikdən, strict rejim sizə kömək edə bilər!
 
-Strict rejim aktiv olduqda təhlükəli lifecycle funksiyaları işlədən klas komponentlərinin siyahısını yaradılır və bu komponentlər haqqında məlumatlar xəbərdarlıq kimi loq edilir:
+Strict rejim aktiv olduqda təhlükəli lifecycle funksiyaları işlədən sinif komponentlərinin siyahısını yaradılır və bu komponentlər haqqında məlumatlar xəbərdarlıq kimi loq edilir:
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
@@ -56,9 +56,9 @@ Obyekt ref-ləri mətn ref-lərini əvəz etmək üçün əlavə edilib. Bu səb
 
 ### Köhnə findDOMNode-un istifadə edilməsi haqqında xəbərdarlıq {#warning-about-deprecated-finddomnode-usage}
 
-React-də klas instansiyası əsasında ağacda DOM nodunun tapılması üçün `findDOMNode` funksiyasından istifadə edilirdi. Normalda, [ref-in DOM-a birbaşa qoşulması](/docs/refs-and-the-dom.html#creating-refs) bu funksiyanın istifadəsini əvəzləyir.
+React-də sinif instansiyası əsasında ağacda DOM nodunun tapılması üçün `findDOMNode` funksiyasından istifadə edilirdi. Normalda, [ref-in DOM-a birbaşa qoşulması](/docs/refs-and-the-dom.html#creating-refs) bu funksiyanın istifadəsini əvəzləyir.
 
-`findDOMNode` funksiyası klas komponentləri ilə də işləyir. Lakin, bu xüsusiyyət valideynin xüsusi uşaqları render etməsinə imkan yaratdığından abstraksiya dərəcələrini sındıra bilir. Valideyn komponenti uşaq komponentin DOM noduna yönəltdiyindən refaktorinq üçün problemlər yaranır. `findDOMNode` funksiyası yalnız bir uşaq qaytara bilir. Lakin, Fraqmentlərdən istifadə edərək bir neçə DOM nodu render etmək mümkündür. `findDOMNode` bir dəfə oxumaq üçün yaranmış API-dır. Bu API, yalnız lazım olduqda cavab qaytarır. Uşaq komponent fərqli nod render etdikdə dəyişiklikləri idarə etmək mümkün deyil. Bu səbəbdən, `findDOMNode` funksiyası komponentlər, dəyişməyən tək DOM nod qaytardıqda işlədilirdi.
+`findDOMNode` funksiyası sinif komponentləri ilə də işləyir. Lakin, bu xüsusiyyət valideynin xüsusi uşaqları render etməsinə imkan yaratdığından abstraksiya dərəcələrini sındıra bilir. Valideyn komponenti uşaq komponentin DOM noduna yönəltdiyindən refaktorinq üçün problemlər yaranır. `findDOMNode` funksiyası yalnız bir uşaq qaytara bilir. Lakin, Fraqmentlərdən istifadə edərək bir neçə DOM nodu render etmək mümkündür. `findDOMNode` bir dəfə oxumaq üçün yaranmış API-dır. Bu API, yalnız lazım olduqda cavab qaytarır. Uşaq komponent fərqli nod render etdikdə dəyişiklikləri idarə etmək mümkün deyil. Bu səbəbdən, `findDOMNode` funksiyası komponentlər, dəyişməyən tək DOM nod qaytardıqda işlədilirdi.
 
 İndi, ref-i xüsusi komponentə göndərib komponentin DOM noduna [yönləndirə bilərsiniz](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
@@ -89,7 +89,7 @@ Konseptual olaraq React iki fazadan ibarətdir:
 
 Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, gələcək asinxron modunda (standart aktiv olmayacaq) render işi bir neçə yerə bölünəcək. Brauzeri blok etməmək üçün işlər fasilə ilə icra olunacaqlar. Bu deməkdir ki, render fazası lifecycle-ları, commit fazasından öncə bir neçə dəfə çağrıla bilər. Bu lifecycle-lar commit fazası olmadan da çağrıla bilərlər (yüksək prioritet kəsilməsi zamanı və ya xətada nəticəsində).
 
-Render fazasının lifecycle-ları aşağıda göstərilən klas metodlarıdır:
+Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır:
 
 * `constructor`
 * `componentWillMount`
@@ -104,7 +104,7 @@ Bu metodların birdən çox çağrıla bildiyindən bu metodlarda side effektlə
 
 Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, bu rejim ilə side effektlərin olduğu yerləri tapmaq mümkündür. Bu side effektlərin tapılması üçün, aşağıdakı funksiyalar iki dəfə çağrılır:
 
-* Klas komponentin `constructor` funksiyası
+* Sinif komponentinin `constructor` funksiyası
 * `render` funksiyası
 * `setState`-in yeniləmə funksiyası (ilk arqument)
 * Statik `getDerivedStateFromProps` lifecycle metodu

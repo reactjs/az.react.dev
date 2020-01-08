@@ -197,6 +197,6 @@ Bu əmrin bitməsini gözləməyin -- bu əmr JSX üçün avtomatik gözətçi b
 
 İndi, **[JSX başlama kodu ilə](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)** `src/like_button.js` faylı yaratdıqda, gözətçi brauzerlərə uyğun sadə JavaScript kodu ilə çevrilmiş `like_button.js` faylı yaradacaq. Mənbə faylını JSX ilə dəyişdikdə, çevrilmə yenidən icra olunacaq.
 
-Bonus olaraq, bu sizə köhnə brauzerləri sındırmadan klaslar kimi modern JavaScript sintaksisininin xüsusiyyətləsindən istifadə etməyə imkan yaradır. Bizim işlətdiyimiz alətin adı Babel-dir. Siz bu alət haqqında əlavə məlumat üçün [bu alətin sənədlərinə](https://babeljs.io/docs/en/babel-cli/) baxa bilərsiniz.
+Bonus olaraq, bu sizə köhnə brauzerləri sındırmadan siniflər kimi modern JavaScript sintaksisininin xüsusiyyətləsindən istifadə etməyə imkan yaradır. Bizim işlətdiyimiz alətin adı Babel-dir. Siz bu alət haqqında əlavə məlumat üçün [bu alətin sənədlərinə](https://babeljs.io/docs/en/babel-cli/) baxa bilərsiniz.
 
 Quraşdırma alətləri ilə işləməyə öyrəşdiyinizi hiss etdikdə və bu alətlərin daha çox iş görməsini istədikdə, populyar və asan işlənə bilən toolchain-lərə [sonrakı bölmədən](/docs/create-a-new-react-app.html) baxa bilərsiniz. Əgər lazım deyilsə, script təqləri işlətmək bəs edəcək!

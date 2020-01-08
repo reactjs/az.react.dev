@@ -167,7 +167,7 @@ MDN Web Docs buna nəzər keçirib və bizim necə [Klaviatur ilə Naviqasiya ol
 
 React-də fokus qurmaq üçün biz [Ref üçün DOM elementlərindən](/docs/refs-and-the-dom.html) istifadə edə bilərik.
 
-Bunu istifadə etməklə biz ilk öncə JSX klas komponentində element üçün ref yaradırıq:
+Bunu istifadə etməklə biz ilk öncə JSX sinif komponentində element üçün ref yaradırıq:
 
 ```javascript{4-5,8-9,13}
 class CustomTextInput extends React.Component {

@@ -4,7 +4,7 @@ title: ES6-sız React
 permalink: docs/react-without-es6.html
 ---
 
-Normalda, React komponenti sadə JavaScript klası kimi təyin edilir:
+Normalda, React komponenti sadə JavaScript sinfi kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -26,11 +26,11 @@ var Greeting = createReactClass({
 });
 ```
 
-ES6 klaslarının API-ı bəzi istinasları çıxmaqla `createReactClass()`-ın API-na bənzəyir.
+ES6 siniflərinin API-ı bəzi istinasları çıxmaqla `createReactClass()`-ın API-na bənzəyir.
 
 ## Təyin Edilməyən Propların Müəyyənləşdirilməsi {#declaring-default-props}
 
-`defaultProps` parametri, funksiya və ES6 klaslarında komponentin parametri kimi təyin edilir:
+`defaultProps` parametri, funksiya və ES6 siniflərində komponentin parametri kimi təyin edilir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -59,7 +59,7 @@ var Greeting = createReactClass({
 
 ## İlkin State-in Təyin Edilməsi {#setting-the-initial-state}
 
-ES6 klaslarında ilkin state-i təyin etmək üçün konstruktordan `this.state`-i təyin etmək kifayətdir:
+ES6 siniflərində ilkin state-i təyin etmək üçün konstruktordan `this.state`-i təyin etmək kifayətdir:
 
 ```javascript
 class Counter extends React.Component {
@@ -84,7 +84,7 @@ var Counter = createReactClass({
 
 ## Avtomatik Binding {#autobinding}
 
-ES6 klasları ilə təyin olunan React klaslarının funksiyaları standart ES6 klaslarının semantikası ilə eynidir. Bu deməkdir ki, klas funksiyalarında `this` instansiyasını avtomatik bind edilmir. Bu səbəbdən, konstruktorda açıq formada `.bind(this)` yazmalısınız:
+ES6 sinifləri ilə təyin olunan React siniflərinin funksiyaları standart ES6 siniflərinin semantikası ilə eynidir. Bu deməkdir ki, sinif funksiyalarında `this` instansiyasını avtomatik bind edilmir. Bu səbəbdən, konstruktorda açıq formada `.bind(this)` yazmalısınız:
 
 ```javascript
 class SayHello extends React.Component {
@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // `this.handleClick` klasa bind olduğundan biz bu funksiyanı hadisə işləyicisi kimi işlədə bilərik.
+    // `this.handleClick` sinfə bind olduğundan biz bu funksiyanı hadisə işləyicisi kimi işlədə bilərik.
     return (
       <button onClick={this.handleClick}>
         Salam de
@@ -132,9 +132,9 @@ var SayHello = createReactClass({
 });
 ```
 
-Bu deməkdir ki, ES6 klasları hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu klaslar böyük applikasiyalarda daha tez işləyirlər.
+Bu deməkdir ki, ES6 sinifləri hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu siniflər böyük applikasiyalarda daha tez işləyirlər.
 
-Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Klas Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-a qoşa bilərsiniz:
+Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Sinif Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-a qoşa bilərsiniz:
 
 ```javascript
 class SayHello extends React.Component {
@@ -170,7 +170,7 @@ Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu 
 
 >**Qeyd:**
 >
->ES6, miksinlər dəstəklənmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 klasları ilə istifadə etdikdə miksinlər dəstəklənmir.
+>ES6, miksinlər dəstəklənmədən buraxılışa verildi. Bu səbəbdən, React-i ES6 sinifləri ilə istifadə etdikdə miksinlər dəstəklənmir.
 >
 >**Əlavə olaraq, miksinli kodlarda çoxlu problemlər tapdığımızdan [yeni kodda miksinlərin istifadəsini tövsiyə etmirik](/blog/2016/07/13/mixins-considered-harmful.html).**
 >

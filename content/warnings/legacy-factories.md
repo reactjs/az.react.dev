@@ -44,7 +44,7 @@ Bu, çoxlu funksiya olduqda kodu yeniləmənin asan yoludur.
 
 ## JSX-siz Dinamik Komponentlər {#dynamic-components-without-jsx}
 
-Komponent klası dinamik mənbədən alındıqda dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə, elementi birbaşa yaradın:
+Komponent sinfi dinamik mənbədən alındıqda dərhal çağrılacaq komponent üçün zavod yaratmaq lazımsız ola bilər. Əvəzinə, elementi birbaşa yaradın:
 
 ```javascript
 var React = require('react');

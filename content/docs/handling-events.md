@@ -58,7 +58,7 @@ Burada `e` sintetik hadisədir. React sintetik hadisələri [W3C spesifikasiyas�
 
 React istifadə edərkən DOM elementi yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə, işləyicini element ilk dəfə render olunduqda təmin edin.
 
-Komponent [ES6 klası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) kimi təyin olunduqda hadisə işləyicisi klasın metodlarından biri ola bilər. Məsələn, aşağıdakı `Toggle` komponenti istifadəçiyə "ON" və "OFF" halları arasında dəyişməyə imkan verən düyməyə render olunur:
+Komponent [ES6 sinfi](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) kimi təyin olunduqda hadisə işləyicisi sinfin metodlarından biri ola bilər. Məsələn, aşağıdakı `Toggle` komponenti istifadəçiyə "ON" və "OFF" halları arasında dəyişməyə imkan verən düyməyə render olunur:
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -93,11 +93,11 @@ ReactDOM.render(
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-JSX callback-lərində `this` ilə işləyərkən ehtiyatlı olmaq lazımdır. JavaScript-də klas metodları ilkin olaraq kontekstə [bağlanmayıb (bind)](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind). Əgər `this.handleClick`-i bağlamasaq və onu `onClick`-ə ötürməyi unutsaq, funksiya çağırıldıqda `this` `undefined` olacaq.
+JSX callback-lərində `this` ilə işləyərkən ehtiyatlı olmaq lazımdır. JavaScript-də sinif metodları ilkin olaraq kontekstə [bağlanmayıb (bind)](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind). Əgər `this.handleClick`-i bağlamasaq və onu `onClick`-ə ötürməyi unutsaq, funksiya çağırıldıqda `this` `undefined` olacaq.
 
 Bu spesifik olaraq React-ə aid davranış deyil, [JavaScript-də funksiyalar ümumiyyətlə belə işləyir](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Metodu sonunda mötərizəsiz istifadə etməklə də bağlamaq olar. Məsələn: `onClick={this.handleClick}`.
 
-Əgər `bind` xoşunuza gəlmirsə, iki alternativ yolunuz var. Birincisi sınaq vəziyyətində olan [public klas sahələri sintaksisi](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə etməkdir. Bu sahələri callback-ləri düzgün bağlamaq üçün istifadə etmək olar:
+Əgər `bind` xoşunuza gəlmirsə, iki alternativ yolunuz var. Birincisi sınaq vəziyyətində olan [public sinif sahələri sintaksisi](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə etməkdir. Bu sahələri callback-ləri düzgün bağlamaq üçün istifadə etmək olar:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -138,7 +138,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-Bu sintaksisin çatışmazlığı ondan ibarətdir ki, hər dəfə `LoggingButton` render olanda yeni callback yaradılır. Əksər hallarda bu problem deyil. Lakin əgər bu callback prop kimi uşaq komponentlərə ötürülürsə, onda həmin komponentlər əlavə render işi görə bilər. Belə performans problemlərini aradan qaldırmaq üçün konstruktorda bağlamaq və ya klas sahələri sintaksisindən istifadə etmək məsləhət görülür.
+Bu sintaksisin çatışmazlığı ondan ibarətdir ki, hər dəfə `LoggingButton` render olanda yeni callback yaradılır. Əksər hallarda bu problem deyil. Lakin əgər bu callback prop kimi uşaq komponentlərə ötürülürsə, onda həmin komponentlər əlavə render işi görə bilər. Belə performans problemlərini aradan qaldırmaq üçün konstruktorda bağlamaq və ya sinif sahələri sintaksisindən istifadə etmək məsləhət görülür.
 
 ## Arqumentlərin hadisə işləyicilərinə ötürülməsi {#passing-arguments-to-event-handlers}
 

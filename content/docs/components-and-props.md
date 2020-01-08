@@ -20,7 +20,7 @@ Komponentlər sizə UI-ı müstəqil, yenidən istifadə oluna bilən hissələr
 
 Konseptual olaraq, komponentlər JavaScript funksiyalarına bənzəyir. Komponentlər özbaşına daxiletmələri ("proplar" adlanan) qəbul edir və ekranda nə olacağını təsvir edən React elementlərini qaytarırlar.
 
-## Funksiya və Klass Komponentlər {#function-and-class-components}
+## Funksiya və Sinif Komponentləri {#function-and-class-components}
 
 Komponenti müəyyən etməyin ən asan yolu JavaScript funksiyasını yazmaqdır:
 
@@ -32,7 +32,7 @@ function Welcome(props) {
 
 Bu funksiya məlumatı olan tək "proplar" (parametrlər mənasını daşıyır) obyekt arqumentini qəbul etdiyi və React elementini qaytardığı üçün etibarlı React komponenti sayılır. Biz bu komponentlərin JavaScript funksiyaları olduğu üçün "funksiya komponentləri" adlandırırıq.
 
-Siz komponenti müəyyən etmək üçün [ES6 klassından](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
+Siz komponenti müəyyən etmək üçün [ES6 sinfindən](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
 
 ```js
 class Welcome extends React.Component {
@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Yuxarıdakı iki komponentlər React-ə nəzərən bərabərdirlər.
 
-Klasların [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
+Siniflərin [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
 
 ## Komponenti Render Etmək {#rendering-a-component}
 
@@ -237,7 +237,7 @@ Komponentlərin xaric edilməsi ilk öncə aşağı səviyyəli iş kimi görün
 
 ## Proplar və Read-Only {#props-are-read-only}
 
-Komponentin [funksiya və ya klas kimi](#function-and-class-components) bəyan edilməyinə baxmayaraq, komponent heç vaxt öz proplarını dəyişməməlidir. Bu `sum` funksiyasını nəzərə alın:
+Komponentin [funksiya və ya sinif kimi](#function-and-class-components) bəyan edilməyinə baxmayaraq, komponent heç vaxt öz proplarını dəyişməməlidir. Bu `sum` funksiyasını nəzərə alın:
 
 ```js
 function sum(a, b) {
