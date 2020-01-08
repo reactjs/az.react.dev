@@ -45,7 +45,7 @@ function useWindowWidth() {
 
 Qarışıqlığın olmaması üçün Hookları aşağıdakı ssenarilərdə işlətmək **dəstəklənmir**:
 
-* 🔴 Hookları klas komponentlərindən çağırmayın.
+* 🔴 Hookları sinif komponentlərindən çağırmayın.
 * 🔴 Hookları hadisə işləyicilərindən çağırmayın.
 * 🔴 Hookları `useMemo`, `useReducer` və ya `useEffect` Hooklara göndərilən funksiyalardan çağırmayın.
 
@@ -71,7 +71,7 @@ function Bad2() {
 
 class Bad3 extends React.Component {
   render() {
-    // 🔴 Pis: klas komponentindədir
+    // 🔴 Pis: sinif komponentindədir
     useEffect(() => {})
     // ...
   }

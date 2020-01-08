@@ -15,7 +15,7 @@ React-də tək səhifəli applikasiya düzəltmək zəruri deyil. Siz mövcud ol
 
 ## ES6, ES2015, ES2016, və s {#es6-es2015-es2016-etc}
 
-Göstərilən akronimlər ECMAScript Dilinin Spesifikasiya standartının (JavaScript bu standartın tətbiqidir) ən yeni versiyalarına istinad edir. ES2015 kimi də tanınan, ES6 versiyası, keçmiş versiyalara bir çox yeniliklər əlavə edir: ox funksiyaları, klaslar, şablon hərfləri, `let` və `const`. Spesifik versiyalar haqqında məlumatlara [buradan](https://en.wikipedia.org/wiki/ECMAScript#Versions) baxa bilərsiniz.
+Göstərilən akronimlər ECMAScript Dilinin Spesifikasiya standartının (JavaScript bu standartın tətbiqidir) ən yeni versiyalarına istinad edir. ES2015 kimi də tanınan, ES6 versiyası, keçmiş versiyalara bir çox yeniliklər əlavə edir: ox funksiyaları, siniflər, şablon hərfləri, `let` və `const`. Spesifik versiyalar haqqında məlumatlara [buradan](https://en.wikipedia.org/wiki/ECMAScript#Versions) baxa bilərsiniz.
 
 ## Kompilyatorlar {#compilers}
 
@@ -67,7 +67,7 @@ function Welcome(props) {
 }
 ```
 
-Komponentlər həmçinin ES6 klasları da ola bilərlər:
+Komponentlər həmçinin ES6 sinifləri da ola bilərlər:
 
 ```js
 class Welcome extends React.Component {
@@ -150,7 +150,7 @@ Açarlara `Math.random()` kimi dəyərlər göndərməyin. Yenidən render etmə
 
 ## [Ref-lər](/docs/refs-and-the-dom.html) {#refs}
 
-React hər hansı komponentə qoşula bilən xüsusi bir atribut dəstəkləyir. `ref` atributu, [`React.createRef()` funksiyası](/docs/react-api.html#reactcreateref) tərəfindən yaradılan obyekt, callback funksiyası və ya mətn (köhnə API-dır) qəbul edir. `ref` atributu callback funksiyası olduqda, qoşulan DOM element və ya klas instansiyası (elementin tipindən asılı olaraq) arqument kimi funksiyaya göndərilir. Qəbul edilən DOM elementindən və ya komponent instansiyasından funksiya daxilində birbaşa istifadə edə bilər.
+React hər hansı komponentə qoşula bilən xüsusi bir atribut dəstəkləyir. `ref` atributu, [`React.createRef()` funksiyası](/docs/react-api.html#reactcreateref) tərəfindən yaradılan obyekt, callback funksiyası və ya mətn (köhnə API-dır) qəbul edir. `ref` atributu callback funksiyası olduqda, qoşulan DOM element və ya sinif instansiyası (elementin tipindən asılı olaraq) arqument kimi funksiyaya göndərilir. Qəbul edilən DOM elementindən və ya komponent instansiyasından funksiya daxilində birbaşa istifadə edə bilər.
 
 ref-ləri hər yerdə işlətməyin. Əgər applikasiyanızda normal işlər üçün ref-lərdən istifadə etdiyinizi görürsünüzsə [yuxarıdan aşağı məlumat axını](/docs/lifting-state-up.html) ilə tanış olun.
 

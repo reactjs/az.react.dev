@@ -19,12 +19,12 @@ redirect_from:
 
 ### Komponentlər {#components}
 
-React komponentləri sizə UI-ı müstəqil, yenidən işlənə bilən hissələrə ayırmağa və bu hissələr haqqında ayrılıqda fikirləşməyə imkan yaradır. React komponentləri `React.Component` və ya `React.PureComponent` klaslarını genişləndirərək müəyyənləşdirilə bilir.
+React komponentləri sizə UI-ı müstəqil, yenidən işlənə bilən hissələrə ayırmağa və bu hissələr haqqında ayrılıqda fikirləşməyə imkan yaradır. React komponentləri `React.Component` və ya `React.PureComponent` siniflərini genişləndirərək müəyyənləşdirilə bilir.
 
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-Əgər siz ES6 klasları istifadə etmirsinizsə, siz `create-react-class` modulundan istifadə edə bilərsiniz. Əlavə məlumat üçün, [ES6-sız React-in istifadəsi](/docs/react-without-es6.html) bölməsini oxuyun.
+Əgər siz ES6 sinifləri istifadə etmirsinizsə, siz `create-react-class` modulundan istifadə edə bilərsiniz. Əlavə məlumat üçün, [ES6-sız React-in istifadəsi](/docs/react-without-es6.html) bölməsini oxuyun.
 
 React komponentləri həmçinin funksiyalar ilə də müəyyənləşdirilə bilər. Bu funksiyalar aşağıdakılar ilə əhatə oluna bilər:
 
@@ -68,7 +68,7 @@ Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" im
 
 ### Hooklar {#hooks}
 
-*Hooklar* React 16.8-a yeni əlavədir. Onlar sizə state və başqa React xüsusiyyətlərini klas yazmadan istifadə etməyə imkan yaradır. Hooklara [həsr olunmuş ayrıca sənədləri](/docs/hooks-intro.html) və API arayışları var:
+*Hooklar* React 16.8-a yeni əlavədir. Onlar sizə state və başqa React xüsusiyyətlərini sinif yazmadan istifadə etməyə imkan yaradır. Hooklara [həsr olunmuş ayrıca sənədləri](/docs/hooks-intro.html) və API arayışları var:
 
 - [Əsas Hooklar](/docs/hooks-reference.html#basic-hooks)
   - [`useState`](/docs/hooks-reference.html#usestate)
@@ -89,7 +89,7 @@ Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" im
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` [ES6 klasları](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) ilə müəyyənləşdirilən React komponentləri üçün əsas klasdır:
+`React.Component` [ES6 sinifləri](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) ilə müəyyənləşdirilən React komponentləri üçün əsas sinifdir:
 
 ```javascript
 class Greeting extends React.Component {
@@ -99,7 +99,7 @@ class Greeting extends React.Component {
 }
 ```
 
-`React.Component` əsas klasına aid funksiya və parametrlərin siyahısı üçün [React.Component API Arayışına](/docs/react-component.html) baxın.
+`React.Component` əsas sinfinə aid funksiya və parametrlərin siyahısı üçün [React.Component API Arayışına](/docs/react-component.html) baxın.
 
 * * *
 
@@ -125,7 +125,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu klaslar əvəzinə funksiya komponentləri ilə işlənilir.
+`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu, [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu, siniflər əvəzinə funksiya komponentləri ilə işlənilir.
 
 Əgər sizin komponent funksiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
 
@@ -165,7 +165,7 @@ React.createElement(
 )
 ```
 
-Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yaradın və qaytarın. Element tipi təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (klas və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
+Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yaradın və qaytarın. Element tipi təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (sinif və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
 
 [JSX](/docs/introducing-jsx.html) ilə yazılmış kod `React.createElement()`-ə çevriləcək. Siz JSX işlətdiyiniz zaman çox vaxt `React.createElement()` funksiyasını birbaşa çağırmırsınız. Ətraflı məlumat üçün [JSX-siz React](/docs/react-without-jsx.html) sənədinə baxın.
 
@@ -201,7 +201,7 @@ Bu API, köhnəlmiş `React.addons.cloneWithProps()` funksiyasının əvəzləm�
 React.createFactory(type)
 ```
 
-Verilmiş tip ilə React elementlər yaradan funksiya qaytarır. [`React.createElement()`](#createelement) kimi, tip arqumenti təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (klas və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
+Verilmiş tip ilə React elementlər yaradan funksiya qaytarır. [`React.createElement()`](#createelement) kimi, tip arqumenti təq ad yazısı (məsələn `'div'` və ya `'span'`), [React komponent](/docs/components-and-props.html) tipi (sinif və ya funksiya) və ya [React fraqment](#reactfragment) tipi ola bilər.
 
 Bu köməkçi funksiya köhnəlmiş kimi hesab edilir və biz bu funksiyanı işlətmək əvəzinə birbaşa JSX və ya `React.createElement()` işlətməyi təşviq edirik.
 

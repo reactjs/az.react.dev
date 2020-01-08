@@ -33,9 +33,9 @@ Yuxarıdakı misalın addım-addım izahatına aşağıda baxa bilərsiniz:
 
 >Qeyd
 >
->Siz yalnız komponenti `React.forwardRef` ilə çağırışı ilə təyin etdikdə, ikinci `ref` arqumenti mövcud olacaqdır. Müntəzəm funksiya və ya klas komponentləri `ref` arqumentini qəbul etmir və ref proplarda da əlçatan deyil. 
+>Siz yalnız komponenti `React.forwardRef` ilə çağırışı ilə təyin etdikdə, ikinci `ref` arqumenti mövcud olacaqdır. Müntəzəm funksiya və ya sinif komponentləri `ref` arqumentini qəbul etmir və ref proplarda da əlçatan deyil. 
 >
->Ref-in yönləndirilməsi DOM komponentləri ilə limitli deyil. Siz həmçinin ref-ləri klas komponentlərinin nümunələrinə yönləndirə bilərsiniz. 
+>Ref-in yönləndirilməsi DOM komponentləri ilə limitli deyil. Siz həmçinin ref-ləri sinif komponentlərinin nümunələrinə yönləndirə bilərsiniz. 
 
 ## Komponent Kitabxana saxlayıcıları üçün qeyd {#note-for-component-library-maintainers}
 

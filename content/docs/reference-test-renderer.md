@@ -238,7 +238,7 @@ Təmin edilən `props` ilə bütün test instansiyalarını tapın.
 testInstance.instance
 ```
 
-Göstərilən test instansiyasına uyğun olan komponent. Funksiya komponentlərinin instansiyaları olmadığından bu yalnız klas komponentləri üçün mövcuddur. Verilən komponentin `this` dəyəri ilə uyğundur.
+Göstərilən test instansiyasına uyğun olan komponent. Funksiya komponentlərinin instansiyaları olmadığından bu yalnız sinif komponentləri üçün mövcuddur. Verilən komponentin `this` dəyəri ilə uyğundur.
 
 ### `testInstance.type` {#testinstancetype}
 

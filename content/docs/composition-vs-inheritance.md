@@ -169,4 +169,4 @@ Facebook-da, biz minlərlə komponent üçün React istifadə edirik və heç bi
 
 Kompozisiya və proplar, komponentin görünüş və davranışını açıq və təhlükəsiz şəkildə özəlləşdirməyə imkan yaradır. Nəzərə alın ki, komponentlər primitiv dəyərləri, React elementləri, və ya funksiyaları proplar kimi qəbul edə bilirlər.
 
-Əgər sizə bir neçə komponentəd işlətmək üçün UI olmayan funksionallıq lazımdırsa, biz bu funksionallığı ayrı JavaScript moduluna çıxarmağı tövsiyyə edirik. Komponentlər bu modulu idxal edib modulda olan funksiyanı, obyekti, və ya klası varislik lazım olmadan istifadə edə bilərlər.
+Əgər sizə bir neçə komponentdə işlətmək üçün UI olmayan funksionallıq lazımdırsa, biz bu funksionallığı ayrı JavaScript moduluna çıxarmağı tövsiyyə edirik. Komponentlər bu modulu idxal edib modulda olan funksiyanı, obyekti, və ya sinfi varislik lazım olmadan istifadə edə bilərlər.

@@ -40,7 +40,7 @@ ReactDOM.render(
 
 JSX-in JavaScript-ə çevrilməsi haqqında əlavə nümunələr üçün [onlayn Babel kompilyatorundan](babel://jsx-simple-example) istifadə edə bilərsiniz.
 
-Təmin olunan komponentin tipi, mətn, `React.Component`-in subklası və ya sadə funksiya (funksiya komponentləri üçün) ola bilər.
+Təmin olunan komponentin tipi, mətn, `React.Component`-in alt sinfi və ya sadə funksiya (funksiya komponentləri üçün) ola bilər.
 
 `React.createElement` ifadəsini çox yazmaqdan bezmisinizsə bu funksiyanı qısa adlı dəyişənə təyin edə bilərsiniz:
 

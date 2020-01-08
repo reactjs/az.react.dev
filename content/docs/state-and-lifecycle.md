@@ -72,13 +72,13 @@ Bunu yerinə yetirmək üçün `Clock` komponentinə "state" əlavə etmək laz�
 
 State prop-a bənzəyir, lakin komponent tərəfindən tam idarə olunur və yalnız onun daxilində əlçatandır.
 
-## Funksiyanın klasa çevirilməsi {#converting-a-function-to-a-class}
+## Funksiyanın sinifə çevrilməsi {#converting-a-function-to-a-class}
 
-`Clock` kimi funksional komponenti klas komponentinə  5 addımda çevirmək olar:
+`Clock` kimi funksional komponenti sinif komponentinə  5 addımda çevirmək olar:
 
-1. İlkin komponentlə adı eyni olan, `React.Component` klasını genişləndirən [ES6 klası](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) yaradaq.
+1. İlkin komponentlə adı eyni olan, `React.Component` sinfini genişləndirən [ES6 sinfi](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) yaradaq.
 
-2. Bu klasa `render()` adlı boş metod əlavə edək.
+2. Bu sinifə `render()` adlı boş metod əlavə edək.
 
 3. Funksiyanın kodunu `render()` metoduna köçürək.
 
@@ -101,9 +101,9 @@ class Clock extends React.Component {
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-Öncəliklə funksiya kimi təyin edilən `Clock` komponenti, indi klas kimi təyin edilmişdir.
+Öncəliklə funksiya kimi təyin edilən `Clock` komponenti, indi sinif kimi təyin edilmişdir.
 
-`render` metodu hər dəfə yeniləmə baş tutduqda çağırılacaq. Lakin eyni DOM düyünü daxilində `<Clock />` komponentini neçə dəfə istifadə etsək də, `Clock` klasının yalnız bir nüsxəsi istifadə olunacaq. Bu hal bizə lokal state və lifecycle kimi əlavə xüsusiyyətləri istifadə etmə imkanı verir.
+`render` metodu hər dəfə yeniləmə baş tutduqda çağırılacaq. Lakin eyni DOM düyünü daxilində `<Clock />` komponentini neçə dəfə istifadə etsək də, `Clock` sinfinin yalnız bir nüsxəsi istifadə olunacaq. Bu hal bizə lokal state və lifecycle kimi əlavə xüsusiyyətləri istifadə etmə imkanı verir.
 
 ## Klasa lokal state əlavə edilməsi {#adding-local-state-to-a-class}
 
@@ -123,7 +123,7 @@ class Clock extends React.Component {
   }
 }
 ```
-2) `this.state` veriləninə ilkin dəyər təyin edən [klas konstruktoru](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) əlavə edək:
+2) `this.state` veriləninə ilkin dəyər təyin edən [sinif konstruktoru](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) əlavə edək:
 
 ```js{4}
 class Clock extends React.Component {
@@ -245,7 +245,7 @@ Bu metodlara "lifecycle metodları" deyilir.
 
 Diqqət yetirsək, taymerin ID-sini `this` də saxladığımızı görərsiniz (`this.timerID`).
 
-`this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı klasa hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
+`this.props` React tərəfindən quraşdırılır, `this.state`-in də xüsusi anlamı var. Bu ikisindən savayı sinifə hər hansı məlumat saxlamaq üçün məlumat axımında iştirak etməyən başqa verilənlər əlavə etmək olar (taymerin id-si kimi).
 
 `componentWillUnmount()` metodunda taymeri yaddaşdan siləcəyik:
 
@@ -304,7 +304,7 @@ ReactDOM.render(
 
 Gəlin bir daha hər şeyi təkrarlayaq və metodların çağırıldığı ardıcıllığa nəzər yetirək:
 
-1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` klasının konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görə də `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
+1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` sinfinin konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görə də `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
 
 2) Daha sonra React `Clock` komponentinin `render()` metodunu çağırır. Belə React ekranda nə göstərmək lazım olduğunu öyrənir. Bundan da sonra DOM `Clock`-un render nəticəsinə uyğun olaraq yenilənir.
 
@@ -409,7 +409,7 @@ Birləşdirmə dayazdır (shallow), yəni `this.setState({comments})` çağırı
 
 ## Verilənlərin aşağı istiqamətdə axını {#the-data-flows-down}
 
-Nə valideyn, nə də uşaq komponenti digər komponentin state-inin olub olmadığını bilməyə məcbur deyil. Həmin komponentin funksiya və ya klas kimi təyin olmağı da onlar üçün önəmli deyil.
+Nə valideyn, nə də uşaq komponenti digər komponentin state-inin olub olmadığını bilməyə məcbur deyil. Həmin komponentin funksiya və ya sinif kimi təyin olmağı da onlar üçün önəmli deyil.
 
 Məhz buna görə state lokal və ya inkapsulyasiya olunmuş adlanır. Yalnız məxsus olduğu komponent daxilində əlçatandır, digər komponentlər onu görmür.
 

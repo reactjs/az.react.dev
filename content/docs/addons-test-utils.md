@@ -184,7 +184,7 @@ isDOMComponent(instance)
 isCompositeComponent(instance)
 ```
 
-`instance` xüsusi yaradılmış komponent olduqda (klas və ya funksiya komponentləri kimi) `true` qaytarır.
+`instance` xüsusi yaradılmış komponent olduqda (sinif və ya funksiya komponentləri kimi) `true` qaytarır.
 
 * * *
 

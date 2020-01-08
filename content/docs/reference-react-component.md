@@ -15,11 +15,11 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Bu səhifədə React komponent klas təriflərinin ətraflı API arayışı var. Bu səhifə, sizin [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyaları haqqında məlumatınızın olduğunu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
+Bu səhifədə React komponent sinif təriflərinin ətraflı API arayışı var. Bu səhifə, sizin [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyaları haqqında məlumatınızın olduğunu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
 
 ## İcmal {#overview}
 
-React, komponentləri klas və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React klas komponenti yaratmaq üçün klasları `React.Component`-dən genişləndirmək lazımdır:
+React, komponentləri sinif və ya funksiya kimi müəyyənləşdirməyə icazə verir. Klas ilə müəyyənləşdirilmiş komponentlərin funksiya komponentlərindən bir neçə əlavə xüsusiyyətləri var. Bu səhifədə bu xüsusiyyətlər haqqında ətraflı məlumat var. React sinif komponenti yaratmaq üçün sinifləri `React.Component`-dən genişləndirmək lazımdır:
 
 ```js
 class Welcome extends React.Component {
@@ -29,13 +29,13 @@ class Welcome extends React.Component {
 }
 ```
 
-`React.Component` subklasında yeganə müəyyənləşdirilməsi olan funksiya [`render()`](#render) funksiyasıdır. Bu səhifədə göstərilən digər bütün funksiyaların müəyyənləşdirilməsi məcburi deyil.
+`React.Component` alt sinfində yeganə müəyyənləşdirilməsi olan funksiya [`render()`](#render) funksiyasıdır. Bu səhifədə göstərilən digər bütün funksiyaların müəyyənləşdirilməsi məcburi deyil.
 
-**Biz xüsusi baza komponent klası yaratmağı tövsiyə etmirik.** React komponentlərində [kodun yenidən işlədilməsinə varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
+**Biz xüsusi əsas komponent sinfi yaratmağı tövsiyə etmirik.** React komponentlərində [kodun yenidən işlədilməsinə varislik əvəzinə kompozisiya ilə nail olunur](/docs/composition-vs-inheritance.html).
 
 >Qeyd:
 >
->React sizi ES6 klas sintaksisindən istifadə etməyə məcbur etmir. Əgər siz ES6 klasları istifadə etmək istəmirsinizsə, `create-react-class` modulu və ya buna oxşar digər abastraksiyadan istifadə edə bilərsiniz. Ətraflı məlumat üçün [ES6-sız React səhifəsinə](/docs/react-without-es6.html) baxın.
+>React sizi ES6 sinif sintaksisindən istifadə etməyə məcbur etmir. Əgər siz ES6 sinifləri istifadə etmək istəmirsinizsə, `create-react-class` modulu və ya buna oxşar digər abastraksiyadan istifadə edə bilərsiniz. Ətraflı məlumat üçün [ES6-sız React səhifəsinə](/docs/react-without-es6.html) baxın.
 
 ### Komponentin Lifecycle-ı {#the-component-lifecycle}
 
@@ -117,7 +117,7 @@ Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə halla
 render()
 ```
 
-`render()` klas komponenti üçün yeganə müəyyənləşdirilməli funksiyadır.
+`render()` sinif komponenti üçün yeganə müəyyənləşdirilməli funksiyadır.
 
 Çağrıldığı zaman, bu funksiya, `this.props` və `this.state` parametrlərindən istifadə edərək aşağıdakı tiplərdən birini qaytarmalıdır:
 
@@ -145,12 +145,12 @@ constructor(props)
 
 **Əgər siz state-i inisializasiya və funksiyaları bind etmirsinizsə, React komponenti üçün konstruktor yaratmaq lazım deyil.**
 
-React komponentinin konstruktoru komponent mount olmamışdan qabaq çağrılır. `React.Component` subklası üçün konstruktor yaratdıqda, hər hansı bir ifadədən öncə `super(props)` çağırın. Əks halda, `this.props` konstruktor zamanı `undefined` olacaq. Bu baqlara səbəb ola bilər.
+React komponentinin konstruktoru komponent mount olmamışdan qabaq çağrılır. `React.Component` alt sinifi üçün konstruktor yaratdıqda, hər hansı bir ifadədən öncə `super(props)` çağırın. Əks halda, `this.props` konstruktor zamanı `undefined` olacaq. Bu baqlara səbəb ola bilər.
 
 Adətən React-də konstruktorlar iki halda işlədilir:
 
 * `this.state`-ə obyekt təyin edərək [lokal state-in](/docs/state-and-lifecycle.html) inisializasiyası zamanı.
-* [Hadisə işləyiciləri](/docs/handling-events.html) funksiyalarının klas instansiyasına bind edilməsi üçün.
+* [Hadisə işləyiciləri](/docs/handling-events.html) funksiyalarının sinif instansiyasına bind edilməsi üçün.
 
 `constructor()`-da **`setState()`-dən istifadə etməyin**. Əgər komponentə lokal state lazımdırsa, **ilkin state-i `this.state`-ə konstruktordan birbaşa təyin edin**:
 
@@ -287,7 +287,7 @@ State-i törətmək qarışıq koda səbəb olub komponentin pis anlaşılmasın
 
 * Əgər siz **prop dəyişdikdə hər hansı bir state-i sıfırlamaq istəyirsinizsə**, komponenti [tam kontrol olunan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) və ya [`key` ilə tam kontrol olunmayan](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) edin.
 
-Bu funksiyanın komponent instansiyasına girişi yoxdur. Siz komponent proplarının saf funksiyalarını və state-i klas tərifindən ekstrakt edib `getDerivedStateFromProps()` və digər klas metodları arasında kodu paylaşa bilərsiniz.
+Bu funksiyanın komponent instansiyasına girişi yoxdur. Siz komponent proplarının saf funksiyalarını və state-i sinif tərifindən ekstrakt edib `getDerivedStateFromProps()` və digər sinif metodları arasında kodu paylaşa bilərsiniz.
 
 Qeyd edin ki, bu funksiya səbəbsiz halda **hər** render-də çağrılır. Bundan fərqli olaraq `UNSAFE_componentWillReceiveProps` funksiyası lokal `setState` əsasında yox, yalnız ana komponent yenidən render etdikdə çağrılır.
 
@@ -585,7 +585,7 @@ Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli v
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` klasa ilkin propların verilməsi üçün komponent klasının parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
+`defaultProps` parametri sinifə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
 
 ```js
 class CustomButton extends React.Component {
@@ -617,7 +617,7 @@ CustomButton.defaultProps = {
 
 ### `displayName` {#displayname}
 
-`displayName` parametri mesajları debaq etmək üçün işlədilir. Adətən, bunu açıq şəkildə təyin etmək lazım deyil. Çünki, komponenti təyin edən funksiya və ya klasın adından istifadə edilərək avtomatik şəkildə təyin edilir. Debaq zamanı komponentdə fərqli ad görmək üçün və ya yüksək-dərəcəli komponent işləndiyi zaman bu parametri açıq şəkildə təyin etmək olar. Əlavə məlumat üçün [Asan Debaq Etmək üçün Nümayiş Adını Əhatə Et](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) sənədini oxuyun.
+`displayName` parametri mesajları debaq etmək üçün işlədilir. Adətən, bunu açıq şəkildə təyin etmək lazım deyil. Çünki, komponenti təyin edən funksiya və ya sinfin adından istifadə edilərək avtomatik şəkildə təyin edilir. Debaq zamanı komponentdə fərqli ad görmək üçün və ya yüksək-dərəcəli komponent işləndiyi zaman bu parametri açıq şəkildə təyin etmək olar. Əlavə məlumat üçün [Asan Debaq Etmək üçün Nümayiş Adını Əhatə Et](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) sənədini oxuyun.
 
 * * *
 

@@ -59,7 +59,7 @@ Sonra siz bunu normal komponent kimi işlədə bilərsiniz:
 </ErrorBoundary>
 ```
 
-Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız klas komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
+Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız sinif komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
 
 Qeyd edək ki, **xəta sərhədləri yalnız altındakı ağacda olan komponentlərin xətalarını tuta bilir**. Xəta sərhədi daxilində baş verən xətanı tuta bilmir. Əgər xəta sərhədin xəta mesajını render edə bilmirsə, xəta bu komponentin yuxarısında olan ən yaxın xəta sərhədinə yayılacaq. Javascriptin catch {} funksiyasıda bunun kimi işləyir.
 

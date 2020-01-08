@@ -162,13 +162,13 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-`contextType` klass parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan kontekstin dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funksiyası daxil olmaqla bütün lifecycle funksiyalarından istifadə edə bilərsiniz.
+`contextType` sinif parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan kontekstin dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funksiyası daxil olmaqla bütün lifecycle funksiyalarından istifadə edə bilərsiniz.
 
 > Qeyd:
 >
 > Siz bu API ilə yalnız bir kontekstə abunə ola bilərsiniz. Əgər sizə birdən çox kontekst lazımdırsa [Bir Neçə Kontekstin İstehlakı](#consuming-multiple-contexts) bölməsindən oxuya bilərsiniz.
 >
-> Əgər siz eksperimental olan [public klass sahəsi sintaksisindən](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə edirsinizsə, siz **static** klass sahəsindən istifadə edib `contextType`-ı inisializasiya edə bilərsiniz.
+> Əgər siz eksperimental olan [public sinif sahəsi sintaksisindən](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə edirsinizsə, siz **static** sinif sahəsindən istifadə edib `contextType`-ı inisializasiya edə bilərsiniz.
 
 
 ```js

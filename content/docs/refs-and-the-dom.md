@@ -37,7 +37,7 @@ Applikasiyada "işləri həll etmək" üçün ref-lərdən istifadə etmək ist�
 
 ### Ref-lərin Yaradılması {#creating-refs}
 
-Ref-lər `React.createRef()` funksiyası ilə yaranaraq `ref` atributu ilə React elementlərinə qoşulur. Adətən, ref-lərə komponentin hər yerindən istinad edilə bilməsi üçün ref-lər komponent yaradılan zaman komponent klasının instansiya parametrinə təyin edilir.
+Ref-lər `React.createRef()` funksiyası ilə yaranaraq `ref` atributu ilə React elementlərinə qoşulur. Adətən, ref-lərə komponentin hər yerindən istinad edilə bilməsi üçün ref-lər komponent yaradılan zaman komponent sinifinin instansiya parametrinə təyin edilir.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -62,7 +62,7 @@ const node = this.myRef.current;
 Ref-in dəyəri nod tipinə görə dəyişir:
 
 - HTML elementinin `ref` atributunu işlətdikdə kontruktorda `React.createRef()` ilə yaradılan `ref` obyektinin `current` parametri DOM element obyektinə istinad edir.
-- Xüsusi klas komponentinin `ref` atributunu işlətdikdə `ref` obyektinin `current` parametri mount olunan klasın instansiyasına istinad edir.
+- Xüsusi sinif komponentinin `ref` atributunu işlətdikdə `ref` obyektinin `current` parametri mount olunan sinfin instansiyasına istinad edir.
 - Funksiyaların instansiyaları olmadığından **funksiya komponentlərinin `ref` atributunu işlətmək mümkün deyil**.
 
 Bu tiplərin fərqləri aşağıdakı nümunələrdə göstəriləcək.
@@ -130,7 +130,7 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
-Nəzərə alın ki, bu, yalnız `CustomTextInput` komponentinin klas kimi təyin edildiyi zaman işləyir:
+Nəzərə alın ki, bu, yalnız `CustomTextInput` komponentinin sinif kimi təyin edildiyi zaman işləyir:
 
 ```js{1}
 class CustomTextInput extends React.Component {
@@ -161,9 +161,9 @@ class Parent extends React.Component {
 }
 ```
 
-Bu komponentə ref lazım olduqda komponenti klasa çevirin (state və ya lifecycle metodları lazım olduğu kimi).
+Bu komponentə ref lazım olduqda komponenti sinifə çevirin (state və ya lifecycle metodları lazım olduğu kimi).
 
-Lakin, DOM elementinə və ya klas komponentinə istinad edildiyi hallarda **`ref` atributunu funksiya komponentinin daxilindən işlətmək mümkündür**:
+Lakin, DOM elementinə və ya sinif komponentinə istinad edildiyi hallarda **`ref` atributunu funksiya komponentinin daxilindən işlətmək mümkündür**:
 
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
@@ -233,7 +233,7 @@ class CustomTextInput extends React.Component {
 
   render() {
     // Callback `ref`-indən istifadə edərək mətn anket sahəsinin DOM obyektini
-    // klas instansiya sahəsinə (məsələn, this.textInput) təyin et.
+    // sinif instansiya sahəsinə (məsələn, this.textInput) təyin et.
     return (
       <div>
         <input
@@ -287,4 +287,4 @@ Yuxarıdakı nümunədə `Parent` komponenti ref callback-ini `CustomTextInput` 
 
 ### Callback Ref-lərinin Problemləri {#caveats-with-callback-refs}
 
-`ref` callback-i eyni-sətrli funksiya kimi təyin edildikdə bu funksiya iki dəfə çağrılacaq: ilk öncə `null` ilə, sonra isə DOM elementi ilə. Bunun səbəbi, hər render zamanı funksiyanın yeni instansiyasının yaranması və React-in köhnə ref-i silib yenisini təyin etməsidir. Bu problemi həll etmək üçün `ref` callback-ini klas funksiyası kimi təyin edə bilərsiniz. Lakin, bir çox hallda bunun vacib olmadığını unutmayın.
+`ref` callback-i eyni-sətrli funksiya kimi təyin edildikdə bu funksiya iki dəfə çağrılacaq: ilk öncə `null` ilə, sonra isə DOM elementi ilə. Bunun səbəbi, hər render zamanı funksiyanın yeni instansiyasının yaranması və React-in köhnə ref-i silib yenisini təyin etməsidir. Bu problemi həll etmək üçün `ref` callback-ini sinif funksiyası kimi təyin edə bilərsiniz. Lakin, bir çox hallda bunun vacib olmadığını unutmayın.

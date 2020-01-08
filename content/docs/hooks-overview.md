@@ -6,7 +6,7 @@ next: hooks-state.html
 prev: hooks-intro.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Hooklar [geriyə uyğundurlar](/docs/hooks-intro.html#no-breaking-changes). Bu səhifədə təcrübəli React istifadəçiləri üçün Hookların icmalı göstərilir. Bu icmal çox tez tempdədir. Çaşdıqda, aşağıdakı formada göstərilən sarı qutulara baxın:
 
@@ -38,7 +38,7 @@ function Example() {
 }
 ```
 
-Burada, `useState` funksiyası *Hook* (bu haqqda birazdan danışacağıq) adlanır. Funksiya komponentinə lokal state əlavə etmək üçün bu komponentin daxilindən Hook çağrılır. React, render etmələr arasında state-i qoruyur. `useState` Hooku cüt qaytarır: *cari* state dəyəri və state-i yeniləmək üçün funksiya. Bu funksiyanı hadisə işləyicisi kimi yerlərdən çağırmaq mümkündür. Bu funksiyanın klasda olan `this.setState` funksiyasına oxşamasına baxmayaraq bu funksiya köhnə və yeni state-i birləşdirmir. ([State Hookunun İstifadəsi](/docs/hooks-state.html) səhifəsində `useState` və `this.state` funksiyalarını müqayisə edirik.)
+Burada, `useState` funksiyası *Hook* (bu haqqda birazdan danışacağıq) adlanır. Funksiya komponentinə lokal state əlavə etmək üçün bu komponentin daxilindən Hook çağrılır. React, render etmələr arasında state-i qoruyur. `useState` Hooku cüt qaytarır: *cari* state dəyəri və state-i yeniləmək üçün funksiya. Bu funksiyanı hadisə işləyicisi kimi yerlərdən çağırmaq mümkündür. Bu funksiyanın sinifda olan `this.setState` funksiyasına oxşamasına baxmayaraq bu funksiya köhnə və yeni state-i birləşdirmir. ([State Hookunun İstifadəsi](/docs/hooks-state.html) səhifəsində `useState` və `this.state` funksiyalarını müqayisə edirik.)
 
 `useState` funksiyasının tək arqumenti var: ilkin state. Yuxarıdakı nümunədə sayğac sıfırdan başladığından ilkin state `0`-a bərabərdir. Nəzərə alın ki, `this.state`-dən fərqli olaraq Hookun state-i obyekt olmamalıdır (lazım olduqda obyekt istifadə edə bilərsiniz). İlkin state arqumenti yalnız ilk render zamanı işlədilir.
 
@@ -60,7 +60,7 @@ function ExampleWithManyStates() {
 
 #### Hook Nədir? {#but-what-is-a-hook}
 
-React state-ini və lifecycle xüsusiyyətlərini funksiya komponentlərindən istifadə etmək üçün Hooklar istifadə olunur. Hookları klas daxilində işlətmək mümkün deyil. Lakin, Hooklar ilə klaslarsız applikasiya yaza bilərsiniz. (Biz, mövcud komponentləri bir dəfəyə funksiya komponentlərinə çevirməyi [tövsiyə etmirik](/docs/hooks-intro.html#gradual-adoption-strategy). Lakin, yeni komponentləri Hooklar ilə yazmağa başlaya bilərsiniz.)
+React state-ini və lifecycle xüsusiyyətlərini funksiya komponentlərindən istifadə etmək üçün Hooklar istifadə olunur. Hookları sinfin daxilində işlətmək mümkün deyil. Lakin, Hooklar ilə siniflərsiz applikasiya yaza bilərsiniz. (Biz, mövcud komponentləri bir dəfəyə funksiya komponentlərinə çevirməyi [tövsiyə etmirik](/docs/hooks-intro.html#gradual-adoption-strategy). Lakin, yeni komponentləri Hooklar ilə yazmağa başlaya bilərsiniz.)
 
 React, `useState` kimi hazır Hooklar təmin edir. Siz öz Hooklarınızı da yaradıb state-li davranışları fərqli komponentlər arasında paylaşa bilərsiniz. İlk olaraq, hazır Hooklara baxacağıq.
 
@@ -72,7 +72,7 @@ React, `useState` kimi hazır Hooklar təmin edir. Siz öz Hooklarınızı da ya
 
 Məlumatları yükləmək, abunəliklər, və ya DOM-u əl ilə dəyişmək kimi əməliyyatların React komponentlərindən icra edilməsi normaldır. Bu əməliyyatlar render zamanı icra edilə bilmədiyindən və digər komponentlərə təsir edə bildiyindən bu əməliyyatlar "yan effektlər" (qısacası "effektlər") adlanır.
 
-`useEffect` adlanan Effect Hooku ilə funksiya komponentindən yan effektləri icra etmək mümkündür. Bu funksiya, tək API altında React klaslarında olan `componentDidMount`, `componentDidUpdate` və `componentWillUnmount` funksiyalarını birləşdirir. ([Effect Hookunun İstifadəsi](/docs/hooks-effect.html) səhifəsində `useEffect` Hookunu və klas lifecycle funksiyalarını müqayisə edirik.)
+`useEffect` adlanan Effect Hooku ilə funksiya komponentindən yan effektləri icra etmək mümkündür. Bu funksiya, tək API altında React siniflərində olan `componentDidMount`, `componentDidUpdate` və `componentWillUnmount` funksiyalarını birləşdirir. ([Effect Hookunun İstifadəsi](/docs/hooks-effect.html) səhifəsində `useEffect` Hookunu və sinif lifecycle funksiyalarını müqayisə edirik.)
 
 Aşağıdakı nümunədə, React ilə DOM yeniləndikdən sonra dokument başlığı yeniləyir:
 
@@ -99,7 +99,7 @@ function Example() {
 }
 ```
 
-`useEffect` çağrıldıqda React, yeniliklər DOM-da köçürüldükdən sonra "effekt" funksiyasını icra edir. Effektlərin komponent daxilində təyin olunduğundan effekt funksiyasından komponentin proplar və state-indən istifadə etmək mümkündür. Normalda, ilk render etmə *daxil olmaqla* effektlər hər render etmədən sonra icra olunur. ([Effect Hookunun İstifadəsi](/docs/hooks-effect.html) səhifəsində `useEffect` Hookunu və klas lifecycle funksiyalarını müqayisə edirik.)
+`useEffect` çağrıldıqda React, yeniliklər DOM-da köçürüldükdən sonra "effekt" funksiyasını icra edir. Effektlərin komponent daxilində təyin olunduğundan effekt funksiyasından komponentin proplar və state-indən istifadə etmək mümkündür. Normalda, ilk render etmə *daxil olmaqla* effektlər hər render etmədən sonra icra olunur. ([Effect Hookunun İstifadəsi](/docs/hooks-effect.html) səhifəsində `useEffect` Hookunu və sinif lifecycle funksiyalarını müqayisə edirik.)
 
 Effektlər fakutativ olaraq funksiya qaytararaq "təmizlik" işini təyin edə bilərlər. Aşağıdakı nümunədə, komponent, effektdən istifadə edərək dostun onlayn statusuna abunə olur və təmizlik işi kimi abunəliyi silir:
 
@@ -269,4 +269,4 @@ Fyuu, bu tez oldu! Əgər Hooklar haqqında anlaşılmaz hissələr qaldısa, bu
 
 Əlavə olaraq [Hookların API arayışı](/docs/hooks-reference.html) və [Hooklar FAQ](/docs/hooks-faq.html) səhifələrinə baxa bilərsiniz.
 
-Ən sonda, Hookları *niyə* əlavə etdiyimizin izahatı və applikasiyanı yenidən yazmadan Hooklar ilə klas komponentlərinin eyni zamanda necə istifadə edilməsi haqqda məlumat almaq üçün [giriş səhifəsinə](/docs/hooks-intro.html) baxın.
+Ən sonda, Hookları *niyə* əlavə etdiyimizin izahatı və applikasiyanı yenidən yazmadan Hooklar ilə sinif komponentlərinin eyni zamanda necə istifadə edilməsi haqqda məlumat almaq üçün [giriş səhifəsinə](/docs/hooks-intro.html) baxın.

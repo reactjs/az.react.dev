@@ -28,7 +28,7 @@ Bir neçə atributun işləməsi React və HTML-də fərqlidir:
 
 ### className {#classname}
 
-CSS klası təyin etmək üçün `className` atributundan istifadə edin. Bu, bütün normal DOM və SVG elementlərinə (`<div>`, `<a>` və başqaları) aiddir.
+CSS sinfini təyin etmək üçün `className` atributundan istifadə edin. Bu, bütün normal DOM və SVG elementlərinə (`<div>`, `<a>` və başqaları) aiddir.
 
 Əgər siz React-i Veb Komponentlər ilə işlədirsinizsə (nadir haldır) `class` atributu işlədin.
 
@@ -62,7 +62,7 @@ function MyComponent() {
 
 >Qeyd
 >
->Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyə etmirik.** Bir çox halda kənar CSS stil cədvəlində (stylesheet) olan klaslara referans etmək üçün [`className`](#classname) işlətməyi tövsiyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
+>Sənədlərdə bəzi misalların `style`-ı rahatlıq üçün işlətdiyinə baxmayaraq, **`style` atributunu elementləri stilləşdirmək üçün əsas həll kimi işlətməyi tövsiyə etmirik.** Bir çox halda kənar CSS stil cədvəlində (stylesheet) olan siniflərə referans etmək üçün [`className`](#classname) işlətməyi tövsiyə edirik. `style` ən çox React applikasiyalarında render zamanı dinamik hesablanmış stilləri əlavə etmək üçün işlənilir. [FAQ: Stilləşdirmək və CSS](/docs/faq-styling.html) sənədinə baxın.
 
 `style` atributu CSS mətn əvəzinə camelCased parametrləri olan Javascript obyekti qəbul edir. Bu Javascriptin DOM `style` parametri ilə uyğundur, daha səmərəlidir və istifadəçini XSS-dən qoruyur. Məsələn:
 

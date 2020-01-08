@@ -60,7 +60,7 @@ MyComponent.propTypes = {
   // React element tipi (məsələn, MyComponent).
   optionalElementType: PropTypes.elementType,
   
-  // Propun klas instansiyası olmasını da bildirə bilərsiniz.
+  // Propun sinif instansiyası olmasını da bildirə bilərsiniz.
   // Bu validator JS-in instanceof operatorundan istifadə edir.
   optionalMessage: PropTypes.instanceOf(Message),
 
@@ -177,7 +177,7 @@ ReactDOM.render(
 );
 ```
 
-[transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) kimi Babel çevirməsindən istifadə etdikdə `defaultProps` komponent klasın statik parametri kimi təyin edilə bilər. Bu sintaksis hələ yekunlaşmayıb və brauzerdə işləməsi üçün kompilyasiya addımı lazımdır. Əlavə məlumat üçün [klas sahələri təklifi](https://github.com/tc39/proposal-class-fields) haqqında oxuyun.
+[transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) kimi Babel çevirməsindən istifadə etdikdə `defaultProps` komponent sinfin statik parametri kimi təyin edilə bilər. Bu sintaksis hələ yekunlaşmayıb və brauzerdə işləməsi üçün kompilyasiya addımı lazımdır. Əlavə məlumat üçün [sinif sahələri təklifi](https://github.com/tc39/proposal-class-fields) haqqında oxuyun.
 
 ```javascript
 class Greeting extends React.Component {

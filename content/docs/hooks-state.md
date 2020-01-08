@@ -6,7 +6,7 @@ next: hooks-effect.html
 prev: hooks-overview.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Hooklar ilə tanış olmaq üçün [giriş səhifəsində](/docs/hooks-intro.html) aşağıdakı nümunədən istifadə edilir:
 
@@ -28,11 +28,11 @@ function Example() {
 }
 ```
 
-Biz yuxarıdakı nümunəni klas nümunəsi ilə müqayisə edərək Hookları öyrənəcəyik.
+Biz yuxarıdakı nümunəni sinif nümunəsi ilə müqayisə edərək Hookları öyrənəcəyik.
 
 ## Ekvivalent Klas Nümunəsi {#equivalent-class-example}
 
-React ilə klaslardan istifadə etmisinizsə, aşağıdakı kod sizə tanış gələcək:
+React ilə siniflərdən istifadə etmisinizsə, aşağıdakı kod sizə tanış gələcək:
 
 ```js
 class Example extends React.Component {
@@ -56,7 +56,7 @@ class Example extends React.Component {
 }
 ```
 
-State `{ count: 0 }` ilə başlayır. İstifadəçi düyməni tıkladıqda `this.setState()`-dən istifadə edərək `state.count`-un dəyərini artırırıq. Biz bu klasda olan kod parçalarını bu səhifənin sonuna kimi işlədəyəcik.
+State `{ count: 0 }` ilə başlayır. İstifadəçi düyməni tıkladıqda `this.setState()`-dən istifadə edərək `state.count`-un dəyərini artırırıq. Biz bu sinifdə olan kod parçalarını bu səhifənin sonuna kimi işlədəyəcik.
 
 >Qeyd
 >
@@ -84,7 +84,7 @@ function Example(props) {
 
 Siz bu komponentləri "state-siz komponentlər" kimi tanıyırdınız. Biz, indi bu komponentlərdən React state-ini işlədilməsinə imkan yaratdığımızdan bu komponentləri  "funksiya komponentləri" kimi adlandırmağı üstün tuturuq.
 
-Hookları klaslar ilə işlətmək **mümkün deyil**. Lakin, funksiya komponentlərini klaslar ilə əvəz etmək mümkündür.
+Hookları siniflər ilə işlətmək **mümkün deyil**. Lakin, funksiya komponentlərini siniflər ilə əvəz etmək mümkündür.
 
 ## Hook nədir? {#whats-a-hook}
 
@@ -100,7 +100,7 @@ function Example() {
 
 **Hook nədir?** React xüsusiyyətlərindən istifadə edə bilmək üçün (hook into) təmin olunan xüsusi funksiyalar Hooklar adlanırlar. Məsələn, `useState` funksiyası React state-ini funksiya komponentlərinə əlavə etmək üçün istifadə edilən Hookdur. Digər Hooklar haqqında sonrakı bölmələrdə danışacağıq.
 
-**Nə zaman Hook-dan istifadə edim?** Əvəllər funksiya komponenti yazdıqda bu komponentə state əlavə etmək üçün ilk öncə komponenti klasa çevirmək lazım idi. İndi isə, funksiya komponenti daxilindən Hook istifadə etmək mümkündür. Biz indi bunu edəcəyik!
+**Nə zaman Hook-dan istifadə edim?** Əvəllər funksiya komponenti yazdıqda bu komponentə state əlavə etmək üçün ilk öncə komponenti sinfə çevirmək lazım idi. İndi isə, funksiya komponenti daxilindən Hook istifadə etmək mümkündür. Biz indi bunu edəcəyik!
 
 >Qeyd:
 >
@@ -130,11 +130,11 @@ function Example() {
   const [count, setCount] = useState(0);
 ```
 
-**`useState` çağırdıqda nə baş verir?** Bu funksiya "state dəyişəni" yaradır. Bizim dəyişənimiz `count` adlanır. Lakin, siz dəyişəni istədiyiniz kimi adlandıra bilərsiniz (məsələn "banan"). Bu bizə funksiya çağırışları arasında bəzi dəyərlərin "saxlanmasına" imkan yaradır. `this.state`-in klasa təmin etdiyi imkanların hamısı `useState` Hookunda var. Normalda, dəyişənlər hər funksiya çağırışı zamanı sıfırlanır. Lakin, state dəyərləri React tərəfindən saxlanılır.
+**`useState` çağırdıqda nə baş verir?** Bu funksiya "state dəyişəni" yaradır. Bizim dəyişənimiz `count` adlanır. Lakin, siz dəyişəni istədiyiniz kimi adlandıra bilərsiniz (məsələn "banan"). Bu bizə funksiya çağırışları arasında bəzi dəyərlərin "saxlanmasına" imkan yaradır. `this.state`-in sinfə təmin etdiyi imkanların hamısı `useState` Hookunda var. Normalda, dəyişənlər hər funksiya çağırışı zamanı sıfırlanır. Lakin, state dəyərləri React tərəfindən saxlanılır.
 
 **`useState`-ə arqument kimi nə göndərilir?** `useState()` Hookunun tək arqumenti ilkin state-dir. Klaslardan fərqli olaraq, state dəyəri obyekt olmamalıdır. State rəqəm və ya mətn kimi tiplərdə ola bilər. Nümunəmizdə, istifadəçinin nə qədər tıkladığını bilmək üçün rəqəm lazımdır. Bu səbəbdən, ilkin state kimi `0` dəyərini göndəririk. (Bir neçə state dəyəri lazım olduqda `useState()` funksiyasını bir neçə dəfə çağıra bilərik.)
 
-**`useState` nə qaytarır?** Bu funksiya dəyərlər cütü qaytarır: cari dəyər və dəyəri yeniləyən funksiya. Bu səbəbdən State Hooku `const [count, setCount] = useState()` formada yazılır. Bu funksiya, klasda olan `this.state.count` və `this.setState` dəyərlərinə bərabərdir. Əgər işlədilən sintaksis sizə tanış gəlmirsə, bu haqqda [səhifənin sonunda](/docs/hooks-state.html#tip-what-do-square-brackets-mean) danışacağıq.
+**`useState` nə qaytarır?** Bu funksiya dəyərlər cütü qaytarır: cari dəyər və dəyəri yeniləyən funksiya. Bu səbəbdən State Hooku `const [count, setCount] = useState()` formada yazılır. Bu funksiya, sinifdə olan `this.state.count` və `this.setState` dəyərlərinə bərabərdir. Əgər işlədilən sintaksis sizə tanış gəlmirsə, bu haqqda [səhifənin sonunda](/docs/hooks-state.html#tip-what-do-square-brackets-mean) danışacağıq.
 
 `useState` Hookunun nə etdiyini bildikdən sonra bizim nümunəmiz daha məntiqli olur:
 
@@ -267,7 +267,7 @@ Yuxarıdakı komponentdə, `age`, `fruit` və `todos` lokal dəyişənləri və 
   }
 ```
 
-Çoxlu state dəyişənləri işlətmək **vacib deyil**. State dəyişənləri obyekt və massiv saxlaya bilərlər. Siz bu formada bir birinə bağlı məlumatları qruplaşdıra bilərsiniz. Lakin, klasdakı `this.setState` funksiyasından fərqli olaraq state dəyişənini yenilədikdə dəyərlər birləşmək əvəzinə *əvəz olunur*.
+Çoxlu state dəyişənləri işlətmək **vacib deyil**. State dəyişənləri obyekt və massiv saxlaya bilərlər. Siz bu formada bir birinə bağlı məlumatları qruplaşdıra bilərsiniz. Lakin, sinifdəki `this.setState` funksiyasından fərqli olaraq state dəyişənini yenilədikdə dəyərlər birləşmək əvəzinə *əvəz olunur*.
 
 Müstəqil state dəyişənlərini ayırmaq üçün [FAQ-da olan](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) tövsiyələrə baxın.
 

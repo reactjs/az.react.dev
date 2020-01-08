@@ -32,7 +32,7 @@ function Welcome(props) {
 
 Bu funksiya məlumatı olan tək "proplar" (parametrlər mənasını daşıyır) obyekt arqumentini qəbul etdiyi və React elementini qaytardığı üçün etibarlı React komponenti sayılır. Biz bu komponentlərin JavaScript funksiyaları olduğu üçün "funksiya komponentləri" adlandırırıq.
 
-Siz komponenti müəyyən etmək üçün [ES6 klassından](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
+Siz komponenti müəyyən etmək üçün [ES6 sinfindən](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) istifadə edə bilərsiniz:
 
 ```js
 class Welcome extends React.Component {
@@ -237,7 +237,7 @@ Komponentlərin xaric edilməsi ilk öncə aşağı səviyyəli iş kimi görün
 
 ## Proplar və Read-Only {#props-are-read-only}
 
-Komponentin [funksiya və ya klas kimi](#function-and-class-components) bəyan edilməyinə baxmayaraq, komponent heç vaxt öz proplarını dəyişməməlidir. Bu `sum` funksiyasını nəzərə alın:
+Komponentin [funksiya və ya sinif kimi](#function-and-class-components) bəyan edilməyinə baxmayaraq, komponent heç vaxt öz proplarını dəyişməməlidir. Bu `sum` funksiyasını nəzərə alın:
 
 ```js
 function sum(a, b) {

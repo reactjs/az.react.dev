@@ -221,7 +221,7 @@ shouldComponentUpdate(nextProps, nextState) {
 
 Əgər bildiyiniz bəzi situasiyalarda komponent yenilənməməlidirsə, `shouldComponentUpdate` funksiyasından `false` qaytara bilərsiniz. `false` qaytarıldıqda yenilənən komponentin `render()` funksiyası daxil olmaqla render etmə prosesi buraxılacaq.
 
-Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) klasından gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-in dayaz müqayisə edilməsinə bərabərdir.
+Bir çox ssenaridə `shouldComponentUpdate()` funksiyasını əl ilə yazmaq əvəzinə komponenti [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) sinfindən gənişləndirə bilərsiniz. Bu, `shouldComponentUpdate()` funksiyasında cari və əvvəlki proplar və state-in dayaz müqayisə edilməsinə bərabərdir.
 
 ## shouldComponentUpdate Funksiyası Fəaliyyətdə {#shouldcomponentupdate-in-action}
 
@@ -270,7 +270,7 @@ class CounterButton extends React.Component {
 }
 ```
 
-Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərinin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə `props` və `state`-in bütün dəyərlərini eyni formada "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipinin çox işlədildiyindən bunun üçün React-də faydalı klas var: `React.PureComponent`. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
+Bu kodda, `shouldComponentUpdate` funksiyası `props.color` və ya `state.count` dəyərlərinin dəyişdiyini yoxlayır. Dəyərlər dəyişmədikdə komponent yenilənmir. Komponent mürəkkəbləşdikdə `props` və `state`-in bütün dəyərlərini eyni formada "dayaz müqayisə" edərək komponentin yenilənməsini müəyyənləşdirə bilərsiniz. Bu müqayisə prinsipinin çox işlədildiyindən bunun üçün React-də faydalı sinif var: `React.PureComponent`. Aşağıdakı kod, yuxarıdakı kodun daha sadə formasıdır:
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -291,7 +291,7 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Bu klas, proplar və state-i dayaz müqayisə edir. Bu səbəbdən, bu klası dayaz müqayisə ilə tam yoxlana bilməyən mürəkkəb dəyərləri yoxlamaq üçün istifadə etməyin.
+Bir çox halda `shouldComponentUpdate` əvəzinə `React.PureComponent`-dən istifadə edə bilərsiniz. Bu sinif, proplar və state-i dayaz müqayisə edir. Bu səbəbdən, bu sinfi dayaz müqayisə ilə tam yoxlana bilməyən mürəkkəb dəyərləri yoxlamaq üçün istifadə etməyin.
 
 Daha mürəkkəb məlumat strukturlarının dayaz müqayisəsi problem yarada bilər. Məsələn, vergül ilə ayrılmış sözləri render etmək üçün `ListOfWords` komponentinin və siyahıya söz əlavə etmək üçün `WordAdder` komponentinin olduğunu fikirləşin. Aşağıdakı kod düzgün *işləməyəcək*:
 
@@ -329,7 +329,7 @@ class WordAdder extends React.Component {
 }
 ```
 
-`PureComponent` klası `this.props.words` propunu sadə müqayisə edəcək. `WordAdder` komponentinin `handleClick` funksiyası `words` massivini mutasiya etdiyindən massivdəki sözlərin fərqli olmasına baxmayaraq `this.props.words` propu eyni qalacaq. Bu səbəbdən, yeni sözlərin render edilməli olmasına baxmayaraq `ListOfWords`  komponenti yenilənməyəcək.
+`PureComponent` sinfi `this.props.words` propunu sadə müqayisə edəcək. `WordAdder` komponentinin `handleClick` funksiyası `words` massivini mutasiya etdiyindən massivdəki sözlərin fərqli olmasına baxmayaraq `this.props.words` propu eyni qalacaq. Bu səbəbdən, yeni sözlərin render edilməli olmasına baxmayaraq `ListOfWords`  komponenti yenilənməyəcək.
 
 ## Məlumatları Mutasiya Etməməyin Gücü {#the-power-of-not-mutating-data}
 

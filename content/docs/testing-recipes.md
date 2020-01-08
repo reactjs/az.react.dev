@@ -12,7 +12,7 @@ React komponentləri üçün çox işlədilən test etmə nümunələri.
 >
 > Bu səhifədə [Jest](https://jestjs.io/) test icra edicisinin istifadə edildiyi fərz edilir. Fərqli test icra edicisindən istifadə edirsinizsə, API-ı dəyişmək lazım ola bilər. Lakin, həllin ümumilikdə forması eyni qalacaq. Test etmə mühitini quraşdırmaq üçün [Test Etmə Mühitləri](/docs/testing-environments.html) səhifəsinə baxın.
 
-Bu sahifədə əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin, burada göstərilən test etmə strategiyalarının tətbiq detallarından asılı olmadığından eyni testlər klas komponnetlərində də işləyəcək.
+Bu sahifədə əsasən funksiya komponentlərindən istifadə edəcəyik. Lakin, burada göstərilən test etmə strategiyalarının tətbiq detallarından asılı olmadığından eyni testlər sinif komponnetlərində də işləyəcək.
 
 - [Quraşdırma/Sökülmə](#setup--teardown)
 - [`act()`](#act)

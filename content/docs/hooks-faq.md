@@ -5,7 +5,7 @@ permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
 
-*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə klas yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
+*Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən suallar cavablandırılır.
 
@@ -20,17 +20,17 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
 
 * **[Adaptasiya Strategiyası](#adoption-strategy)**
   * [Hooklar React-in hansı versiyalarında mövcuddur?](#which-versions-of-react-include-hooks)
-  * [Bütün klas komponentlərini yenidən yazmalıyam?](#do-i-need-to-rewrite-all-my-class-components)
-  * [Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
+  * [Bütün sinif komponentlərini yenidən yazmalıyam?](#do-i-need-to-rewrite-all-my-class-components)
+  * [Siniflər ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [React biliklərimin nə qədəri eyni qalır?](#how-much-of-my-react-knowledge-stays-relevant)
-  * [Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı?](#should-i-use-hooks-classes-or-a-mix-of-both)
-  * [Hooklar klasların bütün ssenarilərini əhatə edir?](#do-hooks-cover-all-use-cases-for-classes)
+  * [Nə işlətməliyəm -- Hooklar, siniflər və ya hər ikisinin qarışığı?](#should-i-use-hooks-classes-or-a-mix-of-both)
+  * [Hooklar siniflərin bütün ssenarilərini əhatə edir?](#do-hooks-cover-all-use-cases-for-classes)
   * [Hooklar render proplarını və yüksək dərəcəli komponentləri əvəzləyir?](#do-hooks-replace-render-props-and-higher-order-components)
   * [Hooklar Redux connect() və React Router kimi populyar API-lara necə təsir edir?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Hooklar statik tiplər ilə işləyirlər?](#do-hooks-work-with-static-typing)
   * [Hooklar ilə komponentləri necə test edə bilərəm?](#how-to-test-components-that-use-hooks)
   * [Lint qaydaları nələri tətbiq edirlər?](#what-exactly-do-the-lint-rules-enforce)
-* **[Klaslardan Hooklara](#from-classes-to-hooks)**
+* **[Siniflərdən Hooklara](#from-classes-to-hooks)**
   * [Lifecycle metodlarının Hooklar ilə uyğunluqları necədir?](#how-do-lifecycle-methods-correspond-to-hooks)
   * [Hooklar ilə məlumat yüklənməsini necə tətbiq edə bilərəm?](#how-can-i-do-data-fetching-with-hooks)
   * [İnstansiya dəyişənləri üçün Hook var?](#is-there-something-like-instance-variables)
@@ -73,9 +73,9 @@ Nəzərə alın ki, **Hookları aktivləşdirmək üçün bütün React paketlə
 
 Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
 
-### Bütün klas komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
+### Bütün sinif komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
-Xeyr. React-dən klasları silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından klas komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyə edirik.
+Xeyr. React-dən sinifləri silmək haqqında [heç bir planımız](/docs/hooks-intro.html#gradual-adoption-strategy) yoxdur. Yenidən yazmalara həmişə imkan olmadığından və məhsulların dərc edilməsi dayandırılmadığından sinif komponentləri yaxın gələcəyə kimi dəstəklənəcək. Yeni kodları Hooklar ilə yazmağı tövsiyə edirik.
 
 ### Klaslar ilə edə bilmədiyim nələri Hooklar ilə edə bilərəm? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
@@ -87,15 +87,15 @@ Hooklar ilə state, lifecycle, kontekst və ref-lər kimi React xüsusiyyətlər
 
 Hookların öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [bizə issue yazın](https://github.com/reactjs/reactjs.org/issues/new) və biz sizə kömək etməyə çalışacağıq.
 
-### Nə işlətməliyəm -- Hooklar, klaslar və ya hər ikisinin qarışığı? {#should-i-use-hooks-classes-or-a-mix-of-both}
+### Nə işlətməliyəm -- Hooklar, siniflər və ya hər ikisinin qarışığı? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud klasları Hooklar ilə yenidən yazmağı tövsiyə etmirik.
+Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud sinifləri Hooklar ilə yenidən yazmağı tövsiyə etmirik.
 
-Klas *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında klas komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin klas və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
+Klas *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında sinif komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin sinif və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
 
-### Hooklar klasların bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
+### Hooklar siniflərin bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
-Bizim məqsədimiz Hooklar ilə klasların bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, bu metodları da Hooklar ilə yaza bilmək mümkün olacaq.
+Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, bu metodları da Hooklar ilə yaza bilmək mümkün olacaq.
 
 Hookların hələ ki cavan olduğundan bəzi 3-cü tərəfin kitabxanaları ilə uyğun olmaya bilər.
 
@@ -204,7 +204,7 @@ Bu qayda xüsusilə aşağıdakı nöqtələri tətbiq edir:
 
 Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baqların tapılmasının balansını saxlayaraq zaman ilə dəyişə bilərlər.
 
-## Klaslardan Hooklara {#from-classes-to-hooks}
+## Siniflərdən Hooklara {#from-classes-to-hooks}
 
 ### Lifecycle metodlarının Hooklar ilə uyğunluqları necədir? {#how-do-lifecycle-methods-correspond-to-hooks}
 
@@ -226,7 +226,7 @@ Başlamaq üçün [kiçik demo-ya](https://codesandbox.io/s/jvvkoo8pq3) baxın. 
 
 ### İnstansiya dəyişənləri üçün Hook var? {#is-there-something-like-instance-variables}
 
-Bəli! [`useRef()`](/docs/hooks-reference.html#useref) Hooku yalnız DOM referansları üçün işlədilmir. "ref" obyekti ümumi konteynerdir və bu obyektin `current` parametri klasın instansiya parametri kimi mutasiya oluna bilən istənilən dəyəri saxlaya bilər.
+Bəli! [`useRef()`](/docs/hooks-reference.html#useref) Hooku yalnız DOM referansları üçün işlədilmir. "ref" obyekti ümumi konteynerdir və bu obyektin `current` parametri sinfin instansiya parametri kimi mutasiya oluna bilən istənilən dəyəri saxlaya bilər.
 
 Siz bu dəyəri `useEffect`-dən yeniləyə bilərsiniz:
 
@@ -258,7 +258,7 @@ function Timer() {
   // ...
 ```
 
-Konseptual olaraq ref-lər klasın instansiya dəyərlərinə bənzəyirlər. Əgər [lazy inisializasiya](#how-to-create-expensive-objects-lazily) edirsinizsə, ref-ləri render zamanı yeniləməyin. Bu, gözlənilməz davranışlara səbəb ola bilər. Əvəzinə, ref-ləri hadisə işləyicilərindən və effektlərdən yeniləyin.
+Konseptual olaraq ref-lər sinfin instansiya dəyərlərinə bənzəyirlər. Əgər [lazy inisializasiya](#how-to-create-expensive-objects-lazily) edirsinizsə, ref-ləri render zamanı yeniləməyin. Bu, gözlənilməz davranışlara səbəb ola bilər. Əvəzinə, ref-ləri hadisə işləyicilərindən və effektlərdən yeniləyin.
 
 ### Bir və ya bir neçə state dəyişəni işlətməliyəm? {#should-i-use-one-or-many-state-variables}
 
@@ -287,7 +287,7 @@ function Box() {
   // ...
 ```
 
-State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* klasın `this.setState` funksiyasından fərqlidir.
+State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* sinfin `this.setState` funksiyasından fərqlidir.
 
 Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
 
@@ -713,7 +713,7 @@ function Counter() {
 
 Daha mürəkkəb ssenarilərdə (məsələn, bir state-in başqa state-dən asılı olduğu hallar kimi) state yeniləməsi məntiqini [`useReducer` Hooku](/docs/hooks-reference.html#usereducer) ilə effektdən kənara çıxarın. Bunu etmək üçün [bu məqalədəki](https://adamrackis.dev/state-and-use-reducer/) nümunəyə baxın. Reducer funksiyasının komponentin daxilində təyin olunub komponentin proplarını oxumasına baxmayaraq **`useReducer`-in `dispatch` funksiyası həmişə stabil qalır.**
 
-Ən son hallda, klasın `this` dəyəri kimi bir dəyər işlətmək istəyirsinizsə, mutasiya oluna bilən dəyişəni saxlamaq üçün [ref-dən](/docs/hooks-faq.html#is-there-something-like-instance-variables) istifadə edin. Sonra, siz bu ref-i oxuya və dəyişə bilərsiniz. Məsələn:
+Ən son hallda, sinfin `this` dəyəri kimi bir dəyər işlətmək istəyirsinizsə, mutasiya oluna bilən dəyişəni saxlamaq üçün [ref-dən](/docs/hooks-faq.html#is-there-something-like-instance-variables) istifadə edin. Sonra, siz bu ref-i oxuya və dəyişə bilərsiniz. Məsələn:
 
 ```js{2-6,10-11,16}
 function Example(props) {
@@ -747,7 +747,7 @@ const Button = React.memo((props) => {
 });
 ```
 
-Bu funksiyas Hook deyil. Çünki, bunu Hooklar kimi kompozisiya etmək mümkün deyil. `React.memo` funksiyası `PureComponent` klasına oxşayır. Lakin, bu funksiya yalnız propları müqayisə edir. (Xüsusi müqayisə funksiyasını təyin etmək üçün ikinci arqument əlavə edə bilərsiniz. Bu funksiya keçmiş və yeni propları qəbul edir və true qaytardıqda yeniliyi buraxır.)
+Bu funksiyas Hook deyil. Çünki, bunu Hooklar kimi kompozisiya etmək mümkün deyil. `React.memo` funksiyası `PureComponent` sinfinə oxşayır. Lakin, bu funksiya yalnız propları müqayisə edir. (Xüsusi müqayisə funksiyasını təyin etmək üçün ikinci arqument əlavə edə bilərsiniz. Bu funksiya keçmiş və yeni propları qəbul edir və true qaytardıqda yeniliyi buraxır.)
 
 Müqayisə etmək üçün tək state yeniliyinin olmadığından `React.memo` funksiyası state-i müqayisə etmir. Lakin, siz uşaqları saf edə bilər, hətta [fərdi uşaqları `useMemo` ilə optimallaşdıra bilərsiniz](/docs/hooks-faq.html#how-to-memoize-calculations).
 
@@ -810,7 +810,7 @@ function Table(props) {
 
 React bu funksiyanı yalnız ilk render zamanı çağıracaq. [`useState` API arayışına](/docs/hooks-reference.html#usestate) baxın.
 
-**Bəzən, `useRef()`-in ilkin dəyərini də yaratmaqdan çəkinmək istəyə bilərsiniz.** Məsələn, imperativ klas instansiyasının yalnız bir dəfə yaranmasını təmin etmək istəyə bilərsiniz:
+**Bəzən, `useRef()`-in ilkin dəyərini də yaratmaqdan çəkinmək istəyə bilərsiniz.** Məsələn, imperativ sinif instansiyasının yalnız bir dəfə yaranmasını təmin etmək istəyə bilərsiniz:
 
 ```js
 function Image(props) {
@@ -844,11 +844,11 @@ Bu həll ilə obyekt lazım olmayana kimi bu obyekti yaratmaya bilərsiniz. Əla
 
 ### Render zamanı funksiyaların yaranması Hookları yavaşladır? {#are-hooks-slow-because-of-creating-functions-in-render}
 
-Xeyr. Modern brauzerlərdə extremal ssenarilər istisna olmaqla closure-ları klaslar ilə müqayisə etdikdə əhəmiyyətli performans fərqi olmur.
+Xeyr. Modern brauzerlərdə extremal ssenarilər istisna olmaqla closure-ları siniflər ilə müqayisə etdikdə əhəmiyyətli performans fərqi olmur.
 
 Əlavə olaraq, Hookların dizaynı bir neçə formada daha səmərəlidir:
 
-* Hooklar ilə klaslarda olan klas instansiyalarının yaranması və hadisə işləyicilərinin konstruktorda bind edilməsi ağırlıqlarından çəkinmək mümkündür.
+* Hooklar ilə siniflərdə olan sinif instansiyalarının yaranması və hadisə işləyicilərinin konstruktorda bind edilməsi ağırlıqlarından çəkinmək mümkündür.
 
 * **Hookların idiomatik kodu ilə komponent ağacında** yüksək dərəcəli komponentlər, render etmə propları və kontekst işlədən kodlarda olduğu kimi **dərin nesting-lər etmək lazım deyil.** React, daha kiçik komponent ağaclarında daha az iş görür.
 
