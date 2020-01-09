@@ -1,6 +1,6 @@
 ---
 id: codebase-overview
-title: Codebase Overview
+title: Kodun Icmalı
 layout: contributing
 permalink: docs/codebase-overview.html
 prev: how-to-contribute.html
@@ -9,54 +9,54 @@ redirect_from:
   - "contributing/codebase-overview.html"
 ---
 
-This section will give you an overview of the React codebase organization, its conventions, and the implementation.
+Bu bölmədə React kodunun orqanizasiyası, konvensiyaları və tətbiqinin icmalı göstərilir.
 
-If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes.
+Əgər [React-ə töhvə vermək istəyirsinizsə](/docs/how-to-contribute.html), buradakı təlimatların sizə dəyişiklik etməkdən qorxmayacağınıza imkan yaradacağına ümid edirik.
 
-We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time.
+Burada göstərilən konvensiyaların React appliksiyalarında işlədilməsinə tövsiyyə etmirik. Bu konvensiyaların çoxu tarixi səbəblərə görə mövcuddur və zaman keçdikcə bu konvensiyalar dəyişə bilər.
 
-### External Dependencies {#external-dependencies}
+### Xarici Asılılıqlar {#external-dependencies}
 
-React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
+React-in heç bir xarici asılılığı yoxdur. Adətən, `require()` çağırışları React-in kodunda olan fayllara istinad edir. Lakin, burada bir neçə nadir istisnalar var.
 
-The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
+[fbjs repo-sunun](https://github.com/facebook/fbjs) mövcud olmasının səbəbi React-in bəzi faydalı funksiyaları [Relay](https://github.com/facebook/relay) kimi kitabxanalar ilə paylaşmasıdır. Biz bu funksiyaları həmişə sinxron saxlayırıq. Biz Node ekosistemində olan bu faydalı funksiyaların ekvivalenti olan modullardan istifadə etmirik. Çünki, biz Facebook mühəndislərinin istənilən zaman dəyişikliklər edə bilməsini istəyirik. fbjs-də olan heç bir funksiya açıq API kimi qəbul olunmur. Bu API-lar yalnız Facebook-un React kimi layihələrində işlənilir.
 
-### Top-Level Folders {#top-level-folders}
+### Ana Direktoriyalar {#top-level-folders}
 
-After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
+[React repo-sunu](https://github.com/facebook/react) klon etdikdə aşağıdakı direktoriyaları görəcəksiniz:
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contains metadata (such as `package.json`) and the source code (`src` subdirectory) for all packages in the React repository. **If your change is related to the code, the `src` subdirectory of each package is where you'll spend most of your time.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contains a few small React test applications for contributors.
-* `build` is the build output of React. It is not in the repository but it will appear in your React clone after you [build it](/docs/how-to-contribute.html#development-workflow) for the first time.
+* [`packages`](https://github.com/facebook/react/tree/master/packages) direktoriyasında React reposunda olan bütün paketlərin metadata-ları (`package.json` kimi) və mənbə kodları (`src` alt direktoriyalarında) saxlanılır. **Əgər etdiyiniz dəyişiklik kod ilə əlaqəlidirsə, siz vaxtınızın çoxunu hər paketin `src` alt direktoriyasında keçirəcəksiniz.**
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) direktoriyasında iştirakçılar üçün test React appliksiyaları saxlanılır.
+* `build` direktoriyası React-in qurulma nəticəsini saxlayır. Bu direktoriya repo-da yoxdur, amma bu direktoriyanı React-i ilk dəfə [quraşdırdıqda](/docs/how-to-contribute.html#development-workflow) görəcəksiniz.
 
-The documentation is hosted [in a separate repository from React](https://github.com/reactjs/reactjs.org).
+Sənədlər [React-dən kənar repo-da](https://github.com/reactjs/reactjs.org) saxlanılır.
 
-There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
+Bu repo-da digər ana direktoriyalarda var. Lakin, bu direktoriyalarda alətlərin saxlandlğından iştirak etdiyiniz zaman bu direktoriyalarda işləməyəcəksiniz.
 
-### Colocated Tests {#colocated-tests}
+### Paylaşılan Testlər {#colocated-tests}
 
-We don't have a top-level directory for unit tests. Instead, we put them into a directory called `__tests__` relative to the files that they test.
+Bizdə vahid testləri üçün ana direktoriya yoxdur. Əvəzinə, testlər test olunan faylların olduğu direktoriyada olan `__tests__` direktoriyasında saxlanılır.
 
-For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
+Məsələn,[`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) faylı üçün test [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) faylda yerləşir.
 
-### Warnings and Invariants {#warnings-and-invariants}
+### Xəbərdarlıq və İnvariantlar {#warnings-and-invariants}
 
-The React codebase uses the `warning` module to display warnings:
+React kodunda xəbərdarlıqları göstərmək üçün `warning` modulundan istifadə edilir:
 
 ```js
 var warning = require('warning');
 
 warning(
   2 + 2 === 4,
-  'Math is not working today.'
+  'Riyaziyyat bu gün işləmir.'
 );
 ```
 
-**The warning is shown when the `warning` condition is `false`.**
+**Xəbərdarlıqlar `warning` şərti `false` olduqda göstərilir.**
 
-One way to think about it is that the condition should reflect the normal situation rather than the exceptional one.
+Burada şərtlər, istisna vəziyyətlər əvəzinə normal vəziyyətləri əks etdirməlidir.
 
-It is a good idea to avoid spamming the console with duplicate warnings:
+Konsola dublikat xəbərdarlıqları göstərməkdən çəkinməyə çalışın:
 
 ```js
 var warning = require('warning');
@@ -71,42 +71,42 @@ if (!didWarnAboutMath) {
 }
 ```
 
-Warnings are only enabled in development. In production, they are completely stripped out. If you need to forbid some code path from executing, use `invariant` module instead:
+Xəbərdarlıqlar yalnız təkmilləşmə zamanı aktivdirlər. Produksiya zamanı xəbərdarlıqlar tam silinirlər. Əgər hər hansı kodun icrasını saxlamaq istəyirsinizsə, `invariant` modulundan istifadə edin:
 
 ```js
 var invariant = require('invariant');
 
 invariant(
   2 + 2 === 4,
-  'You shall not pass!'
+  'Giriş qadağandır!'
 );
 ```
 
-**The invariant is thrown when the `invariant` condition is `false`.**
+**İnvariant `invariant` şərti `false` olduqda göstərilir.**
 
-"Invariant" is just a way of saying "this condition always holds true". You can think about it as making an assertion.
+"Invariant", "bu şərtin həmişə true olması" deməkdir. Bunun iddia etməyə (assertion) bənzədiyini fikirləşə bilərsiniz.
 
-It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
+Təkmilləşmə və produksiya davranışlarını eyni saxlama vacibdir. Bu səbəbdən, `invariant`-lar hər iki mühitdə göstərilir. Produksiya zamanı paket ölçüsünü azaltmaq üçün xəta mesajları avtomatik olaraq xəta kodları ilə əvəz edilir.
 
-### Development and Production {#development-and-production}
+### Təkmilləşmə və Produksiya {#development-and-production}
 
-You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
+Kod bloklarının yalnız təkmilləşmə zamanı mövcud olması üçün `__DEV__` pseudo-qlobal dəyişənindən istifadə edin.
 
-It is inlined during the compile step, and turns into `process.env.NODE_ENV !== 'production'` checks in the CommonJS builds.
+Bu dəyişən, kompilyasiya zamanı eyni-sətrə keçirilir və CommonJS qurulması zamanı `process.env.NODE_ENV !== 'production'` kod ilə əvəz olunur.
 
-For standalone builds, it becomes `true` in the unminified build, and gets completely stripped out with the `if` blocks it guards in the minified build.
+Bu dəyişən, bağımsız qurulmalar üçün minifikasiya olunmamış qurulmalarda `true`-a çevrilir. Minifikasiya olunmuş qurulmalarda isə dəyişəni saxlayan `if` bloku ilə birlikdə tam silinir.
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // Bu blokdakı kod yalnız təkmilləşmə zamanı mövcud olacaq.
 }
 ```
 
 ### Flow {#flow}
 
-We recently started introducing [Flow](https://flow.org/) checks to the codebase. Files marked with the `@flow` annotation in the license header comment are being typechecked.
+Bu yaxınlarda, biz koda [Flow](https://flow.org/) yoxlamalarını əlavə etdik. Lisenziya başlıq kommentində `@flow` ilə işarələnən fayllarda tip yoxlamaları baş verəcək.
 
-We accept pull requests [adding Flow annotations to existing code](https://github.com/facebook/react/pull/7600/files). Flow annotations look like this:
+Biz, [mövcud koda Flow işarələrinin əlavə edilmələrinin](https://github.com/facebook/react/pull/7600/files) PR-larını qəbul edirik. Flow işarələri bu aşağıdakı formada olur:
 
 ```js
 ReactRef.detachRefs = function(
@@ -117,20 +117,20 @@ ReactRef.detachRefs = function(
 }
 ```
 
-When possible, new code should use Flow annotations.
-You can run `yarn flow` locally to check your code with Flow.
+Mümkün olduğu zaman yeni kodlarda Flow işarələri olmalıdır.
+Kodunuzu lokal mühitdə Flow ilə yoxlamaq üçün `yarn flow` əmrini icra edə bilərsiniz.
 
-### Dynamic Injection {#dynamic-injection}
+### Dinamik İnyeksiya {#dynamic-injection}
 
-React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
+React bəzi modullarda dinamik inyeksiyadan istifadə edir. Bunun həmişə açıq olmasına baxmayaraq bu kodun anlaşılmasını azaldır. Bunun mövcud olmasının əsas səbəbi React-in yalnız DOM-u dəstəkləməsindən gəlir. React Native, React-in forku kimi başlanılıb. Biz, React Native-in bəzi davranışlarını əvəzləməsi üçün dinamik inyeksiyadan istifadə etdik.
 
-You may see modules declaring their dynamic dependencies like this:
+Siz, bəzi modulların dinamik asılılıqlarının aşağıdakı formada təyin edildiyini görəcəksiniz:
 
 ```js
-// Dynamically injected
+// Dinamik şəkikdə inyeksiya olunub
 var textComponentClass = null;
 
-// Relies on dynamically injected value
+// Dinamik inyeksiya olunan dəyərdən asılıdır
 function createInstanceForText(text) {
   return new textComponentClass(text);
 }
@@ -138,7 +138,7 @@ function createInstanceForText(text) {
 var ReactHostComponent = {
   createInstanceForText,
 
-  // Provides an opportunity for dynamic injection
+  // Dinamik inyeksiya üçün fürsət yaradır
   injection: {
     injectTextComponentClass: function(componentClass) {
       textComponentClass = componentClass;
@@ -149,27 +149,27 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-The `injection` field is not handled specially in any way. But by convention, it means that this module wants to have some (presumably platform-specific) dependencies injected into it at runtime.
+`injection` sahəsi xüsusi formada idarə olunmur. Lakin, konvensiyaya görə modulun icra zamanı bəzi asılılıqları (adətən, platformaya xas) inyeksiya edəcəyi bilinir.
 
-There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
+Kodda bir neçə inyeksiya nöqtələri var. Gələcəkdə, biz dinamik inyeksiya mexanizmindən imtina etmək və bütün hissələri statik şəkildə qurmaq istəyirik.
 
-### Multiple Packages {#multiple-packages}
+### Çoxlu Paketlər {#multiple-packages}
 
-React is a [monorepo](https://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and issues live in one place.
+React, [monorepo](https://danluu.com/monorepo/)-dur. Bu repo bir neçə paketdən ibarətdir. Bu paketlər eyni zamanda koordinasiya oluna bilir və bütün paketlərin issue-ları bir yerdə saxlanılır.
 
 ### React Core {#react-core}
 
-The "core" of React includes all the [top-level `React` APIs](/docs/top-level-api.html#react), for example:
+React-in "core"-ubda bütün [yuxarı səviyyəli `React` API-ları](/docs/top-level-api.html#react) saxlanılır. Məsələn:
 
 * `React.createElement()`
 * `React.Component`
 * `React.Children`
 
-**React core only includes the APIs necessary to define components.** It does not include the [reconciliation](/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
+**React core-da yalnız komponentləri təyin etmək üçün lazım olan API-lar saxlanılır.** Burada [rekonsilyasiya](/docs/reconciliation.html) alqoritmi və ya digər platformaya xas olan kodlar mövcud deyil. Buradakı kodlar həm React DOM, həm də React Native komponentləri tərəfindən istifadə edilir.
 
-The code for React core is located in [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) in the source tree. It is available on npm as the [`react`](https://www.npmjs.com/package/react) package. The corresponding standalone browser build is called `react.js`, and it exports a global called `React`.
+React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) direktoriyasında saxlanılır. React core, NPM-də [`react`](https://www.npmjs.com/package/react) paketi adı altında mövcuddur. Bağımsız brauzer qurulmaları isə `react.js` adlanır. Bu qurulmalarda ixrac edilən qlobal dəyişənin adı `React`-dir.
 
-### Renderers {#renderers}
+### Render Edici Qurğular {#renderers}
 
 React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](https://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
 
