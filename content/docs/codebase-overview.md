@@ -171,56 +171,56 @@ React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/mas
 
 ### Render Edici Qurğular {#renderers}
 
-React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](https://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
+Başlanğıcda React yalnız DOM üçün yaradılmışdı, amma bir zaman sonra [React Native](https://facebook.github.io/react-native/) ilə nativ platformalar da dəstəklənməyə başlandı. Bu adaptasiya nəticəsində React daxilinə "render edici qurğular" konsepsiyası təqdim olundur.
 
-**Renderers manage how a React tree turns into the underlying platform calls.**
+**Render edici qurğular React ağacını platformaya xas olan çağırışlara çevirmək üçündür.**
 
-Renderers are also located in [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Render edici qurğular [`packages/`](https://github.com/facebook/react/tree/master/packages/) direktoriyasında yerləşir:
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) renders React components to the DOM. It implements [top-level `ReactDOM` APIs](/docs/react-dom.html) and is available as [`react-dom`](https://www.npmjs.com/package/react-dom) npm package. It can also be used as standalone browser bundle called `react-dom.js` that exports a `ReactDOM` global.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renders React components to native views. It is used internally by React Native.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renders React components to JSON trees. It is used by the [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) feature of [Jest](https://facebook.github.io/jest) and is available as [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm package.
+* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) qurğusu React komponentlərini DOM-a render edir. Bu qurğu [yuxarı səviyyəli `ReactDOM` API-larını](/docs/react-dom.html) tətbiq edir. Bu qurğu NPM-də [`react-dom`](https://www.npmjs.com/package/react-dom) paketi adı ilə mövcuddur. Əlavə olaraq siz bu qurğunu `react-dom.js` adlı bağımsız brauzer paketi formasında da işlədə bilərsiniz. Bu paket, `ReactDOM` qlobal obyektini ixrac edir.
+* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React komponentlərini nativ görünüşlərə render edir. Bu qurğu React Native tərəfindən işlədilir.
+* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) qurğusu React komponentlərini JSON ağaclarına çevirir. Bu qurğu [Jest](https://facebook.github.io/jest)-in [Snəpşot Test Etmə](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) xüsusiyyətindən istifadə edir. Bu qurğu NPM-də [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) paketi adı ilə mövcuddur.
 
-The only other officially supported renderer is [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). It used to be in a separate [GitHub repository](https://github.com/reactjs/react-art) but we moved it into the main source tree for now.
+Rəsmi dəstəklənən render edici qurğularından biri də [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art)-dır. Əvvəllər bu qurğu ayrı [GitHub repo-sunda idi](https://github.com/reactjs/react-art), amma hələlik biz bu qurğunu əsas kod repo-suna əlavə etmişik.
 
->**Note:**
+>**Qeyd:**
 >
->Technically the [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
+>Texniki olaraq [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React-in React Native tətbiqi ilə işləməsi üçün çox nazik bir təbəqədir. Nativ görünüşləri idarə edən, platformaya xas olan kodlar və bu kodların işləməsi üçün lazım olan komponentlər [React Native repo-sunda](https://github.com/facebook/react-native) saxlanılır.
 
-### Reconcilers {#reconcilers}
+### Rekonsilyasiya Edici Qurğular {#reconcilers}
 
-Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
+React DOM və React Native kimi çox fərqlənən render edici qurğular belə öz aralarında məntiqlər paylaşırlar. Xüsusilə, deklarativ render etmə, xüsusi komponentlər, state, lifecycle metodları və ref-lərin bütün platformalarda düzgün və stabil işləməsi üçün [rekonsilyasiya](/docs/reconciliation.html) alqoritmi eyni qalmalıdır.
 
-To solve this, different renderers share some code between them. We call this part of React a "reconciler". When an update such as `setState()` is scheduled, the reconciler calls `render()` on components in the tree and mounts, updates, or unmounts them.
+Bunu həll etmək üçün fərqli render edici qurğular öz aralarında bəzi kodları paylaşırlar. Biz bu React-in bu hissəsini "rekonsilyasiya edici qurğu" adlandırırıq. `setState` kimi yenilik planlaşdırıldıqda rekonsilyasiya edici qurğu ağacda olan komponentlərin `render()` funksiyalarını çağıraraq bu komponentləri mount edir, yeniləyir və unmount edir.
 
-Reconcilers are not packaged separately because they currently have no public API. Instead, they are exclusively used by renderers such as React DOM and React Native.
+Rekonsilyasiya edici qurğuların açıq API-ları olmadığından bu qurğular üçün paketlər mövcud deyil. Əvəzinə, bu qurğular yalnız React DOM və React Native kimi render edici qurğular tərəfindən istifadə edilir.
 
-### Stack Reconciler {#stack-reconciler}
+### Stack Rekonsilyasiya Edici Qurğusu {#stack-reconciler}
 
-The "stack" reconciler is the implementation powering React 15 and earlier. We have since stopped using it, but it is documented in detail in the [next section](/docs/implementation-notes.html).
+React 15 və əvvəlki buraxılışlarda "stack" rekonsilyasiya edici qurğusu işlədilirdi. Biz bu qurğudan istifadə etməyi dayandırmışıq. Lakin, bu qurğu haqqında detallı məlumat almaq üçün [sonrakı bölməyə baxın](/docs/implementation-notes.html).
 
-### Fiber Reconciler {#fiber-reconciler}
+### Fiber Rekonsilyasiya Edici Qurğusu {#fiber-reconciler}
 
-The "fiber" reconciler is a new effort aiming to resolve the problems inherent in the stack reconciler and fix a few long-standing issues. It has been the default reconciler since React 16.
+Stack rekonsilyasiya edici qurğusunda olan problemləri və ümumilikdə uzun müddət mövcud olan problemləri həll etmək üçün göstərdiyimiz cəhdlərdən biri "fiber" rekonsilyasiya edici qurğusudur. Bu qurğu React 16-dan başlayaraq standart rekonsilyasiya edici qurğu kimi işlədilir.
 
-Its main goals are:
+Bu qurğunun əsas məqsədləri aşağıda göstərilib:
 
-* Ability to split interruptible work in chunks.
-* Ability to prioritize, rebase and reuse work in progress.
-* Ability to yield back and forth between parents and children to support layout in React.
-* Ability to return multiple elements from `render()`.
-* Better support for error boundaries.
+* Kəsilə bilən işləri kiçik hissələrə parçalanması.
+* Proqresdə olan işlərin prioritetləşdirilməsi, rebeyzi və yenidən istifadə edilə bilməsi.
+* React-də şablonu dəstəkləmək üçün valideyn və uşaqlar arasında istehsalın növbələnməsi.
+* `render()`-dən bir neçə elementin qaytarılması.
+* Xəta sərhədləri üçün daha yaxşı dəstək.
 
-You can read more about React Fiber Architecture [here](https://github.com/acdlite/react-fiber-architecture) and [here](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). While it has shipped with React 16, the async features are not enabled by default yet.
+React-in Fiber Arxitekturası haqqında əlavə məlumat almaq üçün [bura](https://github.com/acdlite/react-fiber-architecture) və [bura](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react) baxın. Bu qurucunun React 16-da olmasına baxmayaraq hələki asinxron xüsusiyyətlər standart şəkildə aktivləşməyib.
 
-Its source code is located in [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
+Rekonsilyasiya edici qurucu [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler) direktoriyasında saxlanılır.
 
-### Event System {#event-system}
+### Hadisə Sistemi {#event-system}
 
-React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
+React, render edici qurğulardan asılı olmayan, React DOM və React Native-də işləyən sintetik hadisə sistemi tətbiq edir. Bu sistemin kodu [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events) direktoriyasında saxlanılır.
 
-There is a [video with a deep code dive into it](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+Əgər maraqlanırsınızsa, [hadisə sistemini dərindən başa salan videoya](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 dəq) baxa bilərsiniz.
 
-### What Next? {#what-next}
+### Sonrakı Addımlar {#what-next}
 
-Read the [next section](/docs/implementation-notes.html) to learn about the pre-React 16 implementation of reconciler in more detail. We haven't documented the internals of the new reconciler yet.
+React 16-dan öncə mövcud olan rekonsilyasiya edici qurğunun tətbiqi haqqında dərindən məlumat almaq üçün [sonrakı bölməyə](/docs/implementation-notes.html) baxın. Biz hələki, yeni rekonsilyasiya edici qurğunun daxilini sənədləşdirməmişik.
