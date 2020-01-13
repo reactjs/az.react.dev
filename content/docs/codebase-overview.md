@@ -1,6 +1,6 @@
 ---
 id: codebase-overview
-title: Codebase Overview
+title: Kodun Icmalı
 layout: contributing
 permalink: docs/codebase-overview.html
 prev: how-to-contribute.html
@@ -9,54 +9,54 @@ redirect_from:
   - "contributing/codebase-overview.html"
 ---
 
-This section will give you an overview of the React codebase organization, its conventions, and the implementation.
+Bu bölmədə React kodunun orqanizasiyası, konvensiyaları və tətbiqinin icmalı göstərilir.
 
-If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes.
+Əgər [React-ə töhvə vermək istəyirsinizsə](/docs/how-to-contribute.html), buradakı təlimatların sizə dəyişiklik etməkdən qorxmayacağınıza imkan yaradacağına ümid edirik.
 
-We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time.
+Burada göstərilən konvensiyaların React applikasiyalarında işlədilməsini tövsiyyə etmirik. Bu konvensiyaların çoxu tarixi səbəblərə görə mövcuddur və zaman keçdikcə bu konvensiyalar dəyişə bilər.
 
-### External Dependencies {#external-dependencies}
+### Xarici Asılılıqlar {#external-dependencies}
 
-React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
+React-in heç bir xarici asılılığı yoxdur. Adətən, `require()` çağırışları React-in kodunda olan fayllara istinad edir. Lakin, burada bir neçə nadir istisnalar var.
 
-The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
+[fbjs repo-sunun](https://github.com/facebook/fbjs) mövcud olmasının səbəbi React-in bəzi faydalı funksiyaları [Relay](https://github.com/facebook/relay) kimi kitabxanalar ilə paylaşmasıdır. Biz bu funksiyaları həmişə sinxron saxlayırıq. Biz Node ekosistemində olan bu faydalı funksiyaların ekvivalenti olan modullardan istifadə etmirik. Çünki, biz Facebook mühəndislərinin istənilən zaman dəyişikliklər edə bilməsini istəyirik. fbjs-də olan heç bir funksiya açıq API kimi qəbul olunmur. Bu API-lar yalnız Facebook-un React kimi layihələrində işlənilir.
 
-### Top-Level Folders {#top-level-folders}
+### Ana Direktoriyalar {#top-level-folders}
 
-After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
+[React repo-sunu](https://github.com/facebook/react) klon etdikdə aşağıdakı direktoriyaları görəcəksiniz:
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contains metadata (such as `package.json`) and the source code (`src` subdirectory) for all packages in the React repository. **If your change is related to the code, the `src` subdirectory of each package is where you'll spend most of your time.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contains a few small React test applications for contributors.
-* `build` is the build output of React. It is not in the repository but it will appear in your React clone after you [build it](/docs/how-to-contribute.html#development-workflow) for the first time.
+* [`packages`](https://github.com/facebook/react/tree/master/packages) direktoriyasında React reposunda olan bütün paketlərin metadata-ları (`package.json` kimi) və mənbə kodları (`src` alt direktoriyalarında) saxlanılır. **Əgər etdiyiniz dəyişiklik kod ilə əlaqəlidirsə, siz vaxtınızın çoxunu hər paketin `src` alt direktoriyasında keçirəcəksiniz.**
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) direktoriyasında iştirakçılar üçün test React applikasiyaları saxlanılır.
+* `build` direktoriyasında React-in qurulma nəticəsini saxlanılır. Bu direktoriya repo-da yoxdur, amma bu direktoriyanı React-i ilk dəfə [quraşdırdıqda](/docs/how-to-contribute.html#development-workflow) görəcəksiniz.
 
-The documentation is hosted [in a separate repository from React](https://github.com/reactjs/reactjs.org).
+Sənədlər [React-dən kənar repo-da](https://github.com/reactjs/reactjs.org) saxlanılır.
 
-There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
+Bu repo-da digər ana direktoriyalar da var. Lakin, bu direktoriyalarda alətlər saxlanılır və adətən iştirak etdiyiniz zaman bu direktoriyalarda dəyişiklik etməyəcəksiniz.
 
-### Colocated Tests {#colocated-tests}
+### Testlərin Yerləşdirilməsi {#colocated-tests}
 
-We don't have a top-level directory for unit tests. Instead, we put them into a directory called `__tests__` relative to the files that they test.
+Bizdə vahid testləri üçün ana direktoriya yoxdur. Əvəzinə, testlər test olunan faylların olduğu direktoriyada olan `__tests__` direktoriyasında saxlanılır.
 
-For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
+Məsələn, [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) faylı üçün testlər [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) faylında yerləşir.
 
-### Warnings and Invariants {#warnings-and-invariants}
+### Xəbərdarlıq və İnvariantlar {#warnings-and-invariants}
 
-The React codebase uses the `warning` module to display warnings:
+React kodunda xəbərdarlıqları göstərmək üçün `warning` modulundan istifadə edilir:
 
 ```js
 var warning = require('warning');
 
 warning(
   2 + 2 === 4,
-  'Math is not working today.'
+  'Riyaziyyat bu gün işləmir.'
 );
 ```
 
-**The warning is shown when the `warning` condition is `false`.**
+**Xəbərdarlıqlar `warning` şərti `false` olduqda göstərilir.**
 
-One way to think about it is that the condition should reflect the normal situation rather than the exceptional one.
+Burada şərtlər, istisna vəziyyətlər əvəzinə normal vəziyyətləri əks etdirməlidir.
 
-It is a good idea to avoid spamming the console with duplicate warnings:
+Konsola dublikat xəbərdarlıqları göstərməkdən çəkinməyə çalışın:
 
 ```js
 var warning = require('warning');
@@ -65,48 +65,48 @@ var didWarnAboutMath = false;
 if (!didWarnAboutMath) {
   warning(
     2 + 2 === 4,
-    'Math is not working today.'
+    'Riyaziyyat bu gün işləmir.'
   );
   didWarnAboutMath = true;
 }
 ```
 
-Warnings are only enabled in development. In production, they are completely stripped out. If you need to forbid some code path from executing, use `invariant` module instead:
+Xəbərdarlıqlar yalnız təkmilləşmə zamanı aktivdirlər. Produksiya zamanı xəbərdarlıqlar qurulan paketdən silinir. Əgər hər hansı kodun icrasını saxlamaq istəyirsinizsə, `invariant` modulundan istifadə edin:
 
 ```js
 var invariant = require('invariant');
 
 invariant(
   2 + 2 === 4,
-  'You shall not pass!'
+  'Giriş qadağandır!'
 );
 ```
 
-**The invariant is thrown when the `invariant` condition is `false`.**
+**İnvariant `invariant` şərti `false` olduqda göstərilir.**
 
-"Invariant" is just a way of saying "this condition always holds true". You can think about it as making an assertion.
+"Invariant", "bu şərtin həmişə true olması" deməkdir. Bunun iddia etməyə (assertion) bənzədiyini fikirləşə bilərsiniz.
 
-It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
+Təkmilləşmə və produksiya davranışlarının eyni saxlanması vacibdir. Bu səbəbdən, `invariant`-lar hər iki mühitdə göstərilir. Produksiya zamanı paket ölçüsünü azaltmaq üçün xəta mesajları avtomatik olaraq xəta kodları ilə əvəz edilir.
 
-### Development and Production {#development-and-production}
+### Təkmilləşmə və Produksiya {#development-and-production}
 
-You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
+Kod bloklarının yalnız təkmilləşmə zamanı mövcud olması üçün `__DEV__` pseudo-qlobal dəyişənindən istifadə edin.
 
-It is inlined during the compile step, and turns into `process.env.NODE_ENV !== 'production'` checks in the CommonJS builds.
+Bu dəyişən, kompilyasiya zamanı eyni-sətrə keçirilir və CommonJS qurulması zamanı `process.env.NODE_ENV !== 'production'` formalı kod ilə əvəz olunur.
 
-For standalone builds, it becomes `true` in the unminified build, and gets completely stripped out with the `if` blocks it guards in the minified build.
+Bu dəyişən, bağımsız qurulmalar üçün minifikasiya olunmamış qurulmalarda `true`-a çevrilir. Minifikasiya olunmuş qurulmalarda isə dəyişəni saxlayan `if` bloku ilə birlikdə tam silinir.
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // Bu blokdakı kod yalnız təkmilləşmə zamanı mövcud olacaq.
 }
 ```
 
 ### Flow {#flow}
 
-We recently started introducing [Flow](https://flow.org/) checks to the codebase. Files marked with the `@flow` annotation in the license header comment are being typechecked.
+Bu yaxınlarda biz koda [Flow](https://flow.org/) yoxlamalarını əlavə etdik. Lisenziya başlıq kommentində `@flow` ilə işarələnən fayllarda tip yoxlamaları baş verəcək.
 
-We accept pull requests [adding Flow annotations to existing code](https://github.com/facebook/react/pull/7600/files). Flow annotations look like this:
+Biz [mövcud koda Flow işarələrinin əlavə edilmələrinin](https://github.com/facebook/react/pull/7600/files) PR-larını qəbul edirik. Flow işarələri aşağıdakı formada olur:
 
 ```js
 ReactRef.detachRefs = function(
@@ -117,20 +117,20 @@ ReactRef.detachRefs = function(
 }
 ```
 
-When possible, new code should use Flow annotations.
-You can run `yarn flow` locally to check your code with Flow.
+Mümkün olduğu zaman yeni kodlarda Flow işarələri olmalıdır.
+Kodunuzu lokal mühitdə Flow ilə yoxlamaq üçün `yarn flow` əmrini icra edə bilərsiniz.
 
-### Dynamic Injection {#dynamic-injection}
+### Dinamik İnyeksiya {#dynamic-injection}
 
-React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
+React bəzi modullarda dinamik inyeksiyadan istifadə edir. Bunun həmişə açıq olmasına baxmayaraq bu, kodun anlaşılmasını azaldır. Bunun mövcud olmasının əsas səbəbi React-in əvəllər yalnız DOM-u dəstəkləməsindən gəlir. React Native, React-in forku kimi başlanılıb. Biz, React Native-in bəzi davranışları əvəzləməsi üçün dinamik inyeksiyadan istifadə etdik.
 
-You may see modules declaring their dynamic dependencies like this:
+Siz, bəzi modulların dinamik asılılıqlarının aşağıdakı formada təyin edildiyini görəcəksiniz:
 
 ```js
-// Dynamically injected
+// Dinamik inyeksiya olunub
 var textComponentClass = null;
 
-// Relies on dynamically injected value
+// Dinamik inyeksiya olunan dəyərdən asılıdır
 function createInstanceForText(text) {
   return new textComponentClass(text);
 }
@@ -138,7 +138,7 @@ function createInstanceForText(text) {
 var ReactHostComponent = {
   createInstanceForText,
 
-  // Provides an opportunity for dynamic injection
+  // Dinamik inyeksiya üçün fürsət yaradır
   injection: {
     injectTextComponentClass: function(componentClass) {
       textComponentClass = componentClass;
@@ -149,78 +149,78 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-The `injection` field is not handled specially in any way. But by convention, it means that this module wants to have some (presumably platform-specific) dependencies injected into it at runtime.
+`injection` sahəsi xüsusi formada idarə olunmur. Lakin, konvensiyaya görə modulun icra zamanı bəzi asılılıqların (adətən, platformaya xas) inyeksiya ediləcəyi bilinir.
 
-There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
+Kodda bir neçə inyeksiya nöqtələri var. Gələcəkdə, biz dinamik inyeksiya mexanizmindən imtina etmək və bütün hissələri statik şəkildə qurmaq istəyirik.
 
-### Multiple Packages {#multiple-packages}
+### Çoxlu Paketlər {#multiple-packages}
 
-React is a [monorepo](https://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and issues live in one place.
+React, [monorepo](https://danluu.com/monorepo/)-dur. Bu repo bir neçə paketdən ibarətdir. Bu paketlər eyni zamanda koordinasiya oluna bilir və bütün paketlərin issue-ları bir yerdə saxlanılır.
 
 ### React Core {#react-core}
 
-The "core" of React includes all the [top-level `React` APIs](/docs/top-level-api.html#react), for example:
+React-in "core"-unda bütün [yuxarı səviyyəli `React` API-ları](/docs/top-level-api.html#react) saxlanılır. Məsələn:
 
 * `React.createElement()`
 * `React.Component`
 * `React.Children`
 
-**React core only includes the APIs necessary to define components.** It does not include the [reconciliation](/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
+**React core-da yalnız komponentləri təyin etmək üçün lazım olan API-lar saxlanılır.** Burada [rekonsilyasiya](/docs/reconciliation.html) alqoritmi və ya digər platformaya xas olan kodlar mövcud deyil. Buradakı kodlar həm React DOM, həm də React Native komponentləri tərəfindən istifadə edilir.
 
-The code for React core is located in [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) in the source tree. It is available on npm as the [`react`](https://www.npmjs.com/package/react) package. The corresponding standalone browser build is called `react.js`, and it exports a global called `React`.
+React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) direktoriyasında saxlanılır. React core, NPM-də [`react`](https://www.npmjs.com/package/react) paketi adı altında mövcuddur. Bağımsız brauzer qurulmaları isə `react.js` adlanır. Bu qurulmalarda ixrac edilən qlobal dəyişənin adı `React`-dir.
 
-### Renderers {#renderers}
+### Render Edici Qurğular {#renderers}
 
-React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](https://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
+Başlanğıcda React yalnız DOM üçün yaradılmışdı, amma bir zaman sonra [React Native](https://facebook.github.io/react-native/) ilə nativ platformalar da dəstəklənməyə başlandı. Bu adaptasiya nəticəsində React daxilinə "render edici qurğular" konsepsiyası təqdim olundu.
 
-**Renderers manage how a React tree turns into the underlying platform calls.**
+**Render edici qurğular React ağacını platformaya xas olan çağırışlara çevirmək üçündür.**
 
-Renderers are also located in [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Render edici qurğular [`packages/`](https://github.com/facebook/react/tree/master/packages/) direktoriyasında yerləşir:
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) renders React components to the DOM. It implements [top-level `ReactDOM` APIs](/docs/react-dom.html) and is available as [`react-dom`](https://www.npmjs.com/package/react-dom) npm package. It can also be used as standalone browser bundle called `react-dom.js` that exports a `ReactDOM` global.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renders React components to native views. It is used internally by React Native.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renders React components to JSON trees. It is used by the [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) feature of [Jest](https://facebook.github.io/jest) and is available as [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm package.
+* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) qurğusu React komponentlərini DOM-a render edir. Bu qurğu [yuxarı səviyyəli `ReactDOM` API-larını](/docs/react-dom.html) tətbiq edir. Bu qurğu NPM-də [`react-dom`](https://www.npmjs.com/package/react-dom) paketi adı ilə mövcuddur. Əlavə olaraq siz bu qurğunu `react-dom.js` adlı bağımsız brauzer paketi ilə də işlədə bilərsiniz. Bu paket, `ReactDOM` qlobal obyektini ixrac edir.
+* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React komponentlərini nativ görünüşlərə render edir. Bu qurğu React Native tərəfindən işlədilir.
+* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) qurğusu React komponentlərini JSON ağaclarına çevirir. Bu qurğu [Jest](https://facebook.github.io/jest)-in [Snəpşot Test Etmə](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) xüsusiyyətindən istifadə edir. Bu qurğu NPM-də [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) paketi adı ilə mövcuddur.
 
-The only other officially supported renderer is [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). It used to be in a separate [GitHub repository](https://github.com/reactjs/react-art) but we moved it into the main source tree for now.
+Rəsmi dəstəklənən render edici qurğularından biri də [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art)-dır. Əvvəllər bu qurğu ayrı [GitHub repo-sunda idi](https://github.com/reactjs/react-art), amma hələlik biz bu qurğunu əsas kod repo-suna əlavə etmişik.
 
->**Note:**
+>**Qeyd:**
 >
->Technically the [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
+>Texniki olaraq [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React-in React Native tətbiqi ilə işləməsi üçün çox nazik bir təbəqədir. Nativ görünüşləri idarə edən, platformaya xas olan kodlar və bu kodların işləməsi üçün lazım olan komponentlər [React Native repo-sunda](https://github.com/facebook/react-native) saxlanılır.
 
-### Reconcilers {#reconcilers}
+### Rekonsilyatorlar {#reconcilers}
 
-Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
+React DOM və React Native kimi çox fərqlənən render edici qurğular belə öz aralarında məntiqlər paylaşırlar. Xüsusilə, deklarativ render etmə, xüsusi komponentlər, state, lifecycle metodları və ref-lərin bütün platformalarda düzgün və stabil işləməsi üçün [rekonsilyasiya](/docs/reconciliation.html) alqoritmi eyni qalmalıdır.
 
-To solve this, different renderers share some code between them. We call this part of React a "reconciler". When an update such as `setState()` is scheduled, the reconciler calls `render()` on components in the tree and mounts, updates, or unmounts them.
+Bunu həll etmək üçün fərqli render edici qurğular öz aralarında bəzi kodları paylaşırlar. Biz React-in bu hissəsini "rekonsilyator" və "rekonsilyasiya edici qurğu" adlandırırıq. `setState` kimi yenilik planlaşdırıldıqda rekonsilyator ağacda olan komponentlərin `render()` funksiyalarını çağıraraq bu komponentləri mount edir, yeniləyir və unmount edir.
 
-Reconcilers are not packaged separately because they currently have no public API. Instead, they are exclusively used by renderers such as React DOM and React Native.
+Rekonsilyatorların açıq API-ları olmadığından bu qurğular üçün paketlər mövcud deyil. Əvəzinə, bu qurğular yalnız React DOM və React Native kimi render edici qurğular tərəfindən istifadə edilir.
 
-### Stack Reconciler {#stack-reconciler}
+### Stack Rekonsilyatoru {#stack-reconciler}
 
-The "stack" reconciler is the implementation powering React 15 and earlier. We have since stopped using it, but it is documented in detail in the [next section](/docs/implementation-notes.html).
+React 15 və əvvəlki buraxılışlarda "stack" rekonsilyatoru işlədilirdi. Biz bu qurğudan istifadə etməyi dayandırmışıq. Lakin, bu qurğu haqqında detallı məlumat almaq üçün [sonrakı bölməyə baxın](/docs/implementation-notes.html).
 
-### Fiber Reconciler {#fiber-reconciler}
+### Fiber Rekonsilyatoru {#fiber-reconciler}
 
-The "fiber" reconciler is a new effort aiming to resolve the problems inherent in the stack reconciler and fix a few long-standing issues. It has been the default reconciler since React 16.
+Stack rekonsilyatorunda olan problemləri və ümumilikdə uzun müddət mövcud olan problemləri həll etmək üçün göstərdiyimiz cəhdlərdən biri "fiber" rekonsilyatorudur. Bu qurğu React 16-dan başlayaraq standart rekonsilyator kimi işlədilir.
 
-Its main goals are:
+Bu qurğunun əsas məqsədləri aşağıda göstərilib:
 
-* Ability to split interruptible work in chunks.
-* Ability to prioritize, rebase and reuse work in progress.
-* Ability to yield back and forth between parents and children to support layout in React.
-* Ability to return multiple elements from `render()`.
-* Better support for error boundaries.
+* Kəsilə bilən işlərin kiçik hissələrə parçalanması.
+* Proqresdə olan işlərin prioritetləşdirilməsi, rebeyzi və yenidən istifadə edilə bilməsi.
+* React-də şablonu dəstəkləmək üçün valideyn və uşaqlar arasında istehsalın növbələnməsi.
+* `render()`-dən bir neçə elementin qaytarılması.
+* Xəta sərhədləri üçün daha yaxşı dəstək.
 
-You can read more about React Fiber Architecture [here](https://github.com/acdlite/react-fiber-architecture) and [here](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). While it has shipped with React 16, the async features are not enabled by default yet.
+React-in Fiber Arxitekturası haqqında əlavə məlumat almaq üçün [bura](https://github.com/acdlite/react-fiber-architecture) və [bura](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react) baxın. Bu rekonsilyatorun React 16-da olmasına baxmayaraq hələki asinxron xüsusiyyətlər standart şəkildə aktivləşməyib.
 
-Its source code is located in [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
+React rekonsilyatoru [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler) direktoriyasında saxlanılır.
 
-### Event System {#event-system}
+### Hadisə Sistemi {#event-system}
 
-React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
+React, render edici qurğulardan asılı olmayan, React DOM və React Native-də işləyən sintetik hadisə sistemi tətbiq edir. Bu sistemin kodu [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events) direktoriyasında saxlanılır.
 
-There is a [video with a deep code dive into it](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+Əgər maraqlanırsınızsa, [hadisə sistemini dərindən başa salan videoya](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 dəq) baxa bilərsiniz.
 
-### What Next? {#what-next}
+### Sonrakı Addımlar {#what-next}
 
-Read the [next section](/docs/implementation-notes.html) to learn about the pre-React 16 implementation of reconciler in more detail. We haven't documented the internals of the new reconciler yet.
+React 16-dan öncə mövcud olan rekonsilyasiya edici qurğunun tətbiqi haqqında dərindən məlumat almaq üçün [sonrakı bölməyə](/docs/implementation-notes.html) baxın. Biz hələki, yeni rekonsilyasiya edici qurğunun daxilini sənədləşdirməmişik.
