@@ -53,6 +53,10 @@ Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animas
 
 ### End-to-end testlər {#end-to-end-tests-aka-e2e-tests}
 
+<<<<<<< HEAD
 Biznesiniz üçün kritiki olan uzun axınları (məsələn, registrasiya və ya ödəmələr kimi) test etmək üçün end-to-end testlər faydalıdır. Bu testlərdə applikasiyanın brauzerdə render edilməsi, məlumatların real API-dan yüklənməsi, sessiya və kukilərdən istifadə, və linklər arasında naviqasiyalar test edilir. Əlavə olaraq, DOM vəziyyəti üzərində iddialardan əlavə, gələn məlumat (məsələn, yeniliklərin database-ə yazılmasının test edilməsi) da test edilir.
+=======
+End-to-end tests are useful for testing longer workflows, especially when they're critical to your business (such as payments or signups). For these tests, you'd probably want to test how a real browser renders the whole app, fetches data from the real API endpoints, uses sessions and cookies, navigates between different links. You might also likely want to make assertions not just on the DOM state, but on the backing data as well (e.g. to verify whether the updates have been persisted to the database).
+>>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
 Belə ssenarilər üçün [Cypress](https://www.cypress.io/) kimi freymvorklardan və ya [puppeteer](https://github.com/GoogleChrome/puppeteer) kimi kitabxanalardan istifadə edərək fərqli linklərə naviqasiya edib yalnız brauzer yan effektlərini yox, backend yan effektlərini də test edə bilərsiniz.
