@@ -396,14 +396,22 @@ it("changes value when clicked", () => {
 
   // düymə elementini tapıq tıklama hadisəsini çağırın
   const button = document.querySelector("[data-testid=toggle]");
+<<<<<<< HEAD
   expect(button.innerHTML).toBe("Söndür");
+=======
+  expect(button.innerHTML).toBe("Turn on");
+>>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
   act(() => {
     button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
   expect(onChange).toHaveBeenCalledTimes(1);
+<<<<<<< HEAD
   expect(button.innerHTML).toBe("Yandır");
+=======
+  expect(button.innerHTML).toBe("Turn off");
+>>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
   act(() => {
     for (let i = 0; i < 5; i++) {
