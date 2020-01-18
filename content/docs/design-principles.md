@@ -1,6 +1,6 @@
 ---
 id: design-principles
-title: Design Principles
+title: Dizayn Əsasları
 layout: contributing
 permalink: docs/design-principles.html
 prev: implementation-notes.html
@@ -8,156 +8,156 @@ redirect_from:
   - "contributing/design-principles.html"
 ---
 
-We wrote this document so that you have a better idea of how we decide what React does and what React doesn't do, and what our development philosophy is like. While we are excited to see community contributions, we are not likely to choose a path that violates one or more of these principles.
+React-in nə etdiyini, nə etmədiyini və inkişaf fəlsəfəsinin nə olduğunu daha yaxşı təsəvvür edə bilməyiniz üçün bu sənədi yazdıq. Cəmiyyətin iştirak etdiyini görməkdən məmnun olsaq da, bu və ya digər əsasların birini pozan yolu seçmə ehtimalımız aşağıdır.
 
->**Note:**
+>**Qeyd:**
 >
->This document assumes a strong understanding of React. It describes the design principles of *React itself*, not React components or applications.
+>Bu sənəd React mövzusunda güclü anlama tələb edir. React komponentlərinin və ya applikasiyarının deyil, *React-in öz* dizayn əsaslarını təsvir edir.
 >
->For an introduction to React, check out [Thinking in React](/docs/thinking-in-react.html) instead.
+>React ilə tanış olmaq üçün, [React ilə Düşünmək](/docs/thinking-in-react.html) fəslini oxuyun.
 
-### Composition {#composition}
+### Kompozisiya {#composition}
 
-The key feature of React is composition of components. Components written by different people should work well together. It is important to us that you can add functionality to a component without causing rippling changes throughout the codebase.
+React-in əsas xüsusiyyəti komponentlərin kompozisiyasıdır. Fərqli insanlar tərəfindən yazılan komponentlər birlikdə yaxşı işləməlidirlər. Kod bazasında dəyişiklik dalğası yaratmadan bir komponentə funksionallıq əlavə edə bilməniz bizim üçün vacibdir.
 
-For example, it should be possible to introduce some local state into a component without changing any of the components using it. Similarly, it should be possible to add some initialization and teardown code to any component when necessary.
+Məsələn, komponentə, ona bağlı olan komponentlərdən heç birini dəyişdirmədən bir növ lokal state əlavə etmək mümkün olmalıdır. Həmçinin, zəruri hallarda hər hansı bir komponentə inisializasiya və sökmə kodunu əlavə etmək də mümkün olmalıdır.
 
-There is nothing "bad" about using state or lifecycle methods in components. Like any powerful feature, they should be used in moderation, but we have no intention to remove them. On the contrary, we think they are integral parts of what makes React useful. We might enable [more functional patterns](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) in the future, but both local state and lifecycle methods will be a part of that model.
+Komponentlərdə state və ya lifecycle metodlarının istifadəsi ilə bağlı "pis" bir şey yoxdur. Hər hansı bir güclü xüsusiyyət kimi, bunlar ehtiyatla istifadə edilməlidirlər. Bu xüsusiyyətləri aradan qaldırmaq niyyətimiz yoxdur. Əksinə, bunların React faydalılığının ayrılmaz hissəsi olduğunu düşünürük. Gələcəkdə [daha çox funksional proqramlaşdırma patternlərini](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) əlavə edə bilərik, lakin həm lokal state, həm də lifecycle metodları bu modelin bir hissəsi olacaqdır.
 
-Components are often described as "just functions" but in our view they need to be more than that to be useful. In React, components describe any composable behavior, and this includes rendering, lifecycle, and state. Some external libraries like [Relay](https://facebook.github.io/relay/) augment components with other responsibilities such as describing data dependencies. It is possible that those ideas might make it back into React too in some form.
+Komponentlər tez-tez "sadəcə funksiyalar" kimi təsvir olunurlar, lakin fikrimizcə, faydalı olmaq üçün daha artığı olmalıdırlar. React-də komponentlər kompozisiya etmə davranışını təsvir edirlər və buna render etmə, lifecycle və state daxildir. Bəzi xarici kitabxanalar, məsələn [Relay](https://facebook.github.io/relay/) kimi, komponentləri məlumat asılılığını izah etmək kimi digər vəzifələr ilə tamamlayırlar. Bu fikirlərin bir və ya digər şəkildə React-ə düşə biləcəyi mümkündür.
 
-### Common Abstraction {#common-abstraction}
+### Ümumi Abstraksiya {#common-abstraction}
 
-In general we [resist adding features](https://www.youtube.com/watch?v=4anAwXYqLG8) that can be implemented in userland. We don't want to bloat your apps with useless library code. However, there are exceptions to this.
+Ümumiyyətlə, istifadəçi applikasiyalarında tətbiq oluna biləcək [funksiyaların əlavə edilməsinə qarşıyıq](https://www.youtube.com/watch?v=4anAwXYqLG8). Applikasiyanızı faydasız kitabxana kodu ilə şişirtmək istəmirik. Ancaq bu qaydanın istisnaları var.
 
-For example, if React didn't provide support for local state or lifecycle methods, people would create custom abstractions for them. When there are multiple abstractions competing, React can't enforce or take advantage of the properties of either of them. It has to work with the lowest common denominator.
+Məsələn, React lokal state və ya lifecycle metodlarına dəstək verməsəydi, insanlar bunun üçün xüsusi abstraksiyalar yaradardılar. Bir neçə rəqabətli abstraksiya olduqda, React bu xüsusiyyətlərdən heç birini tətbiq və ya istifadə edə bilməz. React ən aşağı ümumi məxrəc ilə işləməlidir.
 
-This is why sometimes we add features to React itself. If we notice that many components implement a certain feature in incompatible or inefficient ways, we might prefer to bake it into React. We don't do it lightly. When we do it, it's because we are confident that raising the abstraction level benefits the whole ecosystem. State, lifecycle methods, cross-browser event normalization are good examples of this.
+Buna görə bəzən React-in özünə xüsusiyyətlər əlavə edirik. Bir çox komponentin müəyyən xüsusiyyəti uyğunsuz və ya aciz şəkildə tətbiq etdiyini gördükdə, bu xüsusiyyəti React-də tətbiq edə bilərik. Bu cür dəyişikliklərə ciddiliklə yanaşırıq. Bunu edərkən, abstraksiya səviyyəsinin yüksəldilməsinin bütün ekosistemə xeyir verdiyinə əmin oluruq. State, lifecycle metodları və cross-browser hadisələrinin normallaşdırılması bunun yaxşı nümunələridir. 
 
-We always discuss such improvement proposals with the community. You can find some of those discussions by the ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") label on the React issue tracker.
+Həmişə cəmiyyət ilə belə təkmilləşdirmə təkliflərini müzakirə edirik. Bu müzakirələrin bəzilərini React tapşırıq izləyicisində, ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") etiketi altında tapa bilərsiniz.
 
-### Escape Hatches {#escape-hatches}
+### Çıxış Qapıları {#escape-hatches}
 
-React is pragmatic. It is driven by the needs of the products written at Facebook. While it is influenced by some paradigms that are not yet fully mainstream such as functional programming, staying accessible to a wide range of developers with different skills and experience levels is an explicit goal of the project.
+React praqmatikdir. Facebook-da yazılan məhsulların tələbatından irəli gəlir. Funksional proqramlaşdırma kimi bəzi az populyar paradiqmalardan təsirlənsə də, layihənin məqsədi müxtəlif səviyyəli təcrübə və bacarıqlara sahib geniş çeşidli proqramçılar üçün əlçatan olmaqdır.
 
-If we want to deprecate a pattern that we don't like, it is our responsibility to consider all existing use cases for it and [educate the community about the alternatives](/blog/2016/07/13/mixins-considered-harmful.html) before we deprecate it. If some pattern that is useful for building apps is hard to express in a declarative way, we will [provide an imperative API](/docs/more-about-refs.html) for it. If we can't figure out a perfect API for something that we found necessary in many apps, we will [provide a temporary subpar working API](/docs/legacy-context.html) as long as it is possible to get rid of it later and it leaves the door open for future improvements.
+Bəyənmədiyimiz nümunəni aradan qaldırmaq istəyiriksə, istifadəsinin bütün mövcud hallarını nəzərdən keçirmək və aradan qaldırmadan əvvəl [alternativlər barədə cəmiyyətə məlumat vermək](/blog/2016/07/13/mixins-considered-harmful.html) məsuliyyətimizdir. Applikasiyaların qurulması üçün faydalı olan bəzi patternləri deklarativ şəkildə ifadə etmək çətindirsə, bunun üçün [imperativ API təmin edirik](/docs/more-about-refs.html). Bir çox applikasiyada lazımlı hesab etdiyimiz bir şey üçün mükəmməl API tapa bilmiriksə, sonradan asant xilas ola biləcəyimiz [müvəqqəti, qismən işləyən bir API](/docs/legacy-context.html) təmin edirik. Bu gələcək təkmilləşdirmələr üçün açıq qapı buraxır.
 
-### Stability {#stability}
+### Sabitlik {#stability}
 
-We value API stability. At Facebook, we have more than 50 thousand components using React. Many other companies, including [Twitter](https://twitter.com/) and [Airbnb](https://www.airbnb.com/), are also heavy users of React. This is why we are usually reluctant to change public APIs or behavior.
+API sabitliyini qiymətləndiririk. Facebook-da React istifadə edən 50 mindən çox komponentimiz var. [Twitter](https://twitter.com/) və [Airbnb](https://www.airbnb.com/) daxil olmaqla bir çox digər şirkətlər də React istifadə edirlər. Buna görə, adətən ictimai API-ı və ya davranışları dəyişdirməkdən çəkinirik.
 
-However we think stability in the sense of "nothing changes" is overrated. It quickly turns into stagnation. Instead, we prefer the stability in the sense of "It is heavily used in production, and when something changes, there is a clear (and preferably automated) migration path."
+Ancaq sabitliyin "heç bir şey dəyişmir" mənasının şişirdirildiyini düşünürük. Çox tez durğunluğa çevrilir. Bunun yerinə, "bu, istehsalda çox istifadə olunur və dəyişiklik halı üçün açıq (mümkun qədər avtomatlaşdırılmış) miqrasiya planı var" mənasındaki sabitliyə üstünlük veririk.
 
-When we deprecate a pattern, we study its internal usage at Facebook and add deprecation warnings. They let us assess the impact of the change. Sometimes we back out if we see that it is too early, and we need to think more strategically about getting the codebases to the point where they are ready for this change.
+Bir patterni aradan qaldırmadan əvvəl onun Facebook tərəfindən necə istifadə edildiyini öyrənirik və bununla bağlı köhnəlmə xəbərdarlıqlarını əlavə edirik. Bu, dəyişikliklərin təsir miqyasını qiymətləndirməyə imkan verir. Bəzən həyata keçirməyə başlamağın hələ tez olduğunu və kod bazasının hazır vəziyyətə gətirmək üçün strategiya düşünməli olduğumuzu görərək dəyişikliyi ləğv edirik.
 
-If we are confident that the change is not too disruptive and the migration strategy is viable for all use cases, we release the deprecation warning to the open source community. We are closely in touch with many users of React outside of Facebook, and we monitor popular open source projects and guide them in fixing those deprecations.
+Dəyişikliyin o qədər də böyük olmadığına və bütün istifadə halları üçün miqrasiyanın mümkün olduğuna əminiksə, köhnəlmə xəbərdarlığını open source cəmiyyətinə təqdim edirik. Facebook xaricində React istifadəçiləri ilə yaxından əlaqədəyik və populyar open source layihələrini izləyirik, və bu köhnəlmələri aradan qaldırmaqda onlara rəhbərlik edirik.
 
-Given the sheer size of the Facebook React codebase, successful internal migration is often a good indicator that other companies won't have problems either. Nevertheless sometimes people point out additional use cases we haven't thought of, and we add escape hatches for them or rethink our approach.
+Facebook-dakı React kod bazasının genişliyini nəzərə alaraq, Facebook-un müvəffəqiyyətli daxili miqrasiyası digər şirkətlərin də problem yaşamayacağı göstəricisidir. Bununla belə, bəzən insanlar ağlımıza gəlməyən istifadə hallarını qeyd edirlər və bu hallarda onlar üçün çıxış yollarını əlavə edirik və ya yanaşmamızı yenidən nəzərdən keçiririk.
 
-We don't deprecate anything without a good reason. We recognize that sometimes deprecations warnings cause frustration but we add them because deprecations clean up the road for the improvements and new features that we and many people in the community consider valuable.
+Səbəbsiz yerə aradan qaldırma etmirik. Köhnəlmə xəbərdarlıqlarının bəzən məyusluğa səbəb olduğunu bilirik, lakin bunlar bizim və cəmiyyətdəki bir çox insanların dəyərli hesab etdikləri inkişafa və yeni imkanlara yol açırlar.
 
-For example, we added a [warning about unknown DOM props](/warnings/unknown-prop.html) in React 15.2.0. Many projects were affected by this. However fixing this warning is important so that we can introduce the support for [custom attributes](https://github.com/facebook/react/issues/140) to React. There is a reason like this behind every deprecation that we add.
+Məsələn, React 15.2.0-da [naməlum DOM propları barədə xəbərdarlıq](/warnings/unknown-prop.html) əlavə etdik. Bununla bir çox layihəyə toxunduq. Lakin bu xəbərdarlığı düzəltmək vacibdir, çünkü bu düzəlişlə React-ə [xüsusi atributların](https://github.com/facebook/react/issues/140) dəstəyini təqdim edə bilərik. Əlavə etdiyimiz hər köhnəlmə xəbərdarlığının arxasında bunun kimi bir səbəb var.
 
-When we add a deprecation warning, we keep it for the rest of the current major version, and [change the behavior in the next major version](/blog/2016/02/19/new-versioning-scheme.html). If there is a lot of repetitive manual work involved, we release a [codemod](https://www.youtube.com/watch?v=d0pOgY8__JM) script that automates most of the change. Codemods enable us to move forward without stagnation in a massive codebase, and we encourage you to use them as well.
+Köhnəlmə ilə bağlı xəbərdarlıq əlavə edərkən, yalnız [növbəti böyük versiyada davranış dəyişlikləri edirik](/blog/2016/02/19/new-versioning-scheme.html) və mövcud böyük versiyanın axırına qədər köhnəlmiş kodu saxlayırıq. Bir çox təkrarlanan əl işi varsa, dəyişikliyin çoxunu avtomatlaşdıran [codemod](https://www.youtube.com/watch?v=d0pOgY8__JM) scriptini yayırıq. Codemod scriptləri kütləvi kod bazasına girmədən irəliləməyimizə imkan verir və bunu istifadə etməyinizi tövsiyə edirik.
 
-You can find the codemods that we released in the [react-codemod](https://github.com/reactjs/react-codemod) repository.
+Dərc edilmiş codemod scriptlərini [react-codemod](https://github.com/reactjs/react-codemod) repo-sunda tapa bilərsiniz.
 
-### Interoperability {#interoperability}
+### Qarşılıqlı Əlaqə {#interoperability}
 
-We place high value in interoperability with existing systems and gradual adoption. Facebook has a massive non-React codebase. Its website uses a mix of a server-side component system called XHP, internal UI libraries that came before React, and React itself. It is important to us that any product team can [start using React for a small feature](https://www.youtube.com/watch?v=BF58ZJ1ZQxY) rather than rewrite their code to bet on it.
+Mövcud sistemlərlə qarşılıqlı əlaqəyə və tədrici qəbul etməyə yüksək dəyər veririk. Facebook-da React-də yazılmayan bir çox kod var. Sayt, XHP qarışığından olan server tərəfi komponent sistemini, React-dən əvvəl gələn daxili UI kitabxanalarını və React-in özünü istifadə edir. Hər hansı bir komandanın kiçik xüsusiyyət üçün kodlarının hamısını yenidən yazmadan [React istifadə etməyə başlaya bilməsi](https://www.youtube.com/watch?v=BF58ZJ1ZQxY) bizim üçün vacibdir.
 
-This is why React provides escape hatches to work with mutable models, and tries to work well together with other UI libraries. You can wrap an existing imperative UI into a declarative component, and vice versa. This is crucial for gradual adoption.
+Buna görə React, dəyişkən modellərlə işləmək üçün çıxış yolları təmin edir və digər UI kitabxanaları ilə birlikdə yaxşı işləməyə çalışır. Mövcud imperativ UI-ı deklarativ komponentə və ya əksinə əhatə edə bilərsiniz. Bu tədrici qəbul edilmə üçün çox vacibdir.
 
-### Scheduling {#scheduling}
+### Planlaşdırma {#scheduling}
 
-Even when your components are described as functions, when you use React you don't call them directly. Every component returns a [description of what needs to be rendered](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), and that description may include both user-written components like `<LikeButton>` and platform-specific components like `<div>`. It is up to React to "unroll" `<LikeButton>` at some point in the future and actually apply changes to the UI tree according to the render results of the components recursively.
+Komponentlər funksiya kimi təsvir olunsa da, React istifadə edərkən birbaşa çağırılmır. Hər bir komponent [render edilecəklərin təsvirini](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree) qaytarır. Bu təsvirə həm `<LikeButton>` kimi istifadəçi tərəfindən yazılmış komponentlər, həm də `<div>` kimi platformaya məxsus komponentlər daxil ola bilər. Gələcək bir nöqtədə `<LikeButton>`-ı "açma" və komponentlərin render nəticələrinə görə, UI ağacını recursive olaraq dəyişmə React-dən asılıdır.
 
-This is a subtle distinction but a powerful one. Since you don't call that component function but let React call it, it means React has the power to delay calling it if necessary. In its current implementation React walks the tree recursively and calls render functions of the whole updated tree during a single tick. However in the future it might start [delaying some updates to avoid dropping frames](https://github.com/facebook/react/issues/6170).
+Bu incə, lakin güclü fərqdir. Funksiya komponentini çağırmadığınıza və çağırmanı React-ə verdiyinizə görə, React lazım olduqda çağırmanı gecikdirmə gücünə sahib olur. Hal-hazır ki tətbiqdə React ağacı recursive olaraq gəzir və bir keçiddə bütün yenilənən ağacın render funksiyalarını çağırır. Ancaq gələcəkdə [dropping frames-in qarşısını almaq üçün bəzi yeniləmələrin təxirə salınması](https://github.com/facebook/react/issues/6170) başlaya bilər.
 
-This is a common theme in React design. Some popular libraries implement the "push" approach where computations are performed when the new data is available. React, however, sticks to the "pull" approach where computations can be delayed until necessary.
+Bu React memarlığında ortaq bir mövzudur. Bəzi populyar kitabxanalar yeni məlumatlar ortaya çıxdıqda hesablamalar aparan “push” yanaşmasını tətbiq edirlər. React, əksinə, hesablamalar tələb olunana qədər gecikdirilə bilən “pull” yanaşmasına üstünlük verir.
 
-React is not a generic data processing library. It is a library for building user interfaces. We think that it is uniquely positioned in an app to know which computations are relevant right now and which are not.
+React ümumi məlumat emalı kitabxanası deyil. Istifadəçi interfeysi yaratmaq üçün kitabxanadır. Düşünürük ki, applikasiya hansı hesablamaların aktual olduğunu və hansıların olmadığını bilməlidir.
 
-If something is offscreen, we can delay any logic related to it. If data is arriving faster than the frame rate, we can coalesce and batch updates. We can prioritize work coming from user interactions (such as an animation caused by a button click) over less important background work (such as rendering new content just loaded from the network) to avoid dropping frames.
+Bir şey ekrandan kənarda isə, bununla əlaqəli hər hansı bir məntiqi təxirə sala bilərik. Verilənlər çərçivələrin yenilənməsi vaxtından daha sürətli gəlsə, birləşdirmə və toplu yeniləmələr edə bilərik. Dropping frames-in qarşısını almaq üçün istifadəçi ilə qarşılıqlı əlaqədən yaranan işləri (məsələn, düymə basma animasiyasını) daha az əhəmiyyətli fon işlərindən üstün tuta bilərik (məsələn, şəbəkədən yüklənmiş komponenti göstərmədən).
 
-To be clear, we are not taking advantage of this right now. However the freedom to do something like this is why we prefer to have control over scheduling, and why `setState()` is asynchronous. Conceptually, we think of it as "scheduling an update".
+Bunun hələ həyata keçirilmədiyini bilin. Bununla birlikdə, bu sərbəstlik planlaşdırmaya niyə nəzarət etməyi seçdiyimizi və `setState()` funksiyasının niyə asinxron şəkildə işlədiyini göstərir. Konseptual olaraq, biz bunu "bir yeniləmənin planlaşdırılması" kimi düşünürük.
 
-The control over scheduling would be harder for us to gain if we let the user directly compose views with a "push" based paradigm common in some variations of [Functional Reactive Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming). We want to own the "glue" code.
+İstifadəçilərə [Funksional Reaktiv Proqramlaşdırmada](https://en.wikipedia.org/wiki/Functional_reactive_programming) ümumi olan "push" paradiqmasının istifadəsinə icazə versəydik, planlaşdırmaya nəzarət etməyimiz daha çətin olardı. Kodumuzun "birləşdirən" olmasını istəyirik.
 
-It is a key goal for React that the amount of the user code that executes before yielding back into React is minimal. This ensures that React retains the capability to schedule and split work in chunks according to what it knows about the UI.
+React üçün əsas məqsəd React-ə qayıtmadan əvvəl yerinə yetirilən istifadəçi kodunun az olmasıdır. Bu, React-a UI haqqında bildiyinə görə, işləri planlaşdırma və bölmə qabiliyyətini verir.
 
-There is an internal joke in the team that React should have been called "Schedule" because React does not want to be fully "reactive".
+Kollektivdə React-in "Planlaşdırıcı" adlandırılması lazım olduğuna dair daxili zarafat var, çünki React tamamilə "reaktiv" olmaq istəmir.
 
-### Developer Experience {#developer-experience}
+### Təkmilləşdirmə Təcrübəsi {#developer-experience}
 
-Providing a good developer experience is important to us.
+Yaxşı təkmilləşdirmə təcrübəsi təmin etmək bizim üçün vacibdir.
 
-For example, we maintain [React DevTools](https://github.com/facebook/react-devtools) which let you inspect the React component tree in Chrome and Firefox. We have heard that it brings a big productivity boost both to the Facebook engineers and to the community.
+Məsələn, [React DevTools](https://github.com/facebook/react-devtools) brauzer genişlənməsini dəstəkləyirik, bunun sayəsində Chrome və Firefox-da React komponentləri ağacını görə bilərsiniz. Tez-tez eşidirik ki, bu həm Facebook mühəndislərinin, həm də cəmiyyətin işini yaxşılaşdırır.
 
-We also try to go an extra mile to provide helpful developer warnings. For example, React warns you in development if you nest tags in a way that the browser doesn't understand, or if you make a common typo in the API. Developer warnings and the related checks are the main reason why the development version of React is slower than the production version.
+Həm də proqramçılar üçün faydalı xəbərdarlıqlar verməyə çalışırıq. Məsələn, tag-ləri brauzer üçün anlaşılmaz şəkildə yerləşdirsəniz və ya API-da yazılım xətası etsəniz, React bunun xəbərdarlığını edir. Xəbərdarlıqlar və əlaqəli yoxlamalar React-in təkmilləşdirmə versiyasının istehsal versiyasından daha yavaş olması səbəbidir.
 
-The usage patterns that we see internally at Facebook help us understand what the common mistakes are, and how to prevent them early. When we add new features, we try to anticipate the common mistakes and warn about them.
+React-in Facebook-da necə istifadə olunduğunu izləmək bizə, ən çox yayılmış səhvləri müəyyənləşdirməyə, anlamağa və əvvəlcədən onların qarşısını almağa kömək edir. Yeni xüsusiyyətlər əlavə etdikdə, ümumi səhvləri qabaqcadan görməyə və bu barədə xəbərdarlıqlar etməyə çalışırıq.
 
-We are always looking out for ways to improve the developer experience. We love to hear your suggestions and accept your contributions to make it even better.
+Hər zaman təkmilləşdirmə təcrübəsinin daha əlverişli yollarını axtarırıq, buna görə fikirlərinizi müzakirə etməkdən və irəliləyiş gətirən qatqıları qəbul etməkdən məmnunuq.
 
-### Debugging {#debugging}
+### Dibaq etmə {#debugging}
 
-When something goes wrong, it is important that you have breadcrumbs to trace the mistake to its source in the codebase. In React, props and state are those breadcrumbs.
+Bir şey səhv olarsa, kod bazasında səhvin mənbəyini tapmaq mümkün olmalıdır. React-də buna proplar və state-lər kömək edir.
 
-If you see something wrong on the screen, you can open React DevTools, find the component responsible for rendering, and then see if the props and state are correct. If they are, you know that the problem is in the component’s `render()` function, or some function that is called by `render()`. The problem is isolated.
+Ekranda bir şeyin səhv olduğunu görsəniz, React DevTools açaraq render etməyə cavabdeh olan komponenti tapa bilər və sonra, prop və state-in düzgünlüyünü yoxlaya bilərsiniz. Bunlarda xəta yoxdursa, demək problem komponentin `render()` funksiyasında və ya `render()`-dən çağırılan başqa funksiyadadır. Belecə problem təcrid olunur.
 
-If the state is wrong, you know that the problem is caused by one of the `setState()` calls in this file. This, too, is relatively simple to locate and fix because usually there are only a few `setState()` calls in a single file.
+State səhvdirsə, problemin bu fayldakı `setState()` çağırışlarından birində qaynaqlanır. Bunu tapmaq və düzəltmək nisbətən asandır, çünki adətən bir faylda yalnız bir neçə `setState()` çağırışı olur.
 
-If the props are wrong, you can traverse the tree up in the inspector, looking for the component that first "poisoned the well" by passing bad props down.
+Proplar səhvdirsə, inspector-da ağacı üstən aşağı doğru keçərək səhv propları ötürən ilk komponenti axtarırıx.
 
-This ability to trace any UI to the data that produced it in the form of current props and state is very important to React. It is an explicit design goal that state is not "trapped" in closures and combinators, and is available to React directly.
+React üçün hər hansı bir UI-nın qurulma məlumatlarının cari proplar və state-lər şəklində izlənə bilmə qabiliyyəti çox vacibdir. Dizaynımızdakı aydın məqsədlərdən biri, state-in closure-larda və kombinatorlarda "itməməsini" və birbaşa React-də olmasını təmin etməkdir.
 
-While the UI is dynamic, we believe that synchronous `render()` functions of props and state turn debugging from guesswork into a boring but finite procedure. We would like to preserve this constraint in React even though it makes some use cases, like complex animations, harder.
+UI dinamik olmasına baxmayaraq inanırıq ki, propların və state-in sinxron `render()` funksiyası dibaq etməni darıxdırıcı, lakin sonlu bir prosesə çevirir. Bu məhdudiyyəti React-də saxlamaq istərdik, halbuki, bu animasiyalar kimi bəzi kompleks istifadə hallarını çətinləşdirir.
 
-### Configuration {#configuration}
+### Konfiqurasiya {#configuration}
 
-We find global runtime configuration options to be problematic.
+İcra müddəti qlobal konfiqurasiya seçimlərini problemli hesab edirik.
 
-For example, it is occasionally requested that we implement a function like `React.configure(options)` or `React.register(component)`. However this poses multiple problems, and we are not aware of good solutions to them.
+Məsələn, bəzən bizdən `React.configure(options)` və ya `React.register(component)` kimi bir funksiyanı həyata keçirmək istənilir. Ancaq bu çox sayıda problemlərə səbəb olur və biz bunlar üçün uyğun həll yollarını bilmirik.
 
-What if somebody calls such a function from a third-party component library? What if one React app embeds another React app, and their desired configurations are incompatible? How can a third-party component specify that it requires a particular configuration? We think that global configuration doesn't work well with composition. Since composition is central to React, we don't provide global configuration in code.
+Kimsə belə bir funksiyanı üçüncü tərəf komponent kitabxanasından çağırırsa, nə etməli? React applikasiyası başqa React applikasiyasını içərirsə və istədikləri konfiqurasiyalar uyğun deyilsə, nə etməli? Üçüncü tərəfin komponent müəyyən bir konfiqurasiyaya ehtiyacı olduğunu necə göstərə bilər? Düşünürük ki, qlobal konfiqurasiya kompozisiya ilə yaxşı işləmir. React üçün kompozisiya əsas olduğundan kodda qlobal konfiqurasiya imkanları təmin etmirik.
 
-We do, however, provide some global configuration on the build level. For example, we provide separate development and production builds. We may also [add a profiling build](https://github.com/facebook/react/issues/6627) in the future, and we are open to considering other build flags.
+Lakin, qurulma səviyyəsində bəzi qlobal konfiqurasiyalar təmin edirik. Məsələn, tərtib və istehsal üçün fərqli qurulmalar təqdim edirik. Gələcəkdə [profilli qurulma da əlavə edə bilərik](https://github.com/facebook/react/issues/6627) və digər qurulma bayraqlarını nəzərdən keçirməyə açığıq.
 
-### Beyond the DOM {#beyond-the-dom}
+### DOM Xaricində {#beyond-the-dom}
 
-We see the value of React in the way it allows us to write components that have fewer bugs and compose together well. DOM is the original rendering target for React but [React Native](https://facebook.github.io/react-native/) is just as important both to Facebook and the community.
+React-in dəyərini bizə daha az səhvli və yaxşı kompozisiya edilə bilən komponentləri yazmağa imkan verməsində görürük. React üçün orijinal render etmə hədəfi DOM-dur, lakin [React Native](https://facebook.github.io/react-native/) də həm Facebook, həm də cəmiyyət üçün vacibdir.
 
-Being renderer-agnostic is an important design constraint of React. It adds some overhead in the internal representations. On the other hand, any improvements to the core translate across platforms.
+Vizual müstəqil olmaq React dizaynında vacib məhdudiyyətdir. Bu, daxili təsvirlərə bəzi artıq şeylər əlavə edir. Digər tərəfdən, nüvədəki hər hansı bir təkmilləşdirilmə platformalara təsir edir.
 
-Having a single programming model lets us form engineering teams around products instead of platforms. So far the tradeoff has been worth it for us.
+Vahid proqramlaşdırma modelinə sahib olmaq, platformalar deyil, məhsullar ətrafında mühəndis qrupları yaratmağa imkan verir. Güzəştə getməyimiz buna dəyər.
 
-### Implementation {#implementation}
+### Tətbiq {#implementation}
 
-We try to provide elegant APIs where possible. We are much less concerned with the implementation being elegant. The real world is far from perfect, and to a reasonable extent we prefer to put the ugly code into the library if it means the user does not have to write it. When we evaluate new code, we are looking for an implementation that is correct, performant and affords a good developer experience. Elegance is secondary.
+Mümkün olduğu qədər zərif API-lar təmin etməyə çalışırıq. Tətbiq zərif olduğunda daha az narahatıq. Həqiqi dünya idealdan uzaqdır və istifadəçinin yazmasına ehtiyac duyulmadığı təqdirdə çirkin kodu kitabxanaya qoymağa üstünlük veririk. Yeni kodu qiymətləndirdiyimiz zaman düzgün tətbiqinə, fəaliyyətinə və tərtibinin asanlığına baxırıq. Zəriflik ikincidir.
 
-We prefer boring code to clever code. Code is disposable and often changes. So it is important that it [doesn't introduce new internal abstractions unless absolutely necessary](https://youtu.be/4anAwXYqLG8?t=13m9s). Verbose code that is easy to move around, change and remove is preferred to elegant code that is prematurely abstracted and hard to change.
+Ağıllı koddan çox darıxdırıcı koda üstünlük veririk. Kod birdəfəlik istifadə olunur və tez-tez dəyişir. Buna görə, kodun [tamamilə zəruri olmadığı təqdirdə yeni daxili abstraksiyaları təqdim etməməsi vacibdir](https://youtu.be/4anAwXYqLG8?t=13m9s). Ətrafda asan hərəkət ettirilə bilən, dəyişdirlməsi və silməsi asan olan ətraflı kodu, vaxtından əvvəl abstraksiya edilmiş və dəyişdirilməsi çətin olan zərif koddan üstün tuturuq.
 
-### Optimized for Tooling {#optimized-for-tooling}
+### Alətlər üçün Optimallaşdırma {#optimized-for-tooling}
 
-Some commonly used APIs have verbose names. For example, we use `componentDidMount()` instead of `didMount()` or `onMount()`. This is [intentional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). The goal is to make the points of interaction with the library highly visible.
+Çox istifadə olunan bəzi API-ların uzun adları var. Məsələn, `didMount()` və ya `onMount()` əvəzinə `componentDidMount()` istifadə edirik. Bu [qəsdəndir](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). Məqsəd kitabxananın qarşılıqlı əlaqə nöqtələrini aydın etməkdir.
 
-In a massive codebase like Facebook, being able to search for uses of specific APIs is very important. We value distinct verbose names, and especially for the features that should be used sparingly. For example, `dangerouslySetInnerHTML` is hard to miss in a code review.
+Facebook kimi böyük kod bazasında müəyyən API-ların istifadəsini axtara bilmək çox vacibdir. Nadir hallarda istifadə edilməli olan müxtəlif uzun adları xüsusilə qiymətləndiririk. Məsələn, `dangerouslySetInnerHTML`-in nəzərdən qaçması çətindir.
 
-Optimizing for search is also important because of our reliance on [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) to make breaking changes. We want it to be easy and safe to apply vast automated changes across the codebase, and unique verbose names help us achieve this. Similarly, distinctive names make it easy to write custom [lint rules](https://github.com/yannickcr/eslint-plugin-react) about using React without worrying about potential false positives.
+Axtarış optimallaşdırması da vacibdir, çünki kritik dəyişikliklər etmək üçün [codemod script-lərindən](https://www.youtube.com/watch?v=d0pOgY8__JM) asılıyıq. Kod bazasında böyük, avtomatlaşdırılmış dəyişikliklərin asan və təhlükəsiz olmasını istəyirik və bənzərsiz uzun adlar buna kömək edir. Eynilə, bənzərsiz adlar React [istifadə qaydalarını](https://github.com/yannickcr/eslint-plugin-react) yazmağı asanlaşdırır və potensial səhv pozitivləri aradan qaldırır.
 
-[JSX](/docs/introducing-jsx.html) plays a similar role. While it is not required with React, we use it extensively at Facebook both for aesthetic and pragmatic reasons.
+[JSX](/docs/introducing-jsx.html) oxşar rol oynayır. React-in işləməsi üçün tələb olunmasa da, bunu həm estetik, həm də praqmatik səbəblərdən Facebook-da geniş istifadə edirik.
 
-In our codebase, JSX provides an unambiguous hint to the tools that they are dealing with a React element tree. This makes it possible to add build-time optimizations such as [hoisting constant elements](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), safely lint and codemod internal component usage, and [include JSX source location](https://github.com/facebook/react/pull/6771) into the warnings.
+Kod bazamızda JSX, alətlərə React element ağacı ilə işlədiklərinin birmənalı işarəsini verir. Bu qurulma müddəti optimallaşdırmalara imkan verir. Məsələn, [konstant elementlərin qaldırılmasına](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), istifadə qaydalarının və daxili codemod komponentinin istifadəsinə və [JSX mənbəyinin xəbərdarlıqlara daxil edilməsinə](https://github.com/facebook/react/pull/6771) imkan verir.
 
-### Dogfooding {#dogfooding}
+### Facebook-da React İstifadəsi {#dogfooding}
 
-We try our best to address the problems raised by the community. However we are likely to prioritize the issues that people are *also* experiencing internally at Facebook. Perhaps counter-intuitively, we think this is the main reason why the community can bet on React.
+Cəmiyyətin qaldırdığı problemləri həll etmək üçün əlimizdən gələni edirik. Ancaq, Facebook-*da* qarşılaşdığımız problemlərə daha çox üstünlük veririk. Bəlkə də mənasız səslənə bilər, amma düşünürük ki, cəmiyyətin React-ə güvənməsinin əsas səbəbi budur.
 
-Heavy internal usage gives us the confidence that React won't disappear tomorrow. React was created at Facebook to solve its problems. It brings tangible business value to the company and is used in many of its products. [Dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) it means that our vision stays sharp and we have a focused direction going forward.
+İntensiv daxili istifadə, React-in sabah yox olmayacağına inam verir. Facebook-da problemləri həll etmək üçün React yaradıldı. Bu, şirkətə maddi iş dəyərini gətirir və bir çox məhsulunda istifadə olunur. [Məhsulumuzu istifadə etməmiz](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) layihə ilə bağlı görmə qabiliyyətimizi aydın və irəligörüşlü edir.
 
-This doesn't mean that we ignore the issues raised by the community. For example, we added support for [web components](/docs/webcomponents.html) and [SVG](https://github.com/facebook/react/pull/6243) to React even though we don't rely on either of them internally. We are actively [listening to your pain points](https://github.com/facebook/react/issues/2686) and [address them](/blog/2016/07/11/introducing-reacts-error-code-system.html) to the best of our ability. The community is what makes React special to us, and we are honored to contribute back.
+Bu, cəmiyyətin qaldırdığı məsələləri göz ardı edəcəyimiz demək deyil. Məsələn, React-ə [veb komponentlər](/docs/webcomponents.html) və [SVG](https://github.com/facebook/react/pull/6243) üçün dəstək əlavə etdik, baxmayaraq ki, onları daxili istifadə etmirik. [Problemlərinizi fəal şəkildə izləyirik](https://github.com/facebook/react/issues/2686) və  əlimizdən gələni qədər [aradan qaldırırıq](/blog/2016/07/11/introducing-reacts-error-code-system.html). Cəmiyyət React-i bizim üçün xüsusi edən şeydir və biz də geri töhfə verməkdən şərəf duyuruq.
 
-After releasing many open source projects at Facebook, we have learned that trying to make everyone happy at the same time produced projects with poor focus that didn't grow well. Instead, we found that picking a small audience and focusing on making them happy brings a positive net effect. That's exactly what we did with React, and so far solving the problems encountered by Facebook product teams has translated well to the open source community.
+Facebook-da bir çox open source layihəni yayımlayaraq başa düşdük ki, eyni anda hamını xoşbəxt etmək cəhdi zəif inkişaf etmiş ümumi layihələrin yaranmasına səbəb olur. Əksinə, kiçik auditoriya seçib ona diqqəti yönəltməyin müsbət nəticə verdiyini gördük. React ilə etdiyimiz tam olaraq budur. Və bu günə qədər Facebook məhsul qruplarının qarşılaşdığı problemlərin həlli open source cəmiyyətinə yaxşı təsir bağışlayır.
 
-The downside of this approach is that sometimes we fail to give enough focus to the things that Facebook teams don't have to deal with, such as the "getting started" experience. We are acutely aware of this, and we are thinking of how to improve in a way that would benefit everyone in the community without making the same mistakes we did with open source projects before.
+Bu yanaşmanın mənfi tərəfi odur ki, bəzən Facebook komandaları ilə əlaqəli olmayan şeylərə, məsələn, "başlamaq" təcrübəsinə kifayət qədər diqqət ayırmırıq. Bunu yaxşı bilirik və əvvəllər open source layihələrində etdiyimiz səhvləri etmədən cəmiyyətdəki hər kəsə fayda gətirəcək şəkildə necə inkişaf edəcəyimizi düşünürük.
