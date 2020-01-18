@@ -231,38 +231,38 @@ rootEl.appendChild(node);
 
 Bunun işlək olmasına baxmayaraq bu rekonsilyatorun əsl tətbiqindən çox fərqlənir. Burada yeniliklər hələki dəstəklənmir.
 
-### Introducing Internal Instances {#introducing-internal-instances}
+### Daxili İnstansiyalar ilə Tanışlıq {#introducing-internal-instances}
 
-The key feature of React is that you can re-render everything, and it won't recreate the DOM or reset the state:
+React-in əsas xüsusiyyətlərindən biri bütün elementlər yenidən render olunsa belə DOM yenidən yaradılmayacaq və ya state sıfırlanmayacaq:
 
 ```js
 ReactDOM.render(<App />, rootEl);
-// Should reuse the existing DOM:
+// Eyni DOM nodlarını işlədəcək:
 ReactDOM.render(<App />, rootEl);
 ```
 
-However, our implementation above only knows how to mount the initial tree. It can't perform updates on it because it doesn't store all the necessary information, such as all the `publicInstance`s, or which DOM `node`s correspond to which components.
+Lakin, bizim tətbiqimiz yalnız ilkin ağacı mount etməyi bilir. Bizim tətbiqimizin `publicInstance`-lar və ya hansı DOM `node`-ların hansı komponentlərə uyğun olduğu kimi lazımi məlumatlardan xəbəri olmadığından biz bu ağacın üstündə yeniliklər edə bilmirik.
 
-The stack reconciler codebase solves this by making the `mount()` function a method and putting it on a class. There are drawbacks to this approach, and we are going in the opposite direction in the [ongoing rewrite of the reconciler](/docs/codebase-overview.html#fiber-reconciler). Nevertheless this is how it works now.
+Stək rekonsilyatoru `mount` funksiyasını sinif metodu edərək bu problemi həll edir. Bu yanaşmanın çatışmazlıqları olduğundan biz [proqresdə olan rekonsilyatorun yenidən yazılmasında](/docs/codebase-overview.html#fiber-reconciler) bu həllə əks istiqamətdə gedirik. Buna baxmayaraq indiki zamanda rekonsilyator belə işləyir.
 
-Instead of separate `mountHost` and `mountComposite` functions, we will create two classes: `DOMComponent` and `CompositeComponent`.
+Biz, fərqli `mountHost` və `mountComposite` funksiyaları əvəzinə iki sinif yaradacağıq: `DOMComponent` və `CompositeComponent`.
 
-Both classes have a constructor accepting the `element`, as well as a `mount()` method returning the mounted node. We will replace a top-level `mount()` function with a factory that instantiates the correct class:
+Hər iki sinfin `element` qəbul edən konstruktoru və mount olunan nodu qaytaran `mount()` funksiyası var. Biz, yuxarı səviyyəli `mount()` funksiyasını düzgün sinif instansiyası qaytaran zavod ilə əvəzləyəcəyik:
 
 ```js
 function instantiateComponent(element) {
   var type = element.type;
   if (typeof type === 'function') {
-    // User-defined components
+    // İstifadəçi tərəfindən təyin edilən komponentlər
     return new CompositeComponent(element);
   } else if (typeof type === 'string') {
-    // Platform-specific components
+    // Platformaya xas olan komponentlər
     return new DOMComponent(element);
   }  
 }
 ```
 
-First, let's consider the implementation of `CompositeComponent`:
+İlk olaraq gəlin `CompositeComponent` sinfinin tətbiqinə baxaq:
 
 ```js
 class CompositeComponent {
@@ -273,7 +273,7 @@ class CompositeComponent {
   }
 
   getPublicInstance() {
-    // For composite components, expose the class instance.
+    // Kompozit komponentlərdə klas instansiyasını ifşa edin.
     return this.publicInstance;
   }
 
@@ -285,45 +285,45 @@ class CompositeComponent {
     var publicInstance;
     var renderedElement;
     if (isClass(type)) {
-      // Component class
+      // Komponent sinfi
       publicInstance = new type(props);
-      // Set the props
+      // Propları təyin edin
       publicInstance.props = props;
-      // Call the lifecycle if necessary
+      // Lazım olan lifecycle metodlarını çağırın
       if (publicInstance.componentWillMount) {
         publicInstance.componentWillMount();
       }
       renderedElement = publicInstance.render();
     } else if (typeof type === 'function') {
-      // Component function
+      // Komponent funksiyası
       publicInstance = null;
       renderedElement = type(props);
     }
 
-    // Save the public instance
+    // Açıq instansiyanı təyin edin
     this.publicInstance = publicInstance;
 
-    // Instantiate the child internal instance according to the element.
-    // It would be a DOMComponent for <div /> or <p />,
-    // and a CompositeComponent for <App /> or <Button />:
+    // Element əsasında uşağın daxili instansiyasını yaradın
+    // <div /> və ya <p /> kimi elementlər üçün DOMComponent,
+    // <App /> və ya <Button /> kimi elementlər üçün isə CompositeComponent olacaq:
     var renderedComponent = instantiateComponent(renderedElement);
     this.renderedComponent = renderedComponent;
 
-    // Mount the rendered output
+    // Render nəticəsini mount edin
     return renderedComponent.mount();
   }
 }
 ```
 
-This is not much different from our previous `mountComposite()` implementation, but now we can save some information, such as `this.currentElement`, `this.renderedComponent`, and `this.publicInstance`, for use during updates.
+Bu, əvvəlki `mountComposite()` tətbiqindən çox da fərqli deyil, amma indi yeniliklər üçün `this.currentElement`, `this.renderedComponent`, və `this.publicInstance`, kimi dəyişənləri klasda saxlamaq mümkündür.
 
-Note that an instance of `CompositeComponent` is not the same thing as an instance of the user-supplied `element.type`. `CompositeComponent` is an implementation detail of our reconciler, and is never exposed to the user. The user-defined class is the one we read from `element.type`, and `CompositeComponent` creates an instance of it.
+Nəzərə alın ki, `CompositeComponent`-in instansiyası istifadəçi tərəfindən verilən `element.type`-in instansiyası ilə eyni deyil. `CompositeComponent` klası rekonsilyatorun tətbiq detalıdır və istifadəçi bunu heç vaxt görmür. İstifadəçi tərəfindən təyin edilən sinif `element.type`-dan oxunulur, `CompositeComponent` isə bu oxunan element üçün instansiya yaradır.
 
-To avoid the confusion, we will call instances of `CompositeComponent` and `DOMComponent` "internal instances". They exist so we can associate some long-lived data with them. Only the renderer and the reconciler are aware that they exist.
+Çaşqınlıqdan qaçınmaq üçün biz `CompositeComponent` və `DOMComponent` siniflərinin instansiyalarını "daxili instansiyalar" adlandıracağıq. Bu instansiyaların mövcud olmasının səbəbi daxilində məlumatları saxlaya bilməyimiz üçün lazımdır. Bu instansiyalardan yalnız render edici qurğuların və rekonsilyatorun xəbəri var.
 
-In contrast, we call an instance of the user-defined class a "public instance". The public instance is what you see as `this` in the `render()` and other methods of your custom components.
+Biz, istifadəçi tərəfindən təyin olunan siniflərin instansiyalarını isə "açıq instansiyalar" adlandırırıq. Açıq instansiyaya xüsusi komponentin `render()` funksiyasında gördüyünüz `this` dəyəri aiddir.
 
-The `mountHost()` function, refactored to be a `mount()` method on `DOMComponent` class, also looks familiar:
+`DOMComponent` sinfinin `mount()` funksiyası ilə əvəzlənən `mountHost()` funksiyası aşağıdakı kimidir:
 
 ```js
 class DOMComponent {
@@ -334,7 +334,7 @@ class DOMComponent {
   }
 
   getPublicInstance() {
-    // For DOM components, only expose the DOM node.
+    // DOM komponentlərində yalnız DOM nodunu ifşa edin.
     return this.node;
   }
 
@@ -347,36 +347,36 @@ class DOMComponent {
       children = [children];
     }
 
-    // Create and save the node
+    // DOM-u yaradıb saxlayın
     var node = document.createElement(type);
     this.node = node;
 
-    // Set the attributes
+    // Atributları təyin edin
     Object.keys(props).forEach(propName => {
       if (propName !== 'children') {
         node.setAttribute(propName, props[propName]);
       }
     });
 
-    // Create and save the contained children.
-    // Each of them can be a DOMComponent or a CompositeComponent,
-    // depending on whether the element type is a string or a function.
+    // Uşaqları yaradıb saxlayın.
+    // Hər bir uşaq element tipinin mətn və ya funksiya olması əsasında
+    // DOMComponent ya da CompositeComponent ola bilər.
     var renderedChildren = children.map(instantiateComponent);
     this.renderedChildren = renderedChildren;
 
-    // Collect DOM nodes they return on mount
+    // Mount olunan zaman qaytarılan DOM nodları yığın
     var childNodes = renderedChildren.map(child => child.mount());
     childNodes.forEach(childNode => node.appendChild(childNode));
 
-    // Return the DOM node as mount result
+    // Moun nəticəsində qaytarılan DOM nodu
     return node;
   }
 }
 ```
 
-The main difference after refactoring from `mountHost()` is that we now keep `this.node` and `this.renderedChildren` associated with the internal DOM component instance. We will also use them for applying non-destructive updates in the future.
+`mountHost()`-u refaktorinq etdikdən sonra əsas dəyişiklik daxili DOM komponentinin insansiyasında `this.node` və `this.renderedChildren` dəyişənlərinin saxlanmasıdır. Biz bu dəyişənlərdən istifadə edərək gələcəkdə dağılmayan yenilikləri tətbiq edə biləcəyik.
 
-As a result, each internal instance, composite or host, now points to its child internal instances. To help visualize this, if a function `<App>` component renders a `<Button>` class component, and `Button` class renders a `<div>`, the internal instance tree would look like this:
+Nəticədə kompozit və sahib instansiyaları daxili uşaq instansiyalarına yol göstərirlər. Bunu görüntüləyə bilmək üçün gəlin nümunəyə baxaq. Əgər `<App>` funksiya komponenti `<Button>` sinif komponenti, `Button` sinfi isə `<div>` elementi render edirsə, daxili instansiya aşağıdakı formada olacaq:
 
 ```js
 [object CompositeComponent] {
@@ -394,36 +394,36 @@ As a result, each internal instance, composite or host, now points to its child 
 }
 ```
 
-In the DOM you would only see the `<div>`. However the internal instance tree contains both composite and host internal instances.
+Siz DOM-da yalnız `<div>` elementini görəcəksiniz. Lakin, daxili instansiya ağacında həm kompozit, həm də sahib instansiyaları saxlanılır.
 
-The composite internal instances need to store:
+Kompozit daxili instansiyalarında aşağıdakı maddələr saxlanılır:
 
-* The current element.
-* The public instance if element type is a class.
-* The single rendered internal instance. It can be either a `DOMComponent` or a `CompositeComponent`.
+* Cari element.
+* Element tipi sinif olduqda bu sinfin açıq instansiyası.
+* Render olunan tək daxili instansiya. Bu instansiya `DOMComponent` və ya `CompositeComponent` ola bilər.
 
-The host internal instances need to store:
+Sahib daxili instansiyalarında aşağıdakı maddələr saxlanılır:
 
-* The current element.
-* The DOM node.
-* All the child internal instances. Each of them can be either a `DOMComponent` or a `CompositeComponent`.
+* Cari element.
+* DOM nodu.
+* Bütün uşaq instansiyaları. Hər uşaq instansiyası `DOMComponent` və ya `CompositeComponent` ola bilər.
 
-If you're struggling to imagine how an internal instance tree is structured in more complex applications, [React DevTools](https://github.com/facebook/react-devtools) can give you a close approximation, as it highlights host instances with grey, and composite instances with purple:
+Əgər mürəkkəb applikasiyada daxili ağacın necə strukurlaşdığını görməkdə çətinlik çəkirsinizsə, [React DevTools](https://github.com/facebook/react-devtools) sizə təxmini strukturu göstərə bilər. Bu alətdə sahib instansiyaları boz rəngdə, kompozit instansiyaları isə bənövşəyi rəngdə göstərilir:
 
- <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools tree" />
+ <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools ağacı" />
 
-To complete this refactoring, we will introduce a function that mounts a complete tree into a container node, just like `ReactDOM.render()`. It returns a public instance, also like `ReactDOM.render()`:
+Refaktorinqı tamamlamaq üçün biz conteyner noduna bütün ağacı mount edən funksiyanı (`ReactDOM.render()` kimi) təqdim edəcəyik. Bu funksiya `ReactDOM.render()` kimi aşəq instansiyanı qaytarır:
 
 ```js
 function mountTree(element, containerNode) {
-  // Create the top-level internal instance
+  // Yuxarı səviyyəli daxili instansiyanı yaradın
   var rootComponent = instantiateComponent(element);
 
-  // Mount the top-level component into the container
+  // Yuxarı səviyyəli komponenti konteynerə mount edin
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
-  // Return the public instance it provides
+  // Komponentin təmin etdiyi açıq instansiyanı qaytarın
   var publicInstance = rootComponent.getPublicInstance();
   return publicInstance;
 }
