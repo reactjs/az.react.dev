@@ -432,9 +432,9 @@ var rootEl = document.getElementById('root');
 mountTree(<App />, rootEl);
 ```
 
-### Unmounting {#unmounting}
+### Unmount Edilmə {#unmounting}
 
-Now that we have internal instances that hold onto their children and the DOM nodes, we can implement unmounting. For a composite component, unmounting calls a lifecycle method and recurses.
+İndi bizdə uşaqları və DOM nodları saxlayan daxili instansiyaların olduğundan biz unmount edilmə əməliyyatını tətbiq edə bilərik. Kompozit komponentlər üçün unmount çağırışları lifecyle metodunu çağırır və rekursiyaya davam edir.
 
 ```js
 class CompositeComponent {
@@ -442,7 +442,7 @@ class CompositeComponent {
   // ...
 
   unmount() {
-    // Call the lifecycle method if necessary
+    // Lazım olduqda lifecycle metodunu çağırın
     var publicInstance = this.publicInstance;
     if (publicInstance) {
       if (publicInstance.componentWillUnmount) {
@@ -450,14 +450,14 @@ class CompositeComponent {
       }
     }
 
-    // Unmount the single rendered component
+    // Tək render olunmuş elementi unmount edin
     var renderedComponent = this.renderedComponent;
     renderedComponent.unmount();
   }
 }
 ```
 
-For `DOMComponent`, unmounting tells each child to unmount:
+`DOMComponent` sinfi isə hər uşağa unmount edilməsini bildirir:
 
 ```js
 class DOMComponent {
@@ -465,70 +465,70 @@ class DOMComponent {
   // ...
 
   unmount() {
-    // Unmount all the children
+    // Bütün uşaqları unmount edin
     var renderedChildren = this.renderedChildren;
     renderedChildren.forEach(child => child.unmount());
   }
 }
 ```
 
-In practice, unmounting DOM components also removes the event listeners and clears some caches, but we will skip those details.
+Praktikada, unmount olunan DOM komponentlərində hadisə işləyiciləri və bəzi kəşlər də silinir. Bu sənədi sadə saxlamaq üçün biz bu detallara baxmayacağıq.
 
-We can now add a new top-level function called `unmountTree(containerNode)` that is similar to `ReactDOM.unmountComponentAtNode()`:
+Biz, `unmountTree(containerNode)` adlı yuxarı səviyyəli funksiya əlavə edə bilərik. Bu funksiya `ReactDOM.unmountComponentAtNode()` funksiyasına bənzəyir:
 
 ```js
 function unmountTree(containerNode) {
-  // Read the internal instance from a DOM node:
-  // (This doesn't work yet, we will need to change mountTree() to store it.)
+  // DOM nodundan daxili instansiyanı oxu:
+  // (Bunun hələki işləmədiyindən biz bu dəyəri saxlamaq üçün mountTree() funksiyasını dəyişəcəyik.)
   var node = containerNode.firstChild;
   var rootComponent = node._internalInstance;
 
-  // Unmount the tree and clear the container
+  // Ağacı unmount edib konteyneri təmizləyin
   rootComponent.unmount();
   containerNode.innerHTML = '';
 }
 ```
 
-In order for this to work, we need to read an internal root instance from a DOM node. We will modify `mountTree()` to add the `_internalInstance` property to the root DOM node. We will also teach `mountTree()` to destroy any existing tree so it can be called multiple times:
+Bunun işləməsi üçün biz DOM nodundan saxili ana instansiyasını oxumalıyıq. Biz, `mountTree()` funksiyasını dəyişib ana DOM noduna `_internalInstance` parametri əlavə edəcəyik. Əlavə olaraq, biz `mountTree()` funksiyasına mövcud ağacı dağıtmasını bildirəcəyik:
 
 ```js
 function mountTree(element, containerNode) {
-  // Destroy any existing tree
+  // Mövcud ağacı dağıdın
   if (containerNode.firstChild) {
     unmountTree(containerNode);
   }
 
-  // Create the top-level internal instance
+  // Yuxarı səviyyədəki komponentin daxili instansiyasını yaradın
   var rootComponent = instantiateComponent(element);
 
-  // Mount the top-level component into the container
+  // Yuxarı səviyyədəki komponenti konteynerə mount edin
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
-  // Save a reference to the internal instance
+  // Daxili instansiyaya referansı saxlayın
   node._internalInstance = rootComponent;
 
-  // Return the public instance it provides
+  // Təmin olunan açıq instansiyanı qaytarın
   var publicInstance = rootComponent.getPublicInstance();
   return publicInstance;
 }
 ```
 
-Now, running `unmountTree()`, or running `mountTree()` repeatedly, removes the old tree and runs the `componentWillUnmount()` lifecycle method on components.
+İndi, `unmountTree()` funksiyasını icra etdikdə və ya `mountTree()` funksiyasını bir neçə dəfə çağırdıqda köhnə ağac silinəcək və komponentlərinand runs the `componentWillUnmount()` lifecycle metodu çağrılacaq.
 
-### Updating {#updating}
+### Yeniləmə {#updating}
 
-In the previous section, we implemented unmounting. However React wouldn't be very useful if each prop change unmounted and mounted the whole tree. The goal of the reconciler is to reuse existing instances where possible to preserve the DOM and the state:
+Əvvəlki bölmədə unmount edilməni tətbiq etdik. Lakin, hər propun bütün ağacı mount və ya unmount etməsi React-i faydasız edə bilər. Rekonsilyatorun məqsədi DOM və state-i mümkün olduğu qədər saxlamaq üçün mövcud instansiyalardan istifadə etməkdir:
 
 ```js
 var rootEl = document.getElementById('root');
 
 mountTree(<App />, rootEl);
-// Should reuse the existing DOM:
+// Mövcud DOM-dan istifadə etməlidir:
 mountTree(<App />, rootEl);
 ```
 
-We will extend our internal instance contract with one more method. In addition to `mount()` and `unmount()`, both `DOMComponent` and `CompositeComponent` will implement a new method called `receive(nextElement)`:
+Biz daxili instansiyanın kontraktına yeni funksiya əlavə edəcəyik. `mount()` və `unmount()` funksiyalarından əlavə olaraq, `DOMComponent` və `CompositeComponent` sinifləri `receive(nextElement)` adlı metodu tətbiq edəcəklər:
 
 ```js
 class CompositeComponent {
@@ -548,15 +548,15 @@ class DOMComponent {
 }
 ```
 
-Its job is to do whatever is necessary to bring the component (and any of its children) up to date with the description provided by the `nextElement`.
+Bu funksiya `nextElement`-də olan məlumatlar əsasında komponenti (və uşaqlarını) ən yeni məlumatlar ilə yeniləməyəcək.
 
-This is the part that is often described as "virtual DOM diffing" although what really happens is that we walk the internal tree recursively and let each internal instance receive an update.
+Adətən, kodun bu hissəsi "virtual DOM diffing" adlanır. Lakin, əslində alqoritm daxili ağacda rekursiv olaraq gəzərək hər daxili intansiyaya yeniliyi qəbul etdirir.
 
-### Updating Composite Components {#updating-composite-components}
+### Kompozit Komponentlərin Yenilənməsi {#updating-composite-components}
 
-When a composite component receives a new element, we run the `componentWillUpdate()` lifecycle method.
+Kompozit komponent yeni element qəbul etdikdə `componentWillUpdate()` lifecycle funksiyası çağrılır.
 
-Then we re-render the component with the new props, and get the next rendered element:
+Sonra, biz komponenti yeni proplar ilə yenidən render edir və sonrakı render olunan elementi qəbul edirik:
 
 ```js
 class CompositeComponent {
@@ -569,40 +569,40 @@ class CompositeComponent {
     var prevRenderedComponent = this.renderedComponent;
     var prevRenderedElement = prevRenderedComponent.currentElement;
 
-    // Update *own* element
+    // Elementin *özünü* yeniləyin
     this.currentElement = nextElement;
     var type = nextElement.type;
     var nextProps = nextElement.props;
 
-    // Figure out what the next render() output is
+    // render()-in sonrakı nəticəsini tapın
     var nextRenderedElement;
     if (isClass(type)) {
-      // Component class
-      // Call the lifecycle if necessary
+      // Komponent sinfi
+      // Lazım olduqda komponent lifecycle metodlarını çağırın
       if (publicInstance.componentWillUpdate) {
         publicInstance.componentWillUpdate(nextProps);
       }
-      // Update the props
+      // Propları yeniləyin
       publicInstance.props = nextProps;
-      // Re-render
+      // Yenidən render edin
       nextRenderedElement = publicInstance.render();
     } else if (typeof type === 'function') {
-      // Component function
+      // Komponent funksiyası
       nextRenderedElement = type(nextProps);
     }
 
     // ...
 ```
 
-Next, we can look at the rendered element's `type`. If the `type` has not changed since the last render, the component below can also be updated in place.
+İndi, gəlin render olunan elementin `type` parametrinə baxaq. Əgər elementin son render zamanı `type` parametri dəyişməyibsə, komponenti yerində yeniləmək mümkündür.
 
-For example, if it returned `<Button color="red" />` the first time, and `<Button color="blue" />` the second time, we can just tell the corresponding internal instance to `receive()` the next element:
+Məsələn, əgər komponent ilk olaraq `<Button color="red" />`, ikinci dəfə isə `<Button color="blue" />` formada olursa, biz mövcud daxili intansiyaya yeni elementi `receive()` funksiyası ilə qəbul etməsini bildirə bilərik:
 
 ```js
     // ...
 
-    // If the rendered element type has not changed,
-    // reuse the existing component instance and exit.
+    // Render olunan elementin tipi dəyişməyibsə,,
+    // mövcud komponent instansiyasını yenidən işlədib funksiyadan çıxınb.
     if (prevRenderedElement.type === nextRenderedElement.type) {
       prevRenderedComponent.receive(nextRenderedElement);
       return;
@@ -611,48 +611,48 @@ For example, if it returned `<Button color="red" />` the first time, and `<Butto
     // ...
 ```
 
-However, if the next rendered element has a different `type` than the previously rendered element, we can't update the internal instance. A `<button>` can't "become" an `<input>`.
+Lakin, sonrakı render olunan elementin `type` parametri əvvəlki render olunanın parametrindən fərqlidirsə, biz daxili instansiyanı yeniləyə bilməyəcəyik. Məsələn, `<button>` elementi `<input>`-a çevrilə bilməz.
 
-Instead, we have to unmount the existing internal instance and mount the new one corresponding to the rendered element type. For example, this is what happens when a component that previously rendered a `<button />` renders an `<input />`:
+Əvəzinə, biz mövcud daxili instansiyanı unmount edib render olunan elementin tipi əsasında yeni element render etməliyik. Məsələn, əvvəl `<button />` kimi render olunan komponent sonradan `<input />` kimi render edilirsə, aşağıdakı proses baş verir:
 
 ```js
     // ...
 
-    // If we reached this point, we need to unmount the previously
-    // mounted component, mount the new one, and swap their nodes.
+    // Əgər bu nöqtəyə çatmışıqsa, köhnə komponenti mount edib
+    // yenisini mount edərək nodları əvəzləyəcəyik
 
-    // Find the old node because it will need to be replaced
+    // Əvəz olunacaq köhnə nodu tapın
     var prevNode = prevRenderedComponent.getHostNode();
 
-    // Unmount the old child and mount a new child
+    // Köhnə uşağı unmount edib yeni uşağı mount edin
     prevRenderedComponent.unmount();
     var nextRenderedComponent = instantiateComponent(nextRenderedElement);
     var nextNode = nextRenderedComponent.mount();
 
-    // Replace the reference to the child
+    // Uşağa yeni referansı təyin edin
     this.renderedComponent = nextRenderedComponent;
 
-    // Replace the old node with the new one
-    // Note: this is renderer-specific code and
-    // ideally should live outside of CompositeComponent:
+    // Köhnə nodu yeni nod ilə əvəz edin
+    // Qeyd: Bu kod render edici qurğuya aiddir və
+    // ideal mühitdə CompositeComponent-dən kənarda olmalıdır:
     prevNode.parentNode.replaceChild(nextNode, prevNode);
   }
 }
 ```
 
-To sum this up, when a composite component receives a new element, it may either delegate the update to its rendered internal instance, or unmount it and mount a new one in its place.
+Kompozit komponentə yeni element gəldikdə, rekonsilyator ya render olunan daxili instansiyaya yenilik göndərə bilər, ya da mövcud elementi unmount edib yeni element ilə əvəz edə bilər.
 
-There is another condition under which a component will re-mount rather than receive an element, and that is when the element's `key` has changed. We don't discuss `key` handling in this document because it adds more complexity to an already complex tutorial.
+Əlavə olaraq, elementin `key` parametri dəyişdiyi zaman komponentin yeni element qəbul etmək əvəzinə yenidən mount ediləcək. Bu sənədin artıq mürəkkəb olduğundan biz bu sənəddə `key` parametrinin işlədilməsi kimi mürəkkəb əməliyyatdan danışmayacağıq.
 
-Note that we needed to add a method called `getHostNode()` to the internal instance contract so that it's possible to locate the platform-specific node and replace it during the update. Its implementation is straightforward for both classes:
+Nəzərə alın ki, platformaya dax olan nodu tapıb yeniləmək üçün daxili instansiya kontraktına `getHostNode()` adlı funksiya əlavə etmək lazımdır. Bu funksiyanın tətbiqi hər iki sinif üçün sadədir:
 
 ```js
 class CompositeComponent {
   // ...
 
   getHostNode() {
-    // Ask the rendered component to provide it.
-    // This will recursively drill down any composites.
+    // Render olunan komponentə bu nodu təyin etməsini bildirin.
+    // Bu funksiya kompozit komponentləri rekursiv olaraq gəzəcək.
     return this.renderedComponent.getHostNode();
   }
 }
