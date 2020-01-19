@@ -666,9 +666,9 @@ class DOMComponent {
 }
 ```
 
-### Updating Host Components {#updating-host-components}
+### Sahib Komponentlərin Yenilənməsi {#updating-host-components}
 
-Host component implementations, such as `DOMComponent`, update differently. When they receive an element, they need to update the underlying platform-specific view. In case of React DOM, this means updating the DOM attributes:
+`DOMComponent` kimi Sahib komponentlərin yenilənməsi fərqli formada tətbiq olunur. Bu komponentlər element qəbul etdikdə platformaya xas olan görünüşləri yeniləməlidirlər. Məsələn, React DOM-da DOM atributlarının yenilənir:
 
 ```js
 class DOMComponent {
@@ -681,13 +681,13 @@ class DOMComponent {
     var nextProps = nextElement.props;    
     this.currentElement = nextElement;
 
-    // Remove old attributes.
+    // Köhnə atributları silin.
     Object.keys(prevProps).forEach(propName => {
       if (propName !== 'children' && !nextProps.hasOwnProperty(propName)) {
         node.removeAttribute(propName);
       }
     });
-    // Set next attributes.
+    // Yeni atributları təyin edin.
     Object.keys(nextProps).forEach(propName => {
       if (propName !== 'children') {
         node.setAttribute(propName, nextProps[propName]);
@@ -697,16 +697,16 @@ class DOMComponent {
     // ...
 ```
 
-Then, host components need to update their children. Unlike composite components, they might contain more than a single child.
+Atributları yenilədikdən sonra sahib komponentlər uşaqları da yeniləməlidirlər. Kompozit komponentlərdən fərqli olaraq sahib komponentlərdə birdən çox uşaq ola bilər.
 
-In this simplified example, we use an array of internal instances and iterate over it, either updating or replacing the internal instances depending on whether the received `type` matches their previous `type`. The real reconciler also takes element's `key` in the account and track moves in addition to insertions and deletions, but we will omit this logic.
+Aşağıdakı sadələşmiş nümunədə, daxili instansiyaların massivindən istifadə edərək massivin hər elementinin qəbul etdiyi `type` parametrinin eyni olmasından asılı olaraq yeniləyəcək və ya əvəzləyəcəyik. Əsl rekonsilyatorda `key` parametrindən işlənilərək elementlərin sırası da izlənilir, amma biz bu sənəddə bu haqqda danışmayacağıq.
 
-We collect DOM operations on children in a list so we can execute them in batch:
+Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları dəstə şəklində icra edəcəyik:
 
 ```js
     // ...
 
-    // These are arrays of React elements:
+    // Bunlar React elementlərinin massivləridir:
     var prevChildren = prevProps.children || [];
     if (!Array.isArray(prevChildren)) {
       prevChildren = [prevChildren];
@@ -715,41 +715,42 @@ We collect DOM operations on children in a list so we can execute them in batch:
     if (!Array.isArray(nextChildren)) {
       nextChildren = [nextChildren];
     }
-    // These are arrays of internal instances:
+    // Bunlar daxili instansiyaların massivləridir:
     var prevRenderedChildren = this.renderedChildren;
     var nextRenderedChildren = [];
 
-    // As we iterate over children, we will add operations to the array.
+    // Uşaqların üzərindən iterasiya etdiyimiz zaman bu əməliyyatları massivə əlavə edəcəyik.
     var operationQueue = [];
 
-    // Note: the section below is extremely simplified!
-    // It doesn't handle reorders, children with holes, or keys.
-    // It only exists to illustrate the overall flow, not the specifics.
+    // Qeyd: Aşağıdakı bölmə həddindən artıq çox sadələşdirilib!
+    // Burada yerlərin dəyişikliyi, uşaqlarda boşluqların olması və ya açarlar yoxlanılmır.
+    // Bu nümunədə axının icmalı göstərildiyindən detallı xüsusiyyətlər göstərilmir.
 
     for (var i = 0; i < nextChildren.length; i++) {
-      // Try to get an existing internal instance for this child
+      // Bu uşağın mövcud daxili instansiyasını qəbul etməyə çalışın
       var prevChild = prevRenderedChildren[i];
 
-      // If there is no internal instance under this index,
-      // a child has been appended to the end. Create a new
-      // internal instance, mount it, and use its node.
+      // Bu indeksdə daxili instansiya olmadıqda
+      // uşaq massivin sonuna əlavə olunacaq. Yeni daxili
+      // instansiya yaradıb mount edərək yeni noddan istifadə edin
       if (!prevChild) {
         var nextChild = instantiateComponent(nextChildren[i]);
         var node = nextChild.mount();
 
-        // Record that we need to append a node
+        // Nodun əlavə olunacağını bildirin
         operationQueue.push({type: 'ADD', node});
         nextRenderedChildren.push(nextChild);
         continue;
       }
 
-      // We can only update the instance if its element's type matches.
-      // For example, <Button size="small" /> can be updated to
-      // <Button size="large" /> but not to an <App />.
+      // Elementin tipləri eyni olduqda instansiyanı yeniləmək mümkündür.
+      // For example, <Button size="small" /> yenilənərək
+      // <Button size="large" /> elementinə çevrilə bilər,
+      // amma <App /> elementinə çevrilə bilməz.
       var canUpdate = prevChildren[i].type === nextChildren[i].type;
 
-      // If we can't update an existing instance, we have to unmount it
-      // and mount a new one instead of it.
+      // Əgər mövcud instansiyanı yeniləyə bilmiriksə, instansiya unmount edilməli
+      // və yeni instansiya yerinə mount edilməlidir.
       if (!canUpdate) {
         var prevNode = prevChild.getHostNode();
         prevChild.unmount();
@@ -757,40 +758,40 @@ We collect DOM operations on children in a list so we can execute them in batch:
         var nextChild = instantiateComponent(nextChildren[i]);
         var nextNode = nextChild.mount();
 
-        // Record that we need to swap the nodes
+        // Nodların əvəzlənəcəyini bildirin
         operationQueue.push({type: 'REPLACE', prevNode, nextNode});
         nextRenderedChildren.push(nextChild);
         continue;
       }
 
-      // If we can update an existing internal instance,
-      // just let it receive the next element and handle its own update.
+      // Əgər mövcud daxili instansiyanı yeniləyə biliriksə,
+      // yeni elementləri qəbul edərək yenilənməsini bildirin
       prevChild.receive(nextChildren[i]);
       nextRenderedChildren.push(prevChild);
     }
 
-    // Finally, unmount any children that don't exist:
+    // Ən sonda mövcud olmayan elementləri silin:
     for (var j = nextChildren.length; j < prevChildren.length; j++) {
       var prevChild = prevRenderedChildren[j];
       var node = prevChild.getHostNode();
       prevChild.unmount();
 
-      // Record that we need to remove the node
+      // Nodu silməmizi bildirin
       operationQueue.push({type: 'REMOVE', node});
     }
 
-    // Point the list of rendered children to the updated version.
+    // Render olunan uşaqların siyahısını yenilənən versiya ilə əvəzləyin.
     this.renderedChildren = nextRenderedChildren;
 
     // ...
 ```
 
-As the last step, we execute the DOM operations. Again, the real reconciler code is more complex because it also handles moves:
+Ən sonda addımda DOM əməliyyatlarını icra edin. Əsl rekonsilyatorunda kodunun sıralamaları etdiyindən daha da mürəkkəbdir:
 
 ```js
     // ...
 
-    // Process the operation queue.
+    // Əməliyyat növbəsini emal edin.
     while (operationQueue.length > 0) {
       var operation = operationQueue.shift();
       switch (operation.type) {
@@ -809,27 +810,27 @@ As the last step, we execute the DOM operations. Again, the real reconciler code
 }
 ```
 
-And that is it for updating host components.
+İndi, sahib komponentlərin də yenilənməsi işləyəcək.
 
-### Top-Level Updates {#top-level-updates}
+### Yuxarı Səviyyəli Yeniləmələr {#top-level-updates}
 
-Now that both `CompositeComponent` and `DOMComponent` implement the `receive(nextElement)` method, we can change the top-level `mountTree()` function to use it when the element `type` is the same as it was the last time:
+`CompositeComponent` və `DOMComponent` siniflərində `receive(nextElement)` metodunu tətbiq etdikdən sonra yuxarı səviyyəli `mountTree()` funksiyasına element tipinin eyni olduğu zaman bu funksiyadan istifadə etməsini bildirəcəyik:
 
 ```js
 function mountTree(element, containerNode) {
-  // Check for an existing tree
+  // Mövcud ağacın olduğunu yoxlayın
   if (containerNode.firstChild) {
     var prevNode = containerNode.firstChild;
     var prevRootComponent = prevNode._internalInstance;
     var prevElement = prevRootComponent.currentElement;
 
-    // If we can, reuse the existing root component
+    // Əgər mümkündürsə, mövcud ana komponentdən istifadə edin
     if (prevElement.type === element.type) {
       prevRootComponent.receive(element);
       return;
     }
 
-    // Otherwise, unmount the existing tree
+    // Əks halda mövcud ağacı silin
     unmountTree(containerNode);
   }
 
@@ -838,7 +839,7 @@ function mountTree(element, containerNode) {
 }
 ```
 
-Now calling `mountTree()` two times with the same type isn't destructive:
+İndi, `mountTree()` funksiyasını eyni ağac ilə çağırdıqda mövcud element silinməyəcək:
 
 ```js
 var rootEl = document.getElementById('root');
@@ -848,51 +849,51 @@ mountTree(<App />, rootEl);
 mountTree(<App />, rootEl);
 ```
 
-These are the basics of how React works internally.
+React-in daxili sadələşmiş formada belə işləyir.
 
-### What We Left Out {#what-we-left-out}
+### Biz Nələri Əhatə Etmədik {#what-we-left-out}
 
-This document is simplified compared to the real codebase. There are a few important aspects we didn't address:
+Bu sənəddəki kod əsl kodun sadələşmiş formasıdır. Biz bəzi xüsusiyyətlərdən danışmadıq:
 
-* Components can render `null`, and the reconciler can handle "empty slots" in arrays and rendered output.
+* Komponentlər `null` render edə bilirlər və rekonsilyator massivlərdə və render olunmuş nəticədə "boş dəliklər" ilə də işləyə bilir.
 
-* The reconciler also reads `key` from the elements, and uses it to establish which internal instance corresponds to which element in an array. A bulk of complexity in the actual React implementation is related to that.
+* Rekonsilyator elementlərin `key` atributunu oxuyaraq massivdə olan elementlərin hansı daxili instansiyalara aid olduğunu təyin edə bilər. React-in tətbiqinin mürəkkəbliyinin böyük hissəsi bunun ilə əlaqəlidir.
 
-* In addition to composite and host internal instance classes, there are also classes for "text" and "empty" components. They represent text nodes and the "empty slots" you get by rendering `null`.
+* Kompozit və sahib instansiya siniflərindən əlavə "mətn" və "boş" komponentlər də mövcuddur. Bu komponentlər mətn nodlarını və `null` render edildikdə "boş dəlikləri" təmsil edirlər.
 
-* Renderers use [injection](/docs/codebase-overview.html#dynamic-injection) to pass the host internal class to the reconciler. For example, React DOM tells the reconciler to use `ReactDOMComponent` as the host internal instance implementation.
+* Render edici qurğular sahib instansiya sinfini rekonsilyatora göndərmək üçün [inyeksiyadan](/docs/codebase-overview.html#dynamic-injection) istifadə edirlər. Məsələn, React DOM qurğusu rekonsilyatora daxili sahib instansiyasının tətbiqi üçün `ReactDOMComponent` sinfindən istifadə etməyi bildirir.
 
-* The logic for updating the list of children is extracted into a mixin called `ReactMultiChild` which is used by the host internal instance class implementations both in React DOM and React Native.
+* Uşaqların siyahısını yeniləmək üçün işlədilən məntiq `ReactMultiChild` adlı miksində saxlanılır. Bu miksin, React DOM və React Native-in daxili sahib instansiya siniflərinin tətbiqində işlədilir.
 
-* The reconciler also implements support for `setState()` in composite components. Multiple updates inside event handlers get batched into a single update.
+* Rekonsilyatorda kompozit komponentlərdə istifadə edilən `setState()` funksiyası da tətbiq edilir. Hadisə işləyicilərində çağrılan bir yeniləmələr dəstələnərək tək yeniləmə əməliyyatında icra olunur.
 
-* The reconciler also takes care of attaching and detaching refs to composite components and host nodes.
+* Rekonsilyator, kompozit və sahib komponentlərə ref-lərin qoşulub silinməsini də icra edir.
 
-* Lifecycle methods that are called after the DOM is ready, such as `componentDidMount()` and `componentDidUpdate()`, get collected into "callback queues" and are executed in a single batch.
+* DOM hazır olduqdan sonra çağrılan `componentDidMount()` və `componentDidUpdate()` kimi lifecycle metodları "callback növbələrinə" yığılaraq tək dəstədə icra olunurlar.
 
-* React puts information about the current update into an internal object called "transaction". Transactions are useful for keeping track of the queue of pending lifecycle methods, the current DOM nesting for the warnings, and anything else that is "global" to a specific update. Transactions also ensure React "cleans everything up" after updates. For example, the transaction class provided by React DOM restores the input selection after any update.
+* Cari yenilik haqqında olan məlumatlar "transaksiya" adlı daxili obyektdə yerləşdirilir. Transaksiyalar, gözlənilən lifecycle metodlarını, xəbərdarlıqlar üçün cari DOM-da olan dəyişiklikləri və yeniləməyə aid olan digər "qlobal" məlumatları saxlamaq üçün faydalıdır. Əlavə olaraq transaksiyalar React-in yeniləmələrdən sonra "təmizləmə işlərini" aparacağını təmin edir. Məsələn, React DOM-un təmin etdiyi transaksiya sinfi yenilikdən sonra anket sahəsinin vəziyyətini bərpa edir.
 
-### Jumping into the Code {#jumping-into-the-code}
+### Koda Atlamaq {#jumping-into-the-code}
 
-* [`ReactMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) is where the code like `mountTree()` and `unmountTree()` from this tutorial lives. It takes care of mounting and unmounting top-level components. [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) is its React Native analog.
-* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) is the equivalent of `DOMComponent` in this tutorial. It implements the host component class for React DOM renderer. [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) is its React Native analog.
-* [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) is the equivalent of `CompositeComponent` in this tutorial. It handles calling user-defined components and maintaining their state.
-* [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) contains the switch that picks the right internal instance class to construct for an element. It is equivalent to `instantiateComponent()` in this tutorial.
+* [`ReactMount`-da](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) bu sənəddə olan `mountTree()` və `unmountTree()` kimi funksiyalar saxlanılır. Bu funksiyalar yuxarı səviyyəli komponentlərin mount və unmount olunmasını icra edirlər. funksiyaların Bu funksiyaların React Native analoqu [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) faylında saxlanılır.
+* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) sinfi bu sənəddə olan `DOMComponent` sinfini bildirir. Burada React DOM render edici qurucusunu sahib komponent sinfi təqbit olunur. Bu sinfin React Native analoqu [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) sinfidir.
+* [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) sinfi bu sənəddə olan `CompositeComponent` sinfini bildirir. Burada istifadəçi tərəfindən çağrılan komponentlər üzərində işlənilir və bu komponentlərin state-i saxlanılır.
+* [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) funksiyasında elementi yaratmaq üçün lazım olan düzgün daxili instansiya sinfi seçilir. Bu funksiya bu sənəddə olan `instantiateComponent()` funksiyasının ekvivalentidir.
 
-* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) is a wrapper with `mountComponent()`, `receiveComponent()`, and `unmountComponent()` methods. It calls the underlying implementations on the internal instances, but also includes some code around them that is shared by all internal instance implementations.
+* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) sinfi `mountComponent()`, `receiveComponent()` və `unmountComponent()` funksiyaları əhatə edir. Burada daxili instansiyaların tətbiqləri çağrılır. Əlavə olaraq, burada daxili instansiyalar arasında paylaşılan kodların tətbiqləri saxlanılır.
 
-* [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) implements the logic for mounting, updating, and unmounting children according to the `key` of their elements.
+* [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) sinfində elementlərin `key` parametrindən asılı olaraq uşaqların mount edilməsi, yenilənməsi və unmounting edilməsi tətbiq olunur.
 
-* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) implements processing the operation queue for child insertions, deletions, and moves independently of the renderer.
+* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) klasında uşaqların əlavə edilməsi, silinməsi və sıralanması kimi əməliyyatları üçün render edici qurğudan müstəqil olan əməliyyat növbələnməsi tətiq olunur.
 
-* `mount()`, `receive()`, and `unmount()` are really called `mountComponent()`, `receiveComponent()`, and `unmountComponent()` in React codebase for legacy reasons, but they receive elements.
+* Köhnə səbəblərə görə React kodunda `mount()`, `receive()` və `unmount()` funksiyaları `mountComponent()`, `receiveComponent()` və `unmountComponent()` adlanmasına baxmayaraq bu funksiyalar hamısı elementləri qəbul edirlər.
 
-* Properties on the internal instances start with an underscore, e.g. `_currentElement`. They are considered to be read-only public fields throughout the codebase.
+* Daxili instansiyaların parametrləri altdan xətt ilə başlayır (məsələn, `_currentElement`). Bu dəyişənlər kodda yalnız oxuna bilən açıq sahələr kimi qəbul olunur.
 
-### Future Directions {#future-directions}
+### Gələcək İstiqamətlər {#future-directions}
 
-Stack reconciler has inherent limitations such as being synchronous and unable to interrupt the work or split it in chunks. There is a work in progress on the [new Fiber reconciler](/docs/codebase-overview.html#fiber-reconciler) with a [completely different architecture](https://github.com/acdlite/react-fiber-architecture). In the future, we intend to replace stack reconciler with it, but at the moment it is far from feature parity.
+Stək rekonsilyatorunun sinxron olması və işləri hissələrə parçalaya bilməməsi kimi məhdudiyyətləri var. Bu səbəbdən biz [tam fərqli arxitektura ilə](https://github.com/acdlite/react-fiber-architecture) tətbiq olunan [yeni Fiber rekonsilyatoru](/docs/codebase-overview.html#fiber-reconciler) üzərində işləyirik. Gələcəkdə biz stək rekonsilyatorunu bu yeni rekonsilyator ilə əvəzləmək istəyirik. Lakin, bizim bura çatmamız üçün hələ vaxt lazımdır.
 
-### Next Steps {#next-steps}
+### Sonrakı Addımlar {#next-steps}
 
-Read the [next section](/docs/design-principles.html) to learn about the guiding principles we use for React development.
+React təkmilləşməsində istifadə etdiyimiz rəhbər prinsiplər haqqında məlumat almaq üçün [sonrakı bölməyə](/docs/design-principles.html) baxın.
