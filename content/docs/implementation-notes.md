@@ -13,13 +13,13 @@ Bu bölmə, [stack rekonsilyatoru](/docs/codebase-overview.html#stack-reconciler
 
 Bu səhifə çox texnikidir və React-in açıq API-ı və React-in necə core, render edici qurğular və rekonsilyatora ayrıldığı haqqında anlayışınızın olduğunu ehtimal edir. Əgər React kodu ilə tanışlığınız yoxdursa, ilk öncə [Kodun İcmalı](/docs/codebase-overview.html) bölməsini oxuyun.
 
-Bu səhifə sizin [React komponentləri, instansiyaları və elementləri](/blog/2015/12/18/react-components-elements-and-instances.html) arasında olan fərqlərdən xəbərinizin olduğunu ehtimal edir.
+Bu səhifədə [React komponentləri, instansiyaları və elementləri](/blog/2015/12/18/react-components-elements-and-instances.html) arasında olan fərqlərdən xəbərinizin olduğu ehtimal edilir.
 
-Stack rekonsilyatoru React 15 və əvvəli buraxılışlarında işlədilirdir. Bu rekonsilyatorun kodu [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler) direktoriyasında saxlanılır.
+Stack rekonsilyatoru React 15 və əvvəli buraxılışlarında işlədilirdi. Bu rekonsilyatorun kodu [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler) direktoriyasında saxlanılır.
 
 ### Video: React-in Sıfırdan Yazılması {#video-building-react-from-scratch}
 
-[Paul O'Şannesinin](https://twitter.com/zpao) [React-in sıfırdan yazılması haqqında danışığını](https://www.youtube.com/watch?v=_MAD4Oly9yg) bizim bu sənədi yazmamıza ilham verdi.
+[Paul O'Şannesinin](https://twitter.com/zpao) [React-in sıfırdan yazılması haqqında danışığı](https://www.youtube.com/watch?v=_MAD4Oly9yg) bizim bu sənədi yazmamıza ilham verdi.
 
 Bu sənəddə və göstərilən danışıqda olan detallar real kodun sadələşmiş formasıdır. Bunun səbəbi sizin bu konsepsiyaları daha yaxşı başa düşməniz üçündür.
 
@@ -42,7 +42,7 @@ console.log(<App />);
 // { type: App, props: {} }
 ```
 
-Rekonsilyator `App`-in klas və ya funksiya olduğunu yoxlayır.
+Rekonsilyator `App`-in sinif və ya funksiya olduğunu yoxlayır.
 
 Əgər `App` funksiyadırsa, render olunan elementi almaq üçün rekonsilyator `App(props)` funksiyasını çağıracaq.
 
@@ -50,7 +50,7 @@ Rekonsilyator `App`-in klas və ya funksiya olduğunu yoxlayır.
 
 Hər iki halda rekonsilyator `App`-in "render etdiyi" elementi tapacaq.
 
-Bu proses rekursivdir. `App` `<Greeting />`-i render edə bilər, `Greeting` `<Button />`-u render edə bilər, və s. Rekonsilyator, hər komponentin nəyi render etdiyini öyrənmək üçün istifadəçi tərəfindən yaradılan komponenləri bir-bir yoxlayır.
+Bu proses rekursivdir. `App` `<Greeting />`-i render edə bilər, `Greeting` `<Button />`-u render edə bilər, və s. Rekonsilyator hər komponentin nəyi render etdiyini öyrənmək üçün istifadəçi tərəfindən yaradılan komponenləri bir-bir yoxlayır.
 
 Siz bu prosesi aşağıdakı pseudokod kimi görə bilərsiniz:
 
@@ -117,9 +117,9 @@ Gəlin, yuxarıdakı nümunədə olan ideaları təkrarlayaq:
 
 Əgər mount edilmə zamanı ekranda heç nə göstərilmirsə, bu proses faydasız olardı.
 
-React elementləri istifadəçi tərəfindən yaradılan ("kompozit") komponentlərdən əlavə platformaya spesifik ("sahib" və ya "host") komponentləri də təmsil edə bilər. For example, `Button` komponenti render zamanı `<div />` elementini qaytara bilər.
+React elementləri istifadəçi tərəfindən yaradılan ("kompozit") komponentlərdən əlavə platformaya spesifik ("sahib" və ya "host") komponentləri də təmsil edə bilər. Məsələn, `Button` komponenti render zamanı `<div />` elementini qaytara bilər.
 
-Sahib elementlərin `type` parametri mətn olur:
+Sahib elementlərin `type` parametri mətn şəklində olur:
 
 ```js
 console.log(<div />);
@@ -128,9 +128,9 @@ console.log(<div />);
 
 Sahib elementlərin istifadəçi kodu olmur.
 
-Rekonsilyator sahib element ilə qarşılaşdıqda bu element mount edilmək üçün render edici qurğuya göndərilir. Məsələn, React DOM brauzerdə DOM nodunu yaradır.
+Rekonsilyator sahib element ilə qarşılaşdıqda elementin mount edilməsi üçün render edici qurğuya göndərir. Məsələn, React DOM brauzerdə DOM nodunu yaradır.
 
-Sahib elemention uşaqları olduqda rekonsilyator yuxarıdakı alqoritm ilə elementləri rekursiv şəkildə mount edir. Burada uşaqların sahib (`<div><hr /></div>` kimi), komposiz (`<div><Button /></div>` kimi) və ya hər ikisi olmasının fərqi yoxdur.
+Sahib elementin uşaqları olduqda rekonsilyator yuxarıdakı alqoritm ilə elementləri rekursiv şəkildə mount edir. Burada uşaqların sahib (`<div><hr /></div>` kimi), kompozit (`<div><Button /></div>` kimi) və ya hər ikisi olmasının fərqi yoxdur.
 
 Uşaq komponentlərdə istehsal olunan DOM nodları ana DOM noduna əlavə olunacaq və bütün DOM strukturu rekursiv şəkildə yığılacaq.
 
@@ -138,7 +138,7 @@ Uşaq komponentlərdə istehsal olunan DOM nodları ana DOM noduna əlavə oluna
 >
 >Rekonsilyator DOM-dan azaddır. Mount olunan nəticə (bəzən kodda "mount image" adlanır) render edici qurğudan asılıdır. Bu nəticə DOM nodu (React DOM), mətn (React DOM Server) və nativ görünüşü təmsil edən rəqəm (React Native) ola bilər.
 
-Biz yuxarıdakı koda sahib elementlərini əlavə etdikdə bizim kodumuz aşağıdakı formada olacaq:
+Biz yuxarıdakı koda sahib elementləri əlavə etdikdə bizim kodumuz aşağıdakı formada olacaq:
 
 ```js
 function isClass(type) {
@@ -150,7 +150,7 @@ function isClass(type) {
 }
 
 // Bu funksiya yalnız kompozit tipli elementlər ilə işləyir.
-// Yeni, bu funksiya <App /> və <Button /> elementləri ilə işləyir, <div /> ilə işləmir.
+// Yəni, bu funksiya <App /> və <Button /> elementləri ilə işləyir, <div /> ilə işləmir.
 function mountComposite(element) {
   var type = element.type;
   var props = element.props;
@@ -203,7 +203,7 @@ function mountHost(element) {
     // Biz həmçinin bu elementləri rekursiv şəkildə mount edə bilərik:
     var childNode = mount(childElement);
 
-    // ̆Bu kod da render edici qurğuya aiddir.
+    // Bu kod da render edici qurğuya aiddir.
     // Qurğudan asılı olaraq dəyişir:
     node.appendChild(childNode);
   });
@@ -229,11 +229,11 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
-Bunun işlək olmasına baxmayaraq bu rekonsilyatorun əsl tətbiqindən çox fərqlənir. Burada yeniliklər hələki dəstəklənmir.
+Bunun işlək olmasına baxmayaraq bu tətbiq rekonsilyatorun əsl tətbiqindən çox fərqlənir. Burada yeniliklər hələki dəstəklənmir.
 
 ### Daxili İnstansiyalar ilə Tanışlıq {#introducing-internal-instances}
 
-React-in əsas xüsusiyyətlərindən biri bütün elementlər yenidən render olunsa belə DOM yenidən yaradılmayacaq və ya state sıfırlanmayacaq:
+React-in əsas xüsusiyyətlərindən biri bütün elementlərin yenidən render olunduğundan baxmayaraq DOM-un yenidən yaradılmaması və state-in sıfırlanmamasıdır:
 
 ```js
 ReactDOM.render(<App />, rootEl);
@@ -241,9 +241,9 @@ ReactDOM.render(<App />, rootEl);
 ReactDOM.render(<App />, rootEl);
 ```
 
-Lakin, bizim tətbiqimiz yalnız ilkin ağacı mount etməyi bilir. Bizim tətbiqimizin `publicInstance`-lar və ya hansı DOM `node`-ların hansı komponentlərə uyğun olduğu kimi lazımi məlumatlardan xəbəri olmadığından biz bu ağacın üstündə yeniliklər edə bilmirik.
+Lakin, bizim tətbiqimiz yalnız ilkin ağacı mount etməyi bilir. Bizim tətbiqimizin `publicInstance`-lar və ya DOM `node`-ların hansı komponentlərə uyğun olduğu kimi lazımi məlumatlardan xəbəri olmadığından biz bu ağacın üstündə yeniliklər edə bilmirik.
 
-Stək rekonsilyatoru `mount` funksiyasını sinif metodu edərək bu problemi həll edir. Bu yanaşmanın çatışmazlıqları olduğundan biz [proqresdə olan rekonsilyatorun yenidən yazılmasında](/docs/codebase-overview.html#fiber-reconciler) bu həllə əks istiqamətdə gedirik. Buna baxmayaraq indiki zamanda rekonsilyator belə işləyir.
+Stack rekonsilyatoru `mount` funksiyasını sinif metodu edərək bu problemi həll edir. Bu yanaşmanın çatışmazlıqları olduğundan biz [proqresdə olan rekonsilyatorun yenidən yazılmasında](/docs/codebase-overview.html#fiber-reconciler) bu həllə əks istiqamətdə gedirik. Buna baxmayaraq indiki zamanda rekonsilyator belə işləyir.
 
 Biz, fərqli `mountHost` və `mountComposite` funksiyaları əvəzinə iki sinif yaradacağıq: `DOMComponent` və `CompositeComponent`.
 
@@ -273,7 +273,7 @@ class CompositeComponent {
   }
 
   getPublicInstance() {
-    // Kompozit komponentlərdə klas instansiyasını ifşa edin.
+    // Kompozit komponentlərdə sinif instansiyasını ifşa et.
     return this.publicInstance;
   }
 
@@ -289,7 +289,7 @@ class CompositeComponent {
       publicInstance = new type(props);
       // Propları təyin edin
       publicInstance.props = props;
-      // Lazım olan lifecycle metodlarını çağırın
+      // Lazım olan lifecycle metodlarını çağır
       if (publicInstance.componentWillMount) {
         publicInstance.componentWillMount();
       }
@@ -300,28 +300,28 @@ class CompositeComponent {
       renderedElement = type(props);
     }
 
-    // Açıq instansiyanı təyin edin
+    // Açıq instansiyanı təyin et
     this.publicInstance = publicInstance;
 
-    // Element əsasında uşağın daxili instansiyasını yaradın
+    // Element əsasında uşağın daxili instansiyasını yarat
     // <div /> və ya <p /> kimi elementlər üçün DOMComponent,
     // <App /> və ya <Button /> kimi elementlər üçün isə CompositeComponent olacaq:
     var renderedComponent = instantiateComponent(renderedElement);
     this.renderedComponent = renderedComponent;
 
-    // Render nəticəsini mount edin
+    // Render nəticəsini mount et
     return renderedComponent.mount();
   }
 }
 ```
 
-Bu, əvvəlki `mountComposite()` tətbiqindən çox da fərqli deyil, amma indi yeniliklər üçün `this.currentElement`, `this.renderedComponent`, və `this.publicInstance`, kimi dəyişənləri klasda saxlamaq mümkündür.
+Bu, əvvəlki `mountComposite()` tətbiqindən çox da fərqli deyil, amma indi yeniliklər üçün sinifdə `this.currentElement`, `this.renderedComponent` və `this.publicInstance` kimi dəyişənlər saxlanılır.
 
-Nəzərə alın ki, `CompositeComponent`-in instansiyası istifadəçi tərəfindən verilən `element.type`-in instansiyası ilə eyni deyil. `CompositeComponent` klası rekonsilyatorun tətbiq detalıdır və istifadəçi bunu heç vaxt görmür. İstifadəçi tərəfindən təyin edilən sinif `element.type`-dan oxunulur, `CompositeComponent` isə bu oxunan element üçün instansiya yaradır.
+Nəzərə alın ki, `CompositeComponent`-in instansiyası istifadəçi tərəfindən verilən `element.type`-ın instansiyası ilə eyni deyil. `CompositeComponent` sinfi rekonsilyatorun tətbiq detalıdır və istifadəçi bunu heç vaxt görmür. İstifadəçi tərəfindən təyin edilən sinif `element.type`-dan oxunulur, `CompositeComponent` isə bu oxunan element üçün instansiya yaradır.
 
-Çaşqınlıqdan qaçınmaq üçün biz `CompositeComponent` və `DOMComponent` siniflərinin instansiyalarını "daxili instansiyalar" adlandıracağıq. Bu instansiyaların mövcud olmasının səbəbi daxilində məlumatları saxlaya bilməyimiz üçün lazımdır. Bu instansiyalardan yalnız render edici qurğuların və rekonsilyatorun xəbəri var.
+Çaşqınlıqdan qaçınmaq üçün biz `CompositeComponent` və `DOMComponent` siniflərinin instansiyalarını "daxili instansiyalar" adlandıracağıq. Bu instansiyaların mövcud olmasının səbəbi sinfin daxilində məlumatlar saxlaya bilməyimiz üçün lazımdır. Bu instansiyalardan yalnız render edici qurğuların və rekonsilyatorun xəbəri var.
 
-Biz, istifadəçi tərəfindən təyin olunan siniflərin instansiyalarını isə "açıq instansiyalar" adlandırırıq. Açıq instansiyaya xüsusi komponentin `render()` funksiyasında gördüyünüz `this` dəyəri aiddir.
+Biz, istifadəçi tərəfindən təyin olunan siniflərin instansiyalarını "açıq instansiyalar" adlandırırıq. Açıq instansiyaya xüsusi komponentin `render()` funksiyasında gördüyünüz `this` dəyəri aiddir.
 
 `DOMComponent` sinfinin `mount()` funksiyası ilə əvəzlənən `mountHost()` funksiyası aşağıdakı kimidir:
 
@@ -334,7 +334,7 @@ class DOMComponent {
   }
 
   getPublicInstance() {
-    // DOM komponentlərində yalnız DOM nodunu ifşa edin.
+    // DOM komponentlərində yalnız DOM nodunu ifşa et.
     return this.node;
   }
 
@@ -347,11 +347,11 @@ class DOMComponent {
       children = [children];
     }
 
-    // DOM-u yaradıb saxlayın
+    // DOM-u yaradıb saxla
     var node = document.createElement(type);
     this.node = node;
 
-    // Atributları təyin edin
+    // Atributları təyin et
     Object.keys(props).forEach(propName => {
       if (propName !== 'children') {
         node.setAttribute(propName, props[propName]);
@@ -364,11 +364,11 @@ class DOMComponent {
     var renderedChildren = children.map(instantiateComponent);
     this.renderedChildren = renderedChildren;
 
-    // Mount olunan zaman qaytarılan DOM nodları yığın
+    // Mount olunan zaman qaytarılan DOM nodlarını yığın
     var childNodes = renderedChildren.map(child => child.mount());
     childNodes.forEach(childNode => node.appendChild(childNode));
 
-    // Moun nəticəsində qaytarılan DOM nodu
+    // Mount nəticəsində qaytarılan DOM nodu
     return node;
   }
 }
@@ -376,7 +376,7 @@ class DOMComponent {
 
 `mountHost()`-u refaktorinq etdikdən sonra əsas dəyişiklik daxili DOM komponentinin insansiyasında `this.node` və `this.renderedChildren` dəyişənlərinin saxlanmasıdır. Biz bu dəyişənlərdən istifadə edərək gələcəkdə dağılmayan yenilikləri tətbiq edə biləcəyik.
 
-Nəticədə kompozit və sahib instansiyaları daxili uşaq instansiyalarına yol göstərirlər. Bunu görüntüləyə bilmək üçün gəlin nümunəyə baxaq. Əgər `<App>` funksiya komponenti `<Button>` sinif komponenti, `Button` sinfi isə `<div>` elementi render edirsə, daxili instansiya aşağıdakı formada olacaq:
+Nəticədə kompozit və sahib instansiyaları daxili uşaq instansiyalarına yol göstərirlər. Bunu görüntüləyə bilmək üçün gəlin nümunəyə baxaq. Əgər `<App>` funksiya komponenti `<Button>` sinif komponentini, `Button` sinfi isə `<div>` elementini render edirsə, daxili instansiya aşağıdakı formada olacaq:
 
 ```js
 [object CompositeComponent] {
@@ -412,14 +412,14 @@ Sahib daxili instansiyalarında aşağıdakı maddələr saxlanılır:
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools ağacı" />
 
-Refaktorinqı tamamlamaq üçün biz conteyner noduna bütün ağacı mount edən funksiyanı (`ReactDOM.render()` kimi) təqdim edəcəyik. Bu funksiya `ReactDOM.render()` kimi aşəq instansiyanı qaytarır:
+Refaktorinqı tamamlamaq üçün biz konteyner noduna bütün ağacı mount edən funksiyanı (`ReactDOM.render()` kimi) təqdim edəcəyik. Bu funksiya `ReactDOM.render()` kimi açıq instansiyanı qaytarır:
 
 ```js
 function mountTree(element, containerNode) {
-  // Yuxarı səviyyəli daxili instansiyanı yaradın
+  // Yuxarı səviyyədə olan daxili instansiyanı yaradın
   var rootComponent = instantiateComponent(element);
 
-  // Yuxarı səviyyəli komponenti konteynerə mount edin
+  // Yuxarı səviyyədə olan komponenti konteynerə mount edin
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
@@ -434,7 +434,7 @@ mountTree(<App />, rootEl);
 
 ### Unmount Edilmə {#unmounting}
 
-İndi bizdə uşaqları və DOM nodları saxlayan daxili instansiyaların olduğundan biz unmount edilmə əməliyyatını tətbiq edə bilərik. Kompozit komponentlər üçün unmount çağırışları lifecyle metodunu çağırır və rekursiyaya davam edir.
+İndi bizdə uşaqları və DOM nodlarını saxlayan daxili instansiyaların olduğundan biz unmount edilmə əməliyyatını tətbiq edə bilərik. Kompozit komponentlər üçün unmount çağırışları lifecycle metodunu çağırır və rekursiyaya davam edir.
 
 ```js
 class CompositeComponent {
@@ -472,7 +472,7 @@ class DOMComponent {
 }
 ```
 
-Praktikada, unmount olunan DOM komponentlərində hadisə işləyiciləri və bəzi kəşlər də silinir. Bu sənədi sadə saxlamaq üçün biz bu detallara baxmayacağıq.
+Praktikada, unmount olunan DOM komponentlərində olan hadisə işləyiciləri və kəşlər də silinir. Bu sənədi sadə saxlamaq üçün biz bu detallara baxmayacağıq.
 
 Biz, `unmountTree(containerNode)` adlı yuxarı səviyyəli funksiya əlavə edə bilərik. Bu funksiya `ReactDOM.unmountComponentAtNode()` funksiyasına bənzəyir:
 
@@ -489,7 +489,7 @@ function unmountTree(containerNode) {
 }
 ```
 
-Bunun işləməsi üçün biz DOM nodundan saxili ana instansiyasını oxumalıyıq. Biz, `mountTree()` funksiyasını dəyişib ana DOM noduna `_internalInstance` parametri əlavə edəcəyik. Əlavə olaraq, biz `mountTree()` funksiyasına mövcud ağacı dağıtmasını bildirəcəyik:
+Bunun işləməsi üçün biz DOM nodundan daxili ana instansiyasını oxumalıyıq. Biz, `mountTree()` funksiyasını dəyişib ana DOM noduna `_internalInstance` parametri əlavə edəcəyik. Əlavə olaraq, biz `mountTree()` funksiyasına mövcud ağacı dağıtmasını bildirəcəyik:
 
 ```js
 function mountTree(element, containerNode) {
@@ -514,11 +514,11 @@ function mountTree(element, containerNode) {
 }
 ```
 
-İndi, `unmountTree()` funksiyasını icra etdikdə və ya `mountTree()` funksiyasını bir neçə dəfə çağırdıqda köhnə ağac silinəcək və komponentlərinand runs the `componentWillUnmount()` lifecycle metodu çağrılacaq.
+İndi, `unmountTree()` funksiyasını icra etdikdə və ya `mountTree()` funksiyasını bir neçə dəfə çağırdıqda köhnə ağac silinəcək və komponentlərin `componentWillUnmount()` lifecycle metodu çağrılacaq.
 
 ### Yeniləmə {#updating}
 
-Əvvəlki bölmədə unmount edilməni tətbiq etdik. Lakin, hər propun bütün ağacı mount və ya unmount etməsi React-i faydasız edə bilər. Rekonsilyatorun məqsədi DOM və state-i mümkün olduğu qədər saxlamaq üçün mövcud instansiyalardan istifadə etməkdir:
+Əvvəlki bölmədə unmount edilmə əməliyyatını tətbiq etdik. Lakin, hər propun bütün ağacı mount və ya unmount etməsi React-i faydasız edə bilər. Rekonsilyatorun məqsədi DOM və state-i mümkün olduğu qədər saxlamaq üçün mövcud instansiyalardan istifadə etməkdir:
 
 ```js
 var rootEl = document.getElementById('root');
@@ -528,7 +528,7 @@ mountTree(<App />, rootEl);
 mountTree(<App />, rootEl);
 ```
 
-Biz daxili instansiyanın kontraktına yeni funksiya əlavə edəcəyik. `mount()` və `unmount()` funksiyalarından əlavə olaraq, `DOMComponent` və `CompositeComponent` sinifləri `receive(nextElement)` adlı metodu tətbiq edəcəklər:
+Biz daxili instansiyanın kontraktına yeni funksiya əlavə edəcəyik. `mount()` və `unmount()` funksiyalarından əlavə olaraq, `DOMComponent` və `CompositeComponent` siniflərində `receive(nextElement)` adlı metod tətbiq edəcəyik:
 
 ```js
 class CompositeComponent {
@@ -548,7 +548,7 @@ class DOMComponent {
 }
 ```
 
-Bu funksiya `nextElement`-də olan məlumatlar əsasında komponenti (və uşaqlarını) ən yeni məlumatlar ilə yeniləməyəcək.
+Bu funksiya `nextElement`-də olan məlumatlar əsasında komponenti (və uşaqlarını) ən yeni məlumatlar ilə yeniləyəcək.
 
 Adətən, kodun bu hissəsi "virtual DOM diffing" adlanır. Lakin, əslində alqoritm daxili ağacda rekursiv olaraq gəzərək hər daxili intansiyaya yeniliyi qəbul etdirir.
 
@@ -596,13 +596,13 @@ class CompositeComponent {
 
 İndi, gəlin render olunan elementin `type` parametrinə baxaq. Əgər elementin son render zamanı `type` parametri dəyişməyibsə, komponenti yerində yeniləmək mümkündür.
 
-Məsələn, əgər komponent ilk olaraq `<Button color="red" />`, ikinci dəfə isə `<Button color="blue" />` formada olursa, biz mövcud daxili intansiyaya yeni elementi `receive()` funksiyası ilə qəbul etməsini bildirə bilərik:
+Məsələn, əgər komponent ilk olaraq `<Button color="red" />`, ikinci dəfə isə `<Button color="blue" />` şəkildə olursa, biz mövcud daxili intansiyaya yeni elementi `receive()` funksiyası ilə qəbul etməsini bildirə bilərik:
 
 ```js
     // ...
 
-    // Render olunan elementin tipi dəyişməyibsə,,
-    // mövcud komponent instansiyasını yenidən işlədib funksiyadan çıxınb.
+    // Render olunan elementin tipi dəyişməyibsə,
+    // mövcud komponent instansiyasını yenidən işlədib funksiyadan çıxın.
     if (prevRenderedElement.type === nextRenderedElement.type) {
       prevRenderedComponent.receive(nextRenderedElement);
       return;
@@ -640,11 +640,11 @@ Lakin, sonrakı render olunan elementin `type` parametri əvvəlki render olunan
 }
 ```
 
-Kompozit komponentə yeni element gəldikdə, rekonsilyator ya render olunan daxili instansiyaya yenilik göndərə bilər, ya da mövcud elementi unmount edib yeni element ilə əvəz edə bilər.
+Kompozit komponentə yeni element gəldikdə rekonsilyator ya render olunan daxili instansiyaya yenilik göndərə bilər, ya da mövcud elementi unmount edib yeni element ilə əvəz edə bilər.
 
 Əlavə olaraq, elementin `key` parametri dəyişdiyi zaman komponentin yeni element qəbul etmək əvəzinə yenidən mount ediləcək. Bu sənədin artıq mürəkkəb olduğundan biz bu sənəddə `key` parametrinin işlədilməsi kimi mürəkkəb əməliyyatdan danışmayacağıq.
 
-Nəzərə alın ki, platformaya dax olan nodu tapıb yeniləmək üçün daxili instansiya kontraktına `getHostNode()` adlı funksiya əlavə etmək lazımdır. Bu funksiyanın tətbiqi hər iki sinif üçün sadədir:
+Nəzərə alın ki, platformaya xas olan nodu tapıb yeniləmək üçün daxili instansiya kontraktına `getHostNode()` adlı funksiya əlavə etmək lazımdır. Bu funksiyanın tətbiqi hər iki sinif üçün sadədir:
 
 ```js
 class CompositeComponent {
@@ -668,7 +668,7 @@ class DOMComponent {
 
 ### Sahib Komponentlərin Yenilənməsi {#updating-host-components}
 
-`DOMComponent` kimi Sahib komponentlərin yenilənməsi fərqli formada tətbiq olunur. Bu komponentlər element qəbul etdikdə platformaya xas olan görünüşləri yeniləməlidirlər. Məsələn, React DOM-da DOM atributlarının yenilənir:
+`DOMComponent` kimi Sahib komponentlərin yenilənməsi fərqli formada tətbiq olunur. Bu komponentlər element qəbul etdikdə platformaya xas olan görünüşləri yeniləməlidirlər. Məsələn, React DOM-da DOM atributları yenilənir:
 
 ```js
 class DOMComponent {
@@ -699,7 +699,7 @@ class DOMComponent {
 
 Atributları yenilədikdən sonra sahib komponentlər uşaqları da yeniləməlidirlər. Kompozit komponentlərdən fərqli olaraq sahib komponentlərdə birdən çox uşaq ola bilər.
 
-Aşağıdakı sadələşmiş nümunədə, daxili instansiyaların massivindən istifadə edərək massivin hər elementinin qəbul etdiyi `type` parametrinin eyni olmasından asılı olaraq yeniləyəcək və ya əvəzləyəcəyik. Əsl rekonsilyatorda `key` parametrindən işlənilərək elementlərin sırası da izlənilir, amma biz bu sənəddə bu haqqda danışmayacağıq.
+Aşağıdakı sadələşmiş nümunədə daxili instansiyaların massivindən istifadə edərək massivin hər elementinin qəbul etdiyi `type` parametrinin eyni olmasından asılı olaraq yeniləyəcək və ya əvəzləyəcəyik. Əsl rekonsilyatorda `key` parametri əsasında elementlərin sırası da izlənilir, amma biz bu mövzunu bu sənəddə danışmayacağıq.
 
 Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları dəstə şəklində icra edəcəyik:
 
@@ -731,7 +731,7 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
       var prevChild = prevRenderedChildren[i];
 
       // Bu indeksdə daxili instansiya olmadıqda
-      // uşaq massivin sonuna əlavə olunacaq. Yeni daxili
+      // uşaq, massivin sonuna əlavə olunacaq. Yeni daxili
       // instansiya yaradıb mount edərək yeni noddan istifadə edin
       if (!prevChild) {
         var nextChild = instantiateComponent(nextChildren[i]);
@@ -744,7 +744,7 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
       }
 
       // Elementin tipləri eyni olduqda instansiyanı yeniləmək mümkündür.
-      // For example, <Button size="small" /> yenilənərək
+      // Məsələn, <Button size="small" /> yenilənərək
       // <Button size="large" /> elementinə çevrilə bilər,
       // amma <App /> elementinə çevrilə bilməz.
       var canUpdate = prevChildren[i].type === nextChildren[i].type;
@@ -765,7 +765,8 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
       }
 
       // Əgər mövcud daxili instansiyanı yeniləyə biliriksə,
-      // yeni elementləri qəbul edərək yenilənməsini bildirin
+      // yeni elementləri qəbul edərək bu elementlərin
+      // yenilənəcəyini bildirin
       prevChild.receive(nextChildren[i]);
       nextRenderedChildren.push(prevChild);
     }
@@ -776,7 +777,7 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
       var node = prevChild.getHostNode();
       prevChild.unmount();
 
-      // Nodu silməmizi bildirin
+      // Nodun silinməsini bildirin
       operationQueue.push({type: 'REMOVE', node});
     }
 
@@ -786,7 +787,7 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
     // ...
 ```
 
-Ən sonda addımda DOM əməliyyatlarını icra edin. Əsl rekonsilyatorunda kodunun sıralamaları etdiyindən daha da mürəkkəbdir:
+Ən son addımda DOM əməliyyatlarını icra edin. Əsl rekonsilyatorda sıralamaların tətbiq edildiyindən əsl kod daha da mürəkkəbdir:
 
 ```js
     // ...
@@ -810,11 +811,11 @@ Biz, uşaqların DOM əməliyyatlarını massivə yığıb bu əməliyyatları d
 }
 ```
 
-İndi, sahib komponentlərin də yenilənməsi işləyəcək.
+İndi, sahib komponentlərin yenilənməsi işləyəcək.
 
 ### Yuxarı Səviyyəli Yeniləmələr {#top-level-updates}
 
-`CompositeComponent` və `DOMComponent` siniflərində `receive(nextElement)` metodunu tətbiq etdikdən sonra yuxarı səviyyəli `mountTree()` funksiyasına element tipinin eyni olduğu zaman bu funksiyadan istifadə etməsini bildirəcəyik:
+`CompositeComponent` və `DOMComponent` siniflərində `receive(nextElement)` metodunu tətbiq etdikdən sonra yuxarı səviyyəli `mountTree()` funksiyasında element tipinin eyni olduğu zaman yeniləyici funksiyadan istifadə etməsini bildirəcəyik:
 
 ```js
 function mountTree(element, containerNode) {
@@ -853,11 +854,11 @@ React-in daxili sadələşmiş formada belə işləyir.
 
 ### Biz Nələri Əhatə Etmədik {#what-we-left-out}
 
-Bu sənəddəki kod əsl kodun sadələşmiş formasıdır. Biz bəzi xüsusiyyətlərdən danışmadıq:
+Bu sənəddəki kod əsl kodun sadələşmiş formasıdır. Biz aşağıdakı xüsusiyyətlərdən danışmadıq:
 
 * Komponentlər `null` render edə bilirlər və rekonsilyator massivlərdə və render olunmuş nəticədə "boş dəliklər" ilə də işləyə bilir.
 
-* Rekonsilyator elementlərin `key` atributunu oxuyaraq massivdə olan elementlərin hansı daxili instansiyalara aid olduğunu təyin edə bilər. React-in tətbiqinin mürəkkəbliyinin böyük hissəsi bunun ilə əlaqəlidir.
+* Rekonsilyator, elementlərin `key` atributunu oxuyaraq massivdə olan elementlərin hansı daxili instansiyalara aid olduğunu təyin edə bilir. React-in tətbiqinin mürəkkəbliyinin böyük hissəsi bunun ilə əlaqəlidir.
 
 * Kompozit və sahib instansiya siniflərindən əlavə "mətn" və "boş" komponentlər də mövcuddur. Bu komponentlər mətn nodlarını və `null` render edildikdə "boş dəlikləri" təmsil edirlər.
 
@@ -865,34 +866,34 @@ Bu sənəddəki kod əsl kodun sadələşmiş formasıdır. Biz bəzi xüsusiyy�
 
 * Uşaqların siyahısını yeniləmək üçün işlədilən məntiq `ReactMultiChild` adlı miksində saxlanılır. Bu miksin, React DOM və React Native-in daxili sahib instansiya siniflərinin tətbiqində işlədilir.
 
-* Rekonsilyatorda kompozit komponentlərdə istifadə edilən `setState()` funksiyası da tətbiq edilir. Hadisə işləyicilərində çağrılan bir yeniləmələr dəstələnərək tək yeniləmə əməliyyatında icra olunur.
+* Rekonsilyatorda kompozit komponentlərdə istifadə edilən `setState()` funksiyası da tətbiq edilir. Hadisə işləyicilərində çağrılan yeniləmələr dəstələnərək tək yeniləmə əməliyyatında icra olunur.
 
 * Rekonsilyator, kompozit və sahib komponentlərə ref-lərin qoşulub silinməsini də icra edir.
 
 * DOM hazır olduqdan sonra çağrılan `componentDidMount()` və `componentDidUpdate()` kimi lifecycle metodları "callback növbələrinə" yığılaraq tək dəstədə icra olunurlar.
 
-* Cari yenilik haqqında olan məlumatlar "transaksiya" adlı daxili obyektdə yerləşdirilir. Transaksiyalar, gözlənilən lifecycle metodlarını, xəbərdarlıqlar üçün cari DOM-da olan dəyişiklikləri və yeniləməyə aid olan digər "qlobal" məlumatları saxlamaq üçün faydalıdır. Əlavə olaraq transaksiyalar React-in yeniləmələrdən sonra "təmizləmə işlərini" aparacağını təmin edir. Məsələn, React DOM-un təmin etdiyi transaksiya sinfi yenilikdən sonra anket sahəsinin vəziyyətini bərpa edir.
+* Cari yenilik haqqında olan məlumatlar "tranzaksiya" adlı daxili obyektdə yerləşdirilir. Tranzaksiyalar, gözlənilən lifecycle metodlarını, xəbərdarlıqlar üçün cari DOM-da olan dəyişiklikləri və yeniləməyə aid olan digər "qlobal" məlumatları saxlamaq üçün faydalıdır. Əlavə olaraq tranzaksiyalar React-in yeniləmələrdən sonra "təmizləmə işlərini" aparacağını təmin edir. Məsələn, React DOM-un təmin etdiyi tranzaksiya sinfi yenilikdən sonra anket sahəsinin vəziyyətini bərpa edir.
 
 ### Koda Atlamaq {#jumping-into-the-code}
 
-* [`ReactMount`-da](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) bu sənəddə olan `mountTree()` və `unmountTree()` kimi funksiyalar saxlanılır. Bu funksiyalar yuxarı səviyyəli komponentlərin mount və unmount olunmasını icra edirlər. funksiyaların Bu funksiyaların React Native analoqu [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) faylında saxlanılır.
-* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) sinfi bu sənəddə olan `DOMComponent` sinfini bildirir. Burada React DOM render edici qurucusunu sahib komponent sinfi təqbit olunur. Bu sinfin React Native analoqu [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) sinfidir.
+* [`ReactMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) sinfində bu sənəddə olan `mountTree()` və `unmountTree()` kimi funksiyalar saxlanılır. Bu funksiyalar yuxarı səviyyəli komponentlərin mount və unmount olunmasını icra edirlər. Bu funksiyaların React Native analoqu [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) faylında saxlanılır.
+* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) sinfi bu sənəddə olan `DOMComponent` sinfini bildirir. Burada React DOM render edici qurucusunu sahib komponent sinfi tətbiq olunur. Bu sinfin React Native analoqu [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) sinfidir.
 * [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) sinfi bu sənəddə olan `CompositeComponent` sinfini bildirir. Burada istifadəçi tərəfindən çağrılan komponentlər üzərində işlənilir və bu komponentlərin state-i saxlanılır.
 * [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) funksiyasında elementi yaratmaq üçün lazım olan düzgün daxili instansiya sinfi seçilir. Bu funksiya bu sənəddə olan `instantiateComponent()` funksiyasının ekvivalentidir.
 
-* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) sinfi `mountComponent()`, `receiveComponent()` və `unmountComponent()` funksiyaları əhatə edir. Burada daxili instansiyaların tətbiqləri çağrılır. Əlavə olaraq, burada daxili instansiyalar arasında paylaşılan kodların tətbiqləri saxlanılır.
+* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) sinfi `mountComponent()`, `receiveComponent()` və `unmountComponent()` funksiyalarını əhatə edir. Burada daxili instansiyaların tətbiqləri çağrılır. Əlavə olaraq, burada daxili instansiyalar arasında paylaşılan kodların tətbiqləri saxlanılır.
 
 * [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) sinfində elementlərin `key` parametrindən asılı olaraq uşaqların mount edilməsi, yenilənməsi və unmounting edilməsi tətbiq olunur.
 
-* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) klasında uşaqların əlavə edilməsi, silinməsi və sıralanması kimi əməliyyatları üçün render edici qurğudan müstəqil olan əməliyyat növbələnməsi tətiq olunur.
+* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) sinfində uşaqların əlavə edilməsi, silinməsi və sıralanması kimi əməliyyatları üçün render edici qurğudan müstəqil olan əməliyyat növbələnməsi tətbiq olunur.
 
-* Köhnə səbəblərə görə React kodunda `mount()`, `receive()` və `unmount()` funksiyaları `mountComponent()`, `receiveComponent()` və `unmountComponent()` adlanmasına baxmayaraq bu funksiyalar hamısı elementləri qəbul edirlər.
+* Köhnə səbəblərə görə React kodunda `mount()`, `receive()` və `unmount()` funksiyalarının `mountComponent()`, `receiveComponent()` və `unmountComponent()` kimi adlandırıldığına baxmayaraq bu funksiyalarda elementlər qəbul edilir.
 
 * Daxili instansiyaların parametrləri altdan xətt ilə başlayır (məsələn, `_currentElement`). Bu dəyişənlər kodda yalnız oxuna bilən açıq sahələr kimi qəbul olunur.
 
 ### Gələcək İstiqamətlər {#future-directions}
 
-Stək rekonsilyatorunun sinxron olması və işləri hissələrə parçalaya bilməməsi kimi məhdudiyyətləri var. Bu səbəbdən biz [tam fərqli arxitektura ilə](https://github.com/acdlite/react-fiber-architecture) tətbiq olunan [yeni Fiber rekonsilyatoru](/docs/codebase-overview.html#fiber-reconciler) üzərində işləyirik. Gələcəkdə biz stək rekonsilyatorunu bu yeni rekonsilyator ilə əvəzləmək istəyirik. Lakin, bizim bura çatmamız üçün hələ vaxt lazımdır.
+Stack rekonsilyatorunun sinxron olması və işləri hissələrə parçalaya bilməməsi kimi məhdudiyyətləri var. Bu səbəbdən biz [tam fərqli arxitektura ilə](https://github.com/acdlite/react-fiber-architecture) tətbiq olunan [yeni Fiber rekonsilyatoru](/docs/codebase-overview.html#fiber-reconciler) üzərində işləyirik. Gələcəkdə biz stack rekonsilyatorunu bu yeni rekonsilyator ilə əvəzləmək istəyirik. Lakin, bizim buna çatmamız üçün hələ vaxt lazımdır.
 
 ### Sonrakı Addımlar {#next-steps}
 
