@@ -178,7 +178,7 @@ TypeScript, Create React App-də konfiqurasiyasız işləyir.
 TypeScript dəstəkləyən **yeni layihə** üçün aşağıdakı əmri icra edin:
 
 ```bash
-npx create-react-app my-app --typescript
+npx create-react-app my-app --template typescript
 ```
 
 TypeScript-i **mövcud Create React App layihəsinə də** əlavə edə bilərsiniz. [Sənədlərə baxın](https://facebook.github.io/create-react-app/docs/adding-typescript).

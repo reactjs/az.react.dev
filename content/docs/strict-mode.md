@@ -92,9 +92,9 @@ Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, g
 Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır:
 
 * `constructor`
-* `componentWillMount`
-* `componentWillReceiveProps`
-* `componentWillUpdate`
+* `componentWillMount` (or `UNSAFE_componentWillMount`)
+* `componentWillReceiveProps` (or `UNSAFE_componentWillReceiveProps`)
+* `componentWillUpdate` (or `UNSAFE_componentWillUpdate`)
 * `getDerivedStateFromProps`
 * `shouldComponentUpdate`
 * `render`

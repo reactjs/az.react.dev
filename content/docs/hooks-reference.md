@@ -143,7 +143,11 @@ Lakin, bütün effektlər təxirə salına bilmir. Məsələn, istifadəçinin v
 
 Normalda, effektlər hər render etmə zamanı çağrılırlar. Belə olduqda effektin asılılıqlarından biri dəyişdikdə effekt yenidən yaranacaq.
 
+<<<<<<< HEAD
 Lakin, əvvəlki bölmədə olan abunəlik nümunəsində olduğu kimi hallarda bu davranış tez-tez baş verə bilər. Biz, hər yenilikdən sonra abunəlik yaratmalı deyilik. Abunəliyi yalnız `source` propu dəyişdikdə yaratmaq bəsdir.
+=======
+However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` prop has changed.
+>>>>>>> c8aef5dc0dc340e800fbb7963a94adb97da9803b
 
 Bunu tətbiq etmək üçün `useEffect` Hookunun ikinci arqumentinə effektin asılı olduğu dəyərləri massiv şəklində göndərə bilərik. Bizim yeni nümunəmiz aşağıdakı formada olacaq:
 
