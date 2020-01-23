@@ -38,14 +38,14 @@ Məlumat Yüklənməsi üçün Suspense `<Suspense>`-dən istifadə edərək **m
 
 - [Tam Olaraq Suspense Nədir?](#what-is-suspense-exactly)
   - [Suspense Nə Deyil?](#what-suspense-is-not)
-  - [Suspense ilə Nə Etmək Mümkündür](#what-suspense-lets-you-do)
+  - [Suspense ilə Nə Etmək Mümkündür?](#what-suspense-lets-you-do)
 - [Suspense-in Praktikada İşlədilməsi](#using-suspense-in-practice)
-  - [Realy İşlətmədikdə Nə Olacaq?](#what-if-i-dont-use-relay)
+  - [Relay İşlətmirəmsə Etməliyəm?](#what-if-i-dont-use-relay)
   - [Kitabxana Müəllifləri üçün](#for-library-authors)
 - [Ənənəvi Yanaşmalar vs Suspense](#traditional-approaches-vs-suspense)
   - [Yanaşma 1: Render zamanı Yükləmək (Suspense-dən istifadə edilmir)](#approach-1-fetch-on-render-not-using-suspense)
   - [Yanaşma 2: Yüklədikdən sonra Render Etmək (Suspense-dən istifadə edilmir)](#approach-2-fetch-then-render-not-using-suspense)
-  - [Approach 3: Yükənən zaman Render Etmək (Suspense ilə)](#approach-3-render-as-you-fetch-using-suspense)
+  - [Approach 3: Yükləndikcə Render Etmək (Suspense ilə)](#approach-3-render-as-you-fetch-using-suspense)
 - [Yükləməni Tez Başlayın](#start-fetching-early)
   - [Biz Bunun Üstündə İşləyirik](#were-still-figuring-this-out)
 - [Suspense və Ötmə Şərtləri](#suspense-and-race-conditions)
@@ -101,7 +101,7 @@ Suspense məlumat yüklənməsi kitabxanası deyil. Bu, **məlumat kitabxanalar�
 
 Biz gələcəkdə Suspense-in komponentlərdən asinxron məlumatları oxumaq üçün (məlumatın haradan gəldiyi vacib deyil) əsas yol olacağına niyyət edirik.
 
-### Suspense Nə Deyil {#what-suspense-is-not}
+### Suspense Nə Deyil? {#what-suspense-is-not}
 
 Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyindən bu haqqda ilə dəfə oxuduqda səhv anlayışlara səbəb ola bilər. Gəlin, bəzi anlaşılmazlıqlara aydınlıq gətirək:
 
@@ -111,7 +111,7 @@ Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyində
 
  * **Bu mexanizmdə məlumat yüklənməsini görünüş təbəqəsinə qoşmur.** Suspense ilə yüklənmə vəziyyətlərini göstərməyin mümkün olduğuna baxmayaraq bu mexanizm şəbəkə məntiqlərini React komponentlərinə bağlamır.
 
-### Suspense ilə Nə Etmək Mümkündür {#what-suspense-lets-you-do}
+### Suspense ilə Nə Etmək Mümkündür? {#what-suspense-lets-you-do}
 
 Suspense-in mənası nədir? Buna dörd yol ilə cavab vermək olar:
 
@@ -127,37 +127,37 @@ Biz, Facebook-da yalnız Relay-in Suspense inteqrasiyasını işlətmişik. **Ə
 
 **Bu səhifədəki nümunələrdə Relay əvəzinə "saxta" API tətbiqlərindən istifadə olunur.** Bu, sizin GraphQL ilə tanışılığınız olmadığı hallda sizin bu anlayışları başa düşmənizi asanlaşdırır. Lakin, bu sənəddə Suspense ilə "düzgün" applikasiyanın yazılması haqqında danışılmır. Bu səhifədə daha çox anlayışlardan danışılır və sizə Suspense-in *niyə* müəyyən formada işləməsini və hansı problemləri həll etməsini görmənizə kömək etməyə.
 
-### What If I Don't Use Relay? {#what-if-i-dont-use-relay}
+### Relay İşlətmirəmsə Etməliyəm? {#what-if-i-dont-use-relay}
 
-If you don't use Relay today, you might have to wait before you can really try Suspense in your app. So far, it's the only implementation that we tested in production and are confident in.
+Əgər Relay işlətmirsinizsə, applikasiyanızda Suspense-i istifadə etmək üçün gözləməli olacaqsınız. İndiki zamanda, produksiyada yoxladığımız yeganə tətbiq Relay-dir və bunun işlədiyindən əminik.
 
-Over the next several months, many libraries will appear with different takes on Suspense APIs. **If you prefer to learn when things are more stable, you might prefer to ignore this work for now, and come back when the Suspense ecosystem is more mature.**
+Gələcək bir neçə ayda çox kitabxanaların Suspense API-ları buraxılışa çıxarılacaq. **Əgər API daha stabil olduqda öyrənməyə qayıtmaq istəyirsinizsə, hələlik mövcud işlərə fikir verməyib Suspense ekosistemi daha da yetişdikdə geri qayıda bilərsiniz.**
 
-You can also write your own integration for a data fetching library, if you'd like.
+Siz, məlumat kitabxanası üçün özünüzün inteqrasiyasını da yaza bilərsiniz.
 
-### For Library Authors {#for-library-authors}
+### Kitabxana Müəllifləri üçün {#for-library-authors}
 
-We expect to see a lot of experimentation in the community with other libraries. There is one important thing to note for data fetching library authors.
+Biz digər kitabxanalar üzərində cəmiyyətdən çoxlu eksperimentlər etməsini gözləyirik. Bizim məlumat yüklənməsi kitabxanalarının müəllifləri üçün vacib bir qeydimiz var.
 
-Although it's technically doable, Suspense is **not** currently intended as a way to start fetching data when a component renders. Rather, it lets components express that they're "waiting" for data that is *already being fetched*. **[Building Great User Experiences with Concurrent Mode and Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) describes why this matters and how to implement this pattern in practice.**
+Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlamaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
 
-Unless you have a solution that helps prevent waterfalls, we suggest to prefer APIs that favor or enforce fetching before render. For a concrete example, you can look at how [Relay Suspense API](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) enforces preloading. Our messaging about this hasn't been very consistent in the past. Suspense for Data Fetching is still experimental, so you can expect our recommendations to change over time as we learn more from production usage and understand the problem space better.
+Əgər sizdə şəlalələrin qabağını kəsmək üçün həlliniz yoxdursa, render etmədən öncə yüklənməni üstün tutan API-lardan istifadə etməyi tövsiyyə edirik. Dəqiq nümunə üçün [Relay Suspense API-ının](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) öncədən yükləməni necə tətbiq etdiyinə baxın. Bizim bu haqqda mesajımız hər zaman dəyişib. Məlumat Yüklənməsi üçün Suspense-in eksperimental olduğundan bizim produksiyada olan istifadədə öyrəndiyimiklərimiz və problem sahəsində anlayışlarımız əsasında tövsiyyələrimizin vaxt ilə dəyişəcəyini gözləyə bilərsiniz.
 
-## Traditional Approaches vs Suspense {#traditional-approaches-vs-suspense}
+## Ənənəvi Yanaşmalar vs Suspense {#traditional-approaches-vs-suspense}
 
-We could introduce Suspense without mentioning the popular data fetching approaches. However, this makes it more difficult to see which problems Suspense solves, why these problems are worth solving, and how Suspense is different from the existing solutions.
+Biz populyar məlumat yükləmələri yanaşmalarından danışmadan Suspense-i təqdim edə bilərdik. Lakin, belə etdikdə Suspense-in hansı problemləri həll etdiyini, bu problemləri həll etməyin niyə faydalı olduğunu və Suspense-in mövcud həllərdən necə fərqli olduğunu görmək çətinləşəcək.
 
-Instead, we'll look at Suspense as a logical next step in a sequence of approaches:
+Bu səbəbdən, biz Suspense-ə mövcud yanaşmaların növbəti məntiqi kimi baxırıq:
 
-* **Fetch-on-render (for example, `fetch` in `useEffect`):** Start rendering components. Each of these components may trigger data fetching in their effects and lifecycle methods. This approach often leads to "waterfalls".
-* **Fetch-then-render (for example, Relay without Suspense):** Start fetching all the data for the next screen as early as possible. When the data is ready, render the new screen. We can't do anything until the data arrives.
-* **Render-as-you-fetch (for example, Relay with Suspense):** Start fetching all the required data for the next screen as early as possible, and start rendering the new screen *immediately — before we get a network response*. As data streams in, React retries rendering components that still need data until they're all ready.
+* **Render zamanı Yükləmək (məsələn, `useEffect`-də `fetch` çağırışı):** Komponentləri render etməyə başlayın. Hər komponent öz effekt və lifecycle metodlarında məlumat yükləməsini icra edə bilər. Bu yanaşma adətən "şəlalələrə" səbəb olur.
+* **Yüklədikdən sonra Render Etmək (məsələn, Suspense-siz Relay):** Sonrakı səhifə üçün məlumat yükləməsini ən tez zamanda başlayın. Məlumat hazır olduqda yeni səhifəni render edin. Məlumat gələnə kimi heç nə edə bilmirik.
+* **Yükləndikcə Render Etmək (məsələn, Suspense ilə Relay):** Sonrakı səhifədə lazım olan məlumatları ən yükləməyə başladıqdan *dərhal sonra (şəbəkə cavabı gəlməmişdən öncə)*. Məlumat axdıqca React, məlumatlardan asılı olan komponentləri render etməyə cəhd edir. Bütün komponentlər üçün məlumatlar hazır olduqda komponentlər render edilir.
 
->Note
+>Qeyd
 >
->This is a bit simplified, and in practice solutions tend to use a mix of different approaches. Still, we will look at them in isolation to better contrast their tradeoffs.
+>Bu sadələşdirilmiş icmaldır. Praktiki həllərdə bir neçə yanaşmanın kombinasiyasından istifadə edilir. Amma, biz yenə də bu yanaşmaların kompromislərini müqayisə etmək üçün bunlara ayrılıqda baxacağıq.
 
-To compare these approaches, we'll implement a profile page with each of them.
+Bu yanaşmaları müqayisə etmək üçün biz hər bir yanaşmada profayl səhifəsi tətbiq edəcəyik.
 
 ### Approach 1: Fetch-on-Render (not using Suspense) {#approach-1-fetch-on-render-not-using-suspense}
 
