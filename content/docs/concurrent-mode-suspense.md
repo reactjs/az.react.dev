@@ -15,7 +15,7 @@ next: concurrent-mode-patterns.html
 
 <div class="scary">
 
->Caution:
+>Xəbərdarlıq:
 >
 >Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdalıqsız əhəmiyyətli dərəcədə dəyişilə bilər.
 >
