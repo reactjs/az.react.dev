@@ -74,7 +74,7 @@ Komponentlər funksiya kimi təsvir olunsa da, React istifadə edərkən birbaş
 
 Bu incə, lakin güclü fərqdir. Funksiya komponentini çağırmadığınıza və çağırmanı React-ə verdiyinizə görə, React lazım olduqda çağırmanı gecikdirmə gücünə sahib olur. Hal-hazırki tətbiqdə React ağacı rekursiv olaraq gəzir və bir keçiddə bütün yenilənən ağacın render funksiyalarını çağırır. Ancaq gələcəkdə [kadrların azalmasının qarşısını almaq üçün bəzi yeniləmələrin təxirə salınması](https://github.com/facebook/react/issues/6170) başlaya bilər.
 
-Bu, React memarlığında ortaq bir mövzudur. Bəzi populyar kitabxanalar yeni məlumatlar ortaya çıxdıqda hesablamalar aparan “push” yanaşmasını tətbiq edirlər. React, əksinə, hesablamalar tələb olunana qədər gecikdirilə bilən “pull” yanaşmasına üstünlük verir.
+Bu, React-in dizaynında çox danışılan mövzudur. Bəzi populyar kitabxanalar yeni məlumatlar ortaya çıxdıqda hesablamalar aparan “push” yanaşmasını tətbiq edirlər. React, əksinə, hesablamalar tələb olunana qədər gecikdirilə bilən “pull” yanaşmasına üstünlük verir.
 
 React ümumi məlumat emalı kitabxanası deyil. Istifadəçi interfeysi yaratmaq üçün kitabxanadır. Düşünürük ki, applikasiya hansı hesablamaların aktual olduğunu və hansıların olmadığını bilməlidir.
 
@@ -84,7 +84,7 @@ Bunun hələ həyata keçirilmədiyini bilin. Bununla birlikdə, bu sərbəstlik
 
 İstifadəçilərə [Funksional Reaktiv Proqramlaşdırmada](https://en.wikipedia.org/wiki/Functional_reactive_programming) ümumi olan "push" paradiqmasının istifadəsinə icazə versəydik, planlaşdırmaya nəzarət etməyimiz daha çətin olardı. Biz "birləşdirici" koda sahib olmaq istəyirik.
 
-React üçün əsas məqsəd React-ə qayıtmadan əvvəl yerinə yetirilən istifadəçi kodunun az olmasıdır. Bu, React-in UI haqqında biliklərinə əsasında işləri planlaşdırılması və bölünməsi qabiliyyətini verir.
+React üçün əsas məqsəd React-ə qayıtmadan əvvəl yerinə yetirilən istifadəçi kodunun az olmasıdır. Bu, React-in UI bilikləri əsasında React-ə işlərin planlaşdırılması və bölünməsi qabiliyyətini verir.
 
 Kollektivdə React-in "Planlaşdırıcı" adlandırılması lazım olduğuna dair daxili zarafat var, çünki React tamamilə "reaktiv" olmaq istəmir.
 
