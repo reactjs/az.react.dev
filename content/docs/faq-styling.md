@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### Komponentlərə CSS Siniflərini Necə Əlavə Edə Bilərəm? {#how-do-i-add-css-classes-to-components}
+### Komponentlərə CSS siniflərini necə əlavə edə bilərəm? {#how-do-i-add-css-classes-to-components}
 
 Sinifləri mətn formasında `className` propuna göndərin:
 
@@ -30,22 +30,22 @@ render() {
 
 >Məsləhət
 >
->Əgər yuxarıdakı formalı kodu çox yazırsınızsa [classnames](https://www.npmjs.com/package/classnames#usage-with-reactjs) paketi ilə bu kodu sadələşdirə bilərsiniz.
+>Əgər yuxarıdakı formalı kodu çox yazırsınızsa, [classnames](https://www.npmjs.com/package/classnames#usage-with-reactjs) paketi ilə bu kodu sadələşdirə bilərsiniz.
 
-### Eyni-sətrli Stillər İşlədə Bilərəm? {#can-i-use-inline-styles}
+### Sətirdaxili stillər işlədə bilərəm? {#can-i-use-inline-styles}
 
 Bəli, stilləmək haqqında məlumat üçün [bu sənədə](/docs/dom-elements.html#style) baxın.
 
-### Eyni-sətrli Stillər Pisdir? {#are-inline-styles-bad}
+### Sətirdaxili stillər pisdir? {#are-inline-styles-bad}
 
-CSS sinifləri eyni-sətrli stillərdən daha tez işləyir.
+CSS sinifləri sətirdaxili stillərdən daha performanslıdır.
 
-### CSS-in-JS Nədir? {#what-is-css-in-js}
+### CSS-in-JS nədir? {#what-is-css-in-js}
 
-CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript-də tərtib edilməsi metodu "CSS-in-JS" adlanır. CSS-in-JS kitabxanalarının müqayisəsinə [buradan](https://github.com/MicheleBertoli/css-in-js) baxın.
+CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript istifadə edərək tərtib edilməsi metodu "CSS-in-JS" adlanır. CSS-in-JS kitabxanalarının müqayisəsinə [buradan](https://github.com/MicheleBertoli/css-in-js) baxın.
 
-_Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil. Bu, 3-cü tərəfli kitabxanalar tərəfindən təmin edilir._ React, stillərin necə işlənməsi haqqında heç bir fikir vermir. Əgər seçim edə bilmirsinizsə, başlanğıc nöqtəsi kimi stilləri ayrı `*.css` fayllarında yaradıb [`className`](/docs/dom-elements.html#classname) ilə istinas edə bilərsiniz.
+_Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil. Bu, üçüncü tərəfli kitabxanalar tərəfindən təmin edilir._ React, stillərin necə işlənməsi haqqında heç bir fikir vermir. Əgər seçim edə bilmirsinizsə, başlanğıc nöqtəsi kimi stilləri ayrı `*.css` fayllarında yaradıb [`className`](/docs/dom-elements.html#classname) ilə istifadə edə bilərsiniz.
 
-### React-də Animasiya Edə Bilərəm? {#can-i-do-animations-in-react}
+### React-də animasiya edə bilərəm? {#can-i-do-animations-in-react}
 
 React ilə animasiya icra etmək mümkündür. [React Transition Group](https://reactcommunity.org/react-transition-group/), [React Motion](https://github.com/chenglou/react-motion) və ya [React Spring](https://github.com/react-spring/react-spring) kimi kitabxanalara baxın.

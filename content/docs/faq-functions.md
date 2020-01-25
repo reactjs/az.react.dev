@@ -14,13 +14,13 @@ Hadisə işləyicilərini və digər funksiyaları uşaq komponentlərə proplar
 <button onClick={this.handleClick}>
 ```
 
-Hadisə işləyicisini valideyn komponentdən istifadə etdikdə funksiyanı komponent instansiyasına bind etmək lazımdır (aşağı bölməyə baxın).
+Hadisə işləyicisində valideyn komponentdən istifadə etmək istədikdə, funksiyanı komponent instansiyasına bind etmək lazımdır (aşağı bölməyə baxın).
 
-### Funksiyanı komponent instansiyasına necə bind etmək olar? {#how-do-i-bind-a-function-to-a-component-instance}
+### Funksiyanı komponent instansiyasına necə bind edə bilərəm? {#how-do-i-bind-a-function-to-a-component-instance}
 
-Funksiyalardan `this.props` və `this.state` kimi atributların istifadəsinin qurulma addımından və sintaksisdən asılı olaraq bir neçə yolu var.
+Funksiyaların `this.props` və `this.state` kimi atributları istifadə etməsi üçün bir neçə yolu var, qurulma addımından və sintaksisdən asılı olaraq.
 
-#### Konstruktorda Bind Etmək (ES2015) {#bind-in-constructor-es2015}
+#### Konstruktorda Bind etmək (ES2015) {#bind-in-constructor-es2015}
 
 ```jsx
 class Foo extends Component {
@@ -51,12 +51,12 @@ class Foo extends Component {
 }
 ```
 
-#### Render-dən Bind Etmək {#bind-in-render}
+#### Render-də Bind etmək {#bind-in-render}
 
 ```jsx
 class Foo extends Component {
   handleClick() {
-    console.log('Tıklama Hadisəsi Baş Verdi');
+    console.log('Tıklama hadisəsi baş verdi');
   }
   render() {
     return <button onClick={this.handleClick.bind(this)}>Tıkla</button>;
@@ -66,7 +66,7 @@ class Foo extends Component {
 
 >**Qeyd:**
 >
->`Function.prototype.bind` funksiyanı render-dən çağrıldıqda komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bunun performansa təsiri ola bilər (aşağıdakı bölmələrə baxın).
+>`Function.prototype.bind` funksiyanı render-də çağırdıqda komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bunun performansa təsiri ola bilər (aşağıdakı bölmələrə baxın).
 
 #### Render-də Ox Funksiyası {#arrow-function-in-render}
 
@@ -83,17 +83,17 @@ class Foo extends Component {
 
 >**Qeyd:**
 >
->Render-dən ox funksiyası işlədildikdə komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bu, identiklik müqayisələrinin optimallaşdırılmasını sındıra bilər.
+>Render-dən ox funksiyası işlədildikdə komponentin hər render edilməsi zamanı yeni funksiya yaranacaq. Bu, identiklik müqayisələrə dayalı optimallaşdırılmaları sındıra bilər.
 
 ### Render funksiyalarında ox funksiyalarını işlətmək olar? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
 Normalda, olar. Bu, callback funksiyalarına arqumentlər göndərməyin ən asan yoludur.
 
-Performans problemləri olduqda optimizasiya edin!
+Performans problemləri olduqda optimallaşdırma edin!
 
-### Binding Niyə Vacibdir? {#why-is-binding-necessary-at-all}
+### Bind etmə niyə vacibdir? {#why-is-binding-necessary-at-all}
 
-JavaScript-də bu iki kod bərabər **deyil**:
+JavaScript-də aşağıdakı iki kod parçası bərabər **deyil**:
 
 ```js
 obj.method();
@@ -104,15 +104,15 @@ var method = obj.method;
 method();
 ```
 
-İkinci kod ilə birinci kodun eyni işləməsi üçün binding lazımdır.
+İkinci kod parçası ilə birinci kod parçasının eyni işləməsi üçün bind etmə lazımdır.
 
-React-də, adətən digər komponentlərə *göndərilən* funksiyaları bind etmək lazımdır. Məsələn, `<button onClick={this.handleClick}>` kodu `this.handleClick` funksiyasını göndərdiyindən bu funksiyanı bind edin. Lakin, `render` və ya lifecycle funksiyalarını bind etmək lazım deyil. Biz bu funksiyaları digər komponentlərə göndərmirik.
+React-də, adətən digər komponentlərə *göndərilən* funksiyaları bind etmək lazımdır. Məsələn, `<button onClick={this.handleClick}>` kodu `this.handleClick` funksiyasını göndərdiyinə görə bu funksiyanı bind etmək lazımdır. Lakin, `render` və ya lifecycle funksiyalarını bind etmək lazım deyil. Biz bu funksiyaları digər komponentlərə göndərmirik.
 
-[Yehuda Katzın bu məqaləsində](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) binding-in nə olduğu və JavaScript-də funksiyaların necə işlədiyini haqqında izahatlar var.
+[Yehuda Katz-ın bu məqaləsində](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) bind etmənin nə olduğu və JavaScript-də funksiyaların necə işlədiyi haqda izahatlar var.
 
-### Niyə funksiya, komponent render edildiyi zamanı çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
+### Niyə funksiyam komponent hər render edildiyi zaman çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
 
-Funksiyanı komponentə göndərdikdə _bu funksiyanı çağırmayın_:
+Funksiyanı komponentə göndərdikdə _bu funksiyanı çağırmadığınızdan_ əmin olun:
 
 ```jsx
 render() {
@@ -121,7 +121,7 @@ render() {
 }
 ```
 
-Əvəzinə, *funksiyanın özünü göndərin* (mötərizəsiz):
+Bunun əvəzinə, *funksiyanın özünü göndərin* (mötərizəsiz):
 
 ```jsx
 render() {
@@ -144,7 +144,7 @@ Bu, `.bind` funksiyasının çağrılmasına bərabərdir:
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Nümunə: Arqumentlərin ox funksiyalarına göndərilməsi {#example-passing-params-using-arrow-functions}
+#### Nümunə: Arqumentləri ox funksiyalarını istifadə edərək göndərmək {#example-passing-params-using-arrow-functions}
 
 ```jsx
 const A = 65 // ASCII hərf kodu
@@ -178,9 +178,9 @@ class Alphabet extends React.Component {
 }
 ```
 
-#### Nümunə: Arqumentlərin data-atributlarına göndərilməsi {#example-passing-params-using-data-attributes}
+#### Nümunə: Arqumentləri məlumat atributlarını isitifadə edərək göndərmək {#example-passing-params-using-data-attributes}
 
-Alternativ olaraq, DOM API-ından istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementləri optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmadan istifadə edin.
+Alternativ olaraq, DOM API-ları istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementləri optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmanı nəzərə alın.
 
 ```jsx
 const A = 65 // ASCII hərf kodu
@@ -218,23 +218,23 @@ class Alphabet extends React.Component {
 }
 ```
 
-### Funksiyanın tez-tez və ya eyni zamanda bir neçə dəfə çağrılmasının qarşısını necə ala bilərəm? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
+### Funksiyanın çox tez və ya eyni zamanda bir neçə dəfə çağrılmasının qarşısını necə ala bilərəm? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
 
-Əgər `onClick` və ya `onScroll` kimi hadisə işləyicilərindən istifadə edir və bu callback-lərin tez çağrılmasının qarşısını almaq istəyirsinizsə, callback-in çağrılmasının sürətini aşağıdakl yollar ilə məhdudlaşdıra bilərsiniz:
+Əgər `onClick` və ya `onScroll` kimi hadisə işləyicilərindən istifadə edir və bu callback-lərin tez çağrılmasının qarşısını almaq istəyirsinizsə, callback-in çağrılma sıxlığını aşağıdakı yollar ilə məhdudlaşdıra bilərsiniz:
 
-- **boğmaq (throttle)**: yeniliklərin vaxt tezliyinə görə seçin (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
-- **debounce edin**: hərəkətsizlik olduqdan sonra yenilikləri dərc edin (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` ilə boğmaq**: yenilikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçin (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
+- **throttle etmə**: yenilikləri vaxt tezliyinə görə seçmə (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
+- **debounce etmə**: bir müddət fəaliyyətsizlik sonra yenilikləri əməl etmə (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
+- **`requestAnimationFrame` ilə throttle**: yenilikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçmə (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
 `throttle` və `debounce` funksiyaslarının müqayisəsi üçün [bu görüntüyə baxın](http://demo.nimius.net/debounce_throttle/).
 
 > Qeyd:
 >
-> `_.debounce`, `_.throttle` və `raf-schd` funksiyaları gecikən callback-ləri ləğv etmək üçün `cancel` funksiyası təmin edirlər. Siz bu funksiyanı `componentWillUnmount`-dan çağırmalı _və ya_ gecikən funksiyanın daxilindən komponentin mount olunduğunu yoxlamalısınız.
+> `_.debounce`, `_.throttle` və `raf-schd` funksiyaları gecikən callback-ləri ləğv etmək üçün `cancel` funksiyası təmin edirlər. Siz bu funksiyanı `componentWillUnmount`-dan çağırmalı _və ya_ gecikən funksiyanın daxilində komponentin mount olunduğunu yoxlamalısınız.
 
-#### Boğma {#throttle}
+#### Throttle {#throttle}
 
-Boğma, verilən vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısı alınır.
+Throttle, verilən vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısı alınır.
 
 ```jsx
 import throttle from 'lodash.throttle';
@@ -290,7 +290,7 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-    // React hadisələri pool etdiyindən biz dəyəri debounce-dan əvvəl oxuyuruq.
+    // React hadisələri pool-a əlavə etdiyindən biz dəyəri debounce-dan əvvəl oxuyuruq.
     // Alternativ olaraq, `event.persist()` funksiyasını çağıraraq bütün hadisəni göndərmək mümkündür.
     // Əlavə məlumat üçün az.reactjs.org/docs/events.html#event-pooling səhifəsinə baxın.
     this.emitChangeDebounced(e.target.value);
@@ -302,9 +302,9 @@ class Searchbox extends React.Component {
 }
 ```
 
-#### `requestAnimationFrame` ilə boğmaq {#requestanimationframe-throttling}
+#### `requestAnimationFrame` ilə throttle {#requestanimationframe-throttling}
 
-[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) funksiyası, göndərilən funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün bu funksiyanı optimal zamanda çağırır. `requestAnimationFrame` ilə növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Lakin, 60 fps təmin edilə bilmədikdə natural olaraq bir saniyəyə düşən kadrların sayı *məhdudlaşdırılacaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını boğma üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
+[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) funksiyası, göndərilən funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün bu funksiyanı optimal zamanda çağırır. `requestAnimationFrame` ilə növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Lakin, 60 fps təmin edilə bilmədikdə natural olaraq bir saniyəyə düşən kadrların sayı *məhdudlaşdırılacaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını throttle etmək üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
 
 >**Qeyd:**
 >
@@ -351,4 +351,4 @@ class ScrollListener extends React.Component {
 
 #### Sürətin məhdudlaşdırılmasını test edin {#testing-your-rate-limiting}
 
-Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` boğmasından istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı tapa bilərsiniz.
+Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` throttle-dan istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı ola bilər.

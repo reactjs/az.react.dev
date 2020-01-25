@@ -6,19 +6,19 @@ layout: docs
 category: FAQ
 ---
 
-### React ilə JSX işlətmək vacibdir? {#do-i-need-to-use-jsx-with-react}
+### React ilə JSX işlətməyim vacibdir? {#do-i-need-to-use-jsx-with-react}
 
-Yox! Əlavə məlumat üçün ["JSX-siz React sənədinə"](/docs/react-without-jsx.html) baxın.
+Xeyr! Əlavə məlumat üçün ["JSX-siz React sənədinə"](/docs/react-without-jsx.html) baxın.
 
-### React ilə ES6 (+) işlətmək vacibdir? {#do-i-need-to-use-es6--with-react}
+### React ilə ES6 (+) işlətməyim vacibdir? {#do-i-need-to-use-es6--with-react}
 
-Yox! Əlavə məlumat üçün ["ES6-sız React sənədinə"](/docs/react-without-es6.html) baxın.
+Xeyr! Əlavə məlumat üçün ["ES6-sız React sənədinə"](/docs/react-without-es6.html) baxın.
 
-### JSX-də kommentləri necə yazmaq lazımdır? {#how-can-i-write-comments-in-jsx}
+### JSX-də kommentləri necə yazmalıyam? {#how-can-i-write-comments-in-jsx}
 
 ```jsx
 <div>
-  {/* Komment bura gedir */}
+  {/* Komment bura yazılır */}
   Salam {name}!
 </div>
 ```
