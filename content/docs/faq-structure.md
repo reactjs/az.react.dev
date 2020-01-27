@@ -10,9 +10,9 @@ category: FAQ
 
 React, faylları hansı direktoriyalara yerləşdirmək haqqında heç bir fikir daşımır. Lakin, ekosistemdə bir neçə populyar yanaşma var.
 
-#### Xüsusiyyətlər və ya Naviqasiya əsasında Qruplamaq {#grouping-by-features-or-routes}
+#### Xüsusiyyətlər və ya naviqasiyalar əsasında qruplamaq {#grouping-by-features-or-routes}
 
-CSS, JS və testləri xüsusiyyət və ya naviqasiya əsasında qruplaşdırmaq ilə layihələri struktur etmək populyar yanaşmalardan biridir.
+CSS, JS və testləri xüsusiyyət və ya naviqasiya əsasında qruplaşdıraraq layihələri struktur etmək populyar yanaşmalardan biridir.
 
 ```
 common/
@@ -37,9 +37,9 @@ profile/
 
 "Xüsusiyyət" sözünün universal mənası yoxdur. Bu səbəbdən, xüsusiyyətin dərəcəsini seçmək sizdən asılıdır. Əgər üst direktoriyalar siyahısını çıxara bilmirsinizsə, məhsulun əsas hissələrini istifadəçilərdən soruşaraq istifadəçilərin fikir modeli əsasında plan qura bilərsiniz.
 
-#### Fayl Tipi əsasında Qruplamaq {#grouping-by-file-type}
+#### Fayl tipi əsasında qruplamaq {#grouping-by-file-type}
 
-Oxşar faylları bir yerdə qrup etmək layihələri struktur etməyin başqa yoludur:
+Oxşar faylları bir yerdə qrupqruplaşdıraraq layihələri struktur etməyin başqa yoludur:
 
 ```
 api/
@@ -59,7 +59,7 @@ components/
   ProfileHeader.css
 ```
 
-Bəziləri daha dərinə gedərək applikasiyada olan roldan asılı olaraq komponentləri fərqli direktoriyalara ayırırlar. Məsələn, [Atomik Dizayn](http://bradfrost.com/blog/post/atomic-web-design/) bu prinsip üzərində yaranmış metodologiyalardan biridir. Belə metodologiyaları sərt qanunlar kimi yox, faydarlı nümunələr kimi işlətməyin daha produktiv olduğunu unutmayın.
+Bəzi proqramçılar daha dərinə gedərək applikasiyada olan roldan asılı olaraq komponentləri fərqli direktoriyalara ayırırlar. Məsələn, [Atomik Dizayn](http://bradfrost.com/blog/post/atomic-web-design/) bu prinsip üzərində yaranmış metodologiyalardan biridir. Belə metodologiyaları sərt qanunlar kimi yox, faydarlı nümunələr kimi işlətməyin daha produktiv olduğunu unutmayın.
 
 #### Çox iç-içə direktoriya yaratmaqdan çəkinin {#avoid-too-much-nesting}
 

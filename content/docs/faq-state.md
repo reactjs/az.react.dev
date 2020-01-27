@@ -19,7 +19,7 @@ Komponentin `state` obyektinin yenilənməsi əməliyyatını planlamaq üçün 
 * [Props və ya State](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
 * [ReactJS: Props və ya State](https://lucybain.com/blog/2016/react-state-vs-pros/)
 
-### `setState` niyə yanlış dəyər qaytarır? {#why-is-setstate-giving-me-the-wrong-value}
+### Niyə `setState` mənə yanlış dəyər qaytarır? {#why-is-setstate-giving-me-the-wrong-value}
 
 React dünyasında `this.props` və `this.state` obyektləri *render olunmuş* (ekranda görününən) dəyərləri təmsil edir.
 
@@ -52,7 +52,7 @@ Bu problemi düzəltmək üçün aşağıdakı bölmələrə baxın.
 
 ### Cari state dəyəri əsasında yeni state-i necə yeniləyə bilərəm? {#how-do-i-update-state-with-values-that-depend-on-the-current-state}
 
-`setState` funksiyasına obyekt əvəzinə funksiya göndərərək cari dəyərin hər zaman ən yeni dəyər olduğunu siğortalamaq mümkündür (aşağıda baxın).
+`setState` funksiyasına obyekt əvəzinə funksiya göndərərək cari dəyərin hər zaman ən yeni dəyər olduğunu siğortalamaq mümkündür (aşağıya baxın).
 
 ### `setState`-ə obyekt və funksiya göndərmək arasında olan fərq nədir? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
 
@@ -61,7 +61,7 @@ Yeniləmə funksiyası göndərildikdə cari state-in funksiya daxilindən istif
 ```jsx
 incrementCount() {
   this.setState((state) => {
-    // Vacıb: yeniləmə zamanı cari state üçün `this.state` əvəzinə `state` obyektindən istifadə edin.
+    // Vacib: yeniləmə zamanı cari state üçün `this.state` əvəzinə `state` obyektindən istifadə edin.
     return {count: state.count + 1}
   });
 }
@@ -83,15 +83,15 @@ handleSomething() {
 
 Hal hazırda, `setState`, hadisə işləyiciləri daxilində asinxron baş verir.
 
-Nümunə: Tıklamaq hadisəsi zamanı `Parent` və `Child` komponentləri `setState` çağırdıqda `Child`-ın iki dəfə render edilməməsi üçün `setState`-in asinxron olması vacibdir. Əvəzinə, React, brauzer hadisəsinin sonunda state yeniliklərini "təmizləyir". Bu, böyük applikasiyalarda böyük performans qazancına səbəb olur.
+Nümunə: Tıklamaq hadisəsi zamanı `Parent` və `Child` komponentləri `setState` çağırdıqda `Child`-ın iki dəfə render edilməməsi üçün `setState`-in asinxron olması vacibdir. Bunun yerinə, React, brauzer hadisəsinin sonunda state yeniliklərini "təmizləyir". Bu, böyük applikasiyalarda vacib performans qazancına səbəb olur.
 
 Bunun tətbiq detalı olduğundan bu qanuna etibar etməyin. Gələcək versiyalarda yeniliklər daha çox ssenarilərdə dəstələnəcək.
 
 ### Niyə `this.state` dəyəri sinxron yenilənmir? {#why-doesnt-react-update-thisstate-synchronously}
 
-Əvvəlki bölmədə izah edildiyi kimi, yenideən render etmək əməliyyatı bütün komponentlərin hadisə işləyicilərindən `setState`-lər çağırıldıqdan sonra başlayır. Bu, lazımsız render etmələrin qabağını alaraq performans qazancına səbəb olur.
+Əvvəlki bölmədə izah edildiyi kimi, yenidən render etmək əməliyyatı bütün komponentlərin hadisə işləyicilərindən `setState`-lər çağırıldıqdan sonra başlayır. Bu, lazımsız render etmələrin qabağını alaraq performans qazancına səbəb olur.
 
-Lakin, React-in `this.state`-i render etmədən yeniləmədiyi sizi maraqlandıra bilər.
+Lakin, React-in niyə `this.state`-i render etmədən yeniləmədiyi sizi maraqlandıra bilər.
 
 Bunun iki səbəbi var:
 
