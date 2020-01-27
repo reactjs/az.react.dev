@@ -108,7 +108,7 @@ method();
 
 React-də, adətən digər komponentlərə *göndərilən* funksiyaları bind etmək lazımdır. Məsələn, `<button onClick={this.handleClick}>` kodu `this.handleClick` funksiyasını göndərdiyinə görə bu funksiyanı bind etmək lazımdır. Lakin, `render` və ya lifecycle funksiyalarını bind etmək lazım deyil. Biz bu funksiyaları digər komponentlərə göndərmirik.
 
-[Yehuda Katz-ın bu məqaləsində](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) bind etmənin nə olduğu və JavaScript-də funksiyaların necə işlədiyi haqda izahatlar var.
+[Yehuda Katzın bu məqaləsində](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) bind etmənin nə olduğu və JavaScript-də funksiyaların necə işlədiyi haqda izahatlar var.
 
 ### Niyə funksiyam komponent hər render edildiyi zaman çağrılır? {#why-is-my-function-being-called-every-time-the-component-renders}
 
@@ -144,7 +144,7 @@ Bu, `.bind` funksiyasının çağrılmasına bərabərdir:
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Nümunə: Arqumentləri ox funksiyalarını istifadə edərək göndərmək {#example-passing-params-using-arrow-functions}
+#### Nümunə: Arqumentləri ox funksiyaları ilə göndərmək {#example-passing-params-using-arrow-functions}
 
 ```jsx
 const A = 65 // ASCII hərf kodu
@@ -178,7 +178,7 @@ class Alphabet extends React.Component {
 }
 ```
 
-#### Nümunə: Arqumentləri məlumat atributlarını isitifadə edərək göndərmək {#example-passing-params-using-data-attributes}
+#### Nümunə: Arqumentləri data-atributları ilə göndərmək {#example-passing-params-using-data-attributes}
 
 Alternativ olaraq, DOM API-ları istifadə edərək hadisə işləyiciləri üçün lazım olan məlumatları saxlaya bilərsiniz. Böyük sayda elementləri optimallaşdırmaq və ya React.PureComponent yoxlamalarından asılı olan render ağacından istifadə etmək istəyirsinizsə, bu yanaşmanı nəzərə alın.
 
@@ -224,7 +224,7 @@ class Alphabet extends React.Component {
 
 - **throttle etmə**: yenilikləri vaxt tezliyinə görə seçmə (məsələn, [`_.throttle`](https://lodash.com/docs#throttle))
 - **debounce etmə**: bir müddət fəaliyyətsizlik sonra yenilikləri əməl etmə (məsələn, [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` ilə throttle**: yenilikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçmə (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
+- **`requestAnimationFrame` ilə throttle etmə**: yenilikləri [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) əsasında seçmə (məsələn, [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
 `throttle` və `debounce` funksiyaslarının müqayisəsi üçün [bu görüntüyə baxın](http://demo.nimius.net/debounce_throttle/).
 
@@ -234,7 +234,7 @@ class Alphabet extends React.Component {
 
 #### Throttle {#throttle}
 
-Throttle, verilən vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısı alınır.
+Throttle etmə, verilən vaxt çərçivəsində funksiyanın birdən çox çağrılmasının qarşısını alır. Aşağıdakı nümunədə "click" işləyicisinin bir saniyə ərzində birdən çox çağrılmasının qarşısı alınır.
 
 ```jsx
 import throttle from 'lodash.throttle';
@@ -302,7 +302,7 @@ class Searchbox extends React.Component {
 }
 ```
 
-#### `requestAnimationFrame` ilə throttle {#requestanimationframe-throttling}
+#### `requestAnimationFrame` ilə throttle etmə {#requestanimationframe-throttling}
 
 [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) funksiyası, göndərilən funksiyanı brauzerdə növbəyə salaraq render performansını artırmaq üçün bu funksiyanı optimal zamanda çağırır. `requestAnimationFrame` ilə növbələnən funksiya sonrakı kadrda çağrılacaq. Brauzer saniyəyə 60 kadrın olmasını (60 fps) təmin etmək üçün çox çalışacaq. Lakin, 60 fps təmin edilə bilmədikdə natural olaraq bir saniyəyə düşən kadrların sayı *məhdudlaşdırılacaq*. Məsələn, aparat yalnız 30 fps qəbul edə bilirsə, brauzer saniyəyə 30 kadr göstərəcək. Saniyəyə 60-dan çox yenilik etmənin qabağını almaq üçün `requestAnimationFrame` funksiyasını throttle etmək üçün istifadə etmək faydalıdır. Onsuzda, 100-dən çox yenilik edildikdə brauzerin icra edəcəyi işi istifadəçi görməyəcək.
 
@@ -351,4 +351,4 @@ class ScrollListener extends React.Component {
 
 #### Sürətin məhdudlaşdırılmasını test edin {#testing-your-rate-limiting}
 
-Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` throttle-dan istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı ola bilər.
+Sürəti məhdudlaşan kodu test etdikdə vaxtı qabağa çəkmək qabiliyyətinin olması faydalı ola bilər. [`Jest`](https://facebook.github.io/jest/) işlədirsinizsə, vaxtı qabağa çəkmək üçün [`taymer moklarından`](https://facebook.github.io/jest/docs/en/timer-mocks.html) istifadə edə bilərsiniz. `requestAnimationFrame` throttle etməsindən istifadə etdikdə animasiya kadrlarını idarə etmək üçün [`raf-stub`](https://github.com/alexreardon/raf-stub) alətini faydalı ola bilər.

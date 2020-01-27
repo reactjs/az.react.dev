@@ -51,7 +51,7 @@ class MyComponent extends React.Component {
           });
         },
         // Qeyd: komponentlərdə olan aktual xətaları udmamaq üçün
-        // AJAX xetəlarını `catch()` blokunda tutmaq əvəzinə burda
+        // AJAX xətəlarını `catch()` blokunda tutmaq əvəzinə burada
         // tutmaq vacibdir.
         (error) => {
           this.setState({
