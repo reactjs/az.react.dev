@@ -104,6 +104,7 @@ Pull request-i qəbul edə bilməmiz üçün CLA-ı imzalamanız lazımdır. Siz
 ### İştirak Etmək üçün Ön Şərtlər {#contribution-prerequisites}
 
 * [Node](https://nodejs.org)-un v8.0.0+ versiyasını və [Yarn](https://yarnpkg.com/en/)-ın v1.2.0+ versiyasını yükləyin.
+* [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)-i yükləyin.
 * `gcc`-in yükləndiyinizdən və ya lazım olduqda kompilyatoru yükləməkdə probleminizin olmadığından əmin olun. Bəzi asılılıqlara kompilyasiya addımı lazım ola bilər. macOS-da Xcode Command Line Tools-u yükləmək bəsdir. Ubuntu-da `apt-get install build-essential` əmri ilə lazımi paketləri yükləyə bilərsiniz. Digər Linux disto-larında buna oxşar əmrlər var. Windows-da bir neçə əlavə addım etmək lazımdır. Əlavə məlumat üçün [`node-gyp`-nin yükləmə təlimatlarına baxın](https://github.com/nodejs/node-gyp#installation).
 * Git ilə tanışlığınız olmalıdır.
 
@@ -153,19 +154,6 @@ Sonra, kodunuzda olan bir çox problemləri tuta biləcək.
 Kod stilinini statusunu yoxlamaq üçün `yarn linc` əmrini icra edin.
 
 Lakin, bəzi stilləri linter tutmaya bilər. Əgər nədənsə əmin deyilsinizsə, [Airbnb-nin Stil Təlimatlarına](https://github.com/airbnb/javascript) baxın.
-
-### Giriş Videosu {#introductory-video}
-
-Bu [qısa videodan](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 dəq) React layihəsində iştirak etmək üçün giriş kimi istifadə edə bilərsiniz.
-
-#### Videoda olan məqamlar: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - React-in lokal mühitdə qurulması və test edilməsi
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Pull request-lərin yaradılması və göndərilməsi
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Kodun orqanizasiyası
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm paketləri
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Yeni React xüsusiyyətlərinin əlavəsi
-
-React layihəsində ilk dəfə iştirak etməyin _necə_ olduğunun realistik icmalı üçün [bu əyləncəli ReactNYC danışığına baxın](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
 ### Kommentlər üçün Sorğu (RFC) {#request-for-comments-rfc}
 
