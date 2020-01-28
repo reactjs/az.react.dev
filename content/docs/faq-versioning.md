@@ -18,7 +18,7 @@ Böyük buraxılışlarda adətən yeni xüsusiyyətlər olur. Baq düzəlişlə
 
 Ən çox dərc edilən buraxılışlar kiçik buraxılışlardır.
 
->Bu versiya qaydaları Next və Eksperimental kanallarda olan ön buraxılışları daxil etmir. [Ön buraxılışlar üçün buradan oxuyun.](/docs/release-channels.html)
+> Bu versiya qaydaları Next və Eksperimental kanallarda olan ön buraxılışları daxil etmir. [Ön buraxılışlar üçün buradan oxuyun.](/docs/release-channels.html)
 
 ### Pozucu Dəyişikliklər {#breaking-changes}
 
@@ -36,7 +36,7 @@ React, milyondan çox proqramçı (kollektiv olaraq milyondan çox komponenti) t
 
 React-in development qurulmaları əlavə xəbərdarlıqlar ehtiva edir. Gələcək pozucu dəyişikliklərə hazırlıq üçün mümkün olduğu qədər xəbərdarlıqlar əlavə olunur. Əgər applikasiyanızın ən son buraxılışında xəbərdarlıqlar vermirsə, deməli applikasiyanızın React-in gələcək böyük buraxılışına hazırdır. Bu, applikasiyadakı komponentləri tək-tək yeniləməyə imkan verir.
 
-Development xəbədarlıqları applikasiyanın icra zamanı davranışına təsir etmir. Bu səbəbdən, applikasiyanın development və produksiya qurulmalarının eyni işləməsindən əmin ola bilərsiniz. Produksiya qurulmasında xəbərdarlıqlar loq olunmur və produksiya qurulması daha səmərəli işləyir. (Əgər sizdə produksiya kodu səmərəli işləmirsə və ya xəbərdarlıqlar görünürsə, bizə issue təqdim edin.)
+Development xəbədarlıqları applikasiyanın icra davranışına təsir etmir. Bu səbəbdən, applikasiyanın development və produksiya qurulmalarının eyni işləməsindən əmin ola bilərsiniz. Produksiya qurulmasında xəbərdarlıqlar loq olunmur və produksiya qurulması daha səmərəli işləyir. (Əgər sizdə produksiya kodu səmərəli işləmirsə və ya xəbərdarlıqlar görünürsə, bizə issue təqdim edin.)
 
 ### Nələr Pozucu Dəyişiklikdir? {#what-counts-as-a-breaking-change}
 
@@ -44,7 +44,7 @@ Adətən, aşağıdakı dəyişikliklərə böyük versiya artımı *etmirik*:
 
 * **Development xəbərdarlıqlarına.** Bu yeniliklərin produksiya davranışlarına təsir etmədiyindən biz böyük versiyalar arası yeni xəbərdarlıqlar əlavə edə bilər və ya mövcud xəbərdarlıqları dəyişə bilərik. Faktiki olaraq, proqramçıları gələcək pozucu dəyişiklər haqqında məlumatları bu formada çatdırırıq.
 * **`unstable_` adı ilə başlayan API-lara.** Bu API-lar eksperimental xüsusiyyətlər üçün işlədilir. Biz, bu xüsusiyyətlərin API-larından tam əmin deyilik. Bu xüsusiyyətləri `unstable_` prefiksi ilə dərc edərək daha tez iterasiya edə bilir və stabil API-a daha tez çata bilirik.
-* **React-in alfa və kanari versiyalarına.** React-in yeni xüsusiyyətlərini tez yoxlaya bilmək üçün React-in alfa versiyasını dərc edirik. Lakin, alfa zamanı öyrəndiklərimiz əsasında dəyişiklər etmə sərbəstliyinə ehtiyaçımız var. Nəzərə alin ki, bu versiyaları işlətdikdə API-lar dəyişə bilər.
+* **React-in alfa və kanari versiyalarına.** React-in yeni xüsusiyyətlərini tez yoxlaya bilmək üçün React-in alfa versiyasını dərc edirik. Lakin, alfa zamanı öyrəndiklərimiz əsasında dəyişiklər etmə sərbəstliyinə ehtiyacımız var. Nəzərə alin ki, bu versiyaları işlətdikdə API-lar dəyişə bilər.
 * **Sənədsiz API-lara və daxili strukturlara.** `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` və ya `__reactInternalInstance$uk43rzhitjg` kimi parametrləri işlətdikdə heç bir qarantiya yoxdur. Bu zaman öz başınasınız.
 
 Bu qanun, praqmatik olmaq üçün dizayn olunub. Biz, sizin üçün baş ağrıları yaratmaq istəmirik. Əgər göstərilən dəyişikliklər üçün böyük versiya artırsaq, çoxlu böyük versiya artımlarına və cəmiyyətdə versiya problemlərinin yaranmasına səbəb ola bilərik. Bu, həmçinin bizim React üzərində etdiyimiz irəliləyişləri yavaşlada bilər.
@@ -57,7 +57,7 @@ Kiçik buraxılışda yeni xüsusiyyət olmaya bilər. [Semver buna icazə verir
 
 Bu buraxılışların niyə yamaq versiyasında olmaması sualı yaranır.
 
-React-ə (və ya hər hansı bir proqram təminatına) dəyişiklik etdikdə gözlənilməz problemlərin yaranması riksi artır. Yamaq versiyasının bir baqı düzəldərək istəmədən yeni bir baqı yaratma ssenarisini fikirləşin. Bu, proqramçılar üçün hem pozucu olaraq gələcək, həm də yamaq versiyalara etibarı azaldacaq. Praktikada nadir hallarda rast gəlinən baqı düzəltdikdə bu ssenari daha acınacaqlı olur.
+React-ə (və ya hər hansı bir proqram təminatına) dəyişiklik etdikdə gözlənilməz problemlərin yaranması riksi artır. Yamaq versiyasında bir baqı düzəldərək istəmədən yeni bir baqı yaratma ssenarisini fikirləşin. Bu, proqramçılar üçün həm pozucu olaraq gələcək, həm də yamaq versiyalara etibarı azaldacaq. Praktikada nadir hallarda rast gəlinən baqı düzəltdikdə bu ssenari daha acınacaqlı olur.
 
 React buraxılışlarını baqsız dərc edilməsində kifayət qədər yaxşı təcrübəmiz var. Lakin, proqramçılar yamaq buraxılışların problemsiz adaptasiyasını ehtimal etdiklərinə görə, yamaq buraxılışların etibarlılıq dərəcəsi daha yüksək olmalıdır.
 

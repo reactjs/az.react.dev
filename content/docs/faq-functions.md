@@ -18,7 +18,7 @@ Hadisə işləyicisində valideyn komponentdən istifadə etmək istədikdə, fu
 
 ### Funksiyanı komponent instansiyasına necə bind edə bilərəm? {#how-do-i-bind-a-function-to-a-component-instance}
 
-Funksiyaların `this.props` və `this.state` kimi atributları istifadə etməsi üçün bir neçə yolu var, qurulma addımından və sintaksisdən asılı olaraq.
+Qurulma addımından və sintaksisdən asılı olaraq funksiyaların `this.props` və `this.state` kimi atributları istifadə etməsi üçün bir neçə yolu var.
 
 #### Konstruktorda Bind etmək (ES2015) {#bind-in-constructor-es2015}
 

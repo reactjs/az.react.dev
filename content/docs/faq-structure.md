@@ -39,7 +39,7 @@ profile/
 
 #### Fayl tipi əsasında qruplamaq {#grouping-by-file-type}
 
-Oxşar faylları bir yerdə qrupqruplaşdıraraq layihələri struktur etməyin başqa yoludur:
+Oxşar faylları bir yerdə qruplaşdıraraq layihələri struktur etməyin başqa yoludur:
 
 ```
 api/

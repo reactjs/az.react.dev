@@ -18,7 +18,7 @@ Ajax çağırışından gələn bütün məlumatları [`componentDidMount`](/doc
 
 Aşağıdakı komponent `componentDidMount`-dan Ajax çağırışı edərək lokal komponent state-nin doldurulmasını göstərir. 
 
-Nümunədəki API belə bir JSON obyekt qaytarır:
+Nümunədəki API belə bir JSON obyekti qaytarır:
 
 ```
 {
