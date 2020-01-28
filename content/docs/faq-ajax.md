@@ -6,19 +6,19 @@ layout: docs
 category: FAQ
 ---
 
-### AJAX çağırış nə cür edə bilərəm? {#how-can-i-make-an-ajax-call}
+### AJAX çağırışını nə cür edə bilərəm? {#how-can-i-make-an-ajax-call}
 
 React ilə istədiyiniz Ajax kitabxanasını işlədə bilərsiniz. Populyar kitabxanalar: [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), və brauzerə qurulmuş [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### Komponent yaşama tsiklinin harasında Ajax çağırışları etməliyəm? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
+### Komponent lifecycle-nın hansı mərhələsində Ajax çağırışı etməliyəm? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
-Ajax çağırışdan gələn bütün məlumatları [`componentDidMount`](/docs/react-component.html#mounting) yaşama tsikli funksiyasından tətbiq etməlisiniz. Bunun səbəbi, məlumat alındıqda `setState` ilə komponenti yeniləməkdən imkanının olmasıdır.
+Ajax çağırışından gələn bütün məlumatları [`componentDidMount`](/docs/react-component.html#mounting) lifecycle funksiyasından tətbiq etməlisiniz. Bunun səbəbi, məlumat alındıqda `setState` ilə komponenti yeniləmək imkanının olmasıdır.
 
-### Nümunə: AJAX nəticələrinin lokal veziyyətə yazılması {#example-using-ajax-results-to-set-local-state}
+### Nümunə: AJAX nəticələrinin lokal state-ə yazılması {#example-using-ajax-results-to-set-local-state}
 
-Aşağıdakı komponent `componentDidMount`dan Ajax çağırış edib lokal komponent vəziyyətinin doldurulmasını göstərir. 
+Aşağıdakı komponent `componentDidMount`-dan Ajax çağırışı edərək lokal komponent state-nin doldurulmasını göstərir. 
 
-Nümunə API belə bir JSON obyekt göndərir:
+Nümunədəki API belə bir JSON obyekti qaytarır:
 
 ```
 {
@@ -51,8 +51,8 @@ class MyComponent extends React.Component {
           });
         },
         // Qeyd: komponentlərdə olan aktual xətaları udmamaq üçün
-        // AJAX xetəlarını `catch()` blokunda tutmaq əvəzinə burda
-        // tutmaq daha vacibdir.
+        // AJAX xətəlarını `catch()` blokunda tutmaq əvəzinə burada
+        // tutmaq vacibdir.
         (error) => {
           this.setState({
             isLoaded: true,
