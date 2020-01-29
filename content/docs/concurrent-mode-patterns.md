@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-patterns
-title: Concurrent UI Patterns (Experimental)
+title: Konkurrent UI Həlləri (Eksperimental)
 permalink: docs/concurrent-mode-patterns.html
 prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
@@ -15,37 +15,37 @@ next: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Caution:
+>Xəbərdarlıq:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now. For example, if you're looking for a data fetching tutorial that works today, read [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) instead.
+>Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
 
 </div>
 
-Usually, when we update the state, we expect to see changes on the screen immediately. This makes sense because we want to keep our app responsive to user input. However, there are cases where we might prefer to **defer an update from appearing on the screen**.
+Adətən, state-i yenilədikdə dəyişiklikləri ekranda dərhal görmək istəyirik. Applikasiyanı istifadəçi daxil etməsini tez cavablandırmasını istədiyimizdən bu fikir məntiqli gəlir. Lakin, bəzi ssenarilərdə **yeniliyin ekranda görünməsini gecikdirmək istəyə bilərik**.
 
-For example, if we switch from one page to another, and none of the code or data for the next screen has loaded yet, it might be frustrating to immediately see a blank page with a loading indicator. We might prefer to stay longer on the previous screen. Implementing this pattern has historically been difficult in React. Concurrent Mode offers a new set of tools to do that.
+Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səhifəyə aid olan heç bir kod və ya məlumat yüklənmədiyi hallda yükləmə göstəricisi ilə boş səhifənin görünməsi əsəbləşdirici ola bilər. Biz, əvvəlki ekranda daha uzun qalmaq istəyə bilərik. Tarix boyu bu həlli React-də düzəltmək çətin olub. Lakin, Konkurrent Modundan bunu həll etmək üçün yeni alətlər əlavə olunub.
 
-- [Transitions](#transitions)
-  - [Wrapping setState in a Transition](#wrapping-setstate-in-a-transition)
-  - [Adding a Pending Indicator](#adding-a-pending-indicator)
-  - [Reviewing the Changes](#reviewing-the-changes)
-  - [Where Does the Update Happen?](#where-does-the-update-happen)
-  - [Transitions Are Everywhere](#transitions-are-everywhere)
-  - [Baking Transitions Into the Design System](#baking-transitions-into-the-design-system)
-- [The Three Steps](#the-three-steps)
-  - [Default: Receded → Skeleton → Complete](#default-receded-skeleton-complete)
-  - [Preferred: Pending → Skeleton → Complete](#preferred-pending-skeleton-complete)
-  - [Wrap Lazy Features in `<Suspense>`](#wrap-lazy-features-in-suspense)
-  - [Suspense Reveal “Train”](#suspense-reveal-train)
-  - [Delaying a Pending Indicator](#delaying-a-pending-indicator)
-  - [Recap](#recap)
-- [Other Patterns](#other-patterns)
-  - [Splitting High and Low Priority State](#splitting-high-and-low-priority-state)
-  - [Deferring a Value](#deferring-a-value)
+- [Keçidlər](#transitions)
+  - [setState-i Keçid ilə Əhatə Etmək](#wrapping-setstate-in-a-transition)
+  - [Yükləmə Göstəricini Əlavə Etmək](#adding-a-pending-indicator)
+  - [Dəyişiklikləri Nəzərdən Keçirmək](#reviewing-the-changes)
+  - [Yeniliklər Harada Baş Verir?](#where-does-the-update-happen)
+  - [Keçidlər Hər Yerdədir](#transitions-are-everywhere)
+  - [Keçidləri Dizayn Sisteminə Əlavə Etmək](#baking-transitions-into-the-design-system)
+- [Üç Addım](#the-three-steps)
+  - [Sadə: Qayıtmış → Skelet → Tam](#default-receded-skeleton-complete)
+  - [Üstünlük Verilən: Yüklənən → Skelet → Tam](#preferred-pending-skeleton-complete)
+  - [Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin](#wrap-lazy-features-in-suspense)
+  - [Suspense-lərin Aşkar Olunması “Qatarı”](#suspense-reveal-train)
+  - [Yükləmə Göstəricisini Gecikdirmək](#delaying-a-pending-indicator)
+  - [Xülasə](#recap)
+- [Digər Həllər](#other-patterns)
+  - [Yüksək və Açağı Priooritetli State-ləri Parçalamaq](#splitting-high-and-low-priority-state)
+  - [Dəyəri Gecikdirmək](#deferring-a-value)
   - [SuspenseList](#suspenselist)
-- [Next Steps](#next-steps)
+- [Sonrakı Addımlar](#next-steps)
 
 ## Transitions {#transitions}
 
