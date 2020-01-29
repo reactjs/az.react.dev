@@ -17,13 +17,13 @@ next: concurrent-mode-patterns.html
 
 >Xəbərdarlıq:
 >
->Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdalıqsız əhəmiyyətli dərəcədə dəyişilə bilər.
+>Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
->Bu sənədlər erkən məniməyənlən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, buradakı xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
+>Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
 
 </div>
 
-React 16.6-dan başlayaraq bəzi kodların "yüklənib" və yüklənmə vəziyyətini (məsələn, spinner) deklarativ şəkildə təyin etmək üçün `<Suspense>` komponenti əlavə olundu:
+React 16.6-dan başlayaraq bəzi kodları "yükləmək" və yüklənmə vəziyyətini (məsələn, spinner) deklarativ şəkildə təyin etmək üçün `<Suspense>` komponenti əlavə olundu:
 
 ```jsx
 const ProfilePage = React.lazy(() => import('./ProfilePage')); // lazy şəkildə yüklənir
@@ -40,7 +40,7 @@ Məlumat Yüklənməsi üçün Suspense `<Suspense>`-dən istifadə edərək **m
   - [Suspense Nə Deyil?](#what-suspense-is-not)
   - [Suspense ilə Nə Etmək Mümkündür?](#what-suspense-lets-you-do)
 - [Suspense-in Praktikada İşlədilməsi](#using-suspense-in-practice)
-  - [Relay İşlətmirəmsə Etməliyəm?](#what-if-i-dont-use-relay)
+  - [Relay İşlətmədikdə Nə Etməliyəm?](#what-if-i-dont-use-relay)
   - [Kitabxana Müəllifləri üçün](#for-library-authors)
 - [Ənənəvi Yanaşmalar vs Suspense](#traditional-approaches-vs-suspense)
   - [Yanaşma 1: Render Zamanı Yükləmək (Suspense-dən istifadə edilmir)](#approach-1-fetch-on-render-not-using-suspense)
@@ -58,7 +58,7 @@ Məlumat Yüklənməsi üçün Suspense `<Suspense>`-dən istifadə edərək **m
 
 ## Tam Olaraq Suspense Nədir? {#what-is-suspense-exactly}
 
-Suspense, komponentlərinizin render olunmamışdan öncə nəyisə "gözləməsinə" imkan yaradır. [Aşağıdakı nümunədə](https://codesandbox.io/s/frosty-hermann-bztrp) iki kompontnt asinxron API çağırışlarının bəzi məlumatları yükləməsini gözləyir:
+Suspense, komponentlərinizin render olunmamışdan öncə nəyisə "gözləməsinə" imkan yaradır. [Aşağıdakı nümunədə](https://codesandbox.io/s/frosty-hermann-bztrp) iki kompontent asinxron API çağırışlarının bəzi məlumatları yükləməsini gözləyir:
 
 ```js
 const resource = fetchProfileData();
@@ -103,13 +103,13 @@ Biz gələcəkdə Suspense-in komponentlərdən asinxron məlumatları oxumaq ü
 
 ### Suspense Nə Deyil? {#what-suspense-is-not}
 
-Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyindən bu haqqda ilə dəfə oxuduqda səhv anlayışlara səbəb ola bilər. Gəlin, bəzi anlaşılmazlıqlara aydınlıq gətirək:
+Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyindən bu haqqda ilk dəfə oxuduqda səhv anlayışlara səbəb ola bilər. Gəlin, bəzi anlaşılmazlıqlara aydınlıq gətirək:
 
  * **Bu, məlumat yüklənməsinin tətbiqi deyil.** Bu mexanizm, sizin GraphQL, REST və ya digər məlumat formatı, ötürücüsü və ya protokolu işlətməniz haqqında heç nə fərz etmir.
 
  * **Bu, klientdə işlətmək üçün hazır deyil.** `fetch` və ya Relay-i Suspense ilə əvəzləmək mümkün deyil. Lakin, Suspense ilə inteqrasiya olmuş kitabxanalardan (məsələn, [Relay-in yeni API-ları](https://relay.dev/docs/en/experimental/api-reference)) istifadə etmək mümkündür.
 
- * **Bu mexanizmdə məlumat yüklənməsini görünüş təbəqəsinə qoşmur.** Suspense ilə yüklənmə vəziyyətlərini göstərməyin mümkün olduğuna baxmayaraq bu mexanizm şəbəkə məntiqlərini React komponentlərinə bağlamır.
+ * **Bu, məlumat yüklənməsini görünüş təbəqəsinə qoşmur.** Suspense ilə yüklənmə vəziyyətlərini göstərməyin mümkün olduğuna baxmayaraq bu mexanizm şəbəkə məntiqlərini React komponentlərinə bağlamır.
 
 ### Suspense ilə Nə Etmək Mümkündür? {#what-suspense-lets-you-do}
 
@@ -119,15 +119,15 @@ Suspense-in mənası nədir? Buna dörd yol ilə cavab vermək olar:
 
 * **Bu, niyyətli dizayn olunmuş yükləmə vəziyyətlərini orkestrasiya etməyə imkan yaradır.** Bu mexanizm, məlumatın _necə_ yükləndiyi haqqında heç nə demir, amma applikasiyanın vizual yükləmə ardıcıllığını yaxından idarə etməyə imkan yaradır.
 
-* **Bu, sizə ötmə şərtlərindən qaçınmağa kömək edirs.** Hətta `await` olduqda belə asinxron kod xətalara meyllidir. Suspense işlətdikdə məlumatların artıq yüklənmiş olduğu və *sinxron* oxunduğu hiss olunur.
+* **Bu, sizə ötmə şərtlərindən qaçınmağa kömək edir.** Hətta `await` olduqda belə asinxron kod xətalara meyllidir. Suspense işlətdikdə məlumatların artıq yüklənmiş olduğu və *sinxron* oxunduğu hiss olunur.
 
 ## Suspense-in Praktikada İşlədilməsi {#using-suspense-in-practice}
 
 Biz, Facebook-da yalnız Relay-in Suspense inteqrasiyasını işlətmişik. **Əgər başlamaq üçün praktiki bələdçi axtarırsınızsa, [Relay Sənədlərinə](https://relay.dev/docs/en/experimental/step-by-step) baxın!** Burada, produksiyada yaxşı nəticələr göstərən pattern-lər göstərilib.
 
-**Bu səhifədəki nümunələrdə Relay əvəzinə "saxta" API tətbiqlərindən istifadə olunur.** Bu, sizin GraphQL ilə tanışılığınız olmadığı hallda sizin bu anlayışları başa düşmənizi asanlaşdırır. Lakin, bu sənəddə Suspense ilə "düzgün" applikasiyanın yazılması haqqında danışılmır. Bu səhifədə daha çox anlayışlardan danışılır və sizə Suspense-in *niyə* müəyyən formada işləməsini və hansı problemləri həll etməsini görmənizə kömək etməyə.
+**Bu səhifədəki nümunələrdə Relay əvəzinə "saxta" API tətbiqlərindən istifadə olunur.** Bu, sizin GraphQL ilə tanışlığınız olmadığı hallda sizin bu anlayışları başa düşmənizi asanlaşdırır. Lakin, bu sənəddə Suspense ilə "düzgün" applikasiyanın yazılması haqqında danışılmır. Bu səhifədə daha çox anlayışlardan danışılır və Suspense-in *niyə* müəyyən formada işlədiyi və hansı problemləri həll etdiyi haqqda məlumatlar verilir.
 
-### Relay İşlətmirəmsə Etməliyəm? {#what-if-i-dont-use-relay}
+### Relay İşlətmədikdə Nə Etməliyəm? {#what-if-i-dont-use-relay}
 
 Əgər Relay işlətmirsinizsə, applikasiyanızda Suspense-i istifadə etmək üçün gözləməli olacaqsınız. İndiki zamanda, produksiyada yoxladığımız yeganə tətbiq Relay-dir və bunun işlədiyindən əminik.
 
@@ -137,27 +137,27 @@ Siz, məlumat kitabxanası üçün özünüzün inteqrasiyasını da yaza bilər
 
 ### Kitabxana Müəllifləri üçün {#for-library-authors}
 
-Biz digər kitabxanalar üzərində cəmiyyətdən çoxlu eksperimentlər etməsini gözləyirik. Bizim məlumat yüklənməsi kitabxanalarının müəllifləri üçün vacib bir qeydimiz var.
+Biz, cəmiyyətin digər kitabxanalar üzərində çoxlu eksperimentlər etməsini gözləyirik. Bizim məlumat yüklənməsi kitabxanalarının müəllifləri üçün vacib bir qeydimiz var.
 
-Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlamaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
+Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlatmaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
 
-Əgər sizdə şəlalələrin qabağını kəsmək üçün həlliniz yoxdursa, render etmədən öncə yüklənməni üstün tutan API-lardan istifadə etməyi tövsiyyə edirik. Dəqiq nümunə üçün [Relay Suspense API-ının](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) öncədən yükləməni necə tətbiq etdiyinə baxın. Bizim bu haqqda mesajımız hər zaman dəyişib. Məlumat Yüklənməsi üçün Suspense-in eksperimental olduğundan bizim produksiyada olan istifadədə öyrəndiyimiklərimiz və problem sahəsində anlayışlarımız əsasında tövsiyyələrimizin vaxt ilə dəyişəcəyini gözləyə bilərsiniz.
+Əgər şəlalələrin qabağını kəsmək üçün həlliniz yoxdursa, render etmədən öncə yüklənməni üstün tutan API-lardan istifadə etməyi tövsiyyə edirik. Dəqiq nümunə üçün [Relay Suspense API-ının](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) öncədən yükləməni necə tətbiq etdiyinə baxın. Bizim bu haqqda mesajımız hər zaman dəyişib. Məlumat Yüklənməsi üçün Suspense-in eksperimental olduğundan bizim produksiyada olan istifadədə öyrəndiklərimiz və problem sahəsində anlayışlarımız əsasında tövsiyyələrimizin vaxt ilə dəyişəcəyini gözləyə bilərsiniz.
 
 ## Ənənəvi Yanaşmalar vs Suspense {#traditional-approaches-vs-suspense}
 
-Biz populyar məlumat yükləmələri yanaşmalarından danışmadan Suspense-i təqdim edə bilərdik. Lakin, belə etdikdə Suspense-in hansı problemləri həll etdiyini, bu problemləri həll etməyin niyə faydalı olduğunu və Suspense-in mövcud həllərdən necə fərqli olduğunu görmək çətinləşəcək.
+Biz populyar məlumat yükləmələri yanaşmalarından danışmadan Suspense-i təqdim edə bilərdik. Lakin, belə etdikdə Suspense-in hansı problemləri həll etdiyini, bu problemləri həll etməyin niyə faydalı olduğunu və Suspense-in mövcud həllərdən necə fərqləndiyini görmək çətinləşəcək.
 
 Bu səbəbdən, biz Suspense-ə mövcud yanaşmaların növbəti məntiqi kimi baxırıq:
 
 * **Render Zamanı Yükləmək (məsələn, `useEffect`-də `fetch` çağırışı):** Komponentləri render etməyə başlayın. Hər komponent öz effekt və lifecycle metodlarında məlumat yükləməsini icra edə bilər. Bu yanaşma adətən "şəlalələrə" səbəb olur.
 * **Yüklədikdən Sonra Render Etmək (məsələn, Suspense-siz Relay):** Sonrakı səhifə üçün məlumat yükləməsini ən tez zamanda başlayın. Məlumat hazır olduqda yeni səhifəni render edin. Məlumat gələnə kimi heç nə edə bilmirik.
-* **Yükləndikcə Render Etmək (məsələn, Suspense ilə Relay):** Sonrakı səhifədə lazım olan məlumatları ən yükləməyə başladıqdan *dərhal sonra (şəbəkə cavabı gəlməmişdən öncə)*. Məlumat axdıqca React, məlumatlardan asılı olan komponentləri render etməyə cəhd edir. Bütün komponentlər üçün məlumatlar hazır olduqda komponentlər render edilir.
+* **Yükləndikcə Render Etmək (məsələn, Suspense ilə Relay):** Sonrakı səhifəni, lazım olan məlumatları yükləməyə başladıqdan *dərhal sonra (şəbəkə cavabı gəlməmişdən öncə)* render etməyə başlayın. Məlumat gəldikdə React, məlumatlardan asılı olan komponentləri render etməyə cəhd edir. Bütün komponentlər üçün məlumatlar hazır olduqda komponentlər render edilir.
 
 >Qeyd
 >
->Bu sadələşdirilmiş icmaldır. Praktiki həllərdə bir neçə yanaşmanın kombinasiyasından istifadə edilir. Amma, biz yenə də bu yanaşmaların kompromislərini müqayisə etmək üçün bunlara ayrılıqda baxacağıq.
+>Bu, sadələşdirilmiş icmaldır. Praktiki həllərdə bir neçə yanaşmanın kombinasiyasından istifadə edilir. Amma, biz yenə də bu yanaşmaların kompromislərini müqayisə etmək üçün bunlara ayrılıqda baxacağıq.
 
-Bu yanaşmaları müqayisə etmək üçün biz hər bir yanaşmada profayl səhifəsi tətbiq edəcəyik.
+Bu yanaşmaları müqayisə etmək üçün biz hər bir yanaşma ilə profayl səhifəsi tətbiq edəcəyik.
 
 ### Yanaşma 1: Render Zamanı Yükləmək (Suspense-dən İstifadə Edilmir) {#approach-1-fetch-on-render-not-using-suspense}
 
@@ -235,9 +235,9 @@ Məlumatların render zamanı yükləndiyi kodlarda şəlalələrin olması norm
 
 ### Yünaşma 2: Yüklədikdən Sonra Render Etmək (Suspense-dən istifadə edilmir) {#approach-2-fetch-then-render-not-using-suspense}
 
-Bəzi kitabxanalar məlumat yüklənməsini mərkəzləşdirərək şəlalələrin qarşısını ala bilir. Məsələn, bu problemi həll etmək üçün Relay, komponentə lazım olan məlumatları statik analiz oluna bilən *fraqmentlərə* ayırır və bu fraqmentləri tək sorğuya birləşdirir.
+Bəzi kitabxanalar məlumat yüklənməsini mərkəzləşdirərək şəlalələrin qarşısını ala bilirlər. Məsələn, bu problemi həll etmək üçün Relay, komponentə lazım olan məlumatları statik analiz oluna bilən *fraqmentlərə* ayırır və bu fraqmentləri tək sorğuya birləşdirir.
 
-Bu sənəddə sizin Relay-dəna anlayışınızın olduğunu fərz etmədiyimizdən biz nümunələrdə Relay-dən istifadə etməyəcəyik. Əvəzinə, biz, məlumat yüklənmə əməliyyatlarını birləşdirərək Relay-in işləməsinə bənzər nümunə yazacağıq:
+Bu sənəddə sizin Relay-dən anlayışınızın olduğunu fərz etmədiyimizdən biz nümunələrdə Relay-dən istifadə etməyəcəyik. Əvəzinə, biz, məlumat yüklənmə əməliyyatlarını birləşdirərək Relay-in işləməsinə bənzər nümunə yazacağıq:
 
 ```js
 function fetchProfileData() {
@@ -303,9 +303,9 @@ Bu nümunədə, hadisə ardıcıllığı aşağıdakı formada olacaq:
 4. İstifadəçi məlumatlarını yükləməyi bitiririk
 5. Yazıları yükləməyi bitiririk
 
-Biz əvvəlki şəbəkə "şəlaləsini" həll edik, amma təsadüfən fərqli problem yaratdıq. Biz, `Promise.all()`-dan istifadə edərək `fetchProfileData`-da yüklənən *bütün* məlumatları gözləyirik. Bu səbəbdən, Yazılar yüklənməyənə kimi profayl detallarını render edə bilmir. Biz, hər iki məlumatı gözləməliyik.
+Biz əvvəlki şəbəkə "şəlaləsini" həll edik, amma təsadüfən fərqli problem yaratdıq. Biz, `Promise.all()`-dan istifadə edərək `fetchProfileData`-da yüklənən *bütün* məlumatları gözləyirik. Bu səbəbdən, yazılar yüklənməyənə kimi profayl detallarını render edilmir. Biz, hər iki məlumatı gözləməliyik.
 
-Əlbəttə ki, bu nümunəyə düzəliş etmək mümkündür. Biz, `Promise.all()` çağırışını silin hər iki Promise-i ayrılıqda gözləyə bilərik. Lakin, komponent ağacı böyüdükcə və məlumat strukturları mürəkkəbləşdikcə, bu yanaşma proqressiv olaraq çətinləşəcək. Məlumat ağacının ixtiyari hissələri olmadıqda və ya köhnəldikdə etibarlı komponetlərin yazılması çətinləşir. Bu səbəbdən, yeni səhifə üçün lazım olan bütün məlumatları yüklədikdən *sonra* render etməni başlamaq daha praktikidir.
+Əlbəttə ki, bu nümunəyə düzəliş etmək mümkündür. Biz, `Promise.all()` çağırışını silib hər iki Promise-i ayrılıqda gözləyə bilərik. Lakin, komponent ağacı böyüdükcə və məlumat strukturları mürəkkəbləşdikcə, bu yanaşma proqressiv olaraq çətinləşəcək. Məlumat ağacının ixtiyari hissələri olmadıqda və ya köhnəldikdə etibarlı komponentlərin yazılması çətinləşir. Bu səbəbdən, yeni səhifə üçün lazım olan bütün məlumatları yüklədikdən *sonra* render etməni başlamaq daha praktikidir.
 
 ### Yanaşma 3: Yükləndikcə Render Etmək (Suspense ilə) {#approach-3-render-as-you-fetch-using-suspense}
 
@@ -321,7 +321,7 @@ Suspense ilə isə biz məlumatları yükləməyə başladıqdan sonrakı addım
 2. **Render etməni başla**
 3. **Məlumatları yükləməyi bitir**
 
-**Suspense istifadə etdikdə render etməni başlamaq üçün sorğunun cavabını gözləmək lazım deyil.** Faktiki olaraq, biz render etməni şəbəkə sorğusundan *dərhal sonra* başlayırıq:
+**Suspense istifadə etdikdə render etməni başlamaq üçün sorğunun cavabını gözləmək lazım deyil.** Faktiki olaraq, biz render etməni şəbəkə sorğusundan *dərhal sonra* başladırıq:
 
 ```js{2,17,23}
 // Bu, Promise deyil. Bu, Suspense inteqrasiyasından gələn xüsusi obyektdir.
@@ -345,7 +345,7 @@ function ProfileDetails() {
 }
 
 function ProfileTimeline() {
-  // Yazılar yüklənməsə belə bunu ozumağa başlayın
+  // Yazılar yüklənməsə belə bunu oxumağa başlayın
   const posts = resource.posts.read();
   return (
     <ul>
@@ -369,11 +369,11 @@ function ProfileTimeline() {
 
 Bu `resource` obyekti hələ ki mövcud olmayan amma vaxt ilə yüklənəcək məlumatı təmsil edir. `read()` funksiyasını çağırdıqda ya məlumat qəbul edilir, yada ki komponent "dayandırılır".
 
-**Daha çox məlumat mövcud olmağa başladıqca React, rendet etməni təkrarlayaraq hər dəfə ağacda daha da "dərini" render edə biləcək.** `resource.user` yükləndikdən sonra, `<ProfileDetails>` komponenti uğurla render ediləcək və `<h1>Profayl yüklənir...</h1>` fallback-i lazım olayacaq. Ən sonda, bütün məlumatlar alınacaq və ekranda heç bir fallback görünməyəcək.
+**Daha çox məlumat mövcud olmağa başladıqca React, render etməni təkrarlayaraq hər dəfə ağacda daha da "dərini" render edə biləcək.** `resource.user` yükləndikdən sonra, `<ProfileDetails>` komponenti uğurla render ediləcək və `<h1>Profayl yüklənir...</h1>` fallback-i lazım olmayacaq. Ən sonda, bütün məlumatlar alınacaq və ekranda heç bir fallback görünməyəcək.
 
-Bu mexanismin maraqlı təsiri var. Biz bütün məlumat tələblərini bir sorğuda göndərən GraphQL klienti işlətsək belə, *cavabların axını ilə biz kontenti daha tez göstərə bilirik*. Bizim *yüklədikcə* render etdiyimizdən (əvvəlki, yüklədikdən *sonra* render etməkdən fərqli olaraq) sorğu cavabında `user` məlumatı `posts` məlumatından tez gəldikdə biz sorğu cavabı bitməmişdən öncə xarici `<Suspense>` sərhədini "aça" bilirik. Biz əvvəl bunu gözdən qaçırmış ola bilərdik, amma yükləmədən sonra rendet etmək yanaşmasında da yükləmək və render etmək arasında şəlalə var idi. Suspense-in bu şəlalədən əziyyət çəkmədiyindən Relay kimi kitabxanalar bundan istifadə edə bilirlər.
+Bu mexanizmin maraqlı təsiri var. Biz bütün məlumat tələblərini bir sorğuda göndərən GraphQL klienti işlətsək belə, *biz cavablar geldikcə kontenti daha da tez göstərə bilirik*. Bizim *yüklədikcə* render etdiyimizdən (əvvəlki, yüklədikdən *sonra* render etməkdən fərqli olaraq) sorğu cavabında `user` məlumatı `posts` məlumatından tez gəldikdə biz sorğu cavabı bitməmişdən öncə xarici `<Suspense>` sərhədini "aça" bilirik. Biz əvvəl bunu gözdən qaçırmış ola bilərdik, amma yükləmədən sonra render etmək yanaşmasında da yükləmək və render etmək arasında şəlalə var idi. Suspense-in bu şəlalədən əziyyət çəkmədiyindən Relay kimi kitabxanalar bundan istifadə edə bilirlər.
 
-Nəzərə alın ki, biz komponentlərdən `if (...)` "yüklənir" yoxlamalarını sildik. Bu, əlavə ağırlıq gətirən kodları silməkdən əlavə çevik dizayn dəyişikliklərini də sadələşdirir. Məsələn, biz profayl məlumatlarının və yazıların eyni zamanda göstərilməsini istədikdə, bu komponentlər arasında olan `<Suspense>` sərhədlərini silə bilərik. Və ya komponent *öz* `<Suspense>` sərhədini verərək bir birindən ayıra bilərik. Suspense, yükləmə vəziyyətlərini dəyişməyə imkan yaradır və kodda böyük dəyişikliklər etmədən bu vəziyyətləri ardıcıllaşdıra bilir.
+Nəzərə alın ki, biz komponentlərdən `if (...)` "yüklənir" yoxlamalarını sildik. Bu, ağırlıq gətirən kodları silməkdən əlavə çevik dizayn dəyişikliklərini də sadələşdirir. Məsələn, biz profayl məlumatlarının və yazıların eyni zamanda göstərilməsini istədikdə, bu komponentlər arasında olan `<Suspense>` sərhədlərini silə bilər və ya komponentlərə *öz* `<Suspense>` sərhədlərini verərək bir birindən ayıra bilərik. Suspense, yükləmə vəziyyətlərini dəyişməyə imkan yaradır və kodda böyük dəyişikliklər etmədən bu vəziyyətləri ardıcıllaşdıra bilir.
 
 ## Yükləməni Tez Başlayın {#start-fetching-early}
 
@@ -396,7 +396,7 @@ function ProfileDetails() {
 
 Bu nümunədəki `read()` çağırışının yükləməni *başlatmadığına* fikir verin. Bu funksiya, *artıq yüklənmiş* məlumatları oxumağa çalışır. Suspense ilə tez işləyən applikasiyalar yaratmaq üçün bu fərq çox vacibdir. Biz, məlumat yüklənməsini komponent render olmağa başlayana kimi gecikdirmək istəmirik. Məlumat yüklənməsi kitabxanası müəllifi kimi yükləmə əməliyyatı başlamayana kimi `resource` obyektindən istifadə etməni saxlaya bilərsiniz. Bu qayda, bu səhifədə göstərilən nümunələrdə işlədilən "fake API-da" tətbiq edilir.
 
-Siz, obyektin "yuxarı səviyyədə" yüklənməsini praktiki olmamasını düşünə bilərsiniz. Digər profaylın səhifəsinə keçdikdə nə etmək lazımdır? Siz yükləməni proplar əsasında tətbiq etmək istəyə bilərsiniz. Bizim buna cavabımız **məlumat yükləməsini hadisə işləyicilərindən başlatmaqdır**. Aşağıdakı nümunədə istifadəçi səhifələri arasında naviqasiya etdilir:
+Siz, obyektin "yuxarı səviyyədə" yüklənməsinin praktiki olmadığını düşünə bilərsiniz. Məsələn, digər profaylın səhifəsinə keçid etdikdə nə etmək lazımdır? Siz yükləməni proplar əsasında tətbiq etmək istəyə bilərsiniz. Bu məsələləri həll etmək üçün **məlumat yükləməsini hadisə işləyicilərindən başladın**. Aşağıdakı nümunədə istifadəçi səhifələri arasında naviqasiya edilir:
 
 ```js{1,2,10,11}
 // İlkin yükləmə: ən tez zamanda
@@ -421,13 +421,13 @@ function App() {
 
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-feather-xjtbu)**
 
-Bu yanaşmadan istifadə etdikdə, biz **kod və məlumatları eyni zamanda yükləyə bilirik**. Səhifələr arasında naviqasiya etdikdə məlumatı yükləmək üçün səhifənin kodunun yüklənməsini gözləmək lazım deyil. Biz, kod və məlumatları eyni zamanda yükləməyə (link tıklandığı zaman) başlayadıqda daha yaxşı istifadəçi təcrübəsi təmin edə bilirik.
+Bu yanaşmadan istifadə etdikdə biz **kod və məlumatları eyni zamanda yükləyə bilirik**. Səhifələr arasında naviqasiya etdikdə məlumatı yükləmək üçün səhifənin kodunun yüklənməsini gözləmək lazım deyil. Biz, kod və məlumatları eyni zamanda yükləməyə (link tıklandığı zaman) başladıqda daha yaxşı istifadəçi təcrübəsi təmin edə bilirik.
 
 Bu yanaşma ilə sonrakı ekrandə *nəyin* render ediləcəyi sualı çıxır. Bunu həll etməyin bir neçə yolu var (məsələn, məlumat yükləməsini routing həllinə yaxınlaşdırmaq). Məlumat yükləməsi kitabxanası üzərində işlədiyiniz zaman bunun necə həll edilməsi və niyə vacib olduğu haqqda məlumat almaq üçün [Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) yazısına baxın.
 
 ### Bunun Üzərində hələ də İş Gedir {#were-still-figuring-this-out}
 
-Suspense təklikdə çox əyilən və çoxlu limitləri olmayan mexanizmdir. Lakin, şəlalələrin yaranmamasını təmin etmək üçün məhsul kodunda limitlər olmalıdır. Munu siğortalamaq üçün bir neçə yol var. Bizim araşdırdığımız bəzi suallar var:
+Suspense təklikdə çox əyilən və çoxlu limitləri olmayan mexanizmdir. Lakin, şəlalələrin yaranmamasını təmin etmək üçün istifadəçi kodunda limitlər olmalıdır. Bunu siğortalamaq üçün bir neçə yol var. Bizim araşdırdığımız bəzi suallar var:
 
 * Məlumat yükləməsini tez etməyin çətin olduğunu bilirik. Şəlalələrin olmaması fikri ilə bunu sadələşdirmək mümkündür?
 * Səhifə üçün məlumat yüklədiyimiz zaman bu səhifədən **tez şəkildə keçmək üçün** API-a əlavə məlumatlar əlavə etmək olar?
@@ -435,13 +435,13 @@ Suspense təklikdə çox əyilən və çoxlu limitləri olmayan mexanizmdir. Lak
 * Lazy-formada olan API-ları Proksilər ilə hər yerə `read()` çağırışları yazmadan ifadə etmək mümkündür?
 * GraphQL sorğularının kompozisiyasının ixtiyari Suspense məlumatında ekvivalenti necə olmalıdır?
 
-Relay-in bu sualların bəzilərinə cavabı var. Bunu etməyin birdən çox yolu var. Biz, React cəmiyyətinin gələcəyi yeni ideaları görməyimizə sevinirik.
+Relay-in bu sualların bəzilərinə cavabı var. Bunu etməyin birdən çox yolu var. Biz, React cəmiyyətinin gələcəyi yeni ideaları görməyə hazırıq.
 
 ## Suspense və Ötmə Şərtləri {#suspense-and-race-conditions}
 
-Ötmə şərtləri icra olunan kod haqqında səhv fərziyyələrə görə yaranan baqlardır. Bu baqlar, `useEffect` Hooku və ya `componentDidUpdate` kimi sinif lifecycle metodlarından çağrılan məlumat yükləmələrində tez-tez yaranır. Suspense burada bizə kömək edə bilir.
+Ötmə şərtləri, icra olunan kod haqqında səhv fərziyyələrə görə yaranan baqlardır. Bu baqlar, `useEffect` Hooku və ya `componentDidUpdate` kimi sinif lifecycle metodlarından çağrılan məlumat yükləmələrində tez-tez yaranır. Suspense burada bizə kömək edə bilər.
 
-Bu problemi göstərə bilmək üçün `<ProfilePage>` komponentini və **profayllar arasında keçid** edə bilmək üçün düymə render edən yuxarıda səviyyəli `<App>` komponentinə baxın:
+Bu problemi göstərə bilmək üçün `<ProfilePage>` komponentini və **profayllar arasında keçid** edə bilmək üçün düymə render edən yuxarı səviyyəli `<App>` komponentinə baxın:
 
 ```js{9-11}
 function getNextId(id) {
@@ -465,7 +465,7 @@ Gəlin, fərqli məlumat yükləmə strateqiyalarının bu tələbi necə həll 
 
 ### `useEffect` ilə Ötmə Şərtləri {#race-conditions-with-useeffect}
 
-İlk olaraq, "effekt zamanı yükləmə** nümunəsinin orijinal versiyasına baxacağıq. Bu kodda `id` parametrini `<ProfilePage>` komponentindən `fetchUser(id)` və `fetchPosts(id)` funksiyalarına göndərəcəyik:
+İlk olaraq, "effekt zamanı yükləmə" nümunəsinin orijinal versiyasına baxacağıq. Bu kodda `id` parametrini `<ProfilePage>` komponentindən `fetchUser(id)` və `fetchPosts(id)` funksiyalarına göndərəcəyik:
 
 ```js{1,5,6,14,19,23,24}
 function ProfilePage({ id }) {
@@ -592,7 +592,7 @@ Təəssüf ki, sinif və ya `async` / `await` sintaksisini işlətmək bizim pro
 
 ### Problem {#the-problem}
 
-React komponentlərinin öz "lifecycle"-ları var. Bu komponentlər istənilən zaman yeni proplar qəbul edə bilər və ya state-i yeniləyə bilər. Lakin, asinxron sorğuların öz "lifecycle"-ları var. Bu sorğular çağrıldığı zaman başlayır və cavab alındığı zaman bitir. Bu iki fərqli prosesi vaxtında "sinxronlaşdırmaq" çətindir.
+React komponentlərinin öz "lifecycle"-ları var. Bu komponentlər istənilən zaman yeni proplar qəbul edə bilər və ya state-i yeniləyə bilər. Lakin, asinxron sorğuların da özünə məxsus "lifecycle"-ları var. Bu, sorğular çağrıldığı zaman başlayır və cavab alındığı zaman bitir. Bu iki fərqli prosesi düz vaxtda "sinxronlaşdırmaq" çətindir.
 
 ### Suspense ilə Ötmə Şərtlərinin Həlli {#solving-race-conditions-with-suspense}
 
@@ -646,7 +646,7 @@ function ProfileTimeline({ resource }) {
 
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-feather-xjtbu)**
 
-Əvvəki Suspense nümunəsində yalnız bir `resource` obyekti olduğundan biz bu dəyişəni modula qlobal yerdə saxlayırdıq. İndi bizdə bir neçə resursun olduğundan bir bu obyekti `<App>` komponentinin state-inə köçürdük:
+Əvvəki Suspense nümunəsində yalnız bir `resource` obyekti olduğundan biz bu dəyişəni modula qlobal yerdə saxlayırdıq. İndi bizdə bir neçə resursun olduğundan biz bu obyekti `<App>` komponentinin state-inə köçürdük:
 
 ```js{4}
 const initialResource = fetchProfileData(0);
@@ -675,7 +675,7 @@ Bu kodu oxumaq asandır, amma əvvəlki versiyalardan fərqli olaraq Suspense ve
 
 ## Xətaların İdarə Olunması {#handling-errors}
 
-Promise-lər ilə kod yazdıqda xətaları `catch()` funksiyasında tutmaq lazım idi. Suspense işlətikdə Promise-lər *gözləmədiyimizdən* nə etmək lazımdır?
+Promise-lər ilə kod yazdıqda xətaları `catch()` funksiyasında tutmaq lazım idi. Suspense işlətikdə isə Promise-ləri *gözləmədiyimizdən* nə etmək lazımdır?
 
 Suspense ilə yükləmə xətalarını və render xətalarını eyni formada idarə edirik. Xətaları tutmaq üçün komponentlərdən yuxarıda [xəta sərhədləri](/docs/error-boundaries.html) render edirik.
 
@@ -719,7 +719,7 @@ function ProfilePage() {
 
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/adoring-goodall-8wbn7)**
 
-Bu sərhəddə həm render etmə xətaları, həm də Suspense məlumat yükləməsi zamanı yaranan xatalar tutulur. Biz, istədiyimiz qədər xəta sərhədi əlavə edə bilərik, amma bu sərhlərin yenini [niyyətli əlavə etməyi](https://aweary.dev/fault-tolerance-react/) tövsiyyə edirik.
+Bu sərhəddə həm render etmə xətaları, həm də Suspense məlumat yükləməsi zamanı yaranan xatalar tutulur. Biz, istədiyimiz qədər xəta sərhədi əlavə edə bilərik, amma bu sərhədlərin yenini [niyyətli seçməyi](https://aweary.dev/fault-tolerance-react/) tövsiyyə edirik.
 
 ## Sonrakı Addımlar {#next-steps}
 
