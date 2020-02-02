@@ -36,9 +36,9 @@ Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səh
   - [Keçidləri Dizayn Sisteminə Əlavə Etmək](#baking-transitions-into-the-design-system)
 - [Üç Addım](#the-three-steps)
   - [Sadə: Qayıtmış → Skelet → Tam](#default-receded-skeleton-complete)
-  - [Üstünlük Verilən: Yüklənən → Skelet → Tam](#preferred-pending-skeleton-complete)
+  - [Üstünlük Verilən: Yükləmə → Skelet → Tam](#preferred-pending-skeleton-complete)
   - [Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin](#wrap-lazy-features-in-suspense)
-  - [Suspense-lərin Aşkar Olunması “Qatarı”](#suspense-reveal-train)
+  - [Suspense-lərin Göstərilməsi “Qatarı”](#suspense-reveal-train)
   - [Yükləmə Göstəricisini Gecikdirmək](#delaying-a-pending-indicator)
   - [Xülasə](#recap)
 - [Digər Həllər](#other-patterns)
@@ -359,44 +359,44 @@ Düymə tıklandıqda keçid başlanır və daxilində `props.onClick()` çağr�
 
 Konkurrent Modunun komponentlərin izolyasiyasını və modulyarlığını itirmədən yaxşı istifadəçi təcrübəsi yaratdığını görə bilərik. React keçidləri koordinasiya edir.
 
-## The Three Steps {#the-three-steps}
+## Üç Addım {#the-three-steps}
 
-By now we have discussed all of the different visual states that an update may go through. In this section, we will give them names and talk about the progression between them.
+Biz yeniliyin keçdiyi vizual vəziyyətlərdən danışdıq. Bu bölmədə bu vəziyyətlərə ad verib aralarındakı irəliləmələrdən danışacağıq.
 
 <br>
 
-<img src="../images/docs/cm-steps-simple.png" alt="Three steps" />
+<img src="../images/docs/cm-steps-simple.png" alt="Üç addım" />
 
-At the very end, we have the **Complete** state. That's where we want to eventually get to. It represents the moment when the next screen is fully rendered and isn't loading more data.
+Ən sonda **Tam** (Complete) vəziyyətinə çatırıq. Biz, ən axırda bu vəziyyətə çatmaq istəyirik. Bu, məlumatın artıq yüklənmədiyi və sonrakı ekranın tam render olunması halını təmsil edir.
 
-But before our screen can be Complete, we might need to load some data or code. When we're on the next screen, but some parts of it are still loading, we call that a **Skeleton** state.
+Lakin, ekran Tam olmamışdan öncə bizə bəzi məlumat və ya kodları yükləmək lazım ola bilər. Sonrakı ekranda olduqda amma bəzi hissələr tam yüklənmədikdə biz bu vəziyyəti **Skelet** (Skeleton) adlandırırıq.
 
-Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
+Skelet vəziyyətinə çatmaq üçün iki əsas yol var. Biz bu iki yol arasında olan fərqləri nümunələr ilə göstərəcəyik.
 
-### Default: Receded → Skeleton → Complete {#default-receded-skeleton-complete}
+### Sadə: Qayıtmış → Skelet → Tam {#default-receded-skeleton-complete}
 
-Open [this example](https://codesandbox.io/s/prod-grass-g1lh5) and click "Open Profile". You will see several visual states one by one:
+[Bu nümunədə](https://codesandbox.io/s/prod-grass-g1lh5) "Open Profile" düyməsini tıklayın. Siz bir neçə vizual vəziyyətləri bir-bir görəcəksiniz:
 
-* **Receded**: For a second, you will see the `<h1>Loading the app...</h1>` fallback.
-* **Skeleton:** You will see the `<ProfilePage>` component with `<h2>Loading posts...</h2>` inside.
-* **Complete:** You will see the `<ProfilePage>` component with no fallbacks inside. Everything was fetched.
+* **Qayıtmış** (Receded): Çox qısa anlıq `<h1>Loading the app...</h1>` görünüşünü görəcəksiniz.
+* **Skelet:** `<ProfilePage>` komponentini `<h2>Loading posts...</h2>` görünüşü ilə görəcəksiniz.
+* **Tam:** Fallback-i olmayan `<ProfilePage>` komponentini görəcəksiniz. Burada bütün məlumatlar yüklənir.
 
-How do we separate the Receded and the Skeleton states? The difference between them is that the **Receded** state feels like "taking a step back" to the user, while the **Skeleton** state feels like "taking a step forward" in our progress to show more content.
+Qayıtmış və Skelet vəziyyətlərini necə ayırmaq olar? **̇Qayıtmış** vəziyyətində istifadəçinin "bir addım arxaya" getdiyi hiss olunur. **Skelet** vəziyyətində isə daha çox kontent göstərmək üçün istifadəçinin  "bir addım irəliyə" getdiyi hiss olunur.
 
-In this example, we started our journey on the `<HomePage>`:
+Bu nümunədə biz `<HomePage>` komponentindən başlayırıq:
 
 ```js
 <Suspense fallback={...}>
-  {/* previous screen */}
+  {/* əvvəlki ekran */}
   <HomePage />
 </Suspense>
 ```
 
-After the click, React started rendering the next screen:
+Düyməni tıkladıqdan sonra React sonrakı ekranı render etməyə başlayacaq:
 
 ```js
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={...}>
@@ -406,30 +406,30 @@ After the click, React started rendering the next screen:
 </Suspense>
 ```
 
-Both `<ProfileDetails>` and `<ProfileTimeline>` need data to render, so they suspend:
+Həm `<ProfileDetails>`, həm də `<ProfileTimeline>` komponentlərinin render olunması üçün məlumat lazımdır. Bu səbəbdən bu komponentlər dayandırılırlar:
 
 ```js{4,6}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
-    <Suspense fallback={<h2>Loading posts...</h2>}>
-      <ProfileTimeline /> {/* suspends! */}
+    <ProfileDetails /> {/* dayandırılır! */}
+    <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
+      <ProfileTimeline /> {/* dayandırılır! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-When a component suspends, React needs to show the closest fallback. But the closest fallback to `<ProfileDetails>` is at the top level:
+Komponent dayandırıldıqdan sonra React, ən yaxın fallback-i göstərəcək. Amma, `<ProfileDetails>` komponentinə ən yaxın fallback ən yuxarı səviyyədədir:
 
 ```js{2,3,7}
 <Suspense fallback={
-  // We see this fallback now because of <ProfileDetails>
-  <h1>Loading the app...</h1>
+  // <ProfileDetails> komponentinə görə burada fallback görəcəyik
+  <h1>Applikasiya yüklənir...</h1>
 }>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* dayandırılır! */}
     <Suspense fallback={...}>
       <ProfileTimeline />
     </Suspense>
@@ -437,52 +437,52 @@ When a component suspends, React needs to show the closest fallback. But the clo
 </Suspense>
 ```
 
-This is why when we click the button, it feels like we've "taken a step back". The `<Suspense>` boundary which was previously showing useful content (`<HomePage />`) had to "recede" to showing the fallback (`<h1>Loading the app...</h1>`). We call that a **Receded** state.
+Bu səbəbdən düyməni tıkladıqda "bir addım geriyə getdiyimizi" hiss edirik. Əvvəl faydalı kontent (`<HomePage />`) göstərən `<Suspense>` sərhədi fallback-ə (`<h1>Applikasiya yüklənir...</h1>`) "qayıtmağa" məcbur oldu. Biz addımı **Qayıtmış** vəziyyət adlandırırıq.
 
-As we load more data, React will retry rendering, and `<ProfileDetails>` can render successfully. Finally, we're in the **Skeleton** state. We see the new page with missing parts:
+Məlumat yükləndikcə React render etməni təkrar edəcək və `<ProfileDetails>` komponenti uğurla render ediləcək. İndi, biz **Skelet** vəziyyətinə çatırıq. Biz əskik hissəli səhifəni görürük:
 
 ```js{6,7,9}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={
-      // We see this fallback now because of <ProfileTimeline>
-      <h2>Loading posts...</h2>
+      // <ProfileTimeline> komponentinə görə bu fallback-i görürük
+      <h2>Yazılar yüklənir...</h2>
     }>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* dayandırılır! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-Eventually, they load too, and we get to the **Complete** state.
+Ən axırda, hər iki komponent yüklənir və biz **Tam** vəziyyətinə çatırıq.
 
-This scenario (Receded → Skeleton → Complete) is the default one. However, the Receded state is not very pleasant because it "hides" existing information. This is why React lets us opt into a different sequence (**Pending** → Skeleton → Complete) with `useTransition`.
+Bu (Qayıtmış → Skelet → Tam) standart ssenaridir. Lakin, Qayıtmış vəziyyətin mövcud məlumatları "gizlətdiyindən" bu vəziyyət xoş deyil. Bu səbəbdən React bizə `useTransition` Hookundan istifadə edərək fərqli ardıcıllıqdan (**Yükləmə** → Skelet → Tam) istifadə etməyə imkan yaradır.
 
-### Preferred: Pending → Skeleton → Complete {#preferred-pending-skeleton-complete}
+### Üstünlük Verilən: Yükləmə → Skelet → Tam {#preferred-pending-skeleton-complete}
 
-When we `useTransition`, React will let us "stay" on the previous screen -- and show a progress indicator there. We call that a **Pending** state. It feels much better than the Receded state because none of our existing content disappears, and the page stays interactive.
+`useTransition` işlətdikdə biz köhnə səhifədə "qalıb" proqres göstərici göstərə bilirik. Biz bu addımı **Yükləmə** (Pending) vəziyyəti adlandırırıq. Mövcud kontentin itmədiyindən və səhifənin interaktiv qaldığından bu vəziyyət Qayıtmış vəziyyətindən daha yaxşıdır.
 
-You can compare these two examples to feel the difference:
+Bu vəziyyətlərin fərqini görmək üçün aşağıdakı nümunələri müqayisə edin:
 
-* Default: [Receded → Skeleton → Complete](https://codesandbox.io/s/prod-grass-g1lh5)
-* **Preferred: [Pending → Skeleton → Complete](https://codesandbox.io/s/focused-snow-xbkvl)**
+* Sadə: [Qayıtmış → Skelet → Tam](https://codesandbox.io/s/prod-grass-g1lh5)
+* **Üstünlük Verilən: [Yükləmə → Skelet → Tam](https://codesandbox.io/s/focused-snow-xbkvl)**
 
-The only difference between these two examples is that the first uses regular `<button>`s, but the second one uses our custom `<Button>` component with `useTransition`.
+Bu iki nümunə arasında olan əsas fərq ilk nümunədə sadə `<button>` elementlərinin, ikinci nümunədə isə `useTransition` işlədən `<Button>` komponentlərinin işlədilməsidir.
 
-### Wrap Lazy Features in `<Suspense>` {#wrap-lazy-features-in-suspense}
+### Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin {#wrap-lazy-features-in-suspense}
 
-Open [this example](https://codesandbox.io/s/nameless-butterfly-fkw5q). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
+[Bu nümunəni](https://codesandbox.io/s/nameless-butterfly-fkw5q) açın. Düyməni tıkladıqda, irəli getmədən öncə Yüklənə vəziyyətini görəcəksiniz. Bu keçid yaxşı istifadəçi təcrübəsi yaradır.
 
-We will now add a brand new feature to the profile page -- a list of fun facts about a person:
+İndi, profayl səhifəsinə istifadəçi haqqında maraqlı faktların siyahısı xüsusiyyətini əlavə edəcəyik:
 
 ```js{8,13-25}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
       <ProfileTrivia resource={resource} />
@@ -494,7 +494,7 @@ function ProfileTrivia({ resource }) {
   const trivia = resource.trivia.read();
   return (
     <>
-      <h2>Fun Facts</h2>
+      <h2>Maraqlı Faktlar</h2>
       <ul>
         {trivia.map(fact => (
           <li key={fact.id}>{fact.text}</li>
@@ -505,23 +505,23 @@ function ProfileTrivia({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-If you press "Open Profile" now, you can tell something is wrong. It takes whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
+İndi, "Open Profile" düyməsini tıkladıqda nəyinsə düzgün işləmədini görəcəksiniz. Keçidin tamamlanması üçün yeddi saniyə gözləmək lazımdır! Bunun səbəbi bizim trivia API-ımızın yavaş işləməsidir. Fərz edək ki, API-ı tezləşdirmək mümkün deyil. Bu məhdudiyyət ilə istifadəçi təcrübəsini necə yaxşılaşdırmaq olar?
 
-If we don't want to stay in the Pending state for too long, our first instinct might be to set `timeoutMs` in `useTransition` to something smaller, like `3000`. You can try this [here](https://codesandbox.io/s/practical-kowalevski-kpjg4). This lets us escape the prolonged Pending state, but we still don't have anything useful to show!
+Yükləmə vəziyyətində çox gözləmək istəmədikdə ilk intuisiya kimi `useTransition`-da `timeoutMs` parametrini kiçik dəyərə (məsələn, `3000`) dəyişməkdir. Bunu [bu nümunədə](https://codesandbox.io/s/practical-kowalevski-kpjg4) yoxlaya bilərsiniz. Bu dəyişiklik ilə uzanan Yükləmə vəziyyətindən qaçmaq mümkündür, amma bizdə hələdə göstərə biləcəyimiz faydalı məlumat yoxdur!
 
-There is a simpler way to solve this. **Instead of making the transition shorter, we can "disconnect" the slow component from the transition** by wrapping it into `<Suspense>`:
+Bunu həll etməyin daha sadə yolu var. **Keçidi qısaltmaq əvəzinə yavaş komponentini** `<Suspense>` ilə əhatə edərək **keçiddən "ayıra" bilərik**:
 
 ```js{8,10}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazıları yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı Faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </>
@@ -529,21 +529,21 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/condescending-shape-s6694)**
 
-This reveals an important insight. React always prefers to go to the Skeleton state as soon as possible. Even if we use transitions with long timeouts everywhere, React will not stay in the Pending state for longer than necessary to avoid the Receded state.
+Bu bizə maraqlı fikir göstərir. React, Skelet vəziyyətinə getməyə üstünlük verir. Hər yerdə uzun vaxtlı keçidlər işlətsək belə, React, Qayıtmış vəziyyətində olmamaq üçün Yükləmə vəziyyətində lazım olandan çox qalmayacaq.
 
-**If some feature isn't a vital part of the next screen, wrap it in `<Suspense>` and let it load lazily.** This ensures we can show the rest of the content as soon as possible. Conversely, if a screen is *not worth showing* without some component, such as `<ProfileDetails>` in our example, do *not* wrap it in `<Suspense>`. Then the transitions will "wait" for it to be ready.
+**Əgər xüsusiyyət sonrakı ekranın vacib hissəsini təşkil etmirsə, bu komponenti lazy yükləmək üçün `<Suspense>` ilə əhatə edin.** Bu formada, biz kontentin qalanını ən tez zamanda göstərə bilərik. Əksinə, əgər ekranı komponentsiz göstərməyin *mənası yoxdursa* (məsələn, nümunəmizdə olan `<ProfileDetails>` komponenti kimi), bu komponenti `<Suspense>` ilə əhatə *etməyin*. Keçidlər bu komponentin hazır olmasını "gözləyəcəklər."
 
-### Suspense Reveal "Train" {#suspense-reveal-train}
+### Suspense-lərin Göstərilməsi “Qatarı” {#suspense-reveal-train}
 
-When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
+Bəzən, sonrakı ekranda olduğumuz zaman fərqli `<Suspense>` sərhədlərini "açan" məlumatlar çox tez aralıqla gəlirlər. Məsələn, iki fərqli sorğu cavabı 1000ms və 1050ms-dan sonra hazır ola bilərlər. Bir saniyə gözlədikdən sonra əlavə 50ms gözləmək heç nəyi dəyişməyəcək. Bu səbəbdən, React, `<Suspense>` sərhədlərini vaxtaşırı gələn "qatar" kimi planlaşdıraraq göstərir. Bu, şablon çirklənmələrini və istifadəçiyə təqdim olunan vizual dəyişiklikləri azaldır.
 
-You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together. 
+Siz, bunun nümunəsinə [bu linkdən](https://codesandbox.io/s/admiring-mendeleev-y54mk) baxa bilərsiniz. "Yazılar" və "maraqlı faktların" cavablarının gəlməsi arasında 100ms fərq var. React, bu cavabları bitişdirərək Suspense sərhədlərini birilikdə "göstərir". 
 
-### Delaying a Pending Indicator {#delaying-a-pending-indicator}
+### Yükləmə Göstəricisini Gecikdirmək {#delaying-a-pending-indicator}
 
-Our `Button` component will immediately show the Pending state indicator on click:
+`Button` komponenti tıklanan kimi Yükləmə vəziyyətinin göstəricisi dərhal göstəriləcək:
 
 ```js{2,13}
 function Button({ children, onClick }) {
@@ -564,11 +564,11 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/floral-thunder-iy826)**
 
-This signals to the user that some work is happening. However, if the transition is relatively short (less than 500ms), it might be too distracting and make the transition itself feel *slower*.
+Bu, bəzi işlərin başladığını istifadəçiyə bildirir. Lakin, əgər keçik qısadırsa (məsələn, 500ms-dən tez) bu yayındırıcı ola bilər və keçidin *yavaş* olduğunu bildirə bilər.
 
-One possible solution to this is to *delay the spinner itself* from displaying:
+Bunu həll etməyin yollarından biri *yükləmə göstəricisini* gec göstərməkdir:
 
 ```css
 .DelayedSpinner {
@@ -598,19 +598,19 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
-With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
+Bu dəyişiklik ilə Yükləmə vəziyyətində olmamıza baxmayaraq 500ms keçənə istifadəçiyə heç bir bildiriş etmirik. API cavabları gec gəldikdə bunun xeyiri olmaya bilər. Lakin, API tez olduqda [əvvəlki](https://codesandbox.io/s/thirsty-liskov-1ygph) və [sonrakı](https://codesandbox.io/s/hardcore-http-s18xr) nəticələri müqayisə edin. Kodları dəyişmədiyimizə baxmayaraq "çox tez" yükləmə vəziyyətini gizlədərək diqqəti gecikdirməyə yönləndirməyib hiss olunan performansı artırırıq.
 
-### Recap {#recap}
+### Xülasə {#recap}
 
-The most important things we learned so far are:
+Öyrəndiyimiz əsas məqamlar:
 
-* By default, our loading sequence is Receded → Skeleton → Complete.
-* The Receded state doesn't feel very nice because it hides existing content.
-* With `useTransition`, we can opt into showing a Pending state first instead. This will keep us on the previous screen while the next screen is being prepared.
-* If we don't want some component to delay the transition, we can wrap it in its own `<Suspense>` boundary.
-* Instead of doing `useTransition` in every other component, we can build it into our design system.
+* Standart formada yükləmə ardıcıllığı Qayıtmış → Skelet → Tam formasındadır.
+* Qayıtmış vəziyyət mövcud kontenti gizlətdiyindən yaxşı deyil.
+* `useTransition`-dan istifadə edərək Yükləmə vəziyyətini göstərə bilərik. Bu, sonrakı ekran hazır olana kimi bizi əvvəlki ekranda saxlayacaq.
+* Əgər hər hansı bir komponentin keçidi yavaşlatmasını istəmiriksə, bu komponenti `<Suspense>` sərhədi ilə əhatə edə bilərik.
+* Hər komponentdə `useTransition` çağırmağın əvəzinə bu Hooku dizayn sisteminə əlavə edə bilərik.
 
 ## Other Patterns {#other-patterns}
 
