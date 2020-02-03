@@ -42,7 +42,7 @@ Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səh
   - [Yükləmə Göstəricisini Gecikdirmək](#delaying-a-pending-indicator)
   - [Xülasə](#recap)
 - [Digər Həllər](#other-patterns)
-  - [Yüksək və Açağı Priooritetli State-ləri Parçalamaq](#splitting-high-and-low-priority-state)
+  - [Yüksək və Aağı Priooritetli State-ləri Parçalamaq](#splitting-high-and-low-priority-state)
   - [Dəyəri Gecikdirmək](#deferring-a-value)
   - [SuspenseList](#suspenselist)
 - [Sonrakı Addımlar](#next-steps)
@@ -612,18 +612,18 @@ Bu dəyişiklik ilə Yükləmə vəziyyətində olmamıza baxmayaraq 500ms keç�
 * Əgər hər hansı bir komponentin keçidi yavaşlatmasını istəmiriksə, bu komponenti `<Suspense>` sərhədi ilə əhatə edə bilərik.
 * Hər komponentdə `useTransition` çağırmağın əvəzinə bu Hooku dizayn sisteminə əlavə edə bilərik.
 
-## Other Patterns {#other-patterns}
+## Digər Həllər {#other-patterns}
 
-Transitions are probably the most common Concurrent Mode pattern you'll encounter, but there are a few more patterns you might find useful.
+Keçidlərin ən çox işləniləcək Konkurrent Modu Həlli olasına baxmayaraq bəzi digər həllər də sizin üçün faydalı ola bilər.
 
-### Splitting High and Low Priority State {#splitting-high-and-low-priority-state}
+### Yüksək və Aağı Priooritetli State-ləri Parçalamaq {#splitting-high-and-low-priority-state}
 
-When you design React components, it is usually best to find the "minimal representation" of state. For example, instead of keeping `firstName`, `lastName`, and `fullName` in state, it's usually better keep only `firstName` and `lastName`, and then calculate `fullName` during rendering. This lets us avoid mistakes where we update one state but forget the other state.
+React komponentlərini dizayn etdikdə state-in "minimal təsvirini" tapmaq faydalıdır. Məsələn, state-də `firstName`, `lastName` və `fullName` saxlamaq əvəzinə  `firstName` və `lastName` saxlayıb render zamanı `fullName`-i hesablamaq daha effektivdir. Bu yanaşma ilə bir state-i yeniləyib o biri state-i yeniləməyi yaddan çıxarmaq kimi xətaların qarşısının alınması asanlaşır.
 
-However, in Concurrent Mode there are cases where you might *want* to "duplicate" some data in different state variables. Consider this tiny translation app:
+Lakin, Konkurrent Mod işlətdikdə bəzən məlumatları "dublikat" etmək *istəyə bilərsiniz*. Aşağıdakı kiçik tərcümə applikasiyasına baxın:
 
 ```js
-const initialQuery = "Hello, world";
+const initialQuery = "Salam dünya";
 const initialResource = fetchTranslation(initialQuery);
 
 function App() {
@@ -642,7 +642,7 @@ function App() {
         value={query}
         onChange={handleChange}
       />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<p>Yüklənir...</p>}>
         <Translation resource={resource} />
       </Suspense>
     </>
@@ -658,11 +658,11 @@ function Translation({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/brave-villani-ypxvf)**
 
-Notice how when you type into the input, the `<Translation>` component suspends, and we see the `<p>Loading...</p>` fallback until we get fresh results. This is not ideal. It would be better if we could see the *previous* translation for a bit while we're fetching the next one.
+Anket sahəsinə mətn daxil etdikdə `<Translation>` komponenti dayandırılır və yeni nətiələri alana kimi `<p>Yüklənir...</p>` fallback-i göstərilir. Bu ideal deyil. Yeni məlumat yükləndiyi zaman *əvvəlki* tərcüməni görməyimiz daha faydalı ola bilər.
 
-In fact, if we open the console, we'll see a warning:
+Faktiki olaraq konsolu açdıqda aşağıdakı xəbərdarlığı görəcəyik:
 
 ```
 Warning: App triggered a user-blocking update that suspended.
@@ -672,7 +672,7 @@ The fix is to split the update into multiple parts: a user-blocking update to pr
 Refer to the documentation for useTransition to learn how to implement this pattern.
 ```
 
-As we mentioned earlier, if some state update causes a component to suspend, that state update should be wrapped in a transition. Let's add `useTransition` to our component:
+Əvvəl qeyd etdiyimiz kimi yenilik zamanı komponent dayandırılırsa state yeniliyini keçid ilə əhatə etmək faydalıdır. Gəlin, komponentimizə `useTransition` əlavə edək:
 
 ```js{4-6,10,13}
 function App() {
@@ -695,39 +695,39 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/zen-keldysh-rifos)**
 
-Try typing into the input now. Something's wrong! The input is updating very slowly.
+İndi, anket sahəsinə nəsə yazın. Nəsə səhv işləyir! Anket sahəsi çox gec yenilənir.
 
-We've fixed the first problem (suspending outside of a transition). But now because of the transition, our state doesn't update immediately, and it can't "drive" a controlled input!
+Biz birinci problemi həll etdik (keçid artıq yenilənmir). Amma, keçidə görə state-imiz artıq dərhal yenilənmir və anket sahəsini idarə edə bilmir!
 
-The answer to this problem **is to split the state in two parts:** a "high priority" part that updates immediately, and a "low priority" part that may wait for a transition.
+Bunu həll etməyin yolu **state-i iki hissəyə parçalamaqdır:** dərhal yenilənən "yüksək prioritetli" hissə və keçidi gözləyən "aşağı prioritetli" hissə.
 
-In our example, we already have two state variables. The input text is in `query`, and we read the translation from `resource`. We want changes to the `query` state to happen immediately, but changes to the `resource` (i.e. fetching a new translation) should trigger a transition.
+Bizim nümunəmizdə artıq iki state dəyişəni var. Anket sahəsinin dəyəri `query` state-ində, tərcümə dəyəri isə `resource` dəyərində saxlanılır. Biz, `query` state-ində baş verən yenilikləri dərhal görmək, `resource` state-ində baş verən dəyişikliklərin isə (yəni yeni tərcümənin yüklənməsi) keçidi icra etməsini istəyirik.
 
-So the correct fix is to put `setQuery` (which doesn't suspend) *outside* the transition, but `setResource` (which will suspend) *inside* of it.
+Bunu həll etməyin düzgün yolu `setQuery` (dayandırılmayan) funksiyasını keçiddən *kənarda* çağırmaq, `setResource` (dayandırılan) funksiyasını isə keçidin *daxilindən* çağrımaqdır.
 
 ```js{4,5}
 function handleChange(e) {
   const value = e.target.value;
   
-  // Outside the transition (urgent)
+  // Keçiddən kənarda (təcili)
   setQuery(value);
 
   startTransition(() => {
-    // Inside the transition (may be delayed)
+    // Keçidin daxilində (gecikdirilə bilər)
     setResource(fetchTranslation(value));
   });
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/lively-smoke-fdf93)**
 
-With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
+Bu dəyişiklik ilə davranış istədiyimiz kimi işləyir. Biz anket sahəsinə dərhal yaza bilirik və tərcümə məlumatları yazdığımız ilə sinxronizə olur.
 
-### Deferring a Value {#deferring-a-value}
+### Dəyəri Gecikdirmək {#deferring-a-value}
 
-By default, React always renders a consistent UI. Consider code like this:
+Standart şəkiləd React həmişə stabil UI render edir. Aşağıdakı koda baxın:
 
 ```js
 <>
@@ -736,11 +736,11 @@ By default, React always renders a consistent UI. Consider code like this:
 </>
 ```
 
-React guarantees that whenever we look at these components on the screen, they will reflect data from the same `user`. If a different `user` is passed down because of a state update, you would see them changing together. You can't ever record a screen and find a frame where they would show values from different `user`s. (If you ever run into a case like this, file a bug!)
+React, ekrada gördüyümüz komponentlərin həmişə `user` məlumatını göstərəcəyini siğortalayır. State yenili nəticəsində komponentlərə fərqli `user` dəyəri göndərildikdə hər iki komponentin dəyişdiyini görəcəksiniz. Siz, ekranda fərqli `user` göstərən kadr tapa bilməzsiniz. (Bu problem ilə qarşılaşmısınızsa, bizə baq göndərin!)
 
-This makes sense in the vast majority of situations. Inconsistent UI is confusing and can mislead users. (For example, it would be terrible if a messenger's Send button and the conversation picker pane "disagreed" about which thread is currently selected.)
+Bu, bir çox halda məntiqlidir. Stabil olmayan UI istifadəçiləri çaşdıra bilər. (Məsələn, messencerin "Göndər" düyməsi ilə danışıq seçici paneli fərqli seçilmiş mövzu göstərdikdə çaşdırıcı ola bilər.)
 
-However, sometimes it might be helpful to intentionally introduce an inconsistency. We could do it manually by "splitting" the state like above, but React also offers a built-in Hook for this:
+Lakin, bəzən qəsdən stabilsizlik təqdim etmək faydalı ola bilər. Yuxarıdakı nümunədəki kimi state-i iki yerə "parçalayaraq" buna nail olmaq olar. Lakin, React-də bunun üçün hazır Hook var:
 
 ```js
 import { useDeferredValue } from 'react';
@@ -750,11 +750,11 @@ const deferredValue = useDeferredValue(value, {
 });
 ```
 
-To demonstrate this feature, we'll use [the profile switcher example](https://codesandbox.io/s/musing-ramanujan-bgw2o). Click the "Next" button and notice how it takes 1 second to do a transition.
+Bu xüsusiyyəti göstərmək üçün biz [profayl dəyişdirən nümunəsinə](https://codesandbox.io/s/musing-ramanujan-bgw2o) baxacağıq. "Sonrakı" düyməsini tıkladıqda keçidin 1 saniyə çəkdiyinə fikir verin.
 
-Let's say that fetching the user details is very fast and only takes 300 milliseconds. Currently, we're waiting a whole second because we need both user details and posts to display a consistent profile page. But what if we want to show the details faster?
+Fərz etdək ki, istifadəçi detallarının yüklənməsi çox tezdir (məsələn, 300ms). İndiki zamanda bizə həm istifadəçi detallarının, həm də yazıların hazır olması lazım olduğundan bir bir saniyə gözləyirik. Bəs biz istifadəçi detallarını tez göstərmək istəsək nə etməliyik?
 
-If we're willing to sacrifice consistency, we could **pass potentially stale data to the components that delay our transition**. That's what `useDeferredValue()` lets us do:
+Əgər stabilliyə fəda etmək istəyiriksə, biz **keçidləri gecikdirən komponentlərə köhnə məlumatlar göndərə bilərik**. `useDeferredValue()` ilə bunu etmək mümkündür:
 
 ```js{2-4,10,11,21}
 function ProfilePage({ resource }) {
@@ -762,9 +762,9 @@ function ProfilePage({ resource }) {
     timeoutMs: 1000
   });
   return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
+    <Suspense fallback={<h1>Profayl yüklənir...</h1>}>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h1>Loading posts...</h1>}>
+      <Suspense fallback={<h1>Yazılar yüklənir...</h1>}>
         <ProfileTimeline
           resource={deferredResource}
           isStale={deferredResource !== resource}
@@ -786,19 +786,19 @@ function ProfileTimeline({ isStale, resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/vigorous-keller-3ed2b)**
 
-The tradeoff we're making here is that `<ProfileTimeline>` will be inconsistent with other components and potentially show an older item. Click "Next" a few times, and you'll notice it. But thanks to that, we were able to cut down the transition time from 1000ms to 300ms.
+Burada kompromis, `<ProfileTimeline>` komponentinin digər komponentlərdən fərqli məlumatı göstərməsi və köhnə məlumatı göstərməsinə meylli olmasıdır. "Sonrakı" düyməsini bir neçə dəfə tıklasanız bu davranışı görəcəksiniz. Lakin, bunun sayəsində biz keçid vaxtını 1000ms-dən 300ms-ə düşürə bildik.
 
-Whether or not it's an appropriate tradeoff depends on the situation. But it's a handy tool, especially when the content doesn't change noticeably between items, and the user might not even realize they were looking at a stale version for a second.
+Bunun düzgün kompromis olması vəziyyətdən asılıdır. Lakin, elementlər arasında kontent nəzərə çarpan dərəcədə dəyişmədikdə və istifadəçinin bir saniyə ərzində köhnə versiyaya baxdığını anlamadıqda bu alət faydalı ola bilər.
 
-It's worth noting that `useDeferredValue` is not *only* useful for data fetching. It also helps when an expensive component tree causes an interaction (e.g. typing in an input) to be sluggish. Just like we can "defer" a value that takes too long to fetch (and show its old value despite others components updating), we can do this with trees that take too long to render.
+`useDeferredValue` Hookunun *yalnız* məlumat yükləməsi üçün faydalı olmadığını nəzərə almaq istəyirik. Bu, bahalı komponent ağacına görə interaksiyanın (anket sahəsinə daxil etmə kimi) yavaşlamasının qarşısını da ala bilər. Gec yüklənən dəyəri "gecikdirdiymiz" kimi (və digər komponentlər yeniləndiyindən asılı olmayaraq köhnə dəyəri göstərdiyimiz kimi) biz gec render olunan ağaclarıda gecikdirə bilərik.
 
-For example, consider a filterable list like this:
+Məsələn, filtr oluna bilən siyahı nümunəsinə baxın:
 
 ```js
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("salam");
 
   function handleChange(e) {
     setText(e.target.value);
@@ -807,7 +807,7 @@ function App() {
   return (
     <div className="App">
       <label>
-        Type into the input:{" "}
+        Anket sahəsinə daxil edin:{" "}
         <input value={text} onChange={handleChange} />
       </label>
       ...
@@ -817,15 +817,15 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/pensive-shirley-wkp46)**
 
-In this example, **every item in `<MySlowList>` has an artificial slowdown -- each of them blocks the thread for a few milliseconds**. We'd never do this in a real app, but this helps us simulate what can happen in a deep component tree with no single obvious place to optimize.
+Bu nümunədə, **`<MySlowList>`-də olan hər element tredi (thread) bir neçə millisaniyə yavaşladır**. Biz bunu real applikasiyada heç vaxt etmərik, amma bu nümunə ilə optimallaşması aydın olmayan dərin komponent ağaclarında baş verən yavaşlatmanı simulyasiya edə bilirik.
 
-We can see how typing in the input causes stutter. Now let's add `useDeferredValue`:
+Anket sahəsinə yazı daxil etdikdə yavaşlamanı görə bilirik. Gəlin, indi `useDeferredValue` Hookundan istifadə edək:
 
 ```js{3-5,18}
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("salam");
   const deferredText = useDeferredValue(text, {
     timeoutMs: 5000
   });
@@ -837,7 +837,7 @@ function App() {
   return (
     <div className="App">
       <label>
-        Type into the input:{" "}
+        Anket sahəsinə daxil edin:{" "}
         <input value={text} onChange={handleChange} />
       </label>
       ...
@@ -847,29 +847,29 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
 
-Now typing has a lot less stutter -- although we pay for this by showing the results with a lag.
+İndi, daxil etmənin daha az yavaşladığını görəcəyik. Burada kompromis nəticələrin gec göstərilməsidir.
 
-How is this different from debouncing? Our example has a fixed artificial delay (3ms for every one of 80 items), so there is always a delay, no matter how fast our computer is. However, the `useDeferredValue` value only "lags behind" if the rendering takes a while. There is no minimal lag imposed by React. With a more realistic workload, you can expect the lag to adjust to the user’s device. On fast machines, the lag would be smaller or non-existent, and on slow machines, it would be more noticeable. In both cases, the app would remain responsive. That’s the advantage of this mechanism over debouncing or throttling, which always impose a minimal delay and can't avoid blocking the thread while rendering.
+Bu, debounce etmədən necə fərqlənir? Bizim nümunəmizdə sabit saxta yavaşlama var (80 elementin hərəsində 3ms). Bu səbəbdən tezliyindən asılı olmayaraq yavaşlama həmişə baş verəcək. Lakin, `useDeferredValue` Hookunun dəyəri yalnız render etmə uzun vaxy çəkdikdə "gecikməyə başlayacaq." React tərəfindən minimal yavaşlama tətbiq olunmur. Daha real işlərdə yavaşlama istifadəçi qurğusundan asılı olacaq. Tez maşınlarda yavaşlama kiçik və ya mövcud olmayacaq. Yavaş maşınlarda isə yavaşlama daha çox nəzərə çarpacaq. Hər iki halda applikasiya responsiv olacaq. Bu mexanizmin minimal gecikdirmə tətbiq edən debounce etmə və ya throttle etmə kimi mexanizmlərdə üstünlüyü budur.
 
-Even though there is an improvement in responsiveness, this example isn't as compelling yet because Concurrent Mode is missing some crucial optimizations for this use case. Still, it is interesting to see that features like `useDeferredValue` (or `useTransition`) are useful regardless of whether we're waiting for network or for computational work to finish.
+Responsivliyin artdığına baxmayaraq bu ssenari üçün Konkurrent Modunda olan lazımi optimallaşdırmaların işlədilməyindən bu nümunə elə də yaxşı deyil. Amma yenə də `useDeferredValue` (və ya `useTransition`) kimi xüsusiyyətlərin şəbəkə cavabının gəlməsini və ya hesablama işinin bitməsini gözləmək kimi əməliyyatlarda faydalı olduğunu bilmək yaxşıdır.
 
 ### SuspenseList {#suspenselist}
 
-`<SuspenseList>` is the last pattern that's related to orchestrating loading states.
+Yükləmə vəziyyətlərini orkestrasiya etmək üçün ən sonuncu həll `<SuspenseList>`-dir.
 
-Consider this example:
+Aşağıdakı nümunəyə baxın:
 
 ```js{5-10}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </>
@@ -877,44 +877,44 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/proud-tree-exg5t)**
 
-The API call duration in this example is randomized. If you keep refreshing it, you will notice that sometimes the posts arrive first, and sometimes the "fun facts" arrive first.
+Bu nümunədə, API çağırışı zamanları qarışdırılıb. Bu səhifəni hər dəfə yenidən yüklədikdə bəzən yazıların birinci gəldiyini, bəzən də "maraqlı faktların" birinci gəldiyini görəcəksiniz.
 
-This presents a problem. If the response for fun facts arrives first, we'll see the fun facts below the `<h2>Loading posts...</h2>` fallback for posts. We might start reading them, but then the *posts* response will come back, and shift all the facts down. This is jarring.
+Bu bizə problem yaradır. Maraqlı faktlar üçün cavab birinci gəldikdə biz bu faktları `<h2>Yazılar yüklənir...</h2>` fallback-inin aşağısında görəcəyik. Biz bu faktları oxuduğumuz vaxt *yazılar* hazır olub bütün faktları aşağı sala bilər. Bu çaşdırıcıdır.
 
-One way we could fix it is by putting them both in a single boundary:
+Bunu həll etməyin yollarından biri hər iki komponenti bir sərhad ilə əhatə etməkdik:
 
 ```js
-<Suspense fallback={<h2>Loading posts and fun facts...</h2>}>
+<Suspense fallback={<h2>Yazılar və maraqlı faktlar yüklənir...</h2>}>
   <ProfileTimeline resource={resource} />
   <ProfileTrivia resource={resource} />
 </Suspense>
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/currying-violet-5jsiy)**
 
-The problem with this is that now we *always* wait for both of them to be fetched. However, if it's the *posts* that came back first, there's no reason to delay showing them. When fun facts load later, they won't shift the layout because they're already below the posts.
+İndi, biz *həmişə* hər iki komponentin yüklənməsini gözləməliyik. Lakin, əhər *yazılar* birinci gəlirsə, bu komponenti göstərməyi gecikdirmək lazım deyil. Marqlı faktlar gec yükləndikdə yazıların render olunduğundan şablon aşağı düşməyəcək.
 
-Other approaches to this, such as composing Promises in a special way, are increasingly difficult to pull off when the loading states are located in different components down the tree.
+Yükləmə vəziyyətləri komponent ağacının fərqli dərinliklərində olduqda Promise-ləri xüsusi formada birləşdirmək kimi digər yolları tətbiq etmək çox çətin ola bilər.
 
-To solve this, we will import `SuspenseList`:
+Bunu həll etmək üçün `SuspenseList` komponentini idxal edəcəyik:
 
 ```js
 import { SuspenseList } from 'react';
 ```
 
-`<SuspenseList>` coordinates the "reveal order" of the closest `<Suspense>` nodes below it:
+`<SuspenseList>` komponenti ən yaxın `<Suspense>` nodlarının "göstərmə sırasını" idarə etməyə imkan yaradır:
 
 ```js{3,11}
 function ProfilePage({ resource }) {
   return (
     <SuspenseList revealOrder="forwards">
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </SuspenseList>
@@ -922,16 +922,16 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/black-wind-byilt)**
 
-The `revealOrder="forwards"` option means that the closest `<Suspense>` nodes inside this list **will only "reveal" their content in the order they appear in the tree -- even if the data for them arrives in a different order**. `<SuspenseList>` has other interesting modes: try changing `"forwards"` to `"backwards"` or `"together"` and see what happens.
+`revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər modları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
-You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at the time. You can play with it [here](https://codesandbox.io/s/adoring-almeida-1zzjh).
+Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback görəcəyik. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
 
-Keep in mind that `<SuspenseList>` is composable, like anything in React. For example, you can create a grid by putting several `<SuspenseList>` rows inside a `<SuspenseList>` table.
+`<SuspenseList>`-in React komponentləri kimi kompozisiya edilə biləcəyini unutmayın. Məsələn, siz bir neçə `<SuspenseList>` sıralarını `<SuspenseList>` cədvəlinə əlavə edərək grid yarada bilərsiniz.
 
-## Next Steps {#next-steps}
+## Sonrakı Addımlar {#next-steps}
 
-Concurrent Mode offers a powerful UI programming model and a set of new composable primitives to help you orchestrate delightful user experiences.
+Konkurrent Mod ilə çox güclü UI proqramlaşdırma modeli təqdim edilir və yaxşı istifadəçi təcrübələri orkestrasiya etmək üçün kompozisiya oluna bilən primitivlər yaradılır.
 
-It's a result of several years of research and development, but it's not finished. In the section on [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html), we'll describe how you can try it and what you can expect.
+Bu həll, bir neçə ildə etdiyimiz tədqiqat və təkmilləşmənin nəticəsidir, amma bu hələki tam deyil. [Konkurrent Moda Uyğunlaşma](/docs/concurrent-mode-adoption.html) bölməsində bu xüsusiyyətləri necə sınamaq və nə gözləmək haqqında danışacağıq.
