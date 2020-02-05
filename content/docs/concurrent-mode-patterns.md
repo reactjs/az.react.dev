@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-patterns
-title: Concurrent UI Patterns (Experimental)
+title: Konkurrent UI Həlləri (Eksperimental)
 permalink: docs/concurrent-mode-patterns.html
 prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
@@ -15,63 +15,63 @@ next: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Caution:
+>Xəbərdarlıq:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now. For example, if you're looking for a data fetching tutorial that works today, read [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) instead.
+>Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
 
 </div>
 
-Usually, when we update the state, we expect to see changes on the screen immediately. This makes sense because we want to keep our app responsive to user input. However, there are cases where we might prefer to **defer an update from appearing on the screen**.
+Adətən, state-i yenilədikdə dəyişiklikləri ekranda dərhal görmək istəyirik. Applikasiyanın istifadəçi daxil etməsini tez cavablandırmasını istədiyimizdən bu fikir məntiqli gəlir. Lakin, bəzi ssenarilərdə **yeniliyin ekranda görünməsini gecikdirmək istəyə bilərik**.
 
-For example, if we switch from one page to another, and none of the code or data for the next screen has loaded yet, it might be frustrating to immediately see a blank page with a loading indicator. We might prefer to stay longer on the previous screen. Implementing this pattern has historically been difficult in React. Concurrent Mode offers a new set of tools to do that.
+Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səhifəyə aid olan heç bir kod və ya məlumat yüklənmədiyi halda yükləmə göstəricisi ilə boş səhifənin görünməsi əsəbləşdirici ola bilər. Bu səbəbdən əvvəlki ekranda daha uzun qalmaq istəyə bilərik. Tarix boyu bu həllin React-də tətbiqi çətin olub. Lakin, bunu həll etmək üçün Konkurrent Moduna yeni alətlər əlavə olunub.
 
-- [Transitions](#transitions)
-  - [Wrapping setState in a Transition](#wrapping-setstate-in-a-transition)
-  - [Adding a Pending Indicator](#adding-a-pending-indicator)
-  - [Reviewing the Changes](#reviewing-the-changes)
-  - [Where Does the Update Happen?](#where-does-the-update-happen)
-  - [Transitions Are Everywhere](#transitions-are-everywhere)
-  - [Baking Transitions Into the Design System](#baking-transitions-into-the-design-system)
-- [The Three Steps](#the-three-steps)
-  - [Default: Receded → Skeleton → Complete](#default-receded-skeleton-complete)
-  - [Preferred: Pending → Skeleton → Complete](#preferred-pending-skeleton-complete)
-  - [Wrap Lazy Features in `<Suspense>`](#wrap-lazy-features-in-suspense)
-  - [Suspense Reveal “Train”](#suspense-reveal-train)
-  - [Delaying a Pending Indicator](#delaying-a-pending-indicator)
-  - [Recap](#recap)
-- [Other Patterns](#other-patterns)
-  - [Splitting High and Low Priority State](#splitting-high-and-low-priority-state)
-  - [Deferring a Value](#deferring-a-value)
+- [Keçidlər](#transitions)
+  - [setState-i Keçid ilə Əhatə Etmək](#wrapping-setstate-in-a-transition)
+  - [Yükləmə Göstəricini Əlavə Etmək](#adding-a-pending-indicator)
+  - [Dəyişiklikləri Nəzərdən Keçirmək](#reviewing-the-changes)
+  - [Yeniliklər Harada Baş Verir?](#where-does-the-update-happen)
+  - [Keçidlər Hər Yerdədir](#transitions-are-everywhere)
+  - [Keçidləri Dizayn Sisteminə Əlavə Etmək](#baking-transitions-into-the-design-system)
+- [Üç Addım](#the-three-steps)
+  - [Sadə: Qayıtmış → Skelet → Tam](#default-receded-skeleton-complete)
+  - [Üstünlük Verilən: Yükləmə → Skelet → Tam](#preferred-pending-skeleton-complete)
+  - [Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin](#wrap-lazy-features-in-suspense)
+  - [Suspense-lərin Göstərilməsi “Qatarı”](#suspense-reveal-train)
+  - [Yükləmə Göstəricisini Gecikdirmək](#delaying-a-pending-indicator)
+  - [Xülasə](#recap)
+- [Digər Həllər](#other-patterns)
+  - [Yüksək və Aşağı Priooritetli State-ləri Parçalamaq](#splitting-high-and-low-priority-state)
+  - [Dəyəri Gecikdirmək](#deferring-a-value)
   - [SuspenseList](#suspenselist)
-- [Next Steps](#next-steps)
+- [Sonrakı Addımlar](#next-steps)
 
-## Transitions {#transitions}
+## Keçidlər {#transitions}
 
-Let's revisit [this demo](https://codesandbox.io/s/infallible-feather-xjtbu) from the previous page about [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html).
+Gəlin [Məlumat Yüklənməsi üçün Suspense]((/docs/concurrent-mode-suspense.html)) səhifəsindəki [nümunəyə](https://codesandbox.io/s/infallible-feather-xjtbu) yenidən baxaq.
 
-When we click the "Next" button to switch the active profile, the existing page data immediately disappears, and we see the loading indicator for the whole page again. We can call this an "undesirable" loading state. **It would be nice if we could "skip" it and wait for some content to load before transitioning to the new screen.**
+Aktiv profaylı dəyişmək üçün "Sonrakı" düyməsini tıkladıqda mövcud səhifənin məlumatları dərhal itir və biz bütün səhifə üçün yükləmə göstəricisini göstərilir. Biz bunu "istənilməz" yükləmə vəziyyəti adlandırırıq. **Yeni səhifəyə keçməmişdən öncə yükləmə göstəricisini göstərməyib bəzi kontentin yüklənməsini gözləmək daha yaxşı istifadəçi təcrübəsi yarada bilər.**
 
-React offers a new built-in `useTransition()` Hook to help with this.
+Bunu həll etmək üçün React-ə `useTransition()` adlı Hook əlavə etmişik.
 
-We can use it in three steps.
+Bu Hooku üç addım ilə işlətmək mümkündür.
 
-First, we'll make sure that we're actually using Concurrent Mode. We'll talk more about [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html) later, but for now it's sufficient to know that we need to use `ReactDOM.createRoot()` rather than `ReactDOM.render()` for this feature to work:
+İlk olaraq Konkurrent Modunu işlətdiyimizi bilməliyik. Biz, [Konkurrent Moduna uyğunlaşma](/docs/concurrent-mode-adoption.html) haqqında sonrakı səhifələrdə danışacağıq, amma bu səhifədə bu xüsusiyyətin işləməsi üçün `ReactDOM.render()` əvəzinə `ReactDOM.createRoot()` işlətmək kifayət edir:
 
 ```js
 const rootElement = document.getElementById("root");
-// Opt into Concurrent Mode
+// Konkurrent Modundan İstifadə Et
 ReactDOM.createRoot(rootElement).render(<App />);
 ```
 
-Next, we'll add an import for the `useTransition` Hook from React:
+Sonrakı səhifədə React-dən `useTransition` Hookunu idxal edəcəyik:
 
 ```js
 import React, { useState, useTransition, Suspense } from "react";
 ```
 
-Finally, we'll use it inside the `App` component:
+Ən sonda, bu Hooku `App` komponentində işlədəcəyik:
 
 ```js{3-5}
 function App() {
@@ -82,18 +82,18 @@ function App() {
   // ...
 ```
 
-**By itself, this code doesn't do anything yet.** We will need to use this Hook's return values to set up our state transition. There are two values returned from `useTransition`:
+**Bu funksiya təklikdə heç nə etmir.** Biz, bu Hookun qaytardığı dəyərlər əsasında state keçidini quraşdırmalıyıq. `useTransition` Hooku iki dəyər qaytarır:
 
-* `startTransition` is a function. We'll use it to tell React *which* state update we want to defer.
-* `isPending` is a boolean. It's React telling us whether that transition is ongoing at the moment.
+* `startTransition` funksiyadır. Bu funksiya ilə *hansı* state yeniliyini təxirə salmaq istədiyimizi bildirəcəyik.
+* `isPending` bulin dəyərdir. Bu dəyər keçidin proqresdə olduğunu bildirir.
 
-We will use them right below.
+Biz, bu iki dəyəri aşağı bölmədə işlədəyəcik.
 
-Note we passed a configuration object to `useTransition`. Its `timeoutMs` property specifies **how long we're willing to wait for the transition to finish**. By passing `{timeoutMs: 3000}`, we say "If the next profile takes more than 3 seconds to load, show the big spinner -- but before that timeout it's okay to keep showing the previous screen".
+`useTransition` Hookuna konfiqurasiya obyekti göndərdiyimizə fikir verin. `timeoutMs` parametri **keçidin bitməsi üçün nə qədər gözləməyin lazım olduğunu** təyin edir. Məsələn, `{timeoutMs: 3000}` obyekti göndərdikdə "sonrakı profaylın yüklənməsi 3 saniyədən çox çəkdikdə böyük spinner-i göstərməyi, əks halda isə cari ekranda olan məlumatları göstərməyi" bildiririk.
 
-### Wrapping setState in a Transition {#wrapping-setstate-in-a-transition}
+### setState-i Keçid ilə Əhatə Etmək {#wrapping-setstate-in-a-transition}
 
-Our "Next" button click handler sets the state that switches the current profile in the state:
+"Sonrakı" düyməsinin hadisə işləyicisi cari profaylı dəyişmək üçün state-i yeniləyir:
 
 ```js{4}
 <button
@@ -104,7 +104,7 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
- We'll wrap that state update into `startTransition`. That's how we tell React **we don't mind React delaying that state update** if it leads to an undesirable loading state:
+Biz, state yeniliyini `startTransition` funksiyası ilə əhatə edəcəyik. Biz, bu formada **React-in state yeniliyini gecikdirməsində heç bir problemin olmadığını** bildiririk:
 
 ```js{3,6}
 <button
@@ -117,23 +117,23 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/musing-driscoll-6nkie)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/musing-driscoll-6nkie)**
 
-Press "Next" a few times. Notice it already feels very different. **Instead of immediately seeing an empty screen on click, we now keep seeing the previous page for a while.** When the data has loaded, React transitions us to the new screen.
+"Sonrakı" düyməsini bir neçə dəfə tıklayın. Bunun fərqli işlədiyinə fikir verin. **Tıklama zamanı dərhal boş ekran görmək əvəzinə cari səhifəni görəcəksiniz.** Məlumat yükləndiyi zaman sonrakı səhifəyə keçid ediləcək.
 
-If we make our API responses take 5 seconds, [we can confirm](https://codesandbox.io/s/relaxed-greider-suewh) that now React "gives up" and transitions anyway to the next screen after 3 seconds. This is because we passed `{timeoutMs: 3000}` to `useTransition()`. For example, if we passed `{timeoutMs: 60000}` instead, it would wait a whole minute.
+API cavabı 5 saniyə çəkdikdə biz React-in gözləmədən əl çəkərək 3 saniyə sonra yeni səhifəyə keçdiyini [görəcəyik](https://codesandbox.io/s/relaxed-greider-suewh). Bunun səbəbi bizim `useTransition()` Hookuna `{timeoutMs: 3000}` obyektini göndərməmizdir. Məsələn, `{timeoutMs: 60000}` obyekti göndərsəydik React, bir dəqiqə gözləyəcəkdi.
 
-### Adding a Pending Indicator {#adding-a-pending-indicator}
+### Yükləmə Göstəricini Əlavə Etmək {#adding-a-pending-indicator}
 
-There's still something that feels broken about [our last example](https://codesandbox.io/s/musing-driscoll-6nkie). Sure, it's nice not to see a "bad" loading state. **But having no indication of progress at all feels even worse!** When we click "Next", nothing happens and it feels like the app is broken.
+[Əvvəlki nümunədə](https://codesandbox.io/s/musing-driscoll-6nkie) nəyinsə düzgün işləmədiyini görə bilərsiniz. Əlbəttə ki, "pis" yükləmə vəziyyətinin olmaması yaxşıdır. **Lakin, proqresin olmaması üçün heç bir göstəricinin olmaması lap pisdir!** "Sonrakı" düyməsini tıkladıqda heç nəyin baş verməməsi applikasiyanın sınması hissini verir.
 
-Our `useTransition()` call returns two values: `startTransition` and `isPending`.
+`useTransition()` çağırışı iki dəyər qaytarır: `startTransition` və `isPending`.
 
 ```js
   const [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
 ```
 
-We've already used `startTransition` to wrap the state update. Now we're going to use `isPending` too. React gives this boolean to us so we can tell whether **we're currently waiting for this transition to finish**. We'll use it to indicate that something is happening:
+State yeniliklərini əhatə etmək üçün artıq `startTransition` funksiyasından istifadə etdik. İndi, `isPending` dəyərindən də istifadə edəcəyik. Bizim **keçidin bitməsini gözlədiyimizi** bilməmiz üçün React bizə bu bulin dəyərini qaytarır. Bu dəyərdən istifadə edərək məlumatın yükləndiyini göstərəcəyik:
 
 ```js{4,14}
 return (
@@ -147,21 +147,21 @@ return (
         });
       }}
     >
-      Next
+      Sonrakı
     </button>
-    {isPending ? " Loading..." : null}
+    {isPending ? " Yüklənir..." : null}
     <ProfilePage resource={resource} />
   </>
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-Now, this feels a lot better! When we click Next, it gets disabled because clicking it multiple times doesn't make sense. And the new "Loading..." tells the user that the app didn't freeze.
+İndi daha yaxşı oldu! "Sonrakı" düyməsini tıkladıqda düymənin bir neçə dəfə tıklanmaması üçün bu düyməni deaktivasiya edirik. Yeni "Yüklənir..." yazısı ilə də istifadəçiyə applikasiyanın donmadığını bildiririk.
 
-### Reviewing the Changes {#reviewing-the-changes}
+### Dəyişiklikləri Nəzərdən Keçirmək {#reviewing-the-changes}
 
-Let's take another look at all the changes we've made since the [original example](https://codesandbox.io/s/infallible-feather-xjtbu):
+Gəlin, [orijinal nümunədən](https://codesandbox.io/s/infallible-feather-xjtbu) buraya kimi hansı dəyişikliklərin edildiyini nəzərdən keçirək:
 
 ```js{3-5,9,11,14,19}
 function App() {
@@ -180,49 +180,49 @@ function App() {
           });
         }}
       >
-        Next
+        Sonrakı
       </button>
-      {isPending ? " Loading..." : null}
+      {isPending ? " Yüklənir..." : null}
       <ProfilePage resource={resource} />
     </>
   );
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-It took us only seven lines of code to add this transition:
+Bu keçidi əlavə etmək üçün yalnız yeddi sətir kod əlavə etdik:
 
-* We've imported the `useTransition` Hook and used it the component that updates the state.
-* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
-* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
-* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+* `useTransition` Hookunu idxal edərək state-i yeniləyən komponentdə işlətdik.
+* `{timeoutMs: 3000}` obyektini göndərərək React-ə cari ekranda ən çox üç saniyə gözləməsini bildirdik.
+* State yeniliklərini `startTransition` ilə əhatə edərək React-ə bu yeniliyi gecikdirməyin problem olmadığını bildirdik.
+* `isPending`-dən istifadə edəcərək state keçidinin proqresdə olduğunu bildirdik və düyməni deaktivasiya etdik.
 
-As a result, clicking "Next" doesn't perform an immediate state transition to an "undesirable" loading state, but instead stays on the previous screen and communicates progress there.
+Nəticədə, "Sonrakı" düyməni tıkladıqda "istənilməz" yükləmə vəziyyətinə dərhal keçid edilmir. Əvəzinə, proqres cari ekranda qalaraq göstərilir.
 
-### Where Does the Update Happen? {#where-does-the-update-happen}
+### Yeniliklər Harada Baş Verir? {#where-does-the-update-happen}
 
-This wasn't very difficult to implement. However, if you start thinking about how this could possibly work, it might become a little mindbending. If we set the state, how come we don't see the result right away? *Where* is the next `<ProfilePage>` rendering?
+Bunun tətbiqi heç də çətin deyildi. Lakin, bunun necə işlədiyini fikirləşdikdə biraz çaşdırıcı ola bilər. State-i təyin etdikdə nəticəni niyə dərhal görmürük? Sonrakı `<ProfilePage>` *harada* render olunur?
 
-Clearly, both "versions" of `<ProfilePage>` exist at the same time. We know the old one exists because we see it on the screen and even display a progress indicator on it. And we know the new version also exists *somewhere*, because it's the one that we're waiting for!
+Aydındır ki, `<ProfilePage>`-in hər iki "versiyası" eyni zamanda mövcuddur. Əvvəlki səhifəni gördüyümüzdən və hətta burada proqres göstəricisi göstərdiyimizdən bu səhifənin mövcud olduğunu bilirik. Yeni versiyanı gözlədiyimizdən bu versiyanın *mövcud* olduğunu bilirik!
 
-**But how can two versions of the same component exist at the same time?**
+**Eyni komponentin hər iki versiyası eyni zamanda necə mövcud ola bilər?**
 
-This gets at the root of what Concurrent Mode is. We've [previously said](/docs/concurrent-mode-intro.html#intentional-loading-sequences) it's a bit like React working on state update on a "branch". Another way we can conceptualize is that wrapping a state update in `startTransition` begins rendering it *"in a different universe"*, much like in science fiction movies. We don't "see" that universe directly -- but we can get a signal from it that tells us something is happening (`isPending`). When the update is ready, our "universes" merge back together, and we see the result on the screen!
+Bu Konkurrent Modun əsasıdır. Biz, [əvvəlki bölmədə dediyimiz kimi](/docs/concurrent-mode-intro.html#intentional-loading-sequences) bu, React-in state yeniliyinin fərqli "budaqda" işləməsinə bənzəyir. Bunu fərqli formada konseptuallaşdırmaq üçün `startTransition` ilə əhatə olunmuş state yeniliyinin *"fərqli dünyada"* (elmi fantastika filmlərində olduğu kimi) render edildiyini fikirləşin. Biz, bu dünyanı birbaşa "görə" bilmirik, amma bu dünyada nəyinsə baş verdiyinin siqnalını (`isPending`) ala bilirik. Yenilik hazır olduqda "dünyalar" birləşir və biz nəticəni ekranda görürük!
 
-Play a bit more with the [demo](https://codesandbox.io/s/jovial-lalande-26yep), and try to imagine it happening.
+Göstərilən [nümunə](https://codesandbox.io/s/jovial-lalande-26yep) ilə oynayıb bunun baş verdiyini təsəvvür edin.
 
-Of course, two versions of the tree rendering *at the same time* is an illusion, just like the idea that all programs run on your computer at the same time is an illusion. An operating system switches between different applications very fast. Similarly, React can switch between the version of the tree you see on the screen and the version that it's "preparing" to show next.
+Əlbəttə ki, kompyuterinizdə bütün proqramların eyni zamanda icra olunmasının illüziya olduğu kimi ağacın hər iki versiyasının *eyni zamanda* render edilməsi də illüziyadır. Əməliyyat sistemi fərqli applikasiyalar arasında çox tez keçidlər edir. Eyni formada, React də ekranda gördüyünüz ağac ilə "hazırlanan" sonrakı ağac arasında keçidlər edir.
 
-An API like `useTransition` lets you focus on the desired user experience, and not think about the mechanics of how it's implemented. Still, it can be a helpful metaphor to imagine that updates wrapped in `startTransition` happen "on a branch" or "in a different world".
+`useTransition` kimi API ilə bu mexanizmin necə tətbiq olunduğu haqqında fikirləşmək əvəzinə istifadəçi təcübəsinə fokuslana bilərsiniz. Amma yenə də, `startTransition` ilə əhatə olunan yeniliklərin digər "budaq" və ya "dünyada" olduğunu fikirləşmək faydalı ola bilər.
 
-### Transitions Are Everywhere {#transitions-are-everywhere}
+### Keçidlər Hər Yerdədir {#transitions-are-everywhere}
 
-As we learned from the [Suspense walkthrough](/docs/concurrent-mode-suspense.html), any component can "suspend" any time if some data it needs is not ready yet. We can strategically place `<Suspense>` boundaries in different parts of the tree to handle this, but it won't always be enough.
+[Suspense sənədində](/docs/concurrent-mode-suspense.html) öyrəndiyimiz kimi gözlənilən məlumatı hazır olmayan istənilən komponent "dayandırıla" bilər. Biz, ağacın fərqli yerlərində `<Suspense>` sərhədləri əlavə edərək bunu dəstəkləyə bilərik. Lakin, bu həmişə bəs olmaya bilər.
 
-Let's get back to our [first Suspense demo](https://codesandbox.io/s/frosty-hermann-bztrp) where there was just one profile. Currently, it fetches the data only once. We'll add a "Refresh" button to check for server updates.
+Gəlin, bir profayl olan [Suspense nümunəsinə](https://codesandbox.io/s/frosty-hermann-bztrp) qayıdaq. İndi, bu nümunədə məlumat bir dəfə yüklənir. Server yeniliklərini yoxlamaq üçün "Yenidən Yüklə" düyməsi əlavə edəcəyik.
 
-Our first attempt might look like this:
+İlk cəhdimiz belə ola bilər:
 
 ```js{6-8,13-15}
 const initialResource = fetchUserAndPosts();
@@ -235,12 +235,12 @@ function ProfilePage() {
   }
 
   return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
+    <Suspense fallback={<h1>Profayl yüklənir...</h1>}>
       <ProfileDetails resource={resource} />
       <button onClick={handleRefreshClick}>
-        Refresh
+        Yenidən Yüklə
       </button>
-      <Suspense fallback={<h1>Loading posts...</h1>}>
+      <Suspense fallback={<h1>Yazılar yüklənir...</h1>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
     </Suspense>
@@ -248,18 +248,18 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/boring-shadow-100tf)**
 
-In this example, we start data fetching at the load *and* every time you press "Refresh". We put the result of calling `fetchUserAndPosts()` into state so that components below can start reading the new data from the request we just kicked off.
+Bu nümunədə, biz yükləmə zamanı *və* "Yenidən Yüklə" tıklandığı zaman məlumat yükləməsini başladırıq. Suspense-in altında olan komponentlərin yeni məlumatı oxuya bilmələri üçün `fetchUserAndPosts()` funksiyasının nəticəsini state-də saxlayırıq.
 
-We can see in [this example](https://codesandbox.io/s/boring-shadow-100tf) that pressing "Refresh" works. The `<ProfileDetails>` and `<ProfileTimeline>` components receive a new `resource` prop that represents the fresh data, they "suspend" because we don't have a response yet, and we see the fallbacks. When the response loads, we can see the updated posts (our fake API adds them every 3 seconds).
+[Bu nümunədə](https://codesandbox.io/s/boring-shadow-100tf) "Yenidən Yüklə" düyməsinin işlədiyini görürük. `<ProfileDetails>` və `<ProfileTimeline>` komponentləri yeni məlumatı təmsil edən yeni `resource` propunu qəbul edir və nəticə olmadığı zaman "dayandırılırlar" (fallback göstərilir). Cavab yükləndiyi zaman yenilənən yazıları görürük (saxta API bu nəticələri 3 saniyədən bir əlavə edir).
 
-However, the experience feels really jarring. We were browsing a page, but it got replaced by a loading state right as we were interacting with it. It's disorienting. **Just like before, to avoid showing an undesirable loading state, we can wrap the state update in a transition:**
+Lakin, istifadəçi təcrübəsi çox pisdir. Biz səhifəni gəzdiyimiz zaman bu səhifə yükləmə vəziyyətinə dəyişdi (elə bilki bu səhifə ilə interaksiya edirdik). Bu çaşdırıcıdır. **Əvvəki variantlarda olduğu kimi istənilməz yükləmə vəziyyətini görməmək üçün biz state yeniliyini keçid ilə əhatə edəcəyik:**
 
 ```js{2-5,9-11,21}
 function ProfilePage() {
   const [startTransition, isPending] = useTransition({
-    // Wait 10 seconds before fallback
+    // Fallback-dən əvvəl 10 saniyə gözlə
     timeoutMs: 10000
   });
   const [resource, setResource] = useState(initialResource);
@@ -271,15 +271,15 @@ function ProfilePage() {
   }
 
   return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
+    <Suspense fallback={<h1>Profayl yüklənir...</h1>}>
       <ProfileDetails resource={resource} />
       <button
         onClick={handleRefreshClick}
         disabled={isPending}
       >
-        {isPending ? "Refreshing..." : "Refresh"}
+        {isPending ? "Yenidən yüklənir..." : "Yenidən Yüklə"}
       </button>
-      <Suspense fallback={<h1>Loading posts...</h1>}>
+      <Suspense fallback={<h1>Yazılar yüklənir...</h1>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
     </Suspense>
@@ -287,15 +287,15 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/sleepy-field-mohzb)**
 
-This feels a lot better! Clicking "Refresh" doesn't pull us away from the page we're browsing anymore. We see something is loading "inline", and when the data is ready, it's displayed.
+Bu daha yaxşı oldu! İndi, "Yenidən Yüklə" düyməsi tıklandıqda səhifədən dəyişmir. Nəyinsə yükləndiyi "sətrdaxili" göstərilir. Yeni məlumatlar yalnız hazır olduqda göstərilir.
 
-### Baking Transitions Into the Design System {#baking-transitions-into-the-design-system}
+### Keçidləri Dizayn Sisteminə Əlavə Etmək {#baking-transitions-into-the-design-system}
 
-We can now see that the need for `useTransition` is *very* common. Pretty much any button click or interaction that can lead to a component suspending needs to be wrapped in `useTransition` to avoid accidentally hiding something the user is interacting with.
+İndi, `useTransition`-a ehtiyacın *çox* olduğunu görə bilərsiniz. İstifadəçinin interaksiya etdiyi elementi təsadüfən gizlətməmək üçün komponenti dayandıra bilən hər hansı bir düymə və interaksiyanı `useTransition` ilə əhatə etmək lazımdır.
 
-This can lead to a lot of repetitive code across components. This is why **we generally recommend to bake `useTransition` into the *design system* components of your app**. For example, we can extract the transition logic into our own `<Button>` component:
+Bu, komponentlər arasında çoxlu təkrarlanan koda səbəb ola bilər. Buna görə **biz `useTransition` Hookunu applikasiyanızın *dizayn sistemi* komponentinə əlavə etməyi tövsiyyə edirik**. Məsələn, biz keçid məntiqini `<Button>` komponentinə ixrac edə bilərik:
 
 ```js{7-9,20,24}
 function Button({ children, onClick }) {
@@ -327,9 +327,9 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-Note that the button doesn't care *what* state we're updating. It's wrapping *any* state updates that happen during its `onClick` handler into a transition. Now that our `<Button>` takes care of setting up the transition, the `<ProfilePage>` component doesn't need to set up its own:
+*Hansı* state-in yenilənməsi düymə komponentini maraqlandırmır. Burada `onClick` hadisə işləyicisində baş verə bilən *istənilən* state yenilikləri keçid ilə əhatə olunur. `<Button>` düyməsinda keçidin quraşdırıldığından `<ProfilePage>` komponentində bu keçidləri tətbiq etmək lazım deyil:
 
 ```js{4-6,11-13}
 function ProfilePage() {
@@ -340,12 +340,12 @@ function ProfilePage() {
   }
 
   return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
+    <Suspense fallback={<h1>Profayl yüklənir...</h1>}>
       <ProfileDetails resource={resource} />
       <Button onClick={handleRefreshClick}>
-        Refresh
+        Yenidən yüklə
       </Button>
-      <Suspense fallback={<h1>Loading posts...</h1>}>
+      <Suspense fallback={<h1>Yazılar yüklənir...</h1>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
     </Suspense>
@@ -353,50 +353,50 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-When a button gets clicked, it starts a transition and calls `props.onClick()` inside of it -- which triggers `handleRefreshClick` in the `<ProfilePage>` component. We start fetching the fresh data, but it doesn't trigger a fallback because we're inside a transition, and the 10 second timeout specified in the `useTransition` call hasn't passed yet. While a transition is pending, the button displays an inline loading indicator.
+Düymə tıklandıqda keçid başlanır və daxilindən `props.onClick()` çağrılır. Bu callback, `<ProfilePage>` komponentində `handleRefreshClick` funksiyasını çağırır. Biz, yeni məlumatı yükləməyə başlayırıq, amma keçidin daxilində olduğumuzdan və `useTransition`-a göndərilən 10 saniyə bitmədiyindən fallback göstərilmir. Keçidin proqresdə olduğundan düymədə sətrdaxili yüklənmə göstəricisi göstərilir.
 
-We can see now how Concurrent Mode helps us achieve a good user experience without sacrificing isolation and modularity of components. React coordinates the transition.
+Konkurrent Modunun komponentlərin izolyasiyasını və modulyarlığını itirmədən yaxşı istifadəçi təcrübəsi yaratdığını görə bilərik. React keçidləri koordinasiya edir.
 
-## The Three Steps {#the-three-steps}
+## Üç Addım {#the-three-steps}
 
-By now we have discussed all of the different visual states that an update may go through. In this section, we will give them names and talk about the progression between them.
+Biz yeniliyin keçdiyi vizual vəziyyətlərdən danışdıq. Bu bölmədə bu vəziyyətlərə ad verib aralarındakı irəliləmələrdən danışacağıq.
 
 <br>
 
-<img src="../images/docs/cm-steps-simple.png" alt="Three steps" />
+<img src="../images/docs/cm-steps-simple.png" alt="Üç addım" />
 
-At the very end, we have the **Complete** state. That's where we want to eventually get to. It represents the moment when the next screen is fully rendered and isn't loading more data.
+Ən sonda **Tam** (Complete) vəziyyətinə çatırıq. Biz, ən axırda bu vəziyyətə çatmaq istəyirik. Bu, məlumatın artıq yükləndiyini və sonrakı ekranın tam render olunması halını təmsil edir.
 
-But before our screen can be Complete, we might need to load some data or code. When we're on the next screen, but some parts of it are still loading, we call that a **Skeleton** state.
+Lakin, ekran Tam olmamışdan öncə bizə bəzi məlumat və ya kodları yükləmək lazım ola bilər. Biz, sonrakı ekranda olunması və məlumatların tam yüklənməməsi vəziyyətini **Skelet** (Skeleton) adlandırırıq.
 
-Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
+Skelet vəziyyətinə çatmaq üçün iki əsas yol var. Biz bu iki yol arasında olan fərqləri nümunələr ilə göstərəcəyik.
 
-### Default: Receded → Skeleton → Complete {#default-receded-skeleton-complete}
+### Sadə: Qayıtmış → Skelet → Tam {#default-receded-skeleton-complete}
 
-Open [this example](https://codesandbox.io/s/prod-grass-g1lh5) and click "Open Profile". You will see several visual states one by one:
+[Bu nümunədə](https://codesandbox.io/s/prod-grass-g1lh5) "Open Profile" düyməsini tıklayın. Siz bir neçə vizual vəziyyətləri bir-bir görəcəksiniz:
 
-* **Receded**: For a second, you will see the `<h1>Loading the app...</h1>` fallback.
-* **Skeleton:** You will see the `<ProfilePage>` component with `<h2>Loading posts...</h2>` inside.
-* **Complete:** You will see the `<ProfilePage>` component with no fallbacks inside. Everything was fetched.
+* **Qayıtmış** (Receded): Çox qısa anlıq `<h1>Loading the app...</h1>` görünüşünü görəcəksiniz.
+* **Skelet:** `<ProfilePage>` komponentini `<h2>Loading posts...</h2>` görünüşü ilə görəcəksiniz.
+* **Tam:** Fallback-i olmayan `<ProfilePage>` komponentini görəcəksiniz. Burada bütün məlumatlar yüklənir.
 
-How do we separate the Receded and the Skeleton states? The difference between them is that the **Receded** state feels like "taking a step back" to the user, while the **Skeleton** state feels like "taking a step forward" in our progress to show more content.
+Qayıtmış və Skelet vəziyyətlərini necə ayırmaq olar? **Qayıtmış** vəziyyətində istifadəçinin "bir addım arxaya" getdiyi hiss olunur. **Skelet** vəziyyətində isə daha çox kontent göstərmək üçün istifadəçinin  "bir addım irəliyə" getdiyi hiss olunur.
 
-In this example, we started our journey on the `<HomePage>`:
+Bu nümunədə biz `<HomePage>` komponentindən başlayırıq:
 
 ```js
 <Suspense fallback={...}>
-  {/* previous screen */}
+  {/* əvvəlki ekran */}
   <HomePage />
 </Suspense>
 ```
 
-After the click, React started rendering the next screen:
+Düyməni tıkladıqdan sonra React sonrakı ekranı render etməyə başlayacaq:
 
 ```js
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={...}>
@@ -406,30 +406,30 @@ After the click, React started rendering the next screen:
 </Suspense>
 ```
 
-Both `<ProfileDetails>` and `<ProfileTimeline>` need data to render, so they suspend:
+Həm `<ProfileDetails>`, həm də `<ProfileTimeline>` komponentlərinin render olunması üçün məlumat lazımdır. Bu səbəbdən bu komponentlər dayandırılırlar:
 
 ```js{4,6}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
-    <Suspense fallback={<h2>Loading posts...</h2>}>
-      <ProfileTimeline /> {/* suspends! */}
+    <ProfileDetails /> {/* dayandırılır! */}
+    <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
+      <ProfileTimeline /> {/* dayandırılır! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-When a component suspends, React needs to show the closest fallback. But the closest fallback to `<ProfileDetails>` is at the top level:
+Komponent dayandırıldıqdan sonra ən yaxın fallback göstəriləcək. Amma, `<ProfileDetails>` komponentinə ən yaxın fallback ən yuxarı səviyyədədir:
 
 ```js{2,3,7}
 <Suspense fallback={
-  // We see this fallback now because of <ProfileDetails>
-  <h1>Loading the app...</h1>
+  // <ProfileDetails> komponentinə görə burada fallback görəcəyik
+  <h1>Applikasiya yüklənir...</h1>
 }>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* dayandırılır! */}
     <Suspense fallback={...}>
       <ProfileTimeline />
     </Suspense>
@@ -437,52 +437,52 @@ When a component suspends, React needs to show the closest fallback. But the clo
 </Suspense>
 ```
 
-This is why when we click the button, it feels like we've "taken a step back". The `<Suspense>` boundary which was previously showing useful content (`<HomePage />`) had to "recede" to showing the fallback (`<h1>Loading the app...</h1>`). We call that a **Receded** state.
+Bu səbəbdən düyməni tıkladıqda "bir addım geriyə getdiyimizi" hiss edirik. Əvvəl faydalı kontent (`<HomePage />`) göstərən `<Suspense>` sərhədi `<h1>Applikasiya yüklənir...</h1>` fallback-inə "qayıtmağa" məcbur oldu. Biz bu addımı **Qayıtmış** vəziyyət adlandırırıq.
 
-As we load more data, React will retry rendering, and `<ProfileDetails>` can render successfully. Finally, we're in the **Skeleton** state. We see the new page with missing parts:
+Məlumat yükləndikcə React render etməni təkrar edəcək və `<ProfileDetails>` komponenti uğurla render ediləcək. İndi, biz **Skelet** vəziyyətinə çataraq əskik hissəli səhifə görürük:
 
 ```js{6,7,9}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* sonrakı ekran */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={
-      // We see this fallback now because of <ProfileTimeline>
-      <h2>Loading posts...</h2>
+      // <ProfileTimeline> komponentinə görə bu fallback-i görürük
+      <h2>Yazılar yüklənir...</h2>
     }>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* dayandırılır! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-Eventually, they load too, and we get to the **Complete** state.
+Ən axırda, hər iki komponent yüklənir və biz **Tam** vəziyyətinə çatırıq.
 
-This scenario (Receded → Skeleton → Complete) is the default one. However, the Receded state is not very pleasant because it "hides" existing information. This is why React lets us opt into a different sequence (**Pending** → Skeleton → Complete) with `useTransition`.
+Bu (Qayıtmış → Skelet → Tam) standart ssenaridir. Lakin, Qayıtmış vəziyyətin mövcud məlumatları "gizlətdiyindən" bu vəziyyət xoş deyil. Bu səbəbdən React bizə `useTransition` Hookundan istifadə edərək fərqli ardıcıllıqdan (**Yükləmə** → Skelet → Tam) istifadə etməyə imkan yaradır.
 
-### Preferred: Pending → Skeleton → Complete {#preferred-pending-skeleton-complete}
+### Üstünlük Verilən: Yükləmə → Skelet → Tam {#preferred-pending-skeleton-complete}
 
-When we `useTransition`, React will let us "stay" on the previous screen -- and show a progress indicator there. We call that a **Pending** state. It feels much better than the Receded state because none of our existing content disappears, and the page stays interactive.
+`useTransition` işlətdikdə biz köhnə səhifədə "qalıb" proqres göstərici göstərə bilirik. Biz bu addımı **Yükləmə** (Pending) vəziyyəti adlandırırıq. Mövcud kontentin itmədiyindən və səhifənin interaktiv qaldığından bu vəziyyət Qayıtmış vəziyyətindən daha yaxşıdır.
 
-You can compare these two examples to feel the difference:
+Bu vəziyyətlərin fərqini görmək üçün aşağıdakı nümunələri müqayisə edin:
 
-* Default: [Receded → Skeleton → Complete](https://codesandbox.io/s/prod-grass-g1lh5)
-* **Preferred: [Pending → Skeleton → Complete](https://codesandbox.io/s/focused-snow-xbkvl)**
+* Sadə: [Qayıtmış → Skelet → Tam](https://codesandbox.io/s/prod-grass-g1lh5)
+* **Üstünlük Verilən: [Yükləmə → Skelet → Tam](https://codesandbox.io/s/focused-snow-xbkvl)**
 
-The only difference between these two examples is that the first uses regular `<button>`s, but the second one uses our custom `<Button>` component with `useTransition`.
+Bu iki nümunə arasında olan əsas fərq ilk nümunədə sadə `<button>` elementlərinin, ikinci nümunədə isə `useTransition` işlədən `<Button>` komponentlərinin işlədilməsidir.
 
-### Wrap Lazy Features in `<Suspense>` {#wrap-lazy-features-in-suspense}
+### Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin {#wrap-lazy-features-in-suspense}
 
-Open [this example](https://codesandbox.io/s/nameless-butterfly-fkw5q). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
+[Bu nümunəni](https://codesandbox.io/s/nameless-butterfly-fkw5q) açın. Düyməni tıkladıqda, irəli getmədən öncə Yükləmə vəziyyətini görəcəksiniz. Bu keçid yaxşı istifadəçi təcrübəsi yaradır.
 
-We will now add a brand new feature to the profile page -- a list of fun facts about a person:
+İndi, profayl səhifəsinə istifadəçi haqqında maraqlı faktların siyahısı xüsusiyyətini əlavə edəcəyik:
 
 ```js{8,13-25}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
       <ProfileTrivia resource={resource} />
@@ -494,7 +494,7 @@ function ProfileTrivia({ resource }) {
   const trivia = resource.trivia.read();
   return (
     <>
-      <h2>Fun Facts</h2>
+      <h2>Maraqlı Faktlar</h2>
       <ul>
         {trivia.map(fact => (
           <li key={fact.id}>{fact.text}</li>
@@ -505,23 +505,23 @@ function ProfileTrivia({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-If you press "Open Profile" now, you can tell something is wrong. It takes whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
+"Open Profile" düyməsini tıkladıqda nəyinsə düzgün işləmədiyi hiss olunur. Keçidin tamamlanması üçün yeddi saniyə gözləmək lazımdır! Bunun səbəbi bizim trivia API-ımızın yavaş işləməsidir. Fərz edək ki, API-ı tezləşdirmək mümkün deyil. Bu məhdudiyyət ilə istifadəçi təcrübəsini necə yaxşılaşdırmaq olar?
 
-If we don't want to stay in the Pending state for too long, our first instinct might be to set `timeoutMs` in `useTransition` to something smaller, like `3000`. You can try this [here](https://codesandbox.io/s/practical-kowalevski-kpjg4). This lets us escape the prolonged Pending state, but we still don't have anything useful to show!
+Yükləmə vəziyyətində çox gözləmək istəmədikdə ilk intuisiya kimi `useTransition`-da `timeoutMs` parametrini kiçik dəyərə (məsələn, `3000`) dəyişməkdir. Bunu [bu nümunədə](https://codesandbox.io/s/practical-kowalevski-kpjg4) yoxlaya bilərsiniz. Bu dəyişiklik ilə uzanan Yükləmə vəziyyətindən qaçmaq mümkündür, amma bizim hələdə göstərə biləcəyimiz faydalı məlumat yoxdur!
 
-There is a simpler way to solve this. **Instead of making the transition shorter, we can "disconnect" the slow component from the transition** by wrapping it into `<Suspense>`:
+Bunu həll etməyin daha sadə yolu var. **Keçidi qısaltmaq əvəzinə yavaş yüklənən komponenti** `<Suspense>` ilə əhatə edərək **keçiddən "ayıra" bilərik**:
 
 ```js{8,10}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazıları yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı Faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </>
@@ -529,21 +529,21 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/condescending-shape-s6694)**
 
-This reveals an important insight. React always prefers to go to the Skeleton state as soon as possible. Even if we use transitions with long timeouts everywhere, React will not stay in the Pending state for longer than necessary to avoid the Receded state.
+Bu bizə maraqlı fikir göstərir. React, Skelet vəziyyətinə getməyə üstünlük verir. Hər yerdə uzun vaxtlı keçidlər işlətsək belə, React, Qayıtmış vəziyyətində olmamaq üçün Yükləmə vəziyyətində lazım olandan çox qalmayacaq.
 
-**If some feature isn't a vital part of the next screen, wrap it in `<Suspense>` and let it load lazily.** This ensures we can show the rest of the content as soon as possible. Conversely, if a screen is *not worth showing* without some component, such as `<ProfileDetails>` in our example, do *not* wrap it in `<Suspense>`. Then the transitions will "wait" for it to be ready.
+**Əgər xüsusiyyət sonrakı ekranın vacib hissəsini təşkil etmirsə, bu komponenti lazy yükləmək üçün `<Suspense>` ilə əhatə edin.** Bu formada, biz kontentin qalanını ən tez zamanda göstərə bilərik. Əksinə, əgər ekranı komponentsiz göstərməyin *mənası yoxdursa* (məsələn, nümunəmizdə olan `<ProfileDetails>` komponenti kimi), bu komponenti `<Suspense>` ilə əhatə *etməyin*. Keçidlər bu komponentin hazır olmasını "gözləyəcəklər."
 
-### Suspense Reveal "Train" {#suspense-reveal-train}
+### Suspense-lərin Göstərilməsi “Qatarı” {#suspense-reveal-train}
 
-When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
+Bəzən, sonrakı ekranda olduğumuz zaman fərqli `<Suspense>` sərhədlərini "açan" məlumatlar çox tez aralıqla gəlirlər. Məsələn, iki fərqli sorğu cavabı 1000ms və 1050ms-dən sonra hazır ola bilərlər. Bir saniyə gözlədikdən sonra əlavə 50ms gözləmək heç nəyi dəyişməyəcək. Bu səbəbdən, React, `<Suspense>` sərhədlərini vaxtaşırı gələn "qatar" kimi planlaşdıraraq göstərir. Bu, şablon çirklənmələrini və istifadəçiyə təqdim olunan vizual dəyişiklikləri azaldır.
 
-You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together. 
+Siz, bunun nümunəsinə [bu linkdən](https://codesandbox.io/s/admiring-mendeleev-y54mk) baxa bilərsiniz. "Yazılar" və "maraqlı faktların" cavablarının gəlməsi arasında 100ms fərq var. React, bu cavabları bitişdirərək Suspense sərhədlərini birilikdə "göstərir". 
 
-### Delaying a Pending Indicator {#delaying-a-pending-indicator}
+### Yükləmə Göstəricisini Gecikdirmək {#delaying-a-pending-indicator}
 
-Our `Button` component will immediately show the Pending state indicator on click:
+`Button` komponenti tıklanan kimi Yükləmə vəziyyətinin göstəricisi dərhal göstəriləcək:
 
 ```js{2,13}
 function Button({ children, onClick }) {
@@ -564,11 +564,11 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/floral-thunder-iy826)**
 
-This signals to the user that some work is happening. However, if the transition is relatively short (less than 500ms), it might be too distracting and make the transition itself feel *slower*.
+Bu, bəzi işlərin başlandığını istifadəçiyə bildirir. Lakin, keçik qısa olduqda (məsələn, 500ms-dən tez) bu görünüş yayındırıcı ola bilər və keçidin *yavaş* olduğunu bildirə bilər.
 
-One possible solution to this is to *delay the spinner itself* from displaying:
+Bunu həll etməyin yollarından biri *yükləmə göstəricisini* gec göstərməkdir:
 
 ```css
 .DelayedSpinner {
@@ -598,32 +598,32 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
-With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
+Bu dəyişiklik ilə Yükləmə vəziyyətində olmamıza baxmayaraq 500ms keçənə kimi istifadəçiyə heç bir bildiriş etmirik. API cavabları gec gəldikdə bunun xeyiri olmaya bilər. Lakin, API tez olduqda [əvvəlki](https://codesandbox.io/s/thirsty-liskov-1ygph) və [sonrakı](https://codesandbox.io/s/hardcore-http-s18xr) nəticələri müqayisə edin. Kodları dəyişmədiyimizə baxmayaraq "çox tez" yükləmə vəziyyətini gizlədərək diqqəti gecikdirməyə yönləndirməyib hiss olunan performansı artırırıq.
 
-### Recap {#recap}
+### Xülasə {#recap}
 
-The most important things we learned so far are:
+Öyrəndiyimiz əsas məqamlar:
 
-* By default, our loading sequence is Receded → Skeleton → Complete.
-* The Receded state doesn't feel very nice because it hides existing content.
-* With `useTransition`, we can opt into showing a Pending state first instead. This will keep us on the previous screen while the next screen is being prepared.
-* If we don't want some component to delay the transition, we can wrap it in its own `<Suspense>` boundary.
-* Instead of doing `useTransition` in every other component, we can build it into our design system.
+* Standart yükləmə ardıcıllığı Qayıtmış → Skelet → Tam formasındadır.
+* Qayıtmış vəziyyət mövcud kontenti gizlətdiyindən yaxşı deyil.
+* `useTransition`-dan istifadə edərək Yükləmə vəziyyətini göstərə bilərik. Bu, sonrakı ekran hazır olana kimi bizi əvvəlki ekranda saxlayacaq.
+* Əgər hər hansı bir komponentin keçidi yavaşlatmasını istəmiriksə, bu komponenti `<Suspense>` sərhədi ilə əhatə edə bilərik.
+* Hər komponentdə `useTransition` çağırmağın əvəzinə bu Hooku dizayn sisteminə əlavə edə bilərik.
 
-## Other Patterns {#other-patterns}
+## Digər Həllər {#other-patterns}
 
-Transitions are probably the most common Concurrent Mode pattern you'll encounter, but there are a few more patterns you might find useful.
+Keçidlərin ən çox işləniləcək Konkurrent Modu həlli olmasına baxmayaraq digər həllər də sizin üçün faydalı ola bilər.
 
-### Splitting High and Low Priority State {#splitting-high-and-low-priority-state}
+### Yüksək və Aşağı Priooritetli State-ləri Parçalamaq {#splitting-high-and-low-priority-state}
 
-When you design React components, it is usually best to find the "minimal representation" of state. For example, instead of keeping `firstName`, `lastName`, and `fullName` in state, it's usually better keep only `firstName` and `lastName`, and then calculate `fullName` during rendering. This lets us avoid mistakes where we update one state but forget the other state.
+React komponentlərini dizayn etdikdə state-in "minimal təsvirini" tapmaq faydalıdır. Məsələn, state-də `firstName`, `lastName` və `fullName` saxlamaq əvəzinə  `firstName` və `lastName` saxlayıb render zamanı `fullName`-i hesablamaq daha effektivdir. Bu yanaşma ilə bir state-i yeniləyib o biri state-i yeniləməyi yaddan çıxarmaq kimi xətaların qarşısının alınması asanlaşır.
 
-However, in Concurrent Mode there are cases where you might *want* to "duplicate" some data in different state variables. Consider this tiny translation app:
+Lakin, Konkurrent Mod işlətdikdə məlumatları "dublikat" etmək bəzən *faydalı ola bilər*. Aşağıdakı kiçik tərcümə applikasiyasına baxın:
 
 ```js
-const initialQuery = "Hello, world";
+const initialQuery = "Salam dünya";
 const initialResource = fetchTranslation(initialQuery);
 
 function App() {
@@ -642,7 +642,7 @@ function App() {
         value={query}
         onChange={handleChange}
       />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<p>Yüklənir...</p>}>
         <Translation resource={resource} />
       </Suspense>
     </>
@@ -658,11 +658,11 @@ function Translation({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/brave-villani-ypxvf)**
 
-Notice how when you type into the input, the `<Translation>` component suspends, and we see the `<p>Loading...</p>` fallback until we get fresh results. This is not ideal. It would be better if we could see the *previous* translation for a bit while we're fetching the next one.
+Anket sahəsinə mətn daxil etdikdə `<Translation>` komponenti dayandırılır və yeni nətiələri alana kimi `<p>Yüklənir...</p>` fallback-i göstərilir. Bu ideal deyil. Yeni məlumat yükləndiyi zaman *əvvəlki* tərcüməni görməyimiz daha faydalı ola bilər.
 
-In fact, if we open the console, we'll see a warning:
+Faktiki olaraq konsolu açdıqda aşağıdakı xəbərdarlığı görəcəyik:
 
 ```
 Warning: App triggered a user-blocking update that suspended.
@@ -672,7 +672,7 @@ The fix is to split the update into multiple parts: a user-blocking update to pr
 Refer to the documentation for useTransition to learn how to implement this pattern.
 ```
 
-As we mentioned earlier, if some state update causes a component to suspend, that state update should be wrapped in a transition. Let's add `useTransition` to our component:
+Əvvəl qeyd etdiyimiz kimi yenilik zamanı komponent dayandırılırsa state yeniliyini keçid ilə əhatə etmək faydalıdır. Gəlin, komponentimizə `useTransition` əlavə edək:
 
 ```js{4-6,10,13}
 function App() {
@@ -695,39 +695,39 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/zen-keldysh-rifos)**
 
-Try typing into the input now. Something's wrong! The input is updating very slowly.
+İndi, anket sahəsinə nəsə yazın. Nəsə səhv işləyir! Anket sahəsi çox gec yenilənir.
 
-We've fixed the first problem (suspending outside of a transition). But now because of the transition, our state doesn't update immediately, and it can't "drive" a controlled input!
+Biz birinci problemi həll etdik (keçid artıq yenilənmir). Amma, keçidə görə state, dərhal yenilənmədiyindən anket sahəsini idarə edə bilmir!
 
-The answer to this problem **is to split the state in two parts:** a "high priority" part that updates immediately, and a "low priority" part that may wait for a transition.
+Bunu həll etməyin yolu **state-i iki hissəyə parçalamaqdır:** dərhal yenilənən "yüksək prioritetli" hissə və keçidi gözləyən "aşağı prioritetli" hissə.
 
-In our example, we already have two state variables. The input text is in `query`, and we read the translation from `resource`. We want changes to the `query` state to happen immediately, but changes to the `resource` (i.e. fetching a new translation) should trigger a transition.
+Bizim nümunəmizdə artıq iki state dəyişəni var. Anket sahəsinin dəyəri `query` state-ində, tərcümə dəyəri isə `resource` dəyərində saxlanılır. Biz, `query` state-ində baş verən yenilikləri dərhal görmək, `resource` state-ində baş verən dəyişikliklərin isə (yəni yeni tərcümənin yüklənməsi) keçidi icra etməsini istəyirik.
 
-So the correct fix is to put `setQuery` (which doesn't suspend) *outside* the transition, but `setResource` (which will suspend) *inside* of it.
+Bunu həll etməyin düzgün yolu `setQuery` (dayandırılmayan) funksiyasını keçiddən *kənarda* çağırmaq, `setResource` (dayandırılan) funksiyasını isə keçidin *daxilindən* çağrımaqdır.
 
 ```js{4,5}
 function handleChange(e) {
   const value = e.target.value;
   
-  // Outside the transition (urgent)
+  // Keçiddən kənarda (təcili)
   setQuery(value);
 
   startTransition(() => {
-    // Inside the transition (may be delayed)
+    // Keçidin daxilində (gecikdirilə bilər)
     setResource(fetchTranslation(value));
   });
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/lively-smoke-fdf93)**
 
-With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
+Bu dəyişiklik ilə davranış istədiyimiz kimi işləyir. Biz anket sahəsinə dərhal yaza bilirik və tərcümə məlumatları yazdığımız ilə sinxronizə olur.
 
-### Deferring a Value {#deferring-a-value}
+### Dəyəri Gecikdirmək {#deferring-a-value}
 
-By default, React always renders a consistent UI. Consider code like this:
+Normalda, React həmişə stabil UI render edir. Aşağıdakı koda baxın:
 
 ```js
 <>
@@ -736,11 +736,11 @@ By default, React always renders a consistent UI. Consider code like this:
 </>
 ```
 
-React guarantees that whenever we look at these components on the screen, they will reflect data from the same `user`. If a different `user` is passed down because of a state update, you would see them changing together. You can't ever record a screen and find a frame where they would show values from different `user`s. (If you ever run into a case like this, file a bug!)
+React, ekrada gördüyümüz komponentlərin həmişə `user` məlumatını göstərəcəyini siğortalayır. State yenili nəticəsində komponentlərə fərqli `user` dəyəri göndərildikdə hər iki komponentin dəyişdiyini görəcəksiniz. Siz, ekranda fərqli `user` göstərən kadr tapa bilməzsiniz. (Bu problem ilə qarşılaşmısınızsa, bizə baq göndərin!)
 
-This makes sense in the vast majority of situations. Inconsistent UI is confusing and can mislead users. (For example, it would be terrible if a messenger's Send button and the conversation picker pane "disagreed" about which thread is currently selected.)
+Bu, bir çox halda məntiqlidir. Stabil olmayan UI, istifadəçiləri çaşdıra bilər. (Məsələn, messencerin "Göndər" düyməsi ilə danışıq seçici panel fərqli seçilmiş mövzu göstərdikdə çaşdırıcı ola bilər.)
 
-However, sometimes it might be helpful to intentionally introduce an inconsistency. We could do it manually by "splitting" the state like above, but React also offers a built-in Hook for this:
+Lakin, bəzən qəsdən stabilsizlik təqdim etmək faydalı ola bilər. Yuxarıdakı nümunədəki kimi state-i iki yerə "parçalayaraq" buna nail olmaq olar. Lakin, React-də bunun üçün hazır Hook var:
 
 ```js
 import { useDeferredValue } from 'react';
@@ -750,11 +750,11 @@ const deferredValue = useDeferredValue(value, {
 });
 ```
 
-To demonstrate this feature, we'll use [the profile switcher example](https://codesandbox.io/s/musing-ramanujan-bgw2o). Click the "Next" button and notice how it takes 1 second to do a transition.
+Bu xüsusiyyəti nümayiş edə bilmək üçün biz [profayl dəyişdirən nümunəsinə](https://codesandbox.io/s/musing-ramanujan-bgw2o) baxacağıq. "Sonrakı" düyməsini tıkladıqda keçidin 1 saniyə çəkdiyinə fikir verin.
 
-Let's say that fetching the user details is very fast and only takes 300 milliseconds. Currently, we're waiting a whole second because we need both user details and posts to display a consistent profile page. But what if we want to show the details faster?
+Fərz etdək ki, istifadəçi detallarının yüklənməsi çox tezdir (məsələn, 300ms). İndiki zamanda bizə həm istifadəçi detallarının, həm də yazıların hazır olması lazım olduğundan biz bir saniyə gözləyirik. Bəs biz istifadəçi detallarını tez göstərmək istəsək nə etməliyik?
 
-If we're willing to sacrifice consistency, we could **pass potentially stale data to the components that delay our transition**. That's what `useDeferredValue()` lets us do:
+Əgər stabilliyə fəda etmək istəyiriksə, biz **keçidləri gecikdirən komponentlərə köhnə məlumatlar göndərə bilərik**. `useDeferredValue()` ilə bunu etmək mümkündür:
 
 ```js{2-4,10,11,21}
 function ProfilePage({ resource }) {
@@ -762,9 +762,9 @@ function ProfilePage({ resource }) {
     timeoutMs: 1000
   });
   return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
+    <Suspense fallback={<h1>Profayl yüklənir...</h1>}>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h1>Loading posts...</h1>}>
+      <Suspense fallback={<h1>Yazılar yüklənir...</h1>}>
         <ProfileTimeline
           resource={deferredResource}
           isStale={deferredResource !== resource}
@@ -786,19 +786,19 @@ function ProfileTimeline({ isStale, resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/vigorous-keller-3ed2b)**
 
-The tradeoff we're making here is that `<ProfileTimeline>` will be inconsistent with other components and potentially show an older item. Click "Next" a few times, and you'll notice it. But thanks to that, we were able to cut down the transition time from 1000ms to 300ms.
+Burada kompromis, `<ProfileTimeline>` komponentinin digər komponentlərdən fərqli məlumatı göstərməsi və köhnə məlumatı göstərməsinə meylli olmasıdır. "Sonrakı" düyməsini bir neçə dəfə tıklasanız bu davranışı görəcəksiniz. Lakin, bunun sayəsində biz keçid vaxtını 1000ms-dən 300ms-ə düşürə bildik.
 
-Whether or not it's an appropriate tradeoff depends on the situation. But it's a handy tool, especially when the content doesn't change noticeably between items, and the user might not even realize they were looking at a stale version for a second.
+Bunun düzgün kompromis olmasını bimək vəziyyətdən asılıdır. Lakin, elementlərin kontentləri nəzərə çarpan dərəcədə dəyişmədikdə və istifadəçinin bir saniyə ərzində köhnə versiyaya baxdığını anlamadıqda bu alət faydalı ola bilər.
 
-It's worth noting that `useDeferredValue` is not *only* useful for data fetching. It also helps when an expensive component tree causes an interaction (e.g. typing in an input) to be sluggish. Just like we can "defer" a value that takes too long to fetch (and show its old value despite others components updating), we can do this with trees that take too long to render.
+`useDeferredValue` Hookunun *yalnız* məlumat yükləməsi üçün faydalı olmadığını nəzərinizə çatdırmaq istəyirik. Bu, bahalı komponent ağacına görə interaksiyanın (anket sahəsinə daxil etmə kimi) yavaşlamasının qarşısını da ala bilər. Gec yüklənən dəyəri "gecikdirdiyimiz" kimi (və digər komponentlər yeniləndiyindən asılı olmayaraq köhnə dəyəri göstərdiyimiz kimi) biz gec render olunan ağacları da gecikdirə bilərik.
 
-For example, consider a filterable list like this:
+Məsələn, filtr oluna bilən siyahı nümunəsinə baxın:
 
 ```js
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("salam");
 
   function handleChange(e) {
     setText(e.target.value);
@@ -807,7 +807,7 @@ function App() {
   return (
     <div className="App">
       <label>
-        Type into the input:{" "}
+        Anket sahəsinə daxil edin:{" "}
         <input value={text} onChange={handleChange} />
       </label>
       ...
@@ -817,15 +817,15 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/pensive-shirley-wkp46)**
 
-In this example, **every item in `<MySlowList>` has an artificial slowdown -- each of them blocks the thread for a few milliseconds**. We'd never do this in a real app, but this helps us simulate what can happen in a deep component tree with no single obvious place to optimize.
+Bu nümunədə, **`<MySlowList>`-də olan hər element, sistem tredini (thread) bir neçə millisaniyə yavaşladır**. Biz bunu real applikasiyada heç vaxt etmərik, amma bu nümunə ilə optimallaşması aydın olmayan dərin komponent ağaclarında baş verən yavaşlatmanı simulyasiya edə bilirik.
 
-We can see how typing in the input causes stutter. Now let's add `useDeferredValue`:
+Anket sahəsinə yazı daxil etdikdə yavaşlamanı görə bilirik. Gəlin, indi `useDeferredValue` Hookundan istifadə edək:
 
 ```js{3-5,18}
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("salam");
   const deferredText = useDeferredValue(text, {
     timeoutMs: 5000
   });
@@ -837,7 +837,7 @@ function App() {
   return (
     <div className="App">
       <label>
-        Type into the input:{" "}
+        Anket sahəsinə daxil edin:{" "}
         <input value={text} onChange={handleChange} />
       </label>
       ...
@@ -847,29 +847,29 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
 
-Now typing has a lot less stutter -- although we pay for this by showing the results with a lag.
+İndi, daxil etmənin daha az yavaşladığını görəcəyik. Burada kompromis, nəticələrin gec göstərilməsidir.
 
-How is this different from debouncing? Our example has a fixed artificial delay (3ms for every one of 80 items), so there is always a delay, no matter how fast our computer is. However, the `useDeferredValue` value only "lags behind" if the rendering takes a while. There is no minimal lag imposed by React. With a more realistic workload, you can expect the lag to adjust to the user’s device. On fast machines, the lag would be smaller or non-existent, and on slow machines, it would be more noticeable. In both cases, the app would remain responsive. That’s the advantage of this mechanism over debouncing or throttling, which always impose a minimal delay and can't avoid blocking the thread while rendering.
+Bu, debounce etmədən necə fərqlənir? Bizim nümunəmizdə sabit saxta yavaşlama var (80 elementin hərəsində 3ms). Bu səbəbdən tezliyindən asılı olmayaraq yavaşlama həmişə baş verəcək. Lakin, `useDeferredValue` Hookunun dəyəri yalnız render etmə uzun vaxt çəkdikdə "gecikməyə başlayacaq." React tərəfindən minimal yavaşlama tətbiq olunmur. Real ssenarilərdə yavaşlama istifadəçi qurğusundan asılıdır. Tez maşınlarda yavaşlama kiçik və ya mövcud olmayacaq. Yavaş maşınlarda isə yavaşlama daha çox nəzərə çarpacaq. Hər iki halda applikasiya responsiv olacaq. Bu mexanizmin minimal gecikdirmə tətbiq edən debounce etmə və ya throttle etmə kimi mexanizmlərdən üstünlüyü budur.
 
-Even though there is an improvement in responsiveness, this example isn't as compelling yet because Concurrent Mode is missing some crucial optimizations for this use case. Still, it is interesting to see that features like `useDeferredValue` (or `useTransition`) are useful regardless of whether we're waiting for network or for computational work to finish.
+Responsivliyin artdığına baxmayaraq bu ssenari üçün Konkurrent Modunda olan lazımi optimallaşdırmaların işlədilməyindən bu nümunə elə də yaxşı deyil. Amma yenə də `useDeferredValue` (və ya `useTransition`) kimi xüsusiyyətlərin şəbəkə cavabının gəlməsini və ya hesablama işinin bitməsini gözləmək kimi əməliyyatlarda faydalı olduğunu bilmək yaxşıdır.
 
 ### SuspenseList {#suspenselist}
 
-`<SuspenseList>` is the last pattern that's related to orchestrating loading states.
+Yükləmə vəziyyətlərini orkestrasiya etmək üçün ən sonuncu həll `<SuspenseList>`-dir.
 
-Consider this example:
+Aşağıdakı nümunəyə baxın:
 
 ```js{5-10}
 function ProfilePage({ resource }) {
   return (
     <>
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </>
@@ -877,44 +877,44 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/proud-tree-exg5t)**
 
-The API call duration in this example is randomized. If you keep refreshing it, you will notice that sometimes the posts arrive first, and sometimes the "fun facts" arrive first.
+Bu nümunədə, API çağırışı zamanları qarışdırılıb. Bu səhifəni hər dəfə yenidən yüklədikdə bəzən yazıların birinci gəldiyini, bəzən də "maraqlı faktların" birinci gəldiyini görəcəksiniz.
 
-This presents a problem. If the response for fun facts arrives first, we'll see the fun facts below the `<h2>Loading posts...</h2>` fallback for posts. We might start reading them, but then the *posts* response will come back, and shift all the facts down. This is jarring.
+Bu bizə problem yaradır. Maraqlı faktlar üçün cavab birinci gəldikdə bu faktları `<h2>Yazılar yüklənir...</h2>` fallback-inin aşağısında görəcəyik. Bu faktları oxuduğumuz zaman *yazılar* hazır olduqda isə bütün faktları aşağı düşəcək. Bu çaşdırıcıdır.
 
-One way we could fix it is by putting them both in a single boundary:
+Bunu həll etməyin yollarından biri hər iki komponenti bir sərhad ilə əhatə etməkdik:
 
 ```js
-<Suspense fallback={<h2>Loading posts and fun facts...</h2>}>
+<Suspense fallback={<h2>Yazılar və maraqlı faktlar yüklənir...</h2>}>
   <ProfileTimeline resource={resource} />
   <ProfileTrivia resource={resource} />
 </Suspense>
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/currying-violet-5jsiy)**
 
-The problem with this is that now we *always* wait for both of them to be fetched. However, if it's the *posts* that came back first, there's no reason to delay showing them. When fun facts load later, they won't shift the layout because they're already below the posts.
+İndi, hər iki komponentin *hazır olmasını* gözləmək lazımdır. Lakin, *yazılar* birinci hazır olduqda bunu göstərməyi gecikdirmək lazım deyil. Maraqlı faktlar gec yükləndikdə yazıların render olunduğundan şablon aşağı düşməyəcək.
 
-Other approaches to this, such as composing Promises in a special way, are increasingly difficult to pull off when the loading states are located in different components down the tree.
+Yükləmə vəziyyətləri komponent ağacının fərqli dərinliklərində olduqda Promise-ləri xüsusi formada birləşdirmək kimi digər yolları tətbiq etmək çox çətin ola bilər.
 
-To solve this, we will import `SuspenseList`:
+Bunu həll etmək üçün `SuspenseList` komponentini idxal edəcəyik:
 
 ```js
 import { SuspenseList } from 'react';
 ```
 
-`<SuspenseList>` coordinates the "reveal order" of the closest `<Suspense>` nodes below it:
+`<SuspenseList>` komponenti ən yaxın `<Suspense>` nodlarının "göstərmə sırasını" idarə etməyə imkan yaradır:
 
 ```js{3,11}
 function ProfilePage({ resource }) {
   return (
     <SuspenseList revealOrder="forwards">
       <ProfileDetails resource={resource} />
-      <Suspense fallback={<h2>Loading posts...</h2>}>
+      <Suspense fallback={<h2>Yazılar yüklənir...</h2>}>
         <ProfileTimeline resource={resource} />
       </Suspense>
-      <Suspense fallback={<h2>Loading fun facts...</h2>}>
+      <Suspense fallback={<h2>Maraqlı faktlar yüklənir...</h2>}>
         <ProfileTrivia resource={resource} />
       </Suspense>
     </SuspenseList>
@@ -922,16 +922,16 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
+**[CodeSandbox-da sınayın](https://codesandbox.io/s/black-wind-byilt)**
 
-The `revealOrder="forwards"` option means that the closest `<Suspense>` nodes inside this list **will only "reveal" their content in the order they appear in the tree -- even if the data for them arrives in a different order**. `<SuspenseList>` has other interesting modes: try changing `"forwards"` to `"backwards"` or `"together"` and see what happens.
+`revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər modları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
-You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at the time. You can play with it [here](https://codesandbox.io/s/adoring-almeida-1zzjh).
+Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback görəcəyik. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
 
-Keep in mind that `<SuspenseList>` is composable, like anything in React. For example, you can create a grid by putting several `<SuspenseList>` rows inside a `<SuspenseList>` table.
+`<SuspenseList>`-in React komponentləri kimi kompozisiya edilə biləcəyini unutmayın. Məsələn, siz bir neçə `<SuspenseList>` sıralarını `<SuspenseList>` cədvəlinə əlavə edərək qrid yarada bilərsiniz.
 
-## Next Steps {#next-steps}
+## Sonrakı Addımlar {#next-steps}
 
-Concurrent Mode offers a powerful UI programming model and a set of new composable primitives to help you orchestrate delightful user experiences.
+Konkurrent Mod ilə çox güclü UI proqramlaşdırma modeli və yaxşı istifadəçi təcrübələri orkestrasiya etmək üçün kompozisiya oluna bilən primitivlər təqdim edilir.
 
-It's a result of several years of research and development, but it's not finished. In the section on [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html), we'll describe how you can try it and what you can expect.
+Bu həll, bir neçə ildə etdiyimiz tədqiqat və təkmilləşmənin nəticəsidir, amma bunun üzərində hələ də işlər gedir. [Konkurrent Moda Uyğunlaşma](/docs/concurrent-mode-adoption.html) bölməsində bu xüsusiyyətləri necə sınamaq və nəyə gözləyə biləcəyiniz haqqında danışacağıq.
