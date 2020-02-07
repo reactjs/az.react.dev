@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-adoption
-title: Adopting Concurrent Mode (Experimental)
+title: Konkurrent Rejiminə Uyğunlaşma (Eksperimental)
 permalink: docs/concurrent-mode-adoption.html
 prev: concurrent-mode-patterns.html
 next: concurrent-mode-reference.html
@@ -15,98 +15,98 @@ next: concurrent-mode-reference.html
 
 <div class="scary">
 
->Caution:
+>Xəbərdarlıq:
 >
->This page describes **experimental features that are not yet available in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now.
+>Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil.
 
 </div>
 
-- [Installation](#installation)
-  - [Who Is This Experimental Release For?](#who-is-this-experimental-release-for)
-  - [Enabling Concurrent Mode](#enabling-concurrent-mode)
-- [What to Expect](#what-to-expect)
-  - [Migration Step: Blocking Mode](#migration-step-blocking-mode)
-  - [Why So Many Modes?](#why-so-many-modes)
-  - [Feature Comparison](#feature-comparison)
+- [Quraşdırma](#installation)
+  - [Bu Eksperimental Buraxılış Kimin Üçündür?](#who-is-this-experimental-release-for)
+  - [Konkurrent Rejimini Aktivləşdirmək](#enabling-concurrent-mode)
+- [Nəyi Gözləyin](#what-to-expect)
+  - [Miqrasiya Addımı: Blok Rejimi](#migration-step-blocking-mode)
+  - [Niyə Bu Qədər Rejim Var?](#why-so-many-modes)
+  - [Xüsusiyyətlərin Müqayisəsi](#feature-comparison)
 
-## Installation {#installation}
+## Quraşdırma {#installation}
 
-Concurrent Mode is only available in the [experimental builds](/blog/2019/10/22/react-release-channels.html#experimental-channel) of React. To install them, run:
+Konkurrent Rejimi yalnız React-in [eksperimental qurulmalarında](/blog/2019/10/22/react-release-channels.html#experimental-channel) mövcuddur. Bunu yükləmək üçün aşağıdakı əmri icra edin:
 
 ```
 npm install react@experimental react-dom@experimental
 ```
 
-**There are no semantic versioning guarantees for the experimental builds.**  
-APIs may be added, changed, or removed with any `@experimental` release.
+**Eksperimental qurulmalarda semantik versiya siğortaları mövcud deyil.**  
+Hər bir `@experimental` buraxılışda API-lar əlavə oluna bilər, dəyişə bilər, hətta silinə bilər.
 
-**Experimental releases will have frequent breaking changes.**
+**Eksperimental buraxılışlarda pozucu dəyişikliklər tez-tez olur.**
 
-You can try these builds on personal projects or in a branch, but we don't recommend running them in production. At Facebook, we *do* run them in production, but that's because we're also there to fix bugs when something breaks. You've been warned!
+Bu qurulmaları şəxsi layihənizdə və ya fərqli budaqda sınaya bilərsiniz. Lakin, biz bu qurulmaları produksiyada işlətməyi tövsiyyə etmirik. Facebook-da bu qurulmalar produksiyada icra olunur. Lakin, baqlar baş verdikdə biz bu baqları düzəldirik. Sizə xəbərdarlıq etdik!
 
-### Who Is This Experimental Release For? {#who-is-this-experimental-release-for}
+### Bu Eksperimental Buraxılış Kimin Üçündür? {#who-is-this-experimental-release-for}
 
-This release is primarily aimed at early adopters, library authors, and curious people.
+Bu buraxılış əsasən erkən yoxlayıcılar, kitabxana müəllifləri və maraqlanan insanlar üçündür.
 
-We're using this code in production (and it works for us) but there are still some bugs, missing features, and gaps in the documentation. We'd like to hear more about what breaks in Concurrent Mode so we can better prepare it for an official stable release in the future.
+Biz bu kodu produksiyada işlədirik (və bizim üçün işləyir), amma bu buraxılışda baqlar və catışmayan xüsusiyyətlər, sənədlərdə də boşluqlar var. Biz, Konkurrent Rejimində nəyin sındığını bilib bu xüsusiyyəti rəsmi stabil buraxılışına daha yaxşı hazırlamaq istəyirik.
 
-### Enabling Concurrent Mode {#enabling-concurrent-mode}
+### Konkurrent Rejimini Aktivləşdirmək {#enabling-concurrent-mode}
 
-Normally, when we add features to React, you can start using them immediately. Fragments, Context, and even Hooks are examples of such features. You can use in new code without making any changes to the existing code.
+Normalda, biz React-ə yeni xüsusiyyət əlavə etdikdə siz bu xüsusiyyəti dərhal işlədə bilirsiniz. Fraqmentlər, Kontekst və Hooklar belə xüsusiyyətlərin nümunələridir. Mövcud kodu dəyişmədən bu kodlardan istifadə etmək mümkündür.
 
-Concurrent Mode is different. It introduces semantic changes to how React works. Otherwise, the [new features](/docs/concurrent-mode-patterns.html) enabled by it *wouldn't be possible*. This is why they're grouped into a new "mode" rather than released one by one in isolation.
+Konkurrent Rejimi isə fərqlidir. Bu rejimdə React-in işləməsində semantik dəyişikliklər edilir. Əks halda, bu rejim ilə gələn [yeni xüsusiyyətləri](/docs/concurrent-mode-patterns.html) dəstəkləmək *mümkün olmayacaqdı*. Bu səbəbdən, buradakı xüsusiyyətləri ayrı-ayrı dərc etmək əvəzinə yeni "rejimin" altında qruplaşdırdır.
 
-You can't opt into Concurrent Mode on a per-subtree basis. Instead, to opt in, you have to do it in the place where today you call `ReactDOM.render()`.
+Konkurrent Rejimini yalnız xüsusi alt ağacda aktivləşdirmək mümkün deyil. Əvəzinə, bu rejimi `ReactDOM.render()` funksiyasını çağırdığınız yerdən aktivləşdirməlisiniz.
 
-**This will enable Concurrent Mode for the whole `<App />` tree:**
+**Bu, Konkurrent Rejimini bütün `<App />` ağacı üçün aktivləşdirəcək:**
 
 ```js
 import ReactDOM from 'react-dom';
 
-// If you previously had:
+// Əvvəl aşağıdakı funksiya çağırışı olduğu yerdə:
 //
 // ReactDOM.render(<App />, document.getElementById('root'));
 //
-// You can opt into Concurrent Mode by writing:
+// Siz Konkurrent Rejimini aşağıdakı funksiya ilə aktivləşdirə bilərsiniz:
 
 ReactDOM.createRoot(
   document.getElementById('root')
 ).render(<App />);
 ```
 
->Note:
+>Qeyd:
 >
->Concurrent Mode APIs such as `createRoot` only exist in the experimental builds of React.
+>`createRoot` kimi Konkurrent Rejimi API-ları yalnız React-in eksperimental buraxılışlarında mövcuddur.
 
-In Concurrent Mode, the lifecycle methods [previously marked](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) as "unsafe" actually *are* unsafe, and lead to bugs even more than in today's React. We don't recommend trying Concurrent Mode until your app is [Strict Mode](https://reactjs.org/docs/strict-mode.html)-compatible.
+Konkurrent Rejimi aktiv olduqda [əvvəl "təhlükəli" kimi işarələnmiş](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) lifecycle metodları təhlükəli olub daha çox baqlara səbəb olurlar. Applikasiyanız [Strikt Rejimi](https://reactjs.org/docs/strict-mode.html) ilə işləmirsə, Konkurrent Rejimindən istifadə etməyi tövsiyyə etmirik.
 
-## What to Expect {#what-to-expect}
+## Nəyi Gözləyin  {#what-to-expect}
 
-If you have a large existing app, or if your app depends on a lot of third-party packages, please don't expect that you can use the Concurrent Mode immediately. **For example, at Facebook we are using Concurrent Mode for the new website, but we're not planning to enable it on the old website.** This is because our old website still uses unsafe lifecycle methods in the product code, incompatible third-party libraries, and patterns that don't work well with the Concurrent Mode.
+Əgər sizin çoxlu 3-cü tərəfin paketlərindən istifadə edən böyük applikasiyanız varsa, bu applikasiyanı dərhal Konkurrent Rejimindən istifadə edə biləcəyinizi gözləməyin. **Məsələn, biz Facebook-un yeni səhifəsi üçün Konkurrent Rejimini aktivləşdirmişik, amma bu rejimi köhnə sayt üçün aktivləşdirməyi planlaşdırmırıq.** Bunun səbəbi bizim köhnə səhifəmizdə "təhlükəli" lifecycle metodlarından, Konkurrent Rejimi ilə uyğun olmayan 3-cü tərəfin kitabxanalarından və həllərindən istifadə edilir.
 
-In our experience, code that uses idiomatic React patterns and doesn't rely on external state management solutions is the easiest to get running in the Concurrent Mode. We will describe common problems we've seen and the solutions to them separately in the coming weeks.
+Bizim təcrübəmiz göstərir ki, kənar state idarəsi həllərindən asılı olmayan və idiomatik React həllərindən istifadə edən kodları Konkurrent Rejimində icra etmək asandır. Biz, çox yaranan problemlər və bu problemlərin həlləri haqqında gələcək həftələrdə danışacağıq.
 
-### Migration Step: Blocking Mode {#migration-step-blocking-mode}
+### Miqrasiya Addımı: Blok Rejimi {#migration-step-blocking-mode}
 
-For older codebases, Concurrent Mode might be a step too far. This is why we also provide a new "Blocking Mode" in the experimental React builds. You can try it by substituting `createRoot` with `createBlockingRoot`. It only offers a *small subset* of the Concurrent Mode features, but it is closer to how React works today and can serve as a migration step.
+Köhnə kodları Konkurrent Rejiminə keçirmək çox çətin ola bilər. Bu səbəbdən biz React-in eksperimental buraxılışlarında yeni "Blok Rejimini" də dəstəkləyirik. Bu rejimdən istifadə etmək üçün `createRoot` funksiyasını `createBlockingRoot` funksiyası ilə əvəz edin. Bu rejimdə Konkurrent Rejiminin yalnız *kiçik hissəsi* dəstəklənir, amma bu rejim React-in indiki işlədiyi vaxta daha yaxın olub yaxşı miqrasiya addımı kimi xidmət göstərir.
 
-To recap:
+Xülasə:
 
-* **Legacy Mode:** `ReactDOM.render(<App />, rootNode)`. This is what React apps use today. There are no plans to remove the legacy mode in the observable future — but it won't be able to support these new features.
-* **Blocking Mode:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. It is currently experimental. It is intended as a first migration step for apps that want to get a subset of Concurrent Mode features.
-* **Concurrent Mode:** `ReactDOM.createRoot(rootNode).render(<App />)`. It is currently experimental. In the future, after it stabilizes, we intend to make it the default React mode. This mode enables *all* the new features.
+* **Köhnə Rejim:** `ReactDOM.render(<App />, rootNode)`. Bu, React applikasiyalarının bugünki işləmə rejimi ilə eynidir. Bu rejimi yaxın gələcəkdə silmək marağımız yoxdur. Lakin, bu rejim ilə yeni xüsusiyyətlər dəstəklənməyəcək.
+* **Blok Rejimi:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Bu hələki eksperimentaldır. Konkurrent Rejiminin kiçik hissəsindən istifadə etmək istəyənlər üçün bu ilkin miqrasiya addımı rolunu oynayır.
+* **Konkurrent Rejimi:** `ReactDOM.createRoot(rootNode).render(<App />)`. Bu hələki eksperimentaldır. Gələcəkdə stabilləşdikdən sonra biz bunu React-in standart rejimi etmək istəyirik. Bu rejimdə React-in *bütün* xüsusiyyətləri dəstəklənəcək.
 
-### Why So Many Modes? {#why-so-many-modes}
+### Niyə Bu Qədər Rejim Var? {#why-so-many-modes}
 
-We think it is better to offer a [gradual migration strategy](/docs/faq-versioning.html#commitment-to-stability) than to make huge breaking changes — or to let React stagnate into irrelevance.
+Biz, böyük pozucu dəyişikliklər etmək əvəzinə [tədrici miqrasiya strategiyasına](/docs/faq-versioning.html#commitment-to-stability) üstünlük veririk.
 
-In practice, we expect that most apps using Legacy Mode today should be able to migrate at least to the Blocking Mode (if not Concurrent Mode). This fragmentation can be annoying for libraries that aim to support all Modes in the short term. However, gradually moving the ecosystem away from the Legacy Mode will also *solve* problems that affect major libraries in the React ecosystem, such as [confusing Suspense behavior when reading layout](https://github.com/facebook/react/issues/14536) and [lack of consistent batching guarantees](https://github.com/facebook/react/issues/15080). There's a number of bugs that can't be fixed in Legacy Mode without changing semantics, but don't exist in Blocking and Concurrent Modes.
+Praktikada, biz bir çox Köhnə Rejimdə olan applikasiyaların ən azından Blok Rejiminə keçə bilməsini gözləyirik. Bu fraqmentasiya bütün rejimləri dəstəkləmək istəyən kitabxanalar üçün əsəbləşdirici ola bilər. Lakin, ekosistemi yavaş-yavaş Köhnə rejimdən uzaqlaşdırmaq ekosistemdə olan böyük kitabxanaların problemlərini də (məsələn, [şablonu oxuduqda çaşdırıcı Suspense daranışları](https://github.com/facebook/react/issues/14536) və [stabil dəstələnmənin siğortalanmaması](https://github.com/facebook/react/issues/15080) kimi) *həll edəcək*. Köhnə Rejimdə Blok və Konkurrent Rejimlərində mövcud olmayan bəzi baqları semantikanı dəyişmədən düzəltmək mümkün deyil.
 
-You can think of the Blocking Mode as a "gracefully degraded" version of the Concurrent Mode. **As a result, in longer term we should be able to converge and stop thinking about different Modes altogether.** But for now, Modes are an important migration strategy. They let everyone decide when a migration is worth it, and upgrade at their own pace.
+Siz, Blok Rejiminin Konkurrent Rejiminin aşağı salınmış versiyası olduğunu fikirləşə bilərsiniz. **Nəticədə, gələcəkdə bütün rejimlər birləşəcək və fərqli rejimlər haqqında fikirləşmək lazım olmayacaq.** Lakin, indiki zamanda fərqli rejimlər ilə miqrasiya etmək asanlaşacaq.
 
-### Feature Comparison {#feature-comparison}
+### Xüsusiyyətlərin Müqayisəsi {#feature-comparison}
 
 <style>
   #feature-table table { border-collapse: collapse; }
@@ -116,26 +116,26 @@ You can think of the Blocking Mode as a "gracefully degraded" version of the Con
 
 <div id="feature-table">
 
-|   |Legacy Mode  |Blocking Mode  |Concurrent Mode  |
+|   |Köhnə Rejim  | Blok Rejimi  | Konkurrent Rejimi  |
 |---  |---  |---  |---  |
-|[String Refs](/docs/refs-and-the-dom.html#legacy-api-string-refs)  |✅  |🚫**  |🚫**  |
-|[Legacy Context](/docs/legacy-context.html) |✅  |🚫**  |🚫**  |
+|[Mətn Ref-ləri](/docs/refs-and-the-dom.html#legacy-api-string-refs)  |✅  |🚫**  |🚫**  |
+|[Köhnə Kontekst](/docs/legacy-context.html) |✅  |🚫**  |🚫**  |
 |[findDOMNode](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)  |✅  |🚫**  |🚫**  |
 |[Suspense](/docs/concurrent-mode-suspense.html#what-is-suspense-exactly) |✅  |✅  |✅  |
 |[SuspenseList](/docs/concurrent-mode-patterns.html#suspenselist) |🚫  |✅  |✅  |
-|Suspense SSR + Hydration |🚫  |✅  |✅  |
-|Progressive Hydration  |🚫  |✅  |✅  |
-|Selective Hydration  |🚫  |🚫  |✅  |
-|Cooperative Multitasking |🚫  |🚫  |✅  |
-|Automatic batching of multiple setStates     |🚫* |✅  |✅  |
-|[Priority-based Rendering](/docs/concurrent-mode-patterns.html#splitting-high-and-low-priority-state) |🚫  |🚫  |✅  |
-|[Interruptible Prerendering](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
+|Suspense SSR + Hidrasiya |🚫  |✅  |✅  |
+|Proqressiv Hidrasiya  |🚫  |✅  |✅  |
+|Seçilmiş Hidrasiya  |🚫  |🚫  |✅  |
+|Kooperativ Multitasking |🚫  |🚫  |✅  |
+|Bir neçə setState-lərin avtomatik dəstələnməsi     |🚫* |✅  |✅  |
+|[Prioritet ilə Render Etmə](/docs/concurrent-mode-patterns.html#splitting-high-and-low-priority-state) |🚫  |🚫  |✅  |
+|[Kəsici Ön Render Etmə](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
 |[useTransition](/docs/concurrent-mode-patterns.html#transitions)  |🚫  |🚫  |✅  |
 |[useDeferredValue](/docs/concurrent-mode-patterns.html#deferring-a-value) |🚫  |🚫  |✅  |
-|[Suspense Reveal "Train"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |
+|[Suspense Göstərmə "Qatarı"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |
 
 </div>
 
-\*: Legacy mode has automatic batching in React-managed events but it's limited to one browser task. Non-React events must opt-in using `unstable_batchedUpdates`. In Blocking Mode and Concurrent Mode, all `setState`s are batched by default.
+\*: Köhnə Rejimdə React tərəfindən idarə olunan hadisələrin dəstələnməsi mümkündür. Lakin, bu yalnız bir brauzer tapşırığı ilə idarə oluna bilir. React olmayan hadisələr üçün `unstable_batchedUpdates` funksiyasından istifadə etmək lazımdır. Blok Rejimi və Konkurrent Rejimində isə bütün `setState`-lər dəstələnir.
 
-\*\*: Warns in development.
+\*\*: Təkmilləşdirmə zamanı xəbərdarlıqlar göstərir.
