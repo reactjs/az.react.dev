@@ -42,6 +42,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | state<br />(in general context) | vəziyyət | 
 | stateful component | state-li komponent |
 | uncontrolled component | kontrolsuz komponent |
+| Concurrent Mode | Konkurrent Rejimi |
 
 ## Digər Terminlər
 

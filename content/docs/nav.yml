@@ -139,15 +139,15 @@
   isOrdered: true
   items:
     - id: concurrent-mode-intro
-      title: Konkurrent Moda Giriş
+      title: Konkurrent Rejiminə Giriş
     - id: concurrent-mode-suspense
       title: Məlumat Yüklənməsi üçün Suspense
     - id: concurrent-mode-patterns
       title: Konkurrent UI Həlləri
     - id: concurrent-mode-adoption
-      title: Konkurrent Moda Uyğunlaşma
+      title: Konkurrent Rejiminə Uyğunlaşma
     - id: concurrent-mode-reference
-      title: Konkurrent Modunun API Arayışı
+      title: Konkurrent Rejiminin API Arayışı
 - title: İştirak Etmək
   items:
   - id: how-to-contribute
