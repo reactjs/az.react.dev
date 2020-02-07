@@ -25,7 +25,7 @@ next: concurrent-mode-adoption.html
 
 Adətən, state-i yenilədikdə dəyişiklikləri ekranda dərhal görmək istəyirik. Applikasiyanın istifadəçi daxil etməsini tez cavablandırmasını istədiyimizdən bu fikir məntiqli gəlir. Lakin, bəzi ssenarilərdə **yeniliyin ekranda görünməsini gecikdirmək istəyə bilərik**.
 
-Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səhifəyə aid olan heç bir kod və ya məlumat yüklənmədiyi halda yükləmə göstəricisi ilə boş səhifənin görünməsi əsəbləşdirici ola bilər. Bu səbəbdən əvvəlki ekranda daha uzun qalmaq istəyə bilərik. Tarix boyu bu həllin React-də tətbiqi çətin olub. Lakin, bunu həll etmək üçün Konkurrent Moduna yeni alətlər əlavə olunub.
+Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səhifəyə aid olan heç bir kod və ya məlumat yüklənmədiyi halda yükləmə göstəricisi ilə boş səhifənin görünməsi əsəbləşdirici ola bilər. Bu səbəbdən əvvəlki ekranda daha uzun qalmaq istəyə bilərik. Tarix boyu bu həllin React-də tətbiqi çətin olub. Lakin, bunu həll etmək üçün Konkurrent Rejiminə yeni alətlər əlavə olunub.
 
 - [Keçidlər](#transitions)
   - [setState-i Keçid ilə Əhatə Etmək](#wrapping-setstate-in-a-transition)
@@ -57,11 +57,11 @@ Bunu həll etmək üçün React-ə `useTransition()` adlı Hook əlavə etmişik
 
 Bu Hooku üç addım ilə işlətmək mümkündür.
 
-İlk olaraq Konkurrent Modunu işlətdiyimizi bilməliyik. Biz, [Konkurrent Moduna uyğunlaşma](/docs/concurrent-mode-adoption.html) haqqında sonrakı səhifələrdə danışacağıq, amma bu səhifədə bu xüsusiyyətin işləməsi üçün `ReactDOM.render()` əvəzinə `ReactDOM.createRoot()` işlətmək kifayət edir:
+İlk olaraq Konkurrent Rejimini işlətdiyimizi bilməliyik. Biz, [Konkurrent Rejiminə uyğunlaşma](/docs/concurrent-mode-adoption.html) haqqında sonrakı səhifələrdə danışacağıq, amma bu səhifədə bu xüsusiyyətin işləməsi üçün `ReactDOM.render()` əvəzinə `ReactDOM.createRoot()` işlətmək kifayət edir:
 
 ```js
 const rootElement = document.getElementById("root");
-// Konkurrent Modundan İstifadə Et
+// Konkurrent Rejimindən İstifadə Et
 ReactDOM.createRoot(rootElement).render(<App />);
 ```
 
@@ -208,7 +208,7 @@ Aydındır ki, `<ProfilePage>`-in hər iki "versiyası" eyni zamanda mövcuddur.
 
 **Eyni komponentin hər iki versiyası eyni zamanda necə mövcud ola bilər?**
 
-Bu Konkurrent Modun əsasıdır. Biz, [əvvəlki bölmədə dediyimiz kimi](/docs/concurrent-mode-intro.html#intentional-loading-sequences) bu, React-in state yeniliyinin fərqli "budaqda" işləməsinə bənzəyir. Bunu fərqli formada konseptuallaşdırmaq üçün `startTransition` ilə əhatə olunmuş state yeniliyinin *"fərqli dünyada"* (elmi fantastika filmlərində olduğu kimi) render edildiyini fikirləşin. Biz, bu dünyanı birbaşa "görə" bilmirik, amma bu dünyada nəyinsə baş verdiyinin siqnalını (`isPending`) ala bilirik. Yenilik hazır olduqda "dünyalar" birləşir və biz nəticəni ekranda görürük!
+Bu Konkurrent Rejiminin əsasıdır. Biz, [əvvəlki bölmədə dediyimiz kimi](/docs/concurrent-mode-intro.html#intentional-loading-sequences) bu, React-in state yeniliyinin fərqli "budaqda" işləməsinə bənzəyir. Bunu fərqli formada konseptuallaşdırmaq üçün `startTransition` ilə əhatə olunmuş state yeniliyinin *"fərqli dünyada"* (elmi fantastika filmlərində olduğu kimi) render edildiyini fikirləşin. Biz, bu dünyanı birbaşa "görə" bilmirik, amma bu dünyada nəyinsə baş verdiyinin siqnalını (`isPending`) ala bilirik. Yenilik hazır olduqda "dünyalar" birləşir və biz nəticəni ekranda görürük!
 
 Göstərilən [nümunə](https://codesandbox.io/s/jovial-lalande-26yep) ilə oynayıb bunun baş verdiyini təsəvvür edin.
 
@@ -357,7 +357,7 @@ function ProfilePage() {
 
 Düymə tıklandıqda keçid başlanır və daxilindən `props.onClick()` çağrılır. Bu callback, `<ProfilePage>` komponentində `handleRefreshClick` funksiyasını çağırır. Biz, yeni məlumatı yükləməyə başlayırıq, amma keçidin daxilində olduğumuzdan və `useTransition`-a göndərilən 10 saniyə bitmədiyindən fallback göstərilmir. Keçidin proqresdə olduğundan düymədə sətrdaxili yüklənmə göstəricisi göstərilir.
 
-Konkurrent Modunun komponentlərin izolyasiyasını və modulyarlığını itirmədən yaxşı istifadəçi təcrübəsi yaratdığını görə bilərik. React keçidləri koordinasiya edir.
+Konkurrent Rejiminin komponentlərin izolyasiyasını və modulyarlığını itirmədən yaxşı istifadəçi təcrübəsi yaratdığını görə bilərik. React keçidləri koordinasiya edir.
 
 ## Üç Addım {#the-three-steps}
 
@@ -614,13 +614,13 @@ Bu dəyişiklik ilə Yükləmə vəziyyətində olmamıza baxmayaraq 500ms keç�
 
 ## Digər Həllər {#other-patterns}
 
-Keçidlərin ən çox işləniləcək Konkurrent Modu həlli olmasına baxmayaraq digər həllər də sizin üçün faydalı ola bilər.
+Keçidlərin ən çox işləniləcək Konkurrent Rejimi həlli olmasına baxmayaraq digər həllər də sizin üçün faydalı ola bilər.
 
 ### Yüksək və Aşağı Priooritetli State-ləri Parçalamaq {#splitting-high-and-low-priority-state}
 
 React komponentlərini dizayn etdikdə state-in "minimal təsvirini" tapmaq faydalıdır. Məsələn, state-də `firstName`, `lastName` və `fullName` saxlamaq əvəzinə  `firstName` və `lastName` saxlayıb render zamanı `fullName`-i hesablamaq daha effektivdir. Bu yanaşma ilə bir state-i yeniləyib o biri state-i yeniləməyi yaddan çıxarmaq kimi xətaların qarşısının alınması asanlaşır.
 
-Lakin, Konkurrent Mod işlətdikdə məlumatları "dublikat" etmək bəzən *faydalı ola bilər*. Aşağıdakı kiçik tərcümə applikasiyasına baxın:
+Lakin, Konkurrent Rejimi işlətdikdə bəzən məlumatları "dublikat" etmək *faydalı ola bilər*. Aşağıdakı kiçik tərcümə applikasiyasına baxın:
 
 ```js
 const initialQuery = "Salam dünya";
@@ -853,7 +853,7 @@ function App() {
 
 Bu, debounce etmədən necə fərqlənir? Bizim nümunəmizdə sabit saxta yavaşlama var (80 elementin hərəsində 3ms). Bu səbəbdən tezliyindən asılı olmayaraq yavaşlama həmişə baş verəcək. Lakin, `useDeferredValue` Hookunun dəyəri yalnız render etmə uzun vaxt çəkdikdə "gecikməyə başlayacaq." React tərəfindən minimal yavaşlama tətbiq olunmur. Real ssenarilərdə yavaşlama istifadəçi qurğusundan asılıdır. Tez maşınlarda yavaşlama kiçik və ya mövcud olmayacaq. Yavaş maşınlarda isə yavaşlama daha çox nəzərə çarpacaq. Hər iki halda applikasiya responsiv olacaq. Bu mexanizmin minimal gecikdirmə tətbiq edən debounce etmə və ya throttle etmə kimi mexanizmlərdən üstünlüyü budur.
 
-Responsivliyin artdığına baxmayaraq bu ssenari üçün Konkurrent Modunda olan lazımi optimallaşdırmaların işlədilməyindən bu nümunə elə də yaxşı deyil. Amma yenə də `useDeferredValue` (və ya `useTransition`) kimi xüsusiyyətlərin şəbəkə cavabının gəlməsini və ya hesablama işinin bitməsini gözləmək kimi əməliyyatlarda faydalı olduğunu bilmək yaxşıdır.
+Responsivliyin artdığına baxmayaraq bu ssenari üçün Konkurrent Rejimində olan lazımi optimallaşdırmaların işlədilməyindən bu nümunə elə də yaxşı deyil. Amma yenə də `useDeferredValue` (və ya `useTransition`) kimi xüsusiyyətlərin şəbəkə cavabının gəlməsini və ya hesablama işinin bitməsini gözləmək kimi əməliyyatlarda faydalı olduğunu bilmək yaxşıdır.
 
 ### SuspenseList {#suspenselist}
 
@@ -924,7 +924,7 @@ function ProfilePage({ resource }) {
 
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/black-wind-byilt)**
 
-`revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər modları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
+`revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər rejimları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
 Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback görəcəyik. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
 
@@ -932,6 +932,6 @@ Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` pr
 
 ## Sonrakı Addımlar {#next-steps}
 
-Konkurrent Mod ilə çox güclü UI proqramlaşdırma modeli və yaxşı istifadəçi təcrübələri orkestrasiya etmək üçün kompozisiya oluna bilən primitivlər təqdim edilir.
+Konkurrent Rejimi ilə çox güclü UI proqramlaşdırma modeli və yaxşı istifadəçi təcrübələri orkestrasiya etmək üçün kompozisiya oluna bilən primitivlər təqdim edilir.
 
-Bu həll, bir neçə ildə etdiyimiz tədqiqat və təkmilləşmənin nəticəsidir, amma bunun üzərində hələ də işlər gedir. [Konkurrent Moda Uyğunlaşma](/docs/concurrent-mode-adoption.html) bölməsində bu xüsusiyyətləri necə sınamaq və nəyə gözləyə biləcəyiniz haqqında danışacağıq.
+Bu həll, bir neçə ildə etdiyimiz tədqiqat və təkmilləşmənin nəticəsidir, amma bunun üzərində hələ də işlər gedir. [Konkurrent Rejiminə Uyğunlaşma](/docs/concurrent-mode-adoption.html) bölməsində bu xüsusiyyətləri necə sınamaq və nəyə gözləyə biləcəyiniz haqqında danışacağıq.

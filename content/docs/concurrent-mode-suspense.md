@@ -139,7 +139,7 @@ Siz, məlumat kitabxanası üçün özünüzün inteqrasiyasını da yaza bilər
 
 Biz, cəmiyyətin digər kitabxanalar üzərində çoxlu eksperimentlər etməsini gözləyirik. Bizim məlumat yüklənməsi kitabxanalarının müəllifləri üçün vacib bir qeydimiz var.
 
-Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlatmaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
+Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlatmaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Rejimi və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
 
 Əgər şəlalələrin qabağını kəsmək üçün həlliniz yoxdursa, render etmədən öncə yüklənməni üstün tutan API-lardan istifadə etməyi tövsiyyə edirik. Dəqiq nümunə üçün [Relay Suspense API-ının](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) öncədən yükləməni necə tətbiq etdiyinə baxın. Bizim bu haqqda mesajımız hər zaman dəyişib. Məlumat Yüklənməsi üçün Suspense-in eksperimental olduğundan bizim produksiyada olan istifadədə öyrəndiklərimiz və problem sahəsində anlayışlarımız əsasında tövsiyyələrimizin vaxt ilə dəyişəcəyini gözləyə bilərsiniz.
 
@@ -423,7 +423,7 @@ function App() {
 
 Bu yanaşmadan istifadə etdikdə biz **kod və məlumatları eyni zamanda yükləyə bilirik**. Səhifələr arasında naviqasiya etdikdə məlumatı yükləmək üçün səhifənin kodunun yüklənməsini gözləmək lazım deyil. Biz, kod və məlumatları eyni zamanda yükləməyə (link tıklandığı zaman) başladıqda daha yaxşı istifadəçi təcrübəsi təmin edə bilirik.
 
-Bu yanaşma ilə sonrakı ekrandə *nəyin* render ediləcəyi sualı çıxır. Bunu həll etməyin bir neçə yolu var (məsələn, məlumat yükləməsini routing həllinə yaxınlaşdırmaq). Məlumat yükləməsi kitabxanası üzərində işlədiyiniz zaman bunun necə həll edilməsi və niyə vacib olduğu haqqda məlumat almaq üçün [Konkurrent Modu və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) yazısına baxın.
+Bu yanaşma ilə sonrakı ekrandə *nəyin* render ediləcəyi sualı çıxır. Bunu həll etməyin bir neçə yolu var (məsələn, məlumat yükləməsini routing həllinə yaxınlaşdırmaq). Məlumat yükləməsi kitabxanası üzərində işlədiyiniz zaman bunun necə həll edilməsi və niyə vacib olduğu haqqda məlumat almaq üçün [Konkurrent Rejimi və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) yazısına baxın.
 
 ### Bunun Üzərində hələ də İş Gedir {#were-still-figuring-this-out}
 
