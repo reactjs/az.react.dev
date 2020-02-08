@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-reference
-title: Concurrent Mode API Reference (Experimental)
+title: Konkurrent Rejiminin API Arayışı (Eksperimental)
 permalink: docs/concurrent-mode-reference.html
 prev: concurrent-mode-adoption.html
 ---
@@ -14,19 +14,19 @@ prev: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Caution:
+>Xəbərdarlıq:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now.
+>Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil.
 
 </div>
 
-This page is an API reference for the React [Concurrent Mode](/docs/concurrent-mode-intro.html). If you're looking for a guided introduction instead, check out [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html).
+Bu səhifədə [Konkurrent Rejiminin](/docs/concurrent-mode-intro.html) API arayışı göstərili. Təlimatlı giriş axtarırsınızsa, [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html) səhifəsinə baxın.
 
-**Note: This is a Community Preview and not the final stable version. There will likely be future changes to these APIs. Use at your own risk!**
+**Qeyd: Bu Cəmiyyət üçün İcmal rolunu daşıyır və ən son stabil versiya deyil. Gələcəkdə buradakı API-lara dəyişikliklər edilər bilər. Öz riskiniz ilə oxuyun!**
 
-- [Enabling Concurrent Mode](#concurrent-mode)
+- [Konkurrent Rejimini Aktivləşdirmək](#concurrent-mode)
     - [`createRoot`](#createroot)
     - [`createBlockingRoot`](#createblockingroot)
 - [Suspense](#suspense)
@@ -35,7 +35,7 @@ This page is an API reference for the React [Concurrent Mode](/docs/concurrent-m
     - [`useTransition`](#usetransition)
     - [`useDeferredValue`](#usedeferredvalue)
 
-## Enabling Concurrent Mode {#concurrent-mode}
+## Konkurrent Rejimini Aktivləşdirmək {#concurrent-mode}
 
 ### `createRoot` {#createroot}
 
@@ -43,9 +43,9 @@ This page is an API reference for the React [Concurrent Mode](/docs/concurrent-m
 ReactDOM.createRoot(rootNode).render(<App />);
 ```
 
-Replaces `ReactDOM.render(<App />, rootNode)` and enables Concurrent Mode.
+`ReactDOM.render(<App />, rootNode)` çağırışını əvəz edərək Konkurrent Rejimin aktivləşdirir.
 
-For more information on Concurrent Mode, check out the [Concurrent Mode documentation.](/docs/concurrent-mode-intro.html)
+Konkurrent Rejimi haqqında əlavə məlumat üçün [Konkurrent Rejimi sənədlərinə](/docs/concurrent-mode-intro.html) baxın.
 
 ### `createBlockingRoot` {#createblockingroot}
 
@@ -53,61 +53,61 @@ For more information on Concurrent Mode, check out the [Concurrent Mode document
 ReactDOM.createBlockingRoot(rootNode).render(<App />)
 ```
 
-Replaces `ReactDOM.render(<App />, rootNode)` and enables [Blocking Mode](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode).
+`ReactDOM.render(<App />, rootNode)` çağırışını əvəz edərək [Blok Rejimini](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode) aktivləşdirir.
 
-Opting into Concurrent Mode introduces semantic changes to how React works. This means that you can't use Concurrent Mode in just a few components. Because of this, some apps may not be able to migrate directly to Concurrent Mode. 
+Konkurrent Rejimini istifadə etdikdə React-in işləməsində semantik dəyişikliklər baş verir. Bu deməkdir ki, siz Konkurrent Rejimi yalnız bir neçə komponentdə istifadə edə bilməzsiniz. Bu səbəbdən bəzi applikasiyaları birbaşa Konkurrent Rejiminə miqrasiay etmək mümkün olmaya bilər.
 
-Blocking Mode only contains a small subset of Concurrent Mode features and is intended as an intermediary migration step for apps that are unable to migrate directly.
+Blok Rejimində Konkurrent Rejiminin xüsusiyyətlərinin kiçik hissəsi mövcuddur. Bu rejim, birbaşa miqrasiya edə bilməyən applikasiyalar üçün vasitəçi rolunu oynayır.
 
 ## Suspense API {#suspense}
 
 ### `Suspense` {#suspensecomponent}
 
 ```js
-<Suspense fallback={<h1>Loading...</h1>}>
+<Suspense fallback={<h1>Yüklənir...</h1>}>
   <ProfilePhoto />
   <ProfileDetails />
 </Suspense>
 ```
 
-`Suspense` lets your components "wait" for something before they can render, showing a fallback while waiting.
+`Suspense`, komponentlərin render olunmamışdan öncə "gözləməsinə" imkan yaradarır və gözləmə vaxtı fallback komponenti göstərir.
 
-In this example, `ProfileDetails` is waiting for an asynchronous API call to fetch some data. While we wait for `ProfileDetails` and `ProfilePhoto`, we will show the `Loading...` fallback instead. It is important to note that until all children inside `<Suspense>` has loaded, we will continue to show the fallback.
+Bu nümunədə, `ProfileDetails` komponenti məlumat yükləyən asinxron API sorğusunun cavabını gözləyir. `ProfileDetails` və `ProfilePhoto` komponentləri gözləyənənə kimi `Yüklənir...` fallback-i göstəriləcək. Nəzərinizə çatdırmaq istəyirik ki, `<Suspense>`-in daxilindəki bütün komponentlər yüklənməyənə kimi fallback göstəriləcək.
 
-`Suspense` takes two props:
-* **fallback** takes a loading indicator. The fallback is shown until all of the children of the `Suspense` component have finished rendering.
-* **unstable_avoidThisFallback** takes a boolean. It tells React whether to "skip" revealing this boundary during the initial load. This API will likely be removed in a future release.
+`Suspense` komponenti iki prop qəbul edir:
+* **fallback** prop yükləmə göstərici üçündür. Bu fallback, `Suspense` komponentinin bütün uşaqları yüklənənə kimi göstərilir.
+* **unstable_avoidThisFallback** bulin dəyər qəbul edir. Bu, React-ə ilkin yükləmə zamanı bu sərhədi göstərməməsini bildirir. Bu propun gələcək buraxılışlarda silinməsi şansı çoxdur.
 
 ### `<SuspenseList>` {#suspenselist}
 
 ```js
 <SuspenseList revealOrder="forwards">
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Yüklənir...'}>
     <ProfilePicture id={1} />
   </Suspense>
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Yüklənir...'}>
     <ProfilePicture id={2} />
   </Suspense>
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Yüklənir...'}>
     <ProfilePicture id={3} />
   </Suspense>
   ...
 </SuspenseList>
 ```
 
-`SuspenseList` helps coordinate many components that can suspend by orchestrating the order in which these components are revealed to the user.
+`SuspenseList` komponenti dayandırıla bilən komponnetlərin göstərilmə sırasını orkestrasiya etməyə imkan yaradır.
 
-When multiple components need to fetch data, this data may arrive in an unpredictable order. However, if you wrap these items in a `SuspenseList`, React will not show an item in the list until previous items have been displayed (this behavior is adjustable).
+Bir neçə komponent fərqli məlumatları yükləmək istədikdə sorğu cavabları fərqli zamanlarda gələ bilər. Lakin, bu elementləri `SuspenseList` ilə əhatə etdikdə əvvəlki elementlər hazır olmayana kimi sonrakı elementləri göstərməyəcək (bu sıranı dəyişmək mümkündür).
 
-`SuspenseList` takes two props:
-* **revealOrder (forwards, backwards, together)** defines the order in which the `SuspenseList` children should be revealed.
-  * `together` reveals *all* of them when they're ready instead of one by one.
-* **tail (collapsed, hidden)** dictates how unloaded items in a `SuspenseList` is shown. 
-    * By default, `SuspenseList` will show all fallbacks in the list.
-    * `collapsed` shows only the next fallback in the list.
-    * `hidden` doesn't show any unloaded items.
+`SuspenseList` komponenti iki prop qəbul edir:
+* **revealOrder (forwards, backwards, together)** propu ilə `SuspenseList` uşaqlarının hansı sıra ilə göstəriləcəyi təyin edilir.
+  * `together` prop dəyəri komponentlərin bir-bir göstərilməsi əvəzinə *hamısını* birdən göstərilməsini bildirir.
+* **tail (collapsed, hidden)** propu ilə `SuspenseList`-də olan elementlərin necə göstəriləcəyi təyin edilir. 
+    * Normalda, `SuspenseList`, siyahıda olan bütün fallback-ləri göstərəcək.
+    * `collapsed` dəyəri yalnız sonrakı fallback-i göstərməyi bildirir.
+    * `hidden` yüklənməkdə olan komponentlərin fallback-lərini gizlədir.
 
-Note that `SuspenseList` only operates on the closest `Suspense` and `SuspenseList` components below it. It does not search for boundaries deeper than one level. However, it is possible to nest multiple `SuspenseList` components in each other to build grids.
+Nəzərə alın ki, `SuspenseList` yalnız ən yaxın `Suspense` və `SuspenseList` uşaqlarına təsir edir. Bu komponent bir səviyyədən aşağıda olan sərhədləri axtarmır. Lakin, qrid düzəltmək `SuspenseList` komponentlərini bir-birinin daxilində render etmək mümkündür.
 
 ### `useTransition` {#usetransition}
 
@@ -117,13 +117,13 @@ const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 ```
 
-`useTransition` allows components to avoid undesirable loading states by waiting for content to load before **transitioning to the next screen**. It also allows components to defer slower, data fetching updates until subsequent renders so that more crucial updates can be rendered immediately.
+`useTransition` Hooku ilə *yeni ekrana keçməmişdən öncə* kontenti gözləyərək istənilməyən yükləmə vəziyyətlərindən qaçınmaq mümkündür. Bu, komponentlərə sonrakı render etmələr olana kimi yavaş yüklənən məlumat yükləməsi yeniliklərini gecikdirərək vacib yenilikləri dərhal render etməyə imkan yaradır.
 
-The `useTransition` hook returns two values in an array.
-* `startTransition` is a function that takes a callback. We can use it to tell React which state we want to defer.
-* `isPending` is a boolean. It's React's way of informing us whether we're waiting for the transition to finish.
+`useTransition` Hooku iki elementi olan massiv qaytarır.
+* Callback qəbul edən `startTransition` funksiyası ilə React-ə hansı state-i gecikdirməyi bildiririk.
+* `isPending` bulin dəyəri keçidin bitməsinin gözləndiyini bildirir.
 
-**If some state update causes a component to suspend, that state update should be wrapped in a transition.**
+**Əgər hər hansı bir state yeniliyi ilə komponent dayandırılırsa, bu state yeniliyini keçid ilə əhatə etmək tövsiyyə olunur.**
 
 ```js
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
@@ -144,7 +144,7 @@ function App() {
       >
         Next
       </button>
-      {isPending ? " Loading..." : null}
+      {isPending ? " Yüklənir..." : null}
       <Suspense fallback={<Spinner />}>
         <ProfilePage resource={resource} />
       </Suspense>
@@ -153,21 +153,21 @@ function App() {
 }
 ```
 
-In this code, we've wrapped our data fetching with `startTransition`. This allows us to start fetching the profile data right away, while deferring the render of the next profile page and its associated `Spinner` for 2 seconds (the time shown in `timeoutMs`).
+Bu kodda, bir məlumat yükləməsini `startTransition` ilə əhatə etdik. Bu, bizə profaylı dərhal yükləməyə imkan yaradaraq sonrakı profayl səhifəsinin və bu səhifə ilə əlaqəli `Spinner` komponentinin render edilməsini 2 saniyə (`timeoutMs`-də təyin edilən vaxt) gecikdirir.
 
-The `isPending` boolean lets React know that our component is transitioning, so we are able to let the user know this by showing some loading text on the previous profile page.
+`isPending` bulini React-ə komponentin keçiddə olduğunu bildirir. Biz bu dəyər ilə əvvəlki profayl səhifəsində yükləmə göstərici göstərə bilərik.
 
-**For an in-depth look at transitions, you can read [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html#transitions).**
+**Keçidlər haqqında ətraflı məlumat üçün [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html#transitions) səhifəsinə baxın.**
 
-#### useTransition Config {#usetransition-config}
+#### useTransition Konfiqurasiyası {#usetransition-config}
 
 ```js
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useTransition` accepts an **optional Suspense Config** with a `timeoutMs`. This timeout (in milliseconds) tells React how long to wait before showing the next state (the new Profile Page in the above example).
+`useTransition` Hooku `timeoutMs` parametri ilə **fakultativ Suspense Konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) ilə React-ə sonrakı ekrana (yuxarıdakı nümunədə göstərilən yeni Profayl Səhifəsi) keçməyi nə qədər gözləməsini bildiririk.
 
-**Note: We recommend that you share Suspense Config between different modules.**
+**Qeyd: Biz Suspense Konfiqurasiyasını fərqli modullar arasında paylaşmağı tövsiyyə edirik.**
 
 
 ### `useDeferredValue` {#usedeferredvalue}
@@ -176,39 +176,39 @@ const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 const deferredValue = useDeferredValue(value, { timeoutMs: 2000 });
 ```
 
-Returns a deferred version of the value that may "lag behind" it for at most `timeoutMs`.
+Dəyərin ən çox `timeoutMs` qədər gecikən versiyasını qaytarır.
 
-This is commonly used to keep the interface responsive when you have something that renders immediately based on user input and something that needs to wait for a data fetch.
+Bu, istifadəçi interaksiyası əsasında dərhal render edilən məlumat və məlumat yükləməsi zamanı gözlənilən məlumat olduqda interfeysi responsiv saxlamaq üçün istifadə edilir.
 
-A good example of this is a text input.
+Bunun üçün yaxşı nümunəd anket sahəsidir.
 
 ```js
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("salam");
   const deferredText = useDeferredValue(text, { timeoutMs: 2000 }); 
 
   return (
     <div className="App">
-      {/* Keep passing the current text to the input */}
+      {/* Cari dəyəri anket sahəsinə göndərin */}
       <input value={text} onChange={handleChange} />
       ...
-      {/* But the list is allowed to "lag behind" when necessary */}
+      {/* Lakin, siyahı lazım olduqda əsl dəyərdən "gec" gələ bilər */}
       <MySlowList text={deferredText} />
     </div>
   );
  }
 ```
 
-This allows us to start showing the new text for the `input` immediately, which allows the webpage to feel responsive. Meanwhile, `MySlowList` "lag behind" for up to 2 seconds according to the `timeoutMs` before updating, allowing it to render with the current text in the background.
+Biz bu şəkildə `input` sahəsinin dəyərini dərhal göstərərək səhifənin responsiv olduğunu hiss etdirə bilərik. Eyni zamanda render etmənin baş verməsi üçün `MySlowList` komponenti `timeoutMs` parametri əsasında yeniləməni 2 saniyə gecikdirir. Bu zaman, cari dəyər fonda saxlanılır.
 
-**For an in-depth look at deferring values, you can read [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html#deferring-a-value).**
+**Dəyərlərin gecikdirilməsi haqqında əlavə məlumat üçün [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html#deferring-a-value) səhifəsinə baxın.**
 
-#### useDeferredValue Config {#usedeferredvalue-config}
+#### useDeferredValue Konfiqurasiyası {#usedeferredvalue-config}
 
 ```js
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useDeferredValue` accepts an **optional Suspense Config** with a `timeoutMs`. This timeout (in milliseconds) tells React how long the deferred value is allowed to lag behind.
+`useDeferredValue` `timeoutMs` parametri ilə **fakultativ Suspense Konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) React-ə dəyərin nə qədər gecikdirilməsinə imkan verməsini bildirir.
 
-React will always try to use a shorter lag when network and device allows it.
+Şəbəkə və ya istifadəçi qurğusu icazə verdikdə React gecikməni qısaltmağa çalışacaq.
