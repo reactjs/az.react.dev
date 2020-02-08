@@ -44,19 +44,19 @@ Hər bir `@experimental` buraxılışda API-lar əlavə oluna bilər, dəyişə 
 
 **Eksperimental buraxılışlarda pozucu dəyişikliklər tez-tez olur.**
 
-Bu qurulmaları şəxsi layihənizdə və ya fərqli budaqda sınaya bilərsiniz. Lakin, biz bu qurulmaları produksiyada işlətməyi tövsiyyə etmirik. Facebook-da bu qurulmalar produksiyada icra olunur. Lakin, baqlar baş verdikdə biz bu baqları düzəldirik. Sizə xəbərdarlıq etdik!
+Bu qurulmaları şəxsi layihənizdə və ya fərqli budaqda sınaya bilərsiniz. Lakin, biz bu qurulmaları produksiyada işlətməyi tövsiyyə etmirik. Facebook-da bu qurulmalar produksiyada istifadə edilir. Lakin, baqlar baş verdikdə biz bu baqları düzəldirik. Sizə xəbərdarlıq edildi!
 
 ### Bu Eksperimental Buraxılış Kimin Üçündür? {#who-is-this-experimental-release-for}
 
 Bu buraxılış əsasən erkən yoxlayıcılar, kitabxana müəllifləri və maraqlanan insanlar üçündür.
 
-Biz bu kodu produksiyada işlədirik (və bizim üçün işləyir), amma bu buraxılışda baqlar və catışmayan xüsusiyyətlər, sənədlərdə də boşluqlar var. Biz, Konkurrent Rejimində nəyin sındığını bilib bu xüsusiyyəti rəsmi stabil buraxılışına daha yaxşı hazırlamaq istəyirik.
+Biz bu kodu produksiyada işlədirik (və bizim üçün işləyir), amma bu buraxılışda baqlar və catışmayan xüsusiyyətlər, buraxılışın sənədlərində isə boşluqlar var. Biz, Konkurrent Rejimində nəyin sındığını bilib bu xüsusiyyəti rəsmi stabil buraxılışına daha yaxşı hazırlamaq istəyirik.
 
 ### Konkurrent Rejimini Aktivləşdirmək {#enabling-concurrent-mode}
 
 Normalda, biz React-ə yeni xüsusiyyət əlavə etdikdə siz bu xüsusiyyəti dərhal işlədə bilirsiniz. Fraqmentlər, Kontekst və Hooklar belə xüsusiyyətlərin nümunələridir. Mövcud kodu dəyişmədən bu kodlardan istifadə etmək mümkündür.
 
-Konkurrent Rejimi isə fərqlidir. Bu rejimdə React-in işləməsində semantik dəyişikliklər edilir. Əks halda, bu rejim ilə gələn [yeni xüsusiyyətləri](/docs/concurrent-mode-patterns.html) dəstəkləmək *mümkün olmayacaqdı*. Bu səbəbdən, buradakı xüsusiyyətləri ayrı-ayrı dərc etmək əvəzinə yeni "rejimin" altında qruplaşdırdır.
+Konkurrent Rejimi isə fərqlidir. Bu rejimdə React-in işləməsində semantik dəyişikliklər edilir. Əks halda, bu rejim ilə gələn [yeni xüsusiyyətləri](/docs/concurrent-mode-patterns.html) dəstəkləmək *mümkün olmayacaqdı*. Bu səbəbdən, buradakı xüsusiyyətləri ayrı-ayrı dərc etmək əvəzinə yeni "rejimin" altında qruplaşdırdıq.
 
 Konkurrent Rejimini yalnız xüsusi alt ağacda aktivləşdirmək mümkün deyil. Əvəzinə, bu rejimi `ReactDOM.render()` funksiyasını çağırdığınız yerdən aktivləşdirməlisiniz.
 
@@ -69,7 +69,7 @@ import ReactDOM from 'react-dom';
 //
 // ReactDOM.render(<App />, document.getElementById('root'));
 //
-// Siz Konkurrent Rejimini aşağıdakı funksiya ilə aktivləşdirə bilərsiniz:
+// Konkurrent Rejimini aşağıdakı funksiya ilə aktivləşdirə bilərsiniz:
 
 ReactDOM.createRoot(
   document.getElementById('root')
@@ -84,7 +84,7 @@ Konkurrent Rejimi aktiv olduqda [əvvəl "təhlükəli" kimi işarələnmiş](ht
 
 ## Nəyi Gözləyin  {#what-to-expect}
 
-Əgər sizin çoxlu 3-cü tərəfin paketlərindən istifadə edən böyük applikasiyanız varsa, bu applikasiyanı dərhal Konkurrent Rejimindən istifadə edə biləcəyinizi gözləməyin. **Məsələn, biz Facebook-un yeni səhifəsi üçün Konkurrent Rejimini aktivləşdirmişik, amma bu rejimi köhnə sayt üçün aktivləşdirməyi planlaşdırmırıq.** Bunun səbəbi bizim köhnə səhifəmizdə "təhlükəli" lifecycle metodlarından, Konkurrent Rejimi ilə uyğun olmayan 3-cü tərəfin kitabxanalarından və həllərindən istifadə edilir.
+Əgər sizin çoxlu 3-cü tərəfin paketlərindən istifadə edən böyük applikasiyanız varsa, bu applikasiyada Konkurrent Rejimindən dərhal istifadə edə biləcəyinizi gözləməyin. **Məsələn, biz Facebook-un yeni səhifəsi üçün Konkurrent Rejimini aktivləşdirmişik, amma bu rejimi köhnə sayt üçün aktivləşdirməyi planlaşdırmırıq.** Bunun səbəbi bizim köhnə səhifəmizdə "təhlükəli" lifecycle metodlarından, Konkurrent Rejimi ilə uyğun olmayan 3-cü tərəfin kitabxanalarından və həllərindən istifadə edilir.
 
 Bizim təcrübəmiz göstərir ki, kənar state idarəsi həllərindən asılı olmayan və idiomatik React həllərindən istifadə edən kodları Konkurrent Rejimində icra etmək asandır. Biz, çox yaranan problemlər və bu problemlərin həlləri haqqında gələcək həftələrdə danışacağıq.
 
@@ -95,14 +95,14 @@ Köhnə kodları Konkurrent Rejiminə keçirmək çox çətin ola bilər. Bu sə
 Xülasə:
 
 * **Köhnə Rejim:** `ReactDOM.render(<App />, rootNode)`. Bu, React applikasiyalarının bugünki işləmə rejimi ilə eynidir. Bu rejimi yaxın gələcəkdə silmək marağımız yoxdur. Lakin, bu rejim ilə yeni xüsusiyyətlər dəstəklənməyəcək.
-* **Blok Rejimi:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Bu hələki eksperimentaldır. Konkurrent Rejiminin kiçik hissəsindən istifadə etmək istəyənlər üçün bu ilkin miqrasiya addımı rolunu oynayır.
-* **Konkurrent Rejimi:** `ReactDOM.createRoot(rootNode).render(<App />)`. Bu hələki eksperimentaldır. Gələcəkdə stabilləşdikdən sonra biz bunu React-in standart rejimi etmək istəyirik. Bu rejimdə React-in *bütün* xüsusiyyətləri dəstəklənəcək.
+* **Blok Rejimi:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Bu eksperimental rejim Konkurrent Rejiminin kiçik hissəsindən istifadə etmək istəyənlər üçün ilkin miqrasiya addımı rolunu oynayır.
+* **Konkurrent Rejimi:** `ReactDOM.createRoot(rootNode).render(<App />)`. Bu rejim hələki eksperimentaldır. Gələcəkdə stabilləşdikdən sonra biz bunu React-in standart rejimi etmək istəyirik. Bu rejimdə React-in *bütün* xüsusiyyətləri dəstəklənəcək.
 
 ### Niyə Bu Qədər Rejim Var? {#why-so-many-modes}
 
 Biz, böyük pozucu dəyişikliklər etmək əvəzinə [tədrici miqrasiya strategiyasına](/docs/faq-versioning.html#commitment-to-stability) üstünlük veririk.
 
-Praktikada, biz bir çox Köhnə Rejimdə olan applikasiyaların ən azından Blok Rejiminə keçə bilməsini gözləyirik. Bu fraqmentasiya bütün rejimləri dəstəkləmək istəyən kitabxanalar üçün əsəbləşdirici ola bilər. Lakin, ekosistemi yavaş-yavaş Köhnə rejimdən uzaqlaşdırmaq ekosistemdə olan böyük kitabxanaların problemlərini də (məsələn, [şablonu oxuduqda çaşdırıcı Suspense daranışları](https://github.com/facebook/react/issues/14536) və [stabil dəstələnmənin siğortalanmaması](https://github.com/facebook/react/issues/15080) kimi) *həll edəcək*. Köhnə Rejimdə Blok və Konkurrent Rejimlərində mövcud olmayan bəzi baqları semantikanı dəyişmədən düzəltmək mümkün deyil.
+Praktikada, biz bir çox Köhnə Rejimdə olan applikasiyaların ən azından Blok Rejiminə keçə bilməsini gözləyirik. Bu fraqmentasiya bütün rejimləri dəstəkləmək istəyən kitabxanalar üçün əsəbləşdirici ola bilər. Lakin, ekosistemi yavaş-yavaş Köhnə rejimdən uzaqlaşdırmaq ekosistemdə olan böyük kitabxanaların problemlərini də (məsələn, [şablonu oxuduqda çaşdırıcı Suspense davranışları](https://github.com/facebook/react/issues/14536) və [stabil dəstələnmənin siğortalanmaması](https://github.com/facebook/react/issues/15080) kimi) *həll edəcək*. Blok və Konkurrent Rejimlərində mövcud olmayan bəzi baqları Köhnə Rejimdə semantikanı dəyişmədən düzəltmək mümkün deyil.
 
 Siz, Blok Rejiminin Konkurrent Rejiminin aşağı salınmış versiyası olduğunu fikirləşə bilərsiniz. **Nəticədə, gələcəkdə bütün rejimlər birləşəcək və fərqli rejimlər haqqında fikirləşmək lazım olmayacaq.** Lakin, indiki zamanda fərqli rejimlər ilə miqrasiya etmək asanlaşacaq.
 
@@ -132,10 +132,10 @@ Siz, Blok Rejiminin Konkurrent Rejiminin aşağı salınmış versiyası olduğu
 |[Kəsici Ön Render Etmə](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
 |[useTransition](/docs/concurrent-mode-patterns.html#transitions)  |🚫  |🚫  |✅  |
 |[useDeferredValue](/docs/concurrent-mode-patterns.html#deferring-a-value) |🚫  |🚫  |✅  |
-|[Suspense Göstərmə "Qatarı"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |
+|[Suspense-lərin Göstərilməsi "Qatarı"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |
 
 </div>
 
 \*: Köhnə Rejimdə React tərəfindən idarə olunan hadisələrin dəstələnməsi mümkündür. Lakin, bu yalnız bir brauzer tapşırığı ilə idarə oluna bilir. React olmayan hadisələr üçün `unstable_batchedUpdates` funksiyasından istifadə etmək lazımdır. Blok Rejimi və Konkurrent Rejimində isə bütün `setState`-lər dəstələnir.
 
-\*\*: Təkmilləşdirmə zamanı xəbərdarlıqlar göstərir.
+\*\*: Təkmilləşmə zamanı xəbərdarlıqlar göstəriləcək.

@@ -135,7 +135,7 @@
       title: Test Etmə Reseptləri
     - id: testing-environments
       title: Test Etmə Mühitləri
-- title: Konkurrent Modu (Eksperimental)
+- title: Konkurrent Rejimi (Eksperimental)
   isOrdered: true
   items:
     - id: concurrent-mode-intro
