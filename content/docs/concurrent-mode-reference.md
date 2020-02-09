@@ -22,9 +22,9 @@ prev: concurrent-mode-adoption.html
 
 </div>
 
-Bu səhifədə [Konkurrent Rejiminin](/docs/concurrent-mode-intro.html) API arayışı göstərili. Təlimatlı giriş axtarırsınızsa, [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html) səhifəsinə baxın.
+Bu səhifədə [Konkurrent Rejiminin](/docs/concurrent-mode-intro.html) API arayışı göstərilir. Təlimatlı giriş axtarırsınızsa, [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html) səhifəsinə baxın.
 
-**Qeyd: Bu Cəmiyyət üçün İcmal rolunu daşıyır və ən son stabil versiya deyil. Gələcəkdə buradakı API-lara dəyişikliklər edilər bilər. Öz riskiniz ilə oxuyun!**
+**Qeyd: Bu sənəd cəmiyyət üçün İcmal rolunu daşıyır və ən son stabil versiya deyil. Bu səhifədəki API-lara gələcəkdə dəyişikliklər edilər bilər. Öz riskiniz ilə oxuyun!**
 
 - [Konkurrent Rejimini Aktivləşdirmək](#concurrent-mode)
     - [`createRoot`](#createroot)
@@ -55,7 +55,7 @@ ReactDOM.createBlockingRoot(rootNode).render(<App />)
 
 `ReactDOM.render(<App />, rootNode)` çağırışını əvəz edərək [Blok Rejimini](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode) aktivləşdirir.
 
-Konkurrent Rejimini istifadə etdikdə React-in işləməsində semantik dəyişikliklər baş verir. Bu deməkdir ki, siz Konkurrent Rejimi yalnız bir neçə komponentdə istifadə edə bilməzsiniz. Bu səbəbdən bəzi applikasiyaları birbaşa Konkurrent Rejiminə miqrasiay etmək mümkün olmaya bilər.
+Konkurrent Rejimini istifadə etdikdə React-in işləməsində semantik dəyişikliklər baş verir. Bu deməkdir ki, Konkurrent Rejimini yalnız bir neçə komponentdə istifadə etmək mümkün deyil. Bu səbəbdən bəzi applikasiyaları birbaşa Konkurrent Rejiminə miqrasiya etmək mümkün olmaya bilər.
 
 Blok Rejimində Konkurrent Rejiminin xüsusiyyətlərinin kiçik hissəsi mövcuddur. Bu rejim, birbaşa miqrasiya edə bilməyən applikasiyalar üçün vasitəçi rolunu oynayır.
 
@@ -70,13 +70,13 @@ Blok Rejimində Konkurrent Rejiminin xüsusiyyətlərinin kiçik hissəsi mövcu
 </Suspense>
 ```
 
-`Suspense`, komponentlərin render olunmamışdan öncə "gözləməsinə" imkan yaradarır və gözləmə vaxtı fallback komponenti göstərir.
+`Suspense`, komponentlərin render olunmamışdan öncə "gözləməsinə" imkan yaradır və gözləmə zamanı fallback göstərir.
 
-Bu nümunədə, `ProfileDetails` komponenti məlumat yükləyən asinxron API sorğusunun cavabını gözləyir. `ProfileDetails` və `ProfilePhoto` komponentləri gözləyənənə kimi `Yüklənir...` fallback-i göstəriləcək. Nəzərinizə çatdırmaq istəyirik ki, `<Suspense>`-in daxilindəki bütün komponentlər yüklənməyənə kimi fallback göstəriləcək.
+Bu nümunədə `ProfileDetails` komponenti məlumat yükləyən asinxron API sorğusunun cavabını gözləyir. `ProfileDetails` və `ProfilePhoto` komponentlərinin gözləndiyi müddətdə `Yüklənir...` fallback-i göstəriləcək. Nəzərinizə çatdırmaq istəyirik ki, `<Suspense>`-in daxilində olan bütün komponentlər yüklənməyənə kimi fallback göstəriləcək.
 
 `Suspense` komponenti iki prop qəbul edir:
-* **fallback** prop yükləmə göstərici üçündür. Bu fallback, `Suspense` komponentinin bütün uşaqları yüklənənə kimi göstərilir.
-* **unstable_avoidThisFallback** bulin dəyər qəbul edir. Bu, React-ə ilkin yükləmə zamanı bu sərhədi göstərməməsini bildirir. Bu propun gələcək buraxılışlarda silinməsi şansı çoxdur.
+* **fallback** propu yükləmə göstərici üçündürdür. Bu fallback, `Suspense` komponentinin bütün uşaqları yüklənənə kimi göstərilir.
+* **unstable_avoidThisFallback** propu bulin dəyər qəbul edir. Bu, React-ə ilkin yükləmə zamanı bu sərhədi göstərməməsini bildirir. Bu propun gələcək buraxılışlarda silinməsi şansı çoxdur.
 
 ### `<SuspenseList>` {#suspenselist}
 
@@ -97,7 +97,7 @@ Bu nümunədə, `ProfileDetails` komponenti məlumat yükləyən asinxron API so
 
 `SuspenseList` komponenti dayandırıla bilən komponnetlərin göstərilmə sırasını orkestrasiya etməyə imkan yaradır.
 
-Bir neçə komponent fərqli məlumatları yükləmək istədikdə sorğu cavabları fərqli zamanlarda gələ bilər. Lakin, bu elementləri `SuspenseList` ilə əhatə etdikdə əvvəlki elementlər hazır olmayana kimi sonrakı elementləri göstərməyəcək (bu sıranı dəyişmək mümkündür).
+Bir neçə komponent fərqli məlumatları yükləmək istədikdə sorğu cavabları fərqli zamanlarda gələ bilər. Lakin, bu elementləri `SuspenseList` ilə əhatə etdikdə əvvəlki elementlər hazır olmayana kimi sonrakı elementlər göstərilməyəcək (bu sıranı dəyişmək mümkündür).
 
 `SuspenseList` komponenti iki prop qəbul edir:
 * **revealOrder (forwards, backwards, together)** propu ilə `SuspenseList` uşaqlarının hansı sıra ilə göstəriləcəyi təyin edilir.
@@ -105,7 +105,7 @@ Bir neçə komponent fərqli məlumatları yükləmək istədikdə sorğu cavabl
 * **tail (collapsed, hidden)** propu ilə `SuspenseList`-də olan elementlərin necə göstəriləcəyi təyin edilir. 
     * Normalda, `SuspenseList`, siyahıda olan bütün fallback-ləri göstərəcək.
     * `collapsed` dəyəri yalnız sonrakı fallback-i göstərməyi bildirir.
-    * `hidden` yüklənməkdə olan komponentlərin fallback-lərini gizlədir.
+    * `hidden` dəyəri təyin edildikdə yüklənməkdə olan komponentlərin fallback-ləri gizlədiləcək.
 
 Nəzərə alın ki, `SuspenseList` yalnız ən yaxın `Suspense` və `SuspenseList` uşaqlarına təsir edir. Bu komponent bir səviyyədən aşağıda olan sərhədləri axtarmır. Lakin, qrid düzəltmək `SuspenseList` komponentlərini bir-birinin daxilində render etmək mümkündür.
 
@@ -119,9 +119,9 @@ const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 
 `useTransition` Hooku ilə *yeni ekrana keçməmişdən öncə* kontenti gözləyərək istənilməyən yükləmə vəziyyətlərindən qaçınmaq mümkündür. Bu, komponentlərə sonrakı render etmələr olana kimi yavaş yüklənən məlumat yükləməsi yeniliklərini gecikdirərək vacib yenilikləri dərhal render etməyə imkan yaradır.
 
-`useTransition` Hooku iki elementi olan massiv qaytarır.
+`useTransition` Hooku iki elementli massiv qaytarır.
 * Callback qəbul edən `startTransition` funksiyası ilə React-ə hansı state-i gecikdirməyi bildiririk.
-* `isPending` bulin dəyəri keçidin bitməsinin gözləndiyini bildirir.
+* `isPending` bulin dəyəri keçidin proqresdə olduğunu bildirir.
 
 **Əgər hər hansı bir state yeniliyi ilə komponent dayandırılırsa, bu state yeniliyini keçid ilə əhatə etmək tövsiyyə olunur.**
 
@@ -142,7 +142,7 @@ function App() {
           });
         }}
       >
-        Next
+        Sonrakı
       </button>
       {isPending ? " Yüklənir..." : null}
       <Suspense fallback={<Spinner />}>
@@ -153,7 +153,7 @@ function App() {
 }
 ```
 
-Bu kodda, bir məlumat yükləməsini `startTransition` ilə əhatə etdik. Bu, bizə profaylı dərhal yükləməyə imkan yaradaraq sonrakı profayl səhifəsinin və bu səhifə ilə əlaqəli `Spinner` komponentinin render edilməsini 2 saniyə (`timeoutMs`-də təyin edilən vaxt) gecikdirir.
+Bu nümunədə, biz məlumat yükləməsini `startTransition` ilə əhatə etdik. Bu, profaylı dərhal yükləməyə imkan yaradaraq sonrakı profayl səhifəsinin və bu səhifə ilə əlaqəli `Spinner` komponentinin render edilməsini 2 saniyə (`timeoutMs`-də təyin edilən vaxt) gecikdirir.
 
 `isPending` bulini React-ə komponentin keçiddə olduğunu bildirir. Biz bu dəyər ilə əvvəlki profayl səhifəsində yükləmə göstərici göstərə bilərik.
 
@@ -165,7 +165,7 @@ Bu kodda, bir məlumat yükləməsini `startTransition` ilə əhatə etdik. Bu, 
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useTransition` Hooku `timeoutMs` parametri ilə **fakultativ Suspense Konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) ilə React-ə sonrakı ekrana (yuxarıdakı nümunədə göstərilən yeni Profayl Səhifəsi) keçməyi nə qədər gözləməsini bildiririk.
+`useTransition` Hooku `timeoutMs` parametri ilə **fakultativ Suspense konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) ilə React-ə sonrakı ekrana (yuxarıdakı nümunədə göstərilən yeni Profayl Səhifəsi) keçməyi nə qədər gözləməsini bildiririk.
 
 **Qeyd: Biz Suspense Konfiqurasiyasını fərqli modullar arasında paylaşmağı tövsiyyə edirik.**
 
@@ -180,7 +180,7 @@ Dəyərin ən çox `timeoutMs` qədər gecikən versiyasını qaytarır.
 
 Bu, istifadəçi interaksiyası əsasında dərhal render edilən məlumat və məlumat yükləməsi zamanı gözlənilən məlumat olduqda interfeysi responsiv saxlamaq üçün istifadə edilir.
 
-Bunun üçün yaxşı nümunəd anket sahəsidir.
+Bunun üçün yaxşı nümunə anket sahəsidir.
 
 ```js
 function App() {
@@ -209,6 +209,6 @@ Biz bu şəkildə `input` sahəsinin dəyərini dərhal göstərərək səhifən
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useDeferredValue` `timeoutMs` parametri ilə **fakultativ Suspense Konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) React-ə dəyərin nə qədər gecikdirilməsinə imkan verməsini bildirir.
+`useDeferredValue` Hooku `timeoutMs` parametri ilə **fakultativ Suspense konfiqurasiyası** obyekti qəbul edir. Bu vaxt dəyəri (millisaniyə ilə) React-ə dəyərin nə qədər gecikdirilməsinə imkan verməsini bildirir.
 
 Şəbəkə və ya istifadəçi qurğusu icazə verdikdə React gecikməni qısaltmağa çalışacaq.
