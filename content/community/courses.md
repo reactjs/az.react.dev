@@ -46,6 +46,6 @@ permalink: community/courses.html
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - React biliklərinizi yeni səviyyəyə çatdırın.
 
-- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
+- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - React ilə professional interaktive applikasiyların düzəldilməsi.
