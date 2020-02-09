@@ -1,6 +1,6 @@
 ---
 id: conferences
-title: Conferences
+title: Konfranslar
 layout: community
 sectionid: community
 permalink: community/conferences.html
@@ -8,9 +8,9 @@ redirect_from:
   - "docs/conferences.html"
 ---
 
-Do you know of a local React.js conference? Add it here! (Please keep the list chronological)
+Bildiyiniz yerli React.js konfransı varsa, buraya əlavə edin! (Xahiş edirik siyahını xronoloji ardıcıllıqda saxlayasınız)
 
-## Upcoming Conferences {#upcoming-conferences}
+## Gələcək Konfranslar {#upcoming-conferences}
 
 ### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
 February 1-2, 2020 in Cologne, Germany
@@ -97,7 +97,7 @@ November 6, 2020 in Mumbai, India
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-## Past Conferences {#past-conferences}
+## Keçmiş Konfranslar {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 January 28 & 29 in Facebook HQ, CA

@@ -1,12 +1,12 @@
 ---
 id: courses
-title: Courses
+title: Kurslar
 layout: community
 sectionid: community
 permalink: community/courses.html
 ---
 
-## Free Courses {#free-courses}
+## Pulsuz Kurslar {#free-courses}
 
 - [Glitch: React Starter Kit](https://glitch.com/culture/react-starter-kit/) - A free, 5-part video course with interactive code examples that will help you learn React.
 
@@ -26,7 +26,7 @@ permalink: community/courses.html
 
 - [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - 48 hands-on video tutorials building react apps.
 
-## Paid Courses {#paid-courses}
+## Ödənişli Kurslar {#paid-courses}
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Short instructional videos on React and many other topics.
 

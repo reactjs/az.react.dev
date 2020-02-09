@@ -1,12 +1,12 @@
 ---
 id: external-resources
-title: External Resources
+title: Kənar Resurslar
 layout: community
 sectionid: community
 permalink: community/external-resources.html
 ---
 
-There are many wonderful curated resources the React community has put together.
+Bu səhifədə React cəmiyyətinin kurasiya etdiyi heyranedici resurslar göstərilir.
 
 - [Reactiflux](https://www.reactiflux.com/) - A community of 20,000+ React developers. They keep a well curated [learning section](https://www.reactiflux.com/learning/).
 

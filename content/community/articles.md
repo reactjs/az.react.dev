@@ -1,6 +1,6 @@
 ---
 id: articles
-title: Articles
+title: Məqalələr
 layout: community
 sectionid: community
 permalink: community/articles.html

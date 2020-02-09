@@ -1,12 +1,12 @@
 ---
 id: meetups
-title: Meetups Around the World
+title: Dünyada olan Yığıncaqlar
 layout: community
 sectionid: community
 permalink: community/meetups.html
 ---
 
-Do you have a local React.js meetup? Add it here! (Please keep the list alphabetical)
+Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş edirik siyahını əlifba ardıcıllığı ilə saxlayasınız)
 
 ## Argentina {#argentina}
 * [Rosario](https://www.meetup.com/es/reactrosario)

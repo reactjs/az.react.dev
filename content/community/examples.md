@@ -1,12 +1,12 @@
 ---
 id: examples
-title: Example Projects
+title: Layihə Nümunələri
 layout: community
 sectionid: community
 permalink: community/examples.html
 ---
 
-There are many example projects created by the React community. Feel free to add your own project. If you add a project, please commit to keeping it up to date with the latest versions of React.
+React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.
 
 
 * **[Zeldog](https://yannsainty.github.io/Zeldog/)** A Zelda like game with a dog fighting ducks and more to eat pizza !
