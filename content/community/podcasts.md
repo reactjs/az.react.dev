@@ -20,7 +20,7 @@ React-ə hərs olunmuş Podkastlar və React müzakirəsi olan podkast seriyalar
 
 ## Seriyalar {#episodes}
 
-- [CodeWinds Episode 4](https://codewinds.com/podcast/004.html) - Pete Hunt-ın Jeff Barczewski ilə React haqqında danışığı.
+- [CodeWinds Episode 4](https://codewinds.com/podcast/004.html) - Pit Hantın Cef Barzeviski ilə React haqqında danışığı.
 
 
-- [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pete Hunt və Jordan Walke React haqqında danışırlar.
+- [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pit Hant və Cordan Valke React haqqında danışırlar.
