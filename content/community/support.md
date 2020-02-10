@@ -1,6 +1,6 @@
 ---
 id: support
-title: Where To Get Support
+title: Haradan Dəstək Ala Bilərəm
 layout: community
 sectionid: community
 permalink: community/support.html
@@ -8,28 +8,28 @@ redirect_from:
   - "support.html"
 ---
 
-React has a community of millions of developers.
+React-in milyonlarla proqramçıdan ibarət cəmiyyəti var.
 
-On this page we've listed some React-related communities that you can be a part of; see the other pages in this section for additional online and in-person learning materials.
+Bu səhifədə React ilə bağlı qoşula biləcəyiniz cəmiyyətlər göstərilib. Onlayn və ya canlı öyrənmə materialları üçün bu bölmədəki digər səhifələrə baxın.
 
-Before participating in React's communities, [please read our Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md). We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/) and we expect that all community members adhere to the guidelines within.
+React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
 
 ## Stack Overflow {#stack-overflow}
 
-Stack Overflow is a popular forum to ask code-level questions or if you're stuck with a specific error. Read through the [existing questions](https://stackoverflow.com/questions/tagged/reactjs) tagged with **reactjs** or [ask your own](https://stackoverflow.com/questions/ask?tags=reactjs)!
+Stack Overflow kod ilə bağlı suallar vermək üçün və ya xüsusi xətada ilişdikdə istinad edə biləcəyiniz populyar forumdur. **reactjs** ilə etiketlənən [mövcud suallara](https://stackoverflow.com/questions/tagged/reactjs) baxın və [öz sualınızı verin](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
-## Popular Discussion Forums {#popular-discussion-forums}
+## Populyar Müzakirə Forumları {#popular-discussion-forums}
 
-There are many online forums which are a great place for discussion about best practices and application architecture as well as the future of React. If you have an answerable code-level question, Stack Overflow is usually a better fit.
+Ən yaxşı praktikalar və applikasiya arxitekturaları, və React-in gələcəyi haqqında müzakirə aparmaq üçün bir neçə onlayn forumlarımız var. Əgər cavab verilə bilən kod ilə bağlı sualınız varsa, Stack Overflow-da sualı vermək sizə daha uyğun olacaq.
 
-Each community consists of many thousands of React users.
+Hər cəmiyyətdə minlərə React proqramçıları var.
 
-* [DEV's React community](https://dev.to/t/react)
-* [Hashnode's React community](https://hashnode.com/n/reactjs)
-* [Reactiflux online chat](https://discord.gg/reactiflux)
-* [Reddit's React community](https://www.reddit.com/r/reactjs/)
-* [Spectrum's React community](https://spectrum.chat/react)
+* [DEV-də React cəmiyyəti](https://dev.to/t/react)
+* [Hashnode-də React cəmiyyəti](https://hashnode.com/n/reactjs)
+* [Reactiflux onlayn çatı](https://discord.gg/reactiflux)
+* [Reddit-da React cəmiyyəti](https://www.reddit.com/r/reactjs/)
+* [Spectrum-da React cəmiyyəti](https://spectrum.chat/react)
 
-## News {#news}
+## Xəbərlər {#news}
 
-For the latest news about React, [follow **@reactjs** on Twitter](https://twitter.com/reactjs) and the [official React blog](/blog/) on this website.
+React haqqında ən son xəbərlər üçün [**@reactjs** Twitter səhifəsini](https://twitter.com/reactjs) və [rəsmi React bloqunu](/blog/) izləyin.
