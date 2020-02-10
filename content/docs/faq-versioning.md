@@ -22,11 +22,7 @@ Böyük buraxılışlarda adətən yeni xüsusiyyətlər olur. Baq düzəlişlə
 
 ### Pozucu Dəyişikliklər {#breaking-changes}
 
-<<<<<<< HEAD
-Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, 2016-cı ilin Aprel ayında React 15, 2019-cu ilin Sentyabr ayında React 16 dərc edilib. React 17-nin isə 2019-dan tez dərc edilməsi gözlənilmir.
-=======
-Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017; React 17 isn't expected until sometime in 2020.
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+Pozucu dəyişikliklər hamı üçün narahatçılıq yaratdığından biz böyük buraxılışların sayını çox az dərc etməyə çalışırıq. Məsələn, 2016-cı ilin Aprel ayında React 15, 2017-ci ilin Sentyabr ayında React 16 dərc edilib. React 17-nin isə 2020-ci ilin hansısa vaxtından tez dərc edilməsi gözlənilmir.
 
 Əvəzinə, biz yeni xüsusiyyətləri kiçik versiyalarda dərc edirik. Bu deməkdirki, adının uyğun olmamasına baxmayaraq, kiçik buraxılışlar böyük buraxılışlardan daha maraqlı olur.
 

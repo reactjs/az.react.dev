@@ -6,21 +6,12 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
-<<<<<<< HEAD
 React applikasiyasının hansı tezlikdə render edilməsini və render edilmənin "qiymətini" ölçmək üçün `Profiler`-dən istifadə edilir.
-Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimallaşdırmalardan faydalana bilən](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations) hissələrini tapmaq üçün işlədilir.
-=======
-The `Profiler` measures how often a React application renders and what the "cost" of rendering is.
-Its purpose is to help identify parts of an application that are slow and may benefit from [optimizations such as memoization](/docs/hooks-faq.html#how-to-memoize-calculations).
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimallaşdırmalardan faydalana bilən](/docs/hooks-faq.html#how-to-memoize-calculations) hissələrini tapmaq üçün işlədilir.
 
 > Qeyd:
 >
-<<<<<<< HEAD
-> Profayl etmə əməliyyatı applikasiyaya ağırlığı verə bilər. Lakin, bu xüsusiyyətlər **[produksiya qurulmasında](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) söndürülür**.
-=======
-> Profiling adds some additional overhead, so **it is disabled in [the production build](/docs/optimizing-performance.html#use-the-production-build)**.
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+> Profayl etmə əməliyyatının applikasiyaya ağırlıq verə bildiyindən bu xüsusiyyətlər **[produksiya qurulmasında](/docs/optimizing-performance.html#use-the-production-build) söndürülür**.
 >
 > Produksiyada profayl edə bilmək üçün React-də profayl etməyə imkan yaradan produksiya qurulması var.
 > Bu qurulma haqqında əlavə məlumat üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.

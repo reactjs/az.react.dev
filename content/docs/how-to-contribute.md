@@ -21,11 +21,7 @@ React üzərində işlənilən bütün işlər [GitHub-da](https://github.com/fa
 
 ### Semantik Versiyalama {#semantic-versioning}
 
-<<<<<<< HEAD
-React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](https://reactjs.org/docs/faq-versioning.html) oxuyun.
-=======
-React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](/docs/faq-versioning.html).
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](/docs/faq-versioning.html) oxuyun.
 
 Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/master/CHANGELOG.md) sənədləşdirilir.
 
@@ -59,13 +55,8 @@ Təhlükəsizlik baqlarının təhlükəsiz şəkildə bildirilməsi üçün Fac
 
 ### Bizimlə Əlaqə {#how-to-get-in-touch}
 
-<<<<<<< HEAD
 * IRC: [freenode-da #reactjs](https://webchat.freenode.net/?channels=reactjs)
-* [Müzakirə Forumları](https://reactjs.org/community/support.html#popular-discussion-forums)
-=======
-* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* [Discussion forums](/community/support.html#popular-discussion-forums)
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+* [Müzakirə Forumları](/community/support.html#popular-discussion-forums)
 
 Əgər sizə React ilə bağlı kömək lazımdırsa, bizim [React istifadəçilərindən ibarət olan Discord çat platformasında yerləşən cəmiyyətimizə](https://www.reactiflux.com/) müraciət edə bilərsiniz.
 
