@@ -80,7 +80,11 @@ ReactDOM.createRoot(
 >
 >`createRoot` kimi Konkurrent Rejimi API-ları yalnız React-in eksperimental buraxılışlarında mövcuddur.
 
+<<<<<<< HEAD
 Konkurrent Rejimi aktiv olduqda [əvvəl "təhlükəli" kimi işarələnmiş](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) lifecycle metodları təhlükəli olub daha çox baqlara səbəb olurlar. Applikasiyanız [Strikt Rejimi](https://reactjs.org/docs/strict-mode.html) ilə işləmirsə, Konkurrent Rejimindən istifadə etməyi tövsiyyə etmirik.
+=======
+In Concurrent Mode, the lifecycle methods [previously marked](/blog/2018/03/27/update-on-async-rendering.html) as "unsafe" actually *are* unsafe, and lead to bugs even more than in today's React. We don't recommend trying Concurrent Mode until your app is [Strict Mode](/docs/strict-mode.html)-compatible.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 ## Nəyi Gözləyin  {#what-to-expect}
 

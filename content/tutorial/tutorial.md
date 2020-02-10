@@ -37,7 +37,11 @@ Bu dərslikdə biz React ilə interaktiv "X O oyununu" düzəltməyi göstərəc
 
 Bizim düzəltdiyimizə buradan baxa bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Əgər kod sizə aydın deyilsə və ya sintaksis sizə tanış deyilsə, narahat olmayın! Bu dərsliyin məqsədi sizə React və onun sintaksisini anlamağa kömək etməkdir.
 
+<<<<<<< HEAD
 Dərsliyə başlamamışdan qabaq oyuna baxmağınızı tövsiyə edirik. Bu oyunun diqqət edəcəyiniz xüsusiyyətlərindən biri oyun taxtasının sağında çıxan nömrələnmiş siyahıdır. Bu siyahı oyunda baş vermiş bütün hərəkətlərin tarixçəsidir və bu siyahı oyun davam etdikcə yenilənir.
+=======
+We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Oyun ilə tanış olduqdan sonra oyun səhifəsini bağlaya bilərsiniz. Biz bu dərslikdə sadə bir şablon ilə başlayacağıq. Sonraki addım sizi oyunu yazmağa hazır etməkdir.
 

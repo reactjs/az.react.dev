@@ -166,10 +166,14 @@ class Parent extends React.Component {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Bu komponentə ref lazım olduqda komponenti sinfə çevirin (state və ya lifecycle metodları lazım olduğu kimi).
 =======
 If you want to allow people to take a `ref` to your function component, you can use [`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) (possibly in conjunction with [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)), or you can convert the component to a class.
 >>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+=======
+If you want to allow people to take a `ref` to your function component, you can use [`forwardRef`](/docs/forwarding-refs.html) (possibly in conjunction with [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)), or you can convert the component to a class.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Lakin, DOM elementinə və ya sinif komponentinə istinad edildiyi hallarda **`ref` atributunu funksiya komponentinin daxilindən işlətmək mümkündür**:
 
