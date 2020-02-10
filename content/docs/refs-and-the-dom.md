@@ -140,11 +140,7 @@ class CustomTextInput extends React.Component {
 
 #### Ref-lər və Funksiya Komponentləri {#refs-and-function-components}
 
-<<<<<<< HEAD
 Funksiyaların instansiyalarının olmadığından **funksiya komponentlərində `ref` atributundan istifadə etmək mümkün deyil:**
-=======
-By default, **you may not use the `ref` attribute on function components** because they don't have instances:
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
 ```javascript{1,8,13}
 function MyFunctionComponent() {
@@ -165,11 +161,7 @@ class Parent extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Bu komponentə ref lazım olduqda komponenti sinfə çevirin (state və ya lifecycle metodları lazım olduğu kimi).
-=======
-If you want to allow people to take a `ref` to your function component, you can use [`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) (possibly in conjunction with [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)), or you can convert the component to a class.
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+Proqramçıların komponentə `ref` göndərməsini istəyirsinizsə, ya [`forwardRef`](/docs/forwarding-refs.html)-dən (hər halda [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle) ilə birlikdə) istifadə edin, ya da komponenti sinfə çevirin.
 
 Lakin, DOM elementinə və ya sinif komponentinə istinad edildiyi hallarda **`ref` atributunu funksiya komponentinin daxilindən işlətmək mümkündür**:
 

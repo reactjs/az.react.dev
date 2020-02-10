@@ -80,7 +80,7 @@ ReactDOM.createRoot(
 >
 >`createRoot` kimi Konkurrent Rejimi API-ları yalnız React-in eksperimental buraxılışlarında mövcuddur.
 
-Konkurrent Rejimi aktiv olduqda [əvvəl "təhlükəli" kimi işarələnmiş](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) lifecycle metodları təhlükəli olub daha çox baqlara səbəb olurlar. Applikasiyanız [Strikt Rejimi](https://reactjs.org/docs/strict-mode.html) ilə işləmirsə, Konkurrent Rejimindən istifadə etməyi tövsiyyə etmirik.
+Konkurrent Rejimi aktiv olduqda [əvvəl "təhlükəli" kimi işarələnmiş](/blog/2018/03/27/update-on-async-rendering.html) lifecycle metodları təhlükəli olub daha çox baqlara səbəb olurlar. Applikasiyanız [Strikt Rejimi](/docs/strict-mode.html) ilə işləmirsə, Konkurrent Rejimindən istifadə etməyi tövsiyyə etmirik.
 
 ## Nəyi Gözləyin  {#what-to-expect}
 
@@ -129,7 +129,7 @@ Siz, Blok Rejiminin Konkurrent Rejiminin aşağı salınmış versiyası olduğu
 |Kooperativ Multitasking |🚫  |🚫  |✅  |
 |Bir neçə setState-lərin avtomatik dəstələnməsi     |🚫* |✅  |✅  |
 |[Prioritet ilə Render Etmə](/docs/concurrent-mode-patterns.html#splitting-high-and-low-priority-state) |🚫  |🚫  |✅  |
-|[Kəsici Ön Render Etmə](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
+|[Kəsilə Bilən Ön Render Etmə](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
 |[useTransition](/docs/concurrent-mode-patterns.html#transitions)  |🚫  |🚫  |✅  |
 |[useDeferredValue](/docs/concurrent-mode-patterns.html#deferring-a-value) |🚫  |🚫  |✅  |
 |[Suspense-lərin Göstərilməsi "Qatarı"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |

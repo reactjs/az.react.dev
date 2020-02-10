@@ -21,7 +21,7 @@ React üzərində işlənilən bütün işlər [GitHub-da](https://github.com/fa
 
 ### Semantik Versiyalama {#semantic-versioning}
 
-React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](https://reactjs.org/docs/faq-versioning.html) oxuyun.
+React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](/docs/faq-versioning.html) oxuyun.
 
 Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/master/CHANGELOG.md) sənədləşdirilir.
 
@@ -56,7 +56,7 @@ Təhlükəsizlik baqlarının təhlükəsiz şəkildə bildirilməsi üçün Fac
 ### Bizimlə Əlaqə {#how-to-get-in-touch}
 
 * IRC: [freenode-da #reactjs](https://webchat.freenode.net/?channels=reactjs)
-* [Müzakirə Forumları](https://reactjs.org/community/support.html#popular-discussion-forums)
+* [Müzakirə Forumları](/community/support.html#popular-discussion-forums)
 
 Əgər sizə React ilə bağlı kömək lazımdırsa, bizim [React istifadəçilərindən ibarət olan Discord çat platformasında yerləşən cəmiyyətimizə](https://www.reactiflux.com/) müraciət edə bilərsiniz.
 
