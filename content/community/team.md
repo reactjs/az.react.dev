@@ -1,102 +1,102 @@
 ---
 id: team
-title: Team
+title: Komanda
 layout: community
 sectionid: community
 permalink: community/team.html
 ---
 
-React development is led by a small dedicated team working full time at Facebook. It also receives contributions from people all over the world.
+React-in təkmilləşməsinə Facebook-da işləyən kiçik komanda rəhbərlik edilir. Əlavə olaraq React-ə dünyanın hər yerindən köməkliklər edilir.
 
-## Meet the React Team {#meet-the-react-team}
+## React Komandası ilə Tanış Ol {#meet-the-react-team}
 
-The React team members work full time on the core component APIs, the engine that powers React DOM and React Native, React DevTools, and the React documentation website.
+React komandasının üzvləri React-in əsas komponent API-ları, React DOM və React Native-in istifadə etdiyi mühərrik, React DevTools və React sənədləri səhifəsi üzərində işləyirlər.
 
-Current members of the React team are listed in alphabetical order below.
+React komandasının üzvləri əlifba sırası ilə göstərilib.
 
 ### Andrew Clark {#andrew-clark}
 
 ![Andrew Clark](../images/team/acdlite.jpg)
 
-[@acdlite on GitHub](https://github.com/acdlite) &middot; [@acdlite on Twitter](https://twitter.com/acdlite)
+[Github-da @acdlite](https://github.com/acdlite) &middot; [Twitter-də @acdlite](https://twitter.com/acdlite)
 
-Andrew got started with web development by making sites with WordPress, and eventually tricked himself into doing JavaScript. His favorite pastime is karaoke. Andrew is either a Disney villain or a Disney princess, depending on the day.
+Endryu veb proqramlaşdırmasını Wordpress ilə başladı və sonra JavaScript-i öyrəndi. Gündən asılı olaraq Endryu ya Disney canisi ya da şahzadəsidir.
 
 ### Brian Vaughn {#brian-vaughn}
 
 ![Brian Vaughn](../images/team/bvaughn.jpg)
 
-[@bvaughn on GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn on Twitter](https://twitter.com/brian_d_vaughn)
+[Github-da @bvaughn](https://github.com/bvaughn) &middot; [Twitter-də @brian\_d\_vaughn](https://twitter.com/brian_d_vaughn)
 
-Brian studied art in college and did programming on the side to pay for his education. Eventually, he realized that he enjoys working on open source. Brian has one [one-person band](https://soundcloud.com/brianvaughn/) and two [two-person](https://soundcloud.com/pilotlessdrone) [bands](https://soundcloud.com/pinwurm). He also takes care of the cutest cat in the world.
+Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə olaraq proqramlaşdırma edirdi. Vaxt keçdikcə, Brayn open source layihələrdə işləməyi sevdiyini tapdı. Braynın bir [bir-nəfərlik](https://soundcloud.com/brianvaughn/) və iki [iki-nəfərlik](https://soundcloud.com/pilotlessdrone) [musiqi](https://soundcloud.com/pinwurm) qrupları var. Əlavə olaraq onda dünyanın ən şirin pişiyi var.
 
 ### Dan Abramov {#dan-abramov}
 
-![Dan Abramov](../images/team/gaearon.jpg)
+![Dən Abramov](../images/team/gaearon.jpg)
 
-[@gaearon on GitHub](https://github.com/gaearon) &middot; [@dan_abramov on Twitter](https://twitter.com/dan_abramov)
+[Github-da @gaearon](https://github.com/gaearon) &middot; [Twitter-də @dan_abramov](https://twitter.com/dan_abramov)
 
-Dan got into programming after he accidentally discovered Visual Basic inside Microsoft PowerPoint. He has found his true calling in turning [Sebastian](#sebastian-markbage)'s tweets into long-form blog posts. Dan occasionally wins at Fortnite by hiding in a bush until the game ends.
+Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdl. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
 
 ### Dominic Gannaway {#dominic-gannaway}
 
 ![Dominic](../images/team/trueadm.jpg)
 
-[@trueadm on GitHub](https://github.com/trueadm) &middot; [@trueadm on Twitter](https://twitter.com/trueadm)
+[Github-da @trueadm](https://github.com/trueadm) &middot; [Twitter-də @trueadm](https://twitter.com/trueadm)
 
-Dominic is interested in travelling, drum and bass, stand-up comedy and spending time with the family. He most enjoys hacking on new unexplored ideas around UIs and accessibility and has a passion for tweaking and optimizing code to get the most performance out of things.
+Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəsi ilə vaxt keçirməyi sevir. O, UI və İmkanlılıqda araşdırılmamış fikirlər üzərində oynamağı sevir. Əlavə olaraq, Dominik kodu optimallaşdıraraq ən çox performansa çatmağı sevir.
 
 ### Luna Ruan {#luna-ruan}
 
 ![Luna](../images/team/lunaruan.jpg)
 
-[@lunaruan on GitHub](https://github.com/lunaruan) &middot; [@lunaruan on Twitter](https://twitter.com/lunaruan)
+[Github-da @lunaruan](https://github.com/lunaruan) &middot; [Twitter-də @lunaruan](https://twitter.com/lunaruan)
 
-Luna learned programming because she thought it meant creating video games. Instead, she ended up working on the Pinterest web app, and now on React itself. Luna doesn't want to make video games anymore, but she plans to do creative writing if she ever gets bored.
+Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o, React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə məşqul olmaq istəyir.
 
 ### Nicolas Gallagher {#nicolas-gallagher}
 
 ![Nicolas](../images/team/necolas.jpg)
 
-[@necolas on GitHub](https://github.com/necolas) &middot; [@necolas on Twitter](https://twitter.com/necolas)
+[Github-da @necolas](https://github.com/necolas) &middot; [Twitter-də @necolas](https://twitter.com/necolas)
 
-Nicolas has majored in anthropology. He started in web development by building a website for a friend, and eventually found himself rebuilding the Twitter website with React. Nicolas describes himself as boring on paper, not much better in real life.
+Nikolas univeresitetdə antropologiya oxuyub. O, veb proqramlaşdırmaya dostuna sayt düzəldərək başlayaraq özünü React-də Twitter-in saytını düzəltməkdə tapıb. Nikolas özünün kağızda maraqsız olduğunu, real həyatda isə daha maraqlı olduğunu deyir.
 
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
 
-[@rachelnabors on GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors on Twitter](https://twitter.com/rachelnabors)
+[Github-da @rachelnabors](https://github.com/rachelnabors) &middot; [Twitter-də @rachelnabors](https://twitter.com/rachelnabors)
 
-Rachel wrote a [book about UI animation](https://abookapart.com/products/animation-at-work) once and worked with MDN and the W3C on the web animations API. Now she is busy with education materials and community engineering on the React team. Secretly, she is an award-winning cartoonist for teenage girls. Catch her making fancy tea with lukewarm water in the microkitchen.
+Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animation-at-work) yazıb və veb animasiyalar API-ı üzərində MDN və W3C ilə işləyib. İndi, o, React komandasının təhsil materialları və cəmiyyət mühəndisliyi ilə məşquldur. Gizlicə o, yeniyetmə qızlar üçün şəkillər çəkir. Siz onu mikromətbəxdə ilıq su ilə əla çay hazırlanmaqda tuta bilərsiniz.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
 ![Sebastian](../images/team/sebmarkbage.jpg)
 
-[@sebmarkbage on GitHub](https://github.com/sebmarkbage) &middot; [@sebmarkbage on Twitter](https://twitter.com/sebmarkbage)
+[Github-da @sebmarkbage](https://github.com/sebmarkbage) &middot; [Twitter-də @sebmarkbage](https://twitter.com/sebmarkbage)
 
-Sebastian majored in psychology. He's usually quiet. Even when he says something, it often doesn't make sense to the rest of us until a few months later. The correct way to pronounce his surname is "mark-boa-geh" but he settled for "mark-beige" out of pragmatism -- and that's how he approaches React.
+Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir. Lakin, o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
 ### Sunil Pai {#sunil-pai}
 
 ![Sunil](../images/team/threepointone.jpg)
 
-[@threepointone on GitHub](https://github.com/threepointone) &middot; [@threepointone on Twitter](https://twitter.com/threepointone)
+[Github-da @threepointone](https://github.com/threepointone) &middot; [Twitter-də @threepointone](https://twitter.com/threepointone)
 
-Sunil started writing JavaScript for IE6 and still has some regrets about it. He worked in consulting, design, and product firms, before joining the React team to help others do the same. Sunil plays a blue Les Paul guitar, loves London, and would appreciate a response to his last ping, please and thank you!
+Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultinq, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
 
-[@yuzhi on GitHub](https://github.com/yuzhi) &middot; [@yuzhiz on Twitter](https://twitter.com/yuzhiz)
+[Github-da @yuzhi](https://github.com/yuzhi) &middot; [Twitter-də @yuzhiz](https://twitter.com/yuzhiz)
 
-Yuzhi studied Computer Science in school. She liked the instant gratification of seeing code come to life without having to physically be in a laboratory. Now she manages the React team. Before management, she used to work on the Relay data fetching framework. In her spare time, Yuzhi enjoys optimizing her life via gardening and home improvement projects.
+Yuzi universitetdə Kompuyter Elmini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
 
-## Acknowledgements {#acknowledgements}
+## Təşəkkürlər {#acknowledgements}
 
-React was originally created by [Jordan Walke](https://github.com/jordwalke). Today, React has over a thousand open source contributors. We'd like to recognize a few people who have made significant contributions to React and its documentation in the past and have helped maintain them over the years:
+React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən düzəldilmişdi. Bugün, React-in minlərlə open source töhfə verənləri var. Biz, React və sənədlərinə illərlə töhfələr verən bəzi adamlara çox sağ olumuzu bildirmək istəyirik:
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -129,6 +129,6 @@ React was originally created by [Jordan Walke](https://github.com/jordwalke). To
 * [Sasha Aickin](https://github.com/aickin)
 * [Tim Yung](https://github.com/yungsters)
 
-This list is not exhaustive.
+Bu siyahı tam deyil.
 
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://isreacttranslatedyet.com/).
+Əlavə olaraq biz [Tom Okçino](https://github.com/tomocchino) və [Adam Volfa](https://github.com/wolffiex) illərlə göstərdikləri dəstəyə görə çox sağ olumuzu bildiririk. Əlavə olaraq biz [React-i digər dillərə](https://isreacttranslatedyet.com/) tərcümə edən bütün könüllülərə çox sağ olumuzu bildiririk.
