@@ -6,7 +6,7 @@ sectionid: community
 permalink: community/team.html
 ---
 
-React-in təkmilləşməsinə Facebook-da işləyən kiçik komanda rəhbərlik edilir. Əlavə olaraq React-ə dünyanın hər yerindən köməkliklər edilir.
+React-in təkmilləşməsinə Facebook-da işləyən kiçik komanda tərəfindən rəhbərlik edilir. Əlavə olaraq React-ə dünyanın hər yerindən köməkliklər edilir.
 
 ## React Komandası ilə Tanış Ol {#meet-the-react-team}
 
@@ -36,7 +36,7 @@ Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə ol
 
 [Github-da @gaearon](https://github.com/gaearon) &middot; [Twitter-də @dan_abramov](https://twitter.com/dan_abramov)
 
-Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdl. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
+Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdı. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
 
 ### Dominic Gannaway {#dominic-gannaway}
 
@@ -68,7 +68,7 @@ Nikolas univeresitetdə antropologiya oxuyub. O, veb proqramlaşdırmaya dostuna
 
 [Github-da @rachelnabors](https://github.com/rachelnabors) &middot; [Twitter-də @rachelnabors](https://twitter.com/rachelnabors)
 
-Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animation-at-work) yazıb və veb animasiyalar API-ı üzərində MDN və W3C ilə işləyib. İndi, o, React komandasının təhsil materialları və cəmiyyət mühəndisliyi ilə məşquldur. Gizlicə o, yeniyetmə qızlar üçün şəkillər çəkir. Siz onu mikromətbəxdə ilıq su ilə əla çay hazırlanmaqda tuta bilərsiniz.
+Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animation-at-work) yazıb və veb animasiyalar API-ı üzərində MDN və W3C ilə işləyib. İndi, o, React komandasının təhsil materialları və cəmiyyət mühəndisliyi ilə məşquldur. Gizlicə o, yeniyetmə qızlar üçün şəkillər çəkir. Siz onu mikromətbəxdə ilıq su ilə əla çay hazırlarkən tuta bilərsiniz.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
@@ -76,7 +76,7 @@ Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animat
 
 [Github-da @sebmarkbage](https://github.com/sebmarkbage) &middot; [Twitter-də @sebmarkbage](https://twitter.com/sebmarkbage)
 
-Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir. Lakin, o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
+Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
 ### Sunil Pai {#sunil-pai}
 
@@ -84,7 +84,7 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir. Lakin, o
 
 [Github-da @threepointone](https://github.com/threepointone) &middot; [Twitter-də @threepointone](https://twitter.com/threepointone)
 
-Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultinq, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
+Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultasiya, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
@@ -92,7 +92,7 @@ Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığ
 
 [Github-da @yuzhi](https://github.com/yuzhi) &middot; [Twitter-də @yuzhiz](https://twitter.com/yuzhiz)
 
-Yuzi universitetdə Kompuyter Elmini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
+Yuzi universitetdə Kompuyter Elmlərini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
 
 ## Təşəkkürlər {#acknowledgements}
 
