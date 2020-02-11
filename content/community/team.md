@@ -6,11 +6,11 @@ sectionid: community
 permalink: community/team.html
 ---
 
-React-in təkmilləşməsinə Facebook-da işləyən kiçik komanda tərəfindən rəhbərlik edilir. Əlavə olaraq React-ə dünyanın hər yerindən köməkliklər edilir.
+React-in təkmilləşməsinə Facebook-da işləyən kiçik komanda rəhbərlik edilir. Əlavə olaraq React-ə dünyanın hər yerindən köməkliklər edilir.
 
 ## React Komandası ilə Tanış Ol {#meet-the-react-team}
 
-React komandasının üzvləri React-in əsas komponent API-ları, React DOM və React Native-in istifadə etdiyi mühərrik, React DevTools, və React sənədləri səhifəsi üzərində işləyirlər.
+React komandasının üzvləri React-in əsas komponent API-ları, React DOM və React Native-in istifadə etdiyi mühərrik, React DevTools və React sənədləri səhifəsi üzərində işləyirlər.
 
 React komandasının üzvləri əlifba sırası ilə göstərilib.
 
@@ -18,23 +18,23 @@ React komandasının üzvləri əlifba sırası ilə göstərilib.
 
 ![Andrew Clark](../images/team/acdlite.jpg)
 
-[@acdlite on GitHub](https://github.com/acdlite) &middot; [@acdlite on Twitter](https://twitter.com/acdlite)
+[Github-da @acdlite](https://github.com/acdlite) &middot; [Twitter-də @acdlite](https://twitter.com/acdlite)
 
-Endryu veb proqramlaşdırmasını Wordpress ilə başladı və sonra JavaScript-i öyrəndi. Gündən asılı olaraq Endryu ya Disney canisi ya da Disney şahzadəsidir.
+Endryu veb proqramlaşdırmasını Wordpress ilə başladı və sonra JavaScript-i öyrəndi. Gündən asılı olaraq Endryu ya Disney canisi ya da şahzadəsidir.
 
 ### Brian Vaughn {#brian-vaughn}
 
 ![Brian Vaughn](../images/team/bvaughn.jpg)
 
-[@bvaughn on GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn on Twitter](https://twitter.com/brian_d_vaughn)
+[Github-da @bvaughn](https://github.com/bvaughn) &middot; [Twitter-də @brian\_d\_vaughn](https://twitter.com/brian_d_vaughn)
 
-Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə olaraq proqramlaşdırma edirdi. Vaxt keçdikcə, Brayn open source layihələrdə işləməyi sevdiyini tapdı. Braynın bir [bir nəfərlik](https://soundcloud.com/brianvaughn/) və iki [iki nəfərlik](https://soundcloud.com/pilotlessdrone) [muqisi](https://soundcloud.com/pinwurm) qrupları var. Əlavə olaraq onda dünyanın ən şirin pişiyi var.
+Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə olaraq proqramlaşdırma edirdi. Vaxt keçdikcə, Brayn open source layihələrdə işləməyi sevdiyini tapdı. Braynın bir [bir-nəfərlik](https://soundcloud.com/brianvaughn/) və iki [iki-nəfərlik](https://soundcloud.com/pilotlessdrone) [musiqi](https://soundcloud.com/pinwurm) qrupları var. Əlavə olaraq onda dünyanın ən şirin pişiyi var.
 
 ### Dan Abramov {#dan-abramov}
 
 ![Dən Abramov](../images/team/gaearon.jpg)
 
-[@gaearon on GitHub](https://github.com/gaearon) &middot; [@dan_abramov on Twitter](https://twitter.com/dan_abramov)
+[Github-da @gaearon](https://github.com/gaearon) &middot; [Twitter-də @dan_abramov](https://twitter.com/dan_abramov)
 
 Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdl. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
 
@@ -42,7 +42,7 @@ Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. 
 
 ![Dominic](../images/team/trueadm.jpg)
 
-[@trueadm on GitHub](https://github.com/trueadm) &middot; [@trueadm on Twitter](https://twitter.com/trueadm)
+[Github-da @trueadm](https://github.com/trueadm) &middot; [Twitter-də @trueadm](https://twitter.com/trueadm)
 
 Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəsi ilə vaxt keçirməyi sevir. O, UI və İmkanlılıqda araşdırılmamış fikirlər üzərində oynamağı sevir. Əlavə olaraq, Dominik kodu optimallaşdıraraq ən çox performansa çatmağı sevir.
 
@@ -50,15 +50,15 @@ Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəs
 
 ![Luna](../images/team/lunaruan.jpg)
 
-[@lunaruan on GitHub](https://github.com/lunaruan) &middot; [@lunaruan on Twitter](https://twitter.com/lunaruan)
+[Github-da @lunaruan](https://github.com/lunaruan) &middot; [Twitter-də @lunaruan](https://twitter.com/lunaruan)
 
-Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə olmaq istəyir.
+Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o, React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə məşqul olmaq istəyir.
 
 ### Nicolas Gallagher {#nicolas-gallagher}
 
 ![Nicolas](../images/team/necolas.jpg)
 
-[@necolas on GitHub](https://github.com/necolas) &middot; [@necolas on Twitter](https://twitter.com/necolas)
+[Github-da @necolas](https://github.com/necolas) &middot; [Twitter-də @necolas](https://twitter.com/necolas)
 
 Nikolas univeresitetdə antropologiya oxuyub. O, veb proqramlaşdırmaya dostuna sayt düzəldərək başlayaraq özünü React-də Twitter-in saytını düzəltməkdə tapıb. Nikolas özünün kağızda maraqsız olduğunu, real həyatda isə daha maraqlı olduğunu deyir.
 
@@ -66,15 +66,15 @@ Nikolas univeresitetdə antropologiya oxuyub. O, veb proqramlaşdırmaya dostuna
 
 ![Rachel](../images/team/rnabors.jpg)
 
-[@rachelnabors on GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors on Twitter](https://twitter.com/rachelnabors)
+[Github-da @rachelnabors](https://github.com/rachelnabors) &middot; [Twitter-də @rachelnabors](https://twitter.com/rachelnabors)
 
-Rachel wrote a [book about UI animation](https://abookapart.com/products/animation-at-work) once and worked with MDN and the W3C on the web animations API. Now she is busy with education materials and community engineering on the React team. Secretly, she is an award-winning cartoonist for teenage girls. Catch her making fancy tea with lukewarm water in the microkitchen.
+Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animation-at-work) yazıb və veb animasiyalar API-ı üzərində MDN və W3C ilə işləyib. İndi, o, React komandasının təhsil materialları və cəmiyyət mühəndisliyi ilə məşquldur. Gizlicə o, yeniyetmə qızlar üçün şəkillər çəkir. Siz onu mikromətbəxdə ilıq su ilə əla çay hazırlanmaqda tuta bilərsiniz.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
 ![Sebastian](../images/team/sebmarkbage.jpg)
 
-[@sebmarkbage on GitHub](https://github.com/sebmarkbage) &middot; [@sebmarkbage on Twitter](https://twitter.com/sebmarkbage)
+[Github-da @sebmarkbage](https://github.com/sebmarkbage) &middot; [Twitter-də @sebmarkbage](https://twitter.com/sebmarkbage)
 
 Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir. Lakin, o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
@@ -82,17 +82,17 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir. Lakin, o
 
 ![Sunil](../images/team/threepointone.jpg)
 
-[@threepointone on GitHub](https://github.com/threepointone) &middot; [@threepointone on Twitter](https://twitter.com/threepointone)
+[Github-da @threepointone](https://github.com/threepointone) &middot; [Twitter-də @threepointone](https://twitter.com/threepointone)
 
-Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi ona peşmandır. O, React-ə qoşulmamışdan öncə konsultinq, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
+Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultinq, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
 
-[@yuzhi on GitHub](https://github.com/yuzhi) &middot; [@yuzhiz on Twitter](https://twitter.com/yuzhiz)
+[Github-da @yuzhi](https://github.com/yuzhi) &middot; [Twitter-də @yuzhiz](https://twitter.com/yuzhiz)
 
-Yuzi universitetdə Kompuyter Elmini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o React komandasını idarə edir. Menecmentdən öncə Yuxi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
+Yuzi universitetdə Kompuyter Elmini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
 
 ## Təşəkkürlər {#acknowledgements}
 
