@@ -73,12 +73,14 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | DOM | DOM |
 | elements | elementlər |
 | embedding expressions | |
+| event handler | hadisə işləyicisi  |
 | expression | ifadə |
 | external plugins | xarici pluginlər  |
 | extent | genişləndirmək  |
 | extention | genişlənmə  |
-| event handler | hadisə işləyicisi  |
 | example | nümunə |
+| export | ixrac |
+| extract | ixrac |
 | framework | freymvork |
 | guide | təlimat |
 | hierarchy | ierarxiya |
@@ -86,7 +88,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | immutability | dəyişməzlik |
 | imperative | imperativ |
 | implementation | tətbiq |
-| import | import |
+| import | idxal |
 | inheritance | varislik |
 | initialize | inisializasiya |
 | instance | instansiya (computer term) |
