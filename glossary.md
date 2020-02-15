@@ -58,8 +58,10 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | bug | baq |
 | bundle | paket |
 | callback | | 
+| cache | kəş |
 | child | uşaq |
-| class | klas |
+| class | sinif |
+| command | əmr |
 | composition | kompozisiya |
 | conditional rendering | şərtli render |
 | constructor | konstuktor |
@@ -99,6 +101,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | nested | |
 | node | nod |
 | note | qeyd |
+| operation | əməliyyat |
 | operator | operator |
 | output | nəticə |
 | package | paket |
@@ -116,6 +119,7 @@ Biz, ingilis terminlərinin qısaldılmalarının şəkilçilərini terminin ing
 | reuse | təkrar istifadə |
 | runtime | icra müddəti |
 | stack | stek |
+| statement | ifadə |
 | syntax | sintaksis |
 | technology stack | texnologiya steki |
 | tip | məsləhət |
