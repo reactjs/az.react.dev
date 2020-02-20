@@ -12,7 +12,6 @@ React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Öz layihənizi 
 * **[Zeldog](https://yannsainty.github.io/Zeldog/)** İtin ördəklər ilə döyüşdüyü Zelda kimi oyun!
 * **[Calculator](https://github.com/ahfarmer/calculator)** React ilə yazılmış iOS kalkuyatorunun tətbiqi
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Emojiləri axtarmaq üçün sadə React applikasiyası
-* **[GitHub Battle App](https://tm.dev/react-course-project/)** İki Github istifadəçisini döyüşdür və hər dil üçün ən populyar Github layihələrini axtar.
 * **[React Powered Hacker News Client](https://github.com/insin/react-hn)** Hacker News saytının Firebase API-ı, React və `react-router` ilə tətbiq olunmuş kopiyası
 * **[Pokedex](https://github.com/alik0211/pokedex)** Canlı axtarış ilə Pokémon-ların siyahısı
 * **[Shopping Cart](https://github.com/jeffersonRibeiro/react-shopping-cart)** React ilə yazılmış sadə e-commerce səbəti applikasiyası
