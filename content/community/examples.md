@@ -8,6 +8,7 @@ permalink: community/examples.html
 
 React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.
 
+
 * **[Zeldog](https://yannsainty.github.io/Zeldog/)** İtin ördəklər ilə döyüşdüyü Zelda kimi oyun!
 * **[Calculator](https://github.com/ahfarmer/calculator)** React ilə yazılmış iOS kalkuyatorunun tətbiqi
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Emojiləri axtarmaq üçün sadə React applikasiyası
