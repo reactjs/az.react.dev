@@ -142,7 +142,11 @@ Unikal ID olmadıqda modelə yeni ID parametri əlavə edə bilər və ya konten
 
 İndekslər açar kimi işlədildikdə yer dəyişmələri komponent vəziyyətində problemlər yarada bilər. Komponent instansiyaları açar əsasında yenilənərək yenidən işlədilir. İndeks açar kimi işlədildikdə elementin yerini dəyişməsi komponenti yeniləyəyir. Nəticədə, kontrolsuz anket sahələri kimi dəyərlər üçün komponent vəziyyəti qarışa bilər və istənilməz formada yenilənə bilər.
 
+<<<<<<< HEAD
 İndeksləri açar kimi işlətdikdə yaranan problemlər üçün [CodePen nümunəsinə](codepen://reconciliation/index-used-as-key) baxın. [Bu nümunədə isə](codepen://reconciliation/no-index-used-as-key) indekslər açar kimi işlədilmədikdə yer dəyişmələri, çeşidləmə və əvvələ əlavə edilmə problemlərinin həlli göstərilir.
+=======
+Here is [an example of the issues that can be caused by using indexes as keys](codepen://reconciliation/index-used-as-key) on CodePen, and here is [an updated version of the same example showing how not using indexes as keys will fix these reordering, sorting, and prepending issues](codepen://reconciliation/no-index-used-as-key).
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 ## Kompromislər {#tradeoffs}
 
