@@ -70,10 +70,6 @@ Siz bunu təsqid etmək üçün [sonuncu misalımızı](codepen://rendering-elem
 
 ![DOM yoxlayanının yenilikləri göstərməsi](../images/docs/granular-dom-updates.gif)
 
-<<<<<<< HEAD
 Bizim hər anda bütün UI ağacını təsvir edən elementi yaratmağımıza baxmayaraq React DOM yalnız dəyişiklik baş verən mətn nodlarını yeniləyir.
-=======
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 UI-ı zaman ilə necə dəyişmək əvəzinə hər hansı bir anda necə görünəcəyi haqqda fikirləşmək bir çox baqların qarşısını alır.

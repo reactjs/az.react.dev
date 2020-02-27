@@ -34,13 +34,9 @@ Strict rejim aktiv olduqda təhlükəli lifecycle funksiyaları işlədən sinif
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
-<<<<<<< HEAD
 Strict rejimdən yaranan problemləri _indi_ həll etdikdə React-in gələcək buraxılışlarında asinxron render etmədən tam faydalana biləcəksiniz.
 
 ### Köhnə mətn ref API-ının istifadə edilməsi haqqında xəbərdarlıq {#warning-about-legacy-string-ref-api-usage}
-=======
-Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of concurrent rendering in future releases of React.
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Əvəllər, React-də ref-lərin iki növ istifadəsi var idi: köhnə mətn ref API-ı və callback API-ı ilə. Mətn ref-lərin işlədilməsinin daha asan olduğuna baxmayaraq bu ref-lərin [bir neçə problemləri](https://github.com/facebook/react/issues/1373) var. Bu səbəbdən, rəsmi tövsiyəmiz [callback ref-dən istifadə etmək idi](/docs/refs-and-the-dom.html#legacy-api-string-refs).
 
@@ -88,16 +84,12 @@ class MyComponent extends React.Component {
 
 Konseptual olaraq React iki fazadan ibarətdir:
 
-<<<<<<< HEAD
 * **render** fazasında DOM-da baş verəcək (və ya nativ görünüşə) dəyişikliklər müəyyənləşdirilir. Bu faza zamanı, `render` funksiyası çağrılaraq cari nəticə əvvəlki render nəticəsi ilə müqayisə olunur.
 * **commit** fazasında lazımı dəyişikliklər tətbiq edilir. (Bu, React DOM-da DOM nodlarının əlavəsi, silinməsi, və ya yenilənməsi əməlliyatlarıdır.) Əlavə olaraq, bu fazada`componentDidMount` və `componentDidUpdate` kimi lifecycle funksiyaları çağrılır.
 
-Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, gələcək asinxron modunda (standart aktiv olmayacaq) render işi bir neçə yerə bölünəcək. Brauzeri blok etməmək üçün işlər fasilə ilə icra olunacaqlar. Bu deməkdir ki, render fazası lifecycle-ları, commit fazasından öncə bir neçə dəfə çağrıla bilər. Bu lifecycle-lar commit fazası olmadan da çağrıla bilərlər (yüksək prioritet kəsilməsi zamanı və ya xətada nəticəsində).
+Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, gələcək konkurrent rejimində (hələ ki, standart aktiv deyil) render işi bir neçə yerə bölünəcək. Brauzeri blok etməmək üçün işlər fasilə ilə icra olunacaqlar. Bu deməkdir ki, render fazası lifecycle-ları, commit fazasından öncə bir neçə dəfə çağrıla bilər. Bu lifecycle-lar commit fazası olmadan da çağrıla bilərlər (yüksək prioritet kəsilməsi zamanı və ya xəta nəticəsində).
 
 Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır:
-=======
-The commit phase is usually very fast, but rendering can be slow. For this reason, the upcoming concurrent mode (which is not enabled by default yet) breaks the rendering work into pieces, pausing and resuming the work to avoid blocking the browser. This means that React may invoke render phase lifecycles more than once before committing, or it may invoke them without committing at all (because of an error or a higher priority interruption).
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 * `constructor`
 * `componentWillMount` (or `UNSAFE_componentWillMount`)

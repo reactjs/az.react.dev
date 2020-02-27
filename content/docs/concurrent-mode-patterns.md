@@ -507,11 +507,7 @@ function ProfileTrivia({ resource }) {
 
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-<<<<<<< HEAD
 "Open Profile" düyməsini tıkladıqda nəyinsə düzgün işləmədiyi hiss olunur. Keçidin tamamlanması üçün yeddi saniyə gözləmək lazımdır! Bunun səbəbi bizim trivia API-ımızın yavaş işləməsidir. Fərz edək ki, API-ı tezləşdirmək mümkün deyil. Bu məhdudiyyət ilə istifadəçi təcrübəsini necə yaxşılaşdırmaq olar?
-=======
-If you press "Open Profile" now, you can tell something is wrong. It takes a whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Yükləmə vəziyyətində çox gözləmək istəmədikdə ilk intuisiya kimi `useTransition`-da `timeoutMs` parametrini kiçik dəyərə (məsələn, `3000`) dəyişməkdir. Bunu [bu nümunədə](https://codesandbox.io/s/practical-kowalevski-kpjg4) yoxlaya bilərsiniz. Bu dəyişiklik ilə uzanan Yükləmə vəziyyətindən qaçmaq mümkündür, amma bizim hələdə göstərə biləcəyimiz faydalı məlumat yoxdur!
 
