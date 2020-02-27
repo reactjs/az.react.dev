@@ -87,7 +87,7 @@ Konseptual olaraq React iki fazadan ibarətdir:
 * **render** fazasında DOM-da baş verəcək (və ya nativ görünüşə) dəyişikliklər müəyyənləşdirilir. Bu faza zamanı, `render` funksiyası çağrılaraq cari nəticə əvvəlki render nəticəsi ilə müqayisə olunur.
 * **commit** fazasında lazımı dəyişikliklər tətbiq edilir. (Bu, React DOM-da DOM nodlarının əlavəsi, silinməsi, və ya yenilənməsi əməlliyatlarıdır.) Əlavə olaraq, bu fazada`componentDidMount` və `componentDidUpdate` kimi lifecycle funksiyaları çağrılır.
 
-Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, gələcək asinxron modunda (standart aktiv olmayacaq) render işi bir neçə yerə bölünəcək. Brauzeri blok etməmək üçün işlər fasilə ilə icra olunacaqlar. Bu deməkdir ki, render fazası lifecycle-ları, commit fazasından öncə bir neçə dəfə çağrıla bilər. Bu lifecycle-lar commit fazası olmadan da çağrıla bilərlər (yüksək prioritet kəsilməsi zamanı və ya xətada nəticəsində).
+Adətən, commit fazası tez, render fazası isə yavaş olur. Bu səbəbdən, gələcək konkurrent rejimində (hələ ki, standart aktiv deyil) render işi bir neçə yerə bölünəcək. Brauzeri blok etməmək üçün işlər fasilə ilə icra olunacaqlar. Bu deməkdir ki, render fazası lifecycle-ları, commit fazasından öncə bir neçə dəfə çağrıla bilər. Bu lifecycle-lar commit fazası olmadan da çağrıla bilərlər (yüksək prioritet kəsilməsi zamanı və ya xəta nəticəsində).
 
 Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır:
 
