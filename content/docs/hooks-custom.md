@@ -74,7 +74,7 @@ Eyni məntiqi iki JavaScript funksiyası arasında paylaşmaq üçün bu məntiq
 **Adı "`use`" ilə başlayan və digər Hookları çağıran JavaScript funksiyası xüsusi Hook adlanır.** Məsələn, aşağıdakı `useFriendStatus` funksiyası bizim ilk xüsusi Hookumuzdur:
 
 ```js{3}
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);

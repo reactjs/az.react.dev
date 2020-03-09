@@ -499,7 +499,7 @@ Burada yalnız iki funksiya var: `setState()` və `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater[, callback])
+setState(updater, [callback])
 ```
 
 `setState()` dəyişiklikləri komponent state-ində növbəyə əlavə edir və React-ə bu komponentin və uşaqlarının yenidən render edilməsini bildirir. Bu funksiya UI-ı hadisə işləyiciləri və server cavabları əsasında yeniləmək üçün əsas metoddur.

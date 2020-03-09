@@ -66,8 +66,13 @@
 - name: Macar dilində
   translated_name: magyar
   code: hu
+<<<<<<< HEAD
   status: 0
 - name: Ermənicə
+=======
+  status: 1
+- name: Armenian
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
   translated_name: Հայերեն
   code: hy
   status: 0

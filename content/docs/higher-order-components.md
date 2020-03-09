@@ -177,9 +177,15 @@ HOC içərisində komponentin prototipini dəyişdirməkdən (və ya başqa bir 
 
 ```js
 function logProps(InputComponent) {
+<<<<<<< HEAD
   InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
     console.log('Cari proplar: ', this.props);
     console.log('Sonrakı proplar: ', nextProps);
+=======
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
+    console.log('Current props: ', this.props);
+    console.log('Previous props: ', prevProps);
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
   };
   // Orijinal əhatə olunacaq komponenti geri qaytarmamağımız, dəyişikliyin işarəsidir.
   return InputComponent;
@@ -189,7 +195,11 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
+<<<<<<< HEAD
 Bununla bağlı bir neçə problem var. Bunlardan biri, `InputComponent`-in `EnhancedComponent`-dən ayrı istifadə oluna bilməməsidir. Daha əhəmiyyətlisi, `EnhancedComponent`-i başqa HOC ilə əhatə etmək istəsəniz, və bu HOC *də* komponentin `componentWillReceiveProps`-nu dəyişsə, ilk HOC-in funksionallığı ləğv ediləcəkdir! Üstəlik, bu tip HOC-lər funksiya komponentləri (lifecycle metodlarına sahib olmayan komponentlər) ilə işləməyəcəkdir.
+=======
+There are a few problems with this. One is that the input component cannot be reused separately from the enhanced component. More crucially, if you apply another HOC to `EnhancedComponent` that *also* mutates `componentDidUpdate`, the first HOC's functionality will be overridden! This HOC also won't work with function components, which do not have lifecycle methods.
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
 
 Dəyişiklik edən HOC-lər sızıntılı bir abstraksiyadır. İstehlakçı digər HOC-lərlə münaqişənin qarşısını almaq üçün bu HOC-in nə dəyişdiyini bilməlidir.
 
@@ -198,9 +208,15 @@ Dəyişiklik etmə əvəzinə, HOC-lər, qəbul olunmuş komponenti konteyner ko
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
+<<<<<<< HEAD
     componentWillReceiveProps(nextProps) {
       console.log('Cari proplar: ', this.props);
       console.log('Sonrakı proplar: ', nextProps);
+=======
+    componentDidUpdate(prevProps) {
+      console.log('Current props: ', this.props);
+      console.log('Previous props: ', prevProps);
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
     }
     render() {
       // Komponent dəyişilmədən konteynerə qoyulur. Əla!

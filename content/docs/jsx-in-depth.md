@@ -42,8 +42,7 @@ aşağıdakı koda kompilyasiya olunur:
 ```js
 React.createElement(
   'div',
-  {className: 'sidebar'},
-  null
+  {className: 'sidebar'}
 )
 ```
 

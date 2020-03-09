@@ -108,6 +108,8 @@ Bu avtomatik olaraq `OtherComponent` render olduğu zaman, komponent olan paketi
 Əgər `MyComponent` render olunduğu zaman `OtherComponent` olan modul hələ yükənməyibsə, biz modul yüklənənə kimi "fallback" kontenti (məsələn Yükləmə indikatoru) göstərməliyik. Bu `Suspense` komponenti ilə həyata keçirilir.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
@@ -124,6 +126,8 @@ function MyComponent() {
 `fallback` propu komponent yüklənənə kimi render etmək istədiyiniz React elementini qəbul edir. Siz `Suspense` komponentini lazy komponentin üstündə istənilən yerdə yerləşdirə bilərsiniz. Siz hətta bir neçə lazy komponentləri bir Suspense komponenti ilə əhatə edə bilərsiniz.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -146,7 +150,9 @@ function MyComponent() {
 Əgər modulun yüklənməsi uğursuz keçirsə (məsələn, şəbəkə problemlərinə görə), xəta göstəriləcək. Siz yaxşı İstifadəçi Təcrübəsi üçün bu xətaları tutmaq və bu xətaları bərpa etmək üçün [Xəta Sərhədlərindən](/docs/error-boundaries.html) istifadə edə bilərsiniz. Xəta Sərhədini yaratdıqdan sonra, siz şəbəkə xətası göstərmək üçün bu xəta sərhədini lazy komponentin yuxarısında istənilən yerdə istifadə edə bilərsiniz.
 
 ```js
+import React, { Suspense } from 'react';
 import MyErrorBoundary from './MyErrorBoundary';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -173,8 +179,8 @@ Yaxşı başlanğıc nöqtəsi route-lardan bölməni aparmaqdır. Bir çox insa
 Aşağıdakı nümunədə [React Router](https://reacttraining.com/react-router/) və `React.lazy`-dən istifadə edərək applikasiya kodunu route əsasında parçalanması göstərilib.
 
 ```js
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));

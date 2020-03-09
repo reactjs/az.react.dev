@@ -99,9 +99,13 @@
     - id: events
       title: SyntheticEvent
     - id: test-utils
+<<<<<<< HEAD
       title: Test Vasitələri
     - id: shallow-renderer
       title: Dayaz Render Etmə
+=======
+      title: Test Utilities
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
@@ -175,4 +179,8 @@
     - id: faq-versioning
       title: Versiya Qaydaları
     - id: faq-internals
+<<<<<<< HEAD
       title: Virtual DOM və React-in Daxili
+=======
+      title: Virtual DOM and Internals
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9

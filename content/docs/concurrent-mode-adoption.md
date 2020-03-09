@@ -54,7 +54,11 @@ Biz bu kodu produksiyada işlədirik (və bizim üçün işləyir), amma bu bura
 
 ### Konkurrent Rejimini Aktivləşdirmək {#enabling-concurrent-mode}
 
+<<<<<<< HEAD
 Normalda, biz React-ə yeni xüsusiyyət əlavə etdikdə siz bu xüsusiyyəti dərhal işlədə bilirsiniz. Fraqmentlər, Kontekst və Hooklar belə xüsusiyyətlərin nümunələridir. Mövcud kodu dəyişmədən bu kodlardan istifadə etmək mümkündür.
+=======
+Normally, when we add features to React, you can start using them immediately. Fragments, Context, and even Hooks are examples of such features. You can use them in new code without making any changes to the existing code.
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
 
 Konkurrent Rejimi isə fərqlidir. Bu rejimdə React-in işləməsində semantik dəyişikliklər edilir. Əks halda, bu rejim ilə gələn [yeni xüsusiyyətləri](/docs/concurrent-mode-patterns.html) dəstəkləmək *mümkün olmayacaqdı*. Bu səbəbdən, buradakı xüsusiyyətləri ayrı-ayrı dərc etmək əvəzinə yeni "rejimin" altında qruplaşdırdıq.
 

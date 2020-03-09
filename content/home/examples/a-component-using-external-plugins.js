@@ -1,6 +1,7 @@
 class MarkdownEditor extends React.Component {
   constructor(props) {
     super(props);
+    this.md = new Remarkable();
     this.handleChange = this.handleChange.bind(this);
     this.state = {value: 'Salam, **dünya**!'};
   }
@@ -10,8 +11,12 @@ class MarkdownEditor extends React.Component {
   }
 
   getRawMarkup() {
+<<<<<<< HEAD
     const md = new Remarkable();
     return {__html: md.render(this.state.value)};
+=======
+    return { __html: this.md.render(this.state.value) };
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
   }
 
   render() {

@@ -104,10 +104,18 @@ Bu metodların birdən çox çağrıla bildiyindən bu metodlarda side effektlə
 
 Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, bu rejim ilə side effektlərin olduğu yerləri tapmaq mümkündür. Bu side effektlərin tapılması üçün, aşağıdakı funksiyalar iki dəfə çağrılır:
 
+<<<<<<< HEAD
 * Sinif komponentinin `constructor` funksiyası
 * `render` funksiyası
 * `setState`-in yeniləmə funksiyası (ilk arqument)
 * Statik `getDerivedStateFromProps` lifecycle metodu
+=======
+* Class component `constructor` method
+* The `render` method
+* `setState` updater functions (the first argument)
+* The static `getDerivedStateFromProps` lifecycle
+* The `shouldComponentUpdate` method
+>>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
 
 > Qeyd:
 >
