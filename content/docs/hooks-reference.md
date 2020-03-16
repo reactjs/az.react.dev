@@ -69,7 +69,11 @@ function Counter({initialCount}) {
 
 "+" və "-" düymələri tıklandıqda yeniliyin əvvəlki state-dən asılı olduğundan bu düymələrdə yeniləmə funksiyasının funksional formasından istifadə edilir. Lakin, "Sıfırla" düyməsi sayğacın dəyərini ilkin dəyərə qaytardığından bu düymədə yeniləmə funksiyasının sadə formasından istifadə edilir.
 
+<<<<<<< HEAD
 Yeniləmə funksiyası eyni dəyəri qatardıqda sonrakı yenidən render etmələr tamamilə atlanacaq.
+=======
+If your update function returns the exact same value as the current state, the subsequent rerender will be skipped completely.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 > Qeyd
 >
@@ -438,7 +442,11 @@ Bunun işləməsinin səbəbi `useRef()` Hookunun sadə JavaScript obyekti yarat
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
+<<<<<<< HEAD
 `useImperativeHandle` Hooku valideyn komponentdə olan `ref`-i özəlləşdirmək üçün faydalıdır. Həmişə dediyimiz kimi `ref`-lər ilə imperativ kod yazmaqdan çəkinin. `useImperativeHandle` Hookunu `forwardRef` ilə işlətməyi tövsiyə edirik:
+=======
+`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with [`forwardRef`](/docs/react-api.html#reactforwardref):
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ```js
 function FancyInput(props, ref) {

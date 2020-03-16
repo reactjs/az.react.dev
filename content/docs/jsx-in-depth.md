@@ -42,8 +42,7 @@ aşağıdakı koda kompilyasiya olunur:
 ```js
 React.createElement(
   'div',
-  {className: 'sidebar'},
-  null
+  {className: 'sidebar'}
 )
 ```
 
@@ -228,7 +227,11 @@ Propa heç bir dəyər göndərilmədikdə bu dəyər `true` olur. Aşağıdakı
 <MyTextBox autocomplete={true} />
 ```
 
+<<<<<<< HEAD
 Normalda, biz dəyərin bu formada istifadəsini tövsiyə etmirik. Çünki, bu dəyər [ES6 obyekt qısaltması ilə](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) çaşdırıla bilər. `{foo}` ifadəsi, `{foo: true}` ifadəsinin yox `{foo: foo}` ifadəsinin qısaldılmış formasıdır. Bu davranışın burada olmasının səbəbi HTML davranışı ilə uyğunlaşmasından gəlir.
+=======
+In general, we don't recommend *not* passing a value for a prop, because it can be confused with the [ES6 object shorthand](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` which is short for `{foo: foo}` rather than `{foo: true}`. This behavior is just there so that it matches the behavior of HTML.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Yayma Atributlar {#spread-attributes}
 

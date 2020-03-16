@@ -44,7 +44,11 @@ class Welcome extends React.Component {
 
 Yuxarıdakı iki komponentlər React-ə nəzərən bərabərdirlər.
 
+<<<<<<< HEAD
 Siniflərin [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
+=======
+Function and Class components both have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html).
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ## Komponenti Render Etmək {#rendering-a-component}
 
@@ -60,7 +64,11 @@ Buna baxmayaraq, elementlər developerlər tərəfindən yazılmış komponentl�
 const element = <Welcome name="Sara" />;
 ```
 
+<<<<<<< HEAD
 React developerlər tərəfindən yazılmış komponenti təmsil edən element gördükdə, o JSX atributlarını bu komponentə tək obyekt kimi ötürür. Biz bu obyekti "proplar" adlandırırıq.
+=======
+When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object "props".
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Məsələn, aşağıdakı kod "Salam, Aysel" mətnini səhifədə render edir:
 

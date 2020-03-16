@@ -291,7 +291,11 @@ class Square extends React.Component {
 
 >Qeyd
 >
+<<<<<<< HEAD
 >[JavaScript siniflərində](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), alt sinifinin konstrukturunu tətbiq etdikdə mütləq `super`-dən istifadə etmək lazımdır. Konstrukturu olan bütün React komponentləri `super(props)` funksiya çağırışı ilə başlamalıdır.
+=======
+>In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start with a `super(props)` call.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Biz Square komponentinin cari state-inin dəyərini tıklamadan sonra göstərmək üçün, Square-in `render` funksiyasından istifadə edəcəyik:
 

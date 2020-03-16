@@ -148,7 +148,11 @@ class MyComponent extends React.Component {
     if (this.state.error) {
       return <h1>Xəta tutuldu.</h1>
     }
+<<<<<<< HEAD
     return <div onClick={this.handleClick}>Tıkla</div>
+=======
+    return <button onClick={this.handleClick}>Click Me</button>
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
   }
 }
 ```

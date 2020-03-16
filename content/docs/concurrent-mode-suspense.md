@@ -113,13 +113,21 @@ Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyində
 
 ### Suspense ilə Nə Etmək Mümkündür? {#what-suspense-lets-you-do}
 
+<<<<<<< HEAD
 Suspense-in mənası nədir? Buna dörd yol ilə cavab vermək olar:
+=======
+So what's the point of Suspense? There are a few ways we can answer this:
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 * **Bu, məlumat yüklənməsi kitabxanalarını React ilə dərindən inteqrasiya edilməsinə imkan yaradır.** Əgər məlumat yüklənməsi kitabxanasında Suspense dəstəklənirsə, bu kitabxanaları React komponentlərindən istifadə etmək natural olacaq.
 
 * **Bu, niyyətli dizayn olunmuş yükləmə vəziyyətlərini orkestrasiya etməyə imkan yaradır.** Bu mexanizm, məlumatın _necə_ yükləndiyi haqqında heç nə demir, amma applikasiyanın vizual yükləmə ardıcıllığını yaxından idarə etməyə imkan yaradır.
 
+<<<<<<< HEAD
 * **Bu, sizə ötmə şərtlərindən qaçınmağa kömək edir.** Hətta `await` olduqda belə asinxron kod xətalara meyllidir. Suspense işlətdikdə məlumatların artıq yüklənmiş olduğu və *sinxron* oxunduğu hiss olunur.
+=======
+* **It helps you avoid race conditions.** Even with `await`, asynchronous code is often error-prone. Suspense feels more like reading data *synchronously* — as if it were already loaded.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ## Suspense-in Praktikada İşlədilməsi {#using-suspense-in-practice}
 
@@ -231,7 +239,11 @@ Bu kodu icra edib konsoldakı loqları izlədikdə aşağıdakı ardıcıllığ�
 
 İstifadəçi məlumatlarının yüklənməsi üç saniyə çəkdikdə, biz yazıların yükləmənməsini üç saniyə sonra *başlayacağıq*! Bu "şəlalə adlanır": paralel icra olunmalı əməliyyatların istənilməz *ardıcıl* olması.
 
+<<<<<<< HEAD
 Məlumatların render zamanı yükləndiyi kodlarda şəlalələrin olması normaldır. Bu problemləri həll etmək mümkündür, amma məhsul böyüdükcə proqramçılar bu problemdən qaçınan həllərdən istifadə etmək istəyirlər.
+=======
+Waterfalls are common in code that fetches data on render. They're possible to solve, but as the product grows, many people prefer to use a solution that guards against this problem.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Yünaşma 2: Yüklədikdən Sonra Render Etmək (Suspense-dən istifadə edilmir) {#approach-2-fetch-then-render-not-using-suspense}
 
@@ -250,7 +262,11 @@ function fetchProfileData() {
 }
 ```
 
+<<<<<<< HEAD
 Bu nümunədə  `<ProfilePage>` komponenti hər iki sorğunu gözləyir və paralel şəkildə başladır:
+=======
+In this example, `<ProfilePage>` waits for both requests but starts them in parallel:
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ```js{1,2,8-13}
 // Məlumat yükləməsini ən tez zamanda başladın
