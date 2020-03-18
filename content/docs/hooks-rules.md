@@ -48,13 +48,7 @@ npm install eslint-plugin-react-hooks --save-dev
 }
 ```
 
-<<<<<<< HEAD
-Bu plagin [Create React App-də](/docs/create-a-new-react-app.html#create-react-app) hazır quraşdırılıb.
-
 **[Xüsusi hookların yazılmasını bilmək üçün](/docs/hooks-custom.html) sonrakı səhifəyə keçə bilərsiniz.** Bu səhifədə, bu iki qaydanın səbəbini başa salacağıq.
-=======
-**You can skip to the next page explaining how to write [your own Hooks](/docs/hooks-custom.html) now.** On this page, we'll continue by explaining the reasoning behind these rules.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ## İzahat {#explanation}
 

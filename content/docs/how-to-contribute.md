@@ -130,13 +130,9 @@ Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test`
 
 Dəyişiklikləri yoxlamağın ən asan yolu `yarn build react/index,react-dom/index --type=UMD` əmrini çağırıb `fixtures/packaging/babel-standalone/dev.html` səhifəsini açmaqdır. Bu fayl, `build` direktoriyasında olan `react.development.js` faylından istifadə edir.
 
-<<<<<<< HEAD
-Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin. Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin:
-=======
-If you want to try your changes in your existing React project, you may copy `build/dist/react.development.js`, `build/dist/react-dom.development.js`, or any other build products into your app and use them instead of the stable version. 
+Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin.
 
-If your project uses React from npm, you may delete `react` and `react-dom` in its dependencies and use `yarn link` to point them to your local `build` folder. Note that **instead of `--type=UMD` you'll want to pass `--type=NODE` when building**. You'll also need to build the `scheduler` package:
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin. Nəzərə alın ki, **qurulma zamanı `--type=UMD` əvəzinə `--type=NODE` parametrindən istifadə etməlisiniz. Əlavə olaraq `scheduler` paketini də quraşdırmalısınız:
 
 ```sh
 cd ~/path_to_your_react_clone/
@@ -153,13 +149,9 @@ yarn link react react-dom
 
 `yarn build` əmrini React direktoriyasında icra etdikdə yeni versiyalar layihənin `node_modules` direktoriyasında görünəcək. Siz, layihənizi bu dəyişikliklər ilə yenidən qurun.
 
-<<<<<<< HEAD
-Biz, yeni xüsusiyyətlər üçün pull request-də testlərin olmasını tələb edirik. Bu yol ilə, biz gələcəkdə sizin kodunuzun sınmayacağını təmin edə bilirik.
-=======
-If some package is still missing (e.g. maybe you use `react-dom/server` in your project), you can always do a full build with `yarn build`. Note that running `yarn build` without options takes a long time.
+Əgər hər hansı bir paket əskikdirsə (məsələn, layihənizdə `react-dom/server` işlədirsinizsə), siz `yarn build` ilə tam qurulma əməliyyatını icra edə bilərsiniz. Nəzərə alın ki `yarn build` əmrini parametrlərsiz icra etdikdə bu əmr uzun zaman çəkə bilər.
 
-We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Biz, yeni xüsusiyyətlər üçün pull request-də testlərin olmasını tələb edirik. Bu yol ilə, biz gələcəkdə sizin kodunuzun sınmayacağını təmin edə bilirik.
 
 ### Stil Təlimatları {#style-guide}
 

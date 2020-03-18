@@ -39,11 +39,7 @@ React komandası əsasən aşağıdaki həlləri tövsiyə edir:
 
 [Create React App](https://github.com/facebookincubator/create-react-app), **React-i öyrənmək** və React-də **yeni [tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya** yaratmaq üçün çox rahat mühit təmin edir.
 
-<<<<<<< HEAD
-Bu alət ən son JavaScript xüsusiyyətlərini istifadə etmək üçün development mühiti yaradır, yaxşı developer təcrübəsi ilə proqramçıları təmin edir, və applikasiyanı produksiya üçün optimallaşdırır. Bu aləti işlətmək üçün Node >= 8.10 və npm >= 5.6 tələb edilir. Layihə yaratmaq üçün göstərilən əmri icra edin:
-=======
-It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have [Node >= 8.10 and npm >= 5.6](https://nodejs.org/en/) on your machine. To create a project, run:
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Bu alət ən son JavaScript xüsusiyyətlərini istifadə etmək üçün təkmilləşmə mühiti yaradır, yaxşı developer təcrübəsi ilə proqramçıları təmin edir və applikasiyanı produksiya üçün optimallaşdırır. Bu aləti işlətmək üçün [Node >= 8.10 və npm >= 5.6](https://nodejs.org/en/) tələb edilir. Layihə yaratmaq üçün göstərilən əmri icra edin:
 
 ```bash
 npx create-react-app my-app

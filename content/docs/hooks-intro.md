@@ -31,13 +31,8 @@ function Example() {
 
 >Qeyd
 >
-<<<<<<< HEAD
 >React 16.8.0 versiyası Hookları dəstəkləyən ilk buraxılışdır. Paketləri yenilədiyiniz zaman React DOM daxil olmaqla bütün paketləri yeniləməyi unutmayın.
->React Native-in [0.59-cu buraxılışından](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq Hooklar dəstəklənir.
-=======
->React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM.
->React Native supports Hooks since [the 0.59 release of React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+>React Native-in [0.59-cu buraxılışından](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) başlayaraq Hooklar dəstəklənir.
 
 ## Video Giriş {#video-introduction}
 

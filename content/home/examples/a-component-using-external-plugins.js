@@ -11,12 +11,7 @@ class MarkdownEditor extends React.Component {
   }
 
   getRawMarkup() {
-<<<<<<< HEAD
-    const md = new Remarkable();
-    return {__html: md.render(this.state.value)};
-=======
-    return { __html: this.md.render(this.state.value) };
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+    return {__html: this.md.render(this.state.value)};
   }
 
   render() {

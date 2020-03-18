@@ -71,11 +71,7 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
 
 Nəzərə alın ki, **Hookları aktivləşdirmək üçün bütün React paketlərinin versiyaları 16.8.0-dan yuxarı olmalıdır**. Paketləri (məsələn React DOM) yeniləməyi yaddan çıxardıqda Hooklar işləməyəcək.
 
-<<<<<<< HEAD
-Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
-=======
-[React Native 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) and above support Hooks.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Hooklar, [React Native 0.59-dan](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
 
 ### Bütün sinif komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -95,19 +91,11 @@ Hookların öyrənmə əyriliyi var. Sənədlərdə nəsə çatışmırsa, [biz�
 
 Hazır olduğunuz zaman yeni komponentləri Hooklar ilə yazmağı tövsiyə edirik. Bunu etməmişdən öncə komandanızda hamının bu qərar ilə razılaşdığından və sənədlər ilə tanışlığı olduğundan əmin olun. Mövcud komponentləri yenidən yazmağı (məsələn, baqları düzəltmək üçün) planlaşdırmırsınızsa, mövcud sinifləri Hooklar ilə yenidən yazmağı tövsiyə etmirik.
 
-<<<<<<< HEAD
 Sinif *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni komponent ağacında sinif komponentlərini və Hooklar ilə funksiya komponentlərini birlikdə istifadə edə bilərsiniz. Komponentin sinif və ya Hooklar işlədən funksiya olması tətbiq detalıdır. Gələcəkdə React komponentlərini yazmağın əsas yolunun Hooklar olduğunu gözləyirik.
-=======
-You can't use Hooks *inside* a class component, but you can definitely mix classes and function components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is an implementation detail of that component. In the longer term, we expect Hooks to be the primary way people write React components.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Hooklar siniflərin bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
-<<<<<<< HEAD
-Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, bu metodları da Hooklar ilə yaza bilmək mümkün olacaq.
-=======
-Our goal is for Hooks to cover all use cases for classes as soon as possible. There are no Hook equivalents to the uncommon `getSnapshotBeforeUpdate`, `getDerivedStateFromError` and `componentDidCatch` lifecycles yet, but we plan to add them soon.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate`, `getDerivedStateFromError` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, gələcəkdə bu metodları da Hooklar ilə yazmaq mümkün olacaq.
 
 Hookların hələ ki cavan olduğundan bəzi 3-cü tərəfin kitabxanaları ilə uyğun olmaya bilər.
 
@@ -230,11 +218,7 @@ Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baql
 
 * `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Bu funksiyaların bütün kombinasiyalarını ([daha](#can-i-skip-an-effect-on-updates) [az](#can-i-run-an-effect-only-on-updates) işlədilən ssenarilər daxil olmaqla) [`useEffect` Hooku](/docs/hooks-reference.html#useeffect) ilə tətbiq edə bilərsiniz.
 
-<<<<<<< HEAD
-* `componentDidCatch` və `getDerivedStateFromError`: Bu funksiyaların Hook ekvivalenti yoxdur. Lakin, gəcələcəkdə bunları da funksiya komponentləri ilə əvəz etmək mümkün olacaq.
-=======
-* `getSnapshotBeforeUpdate`, `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+* `getSnapshotBeforeUpdate`, `componentDidCatch` və `getDerivedStateFromError`: Bu funksiyaların Hook ekvivalenti yoxdur. Lakin, gəcələcəkdə bunları da funksiya komponentləri ilə əvəz etmək mümkün olacaq.
 
 ### Hooklar ilə məlumat yüklənməsini necə tətbiq edə bilərəm? {#how-can-i-do-data-fetching-with-hooks}
 
@@ -305,11 +289,7 @@ function Box() {
 
 State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* sinfin `this.setState` funksiyasından fərqlidir.
 
-<<<<<<< HEAD
-Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
-=======
-If you miss automatic merging, you could write a custom `useLegacyState` Hook that merges object state updates. However, **we recommend to split state into multiple state variables based on which values tend to change together.**
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i dəyərləri birlikdə dəyişən bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
 
 Məsələn, biz komponent state-ini `position` və `size` obyektlərinə parçalayıb obyektləri biləşdirmədən `position` dəyərini yeni dəyər ilə əvəz edə bilərik:
 
@@ -600,11 +580,7 @@ Aşağıda, fərqli ssenarilərdə işlədilən digər seçimlər də göstəril
 
 Gəlin bunun niyə vacib olduğuna baxaq.
 
-<<<<<<< HEAD
-`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir.
-=======
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values that are used inside the callback and participate in the React data flow. That includes props, state, and anything derived from them.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir. Buna proplar, state və bu dəyərlərdən törənən bütün dəyərlə daxildir.
 
 Asılılıq massivindən **yalnız** funksiyanın daxilində (və ya bu funksiyanın çağırdığı funksiyaların daxilində) state, proplar və ya bu dəyərlərdən yaranmış dəyərlərə referans olmadıqda bu funksiyanı buraxmaq mümkündür. Aşağıdakı nümunədə baq var:
 
@@ -613,11 +589,7 @@ function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-<<<<<<< HEAD
-    const response = await fetch('http://myapi/product' + productId); // productId propunu işlədir
-=======
-    const response = await fetch('http://myapi/product/' + productId); // Uses productId prop
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+    const response = await fetch('http://myapi/product/' + productId); // productId propunu işlədir
     const json = await response.json();
     setProduct(json);
   }

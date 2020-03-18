@@ -34,11 +34,7 @@ Biz bu nodu "ana" DOM nodu sayırıq. Çünki bu nodun içərisində baş verən
 
 Adətən, React-də düzəldilmiş applikasiyaların tək ana DOM nodu var. Əgər siz React-i mövcud applikasiyanıza inteqrasiya edirsinizsə, sizdə istədiyiniz qədər ana DOM nodları ola bilər.
 
-<<<<<<< HEAD
-React elementini DOM noduna render etmək üçün, həm elementi həm də ana nodu `ReactDOM.render()` funksiyasına göndərin:
-=======
-To render a React element into a root DOM node, pass both to [`ReactDOM.render()`](/docs/react-dom.html#render):
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+React elementini ana DOM noduna render etmək üçün həm elementi həm də ana nodu [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərin:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -50,11 +46,7 @@ Bu səhifə "Salam Dünya" göstərəcək.
 
 React elementləri [dəyişilməzdir](https://en.wikipedia.org/wiki/Immutable_object). Element yarandıqdan sonra bu elementin uşaqlarını və ya atributlarını dəyişmək olmaz. Element filmdə bir kadr kimidir: hər hansı bir zamanda UI-ı təsvir edir.
 
-<<<<<<< HEAD
-Bizim indiki biliyimiz ilə UI-ı yeniləmək üçün yalnız yeni element yaradıb `ReactDOM.render()`-ə göndərməliyik.
-=======
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to [`ReactDOM.render()`](/docs/react-dom.html#render).
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Bizim indiki biliyimiz ilə UI-ı yeniləmək üçün yalnız yeni element yaradıb [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərməliyik.
 
 Aşağıda olan saat misalına baxaq:
 
@@ -62,19 +54,11 @@ Aşağıda olan saat misalına baxaq:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-<<<<<<< HEAD
-Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)-ın callback-indən `ReactDOM.render()` funksiyasını çağırır.
-=======
-It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback-indən [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasını çağırır.
 
 >**Qeyd:**
 >
-<<<<<<< HEAD
->Praktikada, React applikasiyaları `ReactDOM.render()` funksiyasını yalnız bir dəfə çağırırlar. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
-=======
->In practice, most React apps only call [`ReactDOM.render()`](/docs/react-dom.html#render) once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+>Praktikada, React applikasiyalarında [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyası yalnız bir dəfə çağrılır. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
 >
 >Biz mövzuları ötürməyi tövsiyə etmirik. Çünki bu mövzular bir-birilərindən asılıdırlar.
 
@@ -88,8 +72,4 @@ Siz bunu təsqid etmək üçün [sonuncu misalımızı](codepen://rendering-elem
 
 Bizim hər anda bütün UI ağacını təsvir edən elementi yaratmağımıza baxmayaraq React DOM yalnız dəyişiklik baş verən mətn nodlarını yeniləyir.
 
-<<<<<<< HEAD
-UI-ı zaman ilə necə dəyişmək əvəzinə hər hansı bir anda necə görünəcəyi haqqda fikirləşmək bir çox baqların qarşısını alır.
-=======
-In our experience, thinking about how the UI should look at any given moment, rather than how to change it over time, eliminates a whole class of bugs.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Bizim təcrübəmiz göstərir ki, UI-ı zaman ilə necə dəyişmək əvəzinə hər hansı bir anda necə görünəcəyi haqqda fikirləşmək bir çox baqların qarşısını alır.

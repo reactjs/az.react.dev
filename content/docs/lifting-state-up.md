@@ -305,25 +305,14 @@ class Calculator extends React.Component {
 
 Sahədə dəyişikliklər edildikdə nə baş verdiyinə yenidən baxaq:
 
-<<<<<<< HEAD
 * DOM `<input>`-unda göstərilən `onChange` funksiyası React tərəfindən çağrılır. Bizim halda, bu funksiya `TemperatureInput` komponentində olan `handleChange` funksiyasıdır.
-* `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını lazımi dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla, bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
-* Əvvəlki renderdə, Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası göndərilir. Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərilir. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
-* `Calculator` komponenti bu funksiyanda, dəyişən anket sahəsinin dəyəri və bölgüsü ilə `this.setState()` funksiyasını çağdığından, React bu komponenti yenidən render edir.
-* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini göstərir. Hər iki anket sahəsinin dəyəri cari temperatur və bölgü əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
-* React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağırır. UI-ın necə olacağı göstərilir.
+* `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını yeni dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
+* Əvvəlki renderdə Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası, Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərildi. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
+* React-in `Calculator` komponentini yeniden render etməsi üçün bu funksiyadan dəyişən anket sahəsinin dəyəri və cari bölgüsü ilə `this.setState()` çağrılır.
+* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini öyrənir. Hər iki anket sahəsinin dəyəri cari temperatur və bölgü əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
+* React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağıraraq UI-ın necə olacağı öyrənir.
 * React, Selsi temperaturunu prop kimi göndərərək `BoilingVerdict` komponentinin `render` funksiyasını çağırır.
-* React DOM, qaynama iddiası və anket sahələrinin dəyərləri əsasında DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperaturu göstərir.
-=======
-* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in the `TemperatureInput` component.
-* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
-* When it previously rendered, the `Calculator` had specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
-* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
-* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
-* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
-* React calls the `render` method of the `BoilingVerdict` component, passing the temperature in Celsius as its props.
-* React DOM updates the DOM with the boiling verdict and to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+* React DOM, qaynama iddiasını və anket sahələrinin dəyərlərinı uyöunlaşdırmaq üçün DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperatur ilə yenilənir.
 
 Hər yenilik eyni addımlardan keçərək anket sahələrini sinxron saxlayır.
 

@@ -62,20 +62,20 @@ function onClick(event) {
 
 > Qeyd:
 >
-<<<<<<< HEAD
-> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamağa icazə verəcək.
+> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan silərək istifadəçi kodunda hadisəyə referans saxlamağa imkan yaradacaq.
 
 ## Dəstəklənən Hadisələr {#supported-events}
 
 Bütün brauzerlərdə eyni parametrlərinin olması üçün, React hadisələri normallaşdırır.
 
-Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
+Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini Capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, Capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
 
 - [Clipboard Hadisələri](#clipboard-events)
 - [Kompozisiya Hadisələri](#composition-events)
 - [Klaviatur Hadisələri](#keyboard-events)
 - [Fokus Hadisələri](#focus-events)
 - [Anket Hadisələri](#form-events)
+- [Ümumi Hadisələr](#generic-events)
 - [Maus Hadisələri](#mouse-events)
 - [Pointer Hadisələri](#pointer-events)
 - [Seleksiya Hadisələri](#selection-events)
@@ -87,33 +87,6 @@ Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. 
 - [Animasiya Hadisələri](#animation-events)
 - [Keçid Hadisələri](#transition-events)
 - [Digər Hadisələr](#other-events)
-=======
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
-
-## Supported Events {#supported-events}
-
-React normalizes events so that they have consistent properties across different browsers.
-
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
-
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 * * *
 
@@ -211,12 +184,9 @@ onChange hadisəsi haqqında əlavə məlumat üçün [Anketlər](/docs/forms.ht
 
 * * *
 
-<<<<<<< HEAD
-### Maus Hadisələri {#mouse-events}
-=======
-### Generic Events {#generic-events}
+### Ümumi Hadisələr {#generic-events}
 
-Event names:
+Hadisə adları names:
 
 ```
 onError onLoad
@@ -224,8 +194,7 @@ onError onLoad
 
 * * *
 
-### Mouse Events {#mouse-events}
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+### Maus Hadisələri {#mouse-events}
 
 Hadisə adları:
 

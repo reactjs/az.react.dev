@@ -36,11 +36,7 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 ### Onlayn Kod Meydançaları {#online-playgrounds}
 
-<<<<<<< HEAD
-React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Glitch-də](https://glitch.com/edit/#!/remix/starter-react-template) sınayın.
-=======
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template), or [Stackblitz](https://stackblitz.com/fork/react).
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+React ilə oynamaq istəyirsinizsə, onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template) və ya [Stackblitz-də](https://stackblitz.com/fork/react) sınayın.
 
 Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
 
@@ -87,11 +83,7 @@ JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://
 
 ### Praktiki Dərslik {#practical-tutorial}
 
-<<<<<<< HEAD
-Əgər **edə edə öyrənməyə** üstünlük verirsinizsə [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *hər hansı* React applikasiyaları düzəltmək üçün vacibdir. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
-=======
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Əgər **edə edə öyrənməyə** üstünlük verirsinizsə, [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *istənilən* React applikasiyasını düzəltmək üçün faydalıdır. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
 
 ### Addım Addım Öyrənmək {#step-by-step-guide}
 

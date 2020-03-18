@@ -29,11 +29,7 @@ UI testlərinin böyük hissəsi göstərilən formada yazıla bilər: Jest icra
 
 Brauzer spesifik davranışları test edən və şablon və real daxil olmalar kimi nativ brauzer davranışlarından asılı olan kitabxana yazdıqda [mocha](https://mochajs.org/) kimi freymvorkdan istifadə edə bilərsiniz.
 
-<<<<<<< HEAD
-DOM-un simulyasiya _oluna bilmədiyi_ mühitdə (məsələn, Node.js-dən React Native komponentlərini test etdikdə) işlədikdə elementlər ilə interaksiyaları simulyasiya etmək üçün [hadisə simulyasiya köməkçilərindən](https://reactjs.org/docs/test-utils.html#simulate) istifadə edə bilərsiniz. Alternativ olaraq, [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library) kitabxanasında olan `fireEvent` köməkçisindən istifadə edə bilərsiniz.
-=======
-In an environment where you _can't_ simulate a DOM (e.g. testing React Native components on Node.js), you could use [event simulation helpers](/docs/test-utils.html#simulate) to simulate interactions with elements. Alternately, you could use the `fireEvent` helper from [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+DOM-un simulyasiya _oluna bilmədiyi_ mühitdə (məsələn, Node.js-dən React Native komponentlərini test etdikdə) elementlər ilə interaksiyaları simulyasiya etmək üçün [hadisə simulyasiya köməkçilərindən](https://reactjs.org/docs/test-utils.html#simulate) istifadə edə bilərsiniz. Alternativ olaraq, [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library) kitabxanasında olan `fireEvent` köməkçisindən istifadə edə bilərsiniz.
 
 [End-to-end testləri](#end-to-end-tests-aka-e2e-tests) icra etmək üçün [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) və [webdriver](https://www.seleniumhq.org/projects/webdriver/) alətləri faydalıdır.
 
@@ -57,10 +53,6 @@ Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animas
 
 ### End-to-end testlər {#end-to-end-tests-aka-e2e-tests}
 
-<<<<<<< HEAD
-Biznesiniz üçün kritiki olan uzun axınları (məsələn, registrasiya və ya ödəmələr kimi) test etmək üçün end-to-end testlər faydalıdır. Bu testlərdə applikasiyanın brauzerdə render edilməsi, məlumatların real API-dan yüklənməsi, sessiya və kukilərdən istifadə, və linklər arasında naviqasiyalar test edilir. Əlavə olaraq, DOM vəziyyəti üzərində iddialardan əlavə, gələn məlumat (məsələn, yeniliklərin database-ə yazılmasının test edilməsi) da test edilir.
-=======
-End-to-end tests are useful for testing longer workflows, especially when they're critical to your business (such as payments or signups). For these tests, you'd probably want to test how a real browser renders the whole app, fetches data from the real API endpoints, uses sessions and cookies, navigates between different links. You might also likely want to make assertions not just on the DOM state, but on the backing data as well (e.g. to verify whether the updates have been persisted to the database).
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+Biznesiniz üçün kritiki olan uzun axınları (məsələn, registrasiya və ya ödəmələr kimi) test etmək üçün end-to-end testlər faydalıdır. Bu testlərdə applikasiyanın brauzerdə render edilməsi, məlumatların real API-dan yüklənməsi, sessiya və kukilərdən istifadə və linklər arasında naviqasiyalar test edilir. Əlavə olaraq, DOM vəziyyəti üzərində iddialardan əlavə gələn məlumatlar (məsələn, yeniliklərin database-ə yazılmasının yoxlanılması) da test edilir.
 
 Belə ssenarilər üçün [Cypress](https://www.cypress.io/) kimi freymvorklardan və ya [puppeteer](https://github.com/GoogleChrome/puppeteer) kimi kitabxanalardan istifadə edərək fərqli linklərə naviqasiya edib yalnız brauzer yan effektlərini yox, backend yan effektlərini də test edə bilərsiniz.
