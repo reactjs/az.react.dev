@@ -177,9 +177,9 @@ HOC içərisində komponentin prototipini dəyişdirməkdən (və ya başqa bir 
 
 ```js
 function logProps(InputComponent) {
-  InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
     console.log('Cari proplar: ', this.props);
-    console.log('Sonrakı proplar: ', nextProps);
+    console.log('Əvvəlki proplar: ', prevProps);
   };
   // Orijinal əhatə olunacaq komponenti geri qaytarmamağımız, dəyişikliyin işarəsidir.
   return InputComponent;
@@ -189,7 +189,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Bununla bağlı bir neçə problem var. Bunlardan biri, `InputComponent`-in `EnhancedComponent`-dən ayrı istifadə oluna bilməməsidir. Daha əhəmiyyətlisi, `EnhancedComponent`-i başqa HOC ilə əhatə etmək istəsəniz, və bu HOC *də* komponentin `componentWillReceiveProps`-nu dəyişsə, ilk HOC-in funksionallığı ləğv ediləcəkdir! Üstəlik, bu tip HOC-lər funksiya komponentləri (lifecycle metodlarına sahib olmayan komponentlər) ilə işləməyəcəkdir.
+Bununla bağlı bir neçə problem var. Bunlardan biri `InputComponent`-in `EnhancedComponent`-dən ayrı istifadə oluna bilməməsidir. Daha əhəmiyyətlisi isə `EnhancedComponent` komponentini `componentWillReceiveProps` metodunu dəyişən HOC ilə əhatə etdikdə ilk HOC-nin funksionallığı ləğv ediləcəkdir! Əlavə olaraq, bu tip HOC-lər lifecycle metodları olmayan funksiya komponentləri ilə işləməyəcək.
 
 Dəyişiklik edən HOC-lər sızıntılı bir abstraksiyadır. İstehlakçı digər HOC-lərlə münaqişənin qarşısını almaq üçün bu HOC-in nə dəyişdiyini bilməlidir.
 
@@ -198,9 +198,9 @@ Dəyişiklik etmə əvəzinə, HOC-lər, qəbul olunmuş komponenti konteyner ko
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(prevProps) {
       console.log('Cari proplar: ', this.props);
-      console.log('Sonrakı proplar: ', nextProps);
+      console.log('Əvvəlki proplar: ', prevProps);
     }
     render() {
       // Komponent dəyişilmədən konteynerə qoyulur. Əla!

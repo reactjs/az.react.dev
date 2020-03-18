@@ -130,18 +130,26 @@ Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test`
 
 Dəyişiklikləri yoxlamağın ən asan yolu `yarn build react/index,react-dom/index --type=UMD` əmrini çağırıb `fixtures/packaging/babel-standalone/dev.html` səhifəsini açmaqdır. Bu fayl, `build` direktoriyasında olan `react.development.js` faylından istifadə edir.
 
-Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin. Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin:
+Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin.
+
+Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin. Nəzərə alın ki, **qurulma zamanı `--type=UMD` əvəzinə `--type=NODE` parametrindən istifadə etməlisiniz. Əlavə olaraq `scheduler` paketini də quraşdırmalısınız:
 
 ```sh
-cd ~/path_to_your_react_clone/build/node_modules/react
+cd ~/path_to_your_react_clone/
+yarn build react/index,react-dom/index,scheduler --type=NODE
+
+cd build/node_modules/react
 yarn link
-cd ~/path_to_your_react_clone/build/node_modules/react-dom
+cd build/node_modules/react-dom
 yarn link
-cd /path/to/your/project
+
+cd ~/path/to/your/project
 yarn link react react-dom
 ```
 
 `yarn build` əmrini React direktoriyasında icra etdikdə yeni versiyalar layihənin `node_modules` direktoriyasında görünəcək. Siz, layihənizi bu dəyişikliklər ilə yenidən qurun.
+
+Əgər hər hansı bir paket əskikdirsə (məsələn, layihənizdə `react-dom/server` işlədirsinizsə), siz `yarn build` ilə tam qurulma əməliyyatını icra edə bilərsiniz. Nəzərə alın ki `yarn build` əmrini parametrlərsiz icra etdikdə bu əmr uzun zaman çəkə bilər.
 
 Biz, yeni xüsusiyyətlər üçün pull request-də testlərin olmasını tələb edirik. Bu yol ilə, biz gələcəkdə sizin kodunuzun sınmayacağını təmin edə bilirik.
 

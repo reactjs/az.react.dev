@@ -180,6 +180,7 @@ Bu obyektlər "React element"-ləri adlandırılır. Siz onları ekranda görmə
 
 Sonrakı bölmədə DOM-a Reakt elementlərini render edilməyini araşdıracayıq.
 
+Biz, [sonrakı bölmədə](/docs/rendering-elements.html) React elementlərinin DOM-a render edilməsinə baxacağıq. 
 
 >**Məsləhət:**
 >

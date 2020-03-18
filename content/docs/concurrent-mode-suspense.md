@@ -113,13 +113,13 @@ Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyində
 
 ### Suspense ilə Nə Etmək Mümkündür? {#what-suspense-lets-you-do}
 
-Suspense-in mənası nədir? Buna dörd yol ilə cavab vermək olar:
+Suspense-in mənası nədir? Buna cavab verməyin bir neçə yolu var:
 
 * **Bu, məlumat yüklənməsi kitabxanalarını React ilə dərindən inteqrasiya edilməsinə imkan yaradır.** Əgər məlumat yüklənməsi kitabxanasında Suspense dəstəklənirsə, bu kitabxanaları React komponentlərindən istifadə etmək natural olacaq.
 
 * **Bu, niyyətli dizayn olunmuş yükləmə vəziyyətlərini orkestrasiya etməyə imkan yaradır.** Bu mexanizm, məlumatın _necə_ yükləndiyi haqqında heç nə demir, amma applikasiyanın vizual yükləmə ardıcıllığını yaxından idarə etməyə imkan yaradır.
 
-* **Bu, sizə ötmə şərtlərindən qaçınmağa kömək edir.** Hətta `await` olduqda belə asinxron kod xətalara meyllidir. Suspense işlətdikdə məlumatların artıq yüklənmiş olduğu və *sinxron* oxunduğu hiss olunur.
+* **Bu, sizə ötmə şərtlərindən qaçınmağa kömək edir.** Asinxron kod, hətta `await` işlədildiyi zaman xətalara meyllidir. Suspense işlətdikdə məlumatların artıq yüklənmiş olduğu və *sinxron* oxunduğu hiss olunur.
 
 ## Suspense-in Praktikada İşlədilməsi {#using-suspense-in-practice}
 
@@ -250,7 +250,7 @@ function fetchProfileData() {
 }
 ```
 
-Bu nümunədə  `<ProfilePage>` komponenti hər iki sorğunu gözləyir və paralel şəkildə başladır:
+Bu nümunədə  `<ProfilePage>` komponenti hər iki sorğunu gözləyir, amma bu sorğuları eyni zamanda başladır:
 
 ```js{1,2,8-13}
 // Məlumat yükləməsini ən tez zamanda başladın

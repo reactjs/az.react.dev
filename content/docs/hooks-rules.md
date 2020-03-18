@@ -27,6 +27,8 @@ Bu qaydaya riayət edərək komponentdə olan state-li məntiqin kodda olduğunu
 
 Biz bu iki qaydanın tətbiq edilməsi üçün [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) adlı plagin təmin edirik. Siz bu plagini aşağıdakı formada layihənizə əlavə edə bilərsiniz:
 
+This plugin is included by default in [Create React App](/docs/create-a-new-react-app.html#create-react-app).
+
 ```bash
 npm install eslint-plugin-react-hooks --save-dev
 ```
@@ -45,8 +47,6 @@ npm install eslint-plugin-react-hooks --save-dev
   }
 }
 ```
-
-Bu plagin [Create React App-də](/docs/create-a-new-react-app.html#create-react-app) hazır quraşdırılıb.
 
 **[Xüsusi hookların yazılmasını bilmək üçün](/docs/hooks-custom.html) sonrakı səhifəyə keçə bilərsiniz.** Bu səhifədə, bu iki qaydanın səbəbini başa salacağıq.
 

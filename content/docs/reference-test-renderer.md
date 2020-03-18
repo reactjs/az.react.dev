@@ -129,7 +129,7 @@ expect(root.toJSON()).toMatchSnapshot();
 
 // fərqli proplar ilə yeniləyin
 act(() => {
-  root = root.update(<App value={2}/>);
+  root.update(<App value={2}/>);
 })
 
 // ana komponentin üzərində iddaları yoxlayın

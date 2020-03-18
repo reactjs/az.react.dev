@@ -21,7 +21,7 @@ class App extends React.Component {
 // highlight-range{1,2}
 // Ortadakı komponent artıq
 // şablon dəyərini açıq şəkildə göndərməməlidir.
-function Toolbar(props) {
+function Toolbar() {
   return (
     <div>
       <ThemedButton />

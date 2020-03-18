@@ -306,13 +306,13 @@ class Calculator extends React.Component {
 Sahədə dəyişikliklər edildikdə nə baş verdiyinə yenidən baxaq:
 
 * DOM `<input>`-unda göstərilən `onChange` funksiyası React tərəfindən çağrılır. Bizim halda, bu funksiya `TemperatureInput` komponentində olan `handleChange` funksiyasıdır.
-* `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını lazımi dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla, bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
-* Əvvəlki renderdə, Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası göndərilir. Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərilir. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
-* `Calculator` komponenti bu funksiyanda, dəyişən anket sahəsinin dəyəri və bölgüsü ilə `this.setState()` funksiyasını çağdığından, React bu komponenti yenidən render edir.
-* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini göstərir. Hər iki anket sahəsinin dəyəri cari temperatur və bölgü əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
-* React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağırır. UI-ın necə olacağı göstərilir.
+* `TemperatureInput` komponentində olan `handleChange` funksiyası `this.props.onTemperatureChange()` funksiyasını yeni dəyər ilə çağırır. `onTemperatureChange` daxil olmaqla bu komponentin propları valideyn komponenti olan `Calculator` tərəfindən təmin edilir.
+* Əvvəlki renderdə Selsi `TemperatureInput` komponentinin `onTemperatureChange` propuna `Calculator` komponentinin `handleCelsiusChange` funksiyası, Farenheit `TemperatureInput` komponentinin `onTemperatureChange` propuna isə `Calculator` komponentinin `handleFahrenheitChange` funksiyası göndərildi. Yenilənən anket sahəsinə uyğun göstərilən funksiya çağrılır.
+* React-in `Calculator` komponentini yeniden render etməsi üçün bu funksiyadan dəyişən anket sahəsinin dəyəri və cari bölgüsü ilə `this.setState()` çağrılır.
+* React, `Calculator` komponentinin `render` funksiyasını çağıraraq UI-ın necə görünəcəyini öyrənir. Hər iki anket sahəsinin dəyəri cari temperatur və bölgü əsasında hesablanır. Temperatur çevrilməsi burada baş verir.
+* React, fərdi `TemperatureInput` komponentlərinin `render` funksiyalarını `Calculator` tərəfindən göstərilən proplar əsasında çağıraraq UI-ın necə olacağı öyrənir.
 * React, Selsi temperaturunu prop kimi göndərərək `BoilingVerdict` komponentinin `render` funksiyasını çağırır.
-* React DOM, qaynama iddiası və anket sahələrinin dəyərləri əsasında DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperaturu göstərir.
+* React DOM, qaynama iddiasını və anket sahələrinin dəyərlərinı uyöunlaşdırmaq üçün DOM-u yeniləyir. Bizim dəyişdiyimiz anket sahəsi cari dəyəri qəbul edir. Digər anket sahəsi isə çevrilmədən sonra hesablanan temperatur ilə yenilənir.
 
 Hər yenilik eyni addımlardan keçərək anket sahələrini sinxron saxlayır.
 

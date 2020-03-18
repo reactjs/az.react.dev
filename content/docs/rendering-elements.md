@@ -34,7 +34,7 @@ Biz bu nodu "ana" DOM nodu sayırıq. Çünki bu nodun içərisində baş verən
 
 Adətən, React-də düzəldilmiş applikasiyaların tək ana DOM nodu var. Əgər siz React-i mövcud applikasiyanıza inteqrasiya edirsinizsə, sizdə istədiyiniz qədər ana DOM nodları ola bilər.
 
-React elementini DOM noduna render etmək üçün, həm elementi həm də ana nodu `ReactDOM.render()` funksiyasına göndərin:
+React elementini ana DOM noduna render etmək üçün həm elementi həm də ana nodu [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərin:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ Bu səhifə "Salam Dünya" göstərəcək.
 
 React elementləri [dəyişilməzdir](https://en.wikipedia.org/wiki/Immutable_object). Element yarandıqdan sonra bu elementin uşaqlarını və ya atributlarını dəyişmək olmaz. Element filmdə bir kadr kimidir: hər hansı bir zamanda UI-ı təsvir edir.
 
-Bizim indiki biliyimiz ilə UI-ı yeniləmək üçün yalnız yeni element yaradıb `ReactDOM.render()`-ə göndərməliyik.
+Bizim indiki biliyimiz ilə UI-ı yeniləmək üçün yalnız yeni element yaradıb [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərməliyik.
 
 Aşağıda olan saat misalına baxaq:
 
@@ -54,11 +54,11 @@ Aşağıda olan saat misalına baxaq:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)-ın callback-indən `ReactDOM.render()` funksiyasını çağırır.
+Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback-indən [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasını çağırır.
 
 >**Qeyd:**
 >
->Praktikada, React applikasiyaları `ReactDOM.render()` funksiyasını yalnız bir dəfə çağırırlar. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
+>Praktikada, React applikasiyalarında [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyası yalnız bir dəfə çağrılır. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
 >
 >Biz mövzuları ötürməyi tövsiyə etmirik. Çünki bu mövzular bir-birilərindən asılıdırlar.
 
@@ -72,4 +72,4 @@ Siz bunu təsqid etmək üçün [sonuncu misalımızı](codepen://rendering-elem
 
 Bizim hər anda bütün UI ağacını təsvir edən elementi yaratmağımıza baxmayaraq React DOM yalnız dəyişiklik baş verən mətn nodlarını yeniləyir.
 
-UI-ı zaman ilə necə dəyişmək əvəzinə hər hansı bir anda necə görünəcəyi haqqda fikirləşmək bir çox baqların qarşısını alır.
+Bizim təcrübəmiz göstərir ki, UI-ı zaman ilə necə dəyişmək əvəzinə hər hansı bir anda necə görünəcəyi haqqda fikirləşmək bir çox baqların qarşısını alır.

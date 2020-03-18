@@ -71,7 +71,7 @@ Bu səhifədə [Hooklar](/docs/hooks-overview.html) haqqında çox verilən sual
 
 Nəzərə alın ki, **Hookları aktivləşdirmək üçün bütün React paketlərinin versiyaları 16.8.0-dan yuxarı olmalıdır**. Paketləri (məsələn React DOM) yeniləməyi yaddan çıxardıqda Hooklar işləməyəcək.
 
-Hooklar, [React Native 0.59-dan](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
+Hooklar, [React Native 0.59-dan](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) başlayaraq dəstəklənir.
 
 ### Bütün sinif komponentlərini yenidən yazmalıyam? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -95,7 +95,7 @@ Sinif *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni ko
 
 ### Hooklar siniflərin bütün ssenarilərini əhatə edir? {#do-hooks-cover-all-use-cases-for-classes}
 
-Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, bu metodları da Hooklar ilə yaza bilmək mümkün olacaq.
+Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate`, `getDerivedStateFromError` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, gələcəkdə bu metodları da Hooklar ilə yazmaq mümkün olacaq.
 
 Hookların hələ ki cavan olduğundan bəzi 3-cü tərəfin kitabxanaları ilə uyğun olmaya bilər.
 
@@ -218,7 +218,7 @@ Burada əlavə evristikalar da var. Bu evristikalar saxta müsbətlər ilə baql
 
 * `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Bu funksiyaların bütün kombinasiyalarını ([daha](#can-i-skip-an-effect-on-updates) [az](#can-i-run-an-effect-only-on-updates) işlədilən ssenarilər daxil olmaqla) [`useEffect` Hooku](/docs/hooks-reference.html#useeffect) ilə tətbiq edə bilərsiniz.
 
-* `componentDidCatch` və `getDerivedStateFromError`: Bu funksiyaların Hook ekvivalenti yoxdur. Lakin, gəcələcəkdə bunları da funksiya komponentləri ilə əvəz etmək mümkün olacaq.
+* `getSnapshotBeforeUpdate`, `componentDidCatch` və `getDerivedStateFromError`: Bu funksiyaların Hook ekvivalenti yoxdur. Lakin, gəcələcəkdə bunları da funksiya komponentləri ilə əvəz etmək mümkün olacaq.
 
 ### Hooklar ilə məlumat yüklənməsini necə tətbiq edə bilərəm? {#how-can-i-do-data-fetching-with-hooks}
 
@@ -289,7 +289,7 @@ function Box() {
 
 State dəyişənini yenilədikdə state-də olan dəyər *əvəz olunur*. Bu, yenilənən dəyəri state obyekti ilə *birləşdirən* sinfin `this.setState` funksiyasından fərqlidir.
 
-Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
+Əgər avtomatik birləşməni bəyənirsinizsə, state yeniliklərini state obyekti ilə birləşdirən `useLegacyState` adlı xüsusi Hook yarada bilərsiniz. Lakin, biz **state-i dəyərləri birlikdə dəyişən bir neçə state dəyişənlərinə parçalamağı tövsiyə edirik.**
 
 Məsələn, biz komponent state-ini `position` və `size` obyektlərinə parçalayıb obyektləri biləşdirmədən `position` dəyərini yeni dəyər ilə əvəz edə bilərik:
 
@@ -580,7 +580,7 @@ Aşağıda, fərqli ssenarilərdə işlədilən digər seçimlər də göstəril
 
 Gəlin bunun niyə vacib olduğuna baxaq.
 
-`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir.
+`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir. Buna proplar, state və bu dəyərlərdən törənən bütün dəyərlə daxildir.
 
 Asılılıq massivindən **yalnız** funksiyanın daxilində (və ya bu funksiyanın çağırdığı funksiyaların daxilində) state, proplar və ya bu dəyərlərdən yaranmış dəyərlərə referans olmadıqda bu funksiyanı buraxmaq mümkündür. Aşağıdakı nümunədə baq var:
 
@@ -589,7 +589,7 @@ function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-    const response = await fetch('http://myapi/product' + productId); // productId propunu işlədir
+    const response = await fetch('http://myapi/product/' + productId); // productId propunu işlədir
     const json = await response.json();
     setProduct(json);
   }
@@ -610,7 +610,7 @@ function ProductPage({ productId }) {
   useEffect(() => {
     // Funksiyanı effektin daxilinə köçürərək bu effektin hansı dəyərləri işlətdiyini görmək mümkündür.
     async function fetchProduct() {
-      const response = await fetch('http://myapi/product' + productId);
+      const response = await fetch('http://myapi/product/' + productId);
       const json = await response.json();
       setProduct(json);
     }

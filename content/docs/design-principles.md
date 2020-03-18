@@ -126,7 +126,7 @@ Lakin, biz qurulma zamanı bəzi qlobal konfiqurasiyalar təmin edirik. Məsəl�
 
 ### DOM Xaricində {#beyond-the-dom}
 
-React-in dəyərini bizə daha az səhvli və yaxşı kompozisiya edilə bilən komponentləri yazmağa imkan verməsində görürük. React-in orijinal render etmə hədəfi DOM-dur, lakin [React Native](https://facebook.github.io/react-native/) də həm Facebook, həm də cəmiyyət üçün vacibdir.
+React-in dəyərini bizə daha az baqlı və yaxşı kompozisiya edilə bilən komponentləri yazmağa imkan verməsində görürük. React-in orijinal render etmə hədəfi DOM-dur. Lakin, [React Native](https://reactnative.dev/) də həm Facebook, həm də cəmiyyət üçün vacibdir.
 
 Render edici qurğulardan müstəqil olmaq React-in dizaynının vacib məhdudiyyətidir. Bu, daxili təsvirlərə ağırlıq əlavə edə bilər. Digər tərəfdən, nüvə üzərində edilən dəyişikliklər bütün platformalara təsir edə bilir.
 

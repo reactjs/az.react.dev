@@ -84,6 +84,7 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
+* [Pune](https://www.meetup.com/ReactJS-and-Friends/)
 
 ## Indonesia {#indonesia}
 * [Indonesia](https://www.meetup.com/reactindonesia/)
@@ -143,6 +144,9 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 
 ## Switzerland {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
+
+## Turkey {#turkey}
+* [Istanbul](https://www.meetup.com/ReactJS-Istanbul/)
 
 ## Ukraine {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)

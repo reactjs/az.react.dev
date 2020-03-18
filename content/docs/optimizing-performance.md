@@ -176,11 +176,7 @@ Chrome-da istifadə edə bilmək üçün:
 
 6. React hadisələri **User Timing** adı altında qruplanacaq.
 
-<<<<<<< HEAD
-Daha ətraflı izahat üçün [Ben Şvarsın məqaləsini oxuyun](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
-=======
-For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+Daha ətraflı izahat üçün [Ben Şvarsın məqaləsini oxuyun](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 Nəzərə alin ki, **bu alətdə göstərilən rəqəmlər nisbidir. Produksiya zamanı komponentlər daha tez işləyəcək**. Bu, lazımsız UI-ın səhvən yeniləndiyini və UI yeniliklərinin hansı dərinlikdə və tezlikdə olduğunu görməyə imkan yaradır.
 

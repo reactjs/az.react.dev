@@ -36,7 +36,7 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 ### Onlayn Kod Meydançaları {#online-playgrounds}
 
-React ilə oynamaq istəyirsinizsə onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Glitch-də](https://glitch.com/edit/#!/remix/starter-react-template) sınayın.
+React ilə oynamaq istəyirsinizsə, onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template) və ya [Stackblitz-də](https://stackblitz.com/fork/react) sınayın.
 
 Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
 
@@ -83,7 +83,7 @@ JavaScript bilik dərəcənizi yoxlamaq üçün [JavaScript icmalını](https://
 
 ### Praktiki Dərslik {#practical-tutorial}
 
-Əgər **edə edə öyrənməyə** üstünlük verirsinizsə [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *hər hansı* React applikasiyaları düzəltmək üçün vacibdir. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
+Əgər **edə edə öyrənməyə** üstünlük verirsinizsə, [praktiki dərsliyə](/tutorial/tutorial.html) baxın. Bu dərslikdə, React-də XO oyunu düzəldirik. Oyun düzəltmədiyiniz üçün bu dərsliyi atlamaq istəyə bilərsiniz. Tövsiyə edirik ki bunu sınayasınız. Bu dərslikdə öyrənəcəyiniz texnikalar *istənilən* React applikasiyasını düzəltmək üçün faydalıdır. Bu texnikaları qavardıqda React-i daha dərindən anlayacaqsınız.
 
 ### Addım Addım Öyrənmək {#step-by-step-guide}
 

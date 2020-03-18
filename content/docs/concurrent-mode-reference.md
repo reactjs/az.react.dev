@@ -199,7 +199,7 @@ function App() {
  }
 ```
 
-Biz bu şəkildə `input` sahəsinin dəyərini dərhal göstərərək səhifənin responsiv olduğunu hiss etdirə bilərik. Eyni zamanda render etmənin baş verməsi üçün `MySlowList` komponenti `timeoutMs` parametri əsasında yeniləməni 2 saniyə gecikdirir. Bu zaman, cari dəyər fonda saxlanılır.
+Biz bu şəkildə `input` sahəsinin dəyərini dərhal göstərərək səhifənin responsiv olduğunu hiss etdirə bilərik. Eyni zamanda render etmənin baş verməsi üçün `MySlowList` komponenti `timeoutMs` parametri əsasında yeniləməni 2 saniyə gecikdirərək cari mətn dəyəri fonda render edir.
 
 **Dəyərlərin gecikdirilməsi haqqında əlavə məlumat üçün [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html#deferring-a-value) səhifəsinə baxın.**
 

@@ -42,8 +42,7 @@ aşağıdakı koda kompilyasiya olunur:
 ```js
 React.createElement(
   'div',
-  {className: 'sidebar'},
-  null
+  {className: 'sidebar'}
 )
 ```
 
@@ -228,7 +227,7 @@ Propa heç bir dəyər göndərilmədikdə bu dəyər `true` olur. Aşağıdakı
 <MyTextBox autocomplete={true} />
 ```
 
-Normalda, biz dəyərin bu formada istifadəsini tövsiyə etmirik. Çünki, bu dəyər [ES6 obyekt qısaltması ilə](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) çaşdırıla bilər. `{foo}` ifadəsi, `{foo: true}` ifadəsinin yox `{foo: foo}` ifadəsinin qısaldılmış formasıdır. Bu davranışın burada olmasının səbəbi HTML davranışı ilə uyğunlaşmasından gəlir.
+Normalda, biz propa dəyərin *göndərilməməsini* tövsiyə etmirik. Çünki, bu dəyər [ES6 obyekt qısaltması ilə](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) çaşdırıla bilər. `{foo}` ifadəsi, `{foo: true}` ifadəsinin yox `{foo: foo}` ifadəsinin qısaldılmış formasıdır. Bu davranışın burada olmasının səbəbi HTML davranışı ilə uyğunlaşmasından gəlir.
 
 ### Yayma Atributlar {#spread-attributes}
 

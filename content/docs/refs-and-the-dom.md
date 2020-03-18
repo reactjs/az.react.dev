@@ -168,7 +168,7 @@ Lakin, DOM elementinə və ya sinif komponentinə istinad edildiyi hallarda **`r
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
   // textInput-a istinad edilə bilməsi üçün ref burada təyin edilməlidir
-  let textInput = React.createRef();
+  let textInput = useRef();
 
   function handleClick() {
     textInput.current.focus();

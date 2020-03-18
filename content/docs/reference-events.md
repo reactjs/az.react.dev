@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -61,19 +62,20 @@ function onClick(event) {
 
 > Qeyd:
 >
-> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan siləcək və istifadəçi kodunda hadisəyə referans saxlamağa icazə verəcək.
+> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan silərək istifadəçi kodunda hadisəyə referans saxlamağa imkan yaradacaq.
 
 ## Dəstəklənən Hadisələr {#supported-events}
 
 Bütün brauzerlərdə eyni parametrlərinin olması üçün, React hadisələri normallaşdırır.
 
-Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
+Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. Hadisə işləyicisini Capture fazasında qeyd etmək üçün hadisə adının sonuna `Capture` mətnini əlavə edin. Məsələn, Capture fazasında tıklama hadisəsini qeyd etmək üçün `onClick` əvəzinə `onClickCapture` işlətməlisiniz.
 
 - [Clipboard Hadisələri](#clipboard-events)
 - [Kompozisiya Hadisələri](#composition-events)
 - [Klaviatur Hadisələri](#keyboard-events)
 - [Fokus Hadisələri](#focus-events)
 - [Anket Hadisələri](#form-events)
+- [Ümumi Hadisələr](#generic-events)
 - [Maus Hadisələri](#mouse-events)
 - [Pointer Hadisələri](#pointer-events)
 - [Seleksiya Hadisələri](#selection-events)
@@ -175,10 +177,20 @@ DOMEventTarget relatedTarget
 Hadisə adları:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 onChange hadisəsi haqqında əlavə məlumat üçün [Anketlər](/docs/forms.html) sənədinə baxın.
+
+* * *
+
+### Ümumi Hadisələr {#generic-events}
+
+Hadisə adları names:
+
+```
+onError onLoad
+```
 
 * * *
 

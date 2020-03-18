@@ -15,12 +15,6 @@ Bu bölmədə React kodunun orqanizasiyası, konvensiyaları və tətbiqinin icm
 
 Burada göstərilən konvensiyaların React applikasiyalarında işlədilməsini tövsiyyə etmirik. Bu konvensiyaların çoxu tarixi səbəblərə görə mövcuddur və zaman keçdikcə bu konvensiyalar dəyişə bilər.
 
-### Xarici Asılılıqlar {#external-dependencies}
-
-React-in heç bir xarici asılılığı yoxdur. Adətən, `require()` çağırışları React-in kodunda olan fayllara istinad edir. Lakin, burada bir neçə nadir istisnalar var.
-
-[fbjs repo-sunun](https://github.com/facebook/fbjs) mövcud olmasının səbəbi React-in bəzi faydalı funksiyaları [Relay](https://github.com/facebook/relay) kimi kitabxanalar ilə paylaşmasıdır. Biz bu funksiyaları həmişə sinxron saxlayırıq. Biz Node ekosistemində olan bu faydalı funksiyaların ekvivalenti olan modullardan istifadə etmirik. Çünki, biz Facebook mühəndislərinin istənilən zaman dəyişikliklər edə bilməsini istəyirik. fbjs-də olan heç bir funksiya açıq API kimi qəbul olunmur. Bu API-lar yalnız Facebook-un React kimi layihələrində işlənilir.
-
 ### Ana Direktoriyalar {#top-level-folders}
 
 [React repo-sunu](https://github.com/facebook/react) klon etdikdə aşağıdakı direktoriyaları görəcəksiniz:
@@ -171,7 +165,7 @@ React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/mas
 
 ### Render Edici Qurğular {#renderers}
 
-Başlanğıcda React yalnız DOM üçün yaradılmışdı, amma bir zaman sonra [React Native](https://facebook.github.io/react-native/) ilə nativ platformalar da dəstəklənməyə başlandı. Bu adaptasiya nəticəsində React daxilinə "render edici qurğular" konsepsiyası təqdim olundu.
+Başlanğıcda React yalnız DOM üçün yaradılmışdı, amma bir zaman sonra [React Native](https://reactnative.dev/) ilə nativ platformalar da dəstəklənməyə başlandı. Bu adaptasiya nəticəsində React-in daxilinə "render edici qurğular" konsepsiyası təqdim olundu.
 
 **Render edici qurğular React ağacını platformaya xas olan çağırışlara çevirmək üçündür.**
 

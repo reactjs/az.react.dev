@@ -373,8 +373,8 @@ Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [
 
 Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işləndiyi gözlənilir:
 
-- [WAI-ARIA Yazma Təcrübələri - Pattern və Vidcetlərin Dizayn edilməsi](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical_aria_examples/)
+- [WAI-ARIA Yazma Təcrübələri - Dizayn Həlləri və Vidcetlər](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Nəzərə Alınmalı Digər Məqamlar {#other-points-for-consideration}

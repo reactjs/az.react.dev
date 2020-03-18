@@ -108,6 +108,7 @@ Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, b
 * `render` funksiyası
 * `setState`-in yeniləmə funksiyası (ilk arqument)
 * Statik `getDerivedStateFromProps` lifecycle metodu
+* `shouldComponentUpdate` metodu
 
 > Qeyd:
 >

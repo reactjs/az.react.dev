@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Yuxarıdakı iki komponentlər React-ə nəzərən bərabərdirlər.
 
-Siniflərin [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var. Ona qədər biz funksiya komponentlərini onların müxtəsərliyinə görə istifadə edəcəyik.
+Siniflərin [digər bölmələrdə](/docs/state-and-lifecycle.html) müzakirə edəcəyimiz bəzi əlavə xüsusiyyətləri var.
 
 ## Komponenti Render Etmək {#rendering-a-component}
 
@@ -60,7 +60,7 @@ Buna baxmayaraq, elementlər developerlər tərəfindən yazılmış komponentl�
 const element = <Welcome name="Sara" />;
 ```
 
-React developerlər tərəfindən yazılmış komponenti təmsil edən element gördükdə, o JSX atributlarını bu komponentə tək obyekt kimi ötürür. Biz bu obyekti "proplar" adlandırırıq.
+React, proqramçılar tərəfindən yazılmış komponenti təmsil edən elementi gördükdə JSX atributlarını bu komponentə tək obyekt kimi ötürür. Biz bu obyekti "proplar" adlandırırıq.
 
 Məsələn, aşağıdakı kod "Salam, Aysel" mətnini səhifədə render edir:
 
