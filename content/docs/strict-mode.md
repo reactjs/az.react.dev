@@ -1,6 +1,6 @@
 ---
 id: strict-mode
-title: Strict Rejim
+title: Strict Rejimi
 permalink: docs/strict-mode.html
 ---
 
@@ -8,7 +8,7 @@ Applikasiyada potensial problemləri vurğulayan alətlərdən biri `StrictMode`
 
 > Qeyd:
 >
-> Strict rejim yoxlamaları yalnız development zamanı olur. Bu rejim _produksiya quruluşuna heç bir təsir etmir_.
+> Strict rejimi yoxlamaları yalnız development zamanı olur. Bu rejim _produksiya quruluşuna heç bir təsir etmir_.
 
 Strikt rejimi applikasiyanın istənilən hissəsində activləşdirmək mümkündür. Məsələn:
 
@@ -102,13 +102,13 @@ Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır
 
 Bu metodların birdən çox çağrıla bildiyindən bu metodlarda side effektlərin olmaması vacibdir. Bu qaydanı saymadıqda yaddaş sızmaları və etibarsız applikasiya vəziyyəti kimi problemlər yarana bilər. Təəssüf ki, bu problemlərin [müəyyən pattern-i olmadığından](https://en.wikipedia.org/wiki/Deterministic_algorithm) bu problemləri tutmaq mümkün deyil.
 
-Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, bu rejim ilə side effektlərin olduğu yerləri tapmaq mümkündür. Bu side effektlərin tapılması üçün, aşağıdakı funksiyalar iki dəfə çağrılır:
+Strict rejim avtomatik olaraq belə yan effektləri aşkar edə bilmir. Amma, bu rejim ilə yan effektlərin olduğu yerləri tapmaq mümkündür. Bu yan effektlərin tapılması üçün aşağıdakı funksiyalar iki dəfə çağrılır:
 
-* Sinif komponentinin `constructor` funksiyası
-* `render` funksiyası
-* `setState`-in yeniləmə funksiyası (ilk arqument)
-* Statik `getDerivedStateFromProps` lifecycle metodu
-* `shouldComponentUpdate` metodu
+* Sinif komponentinin `constructor`, `render` və `shouldComponentUpdate` funksiyaları
+* Sinif komponentinin statik `getDerivedStateFromProps` metodu
+* Funksiya komponentinin gövdələri
+* State yeniləyici funksiyalar (`setState` funksiyasının ilk arqumenti)
+* `useState`, `useMemo` və `useReducer`-ə göndərilən funksiyalar
 
 > Qeyd:
 >

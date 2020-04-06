@@ -68,13 +68,7 @@ class NameForm extends React.Component {
 
 Anket elementində `value` atributu təyin edildiyindən, anketin göstərdiyi dəyər həmişə `this.state.value` olacaq və React state-i anket üçün vahid həqiqə mənbəyi olacaq. `handleChange` hadisə işləyicisi hər klaviş tıklamasında çağrılıb React state-ini yenilədiyindən anket sahəsində göstərilən dəyər həmişə yeni olacaq.
 
-Kontrol olunan komponentdə, hər state dəyişikliyi üçün uyğun olan idarə edici funksiya olur. Bu funksiya, istifadəçi daxil etməsinin dəyişməsini və təsdiq edilməsini asanlaşdırır. Məsələn, əgər yazılan adların böyük hərf ilə saxlanmasını istəyiriksə `handleChange` funksiyasını aşağıdaki kimi dəyişə bilərik:
-
-```javascript{2}
-handleChange(event) {
-  this.setState({value: event.target.value.toUpperCase()});
-}
-```
+Kontrol olunan komponentdə anket sahəsinin dəyəri React state-i tərəfindən idarə olunur. Bunun biraz çox kod yazılmasına baxmayaraq siz bu state dəyərini digər UI elementlərinə göndərə bilər və fərqli hadisə işləyicilərindən sıfırlaya bilərsiniz.
 
 ## textarea Təqi {#the-textarea-tag}
 
