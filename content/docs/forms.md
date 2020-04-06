@@ -68,6 +68,7 @@ class NameForm extends React.Component {
 
 Anket elementində `value` atributu təyin edildiyindən, anketin göstərdiyi dəyər həmişə `this.state.value` olacaq və React state-i anket üçün vahid həqiqə mənbəyi olacaq. `handleChange` hadisə işləyicisi hər klaviş tıklamasında çağrılıb React state-ini yenilədiyindən anket sahəsində göstərilən dəyər həmişə yeni olacaq.
 
+<<<<<<< HEAD
 Kontrol olunan komponentdə, hər state dəyişikliyi üçün uyğun olan idarə edici funksiya olur. Bu funksiya, istifadəçi daxil etməsinin dəyişməsini və təsdiq edilməsini asanlaşdırır. Məsələn, əgər yazılan adların böyük hərf ilə saxlanmasını istəyiriksə `handleChange` funksiyasını aşağıdaki kimi dəyişə bilərik:
 
 ```javascript{2}
@@ -75,6 +76,9 @@ handleChange(event) {
   this.setState({value: event.target.value.toUpperCase()});
 }
 ```
+=======
+With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
+>>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 ## textarea Təqi {#the-textarea-tag}
 

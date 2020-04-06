@@ -102,6 +102,7 @@ Render fazasının lifecycle-ları aşağıda göstərilən sinif metodlarıdır
 
 Bu metodların birdən çox çağrıla bildiyindən bu metodlarda side effektlərin olmaması vacibdir. Bu qaydanı saymadıqda yaddaş sızmaları və etibarsız applikasiya vəziyyəti kimi problemlər yarana bilər. Təəssüf ki, bu problemlərin [müəyyən pattern-i olmadığından](https://en.wikipedia.org/wiki/Deterministic_algorithm) bu problemləri tutmaq mümkün deyil.
 
+<<<<<<< HEAD
 Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, bu rejim ilə side effektlərin olduğu yerləri tapmaq mümkündür. Bu side effektlərin tapılması üçün, aşağıdakı funksiyalar iki dəfə çağrılır:
 
 * Sinif komponentinin `constructor` funksiyası
@@ -109,6 +110,15 @@ Strict rejim avtomatik olaraq belə side effektləri aşkar edə bilmir. Amma, b
 * `setState`-in yeniləmə funksiyası (ilk arqument)
 * Statik `getDerivedStateFromProps` lifecycle metodu
 * `shouldComponentUpdate` metodu
+=======
+Strict mode can't automatically detect side effects for you, but it can help you spot them by making them a little more deterministic. This is done by intentionally double-invoking the following functions:
+
+* Class component `constructor`, `render`, and `shouldComponentUpdate` methods
+* Class component static `getDerivedStateFromProps` method
+* Function component bodies
+* State updater functions (the first argument to `setState`)
+* Functions passed to `useState`, `useMemo`, or `useReducer`
+>>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 > Qeyd:
 >
