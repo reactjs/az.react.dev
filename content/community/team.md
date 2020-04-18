@@ -78,17 +78,6 @@ Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animat
 
 Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
-<<<<<<< HEAD
-### Sunil Pai {#sunil-pai}
-
-![Sunil](../images/team/threepointone.jpg)
-
-[Github-da @threepointone](https://github.com/threepointone) &middot; [Twitter-də @threepointone](https://twitter.com/threepointone)
-
-Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultasiya, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
-
-=======
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)

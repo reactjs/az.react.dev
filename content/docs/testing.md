@@ -14,11 +14,7 @@ React komponentlərini test etməyin bir neçə üsulu var. Geniş formada bu ü
 * Sadə test mühitində **komponent ağaclarını test edərək** nəticənin təsdiq edilməsi.
 * **Bütün applikasiyanın** real brauzer mühitində icra edilməsi (başqa adla “end-to-end” testləri).
 
-<<<<<<< HEAD
-Bu sənədlərdə ilk üsul üçün test strateqiyalarından danışacağıq. End-to-end testlərin möhüm iş axınlarında olan reqressiyalar üçün faydalı olmasına baxmayaraq bu testlər React komponentləri ilə maraqlanmırlar. Bu səbəbdən, end-to-end testlər bu bölmənin əhatə dairəsindən kənardadır.
-=======
-This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of the scope of this section.
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
+Bu bölmədə ilk ssenari üçün test strateqiyalarından danışılır. End-to-end testlərin möhüm iş axınlarında olan reqressiyalar üçün faydalı olmasına baxmayaraq bu testlər React komponentləri ilə maraqlanmırlar. Bu səbəbdən, end-to-end testlər bu bölmənin əhatə dairəsindən kənardadır.
 
 ### Kompromislər {#tradeoffs}
 
