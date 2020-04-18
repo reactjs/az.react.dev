@@ -78,14 +78,6 @@ Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animat
 
 Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
-### Sunil Pai {#sunil-pai}
-
-![Sunil](../images/team/threepointone.jpg)
-
-[Github-da @threepointone](https://github.com/threepointone) &middot; [Twitter-də @threepointone](https://twitter.com/threepointone)
-
-Sunil JavaScript-i IE6 ilə başlayıb və indiyənə kimi onun peşmançılığını çəkir. O, React-ə qoşulmamışdan öncə konsultasiya, dizayn və məhsul yaradan şirkətlərdə işləyib. Sunil, Les Paul gitarını çalır, Londonu sevir və ən son pinqinə cavab verilməsini istəyir.
-
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
@@ -124,9 +116,10 @@ React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən dü
 * [Pete Hunt](https://github.com/petehunt)
 * [Philipp Spiess](https://github.com/philipp-spiess)
 * [Sander Spies](https://github.com/sanderspies)
+* [Sasha Aickin](https://github.com/aickin)
 * [Sophia Shoemaker](https://github.com/mrscobbler)
 * [Sophie Alpert](https://github.com/sophiebits)
-* [Sasha Aickin](https://github.com/aickin)
+* [Sunil Pai](https://github.com/threepointone)
 * [Tim Yung](https://github.com/yungsters)
 
 Bu siyahı tam deyil.

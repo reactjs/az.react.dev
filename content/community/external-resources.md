@@ -18,4 +18,6 @@ Bu səhifədə React cəmiyyətinin kurasiya etdiyi heyranedici resurslar göst�
 
 - [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - React danışıqlarının kurasiya olunmuş siyahısı.
 
+- [Awesome React Videos](https://www.awesomereact.com) - Ən yaxşı React videolarını vurğulayan veb səhifə.
+
 - [Hero35 React Hub](https://hero35.com/topic/react) - _Bütün_ React konfrans ve danışıqlarının kateqoriyalanmış və kurasiya edilmiş siyahısı.

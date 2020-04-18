@@ -6,24 +6,21 @@ sectionid: community
 permalink: community/examples.html
 ---
 
-React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.
+React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Bu səhifədə 3-cü tərəfin state idarə etmə kitabxanalarından istifadə etməyən layihələrə fokus verilir.
 
+Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.
 
-* **[Zeldog](https://yannsainty.github.io/Zeldog/)** İtin ördəklər ilə döyüşdüyü Zelda kimi oyun!
+## Kiçik Nümunələr
+
 * **[Calculator](https://github.com/ahfarmer/calculator)** React ilə yazılmış iOS kalkuyatorunun tətbiqi
-* **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Emojiləri axtarmaq üçün sadə React applikasiyası
-* **[React Powered Hacker News Client](https://github.com/insin/react-hn)** Hacker News saytının Firebase API-ı, React və `react-router` ilə tətbiq olunmuş kopiyası
-* **[Pokedex](https://github.com/alik0211/pokedex)** Canlı axtarış ilə Pokémon-ların siyahısı
-* **[Shopping Cart](https://github.com/jeffersonRibeiro/react-shopping-cart)** React ilə yazılmış sadə e-commerce səbəti applikasiyası
-* **[Progressive Web Tetris](https://github.com/skidding/flatris)** Gözəl və telefonda yaxşı işləyən Tetris oyununun tətbiqi. Bu oyunun tətbiqində fərqli veb texnologiyaların inteqrasiyasını və eksperimentlərini görmək mümkündür.
-* **[Product Comparison Page](https://github.com/Rhymond/product-compare-react)** React-də yazılmış məhsul müqayisəsi saytı
-* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** React və GraphQL (Universal Javascipt) ilə yazılmış Hacker News saytının kopiyası
-* **[Bitcoin Price Index](https://github.com/mrkjlchvz/bitcoin-price-index)** CoinDesk API-ı ilə tətbiq olunmuş Bitcoin qiymət indeksi
+* **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Emojiləri axtarmaq üçün React applikasiyası
+* **[Snap Shot](https://github.com/Yog9/SnapShot)** Axtarış funksiyası olan şəkil qalerayası
+* **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** Bədən Kütləsi İndeksini (BMI) hesablamaq üçün React applikasiyası
+* **[Image Compressor](https://github.com/RaulB-masai/react-image-compressor)** React və browser-image-compression ilə yazılmış oflayn şəkil kompressoru
+* **[Counter App](https://github.com/arnab-datta/counter-app)** Kiçik alış-veriş səbəti nümunəsi
+* **[Tutorial Solutions](https://github.com/harman052/react-tutorial-solutions)** React dərsliyinin sonunda qeyd edilən tapşırıqların həlləri
+
+## Tam Applikasiyalar
+
+* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Universal JavaScript, React və GraphQL ilə yazılmış Hacker News saytının kopiyası
 * **[Builder Book](https://github.com/builderbook/builderbook)** Sənədlər yazmaq və dərc etmək və ya kitab satmaq üçün open-source veb applikasiya. React, Material-UI, Next, Express, Mongoose və MongoDB ilə düzəldilib.
-* **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Google Fontlar ilə oynamağa icazə verən sayt. React, Redux və React-Router ilə düzəldilib.
-* **[Course Learn Page](https://github.com/ulearnpro/ulearn)** Laravel 5.8 və ReactJS 16.9 ilə yazılmış Open Source LMS skripti
-* **[Speedy math](https://github.com/pankajladhar/speedy-math)** Uşaqlara riyaziyyatı (toplama, çıxma, vurma və bölmə) praktika etmək üçün applikasiya. Bu progressiv veb applikasiyanı yükləyib internetsiz istifadə edə bilərsiniz.
-* **[Unit Converter](https://github.com/KarthikeyanRanasthala/react-unit-converter)** React, Material-UI və Convert-Units ilə yazılmış minimal və responsiv bölmə çeviricisi
-* **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** Bədən Kütləsi İndeksini (BMI) hesablamaq üçün Hooklar ilə yazılmış React applikasiyası
-* **[ReactJS Hangman Game](https://github.com/vetrivelcsamy/reactjs-hangman)** ReactJS ilə yazılmış Hangman oyunu -- proqralaşdırma dilini tap.
-* **[Radix Converter](https://github.com/kumom/radix-converter)** Rəqəmləri ixtiyari dəqiqlik ilə 2-dən 36-ya kimi radiksə çevirən kiçik alət
