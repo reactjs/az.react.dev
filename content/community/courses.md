@@ -18,9 +18,13 @@ permalink: community/courses.html
 
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - React Armory ilə React-i buzzword-suz öyrənə bilərsiniz.
 
+<<<<<<< HEAD
 - [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Mürəkkəb alətlərdən istifadə etmədən sadə React ilə real applikasiya düzəldin.
 
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - React əsasları haqqında daha yaxşı anlayış yaratmaq üçün kurs.
+=======
+- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Free course for React newbies and those looking to get a better understanding of React fundamentals.
+>>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Üç günlük pulsuz onlayn React bootcamp-indən videolar.
 
@@ -48,4 +52,10 @@ permalink: community/courses.html
 
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
 
+<<<<<<< HEAD
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - React ilə professional interaktiv applikasiyların düzəldilməsi.
+=======
+- [Mastering React](https://codewithmosh.com/p/mastering-react/) - Build professional interactive apps with React.
+
+- [Road to React](https://www.roadtoreact.com/) - Your journey to master React in JavaScript.
+>>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
