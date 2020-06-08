@@ -73,7 +73,13 @@ Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif 
 
 - **[Neutrino](https://neutrinojs.org/)** aləti [webpack-in](https://webpack.js.org/) gücünü əvvəlcədən hazırlanmış şablonların sadəliyi ilə birləşdirir. Bu alət, [React applikasiyaları](https://neutrinojs.org/packages/react/) və [React komponentləri](https://neutrinojs.org/packages/react-components/) üçün şablonlar təmin edir.
 
+<<<<<<< HEAD
 - **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
+=======
+- **[Nx](https://nx.dev/react)** is a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com/), and more.
+
+- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 

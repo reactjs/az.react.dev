@@ -792,7 +792,11 @@ Burada kompromis, `<ProfileTimeline>` komponentinin digər komponentlərdən fə
 
 Bunun düzgün kompromis olmasını bimək vəziyyətdən asılıdır. Lakin, elementlərin kontentləri nəzərə çarpan dərəcədə dəyişmədikdə və istifadəçinin bir saniyə ərzində köhnə versiyaya baxdığını anlamadıqda bu alət faydalı ola bilər.
 
+<<<<<<< HEAD
 `useDeferredValue` Hookunun *yalnız* məlumat yükləməsi üçün faydalı olmadığını nəzərinizə çatdırmaq istəyirik. Bu, bahalı komponent ağacına görə interaksiyanın (anket sahəsinə daxil etmə kimi) yavaşlamasının qarşısını da ala bilər. Gec yüklənən dəyəri "gecikdirdiyimiz" kimi (və digər komponentlər yeniləndiyindən asılı olmayaraq köhnə dəyəri göstərdiyimiz kimi) biz gec render olunan ağacları da gecikdirə bilərik.
+=======
+It's worth noting that `useDeferredValue` is not *only* useful for data fetching. It also helps when an expensive component tree causes an interaction (e.g. typing in an input) to be sluggish. Just like we can "defer" a value that takes too long to fetch (and show its old value despite other components updating), we can do this with trees that take too long to render.
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 Məsələn, filtr oluna bilən siyahı nümunəsinə baxın:
 
@@ -926,7 +930,11 @@ function ProfilePage({ resource }) {
 
 `revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər rejimları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
+<<<<<<< HEAD
 Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback görəcəyik. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
+=======
+You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at a time. You can play with it [here](https://codesandbox.io/s/adoring-almeida-1zzjh).
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 `<SuspenseList>`-in React komponentləri kimi kompozisiya edilə biləcəyini unutmayın. Məsələn, siz bir neçə `<SuspenseList>` sıralarını `<SuspenseList>` cədvəlinə əlavə edərək qrid yarada bilərsiniz.
 

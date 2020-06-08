@@ -233,7 +233,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
+<<<<<<< HEAD
 Komponentlərin xaric edilməsi ilk öncə aşağı səviyyəli iş kimi görünə bilər, amma daha böyük applikasiyalarda  yenidən istifadə oluna bilən komponentlər paletinin olması yararlıdır. Məsləhət görülür ki, sizin bir neçə yerdə istifadə etdiyiniz (`Button`, `Panel`, `Avatar`), və ya təklildə mürəkkəb tərkibli (`App`, `FeedStory`, `Comment`) olan UI-ınızı yenidən istifadə oluna bilən komponent kimi istifadə edin.
+=======
+Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be extracted to a separate component.
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 ## Proplar və Read-Only {#props-are-read-only}
 

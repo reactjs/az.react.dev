@@ -1047,7 +1047,11 @@ Gəlin Game-in `render funksiyasında `history`-nin üzərindən `map` edək:
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 "X O oyununun" tarixində olan bütün gedişlər üçün biz içərisində düymə `<button>` olan siyahı bəndi `<li>` yaradırıq. Düymənin `onClick` işləyicisi `this.jumpTo()` adlanan funksiyanı çağırır. Biz `jumpTo` funksiyasını hələki tətbiq etməmişik. İndi, biz oyunda baş vermiş bütün gedişlərin siyahısını və developer alətləri konsolunda aşağıdakı xəbərdarlığı görməliyik:
+=======
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 >  Xəbərdarlıq:
 >  Massiv və ya iteratorda hər bir uşağın unikal "key" propu olmalıdır. "Game" komponentinin render funksiyasına baxın.
@@ -1198,7 +1202,11 @@ Təbriklər! Siz aşağıdakı xüsusiyyətləri olan "X O oyunu" yaratdınız:
 * Oyunu oynadığınız müddətdə bütün tarixini saxlayır,
 * Oyunçulara oyunun tarixinin icmalını və keçmiş versiyalarını görməyə imkan verir.
 
+<<<<<<< HEAD
 Arzulayırıq ki, siz də React-in işləməyi ilə bağlı fikir yarandı.
+=======
+Nice work! We hope you now feel like you have a decent grasp of how React works.
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 Son nəticəni buradan göndərə bilərsiniz: **[Son Nəticə](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
