@@ -42,8 +42,13 @@
 - name: Farsca
   translated_name: فارسی
   code: fa
+<<<<<<< HEAD
   status: 0
 - name: Fransızca
+=======
+  status: 1
+- name: French
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
   translated_name: Français
   code: fr
   status: 2
@@ -66,8 +71,13 @@
 - name: Macar dilində
   translated_name: magyar
   code: hu
+<<<<<<< HEAD
   status: 1
 - name: Ermənicə
+=======
+  status: 2
+- name: Armenian
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
   translated_name: Հայերեն
   code: hy
   status: 0

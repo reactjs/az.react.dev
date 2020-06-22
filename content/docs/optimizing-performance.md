@@ -371,7 +371,11 @@ function updateColorMap(colormap) {
 
 İndi, `updateColorMap` funksiyası köhnə obyekti mutasiya etmək əvəzinə yeni obyekt qaytarır. `Object.assign` ES6-da işləyir və polifil tələb edir.
 
+<<<<<<< HEAD
 ES6-ın obyektlər üçün [yayma sintaksisi](https://github.com/sebmarkbage/ecmascript-rest-spread) ilə də obyektləri mutasiyasız yeniləmək mümkündür:
+=======
+[Object spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) makes it easier to update objects without mutation as well:
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 ```js
 function updateColorMap(colormap) {
@@ -379,6 +383,12 @@ function updateColorMap(colormap) {
 }
 ```
 
+<<<<<<< HEAD
 Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
+=======
+This feature was added to JavaScript in ES2018. 
+
+If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 Dərin obyektlərin mutasiyasız yenilənməsi çətin ola bilər. Bu problem ilə qarşılaşdıqda [Immer](https://github.com/mweststrate/immer) və ya [immutability-helper](https://github.com/kolodny/immutability-helper) kitabxanalarına baxın. Bu kitabxanalar mutasiyasızlığın faydalarını itirmədən rahat oxuna bilən kodun yazılmasına imkan yaradır.
