@@ -792,7 +792,7 @@ Burada kompromis, `<ProfileTimeline>` komponentinin digər komponentlərdən fə
 
 Bunun düzgün kompromis olmasını bimək vəziyyətdən asılıdır. Lakin, elementlərin kontentləri nəzərə çarpan dərəcədə dəyişmədikdə və istifadəçinin bir saniyə ərzində köhnə versiyaya baxdığını anlamadıqda bu alət faydalı ola bilər.
 
-`useDeferredValue` Hookunun *yalnız* məlumat yükləməsi üçün faydalı olmadığını nəzərinizə çatdırmaq istəyirik. Bu, bahalı komponent ağacına görə interaksiyanın (anket sahəsinə daxil etmə kimi) yavaşlamasının qarşısını da ala bilər. Gec yüklənən dəyəri "gecikdirdiyimiz" kimi (və digər komponentlər yeniləndiyindən asılı olmayaraq köhnə dəyəri göstərdiyimiz kimi) biz gec render olunan ağacları da gecikdirə bilərik.
+`useDeferredValue` Hookunun *yalnız* məlumat yükləməsi üçün faydalı olmadığını nəzərinizə çatdırmaq istəyirik. Bu, bahalı komponent ağacına görə interaksiyanın (anket sahəsinə daxil etmə kimi) yavaşlamasının qarşısını da ala bilər. Gec yüklənən dəyəri "gecikdirdiyimiz" kimi (və digər komponentlər yeniləndiyindən asılı olmayaraq köhnə dəyəri göstərdiyimiz kimi) biz yavaş render olunan ağacları da gecikdirə bilərik.
 
 Məsələn, filtr oluna bilən siyahı nümunəsinə baxın:
 
@@ -926,7 +926,7 @@ function ProfilePage({ resource }) {
 
 `revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər rejimları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
-Eyni zamanda neçə ədəd yükləmə vəziyyətinin göstərilməsini `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback görəcəyik. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
+Eyni zamanda yükləmə vəziyyətilərinin sayını `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback göstəriləcək. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
 
 `<SuspenseList>`-in React komponentləri kimi kompozisiya edilə biləcəyini unutmayın. Məsələn, siz bir neçə `<SuspenseList>` sıralarını `<SuspenseList>` cədvəlinə əlavə edərək qrid yarada bilərsiniz.
 

@@ -371,13 +371,15 @@ function updateColorMap(colormap) {
 
 İndi, `updateColorMap` funksiyası köhnə obyekti mutasiya etmək əvəzinə yeni obyekt qaytarır. `Object.assign` ES6-da işləyir və polifil tələb edir.
 
-ES6-ın obyektlər üçün [yayma sintaksisi](https://github.com/sebmarkbage/ecmascript-rest-spread) ilə də obyektləri mutasiyasız yeniləmək mümkündür:
+[Yayma sintaksisi](https://github.com/sebmarkbage/ecmascript-rest-spread) ilə də obyektləri mutasiyasız yeniləmək mümkündür:
 
 ```js
 function updateColorMap(colormap) {
   return {...colormap, right: 'mavi'};
 }
 ```
+
+Bu xüsusiyyət JavaScript-də ES2018-də əlavə olunub. 
 
 Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
 

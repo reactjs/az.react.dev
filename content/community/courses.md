@@ -18,8 +18,6 @@ permalink: community/courses.html
 
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - React Armory ilə React-i buzzword-suz öyrənə bilərsiniz.
 
-- [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Mürəkkəb alətlərdən istifadə etmədən sadə React ilə real applikasiya düzəldin.
-
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - React əsasları haqqında daha yaxşı anlayış yaratmaq üçün kurs.
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Üç günlük pulsuz onlayn React bootcamp-indən videolar.

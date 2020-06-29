@@ -54,14 +54,6 @@ Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəs
 
 Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o, React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə məşqul olmaq istəyir.
 
-### Nicolas Gallagher {#nicolas-gallagher}
-
-![Nicolas](../images/team/necolas.jpg)
-
-[Github-da @necolas](https://github.com/necolas) &middot; [Twitter-də @necolas](https://twitter.com/necolas)
-
-Nikolas univeresitetdə antropologiya oxuyub. O, veb proqramlaşdırmaya dostuna sayt düzəldərək başlayaraq özünü React-də Twitter-in saytını düzəltməkdə tapıb. Nikolas özünün kağızda maraqsız olduğunu, real həyatda isə daha maraqlı olduğunu deyir.
-
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
@@ -112,6 +104,7 @@ React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən dü
 * [Keyan Zhang](https://github.com/keyz)
 * [Nat Alison](https://github.com/tesseralis)
 * [Nathan Hunzaker](https://github.com/nhunzaker)
+* [Nicolas Gallagher](https://github.com/necolas)
 * [Paul O'Shannessy](https://github.com/zpao)
 * [Pete Hunt](https://github.com/petehunt)
 * [Philipp Spiess](https://github.com/philipp-spiess)

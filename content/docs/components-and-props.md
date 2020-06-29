@@ -233,7 +233,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Komponentlərin xaric edilməsi ilk öncə aşağı səviyyəli iş kimi görünə bilər, amma daha böyük applikasiyalarda  yenidən istifadə oluna bilən komponentlər paletinin olması yararlıdır. Məsləhət görülür ki, sizin bir neçə yerdə istifadə etdiyiniz (`Button`, `Panel`, `Avatar`), və ya təklildə mürəkkəb tərkibli (`App`, `FeedStory`, `Comment`) olan UI-ınızı yenidən istifadə oluna bilən komponent kimi istifadə edin.
+Komponentlərin ixrac edilməsi ilk öncə aşağı səviyyəli iş kimi görünə bilər, amma daha böyük applikasiyalarda yenidən istifadə oluna bilən komponentlər paletinin olması yararlıdır. Bir neçə yerdə istifadə oluna bilən (`Button`, `Panel`, `Avatar`) və ya təklildə mürəkkəb tərkibi (`App`, `FeedStory`, `Comment`) olan və UI-ı yenidən istifadə oluna bilən komponentlərə ixrac etməyi tövsiyyə edirik.
 
 ## Proplar və Read-Only {#props-are-read-only}
 

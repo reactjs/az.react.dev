@@ -416,12 +416,6 @@ Məhz buna görə state lokal və ya inkapsulyasiya olunmuş adlanır. Yalnız m
 Komponent öz state-ini uşaq komponentlərinə (aşağı istiqamətdə) props kimi ötürə bilər:
 
 ```js
-<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-Bu həmçinin istifadəçinin yaratdığı komponentlər üçün keçərlidir:
-
-```js
 <FormattedDate date={this.state.date} />
 ```
 
