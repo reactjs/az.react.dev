@@ -4,6 +4,8 @@ title: Buraxılış Kanalları
 permalink: docs/release-channels.html
 layout: docs
 category: installation
+prev: cdn-links.html
+next: hello-world.html
 ---
 
 React, çiçəklənən open source cəmiyyətinin göndərdiyi baq hesabatlarına, açdığı pull request-lərə və [təqdim etdiyi RFC-lərə](https://github.com/reactjs/rfcs) arxalanır. Rəyləri təşviq etmək üçün biz buraxılmamış xüsusiyyətlər üçün React-in xüsusi qurulmalarını paylaşırıq.
