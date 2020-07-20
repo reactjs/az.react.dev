@@ -122,7 +122,11 @@ ReactDOM.render(
 
 ### Sətirdaxili If Məntiqi && Operatoru ilə {#inline-if-with-logical--operator}
 
+<<<<<<< HEAD
 Siz formalı mötərizə ilə [hər hansı ifadələri JSX-də əlaqələndirə](/docs/introducing-jsx.html#embedding-expressions-in-jsx) bilərsiniz. Buna JavaScript məntiqi `&&` operatoru daxildir. Bu şərti olaraq elementi daxil etdikdə yararlı ola bilər:
+=======
+You may [embed expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+>>>>>>> ee75c297574468f888574aae2d9620d64bb5b5a1
 
 ```js{6-10}
 function Mailbox(props) {
