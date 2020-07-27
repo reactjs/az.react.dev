@@ -38,17 +38,6 @@ Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə ol
 
 Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdı. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
 
-<<<<<<< HEAD
-### Dominic Gannaway {#dominic-gannaway}
-
-![Dominic](../images/team/trueadm.jpg)
-
-[Github-da @trueadm](https://github.com/trueadm) &middot; [Twitter-də @trueadm](https://twitter.com/trueadm)
-
-Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəsi ilə vaxt keçirməyi sevir. O, UI və İmkanlılıqda araşdırılmamış fikirlər üzərində oynamağı sevir. Əlavə olaraq, Dominik kodu optimallaşdıraraq ən çox performansa çatmağı sevir.
-
-=======
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 ### Luna Ruan {#luna-ruan}
 
 ![Luna](../images/team/lunaruan.jpg)
@@ -69,9 +58,9 @@ Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animat
 
 ![Ricky](../images/team/rickhanlonii.jpg)
 
-[@rickhanlonii on GitHub](https://github.com/rickhanlonii) &middot; [@rickhanlonii on Twitter](https://twitter.com/rickhanlonii)
+[Github-da @rickhanlonii](https://github.com/rickhanlonii) &middot; [Twitter-də @rickhanlonii](https://twitter.com/rickhanlonii)
 
-Ricky majored in theoretical math and somehow found himself on the React Native team for a couple years before joining the React team. When he's not programming you can find him snowboarding, biking, climbing, golfing, or closing GitHub issues that do not match the issue template.
+Riki universitetdə nəzəri riyaziyyatı bitirərək React komandasına qoşulmamışdan öncə React Native komandasında tapıb. O, proqramlaşdırmadıqda siz onun snoubord etdiyini, velosiped sürdüyünü, dağa dırmaşdığını, qolf oynadığını və ya issue şablonuna uyğun olmayan Github issue-larını bağladığını görə bilərsiniz.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
@@ -83,15 +72,9 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nə
 
 ### Seth Webster {#seth-webster}
 
-<<<<<<< HEAD
-[Github-da @yuzhi](https://github.com/yuzhi) &middot; [Twitter-də @yuzhiz](https://twitter.com/yuzhiz)
-
-Yuzi universitetdə Kompuyter Elmlərini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
-=======
 ![Seth](../images/team/sethwebster.jpg)
 
-Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
+Tukson, Arizonada böyüyən Seth, uşaqlıqdan proqramlaşdırma ilə məşquldur. O, Intuit-də işə *başlamamışdan* öncə 10 il musiqiçi kimi tur edib. Seth boş vaxtında [şəkil çəkməyi](https://www.sethwebster.com) və şimal-şərqi Amerikada heyvanları xilas etmək ilə məşquldur
 
 ## Təşəkkürlər {#acknowledgements}
 
