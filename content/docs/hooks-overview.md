@@ -229,7 +229,11 @@ function FriendListItem(props) {
 }
 ```
 
+<<<<<<< HEAD
 Komponentlərin state-ləri paylaşılmır. Xüsusi Hooklar ilə state yox, *State-li məntiq* paylaşılır. Faktiki olaraq, hər Hook *çağırışının* ayrılmış state-i olduğundan eyni Hooku bir komponentdə bir neçə dəfə istifadə edə bilərsiniz.
+=======
+The state of each component is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state -- so you can even use the same custom Hook twice in one component.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 Xüsusi Hooklar xüsusiyyət olmaq əvəzinə konvensiyadır. Biz, "`use`" ilə başlayan və digər Hookları çağıran funksiyaları Xüsusi Hooklar adlandırırıq. Təmin etdiyimiz linter plagini `useSomething` ad konvensiyası əsasında Hooklarda olan baqları tapa bilir.
 

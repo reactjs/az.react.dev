@@ -38,6 +38,7 @@ Brayn universitetdə incəsənət oxuyub təhsilini ödəmək üçün əlavə ol
 
 Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. O, [Sebastian](#sebastian-markbage)-ın tvitlərini uzun bloq yazılarına çevirərək özünü tapdı. Adətən, Dən kolda gizlənərək Fortnite oyununda qalib gəlir.
 
+<<<<<<< HEAD
 ### Dominic Gannaway {#dominic-gannaway}
 
 ![Dominic](../images/team/trueadm.jpg)
@@ -46,6 +47,8 @@ Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. 
 
 Dominik səyahət etməyi, nağara və bassda çalmağı, komediyanı və ailəsi ilə vaxt keçirməyi sevir. O, UI və İmkanlılıqda araşdırılmamış fikirlər üzərində oynamağı sevir. Əlavə olaraq, Dominik kodu optimallaşdıraraq ən çox performansa çatmağı sevir.
 
+=======
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 ### Luna Ruan {#luna-ruan}
 
 ![Luna](../images/team/lunaruan.jpg)
@@ -62,6 +65,14 @@ Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəl
 
 Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animation-at-work) yazıb və veb animasiyalar API-ı üzərində MDN və W3C ilə işləyib. İndi, o, React komandasının təhsil materialları və cəmiyyət mühəndisliyi ilə məşquldur. Gizlicə o, yeniyetmə qızlar üçün şəkillər çəkir. Siz onu mikromətbəxdə ilıq su ilə əla çay hazırlarkən tuta bilərsiniz.
 
+### Rick Hanlon {#rick-hanlon}
+
+![Ricky](../images/team/rickhanlonii.jpg)
+
+[@rickhanlonii on GitHub](https://github.com/rickhanlonii) &middot; [@rickhanlonii on Twitter](https://twitter.com/rickhanlonii)
+
+Ricky majored in theoretical math and somehow found himself on the React Native team for a couple years before joining the React team. When he's not programming you can find him snowboarding, biking, climbing, golfing, or closing GitHub issues that do not match the issue template.
+
 ### Sebastian Markbåge {#sebastian-markbage}
 
 ![Sebastian](../images/team/sebmarkbage.jpg)
@@ -70,13 +81,17 @@ Reyçel [UI animasiyası haqqında kitab](https://abookapart.com/products/animat
 
 Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nəsə dedikdə bizə bir neçə ay sonra çatır. Onun familiyasının "mark-boa-geh" kimi səslənməsinə baxmayaraq praqmatik (React-ə də belə yanaşır) olmaq üçün "mark-beige" kimi səslənməyə normal baxır.
 
-### Yuzhi Zheng {#yuzhi-zheng}
+### Seth Webster {#seth-webster}
 
-![Yuzhi](../images/team/yuzhi.jpg)
-
+<<<<<<< HEAD
 [Github-da @yuzhi](https://github.com/yuzhi) &middot; [Twitter-də @yuzhiz](https://twitter.com/yuzhiz)
 
 Yuzi universitetdə Kompuyter Elmlərini oxuyub. O, laboratoriyada olmadan kodun canlanmasından həzz alır. İndi, o, React komandasını idarə edir. Menecmentdən öncə Yuzi məlumat yükləməsi üçün Relay freymvorku üzərində işəyirdi. Yuzi boş vaxtını bağbanlıq və ev təkmilləşməsi layihələri ilə keçirir.
+=======
+![Seth](../images/team/sethwebster.jpg)
+
+Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 ## Təşəkkürlər {#acknowledgements}
 
@@ -93,6 +108,7 @@ React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən dü
 * [Christoph Nakazawa](https://github.com/cpojer)
 * [Christopher Chedeau](https://github.com/vjeux)
 * [Clement Hoang](https://github.com/clemmy)
+* [Dominic Gannaway](https://github.com/trueadm)
 * [Flarnie Marchan](https://github.com/flarnie)
 * [Jason Quense](https://github.com/jquense)
 * [Jesse Beach](https://github.com/jessebeach)
@@ -114,6 +130,7 @@ React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən dü
 * [Sophie Alpert](https://github.com/sophiebits)
 * [Sunil Pai](https://github.com/threepointone)
 * [Tim Yung](https://github.com/yungsters)
+* [Yuzhi Zheng](https://github.com/yuzhi)
 
 Bu siyahı tam deyil.
 

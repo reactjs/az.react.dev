@@ -561,7 +561,11 @@ Mutasiya olunmamış obyektlərdə dəyişiklikləri aşkar etmək xeyli dərəc
 
 #### React-də Yenidən Render Etməyin Aşkarlanması {#determining-when-to-re-render-in-react}
 
+<<<<<<< HEAD
 Dəyişməzliyin əsas faydası React-da bizə _təmiz komponentlərin_ yaranmasına kömək etməsidir. Mutasiya olunmamış məlumatlar ilə biz dəyişikliyin olduğunu asan formada aşkar edə bilərik. Bu tapıntı ilə komponentin yenidən olduğunu müəyyən edə bilərik.
+=======
+The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 `shouldComponentUpdate()` və *təmiz komponentlər* haqqında öyrənmək üçün [Performansın Optimallaşdırılması](/docs/optimizing-performance.html#examples) səhifəsini oxuya bilərsiniz.
 
