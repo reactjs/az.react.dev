@@ -88,7 +88,7 @@ Sizin üçün experimental kanala qarşı inteqrasiya testlərini icra etmək fa
 
 #### Eksperimental Xüsusiyyətlər Haqqında Haradan Öyrənə Bilərəm? {#how-can-i-learn-more-about-experimental-features}
 
-Eksperimental xüsusiyyətlər sənədləşmiş olmaya bilərlər. Adətən, eksperimentlər Next və ya Latest kanallarına daxil olmayana kimi sənədləşmirlər.
+Eksperimental xüsusiyyətlər sənədləşmiş olmaya bilərlər. Adətən, eksperimentlər Next və ya Latest kanallarına daxil olmayana kimi sənədləşdirilmir.
 
 Əgər xüsusiyyət sənədləşməyibsə, bu xüsusiyyətin [RFC-si](https://github.com/reactjs/rfcs) ola bilər.
 

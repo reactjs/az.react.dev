@@ -35,33 +35,11 @@ Məsələn, [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87
 
 ### Xəbərdarlıq və İnvariantlar {#warnings-and-invariants}
 
-React kodunda xəbərdarlıqları göstərmək üçün `warning` modulundan istifadə edilir:
+React kodu xəbərdarlıqlar göstərmək üçün `console.error` funksiyasından istifadə edir:
 
 ```js
-var warning = require('warning');
-
-warning(
-  2 + 2 === 4,
-  'Riyaziyyat bu gün işləmir.'
-);
-```
-
-**Xəbərdarlıqlar `warning` şərti `false` olduqda göstərilir.**
-
-Burada şərtlər, istisna vəziyyətlər əvəzinə normal vəziyyətləri əks etdirməlidir.
-
-Konsola dublikat xəbərdarlıqları göstərməkdən çəkinməyə çalışın:
-
-```js
-var warning = require('warning');
-
-var didWarnAboutMath = false;
-if (!didWarnAboutMath) {
-  warning(
-    2 + 2 === 4,
-    'Riyaziyyat bu gün işləmir.'
-  );
-  didWarnAboutMath = true;
+if (__DEV__) {
+  console.error('Something is wrong.');
 }
 ```
 
@@ -113,39 +91,6 @@ ReactRef.detachRefs = function(
 
 Mümkün olduğu zaman yeni kodlarda Flow işarələri olmalıdır.
 Kodunuzu lokal mühitdə Flow ilə yoxlamaq üçün `yarn flow` əmrini icra edə bilərsiniz.
-
-### Dinamik İnyeksiya {#dynamic-injection}
-
-React bəzi modullarda dinamik inyeksiyadan istifadə edir. Bunun həmişə açıq olmasına baxmayaraq bu, kodun anlaşılmasını azaldır. Bunun mövcud olmasının əsas səbəbi React-in əvəllər yalnız DOM-u dəstəkləməsindən gəlir. React Native, React-in forku kimi başlanılıb. Biz, React Native-in bəzi davranışları əvəzləməsi üçün dinamik inyeksiyadan istifadə etdik.
-
-Siz, bəzi modulların dinamik asılılıqlarının aşağıdakı formada təyin edildiyini görəcəksiniz:
-
-```js
-// Dinamik inyeksiya olunub
-var textComponentClass = null;
-
-// Dinamik inyeksiya olunan dəyərdən asılıdır
-function createInstanceForText(text) {
-  return new textComponentClass(text);
-}
-
-var ReactHostComponent = {
-  createInstanceForText,
-
-  // Dinamik inyeksiya üçün fürsət yaradır
-  injection: {
-    injectTextComponentClass: function(componentClass) {
-      textComponentClass = componentClass;
-    },
-  },
-};
-
-module.exports = ReactHostComponent;
-```
-
-`injection` sahəsi xüsusi formada idarə olunmur. Lakin, konvensiyaya görə modulun icra zamanı bəzi asılılıqların (adətən, platformaya xas) inyeksiya ediləcəyi bilinir.
-
-Kodda bir neçə inyeksiya nöqtələri var. Gələcəkdə, biz dinamik inyeksiya mexanizmindən imtina etmək və bütün hissələri statik şəkildə qurmaq istəyirik.
 
 ### Çoxlu Paketlər {#multiple-packages}
 
@@ -211,9 +156,7 @@ React rekonsilyatoru [`packages/react-reconciler`](https://github.com/facebook/r
 
 ### Hadisə Sistemi {#event-system}
 
-React, render edici qurğulardan asılı olmayan, React DOM və React Native-də işləyən sintetik hadisə sistemi tətbiq edir. Bu sistemin kodu [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events) direktoriyasında saxlanılır.
-
-Əgər maraqlanırsınızsa, [hadisə sistemini dərindən başa salan videoya](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 dəq) baxa bilərsiniz.
+React, brauzerlər arası dəyişiklikləri eyniləşdirmək nativ hadisələr üzərindən abstrakt təbəqə tətbiq edir. Bu abstraksiyanın kodu [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events) direktoriyasındadır.
 
 ### Sonrakı Addımlar {#what-next}
 

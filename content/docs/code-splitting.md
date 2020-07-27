@@ -40,7 +40,7 @@ console.log(add(16, 26)); // 42
 >
 > Sizin paketləriniz yuxarıdankından çox fərqli olacaq.
 
-Əgər siz [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/) və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack sizdə hazır qoşulmuş olacaq.
+Əgər siz [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack quraşdırılmış olacaq.
 
 Əgər siz belə alətlərdən istifadə etmirsinizsə, siz paketləməni özünüz qoşmalısınız. Misal üçün, Webpack sənədlərində [İnstalyasiya](https://webpack.js.org/guides/installation/) və
 [Başlamaq](https://webpack.js.org/guides/getting-started/) təlimatlarına baxın.

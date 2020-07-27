@@ -561,7 +561,7 @@ Mutasiya olunmamış obyektlərdə dəyişiklikləri aşkar etmək xeyli dərəc
 
 #### React-də Yenidən Render Etməyin Aşkarlanması {#determining-when-to-re-render-in-react}
 
-Dəyişməzliyin əsas faydası React-da bizə _təmiz komponentlərin_ yaranmasına kömək etməsidir. Mutasiya olunmamış məlumatlar ilə biz dəyişikliyin olduğunu asan formada aşkar edə bilərik. Bu tapıntı ilə komponentin yenidən olduğunu müəyyən edə bilərik.
+Dəyişməzlik React-də _saf komponentlərin_ düzəldilməsinə kömək edir. Mutasiya olunmamış məlumatlar ilə dəyişikliyin olmasını asan formada aşkar edərək komponentin yenidən render ediləcəyini müəyyən etmək mümkündür.
 
 `shouldComponentUpdate()` və *təmiz komponentlər* haqqında öyrənmək üçün [Performansın Optimallaşdırılması](/docs/optimizing-performance.html#examples) səhifəsini oxuya bilərsiniz.
 
