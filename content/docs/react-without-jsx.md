@@ -2,6 +2,8 @@
 id: react-without-jsx
 title: JSX-siz React
 permalink: docs/react-without-jsx.html
+prev: react-without-es6.html
+next: reconciliation.html
 ---
 
 React işlətmək üçün JSX quraşdırmaq tələb olunmur. Yaranma mühitində kompilyasiya prosesi quraşdırmaq istəmədikdə React-i JSX-siz işlətmək əlverişlidir.

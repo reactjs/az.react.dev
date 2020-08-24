@@ -2,6 +2,8 @@
 id: uncontrolled-components
 title: Kontrolsuz Komponentlər
 permalink: docs/uncontrolled-components.html
+prev: refs-and-the-dom.html
+next: optimizing-performance.html
 ---
 
 Biz çox halda, anketləri tətbiq etmək üçün [kontrol olunan komponentlər](/docs/forms.html#controlled-components) işlətməyi tövsiyə edirik. Kontrol olunan komponentlərdə anket məlumatları React komponenti tərəfindən idarə olunur. Buna alternativ kontrolsuz komponentlərdir. Bu komponentlərdə anket məlumatları DOM tərəfindən idarə olunur.
