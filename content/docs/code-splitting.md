@@ -2,6 +2,7 @@
 id: code-splitting
 title: Kod Parçalanması
 permalink: docs/code-splitting.html
+prev: accessibility.html
 ---
 
 ## Paketləmə {#bundling}
