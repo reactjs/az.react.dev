@@ -29,7 +29,11 @@ UI testlərinin böyük hissəsi göstərilən formada yazıla bilər: Jest icra
 
 Brauzer spesifik davranışları test edən və şablon və real daxil olmalar kimi nativ brauzer davranışlarından asılı olan kitabxana yazdıqda [mocha](https://mochajs.org/) kimi freymvorkdan istifadə edə bilərsiniz.
 
+<<<<<<< HEAD
 DOM-un simulyasiya _oluna bilmədiyi_ mühitdə (məsələn, Node.js-dən React Native komponentlərini test etdikdə) elementlər ilə interaksiyaları simulyasiya etmək üçün [hadisə simulyasiya köməkçilərindən](https://reactjs.org/docs/test-utils.html#simulate) istifadə edə bilərsiniz. Alternativ olaraq, [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library) kitabxanasında olan `fireEvent` köməkçisindən istifadə edə bilərsiniz.
+=======
+In an environment where you _can't_ simulate a DOM (e.g. testing React Native components on Node.js), you could use [event simulation helpers](/docs/test-utils.html#simulate) to simulate interactions with elements. Alternately, you could use the `fireEvent` helper from [`@testing-library/react-native`](https://testing-library.com/docs/react-native-testing-library/intro).
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 [End-to-end testləri](#end-to-end-tests-aka-e2e-tests) icra etmək üçün [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) və [webdriver](https://www.seleniumhq.org/projects/webdriver/) alətləri faydalıdır.
 

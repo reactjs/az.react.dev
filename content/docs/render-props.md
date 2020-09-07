@@ -2,6 +2,8 @@
 id: render-props
 title: Render Propları
 permalink: docs/render-props.html
+prev: higher-order-components.html
+next: integrating-with-other-libraries.html
 ---
 
 ["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) termini React komponentləri arasında kod paylaşması üçün dəyəri funksiya olan propu istifadə etmək texnikasına istinad edir.

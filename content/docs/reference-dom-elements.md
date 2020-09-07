@@ -56,7 +56,12 @@ function MyComponent() {
 
 ### selected {#selected}
 
+<<<<<<< HEAD
 `selected` atribut `<option>` komponentlərində dəstəklənir. Siz bunun ilə komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponentlər düzəltmək üçün faydalıdır.
+=======
+If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
+Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 ### style {#style}
 
@@ -120,7 +125,11 @@ Server React render etdikdə normalda server və klient fərqli kontent render e
 
 ### value {#value}
 
+<<<<<<< HEAD
 `value` atributu `<input>` və `<textarea>` komponentləri tərəfindən dəstəklənir. Bu atributdan istifadə edərək komponentin dəyərini təyin edə bilərsiniz. Bu kontrol edilən komponentlər yaratmaq üçün faydalıdır. `defaultValue` kontrol edilməyən ekvivalentidir. Bu, komponentin ilk mount-da seçildiyini təyin etmək üçün istifadə olunur.
+=======
+The `value` attribute is supported by `<input>`, `<select>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 ## Dəstəklənən bütün HTML Atributları {#all-supported-html-attributes}
 

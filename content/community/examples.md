@@ -10,7 +10,11 @@ React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Bu səhifədə 3
 
 Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.
 
+<<<<<<< HEAD
 ## Kiçik Nümunələr
+=======
+## Small Examples {#small-examples}
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 * **[Calculator](https://github.com/ahfarmer/calculator)** React ilə yazılmış iOS kalkuyatorunun tətbiqi
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Emojiləri axtarmaq üçün React applikasiyası
@@ -20,7 +24,13 @@ React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Bu səhifədə 3
 * **[Counter App](https://github.com/arnab-datta/counter-app)** Kiçik alış-veriş səbəti nümunəsi
 * **[Tutorial Solutions](https://github.com/harman052/react-tutorial-solutions)** React dərsliyinin sonunda qeyd edilən tapşırıqların həlləri
 
+<<<<<<< HEAD
 ## Tam Applikasiyalar
 
 * **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Universal JavaScript, React və GraphQL ilə yazılmış Hacker News saytının kopiyası
 * **[Builder Book](https://github.com/builderbook/builderbook)** Sənədlər yazmaq və dərc etmək və ya kitab satmaq üçün open-source veb applikasiya. React, Material-UI, Next, Express, Mongoose və MongoDB ilə düzəldilib.
+=======
+## Complete Apps {#complete-apps}
+
+* **[Builder Book](https://github.com/builderbook/builderbook)** Open-source web app to write and host documentation or sell books. Built with React, Material-UI, Next, Express, Mongoose, MongoDB
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
