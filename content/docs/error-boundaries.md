@@ -98,13 +98,9 @@ Siz komponentin stek izində fayl adlarını və sətir nömrələrini də gör�
 
 Əgər siz Create React App istifadə etmirsinizsə, siz [bu plugini](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) əllə Babel konfiqurasiyasına əlavə edə bilərsiniz. Qeyd edək ki, bu yalnız development zamanı işlətmək üçündür və **production-də söndürülməlidir**.
 
-<<<<<<< HEAD
-> Qeyd
-=======
 If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
 
-> Note
->>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
+> Qeyd
 >
 > Komponent adları stek izlərində [`Function.name`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) parametrindən asılıdır. Əgər siz bu parametri nativ formada dəstəkləməyən köhnə brauzerləri və cihazları dəstəkləyirsinizsə (məsələn IE 11), `Function.name` polifilini (məsələn [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name)) paketlənmiş applikasiyanıza əlavə edin. Alternativ olaraq, siz açıq şəkildə `displayName` parametrini bütün komponentlərdə təyin edə bilərsiniz.
 

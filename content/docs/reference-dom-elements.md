@@ -56,12 +56,8 @@ function MyComponent() {
 
 ### selected {#selected}
 
-<<<<<<< HEAD
-`selected` atribut `<option>` komponentlərində dəstəklənir. Siz bunun ilə komponentin seçildiyini təyin edə bilərsiniz. Bu kontrol edilən komponentlər düzəltmək üçün faydalıdır.
-=======
-If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
-Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
->>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
+`<option>` elementinin seçilməsini istəyirsinizsə, bu elementin dəyərini elementin valideyni olan `<select>` elementinin `value` atributuna istinad edin.
+Daha ətraflı təlimatlar üçün ["select Təqi"](/docs/forms.html#the-select-tag) səhifəsini oxuyun.
 
 ### style {#style}
 

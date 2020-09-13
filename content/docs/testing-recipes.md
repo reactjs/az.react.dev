@@ -57,11 +57,7 @@ Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğun
 
 ### `act()` {#act}
 
-<<<<<<< HEAD
-UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün React-də köməkçi `act()` funksiyası təmin olunur:
-=======
-When writing UI tests, tasks like rendering, user events, or data fetching can be considered as "units" of interaction with a user interface. `react-dom/test-utils` provides a helper called [`act()`](/docs/test-utils.html#act) that makes sure all updates related to these "units" have been processed and applied to the DOM before you make any assertions:
->>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
+UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün `react-dom/test-utils` paketində köməkçi [`act()`](/docs/test-utils.html#act) funksiyası təmin olunur:
 
 ```js
 act(() => {
