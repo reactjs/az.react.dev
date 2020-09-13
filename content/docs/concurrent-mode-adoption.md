@@ -71,7 +71,7 @@ import ReactDOM from 'react-dom';
 //
 // Konkurrent Rejimini aşağıdakı funksiya ilə aktivləşdirə bilərsiniz:
 
-ReactDOM.createRoot(
+ReactDOM.unstable_createRoot(
   document.getElementById('root')
 ).render(<App />);
 ```

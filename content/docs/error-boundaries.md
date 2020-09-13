@@ -2,6 +2,8 @@
 id: error-boundaries
 title: Xəta Sərhədləri
 permalink: docs/error-boundaries.html
+prev: portals.html
+next: web-components.html
 ---
 
 Keçmişdə, komponent daxilində baş verən Javascript xətaları, React-in daxili vəziyyətini korlayıb, sonrakı renderlərdə [kriptik](https://github.com/facebook/react/issues/6895) [xətalar](https://github.com/facebook/react/issues/8579) [göstərirdi](https://github.com/facebook/react/issues/4026). Bu xətaların həmişə applikasiya kodunda əvvəlki xətalara görə baş verməyinə baxmayaraq, React bu xətaların komponent daxilində idarəsi üçün və bu xətalardan bərpa olunmaq üçün heç bir mexanizm təmin etmirdi.
@@ -94,7 +96,7 @@ Siz komponentin stek izində fayl adlarını və sətir nömrələrini də gör�
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Xətanın Error Boundary komponenti tərəfindən sətir nömrələri ilə tutulması">
 
-Əgər siz Create React App istifadə etmirsinizsə, siz [bu plugini](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) əllə Babel konfiqurasiyasına əlavə edə bilərsiniz. Qeyd edək ki, bu yalnız development zamanı işlətmək üçündür və **production-də söndürülməlidir**.
+Əgər siz Create React App istifadə etmirsinizsə, siz [bu plugini](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) əllə Babel konfiqurasiyasına əlavə edə bilərsiniz. Nəzərə alın ki, bu yalnız təkmilləşmə zamanı işlədilməli və **produksiyada söndürülməlidir**.
 
 > Qeyd
 >

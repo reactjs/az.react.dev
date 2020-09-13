@@ -580,7 +580,7 @@ Aşağıda, fərqli ssenarilərdə işlədilən digər seçimlər də göstəril
 
 Gəlin bunun niyə vacib olduğuna baxaq.
 
-`useEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir. Buna proplar, state və bu dəyərlərdən törənən bütün dəyərlə daxildir.
+`useEffect`, `useLayoutEffect`, `useMemo`, `useCallback` və ya `useImperativeHandle` Hooklarının son arqumentinə [asılılıqlar siyahısı](/docs/hooks-reference.html#conditionally-firing-an-effect) təyin etdikdə Hooka göndərilən funksiyanın işlətdiyi bütün React məlumat axınına aid olan dəyərlərin hamısı bu massivdə işlədilməlidir. Buna proplar, state və bu dəyərlərdən törənən bütün dəyərlə daxildir.
 
 Asılılıq massivindən **yalnız** funksiyanın daxilində (və ya bu funksiyanın çağırdığı funksiyaların daxilində) state, proplar və ya bu dəyərlərdən yaranmış dəyərlərə referans olmadıqda bu funksiyanı buraxmaq mümkündür. Aşağıdakı nümunədə baq var:
 

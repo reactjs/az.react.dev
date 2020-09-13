@@ -57,7 +57,7 @@ Siz fərqli yol ilə də bunu edə bilərsiniz. Lakin, _testin uğursuz olduğun
 
 ### `act()` {#act}
 
-UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün React-də köməkçi `act()` funksiyası təmin olunur:
+UI testlər yazdıqda render etmə, istifadəçi hadisələri və ya məlumat yüklənməsi kimi tapşırıqlar istifadəçi interfeysi ilə interaksiya "vahidi" kimi nəzərə alına bilər. Bu "vahidlərə" aid bütün yeniliklərin iddiaların təsdiqindən öncə emal edilib DOM-a tətbiq edilməsi üçün `react-dom/test-utils` paketində köməkçi [`act()`](/docs/test-utils.html#act) funksiyası təmin olunur:
 
 ```js
 act(() => {
@@ -253,7 +253,7 @@ export default function Map(props) {
 import React from "react";
 import Map from "./map";
 
-function Contact(props) {
+export default function Contact(props) {
   return (
     <div>
       <address>

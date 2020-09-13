@@ -2,6 +2,8 @@
 id: fragments
 title: Fraqmentlər
 permalink: docs/fragments.html
+prev: context.html
+next: portals.html
 ---
 
 React-də ümumi pattern çoxlu elementlərə komponentin qayıtması üçündür. Fraqmentlər sizə DOM-a nodelar əlavə etmədən uşaqların siyahısını qruplaşdırmağa imkan verir.

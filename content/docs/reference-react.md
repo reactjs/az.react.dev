@@ -125,9 +125,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html). Bu, [`React.PureComponent`](#reactpurecomponent) ilə oxşardır. Lakin bu, siniflər əvəzinə funksiya komponentləri ilə işlənilir.
+`React.memo` [yüksək dərəcəli komponentdir](/docs/higher-order-components.html).
 
-Əgər sizin komponent funksiyanız eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React komponentin renderini atlayıb, keçmiş renderdə olan nəticəni işlədəcək.
+Əgər sizin komponentiniz eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React, komponentin render etməsini atlayıb əvvəlki render etmənin nəticəsini işlədəcək.
 
 `React.memo` funksiyası yalnız prop dəyişikliklərini yoxlayır. `React.memo` ilə əhatə edilən funksiya komponentinin tətbiqində [`useState`](/docs/hooks-state.html) və ya [`useContext`](/docs/hooks-reference.html#usecontext) Hookunu istifadə etdikdə bu komponent state və ya kontekst yenilikləri olduqda yenidən render ediləcək.
 

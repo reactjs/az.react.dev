@@ -54,7 +54,7 @@ function ActionLink() {
 }
 ```
 
-Burada `e` sintetik hadisədir. React sintetik hadisələri [W3C spesifikasiyasına](https://www.w3.org/TR/DOM-Level-3-Events/) uyğun olaraq təyin edir. Bu isə o deməkdir ki, brauzerlər arası uyğunluqdan narahat olmamaq olar. Daha ətraflı məlumat üçün [`SyntheticEvent`](/docs/events.html) referans təlimatına nəzər yetirin.
+Burada `e` sintetik hadisədir. React sintetik hadisələri [W3C spesifikasiyasına](https://www.w3.org/TR/DOM-Level-3-Events/) uyğun olaraq təyin edir. Bu deməkdir ki, brauzerlər arası uyğunsuzluqlardan narahat olmaq lazım deyil. React hadisələri nativ hadisələr kimi eyni işləmirlər. Ətraflı məlumat üçün [`SyntheticEvent`](/docs/events.html) təlimatına nəzər yetirin.
 
 React istifadə edərkən DOM elementi yarandıqdan sonra işləyici əlavə etmək üçün `addEventListener` çağırmağa ehtiyac yoxdur. Əvəzinə, işləyicini element ilk dəfə render olunduqda təmin edin.
 

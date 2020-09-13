@@ -2,6 +2,8 @@
 id: reconciliation
 title: Rekonsilyasiya
 permalink: docs/reconciliation.html
+prev: react-without-jsx.html
+next: context.html
 ---
 
 Komponent yenilikləri zaman baş verən dəyişiklər haqqında fikirləşməmək üçün React deklarativ API təmin edir. Bu API applikasiyaların yazılmasını asanlaşdırır. Lakin, React-in daxilində nə baş verdiyi aydın olmaya bilər. Bu məqalədə, komponent yeniliklərinin proqnozlaşdırıla bilən olması və applikasiyalarda tez işləməsi üçün React-in "fərqlilik" (diffing) alqoritmində etdiyimiz seçimlərdən danışacağıq.

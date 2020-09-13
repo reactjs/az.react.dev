@@ -47,3 +47,7 @@ permalink: community/courses.html
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - React ilə professional interaktiv applikasiyların düzəldilməsi.
+
+- [React Tutorial](https://react-tutorial.app) - React-i fləşkartlar ilə addım-addım öyrənmək üçün interaktiv mühit.
+
+- [Road to React](https://www.roadtoreact.com/) - React-in ustası olmaq üçün səyahət.

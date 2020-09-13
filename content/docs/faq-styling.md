@@ -42,7 +42,7 @@ CSS sinifləri sətirdaxili stillərdən daha performanslıdır.
 
 ### CSS-in-JS nədir? {#what-is-css-in-js}
 
-CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript istifadə edərək tərtib edilməsi metodu "CSS-in-JS" adlanır. CSS-in-JS kitabxanalarının müqayisəsinə [buradan](https://github.com/MicheleBertoli/css-in-js) baxın.
+CSS-in kənar fayllarda tərtib edilməsi əvəzinə JavaScript istifadə edərək tərtib edilməsi metodu "CSS-in-JS" adlanır.
 
 _Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil. Bu, üçüncü tərəfli kitabxanalar tərəfindən təmin edilir._ React, stillərin necə işlənməsi haqqında heç bir fikir vermir. Əgər seçim edə bilmirsinizsə, başlanğıc nöqtəsi kimi stilləri ayrı `*.css` fayllarında yaradıb [`className`](/docs/dom-elements.html#classname) ilə istifadə edə bilərsiniz.
 

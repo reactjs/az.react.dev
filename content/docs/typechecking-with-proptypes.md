@@ -2,6 +2,8 @@
 id: typechecking-with-proptypes
 title: PropTypes ilə Tip Yoxlamaları
 permalink: docs/typechecking-with-proptypes.html
+prev: jsx-in-depth.html
+next: static-type-checking.html
 redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
 ---
@@ -29,6 +31,8 @@ Greeting.propTypes = {
   name: PropTypes.string
 };
 ```
+
+Bu nümunədə sinif komponentindən istifadə edirik. Lakin, bu xüsusiyyət funksiya komponentlərinə və [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) və ya [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref) ilə yaranan komponentlərdə də tətbiq edilə bilər.
 
 Məlumatın etibarlı olmasını yoxlamaq üçün `PropTypes` paketi bir neçə validator ixrac edir. Yuxarıdakı nümunədə `PropTypes.string` validatorundan istifadə edilir. Prop etibarsız dəyər ilə təmin edildikdə JavaScript konsolunda xəbərdarlıq göstəriləcək. Performans üçün `propTypes` yalnız development modunda yoxlanılır.
 

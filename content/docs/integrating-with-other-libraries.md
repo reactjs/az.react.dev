@@ -2,6 +2,8 @@
 id: integrating-with-other-libraries
 title: Digər Kitabxanalar ilə İnteqrasiya
 permalink: docs/integrating-with-other-libraries.html
+prev: render-props.html
+next: accessibility.html
 ---
 
 React bütün veb applikasiyalarda işlənilə bilər. React-i digər applikasiyalara və digər applikasiyları React-ə qoşmaq mümkündür. Bu sənəddə çox işlənilən ssenarilərə baxacağıq. Əsas olaraq [jQuery](https://jquery.com/) və [Backbone](https://backbonejs.org/) kitabxanalarına inteqrasiyaya fokuslandığımıza baxmayaraq istifadə olunan fikirlər ilə komponentləri hər hansı mövcud koda inteqrasiya etmək mümkündür.

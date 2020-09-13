@@ -12,7 +12,7 @@ Bu arayış React-in Hadisə Sisteminin bir hissəsini yaradan `SyntheticEvent`-
 
 Hadisə işləyiciləri React-ə `SyntheticEvent`-in instansiyaları kimi ötürüləcək. `SyntheticEvent` bütün brauzerlərdə eyni olan brauzerin nativ hadisəsini əhatə edən obyektdir. Bunun interfeysi `stopPropagation()` və `preventDefault()` daxil olmaqla brauzerin nativ hadisəsi interfeysi ilə eynidir. Brauzerlərin Hadisələrinin özünəməxsus tətbiqindən fərqli olaraq `SyntecticEvent` bütün brauzerlərdə eyni formada işləmir.
 
-Əgər sizə hər hansı səbəbə görə brauzerin hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
+Əgər sizə hər hansı səbəbə görə brauzerin nativ hadisəsi lazımdırsa, `nativeEvent` atributundan istifadə edin. Sintetik hadisələr brauzerin nativ hadisələri ilə tam qarşılaşmırlar. Məsələn, `onMouseLeave` hadisəsinin `event.nativeEvent` obyekti `mouseout` hadisəsinə istinad edir. Hər bir `SyntheticEvent` obyektinin aşağıda göstərilən atributları var:
 
 ```javascript
 boolean bubbles

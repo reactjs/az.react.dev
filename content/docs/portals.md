@@ -2,6 +2,8 @@
 id: portals
 title: Portallar
 permalink: docs/portals.html
+prev: fragments.html
+next: error-boundaries.html
 ---
 
 Portallar, valideyn komponentin DOM iyerarxiyasından kənarda olan DOM noduna uşaqları render etməyə imkan yaradır.  
