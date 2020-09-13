@@ -8,11 +8,7 @@ permalink: community/courses.html
 
 ## Pulsuz Kurslar {#free-courses}
 
-<<<<<<< HEAD
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - React-i öyrənmək üçün İnteraktiv kod nümunələri olan 5-hissəli pulsuz kurs.
-=======
-- [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit) - A free, 5-part video course with interactive code examples that will help you learn React.
->>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 - [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Codecademy-nin React-ə giriş kursu.
 

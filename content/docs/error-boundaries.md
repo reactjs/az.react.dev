@@ -96,9 +96,7 @@ Siz komponentin stek izində fayl adlarını və sətir nömrələrini də gör�
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Xətanın Error Boundary komponenti tərəfindən sətir nömrələri ilə tutulması">
 
-Əgər siz Create React App istifadə etmirsinizsə, siz [bu plugini](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) əllə Babel konfiqurasiyasına əlavə edə bilərsiniz. Qeyd edək ki, bu yalnız development zamanı işlətmək üçündür və **production-də söndürülməlidir**.
-
-If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
+Əgər siz Create React App istifadə etmirsinizsə, siz [bu plugini](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) əllə Babel konfiqurasiyasına əlavə edə bilərsiniz. Nəzərə alın ki, bu yalnız təkmilləşmə zamanı işlədilməli və **produksiyada söndürülməlidir**.
 
 > Qeyd
 >
