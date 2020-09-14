@@ -274,7 +274,11 @@ Hal-hazırda, əgər `shouldComponentUpdate()` `false` qaytarırsa, [`UNSAFE_com
 static getDerivedStateFromProps(props, state)
 ```
 
+<<<<<<< HEAD
 Render funksiyası çağrılmamışdan dərhal öncə (ilkin mount və sonrakı yeniliklər zamanı) `getDerivedStateFromProps` çağrıla bilər. Bu funksiya state-i yeniləmək üçün obyekt qaytarmalı və ya yeniləməmək üçün null qaytarmalıdır.
+=======
+`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 Bu funksiya state-in zaman ilə propların dəyişməsindən asılı olduğu [nadir hallarda](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) işlənilir. Məsələn, əvvəlki və sonrakı uşaqları müqayisə edib hansı uşaqların animasiya ediləcəyini müəyyənləşdirmək üçün `<Transition>` kimi komponentinin tətbiqi üçün bu funksiya faydalı ola bilər.
 
@@ -585,7 +589,11 @@ Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli v
 
 ### `defaultProps` {#defaultprops}
 
+<<<<<<< HEAD
 `defaultProps` parametri sinfə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
+=======
+`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for `undefined` props, but not for `null` props. For example:
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ```js
 class CustomButton extends React.Component {
@@ -605,7 +613,11 @@ CustomButton.defaultProps = {
   }
 ```
 
+<<<<<<< HEAD
 Əgər `props.color` null ilə təyin edilibsə, null kimi qalacaq:
+=======
+If `props.color` is set to `null`, it will remain `null`:
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ```js
   render() {

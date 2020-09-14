@@ -74,7 +74,13 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nə
 
 ![Seth](../images/team/sethwebster.jpg)
 
+<<<<<<< HEAD
 Tukson, Arizonada böyüyən Seth, uşaqlıqdan proqramlaşdırma ilə məşquldur. O, Intuit-də işə *başlamamışdan* öncə 10 il musiqiçi kimi tur edib. Seth boş vaxtında [şəkil çəkməyi](https://www.sethwebster.com) və şimal-şərqi Amerikada heyvanları xilas etmək ilə məşquldur
+=======
+[@sethwebster on GitHub](https://github.com/sethwebster) &middot; [@sethwebster on Twitter](https://twitter.com/sethwebster)
+
+Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ## Təşəkkürlər {#acknowledgements}
 
