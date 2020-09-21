@@ -170,7 +170,11 @@ JSX, Javascriptin bütün gücü ilə gəlir. Siz *hər hansı* Javascript ifad�
 
 Yuxarıdakı nümunədə, `ShoppingList` komponenti yalnız hazır qurulmuş DOM komponentlərini (`<div />` və `<li />`) render edir. Lakin, siz həmçinin öz komponentlərinizi də yarada və render edə bilərsiniz. Məsələn, siz yuxarıdakı alqı satqı siyahısını `<ShoppingList />` kimi işlədə bilərsiniz. Hər React komponenti inkapsulasiya olunub deyə siz bu komponentləri bir-birindən asılı olmayacaq şəkildə istifadə edə bilərsiniz. Bu xüsusiyyət sadə komponentlərdən mürəkkəb UI-lar yaratmağa icazə verir.
 
+<<<<<<< HEAD
 ## Başlanğıc Kodunu Yoxlamaq {#inspecting-the-starter-code}
+=======
+### Inspecting the Starter Code {#inspecting-the-starter-code}
+>>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 Əgər siz bu dərsliyi **brauzerdə** edəcəksinizsə bu kodu yeni təbdə açın: **[Başlanğıc Kodu](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Əgər siz bu dərsliyi **lokalda** edəcəksinizsə, layihə direktoriyasında olan `src/index.js` faylını açın (siz bu fayla [qurulma](#setup-option-2-local-development-environment) bölməsində əl gəzdirmisiniz).
 
