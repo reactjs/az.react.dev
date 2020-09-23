@@ -2,8 +2,6 @@
 id: context
 title: Kontekst
 permalink: docs/context.html
-prev: reconciliation.html
-next: fragments.html
 ---
 
 Kontekst məlumatları komponent ağacının hər səviyyəsində proplar göndərmədən məlumatları komponentlərə ötürməyə təmin edir.

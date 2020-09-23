@@ -585,7 +585,7 @@ Adi halda, siz `render()`-də `forceUpdate()`-i heç bir halda işlətməməli v
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` parametri sinfə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu `undefined` proplar üçün işlənilir. `null` proplarda işləmir. Məsələn:
+`defaultProps` parametri sinfə ilkin propların verilməsi üçün komponent sinfinin parametri kimi təyin edilir. Bu, `undefined` propları əvəzləyir, amma `null` proplara təsir etmir. Məsələn:
 
 ```js
 class CustomButton extends React.Component {
@@ -605,7 +605,7 @@ CustomButton.defaultProps = {
   }
 ```
 
-Əgər `props.color` null ilə təyin edilibsə, null kimi qalacaq:
+Əgər `props.color` propu `null` ilə təyin edilibsə, dəyər `null` qalacaq:
 
 ```js
   render() {

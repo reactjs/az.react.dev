@@ -74,6 +74,8 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nə
 
 ![Seth](../images/team/sethwebster.jpg)
 
+[Github-da @sethwebster](https://github.com/sethwebster) &middot; [Twitter-də @sethwebster](https://twitter.com/sethwebster)
+
 Tukson, Arizonada böyüyən Seth, uşaqlıqdan proqramlaşdırma ilə məşquldur. O, Intuit-də işə *başlamamışdan* öncə 10 il musiqiçi kimi tur edib. Seth boş vaxtında [şəkil çəkməyi](https://www.sethwebster.com) və şimal-şərqi Amerikada heyvanları xilas etmək ilə məşquldur
 
 ## Təşəkkürlər {#acknowledgements}

@@ -2,8 +2,6 @@
 id: error-boundaries
 title: Xəta Sərhədləri
 permalink: docs/error-boundaries.html
-prev: portals.html
-next: web-components.html
 ---
 
 Keçmişdə, komponent daxilində baş verən Javascript xətaları, React-in daxili vəziyyətini korlayıb, sonrakı renderlərdə [kriptik](https://github.com/facebook/react/issues/6895) [xətalar](https://github.com/facebook/react/issues/8579) [göstərirdi](https://github.com/facebook/react/issues/4026). Bu xətaların həmişə applikasiya kodunda əvvəlki xətalara görə baş verməyinə baxmayaraq, React bu xətaların komponent daxilində idarəsi üçün və bu xətalardan bərpa olunmaq üçün heç bir mexanizm təmin etmirdi.

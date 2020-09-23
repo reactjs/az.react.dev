@@ -1,8 +1,7 @@
 ---
 id: refs-and-the-dom
 title: Ref-lər və DOM
-prev: static-type-checking.html
-next: uncontrolled-components.html
+permalink: docs/refs-and-the-dom.html
 redirect_from:
   - "docs/working-with-the-browser.html"
   - "docs/more-about-refs.html"
@@ -10,7 +9,6 @@ redirect_from:
   - "docs/more-about-refs-zh-CN.html"
   - "tips/expose-component-functions.html"
   - "tips/children-undefined.html"
-permalink: docs/refs-and-the-dom.html
 ---
 
 Ref-lər ilə render metodundan DOM-a və ya React elementlərinə istinad etmək mümkündür.

@@ -2,8 +2,6 @@
 id: react-without-es6
 title: ES6-sız React
 permalink: docs/react-without-es6.html
-prev: optimizing-performance.html
-next: react-without-jsx.html
 ---
 
 Normalda, React komponenti sadə JavaScript sinfi kimi təyin edilir:
