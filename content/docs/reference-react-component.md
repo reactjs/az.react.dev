@@ -39,7 +39,11 @@ class Welcome extends React.Component {
 
 ### Komponentin Lifecycle-ı {#the-component-lifecycle}
 
+<<<<<<< HEAD
 Hər komponentın bir neçə "lifecycle funksiyası" var. Siz bu funksiyaları yenidən təyin edərək, kodu prosesin xüsusi zamanlarında icra edə bilərsiniz. **Siz bu [lifecycle sxemindən](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) arayış kimi istifadə edə bilərsiniz.** Aşağıdakı siyahıda çox işlədilən lifecycle funksiyaları **qalın** şrift ilə yazılmışdır. Digərlər daha nadir hallarda istifadə olunur.
+=======
+Each component has several "lifecycle methods" that you can override to run code at particular times in the process. **You can use [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) as a cheat sheet.** In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 #### Mount Etmə {#mounting}
 
@@ -109,7 +113,11 @@ Komponentlər həmçinin aşağıdakı API-ları təmin edirlər:
 
 ### Tez-tez istifadə olunan Lifecycle Funksiyaları {#commonly-used-lifecycle-methods}
 
+<<<<<<< HEAD
 Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə hallarının böyük əksəriyyətini təşkil edir. **Vizual arayış üçün [lifecycle sxeminə](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) baxın.**
+=======
+The methods in this section cover the vast majority of use cases you'll encounter creating React components. **For a visual reference, check out [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 ### `render()` {#render}
 
@@ -245,7 +253,11 @@ componentWillUnmount()
 
 ### Nadir Hallarda İşlədilən Lifecycle Funksiyaları {#rarely-used-lifecycle-methods}
 
+<<<<<<< HEAD
 Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmamasına baxmayaraq, bəzi hallarda bu metodlara ehtiyac olur. **Siz aşağıdakı funksiyaların bir çoxunu [lifecycle sxemində](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
+=======
+The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -278,8 +290,13 @@ Render funksiyası çağrılmamışdan dərhal öncə (ilkin mount və sonrakı 
 
 Bu funksiya state-in zaman ilə propların dəyişməsindən asılı olduğu [nadir hallarda](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) işlənilir. Məsələn, əvvəlki və sonrakı uşaqları müqayisə edib hansı uşaqların animasiya ediləcəyini müəyyənləşdirmək üçün `<Transition>` kimi komponentinin tətbiqi üçün bu funksiya faydalı ola bilər.
 
+<<<<<<< HEAD
 State-i törətmək qarışıq koda səbəb olub komponentin pis anlaşılmasına səbəb ola bilər. 
 [Daha sadə alternativlər ilə tanış olun:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+=======
+Deriving state leads to verbose code and makes your components difficult to think about.
+[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 * Əgər sizə propların dəyişməsi əsasında **side effekt icra etmək lazımdırsa** (məsələn, məlumatın yüklənməsi və ya animasiya) [`componentDidUpdate`](#componentdidupdate) lifecycle funksiyasından istifadə edin.
 
@@ -323,9 +340,15 @@ Xəta sərhədlərini yalnız gözlənilməz xətalardan bərpa üçün işlədi
 
 Əlavə məlumat üçün [*React 16-da Xəta Sərhədləri*](/blog/2017/07/26/error-handling-in-react-16.html) yazısını oxuyun.
 
+<<<<<<< HEAD
 > Qeyd
 > 
 > Xəta sərhadləri yalnız **ağacın aşağısında olan** komponentlərin xətalarını tuta bilirlər. Xəta sərhədi özündə baş verən xətanı tuta bilmir.
+=======
+> Note
+>
+> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
@@ -352,7 +375,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Xəta baş verdi.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -406,15 +429,22 @@ class ErrorBoundary extends React.Component {
       return <h1>Xəta baş verdi.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
 
+<<<<<<< HEAD
 > Qeyd
 > 
 > Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.
 > Xətanı render etmək üçün `static getDerivedStateFromError()` funksiyasından istifadə edin.
+=======
+> Note
+>
+> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
+> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 
 * * *
 

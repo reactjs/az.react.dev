@@ -49,9 +49,14 @@ render(
 );
 ```
 
+<<<<<<< HEAD
 Eyni ağaca bir neçə `Profiler` komponenti əlavə etmək mümkündür:
 
 ```js{2,6,8}
+=======
+`Profiler` components can also be nested to measure different components within the same subtree:
+```js{3,5,8}
+>>>>>>> bd0c9d8c5f5e78e0bd1066b46024ba98f4daac84
 render(
   <App>
     <Profiler id="Panel" onRender={callback}>
