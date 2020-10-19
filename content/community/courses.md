@@ -50,10 +50,6 @@ permalink: community/courses.html
 
 - [React Tutorial](https://react-tutorial.app) - React-i fləşkartlar ilə addım-addım öyrənmək üçün interaktiv mühit.
 
-<<<<<<< HEAD
 - [Road to React](https://www.roadtoreact.com/) - React-in ustası olmaq üçün səyahət.
-=======
-- [Road to React](https://www.roadtoreact.com/) - Your journey to master React in JavaScript.
 
-- [Epic React](https://epicreact.dev/) - Confidently Ship Well-Architected Production Ready React Apps Like a Pro
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
+- [Epic React](https://epicreact.dev/) - Yaxşı Arxitekturalı və Produksiyaya Hazır React applikasiyalarını peşəkar kimi yarat

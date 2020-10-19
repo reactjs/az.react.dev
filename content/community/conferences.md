@@ -8,7 +8,7 @@ redirect_from:
   - "docs/conferences.html"
 ---
 
-Bildiyiniz yerli React.js konfransı varsa, buraya əlavə edin! (Xahiş edirik siyahını xronoloji ardıcıllıqda saxlayasınız)
+Do you know of a local React.js conference? Add it here! (Please keep the list chronological)
 
 ## Gələcək Konfranslar {#upcoming-conferences}
 
@@ -17,16 +17,8 @@ October 15-16, 2020, 7am PST / 10am EST / 4pm CEST - remote event
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Keçmiş Konfranslar {#past-conferences}
-=======
-### React Day Berlin 2020 {#react-day-berlin-2020}
-November 25-27, 2020 in Berlin, Germany
-=======
 ### React Conf Brasil 2020 {#react-conf-brasil-2020}
 November 21, 2020 - remote event
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
 
 [Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh/)
 
@@ -45,8 +37,7 @@ November 12-13, 2021 in Mumbai, India
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)	[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-## Past Conferences {#past-conferences}
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
+## Keçmiş Konfranslar {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 January 28 & 29 in Facebook HQ, CA

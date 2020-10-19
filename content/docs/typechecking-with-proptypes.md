@@ -30,11 +30,7 @@ Greeting.propTypes = {
 };
 ```
 
-<<<<<<< HEAD
-Bu nümunədə sinif komponentindən istifadə edirik. Lakin, bu xüsusiyyət funksiya komponentlərinə və [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) və ya [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref) ilə yaranan komponentlərdə də tətbiq edilə bilər.
-=======
-In this example, we are using a class component, but the same functionality could also be applied to function components, or components created by [`React.memo`](/docs/react-api.html#reactmemo) or [`React.forwardRef`](/docs/react-api.html#reactforwardref).
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
+Bu nümunədə sinif komponentindən istifadə edirik. Lakin, bu xüsusiyyət funksiya komponentlərinə və [`React.memo`](/docs/react-api.html#reactmemo) və ya [`React.forwardRef`](/docs/react-api.html#reactforwardref) ilə yaranan komponentlərə də tətbiq edilə bilər.
 
 Məlumatın etibarlı olmasını yoxlamaq üçün `PropTypes` paketi bir neçə validator ixrac edir. Yuxarıdakı nümunədə `PropTypes.string` validatorundan istifadə edilir. Prop etibarsız dəyər ilə təmin edildikdə JavaScript konsolunda xəbərdarlıq göstəriləcək. Performans üçün `propTypes` yalnız development modunda yoxlanılır.
 
