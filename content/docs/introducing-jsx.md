@@ -184,4 +184,4 @@ Biz, [sonrakı bölmədə](/docs/rendering-elements.html) React elementlərinin 
 
 >**Məsləhət:**
 >
->ES6 və JSX kodlarının daha düzgün seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/editors)-dan istifadə etməyi məsləhət görürük.
+>ES6 və JSX kodlarının daha düzgün seçilməsi üçün editorunuzda ["Babel" language definition](https://babeljs.io/docs/en/next/editors)-dan istifadə etməyi məsləhət görürük.

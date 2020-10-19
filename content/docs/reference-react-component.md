@@ -39,7 +39,7 @@ class Welcome extends React.Component {
 
 ### Komponentin Lifecycle-ı {#the-component-lifecycle}
 
-Hər komponentın bir neçə "lifecycle funksiyası" var. Siz bu funksiyaları yenidən təyin edərək, kodu prosesin xüsusi zamanlarında icra edə bilərsiniz. **Siz bu [lifecycle sxemindən](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) arayış kimi istifadə edə bilərsiniz.** Aşağıdakı siyahıda çox işlədilən lifecycle funksiyaları **qalın** şrift ilə yazılmışdır. Digərlər daha nadir hallarda istifadə olunur.
+Hər komponentin bir neçə "lifecycle metodu" var. Siz bu funksiyaları yenidən təyin edərək, icmalın fərqli zamandlarında kod icra edə bilərsiniz. **Siz bu [lifecycle sxemindən](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) arayış kimi istifadə edə bilərsiniz.** Aşağıdakı siyahıda çox işlənilən lifecycle funksiyaları **qalın** şrift ilə yazılmışdır. Digərlər metodlar daha nadir hallarda istifadə olunur.
 
 #### Mount Etmə {#mounting}
 
@@ -109,7 +109,7 @@ Komponentlər həmçinin aşağıdakı API-ları təmin edirlər:
 
 ### Tez-tez istifadə olunan Lifecycle Funksiyaları {#commonly-used-lifecycle-methods}
 
-Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə hallarının böyük əksəriyyətini təşkil edir. **Vizual arayış üçün [lifecycle sxeminə](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) baxın.**
+Bu bölmədəki funksiyalar React komponentləri düzəldərkən istifadə hallarının böyük əksəriyyətini təşkil edir. **Vizual arayış üçün [lifecycle sxeminə](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) baxın.**
 
 ### `render()` {#render}
 
@@ -245,7 +245,7 @@ componentWillUnmount()
 
 ### Nadir Hallarda İşlədilən Lifecycle Funksiyaları {#rarely-used-lifecycle-methods}
 
-Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmamasına baxmayaraq, bəzi hallarda bu metodlara ehtiyac olur. **Siz aşağıdakı funksiyaların bir çoxunu [lifecycle sxemində](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
+Bu bölmədə göstərilən funksiyalar nadir hallar üçündür. Əksər komponentlərə bu funksiyaların lazım olmamasına baxmayaraq, bəzi hallarda bu metodlara ehtiyac olur. **Siz aşağıdakı funksiyaların bir çoxunu [lifecycle sxemində](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) səhifənin yuxarısında "Show less common lifecycles" çekboksunu tıklayaraq görə bilərsiniz.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -352,7 +352,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Xəta baş verdi.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -406,7 +406,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Xəta baş verdi.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```

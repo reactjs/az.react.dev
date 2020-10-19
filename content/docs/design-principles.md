@@ -92,7 +92,7 @@ Kollektivdə React-in "Planlaşdırıcı" adlandırılması lazım olduğuna dai
 
 Yaxşı təkmilləşdirmə təcrübəsi təmin etmək bizim üçün vacibdir.
 
-Məsələn, dəstəklədiyimiz [React DevTools](https://github.com/facebook/react-devtools) brauzer genişlənməsindən istifadə edərək Chrome və Firefox-da React komponentləri ağacını görə bilərsiniz. Tez-tez eşidirik ki, bu həm Facebook mühəndislərinin, həm də cəmiyyətin işini yaxşılaşdırır.
+Məsələn, dəstəklədiyimiz [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools) brauzer genişlənməsindən istifadə edərək Chrome və Firefox-da React komponentləri ağacını görə bilərsiniz. Tez-tez eşidirik ki, bu həm Facebook mühəndislərinin, həm də cəmiyyətin işini yaxşılaşdırır.
 
 Əlavə olaraq, biz proqramçılar üçün faydalı xəbərdarlıqlar verməyə çalışırıq. Məsələn, təqləri brauzer üçün anlaşılmaz şəkildə yerləşdirsəniz və ya API-da yazılım xətası etsəniz, React bunun xəbərdarlığını edir. Xəbərdarlıqlar və əlaqəli yoxlamalar React-in təkmilləşdirmə versiyasının produksiyasından daha yavaş olması səbəbidir.
 

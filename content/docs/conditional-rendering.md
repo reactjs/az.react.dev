@@ -152,6 +152,19 @@ Bu işləyir çünki JavaScript-də `true && expression` həmişə `expression`-
 
 Buna görə də, əgər şərt `true`-dursa, `&&`-dən sonrakı element nəticədə görünəcək. Əgər `false`-dursa, React onu nəzərə almır və ötür.
 
+Nəzərə alın ki, false olan ifadənin `&&`-dən sonrakı elementi atlamasına baxmayaraq ifadənin nəticəsini qaytarır. Aşağıdakı nümunədə `<div>0</div>` qaytarılacaq.
+
+```javascript{2,5}
+render() {
+  const count = 0;
+  return (
+    <div>
+      { count && <h1>Mesajlar: {count}</h1>}
+    </div>
+  );
+}
+```
+
 ### Sətirdaxili If-Else Şərti Operatoru ilə {#inline-if-else-with-conditional-operator}
 
 Elementlərin sətirdaxili şərti render edilməsi üçün digər üsul JavaScript-in [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) şərti operatorunu istifadə etməkdir.
