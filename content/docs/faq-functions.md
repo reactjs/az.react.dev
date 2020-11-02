@@ -289,9 +289,12 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
+<<<<<<< HEAD
     // React hadisələri pool-a əlavə etdiyindən biz dəyəri debounce-dan əvvəl oxuyuruq.
     // Alternativ olaraq, `event.persist()` funksiyasını çağıraraq bütün hadisəni göndərmək mümkündür.
     // Əlavə məlumat üçün az.reactjs.org/docs/events.html#event-pooling səhifəsinə baxın.
+=======
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
     this.emitChangeDebounced(e.target.value);
   }
 
