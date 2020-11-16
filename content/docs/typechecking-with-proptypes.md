@@ -99,7 +99,11 @@ MyComponent.propTypes = {
   // prop tipinə `isRequired` əlavə edin
   requiredFunc: PropTypes.func.isRequired,
 
+<<<<<<< HEAD
   // Dəyər istənilən tipdə ola bilər
+=======
+  // A required value of any data type
+>>>>>>> 957276e1e92bb48e5bb6b1c17fd0e7a559de0748
   requiredAny: PropTypes.any.isRequired,
 
   // Xüsusi validator yaratmaq da mümkündür. Validasiya uğursuz olduqda
