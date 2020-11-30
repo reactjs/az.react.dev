@@ -92,7 +92,7 @@ function getGreeting(user) {
 Simli literalları dırnaq açaraq bildirə bilərsiniz: 
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <div tabIndex={0}></div>;
 ```
 
 Həmçinin fiqurlu mötərizələrdən istifadə edərək Javascript ifadəsini atribut kimi bildirə bilərsiniz:

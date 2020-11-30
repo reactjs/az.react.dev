@@ -8,6 +8,9 @@ permalink: community/meetups.html
 
 Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş edirik siyahını əlifba ardıcıllığı ilə saxlayasınız)
 
+## Albania {#albania}
+* [Tirana](https://www.meetup.com/React-User-Group-Albania/)
+
 ## Argentina {#argentina}
 * [Rosario](https://www.meetup.com/es/reactrosario)
 
@@ -43,6 +46,7 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
+* [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
 
 ## China {#china}
 * [Beijing](https://www.meetup.com/Beijing-ReactJS-Meetup/)
@@ -75,6 +79,7 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 * [React Berlin](https://www.meetup.com/React-Open-Source/)
 
 ## Greece {#greece}
+* [Athens](https://www.meetup.com/React-To-React-Athens-MeetUp/)
 * [Thessaloniki](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
 ## Hungary {#hungary}
@@ -97,6 +102,9 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
+
+## Italy {#italy}
+* [Milan](https://www.meetup.com/React-JS-Milano/)
 
 ## Malaysia {#malaysia}
 * [Kuala Lumpur](https://www.kl-react.com/)

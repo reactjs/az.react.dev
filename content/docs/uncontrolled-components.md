@@ -45,7 +45,11 @@ Kontrolsuz komponentlərdə həqiqət mənbəyi DOM-da saxlanır. Bu səbədən,
 
 ### Təyin Olunmayan Dəyərlər {#default-values}
 
+<<<<<<< HEAD
 React-in render zamanı anket elementlərinin `value` atribut dəyəri DOM dəyərlərininin üzərindən yazılacaq. Kontrolsuz komponentlərdə təyin olunmayan dəyərlərin React tərəfindən bildirilməsini sonrakı yeniliklərin isə kontrolsuz olmasını istəyə bilərsiniz. Bu ssenari üçün `value` atributu yerinə `defaultValue` atributundan istifadə edə bilərsiniz.
+=======
+In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`. Changing the value of `defaultValue` attribute after a component has mounted will not cause any update of the value in the DOM.
+>>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
 
 ```javascript{7}
 render() {
