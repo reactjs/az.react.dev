@@ -128,7 +128,11 @@ Kontekst obyekti yaradır. React, Context obyektinə "abunə olan" komponentlər
 
 Hər bir Context obyekti Provider adlı React komponenti ilə gəlir. Bu komponent kontekstdə olan dəyişikliklərə abunə olmaq istəyən komponentlərə imkan yaradır.
 
+<<<<<<< HEAD
 Provayder `value` propu qəbul edir. Bu propun dəyəri abunə olan komponentlərə ötürülür. Bir Provider bir neçə Consumer komponentə goşula bilər. Provayderlər eyni komponent ağacında bir neçə səviyyədə ola bilər. Ağacda dərində yerləşən provayderlər, yuxarıda olan provayderlərin dəyərlərini əvəz edir.
+=======
+The Provider component accepts a `value` prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
 
 Provayderin aşağısında olan bütün istehlakçılar, Provayderin `value` propu dəyişdikdə yenidən render edir. Provayderdən aşağıya məlumatların yayımlanması ([`.contextType`](#classcontexttype) və [`useContext`](/docs/hooks-reference.html#usecontext) daxil olmaqla) `shouldComponentUpdate` funksiyasından asılı deyil. Bu deməkdir ki, yuxarı komponentdə heç bir komponent yenilənmədikdə belə Provider-ə abunə olan komponent yenilənəcək.
 

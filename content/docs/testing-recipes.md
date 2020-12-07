@@ -377,7 +377,10 @@ let container = null;
 beforeEach(() => {
   // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
+<<<<<<< HEAD
   // Hadisələrin düzgün işləməsi üçün DOM elementi *mütləq* documentə əlavə olunmalıdır.
+=======
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
   document.body.appendChild(container);
 });
 
@@ -416,7 +419,11 @@ it("changes value when clicked", () => {
 });
 ```
 
+<<<<<<< HEAD
 Fərqli DOM elementləri və parametrləri haqqında [MDN-dən](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) oxuya bilərsiniz. Nəzərə alın ki, hadisənin React dinləyicisinə çatması üçün hər hadisəyə `{ bubbles: true }` parametri əlavə edin. Əks halda, React, hadisələri avtomatik olaraq documentə göndərəcək.
+=======
+Different DOM events and their properties are described in [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note that you need to pass `{ bubbles: true }` in each event you create for it to reach the React listener because React automatically delegates events to the root.
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
 
 > Qeyd:
 >
