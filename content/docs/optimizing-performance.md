@@ -43,8 +43,8 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development 
 Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə təmin edirik:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Produksiya üçün yalnız `.production.min.js` ilə bitən faylların uyğun olduğunu unutmayın.
@@ -74,11 +74,19 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. `-p` arqumentini v�
 Ən səmərəli Browserify produksiya qurulması üçün bir neçə plagin yükləmək lazımdır:
 
 ```
+<<<<<<< HEAD
 # npm işlədirsinizsə
 npm install --save-dev envify terser uglifyify 
 
 # Yarn işlədirsinizsə
 yarn add --dev envify terser uglifyify 
+=======
+# If you use npm
+npm install --save-dev envify terser uglifyify
+
+# If you use Yarn
+yarn add --dev envify terser uglifyify
+>>>>>>> 6349ec18a01a3a880b66b87feb8dfe53f52e7aaf
 ```
 
 Produksiya qurulması yaratmaq üçün aşağıdakı çevirmələri əlavə edin **(sıra vacibdir)**:
@@ -379,7 +387,11 @@ function updateColorMap(colormap) {
 }
 ```
 
+<<<<<<< HEAD
 Bu xüsusiyyət JavaScript-də ES2018-də əlavə olunub. 
+=======
+This feature was added to JavaScript in ES2018.
+>>>>>>> 6349ec18a01a3a880b66b87feb8dfe53f52e7aaf
 
 Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
 

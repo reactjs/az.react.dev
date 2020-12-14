@@ -193,10 +193,17 @@ function App() {
 
 Bu keçidi əlavə etmək üçün yalnız yeddi sətir kod əlavə etdik:
 
+<<<<<<< HEAD
 * `useTransition` Hookunu idxal edərək state-i yeniləyən komponentdə işlətdik.
 * `{timeoutMs: 3000}` obyektini göndərərək React-ə cari ekranda ən çox üç saniyə gözləməsini bildirdik.
 * State yeniliklərini `startTransition` ilə əhatə edərək React-ə bu yeniliyi gecikdirməyin problem olmadığını bildirdik.
 * `isPending`-dən istifadə edəcərək state keçidinin proqresdə olduğunu bildirdik və düyməni deaktivasiya etdik.
+=======
+* We've imported the `useTransition` Hook and used it in the component that updates the state.
+* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
+* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
+* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+>>>>>>> 6349ec18a01a3a880b66b87feb8dfe53f52e7aaf
 
 Nəticədə, "Sonrakı" düyməni tıkladıqda "istənilməz" yükləmə vəziyyətinə dərhal keçid edilmir. Əvəzinə, proqres cari ekranda qalaraq göstərilir.
 
