@@ -130,9 +130,15 @@ React 16-dan başlayaraq, bütün standart [və ya xüsusi](/blog/2017/09/08/dom
 React həmişə DOM üçün Javascript əsaslı API təmin edib. React komponentlərin həm xüsusi, həm də DOM-a aid propları qəbul etdiyindən React, DOM API-ları kimi `camelCase`  konvensiyasından istifadə edir:
 
 ```js
+<<<<<<< HEAD
 <div tabIndex="-1" />      // node.tabIndex DOM API-ı kimi
 <div className="Button" /> // node.className DOM API-ı kimi
 <input readOnly={true} />  // node.readOnly DOM API-ı kimi
+=======
+<div tabIndex={-1} />      // Just like node.tabIndex DOM API
+<div className="Button" /> // Just like node.className DOM API
+<input readOnly={true} />  // Just like node.readOnly DOM API
+>>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
 ```
 
 Yuxarıda göstərilmiş xüsusi hallar istisna olmaqla bu proplar uyğun olan HTML atributlarına bənzər formada işləyirlər.

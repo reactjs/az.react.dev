@@ -122,7 +122,15 @@ Aşağıdakı kodu nəzərdən keçirin:
 
 Komponent konstruktorunda olduğu kimi strict rejim funksiyaları bİlərəkdən iki dəfə çağıraraq bu side effektləri tapa bilir.
 
+<<<<<<< HEAD
 ### Köhnə kontekst API-larının tapılması {#detecting-legacy-context-api}
+=======
+> Note:
+>
+> Starting with React 17, React automatically modifies the console methods like `console.log()` to silence the logs in the second call to lifecycle functions. However, it may cause undesired behavior in certain cases where [a workaround can be used](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+
+### Detecting legacy context API {#detecting-legacy-context-api}
+>>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
 
 Köhnə kontekst API-ının xətalara meyilli olduğundan bu API gələcək böyük versiyada silinəcək. Bu API bütün 16.x buraxılışlarında işləyəcək. Lakin, strict rejimdə aşağıdakı xəbərdarlıq göstəriləcək:
 

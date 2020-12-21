@@ -124,7 +124,11 @@ Bundan sonra bir neçə əmri icra edə bilərsiniz:
 * `yarn build` əmri bütün paketləri saxlayan `build` direktoriyasını yaradır.
 * `yarn build react/index,react-dom/index --type=UMD` əmri React və ReactDOM üçün UMD qurmalarını yaradır.
 
+<<<<<<< HEAD
 Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test` (və ya yuxarıdakı variasiyalarını) icra etməyi tövsiyyə edirik. Lakin, React qurulmasını real layihədə işlətmək də faydalı ola bilər.
+=======
+We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However, it can be handy to try your build of React in a real project.
+>>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
 
 İlk öncə, `yarn build` əmrini icra edin. Bu, qurulan paketləri `build` direktoriyasında, npm paketlərini isə `build/packages` direktoriyasında yaradacaq.
 
