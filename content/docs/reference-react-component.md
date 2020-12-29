@@ -411,23 +411,17 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
+
+React-in produksiya və təkmilləşmə qurulmalarındə `componentDidCatch()` funksiyası xətaları fərqli formada tutur.
+
+Təkmilləşmə zamanı xətalar `window` obyektinə bubble edir. Bu deməkdirki, `window.onerror` və ya `window.addEventListener('error', callback)` işləyiciləri `componentDidCatch()`-in tutduğu bütün xətaları tutacaq.
+
+Produksiya zamanı isə xətalar bubble etməyəcək. Bu deməkdirki, yuxarı səviyyədəki xata işləyiciləri yalnız `componentDidCatch()` tərəfindən tutulmayan xətaları tutacaq.
+
 > Qeyd
 > 
 > Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.
 > Xətanı render etmək üçün `static getDerivedStateFromError()` funksiyasından istifadə edin.
-=======
-Production and development builds of React slightly differ in the way `componentDidCatch()` handles errors.
-
-On development, the errors will bubble up to `window`, this means that any `window.onerror` or `window.addEventListener('error', callback)` will intercept the errors that have been caught by `componentDidCatch()`.
-
-On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explicitly caught by `componentDidCatch()`.
-
-> Note
->
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 
 * * *
 

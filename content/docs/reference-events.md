@@ -34,40 +34,11 @@ string type
 
 > Qeyd:
 >
-<<<<<<< HEAD
-> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
-
-### Hadisə Pulinqi {#event-pooling}
-
-`SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
-Bunun səbəbi performans ilə bağlıdır. Bu səbəbdən siz hadisəni asinxron formada işlədə bilməzsiniz.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => sıfırlanmış obyekt.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Aşağıdakı işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
-  this.setState({clickEvent: event});
-
-  // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
-  this.setState({eventType: event.type});
-}
-```
-=======
-> As of v17, `e.persist()` doesn't do anything because the `SyntheticEvent` is no longer [pooled](/docs/legacy-event-pooling.html).
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
+> v17-dən başlayaraq `SyntheticEvent` [hadisə pulinqi etmədiyindən](/docs/legacy-event-pooling.html) `e.persist()` funksiyası heç nə etmir.
 
 > Qeyd:
 >
-<<<<<<< HEAD
-> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan silərək istifadəçi kodunda hadisəyə referans saxlamağa imkan yaradacaq.
+> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
 
 ## Dəstəklənən Hadisələr {#supported-events}
 
@@ -92,33 +63,6 @@ Hadisə işləyiciləri hadisə tərəfindən bubbling fazasında çağrılır. 
 - [Animasiya Hadisələri](#animation-events)
 - [Keçid Hadisələri](#transition-events)
 - [Digər Hadisələr](#other-events)
-=======
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
-
-## Supported Events {#supported-events}
-
-React normalizes events so that they have consistent properties across different browsers.
-
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
-
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 
 * * *
 
@@ -410,15 +354,11 @@ Hadisə adları:
 onScroll
 ```
 
-<<<<<<< HEAD
-Parametrlər:
-=======
->Note
+>Qeyd
 >
->Starting with React 17, the `onScroll` event **does not bubble** in React. This matches the browser behavior and prevents the confusion when a nested scrollable element fires events on a distant parent.
+>React 17-dən başlayaraq `onScroll` hadisəsi React-də **bubble etməyəcək**. Bu, brauzerin davranışına uyğundur və iç-içə skroll olunan elementlərin uzaq valideynə hadisə göndərməsi qarışıqlığı aradan qaldırır.
 
-Properties:
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
+Parametrlər:
 
 ```javascript
 number detail

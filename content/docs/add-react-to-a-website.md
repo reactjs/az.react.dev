@@ -52,17 +52,10 @@ Biz `<div>` təqinə unikal `id` HTML atributu verdik. Göstərilən ID ilə ele
 ```html{5,6,9}
   <!-- ... digər HTML ... -->
 
-<<<<<<< HEAD
   <!-- React-i Yüklə. -->
   <!-- Qeyd: yerləşdirmə (deployment) zamanı, "development.js"-i "production.min.js" ilə əvəzləyin. -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-=======
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 
   <!-- React komponentini yüklə. -->
   <script src="like_button.js"></script>
@@ -91,11 +84,7 @@ const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
-<<<<<<< HEAD
 Bu iki sətr kod, HTML-ə əlavə etdiyimiz `<div>` elementini tapacaq və "Like" düyməsi olan React komponentini bu elementin içərisində render edəcək. 
-=======
-These two lines of code find the `<div>` we added to our HTML in the first step, and then display our "Like" button React component inside of it.
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 
 ### Hamısı Budur! {#thats-it}
 

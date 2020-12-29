@@ -74,19 +74,11 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. `-p` arqumentini v�
 Ən səmərəli Browserify produksiya qurulması üçün bir neçə plagin yükləmək lazımdır:
 
 ```
-<<<<<<< HEAD
 # npm işlədirsinizsə
 npm install --save-dev envify terser uglifyify 
 
 # Yarn işlədirsinizsə
 yarn add --dev envify terser uglifyify 
-=======
-# If you use npm
-npm install --save-dev envify terser uglifyify
-
-# If you use Yarn
-yarn add --dev envify terser uglifyify
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 ```
 
 Produksiya qurulması yaratmaq üçün aşağıdakı çevirmələri əlavə edin **(sıra vacibdir)**:
@@ -387,11 +379,7 @@ function updateColorMap(colormap) {
 }
 ```
 
-<<<<<<< HEAD
 Bu xüsusiyyət JavaScript-də ES2018-də əlavə olunub. 
-=======
-This feature was added to JavaScript in ES2018.
->>>>>>> 7a11d71b384d41c21dd5d475b96d45b5497ade76
 
 Create React App işlətdikdə `Object.assign` funksiyası və obyekt yayma sintaksisi işləcəyək.
 
