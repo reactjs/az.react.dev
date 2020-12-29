@@ -1,37 +1,37 @@
 ---
 id: legacy-event-pooling
-title: Event Pooling
+title: Hadisə Pulinqı
 permalink: docs/legacy-event-pooling.html
 ---
 
->Note
+>Qeyd
 >
->This page is only relevant for React 16 and earlier, and for React Native.
+>Bu səhifə yalnız React 16 və köhnə versiyaları və React Native üçün münasibdir.
 >
->React 17 on the web **does not** use event pooling.
+>React 17 vebdə event pulinqından **istifadə etmir**.
 >
->[Read more](/blog/2020/08/10/react-v17-rc.html#no-event-pooling) about this change in React 17.
+>React 17-dəki bu dəyişiklik haqqında əlavə məlumat almaq üçün [bu bloq yazısını oxuyun](/blog/2020/08/10/react-v17-rc.html#no-event-pooling).
 
-The [`SyntheticEvent`](/docs/events.html) objects are pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event handler has been called. For example, this won't work:
+[`SyntheticEvent`](/docs/events.html) obyektləri pul olunurlar. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq. Məsələn, aşağıdakı kod işləməyəcək:
 
 ```javascript
 function handleChange(e) {
-  // This won't work because the event object gets reused.
+  // Hadisə obyekti yenidən işlənir deyə bu işləməyəcək.
   setTimeout(() => {
-    console.log(e.target.value); // Too late!
+    console.log(e.target.value); // Çox gecdir!
   }, 100);
 }
 ```
 
-If you need to access event object's properties after the event handler has run, you need to call `e.persist()`:
+Hadisə işləyicisi icra olunduqdan sonra hadisənin dəyərlərini oxuya bilmək üçün `e.persist()` funksiyasını çağırmaq lazımdır:
 
 ```javascript
 function handleChange(e) {
-  // Prevents React from resetting its properties:
+  // React-in hadisə parametrlərini sıfırlarmasının qarşısını alır:
   e.persist();
 
   setTimeout(() => {
-    console.log(e.target.value); // Works
+    console.log(e.target.value); // İşləyəcək
   }, 100);
 }
 ```
