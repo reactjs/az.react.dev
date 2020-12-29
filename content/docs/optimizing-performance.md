@@ -43,8 +43,8 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development 
 Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə təmin edirik:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Produksiya üçün yalnız `.production.min.js` ilə bitən faylların uyğun olduğunu unutmayın.

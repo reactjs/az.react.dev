@@ -54,8 +54,8 @@ Biz `<div>` təqinə unikal `id` HTML atributu verdik. Göstərilən ID ilə ele
 
   <!-- React-i Yüklə. -->
   <!-- Qeyd: yerləşdirmə (deployment) zamanı, "development.js"-i "production.min.js" ilə əvəzləyin. -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <!-- React komponentini yüklə. -->
   <script src="like_button.js"></script>
@@ -115,8 +115,8 @@ Veb səhifəni produksiyaya yerləşdirmədən öncə, minifikasiya olunmamış 
 Əgər applikasiya skriptlərini minifikasiya edirsinizsə, yüklənmiş HTML-in `production.min.js` ilə bitən React versiyasını yüklədikdə **saytınız produksiya üçün hazır olacaq**:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Əgər skriptlər üçün minifikasiya addımı yoxdursa, [bunu quraşdırmağın yollarından biri buradadır](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
@@ -184,7 +184,7 @@ Təbrik Edirik! Siz layihənizə **produksiyaya hazır JSX quruluşu** əlavə e
 `src` adlı direktoriya yaradaraq aşağıdaki əmri icra edin:
 
 ```
-npx babel --watch src --out-dir . --presets react-app/prod 
+npx babel --watch src --out-dir . --presets react-app/prod
 ```
 
 >Qeyd

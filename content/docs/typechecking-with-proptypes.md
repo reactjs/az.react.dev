@@ -63,7 +63,7 @@ MyComponent.propTypes = {
   optionalElementType: PropTypes.elementType,
   
   // Propun sinif instansiyası olmasını da bildirə bilərsiniz.
-  // Bu validator JS-in instanceof operatorundan istifadə edir.
+  // Bu, JS-in instanceof operatorundan istifadə edir.
   optionalMessage: PropTypes.instanceOf(Message),
 
   // Propa enum kimi davranaraq

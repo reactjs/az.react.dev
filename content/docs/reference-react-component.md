@@ -411,6 +411,13 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
+
+React-in produksiya və təkmilləşmə qurulmalarındə `componentDidCatch()` funksiyası xətaları fərqli formada tutur.
+
+Təkmilləşmə zamanı xətalar `window` obyektinə bubble edir. Bu deməkdirki, `window.onerror` və ya `window.addEventListener('error', callback)` işləyiciləri `componentDidCatch()`-in tutduğu bütün xətaları tutacaq.
+
+Produksiya zamanı isə xətalar bubble etməyəcək. Bu deməkdirki, yuxarı səviyyədəki xata işləyiciləri yalnız `componentDidCatch()` tərəfindən tutulmayan xətaları tutacaq.
+
 > Qeyd
 > 
 > Xəta zamanı, siz `componentDidCatch()`-dən `setState` çağıraraq xəta UI-nı render edə bilərsiniz. Amma bu gələcək versiyalarda köhnələcək.

@@ -45,7 +45,7 @@ Kontrolsuz komponentlərdə həqiqət mənbəyi DOM-da saxlanır. Bu səbədən,
 
 ### Təyin Olunmayan Dəyərlər {#default-values}
 
-React-in render zamanı anket elementlərinin `value` atribut dəyəri DOM dəyərlərininin üzərindən yazılacaq. Kontrolsuz komponentlərdə təyin olunmayan dəyərlərin React tərəfindən bildirilməsini sonrakı yeniliklərin isə kontrolsuz olmasını istəyə bilərsiniz. Bu ssenari üçün `value` atributu yerinə `defaultValue` atributundan istifadə edə bilərsiniz.
+React-in render zamanı anket elementlərinin `value` atribut dəyəri DOM dəyərlərininin üzərindən yazılacaq. Kontrolsuz komponentlərdə təyin olunmayan dəyərlərin React tərəfindən bildirilməsini sonrakı yeniliklərin isə kontrolsuz olmasını istəyə bilərsiniz. Bu ssenari üçün `value` atributu yerinə `defaultValue` atributundan istifadə edə bilərsiniz. Komponent mount olunduqdan sonra `defaultValue` atributu dəyişdikdə DOM elementinin dəyəri yenilənməyəcək.
 
 ```javascript{7}
 render() {

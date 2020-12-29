@@ -34,35 +34,11 @@ string type
 
 > Qeyd:
 >
-> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
-
-### Hadisə Pulinqi {#event-pooling}
-
-`SyntheticEvent` pul olunur. Bu deməkdir ki, hadisə callback-i çağrıldıqdan sonra `SyntheticEvent` obyekti yenidən işlədiləcək və bütün parametrləri sıfırlanacaq.
-Bunun səbəbi performans ilə bağlıdır. Bu səbəbdən siz hadisəni asinxron formada işlədə bilməzsiniz.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => sıfırlanmış obyekt.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Aşağıdakı işləməyəcək. this.state.clickEvent yalnız null dəyəri saxlayacaq.
-  this.setState({clickEvent: event});
-
-  // Siz yenə də hadisə parametrlərini ixrac edə biləcəksiniz.
-  this.setState({eventType: event.type});
-}
-```
+> v17-dən başlayaraq `SyntheticEvent` [hadisə pulinqi etmədiyindən](/docs/legacy-event-pooling.html) `e.persist()` funksiyası heç nə etmir.
 
 > Qeyd:
 >
-> Əgər hadisə parametrlərini asinxron formada işlətmək istəyirsinizsə, siz hadisədə `event.persist()` funksiyasını çağırmalısınız. Bu funksiya sintetik hadisəni puldan silərək istifadəçi kodunda hadisəyə referans saxlamağa imkan yaradacaq.
+> v0.14-cü versiyadan başlayaraq, hadisə işləyicilərindən `false` qaytardıqda hadisə  yayılması dayandırılmayacaq. Bunun əvəzinə `e.stopPropagation()` və ya `e.preventDefault()` çağrılmalıdır.
 
 ## Dəstəklənən Hadisələr {#supported-events}
 
@@ -166,8 +142,81 @@ Fokus hadisələri yalnız anketlərdə yox, React DOM-da olan bütün elementl�
 
 Parametrlər:
 
-```javascript
+```js
 DOMEventTarget relatedTarget
+```
+
+#### onFocus {#onfocus}
+
+The `onFocus` event is called when the element (or some element inside of it) receives focus. For example, it's called when the user clicks on a text input.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onFocus={(e) => {
+        console.log('Focused on input');
+      }}
+      placeholder="onFocus is triggered when you click this input."
+    />
+  )
+}
+```
+
+#### onBlur {#onblur}
+
+The `onBlur` event handler is called when focus has left the element (or left some element inside of it). For example, it's called when the user clicks outside of a focused text input.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onBlur={(e) => {
+        console.log('Triggered because this input lost focus');
+      }}
+      placeholder="onBlur is triggered when you click this input and then you click outside of it."
+    />
+  )
+}
+```
+
+#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
+
+You can use the `currentTarget` and `relatedTarget` to differentiate if the focusing or blurring events originated from _outside_ of the parent element. Here is a demo you can copy and paste that shows how to detect focusing a child, focusing the element itself, and focus entering or leaving the whole subtree.
+
+```javascript
+function Example() {
+  return (
+    <div
+      tabIndex={1}
+      onFocus={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('focused self');
+        } else {
+          console.log('focused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus entered self');
+        }
+      }}
+      onBlur={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('unfocused self');
+        } else {
+          console.log('unfocused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus left self');
+        }
+      }}
+    >
+      <input id="1" />
+      <input id="2" />
+    </div>
+  );
+}
 ```
 
 * * *
@@ -304,6 +353,10 @@ Hadisə adları:
 ```
 onScroll
 ```
+
+>Qeyd
+>
+>React 17-dən başlayaraq `onScroll` hadisəsi React-də **bubble etməyəcək**. Bu, brauzerin davranışına uyğundur və iç-içə skroll olunan elementlərin uzaq valideynə hadisə göndərməsi qarışıqlığı aradan qaldırır.
 
 Parametrlər:
 

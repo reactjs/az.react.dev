@@ -319,7 +319,7 @@ Yüksək dərəcəli komponentlərlə işlədikdə ilk baxışda görünməyən 
 
 ### HOC-ləri Render Metodu Daxilində İstifadə Etməyin {#dont-use-hocs-inside-the-render-method}
 
-React-in fərqlilik alqoritmi (reconciliation adlanır) mövcud alt ağacın yeniləməsini və ya onun atıblıb, yenisinin mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri qaytarılmış komponent əvvəlki renderdəki komponentlə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər bərabər deyillərsə, əvvəlki alt ağac tamamilə unmount edilərək yenisilə əvəz edilir.
+React-in fərqlilik alqoritmi ([Rekonsilyasiya](/docs/reconciliation.html) adlanır) mövcud alt ağacın yeniləmənsini və ya bu alt ağacı atıb yeni alt ağacın mount edilməsini təyin etmək üçün komponent şəxsiyyətindən istifadə edir. `render`-dən geri qaytarılmış komponent əvvəlki renderdəki komponent ilə eynidirsə (`===`), React rekursiv olaraq alt ağacı yenisi ilə fərqləndirərək yeniləyir. Əgər komponentlər eyni deyilsə, əvvəlki alt ağac tamamilə unmount edilərək yenisi ilə əvəz edilir.
 
 Normalda bu bizi maraqlandırmır. Ancaq HOC-lər üçün vacibdir, çünki bu komponentin render metodu daxilində HOC tətbiq etmənin necə problemli olduğunu bildirir:
 
