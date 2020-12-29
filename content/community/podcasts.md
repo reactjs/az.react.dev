@@ -16,7 +16,7 @@ React-ə hərs olunmuş Podkastlar və React müzakirəsi olan podkast seriyalar
 
 - [React 30](https://react30.com/) - React haqqında 30-dəqiqəlik podkast ([The React Podcast](https://reactpodcast.simplecast.fm/)-ə köçürülüb).
 
-- [React Native Radio](https://reactnativeradio.com) - Exploring React Native Together, hosted by [Infinite Red](https://infinite.red)
+- [React Native Radio](https://reactnativeradio.com) - React Native-i birlikdə araşdıraq. [Infinite Red](https://infinite.red) tərəfindən dərc edilir.
 
 - [React Wednesdays](https://www.telerik.com/react-wednesdays) - React dünyasının ən yaxşı və parlaq üzvləri ilə həftəlik canlı yayınlar
 
