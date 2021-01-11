@@ -27,7 +27,11 @@ Bu fərziyyələr bütün praktiki ssenarilər üçün etibarlıdır.
 
 Ana elementlərin fərqli tipi olduqda React, köhnə ağacı sökərək sıfırdan yeni ağac düzəldir. Element `<a>`-dan `<img>`-ə, `<Article>`-dan `<Comment>`-ə və ya `<Button>`-dan `<div>`-ə dəyişdikdə tam yenidən düzəlmə baş verəcək.
 
+<<<<<<< HEAD
 Ağac dağıldıqda bütün köhnə DOM nodlar dağılır. Əlavə olaraq, komponent instansiyalarının `componentWillUnmount()` funksiyaları çağrılır. Yeni ağac düzəldikdə DOM-a yeni DOM nodları əlavə olunur. Əlavə olaraq, komponent instansiyalarında `componentWillMount()`, sonra `componentDidMount()` funksiyası çağrılır. Köhnə ağac ilə bağlı bütün state-lər silinir.
+=======
+When tearing down a tree, old DOM nodes are destroyed. Component instances receive `componentWillUnmount()`. When building up a new tree, new DOM nodes are inserted into the DOM. Component instances receive `UNSAFE_componentWillMount()` and then `componentDidMount()`. Any state associated with the old tree is lost.
+>>>>>>> 82b8c9f2ab094eb7b0268029ab72fc99ffcadaf6
 
 Ana komponentin daxilində olan bütün komponentlər də unmount olunur və dağıdılır. Məsələn, aşağıdakı kodu fərqləndirdikdə:
 
@@ -43,7 +47,17 @@ Ana komponentin daxilində olan bütün komponentlər də unmount olunur və da�
 
 Köhnə `Counter` dağıdılır və yeni element mount olunur.
 
+<<<<<<< HEAD
 ### Eyni Tipli DOM Elementləri {#dom-elements-of-the-same-type}
+=======
+>Note:
+>
+>These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>
+>- `UNSAFE_componentWillMount()`
+
+### DOM Elements Of The Same Type {#dom-elements-of-the-same-type}
+>>>>>>> 82b8c9f2ab094eb7b0268029ab72fc99ffcadaf6
 
 Eyni tipli React DOM elementlərini müqayisə etdikdə hər iki elementin DOM nodları saxlanılaraq yalnız DOM atributları yenilənir. Məsələn:
 
@@ -69,11 +83,26 @@ DOM nodu fərqləndirildikdən sonra eyni əməliyyatlar uşaq elementlərdə t�
 
 ### Eyni Tipli Komponent Elementləri {#component-elements-of-the-same-type}
 
+<<<<<<< HEAD
 Komponent yeniləndikdə komponent instansiyası eyni qalaraq renderlər arası state saxlanılır. Komponentin yeni elementə uyğunlaşması üçün komponent instansiyasının propları yenilənir, və komponent instansiyasından `componentWillReceiveProps()` və `componentWillUpdate()` funksiyaları çağrılır.
+=======
+When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` and `componentDidUpdate()` on the underlying instance.
+>>>>>>> 82b8c9f2ab094eb7b0268029ab72fc99ffcadaf6
 
 Sonra, `render()` funksiyası çağrılaraq fərqlənmə alqoritmi əvvəlki və sonrakı nəticələri müqayisə edir.
 
+<<<<<<< HEAD
 ### Uşaqların Fərqlənməsi {#recursing-on-children}
+=======
+>Note:
+>
+>These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>
+>- `UNSAFE_componentWillUpdate()`
+>- `UNSAFE_componentWillReceiveProps()`
+
+### Recursing On Children {#recursing-on-children}
+>>>>>>> 82b8c9f2ab094eb7b0268029ab72fc99ffcadaf6
 
 Normalda, DOM nodun uşaqlarını fərqləndirdikdə hər iki uşaq siyahısının üzərindən tsikl edilir. Fərqlilik olduqda mutasiya əməliyyatı yaradılır.
 
