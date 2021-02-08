@@ -70,7 +70,11 @@ Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmə
 
 İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında öyrənmək istəyirsinizsə, göstərilən pulsuz video seriyasına baxa bilərsiniz:
 
+<<<<<<< HEAD
 **[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+=======
+**[How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu əhatə dairəsi olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
@@ -84,6 +88,7 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 
 **Pull request göndərməmişdən öncə** aşağıdakı addımları atmağınızı xahiş edirik:
 
+<<<<<<< HEAD
 1. [repo-nu](https://github.com/facebook/react) fork edib `master`-dən branch yaradın.
 2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
 3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
@@ -94,6 +99,18 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
 9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).
 10. CLA-i doldurun (əgər etməmisinizsə).
+=======
+1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
+2. Run `yarn` in the repository root.
+3. If you've fixed a bug or added code that should be tested, add tests!
+4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
+5. Run `yarn test --prod` to test in the production environment.
+6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
+7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
+8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
+9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
+10. If you haven't already, complete the CLA.
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 ### İştirakçı Lisenziyası Müqaviləsi (CLA) {#contributor-license-agreement-cla}
 
@@ -113,6 +130,7 @@ Pull request-i qəbul edə bilməmiz üçün CLA-ı imzalamanız lazımdır. Siz
 React-i clone etdikdən sonra `yarn` əmrini çağıraraq asılılıqları yükləyin.
 Bundan sonra bir neçə əmri icra edə bilərsiniz:
 
+<<<<<<< HEAD
 * `yarn lint` kod stilini yoxlayır.
 * `yarn linc` əmri `yarn lint` əmrinə bənzəyir, amma yalnız branch-də dəyişən faylları yoxladığından daha tez işləyir.
 * `yarn test` bütün test dəstini yoxlayır.
@@ -123,6 +141,18 @@ Bundan sonra bir neçə əmri icra edə bilərsiniz:
 * `yarn flow` əmri [Flow](https://flowtype.org/) tip yoxlamalarını başladır.
 * `yarn build` əmri bütün paketləri saxlayan `build` direktoriyasını yaradır.
 * `yarn build react/index,react-dom/index --type=UMD` əmri React və ReactDOM üçün UMD qurmalarını yaradır.
+=======
+* `yarn lint` checks the code style.
+* `yarn linc` is like `yarn lint` but faster because it only checks files that differ in your branch.
+* `yarn test` runs the complete test suite.
+* `yarn test --watch` runs an interactive test watcher.
+* `yarn test --prod` runs tests in the production environment.
+* `yarn test <pattern>` runs tests with matching filenames.
+* `yarn debug-test` is just like `yarn test` but with a debugger. Open `chrome://inspect` and press "Inspect".
+* `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
+* `yarn build` creates a `build` folder with all the packages.
+* `yarn build react/index,react-dom/index --type=UMD` creates UMD builds of just React and ReactDOM.
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test` (və ya yuxarıdakı variasiyalarını) icra etməyi tövsiyyə edirik. Lakin, React qurulmasını real layihədə işlətmək də faydalı ola bilər.
 
@@ -136,7 +166,7 @@ Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/r
 
 ```sh
 cd ~/path_to_your_react_clone/
-yarn build react/index,react-dom/index,scheduler --type=NODE
+yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE
 
 cd build/node_modules/react
 yarn link

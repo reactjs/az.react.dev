@@ -16,7 +16,11 @@ permalink: community/courses.html
 
 - [React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0) - Yeni başlayanlar üçün ən əsas React mövzularını əhatə edir.
 
+<<<<<<< HEAD
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - React Armory ilə React-i buzzword-suz öyrənə bilərsiniz.
+=======
+- [Frontend Armory: React Fundamentals](https://frontarm.com/courses/react-fundamentals/) - Learn React without the buzzwords.
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - React əsasları haqqında daha yaxşı anlayış yaratmaq üçün kurs.
 
