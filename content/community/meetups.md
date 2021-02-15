@@ -12,6 +12,7 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 * [Tirana](https://www.meetup.com/React-User-Group-Albania/)
 
 ## Argentina {#argentina}
+* [Buenos Aires](https://www.meetup.com/es/React-en-Buenos-Aires)
 * [Rosario](https://www.meetup.com/es/reactrosario)
 
 ## Australia {#australia}
