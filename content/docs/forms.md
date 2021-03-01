@@ -31,7 +31,7 @@ Biz bu iki konsepsiyanı birləşdirib React state-ini "vahid həqiqət mənbəy
 
 Məsələn, əgər əvvəlki misalda istifadəçi anketi göndərdiyi zaman adı loq etmək istəyiriksə, anketi kontrol olunan komponent kimi yaza bilərik:
 
-```javascript{4,10-12,24}
+```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
