@@ -129,7 +129,11 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Əgər sizin komponentiniz eyni proplar ilə həmişə eyni nəticəni verirsə, siz funksiyanı `React.memo` ilə əhatə edib bəzi hallarda nəticəni memoize edərək performansı artıra bilərsiniz. Bu deməkdir ki, React, komponentin render etməsini atlayıb əvvəlki render etmənin nəticəsini işlədəcək.
 
+<<<<<<< HEAD
 `React.memo` funksiyası yalnız prop dəyişikliklərini yoxlayır. `React.memo` ilə əhatə edilən funksiya komponentinin tətbiqində [`useState`](/docs/hooks-state.html) və ya [`useContext`](/docs/hooks-reference.html#usecontext) Hookunu istifadə etdikdə bu komponent state və ya kontekst yenilikləri olduqda yenidən render ediləcək.
+=======
+`React.memo` only checks for prop changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html), [`useReducer`](/docs/hooks-reference.html#usereducer) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+>>>>>>> 49fd7d5f115378e3663b049f108a2d29b31290c8
 
 Bu funksiya default halda props obyektində olan mürəkkəb obyektləri dayaz formada müqayisə edəcək. Əgər müqayisəni idarə etmək istəyirsinizsə, xüsusi müqayisə funksiyasını ikinci arqument kimi göndərə bilərsiniz.
 
