@@ -6,7 +6,11 @@ permalink: docs/context.html
 
 Kontekst məlumatları komponent ağacının hər səviyyəsində proplar göndərmədən məlumatları komponentlərə ötürməyə təmin edir.
 
+<<<<<<< HEAD
 Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uşağa) proplar vasitəsi ilə göndərilir. Lakin bir çox komponentin istifadə etdiyi bəzi prop tiplərinin (məsələn dil seçimi, UI şablonun) göndərilməsi çox yorucu və çətin ola bilər. Kontekst, dəyərlərin komponentlər arasında, komponent ağacının hər səviyyəsində prop göndərmədən paylaşmasına yol göstərir.
+=======
+In a typical React application, data is passed top-down (parent to child) via props, but such usage can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 - [Nə Zaman Kontekst İşlətmək Lazımdır](#when-to-use-context)
 - [Kontekst İşlətməzdən Əvvəl](#before-you-use-context)
@@ -80,7 +84,11 @@ function Page(props) {
 
 Bu dəyişiklik ilə, yalnız ən yuxarıda olan Page komponenti, `Link` və `Avatar` komponentlərinin `user` və `avatarSize` proplarını işlətməyini bilir.
 
+<<<<<<< HEAD
 Bu *kontrolun inversiyası* applikasiyada göndərilən propların sayını azaldaraq və ana komponentlərə daha çox kontrol verərək bir neçə ssenaridə kodunuzu daha təmiz edir. Lakin, bu metod hər ssenari üçün düzgün seçim deyil: mürəkkəbiliyi komponent ağacında yüksək olan komponentlərə köçürdükdə, yuxarı səviyyəli komponentləri daha çətinləşir və aşağı səviyyəli komponentlərin daha əyilgən olması lazım olur.
+=======
+This *inversion of control* can make your code cleaner in many cases by reducing the amount of props you need to pass through your application and giving more control to the root components. Such inversion, however, isn't the right choice in every case; moving more complexity higher in the tree makes those higher-level components more complicated and forces the lower-level components to be more flexible than you may want.
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 Siz komponentdə bir uşaq göstərməyə məhdud deyilsiniz. Siz bir neçə uşağı, hətta uşaqlar üçün bir neçə "yuva da" edə bilərsiniz ([burada sənələşmişdir](/docs/composition-vs-inheritance.html#containment)):
 
@@ -118,7 +126,11 @@ const MyContext = React.createContext(defaultValue);
 
 Kontekst obyekti yaradır. React, Context obyektinə "abunə olan" komponentləri render edərkən, yuxarı səviyyədə ən yaxın olan `Provider`-dən cari kontekst dəyərini oxuyacaq.
 
+<<<<<<< HEAD
 `defaultValue` arqumenti **yalnız** komponentin yuxarı səviyyəsində Provider olmadığı zaman işlənir. Bu dəyər, komponentləri Provider ilə əhatə etmədən, ayrılıqda test etmək üçün faydalıdır. Qeyd: Provider dəyərinə `undefined` göndərildikdə, qoşulan komponentlər `defaultValue`-dan istifadə etmirlər.
+=======
+The `defaultValue` argument is **only** used when a component does not have a matching Provider above it in the tree. This default value can be helpful for testing components in isolation without wrapping them. Note: passing `undefined` as a Provider value does not cause consuming components to use `defaultValue`.
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 ### `Context.Provider` {#contextprovider}
 
@@ -162,7 +174,11 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
+<<<<<<< HEAD
 `contextType` sinif parametrinə [`React.createContext()`](#reactcreatecontext) ilə yaranmış Context obyekti təyin edilə bilər. Bu sizə ən yaxında olan kontekstin dəyərini `this.context`-dən oxumağa icazə verir. Siz bu dəyişəndə olan dəyəri render funksiyası daxil olmaqla bütün lifecycle funksiyalarından istifadə edə bilərsiniz.
+=======
+The `contextType` property on a class can be assigned a Context object created by [`React.createContext()`](#reactcreatecontext). Using this property lets you consume the nearest current value of that Context type using `this.context`. You can reference this in any of the lifecycle methods including the render function.
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 > Qeyd:
 >
@@ -189,7 +205,11 @@ class MyClass extends React.Component {
 </MyContext.Consumer>
 ```
 
+<<<<<<< HEAD
 Kontekst dəyişikliklərinə abunə olan React komponenti. Bu sizə [funksional komponent]((/docs/components-and-props.html#function-and-class-components)) ilə kontekstə abunə olmağa icazə verir.
+=======
+A React component that subscribes to context changes. Using this component lets you subscribe to a context within a [function component](/docs/components-and-props.html#function-and-class-components).
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 [Funksiyanın uşaq kimi olmasını](/docs/render-props.html#using-props-other-than-render) tələb edir. Bu funksiya, kontekstin cari dəyərini qəbul edir və React nodu qaytarır. Funksiyaya göndərilən `value` arqumenti, komponent ağacında bu komponentə ən yaxın olan Provider-in `value` propu ilə eynidir. Əgər provayder yoxdursa, `value` arqumenti `createContext()`-ə keçirilən `defaultValue` propuna bərabər olacaq.
 
