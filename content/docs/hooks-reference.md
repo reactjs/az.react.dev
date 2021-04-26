@@ -76,6 +76,7 @@ Yeniləmə funksiyası cari dəyərə bərabər olan dəyər qaytardıqda sonrak
 > Sinif komponentlərində olan `setState` funksiyasından fərqli olaraq `useState` Hooku yeni obyektləri köhnə state-ə birləşdirmir. Siz, funksiya formasından və obyekt yayma sintaksisindən istifadə edərək sinif komponentlərində olan state davranışını tətbiq edə bilərsiniz:
 >
 > ```js
+> const [state, setState] = useState({});
 > setState(prevState => {
 >   // Burada Object.assign funksiyası da işləyəcək
 >   return {...prevState, ...updatedValues};
