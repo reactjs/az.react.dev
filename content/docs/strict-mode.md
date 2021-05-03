@@ -58,7 +58,11 @@ Obyekt ref-ləri mətn ref-lərini əvəz etmək üçün əlavə edilib. Bu səb
 
 React-də sinif instansiyası əsasında ağacda DOM nodunun tapılması üçün `findDOMNode` funksiyasından istifadə edilirdi. Normalda, [ref-in DOM-a birbaşa qoşulması](/docs/refs-and-the-dom.html#creating-refs) bu funksiyanın istifadəsini əvəzləyir.
 
+<<<<<<< HEAD
 `findDOMNode` funksiyası sinif komponentləri ilə də işləyir. Lakin, bu xüsusiyyət valideynin xüsusi uşaqları render etməsinə imkan yaratdığından abstraksiya dərəcələrini sındıra bilir. Valideyn komponenti uşaq komponentin DOM noduna yönəltdiyindən refaktorinq üçün problemlər yaranır. `findDOMNode` funksiyası yalnız bir uşaq qaytara bilir. Lakin, Fraqmentlərdən istifadə edərək bir neçə DOM nodu render etmək mümkündür. `findDOMNode` bir dəfə oxumaq üçün yaranmış API-dır. Bu API, yalnız lazım olduqda cavab qaytarır. Uşaq komponent fərqli nod render etdikdə dəyişiklikləri idarə etmək mümkün deyil. Bu səbəbdən, `findDOMNode` funksiyası komponentlər, dəyişməyən tək DOM nod qaytardıqda işlədilirdi.
+=======
+`findDOMNode` can also be used on class components but this was breaking abstraction levels by allowing a parent to demand that certain children were rendered. It creates a refactoring hazard where you can't change the implementation details of a component because a parent might be reaching into its DOM node. `findDOMNode` only returns the first child, but with the use of Fragments, it is possible for a component to render multiple DOM nodes. `findDOMNode` is a one time read API. It only gave you an answer when you asked for it. If a child component renders a different node, there is no way to handle this change. Therefore `findDOMNode` only worked if components always return a single DOM node that never changes.
+>>>>>>> c3c93e2a7ff1b1f7b8735a3a87d4b10937eaaf91
 
 İndi, ref-i xüsusi komponentə göndərib komponentin DOM noduna [yönləndirə bilərsiniz](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
