@@ -19,9 +19,17 @@ var ReactTestUtils = require('react-dom/test-utils'); // NPM ilə ES5
 
 > Qeyd:
 >
+<<<<<<< HEAD
 > Biz [React Testing Library](https://testing-library.com/react) kitabxanasından istifadə etməyi tövsiyə edirik. Bu kitabxana, son istifadəçilərin komponentləri istifadə etdiyi kimi testləri yazmağa təşviq edir və imkan yaradır.
 >
 > Alternativ olaraq, Airbnb-in test etmək üçün yaratdığı [Enzyme](https://airbnb.io/enzyme/) qurğusundan istifadə edə bilərsiniz. Bu qurğu React komponentləri asan şəkildə test etməyə imkan yaradır.
+=======
+> We recommend using [React Testing Library](https://testing-library.com/react) which is designed to enable and encourage writing tests that use your components as the end users do.
+> 
+> For React versions <= 16, the [Enzyme](https://airbnb.io/enzyme/) library makes it easy to assert, manipulate, and traverse your React Components' output.
+
+
+>>>>>>> abcf0358d43caa0772e599949458df9e6578489a
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
