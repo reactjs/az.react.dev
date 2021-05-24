@@ -68,7 +68,11 @@ Qeyd edək ki, **xəta sərhədləri yalnız altındakı ağacda olan komponentl
 [React 16-da](/blog/2017/09/26/react-v16.0.html) [xəta sərhədinin yaranması və işlənməsi misalına](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) baxın.
 
 
+<<<<<<< HEAD
 ## Xəta Sərhədlərini Harada Yerləşdirək {#where-to-place-error-boundaries}
+=======
+The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
+>>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 Xəta sərhədlərinin zənginliyi / əhatəsi sizdən asılıdır. Siz ən yuxarıda olan route komponentlərini əhatə edib, server tərəfində işlənilən freymvorklardakı kimi, "Bir şey yalnış getdi" mesajını istifadəçiyə göstərə bilərsiniz. Siz həmçinin fərdi vidcetlərini xəta sərhədləri ilə əhatə edib xətaların bütün applikasiyanı sındırmasından qoruya bilərsiniz.
 
@@ -126,7 +130,11 @@ Xəta sərhədləri hadisə işləyicilərində baş verən xətaları **tutmur*
 
 React-ə hadisə işləyicilərində baş verən xətaların bərpası üçün, xəta sərhədlərindən istifadə etməsi lazım deyil. Render və lifecycle metodlarından fərqli olaraq, hadisə işləyiciləri render zamanı baş vermir. Bu səbəbdən, əgər bu işləyicilər xəta atırlarsa, React yenə də ekranda nə göstərəcəyini bilir.
 
+<<<<<<< HEAD
 Əgər sizə hadisə işləyicilərində yeni xətanı tutmaq lazımdırsa, normal Jacascript `try` / `catch` ifadəsindən istifadə edin:
+=======
+If you need to catch an error inside an event handler, use the regular JavaScript `try` / `catch` statement:
+>>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 ```js{9-13,17-20}
 class MyComponent extends React.Component {

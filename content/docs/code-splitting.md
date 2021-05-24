@@ -42,8 +42,12 @@ console.log(add(16, 26)); // 42
 
 Əgər siz [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) və ya oxşar bir alət işlədirsinizsə, applikasiyanı paketləmək üçün Webpack quraşdırılmış olacaq.
 
+<<<<<<< HEAD
 Əgər siz belə alətlərdən istifadə etmirsinizsə, siz paketləməni özünüz qoşmalısınız. Misal üçün, Webpack sənədlərində [Quraşdırma](https://webpack.js.org/guides/installation/) və
 [Başlamaq](https://webpack.js.org/guides/getting-started/) təlimatlarına baxın.
+=======
+If you aren't, you'll need to set up bundling yourself. For example, see the [Installation](https://webpack.js.org/guides/installation/) and [Getting Started](https://webpack.js.org/guides/getting-started/) guides on the Webpack docs.
+>>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 ## Kod Parçalanması {#code-splitting}
 
