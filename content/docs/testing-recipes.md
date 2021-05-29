@@ -393,7 +393,7 @@ it("changes value when clicked", () => {
     render(<Toggle onChange={onChange} />, container);
   });
 
-  // düymə elementini tapıq tıklama hadisəsini çağırın
+  // düymə elementini tapıb bəzi düymə tıklamaları edin
   const button = document.querySelector("[data-testid=toggle]");
   expect(button.innerHTML).toBe("Yandır");
 
@@ -465,13 +465,12 @@ import { act } from "react-dom/test-utils";
 
 import Card from "./card";
 
-jest.useFakeTimers();
-
 let container = null;
 beforeEach(() => {
   // DOM elementini render hədəfi kimi təyin edin
   container = document.createElement("div");
   document.body.appendChild(container);
+  jest.useFakeTimers();
 });
 
 afterEach(() => {
@@ -479,6 +478,7 @@ afterEach(() => {
   unmountComponentAtNode(container);
   container.remove();
   container = null;
+  jest.useRealTimers();
 });
 
 it("should select null after timing out", () => {

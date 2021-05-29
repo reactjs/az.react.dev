@@ -70,7 +70,7 @@ Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmə
 
 İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında öyrənmək istəyirsinizsə, göstərilən pulsuz video seriyasına baxa bilərsiniz:
 
-**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
 
 Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu əhatə dairəsi olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
@@ -88,7 +88,7 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
 3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
 4. Test dəstinin uğurlu keçdiyindən əmin olun (`yarn test`). Məsləhət: Təkmilləşmə zamanı `yarn test --watch TestName` formalı əmr çağırmaq faydalıdır.
-5. Testləri produksiya mühitində yoxlamaq üçün `yarn test-prod` əmrini icra edin. Bu əmr, `yarn test` ilə eyni parametrləri dəstəkləyir.
+5. Testləri produksiya mühitində yoxlamaq üçün `yarn test --prod` əmrini icra edin.
 6. Əgər sizə debaqqer lazımdırsa, `yarn debug-test --watch TestName` əmrini icra edin, `chrome://inspect` səhifəsini açın və "Inspect" düyməsini tıklayın.
 7. Kodunuzu [prettier](https://github.com/prettier/prettier) ilə format edin (`yarn prettier`).
 8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
@@ -117,8 +117,8 @@ Bundan sonra bir neçə əmri icra edə bilərsiniz:
 * `yarn linc` əmri `yarn lint` əmrinə bənzəyir, amma yalnız branch-də dəyişən faylları yoxladığından daha tez işləyir.
 * `yarn test` bütün test dəstini yoxlayır.
 * `yarn test --watch` interaktiv test gözətçisini başladır.
+* `yarn test --prod` əmri, testləri produksiya mühitində icra edir. Bu əmr `yarn test` əmri ilə eyni parametrləri dəstəkləyir.
 * `yarn test <pattern>` fayl adları uyğun gələn testləri icra edir.
-* `yarn test-prod` əmri, testləri produksiya mühitində icra edir. Bu əmr `yarn test` əmri ilə eyni parametrləri dəstəkləyir.
 * `yarn debug-test` əmri debaqqeri olan `yarn test` əmridir. `chrome://inspect` səhifəsini açıb "Inspect" düyməsini tıklayın.
 * `yarn flow` əmri [Flow](https://flowtype.org/) tip yoxlamalarını başladır.
 * `yarn build` əmri bütün paketləri saxlayan `build` direktoriyasını yaradır.
@@ -130,13 +130,13 @@ Dəyişikliyiniz zamanı heç bir reqressiyaların olmaması üçün `yarn test`
 
 Dəyişiklikləri yoxlamağın ən asan yolu `yarn build react/index,react-dom/index --type=UMD` əmrini çağırıb `fixtures/packaging/babel-standalone/dev.html` səhifəsini açmaqdır. Bu fayl, `build` direktoriyasında olan `react.development.js` faylından istifadə edir.
 
-Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/dist/react.development.js`, `build/dist/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin.
+Dəyişiklikləri mövcud React layihəsində sınamaq istədikdə `build/node_modules/react/umd/react.development.js`, `build/node_modules/react-dom/umd/react-dom.development.js` və digər qurulma məhsullarını applikasiyaya köçürüb stabil versiyalar əvəzinə bu versiyaları işlədin.
 
 Əgər layihənizdə React-i npm-dən yükləyirsinizsə, siz `react` və `react-dom` asılılıqlarını silib `yarn link` ilə bu asılılıqlar lokal `build` direktoriyasına yönləndirin. Nəzərə alın ki, **qurulma zamanı `--type=UMD` əvəzinə `--type=NODE` parametrindən istifadə etməlisiniz. Əlavə olaraq `scheduler` paketini də quraşdırmalısınız:
 
 ```sh
 cd ~/path_to_your_react_clone/
-yarn build react/index,react-dom/index,scheduler --type=NODE
+yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE
 
 cd build/node_modules/react
 yarn link

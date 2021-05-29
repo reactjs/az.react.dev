@@ -196,3 +196,47 @@ class Greeting extends React.Component {
 ```
 
 `this.props.name` propu valideyn komponent tərəfindən təyin edilmədikdə dəyərinin boş olmaması üçün `defaultProps`-da yerləşən dəyər istifadə ediləcək. `propTypes` tip yoxlaması `defaultProps` həll olunduqdan sonra yoxlanılacaq. Bu səbəbdən, tip yoxlamaları `defaultProps`-a da tətbiq ediləcək.
+
+### Funksiya Komponentləri {#function-components}
+
+Funksiya komponentlərindən istifadə edirsinizsə, PropTypes-ın düzgün tətbiq olunması üçün bəzi kiçik dəyişiklər etməyi tövsiyyə edirik.
+
+Sizin aşağıdalı formalı komponentinizin olduğunu fikirləşək:
+
+```javascript
+export default function HelloWorldComponent({ name }) {
+  return (
+    <div>Salam, {name}</div>
+  )
+}
+```
+
+PropTypes əlavə etmək üçün komponenti ixrac etmədən öncə komponenti yaradın:
+
+```javascript
+function HelloWorldComponent({ name }) {
+  return (
+    <div>Salam, {name}</div>
+  )
+}
+
+export default HelloWorldComponent
+```
+
+Sonra PropTypes-ı birbaşa `HelloWorldComponent` komponentində təyin edin:
+
+```javascript
+import PropTypes from 'prop-types'
+
+function HelloWorldComponent({ name }) {
+  return (
+    <div>Salam, {name}</div>
+  )
+}
+
+HelloWorldComponent.propTypes = {
+  name: PropTypes.string
+}
+
+export default HelloWorldComponent
+```

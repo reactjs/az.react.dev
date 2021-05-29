@@ -12,7 +12,7 @@ Hookların sadə JavaScript funksiyaları olmasına baxmayaraq bu funksiyaları 
 
 ### Hookları Yalnız Ən Yuxarıdan Çağırın {#only-call-hooks-at-the-top-level}
 
-**Hookları tsikllar, şərtlər, və ya digər funksiyalardan çağırmayın.** Əvəzinə, Hookları hər zaman React funksiyasının ən yuxarısında yazın. Bu qaydaya riayət edərək komponent render edildikdə Hookların eyni sıra ilə çağrıldığını siğortalıyırsınız. Bu sıraya görə React, `useState` və `useEffect` çağırışlarının vəziyyətini qoruya bilir. (Əgər maraqlanırsınızsa, bunun dərindən izahatı haqqında [aşağıda](#explanation) danışacağıq.)
+**Hookları tsikllar, şərtlər və ya digər funksiyalardan çağırmayın.** Əvəzinə, Hookları hər zaman React funksiyasının ən yuxarısında yazın. Bu qaydaya riayət edərək komponent render edildikdə Hookların eyni sıra ilə çağrıldığını siğortalıyırsınız. Bu sıraya görə React, `useState` və `useEffect` çağırışlarının vəziyyətini qoruya bilir. (Əgər maraqlanırsınızsa, bunun dərindən izahatı haqqında [aşağıda](#explanation) danışacağıq.)
 
 ### Hookları Yalnız React Funksiyalarından Çağırın {#only-call-hooks-from-react-functions}
 

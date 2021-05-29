@@ -28,7 +28,6 @@ Bu səhifədə [Konkurrent Rejiminin](/docs/concurrent-mode-intro.html) API aray
 
 - [Konkurrent Rejimini Aktivləşdirmək](#concurrent-mode)
     - [`createRoot`](#createroot)
-    - [`createBlockingRoot`](#createblockingroot)
 - [Suspense](#suspense)
     - [`Suspense`](#suspensecomponent)
     - [`SuspenseList`](#suspenselist)
@@ -46,18 +45,6 @@ ReactDOM.createRoot(rootNode).render(<App />);
 `ReactDOM.render(<App />, rootNode)` çağırışını əvəz edərək Konkurrent Rejimin aktivləşdirir.
 
 Konkurrent Rejimi haqqında əlavə məlumat üçün [Konkurrent Rejimi sənədlərinə](/docs/concurrent-mode-intro.html) baxın.
-
-### `createBlockingRoot` {#createblockingroot}
-
-```js
-ReactDOM.createBlockingRoot(rootNode).render(<App />)
-```
-
-`ReactDOM.render(<App />, rootNode)` çağırışını əvəz edərək [Blok Rejimini](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode) aktivləşdirir.
-
-Konkurrent Rejimini istifadə etdikdə React-in işləməsində semantik dəyişikliklər baş verir. Bu deməkdir ki, Konkurrent Rejimini yalnız bir neçə komponentdə istifadə etmək mümkün deyil. Bu səbəbdən bəzi applikasiyaları birbaşa Konkurrent Rejiminə miqrasiya etmək mümkün olmaya bilər.
-
-Blok Rejimində Konkurrent Rejiminin xüsusiyyətlərinin kiçik hissəsi mövcuddur. Bu rejim, birbaşa miqrasiya edə bilməyən applikasiyalar üçün vasitəçi rolunu oynayır.
 
 ## Suspense API {#suspense}
 
