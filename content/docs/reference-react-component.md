@@ -299,11 +299,7 @@ Qeyd edin ki, bu funksiya səbəbsiz halda **hər** render-də çağrılır. Bun
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-<<<<<<< HEAD
 `getSnapshotBeforeUpdate()` ən son render edilən nəticənin DOM-a köçürülməsindən dərhal əvvəl çağrılır.  Bu funksiya komponentə DOM-dan bəzi məlumatları (məsələn skrol pozisiyası) dəyişməmişdən öncə yaxalamaq üçün istifadə edilir. Bu funksiyadan qaytarılan hər hansı bir dəyər `componentDidUpdate()` funksiyasına arqument kimi ötürülür.
-=======
-`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle method will be passed as a parameter to `componentDidUpdate()`.
->>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 Bu istifadə halı sıravi deyil: çat kimi skrol posiziyasını xüsusi formada işlədən UI-larda işlədilə bilər.
 

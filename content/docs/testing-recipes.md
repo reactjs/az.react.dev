@@ -393,11 +393,7 @@ it("changes value when clicked", () => {
     render(<Toggle onChange={onChange} />, container);
   });
 
-<<<<<<< HEAD
-  // düymə elementini tapıq tıklama hadisəsini çağırın
-=======
-  // get a hold of the button element, and trigger some clicks on it
->>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
+  // düymə elementini tapıb bəzi düymə tıklamaları edin
   const button = document.querySelector("[data-testid=toggle]");
   expect(button.innerHTML).toBe("Yandır");
 

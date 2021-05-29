@@ -156,37 +156,7 @@ module.exports = {
 
 Bunun yalnız produksiya zamanı işlədildiyini unutmayın. `TerserPlugin` plaginini development zamanı işlətməyin. Çünki, bu, qurulma əməliyyatını çox yavaşladacaq və React-in faydalı xəbərdarlıqlarını gizlədəcək.
 
-<<<<<<< HEAD
-## Chrome Performans Təbi ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-chrome-performance-tab}
-
-**Development** modunda komponentlərin necə mount edildiyini, yeniləndiyini və unmount edildiyini dəstəklənən brauzerlərin performans alətləri ilə görüntüləmək mümkündür. Məsələn:
-
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Chrome qrafikində React komponentləri" /></center>
-
-Chrome-da istifadə edə bilmək üçün:
-
-1. Müvəqqəti olaraq **React DevTools xüsusi olmaqla bütün Chrome artırmalarını söndürün**. Artırmalar nəticənin səhv göstərilməsinə səbəb ola bilər!
-
-2. Applikasiyanın development modunda olduğundan əmin olun.
-
-3. Chrome DevTools-un **[Performans](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** təbinə daxil olun və **Record** düyməsini tıklayın.
-
-4. Profayl etmək istədiyiniz əməliyyatları icra edin. 20 saniyədən çox rekord etməyin. Əks halda Chrome ilişə bilər.
-
-5. Rekord etməni saxlayın.
-
-6. React hadisələri **User Timing** adı altında qruplanacaq.
-
-Daha ətraflı izahat üçün [Ben Şvarsın məqaləsini oxuyun](https://calibreapp.com/blog/react-performance-profiling-optimization).
-
-Nəzərə alin ki, **bu alətdə göstərilən rəqəmlər nisbidir. Produksiya zamanı komponentlər daha tez işləyəcək**. Bu, lazımsız UI-ın səhvən yeniləndiyini və UI yeniliklərinin hansı dərinlikdə və tezlikdə olduğunu görməyə imkan yaradır.
-
-İndiki zamanda, bu xüsusiyyəti dəstəkləyən brauzerlər Chrome, Edge və IE-dir. Lakin, bizim [User Timing API-ından](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) istifadə etdiyimizdən bu xüsusiyyətin gələcəkdə digər brauzerlərdə işləyəcəyini gözləyirik.
-
-## DevTools Profayleri ilə Komponentləri Profayl Edilməsi {#profiling-components-with-the-devtools-profiler}
-=======
-## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
->>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
+## DevTools Profayleri ilə Komponentlərin Profayl Edilməsi {#profiling-components-with-the-devtools-profiler}
 
 `react-dom` 16.5+ və `react-native` 0.57+ versiyalarında React DevTools Profaylerin DEV modunda daha inkişaf etmiş qabiliyyətləri var.
 Profaylerin icmalına ["React Profayler ilə Tanışlıq"](/blog/2018/09/10/introducing-the-react-profiler.html) bloq yazısından baxa bilərsiniz.
@@ -203,16 +173,12 @@ React DevTools yükləməmisinizsə, aşağıdakı linklərə baxın:
 > `react-dom`-un produksiyada profayl edilməsi `react-dom/profiling` paketində mövcuddur.
 > Bu paketin istifadəsi üçün [fb.me/react-profiling](https://fb.me/react-profiling) səhifəsinə baxın.
 
-<<<<<<< HEAD
-## Böyük Siyahıların Virtuallaşdırılması {#virtualize-long-lists}
-=======
-> Note
+> Qeyd
 >
-> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab. 
-> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+> React 17-dən öncə biz standart Chrome brauzerinin performans təbi ilə [User Timing API-dan](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) istifadə edərək komponentlərin sürətini ölçürdük.
+> Daha detallı məlumat üçün [Ben Şvarzın məqaləsini](https://calibreapp.com/blog/react-performance-profiling-optimization) oxuyun.
 
-## Virtualize Long Lists {#virtualize-long-lists}
->>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
+## Böyük Siyahıların Virtuallaşdırılması {#virtualize-long-lists}
 
 Applikasiya böyük siyahılı məlumatlar (100-lərlə və ya 1000-lərlə sətrdən ibarət) render etdikdə "windowing" adlı texnikadan istifadə etməyi tövsiyə edirik. Bu texnika ilə məlumatın yalnız kiçik hissəsi render olunaraq komponentlərin yenidən render edilməsi və yeni DOM nodların yaranması zamanını kəskin şəkildə azaldır.
 
