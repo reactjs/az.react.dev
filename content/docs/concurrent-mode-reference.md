@@ -59,7 +59,11 @@ Konkurrent Rejimi haqqında əlavə məlumat üçün [Konkurrent Rejimi sənədl
 
 `Suspense`, komponentlərin render olunmamışdan öncə "gözləməsinə" imkan yaradır və gözləmə zamanı fallback göstərir.
 
+<<<<<<< HEAD
 Bu nümunədə `ProfileDetails` komponenti məlumat yükləyən asinxron API sorğusunun cavabını gözləyir. `ProfileDetails` və `ProfilePhoto` komponentlərinin gözləndiyi müddətdə `Yüklənir...` fallback-i göstəriləcək. Nəzərinizə çatdırmaq istəyirik ki, `<Suspense>`-in daxilində olan bütün komponentlər yüklənməyənə kimi fallback göstəriləcək.
+=======
+In this example, `ProfileDetails` is waiting for an asynchronous API call to fetch some data. While we wait for `ProfileDetails` and `ProfilePhoto`, we will show the `Loading...` fallback instead. It is important to note that until all children inside `<Suspense>` have loaded, we will continue to show the fallback.
+>>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 `Suspense` komponenti iki prop qəbul edir:
 * **fallback** propu yükləmə göstərici üçündürdür. Bu fallback, `Suspense` komponentinin bütün uşaqları yüklənənə kimi göstərilir.
