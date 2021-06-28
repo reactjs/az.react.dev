@@ -18,7 +18,11 @@ React-in hər buraxılış kanalı xüsusi ssenari üçün dizayn olunub:
 - [**Next**](#next-channel) (Sonrakı) kanalı React kod reposunun master qolunu izləyir. Bu kanalda olan buraxılışların sonrakı kiçik semver buraxılışı üçün buraxılış kandidatı olduğunu fikirləşin. React və 3-cü tərəfin layihələrinin arasında inteqrasiya testi etmək üçün bu kanaldan istifadə edin.
 - [**Experimental**](#experimental-channel) (Eksperimental) kanalında stabil buraxılışlarda olmayan eksperimental API-lar və xüsusiyyətlər mövcuddur. Bu kanalın buraxılışları da master qolunu izləyirlər. Lakin, bu kanalda olan buraxılışlarda əlavə xüsusiyyət nişanları yandırılıb. Qarşıda gələn xüsusiyyətləri buraxılmamışdan öncə yoxlamaq üçün bu kanaldan istifadə edin.
 
+<<<<<<< HEAD
 Bütün buraxılışların NPM-ə dərc olunmasına baxmayaraq yalnız Latest kanalının buraxılışları [semantik versiyalama](/docs/faq-versioning.html) qaydalarından istifadə edirlər. Ön buraxılışların (Next və Experimental kanallarında olan) versiyaları kontentin həşindən yaranırlar. Məsələn, Next buraxılışı `0.0.0-1022ee0ec` formada, Experimental buraxılışı isə `0.0.0-experimental-1022ee0ec` formada versiyalanır.
+=======
+All releases are published to npm, but only Latest uses [semantic versioning](/docs/faq-versioning.html). Prereleases (those in the Next and Experimental channels) have versions generated from a hash of their contents and the commit date, e.g. `0.0.0-68053d940-20210623` for Next and `0.0.0-experimental-68053d940-20210623` for Experimental.
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 **Latest kanalı istifadəçilər üçün yazılmış applikasiyaları dəstəkləyən tək rəsmi buraxılış kanalıdır**. Next və Experimental buraxılışları test etmə üçün təmin edilir. Bu buraxılışlar arasında davranışların dəyişməyəcəyinə heç bir siğorta yoxdur. Biz bu buraxılışlarda Latest kanalında olan buraxılışlar üçün işlətdiyimiz semver protokulundən istifadə etmirik.
 
@@ -40,7 +44,11 @@ Next və Latest kanallarının ən yeni buraxılışları arasında olan fərqin
 
 **Ön buraxılışları istifadəçi applikasiyalarında istifadə etməyin.**
 
+<<<<<<< HEAD
 Next buraxılışları NPM-də `next` təqi ilə dərc olunurlar. Bu buraxılışların versiyaları qurulma kontentinin həşi əsasında yaranır. Məsələn, `0.0.0-1022ee0ec`.
+=======
+Releases in Next are published with the `next` tag on npm. Versions are generated from a hash of the build's contents and the commit date, e.g. `0.0.0-68053d940-20210623`.
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 #### Next Kanalının İnteqrasiya Testi üçün İstifadəsi {#using-the-next-channel-for-integration-testing}
 
@@ -76,7 +84,11 @@ Adətən, Next-ə edilən yeniliyə müvafiq Experimental yenilik də edilir. Bu
 
 Experimental buraxılışlar Next və Latest buraxılışlarından tam fərqli ola bilərlər. **İstifadəçilər üçün applikasiyalarda Experimental buraxılışlardan istifadə etməyin.**  Experimental kanalın buraxılışları arasında tez-tez sınan dəyişiklərinin olacağını gözləyin.
 
+<<<<<<< HEAD
 Experimental buraxılışlar NPM-də `experimental` təqi ilə dərc olunurlar. Bu buraxılışların versiyaları qurulma kontentinin həşi əsasında yaranır. Məsələn, `0.0.0-experimental-1022ee0ec`.
+=======
+Releases in Experimental are published with the `experimental` tag on npm. Versions are generated from a hash of the build's contents and the commit date, e.g. `0.0.0-experimental-68053d940-20210623`.
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 #### Experimental Buraxılışına Nələr Daxildir? {#what-goes-into-an-experimental-release}
 
