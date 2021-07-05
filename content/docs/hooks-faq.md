@@ -991,6 +991,7 @@ React-də, hər komponent ilə əlaqəli "yaddaş sahələrinin" daxili siyahıs
 
 Hooklar bir neçə mənbələrdən yaranan fikirlərin sintezidir:
 
+<<<<<<< HEAD
 * [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) reposunda olan funksional API-lar ilə etdiyimiz köhnə eksperimentlər.
 * [Rayn Florensin](https://github.com/ryanflorence) [Reactions Component](https://github.com/reactions/component) eksperimenti daxil olmaqla React cəmiyyətinin render prop API-ları ilə etdiyi eksperimentlər.
 * [Dominik Qannaveyin](https://github.com/trueadm) render proplarının asan sintaksisi üçün [`adopt` açarı](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) təklifi.
@@ -998,5 +999,14 @@ Hooklar bir neçə mənbələrdən yaranan fikirlərin sintezidir:
 * ReasonReact-də olan [Reducer komponentləri](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html).
 * Rx-də olan [Abunəliklər](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html).
 * Multicore OCaml-da olan [Cəbr (Algebraic) effektləri](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting).
+=======
+* Our old experiments with functional APIs in the [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State) repository.
+* React community's experiments with render prop APIs, including [Ryan Florence](https://github.com/ryanflorence)'s [Reactions Component](https://github.com/reactions/component).
+* [Dominic Gannaway](https://github.com/trueadm)'s [`adopt` keyword](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) proposal as a sugar syntax for render props.
+* State variables and state cells in [DisplayScript](http://displayscript.org/introduction.html).
+* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) in ReasonReact.
+* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) in Rx.
+* [Algebraic effects](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) in Multicore OCaml.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Hookların orijinal dizaynını [Sebastian Markbåge](https://github.com/sebmarkbage) kəşf edib. Sonra, bu dizayn [Endryu Klark](https://github.com/acdlite), [Sofi Alpert](https://github.com/sophiebits), [Dominik Qannavey](https://github.com/trueadm) və React komandasının digər üzləri tərəfindən təmizləndi.

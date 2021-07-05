@@ -22,7 +22,11 @@ React-in əsas xüsusiyyəti komponentlərin kompozisiyasıdır. Fərqli insanla
 
 Məsələn, komponentə, ona bağlı olan komponentlərdən heç birini dəyişdirmədən bir növ lokal state əlavə etmək mümkün olmalıdır. Həmçinin, zəruri hallarda hər hansı bir komponentə inisializasiya və sökmə kodunu əlavə etmək də mümkün olmalıdır.
 
+<<<<<<< HEAD
 Komponentlərdə state və ya lifecycle metodlarının istifadəsi ilə bağlı "pis" bir şey yoxdur. Hər hansı bir güclü xüsusiyyət kimi, bunlar ehtiyatla istifadə edilməlidirlər. Bu xüsusiyyətləri aradan qaldırmaq niyyətimiz yoxdur. Əksinə, biz bu funsksiyaların React-i faydalı edən əsas mexanizmlərdən biri olduğunu düşünürük. Gələcəkdə [daha çox funksional proqramlaşdırma patternlərini](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) əlavə edə bilərik, lakin həm lokal state, həm də lifecycle metodları bu modelin bir hissəsi olacaqdır.
+=======
+There is nothing "bad" about using state or lifecycle methods in components. Like any powerful feature, they should be used in moderation, but we have no intention to remove them. On the contrary, we think they are integral parts of what makes React useful. We might enable [more functional patterns](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State) in the future, but both local state and lifecycle methods will be a part of that model.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Komponentlər tez-tez "sadə funksiyalar" kimi təsvir olunurlar, lakin fikrimizcə, faydalı olmaq üçün daha artığı olmalıdırlar. React-də komponentlər kompozisiya etmə davranışını təsvir edirlər və buna render etmə, lifecycle və state daxildir. [Relay](https://facebook.github.io/relay/) kimi bəzi xarici kitabxanalar komponentlərə məlumat asılılığını izah etmək kimi digər vəzifələr əlavə edirlər. Bu fikirlərin bir və ya digər şəkildə React-ə düşə biləcəyi mümkündür.
 
@@ -92,7 +96,11 @@ Kollektivdə React-in "Planlaşdırıcı" adlandırılması lazım olduğuna dai
 
 Yaxşı təkmilləşdirmə təcrübəsi təmin etmək bizim üçün vacibdir.
 
+<<<<<<< HEAD
 Məsələn, dəstəklədiyimiz [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools) brauzer genişlənməsindən istifadə edərək Chrome və Firefox-da React komponentləri ağacını görə bilərsiniz. Tez-tez eşidirik ki, bu həm Facebook mühəndislərinin, həm də cəmiyyətin işini yaxşılaşdırır.
+=======
+For example, we maintain [React DevTools](https://github.com/facebook/react/tree/main/packages/react-devtools) which let you inspect the React component tree in Chrome and Firefox. We have heard that it brings a big productivity boost both to the Facebook engineers and to the community.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Əlavə olaraq, biz proqramçılar üçün faydalı xəbərdarlıqlar verməyə çalışırıq. Məsələn, təqləri brauzer üçün anlaşılmaz şəkildə yerləşdirsəniz və ya API-da yazılım xətası etsəniz, React bunun xəbərdarlığını edir. Xəbərdarlıqlar və əlaqəli yoxlamalar React-in təkmilləşdirmə versiyasının produksiyasından daha yavaş olması səbəbidir.
 

@@ -159,7 +159,11 @@ JSX-i sınamağın ən tez yolu səhifəyə `<script>` təqi əlavə etməkdir:
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
+<<<<<<< HEAD
 İndi, `type="text/babel"` atributunu `<script>` təqlərinə əlavə edərək JSX-dən istifadə edə bilərsiniz. [JSX işlədilən HTML faylını](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) yükləyib JSX-i yoxlaya bilərsiniz.
+=======
+Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. Here is [an example HTML file with JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) that you can download and play with.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Öyrənmək və ya sadə demolar yaratmaq üçün bu yol normaldır. Lakin, JSX-i bu formada işlətdikdə veb səhifəsi yavaşlayır və **səhifə produksiya üçün əlverişli olmur**. İrəli getmək üçün hazır olduqda eyni əlavə edilən `<script>` təqini və `type="text/babel"` atributlarını silin. Sonrakı bölmədə JSX preprosessorundan istifadə edərək bütün `<script>` təqlərini avtomatik olaraq JavaScript-ə çevirəcəyik.
 
