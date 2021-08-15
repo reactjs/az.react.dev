@@ -16,9 +16,18 @@ next: concurrent-mode-suspense.html
 
 >Xəbərdarlıq:
 >
+<<<<<<< HEAD
 >Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
 >Bu sənədlər erkən yoxlamaq istəyən və maraqlanan proqramçılar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil.
+=======
+>This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>
+>Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
+) for the up-to-date information.**
+>
+>Before React 18 is released, we will replace this page with stable documentation.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 </div>
 
@@ -37,7 +46,11 @@ Bu xüsusiyyətlər hələ də eksperimentaldır və dəyişə bilərlər. Bunla
 
 ## Bloklama ilə Kəsilə Bilən Render Etmənin Müqayisəsi {#blocking-vs-interruptible-rendering}
 
+<<<<<<< HEAD
 **Konkurrent Rejimi izah etmək üçün versiya nəzarəti sistemini metafora kimi istifadə edəcəyik.** Əgər komandada işləyirsinizsə, böyük ehtimal Git kimi versiya nəzarət sistemindən və budaqlardan istifadə edirsiniz və budaqlardan istifadə edirsiniz. İşlədiyiniz budaq hazır olduqda, işinizi əsas budağa (master) birləşdirə bilərsiniz və digər proqramçılar bunu pull edə bilərlər.
+=======
+**To explain Concurrent Mode, we'll use version control as a metaphor.** If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into main so that other people can pull it.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Versiya nəzarəti sisteminin mövcudluğundan əvvəl, işləmə axını çox fərqli idi. Budaq anlayışı yox idi. Bəzi sənədləri redaktə etmək istədiyinizdə, hər kəsə işinizi qurtarana qədər həmin sənədlərə toxunmamasını deməliydiniz. Bir faylda digər proqramçı ilə eyni vaxtda işləmək mümkün deyildi və sözün əsl mənasında siz digər proqramçıların işini **bloklayırdınız**.
 
@@ -61,7 +74,11 @@ Konkurrent Rejimi üsulu UI-da debounce və throttle etmə ehtiyacını azaldır
 
 ### Qəsdən Yükləmə Ardıcıllığı {#intentional-loading-sequences}
 
+<<<<<<< HEAD
 Bundan əvvəl dedik ki, Konkurrent Rejimi, "budaq üzərində" işləməyə bənzəyir. Budaqlar yalnız qısamüddətli düzəlişlər üçün deyil, həm də uzun müddət icra olunan xüsusiyyətlər üçün də faydalıdır. Bəzən işlənilən xüsusiyyətin “kifayət qədər yaxşı vəziyyətdə” olub master budağına merge edilməsi bir neçə həftə çəkə bilər. Versiya nəzarət sistemi metaforamızın bu tərəfi də render etməyə aiddir.
+=======
+We've said before that Concurrent Mode is like React working "on a branch". Branches are useful not only for short-term fixes, but also for long-running features. Sometimes you might work on a feature, but it could take weeks before it's in a "good enough state" to merge into main. This side of our version control metaphor applies to rendering too.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Bir applikasiyada iki ekran arasında naviqasiya etdiyimizi düşünün. Bəzən yeni ekranda istifadəçiyə "kifayət qədər yaxşı" yükləmə vəziyyətini göstərmək üçün yetərincə yüklənmiş kod və məlumat olmaya bilər. Boş ekrana və ya böyük yükləmə göstəricisinə keçid çaşdırıcı ola bilər. Bununla yanaşı, çox vaxt lazımlı kodun və məlumatların yüklənməsi uzun çəkmir. **React köhnə ekranda bir az daha uzun qala bilsə və yeni ekranı nümayiş etdirmədən əvvəl "pis yükləmə vəziyyətini" "atsa", daha yaxşı olmazmı?**
 

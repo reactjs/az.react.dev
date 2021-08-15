@@ -84,7 +84,11 @@ UI-ı interaktiv etmək üçün məlumat modelində dəyişikliklər edə bilmə
 
 Applikasiyanı düzgün qurmaq üçün ilk öncə applikasiyaya lazım olan dəyişən state-i müəyyənləşdirmək lazımdır. Burada ən vacib məqam [DRY-dır: *Özünüzü Yenidən Təkrarlamayın (Don't Repeat Yourself)*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Applikasiyaya lazım olan ən minimum state-i tapıb qalan bütün dəyərli lazım olduqda hesablayın. Məsələn, əgər TODO siyahısı düzəldirsinizsə, TODO elementləri olan massivi saxlayın. Lakin, elementlərin sayını ayrıca state-də saxlamayın. TODO elementlərinin sayını bilmək üçün, massivdən sayı götürün.
 
+<<<<<<< HEAD
 Applikasiyada olan bütün məlumatlar haqqında fikirləşək. Bizdə aşağıdaki məlumatlar var:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
   * Məhsulların orijinal siyahısı
   * İstifadəçinin daxil etdiyi axtarış mətni

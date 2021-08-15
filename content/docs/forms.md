@@ -9,7 +9,11 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, gəlin sadə HTML-də yazılmış yalnız ad qəbul edən anketə baxaq:
+=======
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 ```html
 <form>
