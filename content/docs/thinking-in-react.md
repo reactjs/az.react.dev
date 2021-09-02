@@ -39,9 +39,15 @@ UI bölməsinin komponent olduğunu necə müəyyənləşdiririk? Yeni obyekt v�
 
 Bir çox zaman istifadəçiyə JSON məlumatı göndərildiyindən, model düzgün qurulubsa, UI (və nəticədə komponent strukturu) bu modelə rahat map ola biləcək. Bunun səbəbi UI və məlumat modelinin eyni *informasiya arxitekturasından istifadə etməsidir*. Komponentləri məlumat modelinin hissələrinə uyğunlaşdırmaq fikri ilə UI-ı komponentlərə parçalayın.
 
+<<<<<<< HEAD
 ![Komponent sxemi](../images/blog/thinking-in-react-components.png)
 
 Bu sxemdə, applikasiyamızın beş komponentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı kursiv ilə yazmışıq.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   1. **`FilterableProductTable` (narıncı):** bütün nümunə üçün konteynerdir
   2. **`SearchBar` (mavi):** *istifadəçi daxil etməsini* qəbul edir
@@ -84,7 +90,11 @@ UI-ı interaktiv etmək üçün məlumat modelində dəyişikliklər edə bilmə
 
 Applikasiyanı düzgün qurmaq üçün ilk öncə applikasiyaya lazım olan dəyişən state-i müəyyənləşdirmək lazımdır. Burada ən vacib məqam [DRY-dır: *Özünüzü Yenidən Təkrarlamayın (Don't Repeat Yourself)*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Applikasiyaya lazım olan ən minimum state-i tapıb qalan bütün dəyərli lazım olduqda hesablayın. Məsələn, əgər TODO siyahısı düzəldirsinizsə, TODO elementləri olan massivi saxlayın. Lakin, elementlərin sayını ayrıca state-də saxlamayın. TODO elementlərinin sayını bilmək üçün, massivdən sayı götürün.
 
+<<<<<<< HEAD
 Applikasiyada olan bütün məlumatlar haqqında fikirləşək. Bizdə aşağıdaki məlumatlar var:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   * Məhsulların orijinal siyahısı
   * İstifadəçinin daxil etdiyi axtarış mətni
