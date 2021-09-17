@@ -38,7 +38,11 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 React ilə oynamaq istəyirsinizsə, onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Stackblitz-də](https://stackblitz.com/fork/react) sınayın.
 
+<<<<<<< HEAD
 Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
+=======
+If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+>>>>>>> a88b1e1331126287ccf03f2f4ec25ec38513b911
 
 ### React-i Veb Səhifəyə Əlavə Et {#add-react-to-a-website}
 
@@ -115,7 +119,11 @@ React sənədində işlədilən bütün terminlərin icmalı üçün [Lüğətə
 
 Siz həmçinin [@reactjs Twitter hesabını](https://twitter.com/reactjs) izləyə bilərsiniz. Lakin, bloqu oxuyursunuzsa heç bir vacib məlumatı qaçırmayacaqsınız.
 
+<<<<<<< HEAD
 Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/master/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/main/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+>>>>>>> a88b1e1331126287ccf03f2f4ec25ec38513b911
 
 ## Versiyalı Sənədlər {#versioned-documentation}
 
