@@ -207,7 +207,11 @@ Bir qayda kimi, açarları `map()` çağırışının daxilində olan elementlə
 
 ### Qonşular Arasında olan Açarlar Unikal Olmalıdır {#keys-must-only-be-unique-among-siblings}
 
+<<<<<<< HEAD
 Massivdə olan açarlar qonşu elementlər arasında unikal olmalıdır. Lakin, bu açarlar bütün applikasiyada unikal olmamalıdırlar. Biz iki fərqli massivdə eyni açarları istifadə edə bilərik:
+=======
+Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {

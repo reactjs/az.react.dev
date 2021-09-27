@@ -236,7 +236,7 @@ Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -244,7 +244,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Əgər indi siz Square-ə tısinfinianız, brauzerdə "click" yazısı ilə xəbərdarlıq alacaqsınız.
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 >Qeyd
 >
@@ -254,7 +258,7 @@ class Square extends React.Component {
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -262,7 +266,11 @@ class Square extends React.Component {
 >}
 >```
 >
+<<<<<<< HEAD
 >Diqqət edin ki, biz `onClick` propuna *funksiya* göndəririk: `onClick={() => alert('click')}`. React, bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 Sıradakı addımda, biz Square komponentinin tıklandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. Komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
@@ -281,7 +289,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
@@ -525,7 +533,11 @@ Qeydə alin ki, biz `handleClick` funksiyasında mövcud `squares` massivini də
 
 ### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
+<<<<<<< HEAD
 Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişikliklər olan kopiyası ilə əvəz etməkdir.
 
