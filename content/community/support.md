@@ -12,7 +12,11 @@ React-in milyonlarla proqramçıdan ibarət cəmiyyəti var.
 
 Bu səhifədə React ilə bağlı qoşula biləcəyiniz cəmiyyətlər göstərilib. Onlayn və ya canlı öyrənmə materialları üçün bu bölmədəki digər səhifələrə baxın.
 
+<<<<<<< HEAD
 React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
+=======
+Before participating in React's communities, [please read our Code of Conduct](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/) and we expect that all community members adhere to the guidelines within.
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 ## Stack Overflow {#stack-overflow}
 
