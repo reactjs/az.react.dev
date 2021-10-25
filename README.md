@@ -30,12 +30,21 @@ This repo contains the source code and documentation powering [az.reactjs.org](h
 
 ### Guidelines
 
+<<<<<<< HEAD
 The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/az.reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
 
 ### Create a branch
 
 1. `git checkout master` from any folder in your local `az.reactjs.org` repository
 1. `git pull origin master` to ensure you have the latest main code
+=======
+The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/reactjs.org/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
+
+### Create a branch
+
+1. `git checkout main` from any folder in your local `reactjs.org` repository
+1. `git pull origin main` to ensure you have the latest main code
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
 
 ### Make the change
@@ -61,7 +70,12 @@ The documentation is divided into several sections with a different tone and pur
 
 ## Translation
 
+<<<<<<< HEAD
 If you are interested in translating `az.reactjs.org`, please see the current translation efforts at [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
+=======
+If you are interested in translating `reactjs.org`, please see the current translation efforts at [translations.reactjs.org](https://translations.reactjs.org/).
+
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
 If you would like to add a new term or change an existing one please change make you changes to [glossary.md](https://github.com/reactjs/az.reactjs.org/blob/master/glossary.md) file in the repository and make a PR. In this documentation, all the terms are consistent across the documentation; so, when making a PR, let us know the decision behind the change.
 
