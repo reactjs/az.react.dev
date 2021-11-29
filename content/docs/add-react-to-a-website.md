@@ -123,7 +123,11 @@ Veb səhifəni produksiyaya yerləşdirmədən öncə, minifikasiya olunmamış 
 
 ## Fakultativ: React-i JSX ilə Sınayın {#optional-try-react-with-jsx}
 
+<<<<<<< HEAD
 Yuxarıdakı numünələrdə, biz yalnız brauzerlərdə nativ dəstəklənən xüsusiyyətlərdən istifadə etdik. Bu səbəbdən React-in render etməsi üçün funksiya çağırışından istifadə etdik:
+=======
+In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
+>>>>>>> 0057efa12c1aa2271ef80d7a84d622732bdfa85c
 
 ```js
 const e = React.createElement;
@@ -149,7 +153,11 @@ return (
 
 Göstərilən kod parçaları eynidir. **JSX-in [tam fakultativ olmasına baxmayaraq](/docs/react-without-jsx.html)** bir çox adam React və digər kitabxanalar ilə UI kodu yazdıqda JSX-i faydalı görürlər.
 
+<<<<<<< HEAD
 [Bu onlayn konverterdən](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3) JSX-i qurdalaya bilərsiniz.
+=======
+You can play with JSX using [this online converter](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.15.7).
+>>>>>>> 0057efa12c1aa2271ef80d7a84d622732bdfa85c
 
 ### JSX-i Tez Sına {#quickly-try-jsx}
 
@@ -159,7 +167,11 @@ JSX-i sınamağın ən tez yolu səhifəyə `<script>` təqi əlavə etməkdir:
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
+<<<<<<< HEAD
 İndi, `type="text/babel"` atributunu `<script>` təqlərinə əlavə edərək JSX-dən istifadə edə bilərsiniz. [JSX işlədilən HTML faylını](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) yükləyib JSX-i yoxlaya bilərsiniz.
+=======
+Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. Here is [an example HTML file with JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) that you can download and play with.
+>>>>>>> 0057efa12c1aa2271ef80d7a84d622732bdfa85c
 
 Öyrənmək və ya sadə demolar yaratmaq üçün bu yol normaldır. Lakin, JSX-i bu formada işlətdikdə veb səhifəsi yavaşlayır və **səhifə produksiya üçün əlverişli olmur**. İrəli getmək üçün hazır olduqda eyni əlavə edilən `<script>` təqini və `type="text/babel"` atributlarını silin. Sonrakı bölmədə JSX preprosessorundan istifadə edərək bütün `<script>` təqlərini avtomatik olaraq JavaScript-ə çevirəcəyik.
 
