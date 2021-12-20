@@ -16,9 +16,18 @@ prev: concurrent-mode-adoption.html
 
 >Xəbərdarlıq:
 >
+<<<<<<< HEAD
 >Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
 >Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil.
+=======
+>This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>
+>Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
+) for the up-to-date information.**
+>
+>Before React 18 is released, we will replace this page with stable documentation.
+>>>>>>> 0cddca13ddebb3ed19c1124723e10d006a5457fc
 
 </div>
 
@@ -59,7 +68,11 @@ Konkurrent Rejimi haqqında əlavə məlumat üçün [Konkurrent Rejimi sənədl
 
 `Suspense`, komponentlərin render olunmamışdan öncə "gözləməsinə" imkan yaradır və gözləmə zamanı fallback göstərir.
 
+<<<<<<< HEAD
 Bu nümunədə `ProfileDetails` komponenti məlumat yükləyən asinxron API sorğusunun cavabını gözləyir. `ProfileDetails` və `ProfilePhoto` komponentlərinin gözləndiyi müddətdə `Yüklənir...` fallback-i göstəriləcək. Nəzərinizə çatdırmaq istəyirik ki, `<Suspense>`-in daxilində olan bütün komponentlər yüklənməyənə kimi fallback göstəriləcək.
+=======
+In this example, `ProfileDetails` is waiting for an asynchronous API call to fetch some data. While we wait for `ProfileDetails` and `ProfilePhoto`, we will show the `Loading...` fallback instead. It is important to note that until all children inside `<Suspense>` have loaded, we will continue to show the fallback.
+>>>>>>> 0cddca13ddebb3ed19c1124723e10d006a5457fc
 
 `Suspense` komponenti iki prop qəbul edir:
 * **fallback** propu yükləmə göstərici üçündürdür. Bu fallback, `Suspense` komponentinin bütün uşaqları yüklənənə kimi göstərilir.

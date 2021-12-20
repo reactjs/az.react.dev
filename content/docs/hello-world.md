@@ -39,7 +39,11 @@ React bir Javascript kitabxanısıdır. Bu səbəbdən sizin Javascript programl
 
 >Qeyd
 >
+<<<<<<< HEAD
 >Təlimatda zaman zaman Javascript-in yeni sintaksisindən istifadə olunur. Əgər spon illərdə Javascript ilə işləməmisinizsə, [bu üç nöqtə](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) sənədlərin böyük hissəsini anlamağınıza yardım edəcək.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>>>>>>> 0cddca13ddebb3ed19c1124723e10d006a5457fc
 
 ## Gəlin başlayaq! {#lets-get-started}
 

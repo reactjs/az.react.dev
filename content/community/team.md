@@ -46,6 +46,14 @@ Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. 
 
 Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o, React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə məşqul olmaq istəyir.
 
+### Marco Salazar {#marco-salazar}
+
+![Marco](../images/team/salazarm.jpeg)
+
+[@salazarm on GitHub](https://github.com/salazarm) &middot; [@BkOptimism on Twitter](https://twitter.com/BkOptimism)
+
+Marco's first programming language was Assembly because he could use it to hack video games. Now online games are much more secure so he settles for playing fairly (mostly). In his spare time he plays games on his treadmill desk and makes art that he never finishes. Hopefully his PRs don't have the same fate.
+
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
