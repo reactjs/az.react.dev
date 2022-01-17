@@ -29,20 +29,30 @@ React-dəkindən bir az fərqlidir:
 </button>
 ```
 
+<<<<<<< HEAD
 Başqa bir fərq ondan ibarətdir ki, React-də `false` qaytarmaqla default davranışın qarşısını almaq olmur. Bunu etmək üçün `preventDefault` açıq şəkildə çağırılmalıdır. Məsələn, sadə HTML ilə linkin ilkin davranışını (yeni səhifə açmaq) ləğv etmək üçün belə yaza bilərsiniz:
 
 ```html
 <a href="#" onclick="console.log('Linkə tıklandı.'); return false">
   Mənə tıkla
 </a>
+=======
+Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
+
+```html
+<form onsubmit="console.log('You clicked submit.'); return false">
+  <button type="submit">Submit</button>
+</form>
+>>>>>>> b9c33a05520ddc728f15c4eb19a343213309f59f
 ```
 
 React-də bunu belə yazmaq olar:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     console.log('Linkə tıklandı.');
   }
 
@@ -50,6 +60,15 @@ function ActionLink() {
     <a href="#" onClick={handleClick}>
       Mənə tıkla
     </a>
+=======
+    console.log('You clicked submit.');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+>>>>>>> b9c33a05520ddc728f15c4eb19a343213309f59f
   );
 }
 ```
@@ -71,8 +90,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
