@@ -141,7 +141,11 @@ Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əla
 
 > Qeyd:
 >
+<<<<<<< HEAD
 > `mockComponent()` köhnə API-dır. Biz [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyə edirik.
+=======
+> `mockComponent()` is a legacy API. We recommend using [`jest.mock()`](https://jestjs.io/docs/tutorial-react-native#mock-native-modules-using-jestmock) instead.
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 * * *
 
