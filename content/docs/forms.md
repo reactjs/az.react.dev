@@ -9,7 +9,11 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, gəlin sadə HTML-də yazılmış yalnız ad qəbul edən anketə baxaq:
+=======
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 ```html
 <form>
@@ -270,7 +274,11 @@ this.setState(partialState);
 
 ## Null Dəyərli Daxil Olmanın İdarəsi {#controlled-input-null-value}
 
+<<<<<<< HEAD
 [Kontrol olunan komponentin](/docs/forms.html#controlled-components) `value` propunu təyin etdikdə istifadəçinin anket sahəsini dəyişməsini idarə edə bilərsiniz. Əgər `value` təyin edildiyindən asılı olmayaraq anket sahəsinin dəyəri dəyişə bilirsə, siz istəmədən `value`-nu `undefined` və `null` ilə təyin etmiş ola bilərsiniz.
+=======
+Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 Aşağıdaki kod bu problemi göstərir. (Anket sahəsi ilkin olaraq dəyişə bilmir amma bir zamandan sonra dəyişə bilir.)
 
