@@ -324,7 +324,11 @@ React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət 
 
 Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, `celsiusValue` və `fahrenheitValue` dəyərlərini state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və bölgüsünü `temperature` və `scale`-də saxlaya bilirik. Digər sahənin dəyəri `render()` funksiyasında, cari dəyərin əsasında hesablana bilər. Bu yanaşma, dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
 
+<<<<<<< HEAD
 UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react/tree/master/packages/react-devtools) istifadə edə bilərsiniz. Bu alətlər, baqların mənbəyini tapmağa imkan yaradır:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> 71cc6be6182418dec43b72f2a9ef464619cb7025
 
 <img src="../images/docs/react-devtools-state.gif" alt="React Proqramçı Alətlərində State-in Yoxlanması" max-width="100%" height="100%">
 
