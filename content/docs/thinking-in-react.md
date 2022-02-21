@@ -39,9 +39,15 @@ UI bölməsinin komponent olduğunu necə müəyyənləşdiririk? Yeni obyekt v�
 
 Bir çox zaman istifadəçiyə JSON məlumatı göndərildiyindən, model düzgün qurulubsa, UI (və nəticədə komponent strukturu) bu modelə rahat map ola biləcək. Bunun səbəbi UI və məlumat modelinin eyni *informasiya arxitekturasından istifadə etməsidir*. Komponentləri məlumat modelinin hissələrinə uyğunlaşdırmaq fikri ilə UI-ı komponentlərə parçalayın.
 
+<<<<<<< HEAD
 ![Komponent sxemi](../images/blog/thinking-in-react-components.png)
 
 Bu sxemdə, applikasiyamızın beş komponentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı kursiv ilə yazmışıq.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
   1. **`FilterableProductTable` (narıncı):** bütün nümunə üçün konteynerdir
   2. **`SearchBar` (mavi):** *istifadəçi daxil etməsini* qəbul edir
@@ -72,7 +78,11 @@ Siz komponentləri aşağıdan yuxarı və ya yuxarıdan aşağı formada düzə
 
 Bu addımın sondunda, məlumat modelini render edən və yenidən istifadə edilə bilən komponentlər kitabxanamız olacaq. Applikasiyanın statik versiyası olduğundan, komponentlərin yalnız `render()` funksiyaları olacaq. İyerarxiyada üstdə olan `FilterableProductTable` komponenti, məlumat modelini prop kimi qəbul edəcək. Əgər siz məlumat modelini dəyişib `ReactDOM.render()` funksiyasını yenidən çağırsanız, UI yenilənəcək. UI-ın necə yeniləndiyini görüb harada dəyişikliklərin lazım olduğunu görə biləcəksiniz. React-in **bir tərəfli məlumat axını** (həmçinin *bir tərəfli binding* adlanır) hər şeyin modulyar və tez olmasına imkan yaradır.
 
+<<<<<<< HEAD
 Bu addımı icra etmək üçün komək lazımdırsa [React sənədlərinə](/docs/) baxın.
+=======
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
 ### Qısa İnterlyud: Props və ya State {#a-brief-interlude-props-vs-state}
 
@@ -84,7 +94,11 @@ UI-ı interaktiv etmək üçün məlumat modelində dəyişikliklər edə bilmə
 
 Applikasiyanı düzgün qurmaq üçün ilk öncə applikasiyaya lazım olan dəyişən state-i müəyyənləşdirmək lazımdır. Burada ən vacib məqam [DRY-dır: *Özünüzü Yenidən Təkrarlamayın (Don't Repeat Yourself)*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Applikasiyaya lazım olan ən minimum state-i tapıb qalan bütün dəyərli lazım olduqda hesablayın. Məsələn, əgər TODO siyahısı düzəldirsinizsə, TODO elementləri olan massivi saxlayın. Lakin, elementlərin sayını ayrıca state-də saxlamayın. TODO elementlərinin sayını bilmək üçün, massivdən sayı götürün.
 
+<<<<<<< HEAD
 Applikasiyada olan bütün məlumatlar haqqında fikirləşək. Bizdə aşağıdaki məlumatlar var:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
   * Məhsulların orijinal siyahısı
   * İstifadəçinin daxil etdiyi axtarış mətni
@@ -137,7 +151,11 @@ Biz iyerarxiyada aşağı axını olan proplar və state-in əsasında render ed
 
 React, proqramın necə işlədiyini aydın etmək üçün üçün bu məlumat axının açıq göstərir. Bu səbəbdən, standart iki-tərəfli məlumat axını ilə müqayisədə daha çox kod yazılmalıdır.
 
+<<<<<<< HEAD
 Əgər anket sahəsinə yazı yazdıqda və ya çekboksu çek etdikdə, daxil etdiyiniz dəyərlər sayılmayacaq. Səbəb, `input` elementinin `value` propunun həmişə `FilterableProductTable` komponentindən göndərilən `state`-ə bərabər olmasıdır.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
 Gəlin nə baş verəcəyi haqqda fikirləşək. İstifadəçi anket sahələrini yenilədikdə, yeni dəyərlər state-də əks olunmalıdır. Komponentlər yalnız öz state-lərini yeniləməlidir. Bu səbəbdən, `FilterableProductTable` komponenti `SearchBar` komponentinə state-i yenilənməsi üçün callback-lər göndərəcək. Biz anket sahələrinin `onChange` hadisəsindən istifadə edərək dəyişiklikləri əks etdirə bilərik. `FilterableProductTable` tərəfindən göndərilən callback-lər `setState()` funksiyasını çağırıb applikasiyanı yeniləyəcəklər.
 
