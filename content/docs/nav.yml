@@ -132,6 +132,7 @@
     - id: testing-recipes
       title: Test Etmə Reseptləri
     - id: testing-environments
+<<<<<<< HEAD
       title: Test Etmə Mühitləri
 - title: Konkurrent Rejimi (Eksperimental)
   isOrdered: true
@@ -147,6 +148,10 @@
     - id: concurrent-mode-reference
       title: Konkurrent Rejiminin API Arayışı
 - title: İştirak Etmək
+=======
+      title: Testing Environments
+- title: Contributing
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
   items:
   - id: how-to-contribute
     title: Necə İştirak Etmək
