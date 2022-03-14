@@ -176,22 +176,34 @@ Applikasiyanızda harada kod parçalaması etmək biraz çaşdırıcı ola bilə
 
 Yaxşı başlanğıc nöqtəsi route-lardan bölməni aparmaqdır. Bir çox insan vebdə səhifə keçidlərinin yüklənməsinin zaman aldığına vərdiş ediblər. Bu zaman siz həmçinin bütün səhifəni dərhal yenidən render edirsiniz deyə istifadəçilər eyni zamanda səhifədəki başqa elementlərə qarşılıqlı təsir etmirlər.
 
+<<<<<<< HEAD
 Aşağıdakı nümunədə [React Router](https://reacttraining.com/react-router/) və `React.lazy`-dən istifadə edərək applikasiya kodunu route əsasında parçalanması göstərilib.
+=======
+Here's an example of how to setup route-based code splitting into your app using libraries like [React Router](https://reactrouter.com/) with `React.lazy`.
+>>>>>>> 7994045415a9066f8663ee5403e874edbb4c5f83
 
 ```js
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
+<<<<<<< HEAD
     <Suspense fallback={<div>Yüklənir...</div>}>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
       </Switch>
+=======
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+>>>>>>> 7994045415a9066f8663ee5403e874edbb4c5f83
     </Suspense>
   </Router>
 );
