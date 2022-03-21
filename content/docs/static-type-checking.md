@@ -321,15 +321,27 @@ declare module 'querystring' {
 
 İndi TypeScript ilə kod yaza bilərsiniz! TypeScript haqqında əlavə məlumat üçün aşağıdakı resurslara baxın:
 
+<<<<<<< HEAD
 * [TypeScript Sənədləri: Əsas Tiplər](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 * [TypeScript Sənədləri: Javascript-dən Miqrasiya](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 * [TypeScript Sənədləri: React və Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+=======
+* [TypeScript Documentation: Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+* [TypeScript Documentation: Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+* [TypeScript Documentation: React and Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
-## Reason {#reason}
+## ReScript {#rescript}
 
+<<<<<<< HEAD
 [Reason](https://reasonml.github.io/) yeni bir dil deyil. Bu, [OCaml](https://ocaml.org/) ilə işləyən yeni sintaksis və toolchain-dir. Reason, OCaml dilini JavaScript proqramçılarının başa düşəcəyi sintaksis ilə təmin edir. Əlavə olaraq, bu alət ilə bildiyimiz mövcud NPM/Yarn iş axınlarından istifadə etmək mümkündür.
 
 Reason, Facebook tərəfindən yaradılıb və Messenger kimi məhsullarda istifdə olunur. Bu alət eksperimentaldır. Lakin, bu alətin Facebook və [canlı cəmiyyət](https://reasonml.github.io/docs/en/community.html) tərəfindən saxlanan [React binding-ləri](https://reasonml.github.io/reason-react/) var.
+=======
+[ReScript](https://rescript-lang.org/) is a typed language that compiles to JavaScript. Some of its core features are  guaranteed 100% type coverage, first-class JSX support and [dedicated React bindings](https://rescript-lang.org/docs/react/latest/introduction) to allow integration in existing JS / TS React codebases.
+
+You can find more infos on integrating ReScript in your existing JS / React codebase [here](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project).
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 ## Kotlin {#kotlin}
 
