@@ -17,9 +17,18 @@ next: concurrent-mode-adoption.html
 
 >Xəbərdarlıq:
 >
+<<<<<<< HEAD
 >Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
 >Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
+=======
+>This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>
+>Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
+) for the up-to-date information.**
+>
+>Before React 18 is released, we will replace this page with stable documentation.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 </div>
 
@@ -49,7 +58,11 @@ Məsələn, bir səhifədən digər səhifəyə keçid etdiyimiz zaman yeni səh
 
 ## Keçidlər {#transitions}
 
+<<<<<<< HEAD
 Gəlin [Məlumat Yüklənməsi üçün Suspense]((/docs/concurrent-mode-suspense.html)) səhifəsindəki [nümunəyə](https://codesandbox.io/s/infallible-feather-xjtbu) yenidən baxaq.
+=======
+Let's revisit [this demo](https://codesandbox.io/s/sparkling-field-41z4r3) from the previous page about [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html).
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Aktiv profaylı dəyişmək üçün "Sonrakı" düyməsini tıkladıqda mövcud səhifənin məlumatları dərhal itir və biz bütün səhifə üçün yükləmə göstəricisini göstərilir. Biz bunu "istənilməz" yükləmə vəziyyəti adlandırırıq. **Yeni səhifəyə keçməmişdən öncə yükləmə göstəricisini göstərməyib bəzi kontentin yüklənməsini gözləmək daha yaxşı istifadəçi təcrübəsi yarada bilər.**
 
@@ -117,15 +130,27 @@ Biz, state yeniliyini `startTransition` funksiyası ilə əhatə edəcəyik. Biz
 >
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/musing-driscoll-6nkie)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/vigilant-feynman-kpjy8w)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 "Sonrakı" düyməsini bir neçə dəfə tıklayın. Bunun fərqli işlədiyinə fikir verin. **Tıklama zamanı dərhal boş ekran görmək əvəzinə cari səhifəni görəcəksiniz.** Məlumat yükləndiyi zaman sonrakı səhifəyə keçid ediləcək.
 
+<<<<<<< HEAD
 API cavabı 5 saniyə çəkdikdə biz React-in gözləmədən əl çəkərək 3 saniyə sonra yeni səhifəyə keçdiyini [görəcəyik](https://codesandbox.io/s/relaxed-greider-suewh). Bunun səbəbi bizim `useTransition()` Hookuna `{timeoutMs: 3000}` obyektini göndərməmizdir. Məsələn, `{timeoutMs: 60000}` obyekti göndərsəydik React, bir dəqiqə gözləyəcəkdi.
+=======
+If we make our API responses take 5 seconds, [we can confirm](https://codesandbox.io/s/heuristic-leftpad-9hit59) that now React "gives up" and transitions anyway to the next screen after 3 seconds. This is because we passed `{timeoutMs: 3000}` to `useTransition()`. For example, if we passed `{timeoutMs: 60000}` instead, it would wait a whole minute.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ### Yükləmə Göstəricini Əlavə Etmək {#adding-a-pending-indicator}
 
+<<<<<<< HEAD
 [Əvvəlki nümunədə](https://codesandbox.io/s/musing-driscoll-6nkie) nəyinsə düzgün işləmədiyini görə bilərsiniz. Əlbəttə ki, "pis" yükləmə vəziyyətinin olmaması yaxşıdır. **Lakin, proqresin olmaması üçün heç bir göstəricinin olmaması lap pisdir!** "Sonrakı" düyməsini tıkladıqda heç nəyin baş verməməsi applikasiyanın sınması hissini verir.
+=======
+There's still something that feels broken about [our last example](https://codesandbox.io/s/vigilant-feynman-kpjy8w). Sure, it's nice not to see a "bad" loading state. **But having no indication of progress at all feels even worse!** When we click "Next", nothing happens and it feels like the app is broken.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 `useTransition()` çağırışı iki dəyər qaytarır: `startTransition` və `isPending`.
 
@@ -155,13 +180,21 @@ return (
 );
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/jovial-lalande-26yep)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/frosty-haslett-ds0h9h)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 İndi daha yaxşı oldu! "Sonrakı" düyməsini tıkladıqda düymənin bir neçə dəfə tıklanmaması üçün bu düyməni deaktivasiya edirik. Yeni "Yüklənir..." yazısı ilə də istifadəçiyə applikasiyanın donmadığını bildiririk.
 
 ### Dəyişiklikləri Nəzərdən Keçirmək {#reviewing-the-changes}
 
+<<<<<<< HEAD
 Gəlin, [orijinal nümunədən](https://codesandbox.io/s/infallible-feather-xjtbu) buraya kimi hansı dəyişikliklərin edildiyini nəzərdən keçirək:
+=======
+Let's take another look at all the changes we've made since the [original example](https://codesandbox.io/s/nice-shadow-zvosx0):
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ```js{3-5,9,11,14,19}
 function App() {
@@ -189,7 +222,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/jovial-lalande-26yep)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/frosty-haslett-ds0h9h)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu keçidi əlavə etmək üçün yalnız yeddi sətir kod əlavə etdik:
 
@@ -210,7 +247,11 @@ Aydındır ki, `<ProfilePage>`-in hər iki "versiyası" eyni zamanda mövcuddur.
 
 Bu Konkurrent Rejiminin əsasıdır. Biz, [əvvəlki bölmədə dediyimiz kimi](/docs/concurrent-mode-intro.html#intentional-loading-sequences) bu, React-in state yeniliyinin fərqli "budaqda" işləməsinə bənzəyir. Bunu fərqli formada konseptuallaşdırmaq üçün `startTransition` ilə əhatə olunmuş state yeniliyinin *"fərqli dünyada"* (elmi fantastika filmlərində olduğu kimi) render edildiyini fikirləşin. Biz, bu dünyanı birbaşa "görə" bilmirik, amma bu dünyada nəyinsə baş verdiyinin siqnalını (`isPending`) ala bilirik. Yenilik hazır olduqda "dünyalar" birləşir və biz nəticəni ekranda görürük!
 
+<<<<<<< HEAD
 Göstərilən [nümunə](https://codesandbox.io/s/jovial-lalande-26yep) ilə oynayıb bunun baş verdiyini təsəvvür edin.
+=======
+Play a bit more with the [demo](https://codesandbox.io/s/frosty-haslett-ds0h9h), and try to imagine it happening.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Əlbəttə ki, kompyuterinizdə bütün proqramların eyni zamanda icra olunmasının illüziya olduğu kimi ağacın hər iki versiyasının *eyni zamanda* render edilməsi də illüziyadır. Əməliyyat sistemi fərqli applikasiyalar arasında çox tez keçidlər edir. Eyni formada, React də ekranda gördüyünüz ağac ilə "hazırlanan" sonrakı ağac arasında keçidlər edir.
 
@@ -248,11 +289,19 @@ function ProfilePage() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/boring-shadow-100tf)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/trusting-brown-6hj0m0)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu nümunədə, biz yükləmə zamanı *və* "Yenidən Yüklə" tıklandığı zaman məlumat yükləməsini başladırıq. Suspense-in altında olan komponentlərin yeni məlumatı oxuya bilmələri üçün `fetchUserAndPosts()` funksiyasının nəticəsini state-də saxlayırıq.
 
+<<<<<<< HEAD
 [Bu nümunədə](https://codesandbox.io/s/boring-shadow-100tf) "Yenidən Yüklə" düyməsinin işlədiyini görürük. `<ProfileDetails>` və `<ProfileTimeline>` komponentləri yeni məlumatı təmsil edən yeni `resource` propunu qəbul edir və nəticə olmadığı zaman "dayandırılırlar" (fallback göstərilir). Cavab yükləndiyi zaman yenilənən yazıları görürük (saxta API bu nəticələri 3 saniyədən bir əlavə edir).
+=======
+We can see in [this example](https://codesandbox.io/s/trusting-brown-6hj0m0) that pressing "Refresh" works. The `<ProfileDetails>` and `<ProfileTimeline>` components receive a new `resource` prop that represents the fresh data, they "suspend" because we don't have a response yet, and we see the fallbacks. When the response loads, we can see the updated posts (our fake API adds them every 3 seconds).
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Lakin, istifadəçi təcrübəsi çox pisdir. Biz səhifəni gəzdiyimiz zaman bu səhifə yükləmə vəziyyətinə dəyişdi (elə bilki bu səhifə ilə interaksiya edirdik). Bu çaşdırıcıdır. **Əvvəki variantlarda olduğu kimi istənilməz yükləmə vəziyyətini görməmək üçün biz state yeniliyini keçid ilə əhatə edəcəyik:**
 
@@ -287,7 +336,11 @@ function ProfilePage() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/sleepy-field-mohzb)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/zealous-mccarthy-fiiwu2)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu daha yaxşı oldu! İndi, "Yenidən Yüklə" düyməsi tıklandıqda səhifədən dəyişmir. Nəyinsə yükləndiyi "sətrdaxili" göstərilir. Yeni məlumatlar yalnız hazır olduqda göstərilir.
 
@@ -327,7 +380,11 @@ function Button({ children, onClick }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/modest-ritchie-iufrh)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/heuristic-cerf-8bo4rk)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 *Hansı* state-in yenilənməsi düymə komponentini maraqlandırmır. Burada `onClick` hadisə işləyicisində baş verə bilən *istənilən* state yenilikləri keçid ilə əhatə olunur. `<Button>` düyməsinda keçidin quraşdırıldığından `<ProfilePage>` komponentində bu keçidləri tətbiq etmək lazım deyil:
 
@@ -353,7 +410,11 @@ function ProfilePage() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/modest-ritchie-iufrh)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/heuristic-cerf-8bo4rk)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Düymə tıklandıqda keçid başlanır və daxilindən `props.onClick()` çağrılır. Bu callback, `<ProfilePage>` komponentində `handleRefreshClick` funksiyasını çağırır. Biz, yeni məlumatı yükləməyə başlayırıq, amma keçidin daxilində olduğumuzdan və `useTransition`-a göndərilən 10 saniyə bitmədiyindən fallback göstərilmir. Keçidin proqresdə olduğundan düymədə sətrdaxili yüklənmə göstəricisi göstərilir.
 
@@ -375,7 +436,11 @@ Skelet vəziyyətinə çatmaq üçün iki əsas yol var. Biz bu iki yol arasınd
 
 ### Sadə: Qayıtmış → Skelet → Tam {#default-receded-skeleton-complete}
 
+<<<<<<< HEAD
 [Bu nümunədə](https://codesandbox.io/s/prod-grass-g1lh5) "Open Profile" düyməsini tıklayın. Siz bir neçə vizual vəziyyətləri bir-bir görəcəksiniz:
+=======
+Open [this example](https://codesandbox.io/s/xenodochial-breeze-khk2fh) and click "Open Profile". You will see several visual states one by one:
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 * **Qayıtmış** (Receded): Çox qısa anlıq `<h1>Loading the app...</h1>` görünüşünü görəcəksiniz.
 * **Skelet:** `<ProfilePage>` komponentini `<h2>Loading posts...</h2>` görünüşü ilə görəcəksiniz.
@@ -466,14 +531,23 @@ Bu (Qayıtmış → Skelet → Tam) standart ssenaridir. Lakin, Qayıtmış vəz
 
 Bu vəziyyətlərin fərqini görmək üçün aşağıdakı nümunələri müqayisə edin:
 
+<<<<<<< HEAD
 * Sadə: [Qayıtmış → Skelet → Tam](https://codesandbox.io/s/prod-grass-g1lh5)
 * **Üstünlük Verilən: [Yükləmə → Skelet → Tam](https://codesandbox.io/s/focused-snow-xbkvl)**
+=======
+* Default: [Receded → Skeleton → Complete](https://codesandbox.io/s/xenodochial-breeze-khk2fh)
+* **Preferred: [Pending → Skeleton → Complete](https://codesandbox.io/s/serene-pascal-w3no1l)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu iki nümunə arasında olan əsas fərq ilk nümunədə sadə `<button>` elementlərinin, ikinci nümunədə isə `useTransition` işlədən `<Button>` komponentlərinin işlədilməsidir.
 
 ### Lazy Xüsusiyyətləri `<Suspense>` ilə Əhatə Edin {#wrap-lazy-features-in-suspense}
 
+<<<<<<< HEAD
 [Bu nümunəni](https://codesandbox.io/s/nameless-butterfly-fkw5q) açın. Düyməni tıkladıqda, irəli getmədən öncə Yükləmə vəziyyətini görəcəksiniz. Bu keçid yaxşı istifadəçi təcrübəsi yaradır.
+=======
+Open [this example](https://codesandbox.io/s/crazy-browser-0tdg6m). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 İndi, profayl səhifəsinə istifadəçi haqqında maraqlı faktların siyahısı xüsusiyyətini əlavə edəcəyik:
 
@@ -505,11 +579,19 @@ function ProfileTrivia({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/focused-mountain-uhkzg)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/agitated-snowflake-m3scjk)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 "Open Profile" düyməsini tıkladıqda nəyinsə düzgün işləmədiyi hiss olunur. Keçidin tamamlanması üçün yeddi saniyə gözləmək lazımdır! Bunun səbəbi bizim trivia API-ımızın yavaş işləməsidir. Fərz edək ki, API-ı tezləşdirmək mümkün deyil. Bu məhdudiyyət ilə istifadəçi təcrübəsini necə yaxşılaşdırmaq olar?
 
+<<<<<<< HEAD
 Yükləmə vəziyyətində çox gözləmək istəmədikdə ilk intuisiya kimi `useTransition`-da `timeoutMs` parametrini kiçik dəyərə (məsələn, `3000`) dəyişməkdir. Bunu [bu nümunədə](https://codesandbox.io/s/practical-kowalevski-kpjg4) yoxlaya bilərsiniz. Bu dəyişiklik ilə uzanan Yükləmə vəziyyətindən qaçmaq mümkündür, amma bizim hələdə göstərə biləcəyimiz faydalı məlumat yoxdur!
+=======
+If we don't want to stay in the Pending state for too long, our first instinct might be to set `timeoutMs` in `useTransition` to something smaller, like `3000`. You can try this [here](https://codesandbox.io/s/nervous-galileo-ln6pbh). This lets us escape the prolonged Pending state, but we still don't have anything useful to show!
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bunu həll etməyin daha sadə yolu var. **Keçidi qısaltmaq əvəzinə yavaş yüklənən komponenti** `<Suspense>` ilə əhatə edərək **keçiddən "ayıra" bilərik**:
 
@@ -529,7 +611,11 @@ function ProfilePage({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/condescending-shape-s6694)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/mutable-silence-wffd1t)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu bizə maraqlı fikir göstərir. React, Skelet vəziyyətinə getməyə üstünlük verir. Hər yerdə uzun vaxtlı keçidlər işlətsək belə, React, Qayıtmış vəziyyətində olmamaq üçün Yükləmə vəziyyətində lazım olandan çox qalmayacaq.
 
@@ -539,7 +625,11 @@ Bu bizə maraqlı fikir göstərir. React, Skelet vəziyyətinə getməyə üst�
 
 Bəzən, sonrakı ekranda olduğumuz zaman fərqli `<Suspense>` sərhədlərini "açan" məlumatlar çox tez aralıqla gəlirlər. Məsələn, iki fərqli sorğu cavabı 1000ms və 1050ms-dən sonra hazır ola bilərlər. Bir saniyə gözlədikdən sonra əlavə 50ms gözləmək heç nəyi dəyişməyəcək. Bu səbəbdən, React, `<Suspense>` sərhədlərini vaxtaşırı gələn "qatar" kimi planlaşdıraraq göstərir. Bu, şablon çirklənmələrini və istifadəçiyə təqdim olunan vizual dəyişiklikləri azaldır.
 
+<<<<<<< HEAD
 Siz, bunun nümunəsinə [bu linkdən](https://codesandbox.io/s/admiring-mendeleev-y54mk) baxa bilərsiniz. "Yazılar" və "maraqlı faktların" cavablarının gəlməsi arasında 100ms fərq var. React, bu cavabları bitişdirərək Suspense sərhədlərini birilikdə "göstərir". 
+=======
+You can see a demo of this [here](https://codesandbox.io/s/ecstatic-sammet-zeddc4). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together. 
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ### Yükləmə Göstəricisini Gecikdirmək {#delaying-a-pending-indicator}
 
@@ -564,7 +654,11 @@ function Button({ children, onClick }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/floral-thunder-iy826)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/jolly-http-n94od0)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu, bəzi işlərin başlandığını istifadəçiyə bildirir. Lakin, keçik qısa olduqda (məsələn, 500ms-dən tez) bu görünüş yayındırıcı ola bilər və keçidin *yavaş* olduğunu bildirə bilər.
 
@@ -598,9 +692,15 @@ return (
 );
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
 Bu dəyişiklik ilə Yükləmə vəziyyətində olmamıza baxmayaraq 500ms keçənə kimi istifadəçiyə heç bir bildiriş etmirik. API cavabları gec gəldikdə bunun xeyiri olmaya bilər. Lakin, API tez olduqda [əvvəlki](https://codesandbox.io/s/thirsty-liskov-1ygph) və [sonrakı](https://codesandbox.io/s/hardcore-http-s18xr) nəticələri müqayisə edin. Kodları dəyişmədiyimizə baxmayaraq "çox tez" yükləmə vəziyyətini gizlədərək diqqəti gecikdirməyə yönləndirməyib hiss olunan performansı artırırıq.
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/optimistic-night-4td1me)**
+
+With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/priceless-water-yw7zw4) and [after](https://codesandbox.io/s/mystifying-noether-tnxftn) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ### Xülasə {#recap}
 
@@ -658,7 +758,11 @@ function Translation({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/brave-villani-ypxvf)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/boring-frost-t5ijqm)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Anket sahəsinə mətn daxil etdikdə `<Translation>` komponenti dayandırılır və yeni nətiələri alana kimi `<p>Yüklənir...</p>` fallback-i göstərilir. Bu ideal deyil. Yeni məlumat yükləndiyi zaman *əvvəlki* tərcüməni görməyimiz daha faydalı ola bilər.
 
@@ -695,7 +799,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/zen-keldysh-rifos)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/wizardly-swirles-476m52)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 İndi, anket sahəsinə nəsə yazın. Nəsə səhv işləyir! Anket sahəsi çox gec yenilənir.
 
@@ -721,7 +829,11 @@ function handleChange(e) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/lively-smoke-fdf93)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/elegant-kalam-dhlrkz)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu dəyişiklik ilə davranış istədiyimiz kimi işləyir. Biz anket sahəsinə dərhal yaza bilirik və tərcümə məlumatları yazdığımız ilə sinxronizə olur.
 
@@ -750,7 +862,11 @@ const deferredValue = useDeferredValue(value, {
 });
 ```
 
+<<<<<<< HEAD
 Bu xüsusiyyəti nümayiş edə bilmək üçün biz [profayl dəyişdirən nümunəsinə](https://codesandbox.io/s/musing-ramanujan-bgw2o) baxacağıq. "Sonrakı" düyməsini tıkladıqda keçidin 1 saniyə çəkdiyinə fikir verin.
+=======
+To demonstrate this feature, we'll use [the profile switcher example](https://codesandbox.io/s/quirky-carson-vs6g0i). Click the "Next" button and notice how it takes 1 second to do a transition.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Fərz etdək ki, istifadəçi detallarının yüklənməsi çox tezdir (məsələn, 300ms). İndiki zamanda bizə həm istifadəçi detallarının, həm də yazıların hazır olması lazım olduğundan biz bir saniyə gözləyirik. Bəs biz istifadəçi detallarını tez göstərmək istəsək nə etməliyik?
 
@@ -786,7 +902,11 @@ function ProfileTimeline({ isStale, resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/vigorous-keller-3ed2b)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/dazzling-fog-o6ovhr)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Burada kompromis, `<ProfileTimeline>` komponentinin digər komponentlərdən fərqli məlumatı göstərməsi və köhnə məlumatı göstərməsinə meylli olmasıdır. "Sonrakı" düyməsini bir neçə dəfə tıklasanız bu davranışı görəcəksiniz. Lakin, bunun sayəsində biz keçid vaxtını 1000ms-dən 300ms-ə düşürə bildik.
 
@@ -817,7 +937,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/pensive-shirley-wkp46)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/runtime-pine-kl2yff)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu nümunədə, **`<MySlowList>`-də olan hər element, sistem tredini (thread) bir neçə millisaniyə yavaşladır**. Biz bunu real applikasiyada heç vaxt etmərik, amma bu nümunə ilə optimallaşması aydın olmayan dərin komponent ağaclarında baş verən yavaşlatmanı simulyasiya edə bilirik.
 
@@ -847,7 +971,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/charming-goldwasser-6kuh4m)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 İndi, daxil etmənin daha az yavaşladığını görəcəyik. Burada kompromis, nəticələrin gec göstərilməsidir.
 
@@ -877,7 +1005,11 @@ function ProfilePage({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/proud-tree-exg5t)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/hardcore-river-14ecuq)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu nümunədə, API çağırışı zamanları qarışdırılıb. Bu səhifəni hər dəfə yenidən yüklədikdə bəzən yazıların birinci gəldiyini, bəzən də "maraqlı faktların" birinci gəldiyini görəcəksiniz.
 
@@ -892,7 +1024,11 @@ Bunu həll etməyin yollarından biri hər iki komponenti bir sərhad ilə əhat
 </Suspense>
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/currying-violet-5jsiy)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/quirky-meadow-w1c61p)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 İndi, hər iki komponentin *hazır olmasını* gözləmək lazımdır. Lakin, *yazılar* birinci hazır olduqda bunu göstərməyi gecikdirmək lazım deyil. Maraqlı faktlar gec yükləndikdə yazıların render olunduğundan şablon aşağı düşməyəcək.
 
@@ -922,11 +1058,19 @@ function ProfilePage({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/black-wind-byilt)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/empty-leaf-lp7eom)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 `revealOrder="forwards"` parametri deməkdir ki, bu siyahının daxilində olan ən yaxın `<Suspense>` nodları **məlumat gəlməsinin sırasından asılı olmayaraq ağacda olduğu kimi göstəriləcək**. `<SuspenseList>` komponentinin digər rejimları da var: parametri `"forwards"` dəyərindən `"backwards"` və ya `"together"` dəyərinə dəyişib nə baş verdiyinə baxın.
 
+<<<<<<< HEAD
 Eyni zamanda yükləmə vəziyyətilərinin sayını `tail` propu ilə idarə edə bilərsiniz. `tail="collapsed"` propu təyin etdikdə eyni zamanda *ən çox bir* fallback göstəriləcək. Siz buna [buradan](https://codesandbox.io/s/adoring-almeida-1zzjh) baxa bilərsiniz.
+=======
+You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at a time. You can play with it [here](https://codesandbox.io/s/keen-leaf-gccxd8).
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 `<SuspenseList>`-in React komponentləri kimi kompozisiya edilə biləcəyini unutmayın. Məsələn, siz bir neçə `<SuspenseList>` sıralarını `<SuspenseList>` cədvəlinə əlavə edərək qrid yarada bilərsiniz.
 

@@ -17,9 +17,18 @@ next: concurrent-mode-patterns.html
 
 >Xəbərdarlıq:
 >
+<<<<<<< HEAD
 >Bu səhifədə **stabil buraxılışlarda [mövcud olmayan](/docs/concurrent-mode-adoption.html) eksperimental xüsusiyyətlərdən danışılır**. Produksiya applikasiyalarında eksperimental qurulmalardan istifadə etməyin. Buradakı xüsusiyyətlər React-in bir hissəsi olana kimi xəbərdarlıq verilmədən əhəmiyyətli dərəcədə dəyişilə bilər.
 >
 >Bu sənədlər erkən yoxlamaq istəyən və maraqlanan insanlar üçün yönəldilib. **Əgər React-ə yeni başlayırsınızsa, burada danışılan xüsusiyyətlərdən narahat olmayın** -- bu xüsusiyyətləri indi öyrənmək lazım deyil. Məsələn, əgər sizə bugün işləyən məlumat yüklənməsi dərsliyi lazımdırsa, [bu məqaləni](https://www.robinwieruch.de/react-hooks-fetch-data/) oxuyun.
+=======
+>This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>
+>Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
+) for the up-to-date information.**
+>
+>Before React 18 is released, we will replace this page with stable documentation.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 </div>
 
@@ -97,7 +106,11 @@ function ProfileTimeline() {
 
 Bu nümayiş tizerdir və hələ ki tam anlaşılmırsa narahat olmayın. Biz, aşağıda bunun necə işlədiyi haqqda danışacağıq. Suspense-in bir *mexanizm* olduğunu və nümunədə olan `fetchProfileData()` və ya `resource.posts.read()` kimi API-ların vacib olmadığını yaddan çıxarmayın. Əgər maraqlanırsınızsa, siz bu funksiyaların təriflərini [sandbox-da](https://codesandbox.io/s/frosty-hermann-bztrp) tapa bilərsiniz.
 
+<<<<<<< HEAD
 Suspense məlumat yüklənməsi kitabxanası deyil. Bu, **məlumat kitabxanalarının** React-ə **komponentin oxuduğu məlumatın hazır olmadığını** bildirməsi üçün **mexanizmdır**. Bu mexanizm zamanı React, komponentlərin hazır olmasını gözləyir və UI-ı cari vəziyyət əsasında yeniləyir. Biz, Facebook-da Relay və bunun [yeni Suspense inteqrasiyasından](https://relay.dev/docs/en/experimental/step-by-step) istifadə edirik. Biz, Apollo kimi digər kitabxanaların da eyni formalı inteqrasiyalar təmin edəcəyini gözləyirik.
+=======
+Suspense is not a data fetching library. It's a **mechanism for data fetching libraries** to communicate to React that *the data a component is reading is not ready yet*. React can then wait for it to be ready and update the UI. At Facebook, we use Relay and its [new Suspense integration](https://relay.dev/docs/getting-started/step-by-step-guide/). We expect that other libraries like Apollo can provide similar integrations.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Biz gələcəkdə Suspense-in komponentlərdən asinxron məlumatları oxumaq üçün (məlumatın haradan gəldiyi vacib deyil) əsas yol olacağına niyyət edirik.
 
@@ -107,7 +120,11 @@ Suspense-in bu problemlər üçün mövcud yanaşmalardan çox fərqləndiyində
 
  * **Bu, məlumat yüklənməsinin tətbiqi deyil.** Bu mexanizm, sizin GraphQL, REST və ya digər məlumat formatı, ötürücüsü və ya protokolu işlətməniz haqqında heç nə fərz etmir.
 
+<<<<<<< HEAD
  * **Bu, klientdə işlətmək üçün hazır deyil.** `fetch` və ya Relay-i Suspense ilə əvəzləmək mümkün deyil. Lakin, Suspense ilə inteqrasiya olmuş kitabxanalardan (məsələn, [Relay-in yeni API-ları](https://relay.dev/docs/en/experimental/api-reference)) istifadə etmək mümkündür.
+=======
+ * **It is not a ready-to-use client.** You can't "replace" `fetch` or Relay with Suspense. But you can use a library that's integrated with Suspense (for example, [new Relay APIs](https://relay.dev/docs/api-reference/relay-environment-provider/)).
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
  * **Bu, məlumat yüklənməsini görünüş təbəqəsinə qoşmur.** Suspense ilə yüklənmə vəziyyətlərini göstərməyin mümkün olduğuna baxmayaraq bu mexanizm şəbəkə məntiqlərini React komponentlərinə bağlamır.
 
@@ -123,7 +140,11 @@ Suspense-in mənası nədir? Buna cavab verməyin bir neçə yolu var:
 
 ## Suspense-in Praktikada İşlədilməsi {#using-suspense-in-practice}
 
+<<<<<<< HEAD
 Biz, Facebook-da yalnız Relay-in Suspense inteqrasiyasını işlətmişik. **Əgər başlamaq üçün praktiki bələdçi axtarırsınızsa, [Relay Sənədlərinə](https://relay.dev/docs/en/experimental/step-by-step) baxın!** Burada, produksiyada yaxşı nəticələr göstərən pattern-lər göstərilib.
+=======
+At Facebook, so far we have only used the Relay integration with Suspense in production. **If you're looking for a practical guide to get started today, [check out the Relay Guide](https://relay.dev/docs/getting-started/step-by-step-guide/)!** It demonstrates patterns that have already worked well for us in production.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 **Bu səhifədəki nümunələrdə Relay əvəzinə "saxta" API tətbiqlərindən istifadə olunur.** Bu, sizin GraphQL ilə tanışlığınız olmadığı hallda sizin bu anlayışları başa düşmənizi asanlaşdırır. Lakin, bu sənəddə Suspense ilə "düzgün" applikasiyanın yazılması haqqında danışılmır. Bu səhifədə daha çox anlayışlardan danışılır və Suspense-in *niyə* müəyyən formada işlədiyi və hansı problemləri həll etdiyi haqqda məlumatlar verilir.
 
@@ -141,7 +162,11 @@ Biz, cəmiyyətin digər kitabxanalar üzərində çoxlu eksperimentlər etməsi
 
 Texniki mümkün olduğuna baxmayaraq Suspense, komponent render edildiyi zaman məlumatın yüklənməsini başlatmaq üçün nəzərdə *tutulmayıb*. Əksinə Suspense ilə komponentlərə *artıq yüklənmiş* məlumatları "gözləməsini" bildirmək mümkündür. **[Konkurrent Rejimi və Suspense ilə Əla İstifadəçi Təcrübələrinin Düzəldilməsi](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) bloq yazısında bunun niyə vacib olduğu və bu pattern-in praktikada tətbiqi haqqında danışılır.**
 
+<<<<<<< HEAD
 Əgər şəlalələrin qabağını kəsmək üçün həlliniz yoxdursa, render etmədən öncə yüklənməni üstün tutan API-lardan istifadə etməyi tövsiyyə edirik. Dəqiq nümunə üçün [Relay Suspense API-ının](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) öncədən yükləməni necə tətbiq etdiyinə baxın. Bizim bu haqqda mesajımız hər zaman dəyişib. Məlumat Yüklənməsi üçün Suspense-in eksperimental olduğundan bizim produksiyada olan istifadədə öyrəndiklərimiz və problem sahəsində anlayışlarımız əsasında tövsiyyələrimizin vaxt ilə dəyişəcəyini gözləyə bilərsiniz.
+=======
+Unless you have a solution that helps prevent waterfalls, we suggest to prefer APIs that favor or enforce fetching before render. For a concrete example, you can look at how [Relay Suspense API](https://relay.dev/docs/api-reference/use-preloaded-query/) enforces preloading. Our messaging about this hasn't been very consistent in the past. Suspense for Data Fetching is still experimental, so you can expect our recommendations to change over time as we learn more from production usage and understand the problem space better.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ## Ənənəvi Yanaşmalar vs Suspense {#traditional-approaches-vs-suspense}
 
@@ -218,7 +243,11 @@ function ProfileTimeline() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/fragrant-glade-8huj6)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/fast-glade-rqnhtt)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu kodu icra edib konsoldakı loqları izlədikdə aşağıdakı ardıcıllığı görəcəksiniz:
 
@@ -293,7 +322,11 @@ function ProfileTimeline({ posts }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/wandering-morning-ev6r0)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/hopeful-lake-loddz9)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu nümunədə, hadisə ardıcıllığı aşağıdakı formada olacaq:
 
@@ -419,7 +452,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-feather-xjtbu)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu yanaşmadan istifadə etdikdə biz **kod və məlumatları eyni zamanda yükləyə bilirik**. Səhifələr arasında naviqasiya etdikdə məlumatı yükləmək üçün səhifənin kodunun yüklənməsini gözləmək lazım deyil. Biz, kod və məlumatları eyni zamanda yükləməyə (link tıklandığı zaman) başladıqda daha yaxşı istifadəçi təcrübəsi təmin edə bilirik.
 
@@ -506,7 +543,11 @@ function ProfileTimeline({ id }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/nervous-glade-b5sel)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/beautiful-mendeleev-qwyxzg)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 `id` dəyişdikdə effektin yenidən icra olunması üçün effekt asılılıqlarını `[]` massivdən `[id]` massivinə dəyişdiyimizə fikir verin. Əks halda, biz yeni məlumatı yükləyə bilməyəcəkdik.
 
@@ -584,7 +625,11 @@ class ProfileTimeline extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/trusting-clarke-8twuq)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/async-wind-9o4ojn)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu kodu oxumaq çox asandır.
 
@@ -644,7 +689,11 @@ function ProfileTimeline({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/infallible-feather-xjtbu)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Əvvəki Suspense nümunəsində yalnız bir `resource` obyekti olduğundan biz bu dəyişəni modula qlobal yerdə saxlayırdıq. İndi bizdə bir neçə resursun olduğundan biz bu obyekti `<App>` komponentinin state-inə köçürdük:
 
@@ -717,7 +766,11 @@ function ProfilePage() {
 }
 ```
 
+<<<<<<< HEAD
 **[CodeSandbox-da sınayın](https://codesandbox.io/s/adoring-goodall-8wbn7)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-rgb-r5vfhs)**
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu sərhəddə həm render etmə xətaları, həm də Suspense məlumat yükləməsi zamanı yaranan xatalar tutulur. Biz, istədiyimiz qədər xəta sərhədi əlavə edə bilərik, amma bu sərhədlərin yenini [niyyətli seçməyi](https://aweary.dev/fault-tolerance-react/) tövsiyyə edirik.
 
@@ -727,10 +780,18 @@ Biz Məlumat Yükləməsi üçün Suspense-in əsaslarını əhatə etdik! Əsas
 
 Suspense ilə bir çox sualı cavablandırırıq, amma bunun ilə yeni suallar da yaranır:
 
+<<<<<<< HEAD
 * Hər hansı bir komponent "dayandırıldıqda" applikasiya donmalıdır? Bunun qarşısını necə almaq olar?
 * Yükləmə göstəricisini komponent ağacının yuxarısından fərqli yerdə göstərmək istədikdə nə etməliyik?
 * Qısa zaman çərçivəsində səhv UI göstərmək *istədikdə* bunu etmək mümkündür?
 * Spinner göstərmək əvəzinə cari ekranı "qaraldan" vizual effekt əlavə edə bilərik?
 * [Ən sonuncu Suspense nümunəsində](https://codesandbox.io/s/infallible-feather-xjtbu) "Sonrakı" düyməsini tıkladıqda niyə xəbərdarlıq göstərilir?
+=======
+* If some component "suspends", does the app freeze? How to avoid this?
+* What if we want to show a spinner in a different place than "above" the component in a tree?
+* If we intentionally *want* to show an inconsistent UI for a small period of time, can we do that?
+* Instead of showing a spinner, can we add a visual effect like "greying out" the current screen?
+* Why does our [last Suspense example](https://codesandbox.io/s/sparkling-field-41z4r3) log a warning when clicking the "Next" button?
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Bu suallara cavab vermək üçün [Konkurrent UI Həlləri](/docs/concurrent-mode-patterns.html) bölməsinə baxın.

@@ -236,7 +236,7 @@ Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -244,7 +244,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Əgər indi siz Square-ə tısinfinianız, brauzerdə "click" yazısı ilə xəbərdarlıq alacaqsınız.
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 >Qeyd
 >
@@ -254,7 +258,7 @@ class Square extends React.Component {
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -262,7 +266,11 @@ class Square extends React.Component {
 >}
 >```
 >
+<<<<<<< HEAD
 >Diqqət edin ki, biz `onClick` propuna *funksiya* göndəririk: `onClick={() => alert('click')}`. React, bu xəbərdarlığın yalnız düymənin klikləndiyi vaxt çıxmasını təmin edir. `() =>`-nu yaddan çıxarıb birbaşa `onClick={alert('click')}` yazmaq tez-tez edilən bir səhvlərdən biridir. Səhv formada yazdıqda, komponentin hər renderindən sonra (məsələn, dəyişiklikdən sonra baş verən yenidən render) xəbərdarlıq göstəriləcək (tıklamaqdan asılı olmayaraq).
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Sıradakı addımda, biz Square komponentinin tıklandığını yadda saxlamaq və "X" işarəsi ilə doldurmaq istəyirik. Komponentlər "yadda saxlamaq" üçün **state-dən** istifadə edirlər.
 
@@ -281,7 +289,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
@@ -452,11 +460,19 @@ class Square extends React.Component {
 
 Square tıklandıqda Board-un təmin etdiyi `onClick` funksiyası çağrılır. Bu prosesin icmalı:
 
+<<<<<<< HEAD
 1. DOM qurulan `<button>` komponentinin `onClick` propu React-ə tıklama hadisəsi üçün hadisə qəbuledicisi qurmasını deyir.
 2. Düymə tıklandığı zaman, React, Square-in `render()` funksiyasında olan `onClick` hadisə işləyicisini çağırır.
 3. Bu hadisə işləyicisi `this.props.onClick()` funksiyasını çağırır. Square-in `onClick` propu Board tərəfindən müəyyənləşdirilib.
 4. Board-un Square-ə `onClick={() => this.handleClick(i)}` göndərməsindən, Square tıklandığında `this.handleClick(i)` funksiyasını çağırır.
 5. Biz `handleClick()` funksiyasını hələ tətbiq etmədiyimizdən bizim kod çökür. Əgər siz indi düyməni tıklasanız, sizdə qırmızı rəngdə xəta səhifəsi "this.handleClick is not a function" formasında çıxacaq.
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 >Qeyd
 >
@@ -525,7 +541,11 @@ Qeydə alin ki, biz `handleClick` funksiyasında mövcud `squares` massivini də
 
 ### Dəyişməzlik Niyə Vacibdir {#why-immutability-is-important}
 
+<<<<<<< HEAD
 Əvvəli kod nümunəsində biz mövcud massivi dəyişmək əvəzinə `.slice()` operatoru ilə `squares` massivinin kopiyasını çıxarmağı tövsiyə etdik. Bu bölmədə biz dəyişməzlik (immutability) və dəyişməzliyi öyrənməyin niyə vacib olduğunu müzakirə edəcəyik.
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Normalda məlumatı iki yol ilə dəyişmək olur. Birinci yanaşma məlumatın dəyərlərini birbaşa dəyişməklə məlumatı *mutasiya etməkdir*. İkinci yanaşma isə mövcud məlumatı dəyişikliklər olan kopiyası ilə əvəz etməkdir.
 
@@ -1047,7 +1067,13 @@ Gəlin Game-in `render funksiyasında `history`-nin üzərindən `map` edək:
 
 **[Bu nöqtəyə kimi olan bütün kod](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 "X O oyununun" tarixində olan bütün gedişlər üçün biz içərisində düymə `<button>` olan siyahı bəndi `<li>` yaradırıq. Düymədə `this.jumpTo()` adlanan funksiyanı çağıran `onClick` işləyicisi var. Biz hələki, `jumpTo` funksiyasını tətbiq etməmişik. İndi, biz oyunda baş vermiş bütün gedişlərin siyahısını və developer alətləri konsolunda aşağıdakı xəbərdarlığı görməliyik:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We are only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 >  Xəbərdarlıq:
 >  Massiv və ya iteratorda hər bir uşağın unikal "key" propu olmalıdır. "Game" komponentinin render funksiyasına baxın.
@@ -1149,11 +1175,21 @@ Sonra, biz `stepNumber`-i yeniləmək üçün Game komponentində `jumpTo` funks
   }
 ```
 
+<<<<<<< HEAD
 Biz həmçinin Game-in `handleClick` funksiyasında kiçik dəyişikliklər edəcəyik.
+=======
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+
+We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Əlavə etdiyimiz `stepNumber` state-i istifadəçiyə gedişi göstərir. Yeni gediş etdikdə isə, biz `stepNumber`-i yeniləmək üçün `stepNumber: history.length`-nu `this.setState` funksiyasının arqumentinin bir hissəsi kimi əlavə etməliyik. Bu biz yeni gediş əlavə etdikdə eyni gedişi göstərməyin qabağını alır.
 
+<<<<<<< HEAD
 Biz həmçinin `this.state.history`-ni oxumağı `this.state.history.slice(0, this.state.stepNumber + 1)` ilə əvəz edəcəyik. Bu, biz keçmişdə olduğumuz zaman hərəkət etdikdə, olduğumuz nöqtədən yeni gedişin əlavə edilməsi və qalan "gələcək" gedişləri tarixinin silinməsini təmin edir.
+=======
+We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ```javascript{2,13}
   handleClick(i) {

@@ -38,7 +38,7 @@ React elementini ana DOM noduna render etmək üçün həm elementi həm də ana
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Bu səhifə "Salam Dünya" göstərəcək.
 
@@ -52,7 +52,7 @@ Aşağıda olan saat misalına baxaq:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback-indən [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasını çağırır.
 
@@ -66,7 +66,11 @@ Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/W
 
 React DOM, DOM-u istənilən vəziyyətə gətirmək üçün elementləri və uşaqları keçmiş versiyaları ilə müqayisə edərək yalnız lazımi DOM yeniliklərini tətbiq edir.
 
+<<<<<<< HEAD
 Siz bunu təsqid etmək üçün [sonuncu misalımızı](codepen://rendering-elements/update-rendered-element) brauzer alətləri ilə yoxlaya bilərsiniz:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ![DOM yoxlayanının yenilikləri göstərməsi](../images/docs/granular-dom-updates.gif)
 
