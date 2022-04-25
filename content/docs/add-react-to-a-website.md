@@ -52,10 +52,17 @@ Biz `<div>` təqinə unikal `id` HTML atributu verdik. Göstərilən ID ilə ele
 ```html{5,6,9}
   <!-- ... digər HTML ... -->
 
+<<<<<<< HEAD
   <!-- React-i Yüklə. -->
   <!-- Qeyd: yerləşdirmə (deployment) zamanı, "development.js"-i "production.min.js" ilə əvəzləyin. -->
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+=======
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
   <!-- React komponentini yüklə. -->
   <script src="like_button.js"></script>
@@ -77,14 +84,24 @@ Bu **[starter kodunu](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f57
 
 **[Starter kodundandan sonra](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** `like_button.js` faylının sonuna iki sətr əlavə edin:
 
+<<<<<<< HEAD
 ```js{3,4}
 // ... Köçürdüyünüz starter kodu ...
+=======
+```js{3,4,5}
+// ... the starter code you pasted ...
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
 ```
 
+<<<<<<< HEAD
 Bu iki sətr kod, HTML-ə əlavə etdiyimiz `<div>` elementini tapacaq və "Like" düyməsi olan React komponentini bu elementin içərisində render edəcək. 
+=======
+These three lines of code find the `<div>` we added to our HTML in the first step, create a React app with it, and then display our "Like" button React component inside of it.
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 ### Hamısı Budur! {#thats-it}
 
@@ -115,15 +132,19 @@ Veb səhifəni produksiyaya yerləşdirmədən öncə, minifikasiya olunmamış 
 Əgər applikasiya skriptlərini minifikasiya edirsinizsə, yüklənmiş HTML-in `production.min.js` ilə bitən React versiyasını yüklədikdə **saytınız produksiya üçün hazır olacaq**:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Əgər skriptlər üçün minifikasiya addımı yoxdursa, [bunu quraşdırmağın yollarından biri buradadır](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 
 ## Fakultativ: React-i JSX ilə Sınayın {#optional-try-react-with-jsx}
 
+<<<<<<< HEAD
 Yuxarıdakı numünələrdə, biz yalnız brauzerlərdə nativ dəstəklənən xüsusiyyətlərdən istifadə etdik. Bu səbəbdən React-in render etməsi üçün funksiya çağırışından istifadə etdik:
+=======
+In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 ```js
 const e = React.createElement;
@@ -149,7 +170,11 @@ return (
 
 Göstərilən kod parçaları eynidir. **JSX-in [tam fakultativ olmasına baxmayaraq](/docs/react-without-jsx.html)** bir çox adam React və digər kitabxanalar ilə UI kodu yazdıqda JSX-i faydalı görürlər.
 
+<<<<<<< HEAD
 [Bu onlayn konverterdən](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3) JSX-i qurdalaya bilərsiniz.
+=======
+You can play with JSX using [this online converter](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.15.7).
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 ### JSX-i Tez Sına {#quickly-try-jsx}
 
@@ -159,7 +184,11 @@ JSX-i sınamağın ən tez yolu səhifəyə `<script>` təqi əlavə etməkdir:
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
+<<<<<<< HEAD
 İndi, `type="text/babel"` atributunu `<script>` təqlərinə əlavə edərək JSX-dən istifadə edə bilərsiniz. [JSX işlədilən HTML faylını](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) yükləyib JSX-i yoxlaya bilərsiniz.
+=======
+Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. Here is [an example HTML file with JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) that you can download and play with.
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 Öyrənmək və ya sadə demolar yaratmaq üçün bu yol normaldır. Lakin, JSX-i bu formada işlətdikdə veb səhifəsi yavaşlayır və **səhifə produksiya üçün əlverişli olmur**. İrəli getmək üçün hazır olduqda eyni əlavə edilən `<script>` təqini və `type="text/babel"` atributlarını silin. Sonrakı bölmədə JSX preprosessorundan istifadə edərək bütün `<script>` təqlərini avtomatik olaraq JavaScript-ə çevirəcəyik.
 

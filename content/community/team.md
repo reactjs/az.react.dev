@@ -46,6 +46,14 @@ Dən proqramlaşdırmanı Microsoft PowerPoint-də Visual Basic yazaraq tapdı. 
 
 Luna oyun düzəltmək üçün proqramlaşdırmanı öyrəndi. Amma oyun düzəltmək əvəzinə Pinterest-in veb applikasiyası üzərində işlədi. İndi isə o, React-in üzərində işləyir. Luna artıq oyun düzəltmək istəmir amma o, cansıxıcılıq olduqda kreativ yazıyazma ilə məşqul olmaq istəyir.
 
+### Marco Salazar {#marco-salazar}
+
+![Marco](../images/team/salazarm.jpeg)
+
+[@salazarm on GitHub](https://github.com/salazarm) &middot; [@BkOptimism on Twitter](https://twitter.com/BkOptimism)
+
+Marco's first programming language was Assembly because he could use it to hack video games. Now online games are much more secure so he settles for playing fairly (mostly). In his spare time he plays games on his treadmill desk and makes art that he never finishes. Hopefully his PRs don't have the same fate.
+
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
@@ -78,7 +86,19 @@ Sebastian universitetdə psixologiya oxuyub. O, adətən çox sakitdir və o nə
 
 Tukson, Arizonada böyüyən Seth, uşaqlıqdan proqramlaşdırma ilə məşquldur. O, Intuit-də işə *başlamamışdan* öncə 10 il musiqiçi kimi tur edib. Seth boş vaxtında [şəkil çəkməyi](https://www.sethwebster.com) və şimal-şərqi Amerikada heyvanları xilas etmək ilə məşquldur
 
+<<<<<<< HEAD
 ## Təşəkkürlər {#acknowledgements}
+=======
+### Xuan Huang {#xuan-huang}
+
+![Xuan](../images/team/huxpro.jpg)
+
+[@huxpro on GitHub](https://github.com/huxpro) &middot; [@huxpro on Twitter](https://twitter.com/huxpro)
+
+Xuan met with programming in childhood to make games in Flash. He did digital media arts in college but eventually got tricked into making compilers, and somehow React needs one. Out of work, he pours terrible latte arts and plays tennis either on or off a table.
+
+## Acknowledgements {#acknowledgements}
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən düzəldilmişdi. Bugün, React-in minlərlə open source töhfə verənləri var. Biz, React və sənədlərinə illərlə töhfələr verən bəzi adamlara çox sağ olumuzu bildirmək istəyirik:
 
@@ -119,4 +139,8 @@ React, ilk olaraq [Cordan Valke](https://github.com/jordwalke) tərəfindən dü
 
 Bu siyahı tam deyil.
 
+<<<<<<< HEAD
 Əlavə olaraq biz [Tom Okçino](https://github.com/tomocchino) və [Adam Volfa](https://github.com/wolffiex) illərlə göstərdikləri dəstəyə görə çox sağ olumuzu bildiririk. Əlavə olaraq biz [React-i digər dillərə](https://isreacttranslatedyet.com/) tərcümə edən bütün könüllülərə çox sağ olumuzu bildiririk.
+=======
+We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://translations.reactjs.org/).
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
