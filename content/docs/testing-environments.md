@@ -55,4 +55,8 @@ Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animas
 
 Biznesiniz üçün kritiki olan uzun axınları (məsələn, registrasiya və ya ödəmələr kimi) test etmək üçün end-to-end testlər faydalıdır. Bu testlərdə applikasiyanın brauzerdə render edilməsi, məlumatların real API-dan yüklənməsi, sessiya və kukilərdən istifadə və linklər arasında naviqasiyalar test edilir. Əlavə olaraq, DOM vəziyyəti üzərində iddialardan əlavə gələn məlumatlar (məsələn, yeniliklərin database-ə yazılmasının yoxlanılması) da test edilir.
 
+<<<<<<< HEAD
 Belə ssenarilər üçün [Cypress](https://www.cypress.io/) kimi freymvorklardan və ya [puppeteer](https://github.com/GoogleChrome/puppeteer) kimi kitabxanalardan istifadə edərək fərqli linklərə naviqasiya edib yalnız brauzer yan effektlərini yox, backend yan effektlərini də test edə bilərsiniz.
+=======
+In this scenario, you would use a framework like [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) or a library like [Puppeteer](https://pptr.dev/) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
