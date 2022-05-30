@@ -215,10 +215,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Əgər komponent bir neçə miksindən istifadə edirsə və bu miksinlər eyni lifecycle funksiyalarını təyin edirsə (məsələn, komponent dağıldığı zaman bir neçə miksin təmizləmə işləri aparmaq istəyirsə) bütün lifecycle funksiyalarının çağırışı qarantiya olunacaq. Miksinlərdə təyin edilən metodlar, miksinlərin massivdə göstərildiyi sıra ilə çağrılacaq. Ən sonda, komponentin lifecycle metodları çağrılacaq.

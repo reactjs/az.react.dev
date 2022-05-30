@@ -226,7 +226,11 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forwardRef` funksiyasını istifadə edərək əhatə edən komponentə [ref-i yönləndirmək](/docs/forwarding-refs.html) məsləhət görülür. Əgər üçüncü tərəf HOC ref-i yonləndirmirsə, yuxarıdakı şablon hələdə alternativ plan kimi istifadə oluna bilər.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 [React-aria-modal](https://github.com/davidtheclark/react-aria-modal) yaxşı fokus idarəçiliyin misalıdır. Bu tam imkanlı modal pəncərəsinin nisbətən nadir misalıdır. Bu, ilkin fokusu, ləğv etmə düyməsinin üzərinə fokuslamasından (klaviatur istifadəçisini təsadüfəni şəkildə uğurlu əməliyyatı aktivləşdirməyin qarşısını alır) və klaviatur fokusunun modalın daxilində tutmasından əlavə, həm də ilkin olaraq modalı açan elementə fokusu qaytarır.
 
@@ -451,7 +455,11 @@ Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tər
 
 [The Accessibility Engine](https://www.deque.com/products/axe/) və ya aXe, `aXe-core`-da qurulmuş imkanlılıq inspektoru brauzer proqram əlavəsidir.
 
+<<<<<<< HEAD
 Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [react-axe](https://github.com/dylanb/react-axe) modulunu istifadə edə bilərsiniz.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 #### WebAIM WAVE {#webaim-wave}
 
