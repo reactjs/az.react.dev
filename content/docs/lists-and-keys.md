@@ -33,13 +33,14 @@ const listItems = numbers.map((number) =>
 );
 ```
 
+<<<<<<< HEAD
 `listItems` massivini `<ul>` elementinə daxil edərək siyahını [DOM-a render edirik](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +65,8 @@ function NumberList(props) {
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
 
 Bu kodu icra etdikdə, siyahı elementlərinin açarları olması haqqında xəbərdarlıq göstəriləcək. Elementlər siyahısı düzəltdikdə, xüsusi mətn atributu olan "key" (açar) atributunu daxil etməlisiniz. Gələcək bölmədə bu atributun əhəmiyyətindən danışacağıq.
@@ -86,12 +85,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -165,12 +158,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 **Nümunə: Açarın Düzgün İstifadəsi**
@@ -193,12 +180,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -207,7 +188,11 @@ Bir qayda kimi, açarları `map()` çağırışının daxilində olan elementlə
 
 ### Qonşular Arasında olan Açarlar Unikal Olmalıdır {#keys-must-only-be-unique-among-siblings}
 
+<<<<<<< HEAD
 Massivdə olan açarlar qonşu elementlər arasında unikal olmalıdır. Lakin, bu açarlar bütün applikasiyada unikal olmamalıdırlar. Biz iki fərqli massivdə eyni açarları istifadə edə bilərik:
+=======
+Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -239,10 +224,9 @@ const posts = [
   {id: 1, title: 'Salam Dünya', content: 'React-i Öyrənməyə Xoş Gəlmisiniz!'},
   {id: 2, title: 'Yükləmə', content: 'npm ilə React-i yükləyə bilərsiniz.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
