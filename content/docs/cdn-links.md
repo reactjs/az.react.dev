@@ -9,18 +9,22 @@ next: release-channels.html
 React və ReactDOM CDN-dən mövcuddur.
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 ```
 
 Yuxarıda göstərilən versiyalar yalnız development üçündür. Bu linkləri produksiyada işlətməyin. React-in minimallaşmış (minify) və produksiya üçün optimallaşmış versiyalarını aşağıdakı linklərdən yükləyə bilərsiniz:
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
+<<<<<<< HEAD
 `react` və `react-dom`-un spesifik versiyalarını yükləmək üçün `17` rəqəmini versiya nömrəsi ilə əvəz edin.
+=======
+To load a specific version of `react` and `react-dom`, replace `18` with the version number.
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 
 ### Niyə `crossorigin` Atributu? {#why-the-crossorigin-attribute}
 
