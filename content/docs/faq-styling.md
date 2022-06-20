@@ -48,4 +48,8 @@ _Nəzərə alın ki, bu funksionallıq React-in bir hissəsi deyil. Bu, üçünc
 
 ### React-də animasiya edə bilərəm? {#can-i-do-animations-in-react}
 
+<<<<<<< HEAD
 React ilə animasiya icra etmək mümkündür. [React Transition Group](https://reactcommunity.org/react-transition-group/), [React Motion](https://github.com/chenglou/react-motion) və ya [React Spring](https://github.com/react-spring/react-spring) kimi kitabxanalara baxın.
+=======
+React can be used to power animations. See [React Transition Group](https://reactcommunity.org/react-transition-group/), [React Motion](https://github.com/chenglou/react-motion), [React Spring](https://github.com/react-spring/react-spring), or [Framer Motion](https://framer.com/motion), for example.
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6

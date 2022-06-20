@@ -31,8 +31,13 @@ function Example() {
 
 >Qeyd
 >
+<<<<<<< HEAD
 >React 16.8.0 versiyası Hookları dəstəkləyən ilk buraxılışdır. Paketləri yenilədiyiniz zaman React DOM daxil olmaqla bütün paketləri yeniləməyi unutmayın.
 >React Native-in [0.59-cu buraxılışından](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) başlayaraq Hooklar dəstəklənir.
+=======
+>React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM.
+>React Native has supported Hooks since [the 0.59 release of React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 ## Video Giriş {#video-introduction}
 
@@ -96,9 +101,15 @@ Bu problemləri həll edə bilmək üçün **Hooklar ilə React xüsusiyyətlər
 
 React proqramçıları üçün məhsulların buraxılışını etmək hər yeni çıxan API-ı öyrənməkdən daha vacibdir. Hookların çox yeni olduğundan nümunələri və dərslikləri gözləmək daha faydalı ola bilər.
 
+<<<<<<< HEAD
 Həmçinin, biz React-ə yeni primitivin əlavə edilməsinin çox böyük dəyişiklik olduğunu bilirik. Maraqlanan oxuyucular üçün biz [detallı RFC](https://github.com/reactjs/rfcs/pull/68) təqdim edirik. Bu RFC-də motivasiyamız haqqında daha detallı danışır və xüsusi dizayn qərarından və buna aid olan resursları paylaşırıq.
 
 **Hooklar ilə mövcud kodu eyni zamanda işlədə bildiyinizdən Hookları yavaş-yavaş adaptasiya edə bilərsiniz.** Hooklara miqrasiya etmək üçün tələsməyin. Biz, "böyük yenidən kod yazılmalarını," xüsusilə də mövcud mürəkkəb siniflərin yenidən yazılmalarını tövsiyə etmirik. "Hooklar ilə fikirləşmək" üçün baxışımızı dəyişməliyik. Bizim təcrübəmiz göstərir ki, Hookları yeni və kritiki olmayan komponentlərdə praktika edərək komandada hamının Hookları işlətməkdə rahat olması ən yaxşı nəticəni verir. Hookları sınadıqdan sonra müsbət və ya mənfi fikirlərinizi [bizə göndərin](https://github.com/facebook/react/issues/new).
+=======
+We also understand that the bar for adding a new primitive to React is extremely high. For curious readers, we have prepared a [detailed RFC](https://github.com/reactjs/rfcs/pull/68) that dives into the motivation with more details, and provides extra perspective on the specific design decisions and related prior art.
+
+**Crucially, Hooks work side-by-side with existing code so you can adopt them gradually.** There is no rush to migrate to Hooks. We recommend avoiding any "big rewrites", especially for existing, complex class components. It takes a bit of a mind shift to start "thinking in Hooks". In our experience, it's best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. After you give Hooks a try, please feel free to [send us feedback](https://github.com/facebook/react/issues/new), positive or negative.
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 Hooklar ilə siniflərdə olan bütün metodları əhatə etmək istəməyimizə baxmayaraq **uzaq gələcəyə kimi sinif komponentlərini dəstəkləmək istəyirik.** Facebook-da bizim siniflər ilə yazılmış on minlərlə komponentlərimiz var və bizim bu komponentləri yenidən yazmağa heç bir planımız yoxdur. Əvəzinə, biz yeni kodları siniflər ilə yanaşı Hooklar ilə yazırıq.
 
