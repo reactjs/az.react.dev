@@ -97,9 +97,13 @@ Sinif *komponentlərindən* Hookları çağırmaq mümkün deyil. Lakin, eyni ko
 
 Bizim məqsədimiz Hooklar ilə siniflərin bütün ssenarilərini əhatə etməkdir. İndiki zamanda `getSnapshotBeforeUpdate`, `getDerivedStateFromError` və `componentDidCatch` lifecycle metodları üçün Hookların heç bir ekvivalenti yoxdur. Lakin, gələcəkdə bu metodları da Hooklar ilə yazmaq mümkün olacaq.
 
+<<<<<<< HEAD
 Hookların hələ ki cavan olduğundan bəzi 3-cü tərəfin kitabxanaları ilə uyğun olmaya bilər.
 
 ### Hooklar render proplarını və yüksək dərəcəli komponentləri əvəzləyir? {#do-hooks-replace-render-props-and-higher-order-components}
+=======
+### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
 Adətən, render proplar və yüksən dərəcəli komponentlər yalnız bir uşaq render edirlər. Belə ssenariləri Hooklar ilə əvəz etmək olar. Hər iki pattern-in öz yeri var (məsələn, virtual skrol edən komponentin `renderItem` propu və ya vizual konteyner komponentinin öz DOM strukturu ola bilər). Lakin, bir çox halda Hookları işlətmək bəs edir. Hookları işlətdikdə ağacdakı elementlərin sayı azalır.
 
@@ -150,7 +154,7 @@ Biz bu komponenti React DOM ilə test edəcəyik. Davranışın brauzer ilə uy�
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -169,7 +173,7 @@ afterEach(() => {
 it('can render and update a counter', () => {
   // Test first render and effect
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
@@ -913,9 +917,13 @@ Nəzərə alın ki, applikasiya *state-ini* proplar (daha açıq formada) və ya
 
 >Qeyd
 >
+<<<<<<< HEAD
 >Biz, fərdi callback-ləri proplar ilə göndərmək əvəzinə [`dispatch` funksiyasını kontekst ilə göndərməyi](#how-to-avoid-passing-callbacks-down) tövsiyə edirik. Aşağıdakı yanaşma bütünlük və çıxış yolu məqsədi ilə göstərilib.
 >
 >Əlavə olaraq, bu pattern-in [konkurrent modunda](/blog/2018/03/27/update-on-async-rendering.html) problemlər yarada biləcəyini unutmayın. Biz, gələcəkdə daha erqonomik alternativlər təmin etməyi planlayırıq. Lakin, indiki zamanda callback-in dəyəri dəyişdikdə callback-i yeniləmək ən təhlükəsiz yoldur.
+=======
+>We recommend to [pass `dispatch` down in context](#how-to-avoid-passing-callbacks-down) rather than individual callbacks in props. The approach below is only mentioned here for completeness and as an escape hatch.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
 Bəzi nadir ssenarilərdə callback-i [`useCallback`](/docs/hooks-reference.html#usecallback) ilə memoizasiya etmək lazım olur. Lakin, daxili funksiyanın tez-tez yenidən yarandığından memoizasiya işləmir. Əgər memoizasiya etdiyiniz funksiya hadisə işləyicisidirsə və render etmə zamanı işlədilmirsə, [ref-i instansiya dəyişəni kimi istifadə edərək](#is-there-something-like-instance-variables) ən son dəyəri bu ref-ə əl ilə yaza bilərsiniz:
 

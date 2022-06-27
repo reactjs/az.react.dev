@@ -87,7 +87,7 @@ Bu komponenti aşağıdakı formada test edə bilərik:
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -106,7 +106,7 @@ afterEach(() => {
 it('counter-i render və yeniləyir', () => {
   // İlk renderi və componentDidMount-u test et
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
@@ -141,7 +141,11 @@ Mok olunmuş komponent modulunu göndərərək komponentə əlavə metodlar əla
 
 > Qeyd:
 >
+<<<<<<< HEAD
 > `mockComponent()` köhnə API-dır. Biz [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) işlətməyi tövsiyə edirik.
+=======
+> `mockComponent()` is a legacy API. We recommend using [`jest.mock()`](https://jestjs.io/docs/tutorial-react-native#mock-native-modules-using-jestmock) instead.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
 * * *
 
@@ -302,7 +306,7 @@ Dokumentdən ayrılmış DOM noduna React elementini render edin. **Bu funksiya 
 
 ```js
 const domContainer = document.createElement('div');
-ReactDOM.render(element, domContainer);
+ReactDOM.createRoot(domContainer).render(element);
 ```
 
 > Qeyd:
