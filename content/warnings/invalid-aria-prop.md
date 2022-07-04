@@ -8,4 +8,8 @@ DOM elementini Web Accessibility Initiative (WAI) Accessible Rich Internet Appli
 
 1. Əgər etibarlı prop işlətdiyinizi fikirləşirsinizsə sözün hərflərlə tələffüzünə diqqət yetirin. Adətən, `aria-labelledby` və `aria-activedescendant` propları səhv tələffüz olunurlar.
 
+<<<<<<< HEAD
 2. Təyin edilən atributu React tanımır. Çox guman ki, bu atribut React-in gələcək versiyalarında əlavə ediləcək. Lakin, hal-hazırda React-in tanımadığı bütün atributlar silinir və render edilmir.
+=======
+2. React does not yet recognize the attribute you specified. This will likely be fixed in a future version of React.
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3

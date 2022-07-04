@@ -231,7 +231,11 @@ Normalda, biz propa dəyərin *göndərilməməsini* tövsiyə etmirik. Çünki,
 
 ### Yayma Atributlar {#spread-attributes}
 
+<<<<<<< HEAD
 `props` obyekt formasında olduqda `...` "yayma" operatorundan istifadə edərək bu obyekti bütünlükdə JSX-ə göndərə bilərsiniz. Aşağıdakı iki komponent əvəz oluna bilər:
+=======
+If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" syntax to pass the whole props object. These two components are equivalent:
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
 
 ```js{7}
 function App1() {
@@ -244,7 +248,11 @@ function App2() {
 }
 ```
 
+<<<<<<< HEAD
 Siz həmçinin komponentin udduğu propları seçib digər propları yayma operatoru ilə göndərə bilərsiniz.
+=======
+You can also pick specific props that your component will consume while passing all other props using the spread syntax.
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
 
 ```js{2}
 const Button = props => {
