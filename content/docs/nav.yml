@@ -92,6 +92,8 @@
           title: React.Component
     - id: react-dom
       title: ReactDOM
+    - id: react-dom-client
+      title: ReactDOMClient
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
@@ -132,6 +134,7 @@
     - id: testing-recipes
       title: Test Etmə Reseptləri
     - id: testing-environments
+<<<<<<< HEAD
       title: Test Etmə Mühitləri
 - title: Konkurrent Rejimi (Eksperimental)
   isOrdered: true
@@ -147,6 +150,10 @@
     - id: concurrent-mode-reference
       title: Konkurrent Rejiminin API Arayışı
 - title: İştirak Etmək
+=======
+      title: Testing Environments
+- title: Contributing
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
   items:
   - id: how-to-contribute
     title: Necə İştirak Etmək

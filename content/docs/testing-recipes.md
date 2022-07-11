@@ -605,7 +605,11 @@ Snapşot işlətmək əvəzinə xüsusi iddialar etmək daha faydalıdır. Bu te
 
 ### Bir Neçə Render Etmə Qurğuları {#multiple-renderers}
 
+<<<<<<< HEAD
 Bəzi nadir hallarda, bir neçə render etmə qurğusundan istifadə edən komponenti render edə bilərsiniz. Məsələn, hər hansı bir kontenti render etmək üçün uşaq komponentdə `ReactDOM.render`-dən istifadə edən komponentdə `react-test-renderer`-dən istifadə edərək snapşot testləri icra edə bilərsiniz. Bu ssenaridə, hər render etmə qurğusuna məxsus `act()` ilə yenilikləri əhatə edə bilərsiniz.
+=======
+In rare cases, you may be running a test on a component that uses multiple renderers. For example, you may be running snapshot tests on a component with `react-test-renderer`, that internally uses `render` from `react-dom` inside a child component to render some content. In this scenario, you can wrap updates with `act()`s corresponding to their renderers.
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";
