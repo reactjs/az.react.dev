@@ -12,7 +12,11 @@ React-in milyonlarla proqramçıdan ibarət cəmiyyəti var.
 
 Bu səhifədə React ilə bağlı qoşula biləcəyiniz cəmiyyətlər göstərilib. Onlayn və ya canlı öyrənmə materialları üçün bu bölmədəki digər səhifələrə baxın.
 
+<<<<<<< HEAD
 React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
+=======
+Before participating in React's communities, [please read our Code of Conduct](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/) and we expect that all community members adhere to the guidelines within.
+>>>>>>> 4808a469fa782cead9802619b0341b27b342e2d3
 
 ## Stack Overflow {#stack-overflow}
 
@@ -24,11 +28,18 @@ Stack Overflow kod ilə bağlı suallar vermək üçün və ya xüsusi xətada i
 
 Hər cəmiyyətdə minlərə React proqramçıları var.
 
+<<<<<<< HEAD
 * [DEV-də React cəmiyyəti](https://dev.to/t/react)
 * [Hashnode-də React cəmiyyəti](https://hashnode.com/n/reactjs)
 * [Reactiflux onlayn çatı](https://discord.gg/reactiflux)
 * [Reddit-da React cəmiyyəti](https://www.reddit.com/r/reactjs/)
 * [Spectrum-da React cəmiyyəti](https://spectrum.chat/react)
+=======
+* [DEV's React community](https://dev.to/t/react)
+* [Hashnode's React community](https://hashnode.com/n/reactjs)
+* [Reactiflux online chat](https://discord.gg/reactiflux)
+* [Reddit's React community](https://www.reddit.com/r/reactjs/)
+>>>>>>> 4808a469fa782cead9802619b0341b27b342e2d3
 
 ## Xəbərlər {#news}
 

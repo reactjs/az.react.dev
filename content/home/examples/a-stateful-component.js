@@ -23,4 +23,8 @@ class Timer extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(<Timer />, document.getElementById('timer-example'));
+=======
+root.render(<Timer />);
+>>>>>>> 4808a469fa782cead9802619b0341b27b342e2d3
