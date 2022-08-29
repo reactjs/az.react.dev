@@ -10,9 +10,15 @@ next: handling-events.html
 
 Bu səhifə React komponentin state və lifecycle anlayışlarını təqdim edir. Ətraflı [komponent API kataloqu bu linkdə yerləşir](/docs/react-component.html).
 
+<<<<<<< HEAD
 [Əvvəlki bölümlərin birindən](/docs/rendering-elements.html#updating-the-rendered-element) işləyən saat nümunəsinə nəzər yetirək. [Elementlərin render edilməsində](/docs/rendering-elements.html#rendering-an-element-into-the-dom) biz UI dəyişməyin bir yolunu öyrəndik &ndash; `ReactDOM.render()` çağırmaqla:
+=======
+Consider the ticking clock example from [one of the previous sections](/docs/rendering-elements.html#updating-the-rendered-element). In [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), we have only learned one way to update the UI. We call `root.render()` to change the rendered output:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
-```js{8-11}
+```js{10}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+  
 function tick() {
   const element = (
     <div>
@@ -20,10 +26,7 @@ function tick() {
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
-  ReactDOM.render(
-    element,
-    document.getElementById('root')
-  );
+  root.render(element);
 }
 
 setInterval(tick, 1000);
@@ -35,7 +38,9 @@ Bu bölümdə isə biz `Clock` komponentini inkapsulyasiya və təkrar istifadə
 
 Bunun üçün əvvəlcə `Clock` komponentinə ayrılıqda nəzər yetirək: 
 
-```js{3-6,12}
+```js{5-8,13}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 function Clock(props) {
   return (
     <div>
@@ -46,10 +51,7 @@ function Clock(props) {
 }
 
 function tick() {
-  ReactDOM.render(
-    <Clock date={new Date()} />,
-    document.getElementById('root')
-  );
+  root.render(<Clock date={new Date()} />);
 }
 
 setInterval(tick, 1000);
@@ -62,10 +64,7 @@ Bu komponentin önəmli çatışmazlığı var. Taymeri quraşdırma və özün�
 Məqsədimiz bu komponenti elə reallaşdırmaqdır ki, komponent özü özünü yeniləməyi bilsin:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Bunu yerinə yetirmək üçün `Clock` komponentinə "state" əlavə etmək lazımdır.
@@ -157,10 +156,7 @@ Sinif komponentləri həmişə baza konstruktoru `props` arqumentini ötürərə
 3) `<Clock />` elementindən `date` prop-unu silək:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Bir qədər sonra taymerin kodunu komponentə geri əlavə edəcəyik.
@@ -184,10 +180,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
@@ -292,10 +286,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
@@ -304,7 +296,11 @@ ReactDOM.render(
 
 Gəlin bir daha hər şeyi təkrarlayaq və metodların çağırıldığı ardıcıllığa nəzər yetirək:
 
+<<<<<<< HEAD
 1) `<Clock />` komponenti `ReactDOM.render()` metoduna ötürüləndə React `Clock` sinfinin konstruktorunu çağırır. Bu komponent cari vaxtı göstərməlidir. Buna görə də `this.state`-i cari vaxt obyekti ilə inisializasiya edir. 
+=======
+1) When `<Clock />` is passed to `root.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 2) Daha sonra React `Clock` komponentinin `render()` metodunu çağırır. Belə React ekranda nə göstərmək lazım olduğunu öyrənir. Bundan da sonra DOM `Clock`-un render nəticəsinə uyğun olaraq yenilənir.
 
@@ -445,11 +441,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
