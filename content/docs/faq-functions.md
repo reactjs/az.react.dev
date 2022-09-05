@@ -37,6 +37,7 @@ class Foo extends Component {
 }
 ```
 
+<<<<<<< HEAD
 #### Sinif Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-stage-3-proposal}
 
 ```jsx
@@ -45,6 +46,15 @@ class Foo extends Component {
   handleClick = () => {
     console.log('Tıklama Hadisəsi Baş Verdi');
   }
+=======
+#### Class Properties (ES2022) {#class-properties-es2022}
+
+```jsx
+class Foo extends Component {
+  handleClick = () => {
+    console.log('Click happened');
+  };
+>>>>>>> 42561f013aa0f6008cd1c5b811d8bacfc66a0779
   render() {
     return <button onClick={this.handleClick}>Tıkla</button>;
   }
