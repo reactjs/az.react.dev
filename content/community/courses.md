@@ -24,7 +24,14 @@ permalink: community/courses.html
 
 - [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - React applikasiyaları düzəltmək üçün 48 videodan ibarət dərslik.
 
+<<<<<<< HEAD
 ## Ödənişli Kurslar {#paid-courses}
+=======
+- [University of Helsinki: Full Stack Open MOOC](https://fullstackopen.com/en/) - Learn to build web applications with React. Available in English, Spanish, Chinese and Finnish.
+
+
+## Paid Courses {#paid-courses}
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - React və digər mövzular üçün qısa və təlimatlı videolar.
 
@@ -44,7 +51,11 @@ permalink: community/courses.html
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - React biliklərinizi yeni səviyyəyə çatdırın.
 
+<<<<<<< HEAD
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
+=======
+- [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis provides access to his courses for a monthly fee. Courses include "React Fundamentals" and "Universal React".
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - React ilə professional interaktiv applikasiyların düzəldilməsi.
 

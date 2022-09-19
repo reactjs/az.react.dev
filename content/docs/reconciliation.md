@@ -45,7 +45,11 @@ Köhnə `Counter` dağıdılır və yeni element mount olunur.
 
 >Qeyd:
 >
+<<<<<<< HEAD
 >Bu metodlar köhnədir və bu funksiyaları yeni kodda [istifadə etməyin](/blog/2018/03/27/update-on-async-rendering.html):
+=======
+>This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 >
 >- `UNSAFE_componentWillMount()`
 
