@@ -47,7 +47,11 @@ Node.js-də Jest kimi icra edicilərdə [modulların mok edilməsi dəstəkləni
 
 ### Taymerlərin mok edilməsi {#mocking-timers}
 
+<<<<<<< HEAD
 Komponentlər `setTimeout`, `setInterval` və ya `Date.now` kimi funksiyalardan istifadə edə bilərlər. Test mühitlərində bu funksiyaları, zamanı əl ilə "qabağa çəkə bilən" əvəzetmələri ilə mok etmək faydalı ola bilər. Bu, testlərin tez işləməsinə imkan yaradır! Taymerlərdən asılı olan testlər eyni çağrılma sırasını qoruyaraq daha tez həll olunacaq [<small>(nümunə)</small>](/docs/testing-recipes.html#timers). [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) və [lolex](https://github.com/sinonjs/lolex) kimi freymvorklar taymerləri mok etməyə imkan yaradır.
+=======
+Components might be using time-based functions like `setTimeout`, `setInterval`, or `Date.now`. In testing environments, it can be helpful to mock these functions out with replacements that let you manually "advance" time. This is great for making sure your tests run fast! Tests that are dependent on timers would still resolve in order, but quicker [<small>(example)</small>](/docs/testing-recipes.html#timers). Most frameworks, including [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/latest/fake-timers) and [lolex](https://github.com/sinonjs/lolex), let you mock timers in your tests.
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
 
 Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animasiyaları və ya vaxta həssas olan (API sürəti məhdudlaşdırıcısı kimi) API nöqtələri ilə interaksiyaları test etikdə taymerlərin mok edilməsi faydasız ola bilər. Taymerləri mok edən kitabxanalar, mokları hər test/test dəsti üçün aktivləşdirməyə və ya ləğv etməyə imkan yaradır. Bu səbəbdən, siz hər testin necə işləyəcəyini idarə edə bilərsiniz.
 
@@ -55,4 +59,8 @@ Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animas
 
 Biznesiniz üçün kritiki olan uzun axınları (məsələn, registrasiya və ya ödəmələr kimi) test etmək üçün end-to-end testlər faydalıdır. Bu testlərdə applikasiyanın brauzerdə render edilməsi, məlumatların real API-dan yüklənməsi, sessiya və kukilərdən istifadə və linklər arasında naviqasiyalar test edilir. Əlavə olaraq, DOM vəziyyəti üzərində iddialardan əlavə gələn məlumatlar (məsələn, yeniliklərin database-ə yazılmasının yoxlanılması) da test edilir.
 
+<<<<<<< HEAD
 Belə ssenarilər üçün [Cypress](https://www.cypress.io/) kimi freymvorklardan və ya [puppeteer](https://github.com/GoogleChrome/puppeteer) kimi kitabxanalardan istifadə edərək fərqli linklərə naviqasiya edib yalnız brauzer yan effektlərini yox, backend yan effektlərini də test edə bilərsiniz.
+=======
+In this scenario, you would use a framework like [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) or a library like [Puppeteer](https://pptr.dev/) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
