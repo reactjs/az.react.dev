@@ -81,11 +81,15 @@ Webpack bu sintaksisi görən kimi sizin applikasiyanızın kodunu avtomatik par
 
 ## `React.lazy` {#reactlazy}
 
+<<<<<<< HEAD
 > Qeyd:
 >
 > `React.lazy` və Suspense, serverdə render etmək üçün hazır deyil. Əgər sizə serverdə render olunan applikasiya üçün kod parçalaması lazımdırsa, biz [Loadable Components](https://github.com/gregberge/loadable-components) işlətməyi tövsiyə edirik. Bunun [server render etməsi üçün yaxşı təlimatı var](https://loadable-components.com/docs/server-side-rendering/).
 
 `React.lazy` funksiyası dinamik import olunmuş komponenti adi komponent kimi render etməyə imkan yaradır.
+=======
+The `React.lazy` function lets you render a dynamic import as a regular component.
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 **Əvvəl:**
 
@@ -145,7 +149,57 @@ function MyComponent() {
 }
 ```
 
+<<<<<<< HEAD
 ### Xəta sərhədləri {#error-boundaries}
+=======
+### Avoiding fallbacks {#avoiding-fallbacks}
+Any component may suspend as a result of rendering, even components that were already shown to the user. In order for screen content to always be consistent, if an already shown component suspends, React has to hide its tree up to the closest `<Suspense>` boundary. However, from the user's perspective, this can be disorienting.
+
+Consider this tab switcher:
+
+```js
+import React, { Suspense } from 'react';
+import Tabs from './Tabs';
+import Glimmer from './Glimmer';
+
+const Comments = React.lazy(() => import('./Comments'));
+const Photos = React.lazy(() => import('./Photos'));
+
+function MyComponent() {
+  const [tab, setTab] = React.useState('photos');
+  
+  function handleTabSelect(tab) {
+    setTab(tab);
+  };
+
+  return (
+    <div>
+      <Tabs onTabSelect={handleTabSelect} />
+      <Suspense fallback={<Glimmer />}>
+        {tab === 'photos' ? <Photos /> : <Comments />}
+      </Suspense>
+    </div>
+  );
+}
+
+```
+
+In this example, if tab gets changed from `'photos'` to `'comments'`, but `Comments` suspends, the user will see a glimmer. This makes sense because the user no longer wants to see `Photos`, the `Comments` component is not ready to render anything, and React needs to keep the user experience consistent, so it has no choice but to show the `Glimmer` above.
+
+However, sometimes this user experience is not desirable. In particular, it is sometimes better to show the "old" UI while the new UI is being prepared. You can use the new [`startTransition`](/docs/react-api.html#starttransition) API to make React do this:
+
+```js
+function handleTabSelect(tab) {
+  startTransition(() => {
+    setTab(tab);
+  });
+}
+```
+
+Here, you tell React that setting tab to `'comments'` is not an urgent update, but is a [transition](/docs/react-api.html#transitions) that may take some time. React will then keep the old UI in place and interactive, and will switch to showing `<Comments />` when it is ready. See [Transitions](/docs/react-api.html#transitions) for more info.
+
+### Error boundaries {#error-boundaries}
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 Əgər modulun yüklənməsi uğursuz keçirsə (məsələn, şəbəkə problemlərinə görə), xəta göstəriləcək. Siz yaxşı İstifadəçi Təcrübəsi üçün bu xətaları tutmaq və bu xətaları bərpa etmək üçün [Xəta Sərhədlərindən](/docs/error-boundaries.html) istifadə edə bilərsiniz. Xəta Sərhədini yaratdıqdan sonra, siz şəbəkə xətası göstərmək üçün bu xəta sərhədini lazy komponentin yuxarısında istənilən yerdə istifadə edə bilərsiniz.
 
@@ -176,22 +230,34 @@ Applikasiyanızda harada kod parçalaması etmək biraz çaşdırıcı ola bilə
 
 Yaxşı başlanğıc nöqtəsi route-lardan bölməni aparmaqdır. Bir çox insan vebdə səhifə keçidlərinin yüklənməsinin zaman aldığına vərdiş ediblər. Bu zaman siz həmçinin bütün səhifəni dərhal yenidən render edirsiniz deyə istifadəçilər eyni zamanda səhifədəki başqa elementlərə qarşılıqlı təsir etmirlər.
 
+<<<<<<< HEAD
 Aşağıdakı nümunədə [React Router](https://reacttraining.com/react-router/) və `React.lazy`-dən istifadə edərək applikasiya kodunu route əsasında parçalanması göstərilib.
+=======
+Here's an example of how to setup route-based code splitting into your app using libraries like [React Router](https://reactrouter.com/) with `React.lazy`.
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 ```js
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
+<<<<<<< HEAD
     <Suspense fallback={<div>Yüklənir...</div>}>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
       </Switch>
+=======
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
     </Suspense>
   </Router>
 );
