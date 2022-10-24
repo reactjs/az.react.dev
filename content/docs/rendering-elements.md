@@ -34,11 +34,15 @@ Biz bu nodu "ana" DOM nodu sayırıq. Çünki bu nodun içərisində baş verən
 
 Adətən, React-də düzəldilmiş applikasiyaların tək ana DOM nodu var. Əgər siz React-i mövcud applikasiyanıza inteqrasiya edirsinizsə, sizdə istədiyiniz qədər ana DOM nodları ola bilər.
 
+<<<<<<< HEAD
 React elementini ana DOM noduna render etmək üçün həm elementi həm də ana nodu [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərin:
+=======
+To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Bu səhifə "Salam Dünya" göstərəcək.
 
@@ -46,19 +50,31 @@ Bu səhifə "Salam Dünya" göstərəcək.
 
 React elementləri [dəyişilməzdir](https://en.wikipedia.org/wiki/Immutable_object). Element yarandıqdan sonra bu elementin uşaqlarını və ya atributlarını dəyişmək olmaz. Element filmdə bir kadr kimidir: hər hansı bir zamanda UI-ı təsvir edir.
 
+<<<<<<< HEAD
 Bizim indiki biliyimiz ilə UI-ı yeniləmək üçün yalnız yeni element yaradıb [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasına göndərməliyik.
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `root.render()`.
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 Aşağıda olan saat misalına baxaq:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
+<<<<<<< HEAD
 Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback-indən [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasını çağırır.
+=======
+It calls [`root.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 >**Qeyd:**
 >
+<<<<<<< HEAD
 >Praktikada, React applikasiyalarında [`ReactDOM.render()`](/docs/react-dom.html#render) funksiyası yalnız bir dəfə çağrılır. Gələcək bölmələrdə belə kodun [state-li komponetlərə](/docs/state-and-lifecycle.html) necə inkapsulyasiya etdiyini oyrənəcəyik.
+=======
+>In practice, most React apps only call `root.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 >
 >Biz mövzuları ötürməyi tövsiyə etmirik. Çünki bu mövzular bir-birilərindən asılıdırlar.
 
@@ -66,7 +82,11 @@ Bu kod hər saniyə [`setInterval()`](https://developer.mozilla.org/en-US/docs/W
 
 React DOM, DOM-u istənilən vəziyyətə gətirmək üçün elementləri və uşaqları keçmiş versiyaları ilə müqayisə edərək yalnız lazımi DOM yeniliklərini tətbiq edir.
 
+<<<<<<< HEAD
 Siz bunu təsqid etmək üçün [sonuncu misalımızı](codepen://rendering-elements/update-rendered-element) brauzer alətləri ilə yoxlaya bilərsiniz:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 ![DOM yoxlayanının yenilikləri göstərməsi](../images/docs/granular-dom-updates.gif)
 

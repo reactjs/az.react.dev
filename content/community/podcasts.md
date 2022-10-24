@@ -20,7 +20,13 @@ React-ə hərs olunmuş Podkastlar və React müzakirəsi olan podkast seriyalar
 
 - [React Wednesdays](https://www.telerik.com/react-wednesdays) - React dünyasının ən yaxşı və parlaq üzvləri ilə həftəlik canlı yayınlar
 
+<<<<<<< HEAD
 ## Seriyalar {#episodes}
+=======
+- [The React Native Show](https://callstack.com/podcast-react-native-show) - Discuss everything React Native, hosted by [Callstack](https://callstack.com/?utm_campaign=Podcast&utm_source=reactjs_org&utm_medium=community_podcasts)
+
+## Episodes {#episodes}
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 - [CodeWinds Episode 4](https://codewinds.com/podcast/004.html) - Pit Hantın Cef Barzeviski ilə React haqqında danışığı.
 
