@@ -11,9 +11,15 @@ redirect_from:
 
 React, Facebook-un aktiv təkmilləşmədə olan və [facebook.com](https://www.facebook.com)-da olan bütün istifadəçilər tərəfindən yüklənilən ilk open source layihələrdən biridir. Biz, bu layihədə iştirak etməyin asan və şəffaf olması üzərində işləyirik. Lakin, biz hələdə istəyimizə tam çatmamışıq. Arzu edirik ki, bu sənəd iştirak etmək prosesini aydınlaşdırır və sizin bəzi suallarınızı cavablandırılır.
 
+<<<<<<< HEAD
 ### [Davranış Qaydaları](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
 Facebook, [Contributor Covenant](https://www.contributor-covenant.org/)-ı öz Davranış Qaydaları kimi adaptasiya etdiyindən biz layihə iştirakçılarının bu qaydalara riayət edəcəyini gözləyirik. Hansı hərəkətlərin dözülüb dözülməyəcəyini anlamaq üçün [bütün mətni](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxumağınız xahiş olunur.
+=======
+### [Code of Conduct](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) {#code-of-conduct}
+
+Facebook has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ### Açıq Təkmilləşmə {#open-development}
 
@@ -23,19 +29,35 @@ React üzərində işlənilən bütün işlər [GitHub-da](https://github.com/fa
 
 React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](/docs/faq-versioning.html) oxuyun.
 
+<<<<<<< HEAD
 Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/master/CHANGELOG.md) sənədləşdirilir.
+=======
+Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ### Branch Orqanizasiyası {#branch-organization}
 
+<<<<<<< HEAD
 Bütün dəyişiklikləri [`master branch`-inə](https://github.com/facebook/react/tree/master) göndərin. Biz təkmilləşmə və gələcək buraxılışlar üçün ayrı branch-lər işlətmirik. Biz, `master`-in hər zaman yaxşı formada qalması və bütün testlərin keçməsi üçün əlimizdən gələni edirik.
 
 `master`-ə çatan kod ən yeni stabil versiya buraxılışı ilə işləməlidir. Burada, əlavə xüsusiyyətlər ola bilər. Lakin, pozucu dəyişikliklər ola bilməz. Biz `master`-dən istədiyimiz zaman yeni kiçik versiya dərc edə bilməliyik.
+=======
+Submit all changes directly to the [`main branch`](https://github.com/facebook/react/tree/main). We don't use separate branches for development or for upcoming releases. We do our best to keep `main` in good shape, with all tests passing.
+
+Code that lands in `main` must be compatible with the latest stable release. It may contain additional features, but no breaking changes. We should be able to release a new minor version from the tip of `main` at any time.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ### Xüsusiyyət Flaqları {#feature-flags}
 
+<<<<<<< HEAD
 `master` branch-ini buraxılışa hazır vəziyyətdə saxlaya bilmək üçün bütün pozucu dəyişikliklər və eksperimental xüsusiyyətlər "xüsusiyyət flaqı" ilə gizlədilir.
 
 Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js) faylında təyin edilir. React-in fərqli qurulmaları fərqli xüsusiyyət flaqlarını aktiv edir. Məsələn, React Native qurulması React DOM qurulmasından fərqli konfiqurasiyada olunur. Bu flaqları [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks) direktoriyasından tapa bilərsiniz. Xüsusiyyət flaqlarına Flow ilə statik tiplər əlavə edilir. Bu səbəbdən, lazımi faylların yenilənməsini təsdiqləmək üçün `yarn flow` əmrindən istifadə edə bilərsiniz.
+=======
+To keep the `main` branch in a releasable state, breaking changes and experimental features must be gated behind a feature flag.
+
+Feature flags are defined in [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/main/packages/shared/ReactFeatureFlags.js). Some builds of React may enable different sets of feature flags; for example, the React Native build may be configured differently than React DOM. These flags are found in [`packages/shared/forks`](https://github.com/facebook/react/tree/main/packages/shared/forks). Feature flags are statically typed by Flow, so you can run `yarn flow` to confirm that you've updated all the necessary files.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 React-in qurma sistemi React-i dərc etməmişdən öncə deaktiv edilmiş bütün xüsusiyyətləri siləcək. Continuous integration işi hər commit-dən sonra paket ölçüsünü yoxlayır. Siz ölçüdə baş verən dəyişiklik əsasında xüsusiyyətin düzgün gizlədildiyindən əmin ola bilərsiniz.
 
@@ -70,7 +92,11 @@ Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmə
 
 İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında öyrənmək istəyirsinizsə, göstərilən pulsuz video seriyasına baxa bilərsiniz:
 
+<<<<<<< HEAD
 **[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+=======
+**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu əhatə dairəsi olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
@@ -84,6 +110,7 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 
 **Pull request göndərməmişdən öncə** aşağıdakı addımları atmağınızı xahiş edirik:
 
+<<<<<<< HEAD
 1. [repo-nu](https://github.com/facebook/react) fork edib `master`-dən branch yaradın.
 2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
 3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
@@ -94,6 +121,18 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
 9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).
 10. CLA-i doldurun (əgər etməmisinizsə).
+=======
+1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.
+2. Run `yarn` in the repository root.
+3. If you've fixed a bug or added code that should be tested, add tests!
+4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
+5. Run `yarn test --prod` to test in the production environment.
+6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
+7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
+8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
+9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
+10. If you haven't already, complete the CLA.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ### İştirakçı Lisenziyası Müqaviləsi (CLA) {#contributor-license-agreement-cla}
 
@@ -103,10 +142,17 @@ Pull request-i qəbul edə bilməmiz üçün CLA-ı imzalamanız lazımdır. Siz
 
 ### İştirak Etmək üçün Ön Şərtlər {#contribution-prerequisites}
 
+<<<<<<< HEAD
 * [Node](https://nodejs.org)-un v8.0.0+ versiyasını və [Yarn](https://yarnpkg.com/en/)-ın v1.2.0+ versiyasını yükləyin.
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)-i yükləyin.
 * `gcc`-in yükləndiyinizdən və ya lazım olduqda kompilyatoru yükləməkdə probleminizin olmadığından əmin olun. Bəzi asılılıqlara kompilyasiya addımı lazım ola bilər. macOS-da Xcode Command Line Tools-u yükləmək bəsdir. Ubuntu-da `apt-get install build-essential` əmri ilə lazımi paketləri yükləyə bilərsiniz. Digər Linux disto-larında buna oxşar əmrlər var. Windows-da bir neçə əlavə addım etmək lazımdır. Əlavə məlumat üçün [`node-gyp`-nin yükləmə təlimatlarına baxın](https://github.com/nodejs/node-gyp#installation).
 * Git ilə tanışlığınız olmalıdır.
+=======
+* You have [Node](https://nodejs.org) installed at LTS and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
+* You have [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
+* You are familiar with Git.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ### Təkmilləşmə İş Axını {#development-workflow}
 
