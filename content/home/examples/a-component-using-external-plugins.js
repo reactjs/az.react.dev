@@ -34,7 +34,11 @@ class MarkdownEditor extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(
   <MarkdownEditor />,
   document.getElementById('markdown-example'),
 );
+=======
+root.render(<MarkdownEditor />);
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
