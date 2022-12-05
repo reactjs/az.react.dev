@@ -61,11 +61,19 @@ Sonra siz bunu normal komponent kimi işlədə bilərsiniz:
 
 Xəta sərhədləri komponentlər üçün Javascript-in `catch {}` bloku kimi işləyirlər. Yalnız sinif komponentləri xəta sərhədləri ola bilər. Praktikada, bir çox zaman, siz xəta sərhədi komponentini bir dəfə tətbiq edib bütün applikasiya zamanı işlətmək istəyərsiniz.
 
+<<<<<<< HEAD
 Qeyd edək ki, **xəta sərhədləri yalnız altındakı ağacda olan komponentlərin xətalarını tuta bilir**. Xəta sərhədi daxilində baş verən xətanı tuta bilmir. Əgər xəta sərhədin xəta mesajını render edə bilmirsə, xəta bu komponentin yuxarısında olan ən yaxın xəta sərhədinə yayılacaq. Javascriptin catch {} funksiyasıda bunun kimi işləyir.
+=======
+Note that **error boundaries only catch errors in the components below them in the tree**. An error boundary can’t catch an error within itself. If an error boundary fails trying to render the error message, the error will propagate to the closest error boundary above it. This, too, is similar to how the `catch {}` block works in JavaScript.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 ## Canlı Demo {#live-demo}
 
+<<<<<<< HEAD
 [React 16-da](/blog/2017/09/26/react-v16.0.html) [xəta sərhədinin yaranması və işlənməsi misalına](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) baxın.
+=======
+Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010).
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 Xəta sərhədlərinin zənginliyi / əhatəsi sizdən asılıdır. Siz ən yuxarıda olan route komponentlərini əhatə edib, server tərəfində işlənilən freymvorklardakı kimi, "Bir şey yalnış getdi" mesajını istifadəçiyə göstərə bilərsiniz. Siz həmçinin fərdi vidcetlərini xəta sərhədləri ilə əhatə edib xətaların bütün applikasiyanı sındırmasından qoruya bilərsiniz.
 

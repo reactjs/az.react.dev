@@ -39,9 +39,15 @@ UI bölməsinin komponent olduğunu necə müəyyənləşdiririk? Yeni obyekt v�
 
 Bir çox zaman istifadəçiyə JSON məlumatı göndərildiyindən, model düzgün qurulubsa, UI (və nəticədə komponent strukturu) bu modelə rahat map ola biləcək. Bunun səbəbi UI və məlumat modelinin eyni *informasiya arxitekturasından istifadə etməsidir*. Komponentləri məlumat modelinin hissələrinə uyğunlaşdırmaq fikri ilə UI-ı komponentlərə parçalayın.
 
+<<<<<<< HEAD
 ![Komponent sxemi](../images/blog/thinking-in-react-components.png)
 
 Bu sxemdə, applikasiyamızın beş komponentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı kursiv ilə yazmışıq.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
   1. **`FilterableProductTable` (narıncı):** bütün nümunə üçün konteynerdir
   2. **`SearchBar` (mavi):** *istifadəçi daxil etməsini* qəbul edir
@@ -70,9 +76,15 @@ Məlumat modelini render edən applikasiyanın statik versiyasını düzəltmək
 
 Siz komponentləri aşağıdan yuxarı və ya yuxarıdan aşağı formada düzəldə bilərsiniz. Bu deməkdir ki, iyerarxiyada üstdə (məsələn, `FilterableProductTable`) və ya altda olan komponentlərdən (məsələn, `ProductRow`) başlamaq olar. Sadə nümunələrdə yuxarıdan aşağı yazmaq daha asandır. Böyük layihələrdə isə aşağıdan yuxarı gedib komponentləri düzəltdikcə test etmək daha asandır.
 
+<<<<<<< HEAD
 Bu addımın sondunda, məlumat modelini render edən və yenidən istifadə edilə bilən komponentlər kitabxanamız olacaq. Applikasiyanın statik versiyası olduğundan, komponentlərin yalnız `render()` funksiyaları olacaq. İyerarxiyada üstdə olan `FilterableProductTable` komponenti, məlumat modelini prop kimi qəbul edəcək. Əgər siz məlumat modelini dəyişib `ReactDOM.render()` funksiyasını yenidən çağırsanız, UI yenilənəcək. UI-ın necə yeniləndiyini görüb harada dəyişikliklərin lazım olduğunu görə biləcəksiniz. React-in **bir tərəfli məlumat axını** (həmçinin *bir tərəfli binding* adlanır) hər şeyin modulyar və tez olmasına imkan yaradır.
 
 Bu addımı icra etmək üçün komək lazımdırsa [React sənədlərinə](/docs/) baxın.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 ### Qısa İnterlyud: Props və ya State {#a-brief-interlude-props-vs-state}
 
@@ -84,7 +96,11 @@ UI-ı interaktiv etmək üçün məlumat modelində dəyişikliklər edə bilmə
 
 Applikasiyanı düzgün qurmaq üçün ilk öncə applikasiyaya lazım olan dəyişən state-i müəyyənləşdirmək lazımdır. Burada ən vacib məqam [DRY-dır: *Özünüzü Yenidən Təkrarlamayın (Don't Repeat Yourself)*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Applikasiyaya lazım olan ən minimum state-i tapıb qalan bütün dəyərli lazım olduqda hesablayın. Məsələn, əgər TODO siyahısı düzəldirsinizsə, TODO elementləri olan massivi saxlayın. Lakin, elementlərin sayını ayrıca state-də saxlamayın. TODO elementlərinin sayını bilmək üçün, massivdən sayı götürün.
 
+<<<<<<< HEAD
 Applikasiyada olan bütün məlumatlar haqqında fikirləşək. Bizdə aşağıdaki məlumatlar var:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
   * Məhsulların orijinal siyahısı
   * İstifadəçinin daxil etdiyi axtarış mətni
@@ -137,10 +153,18 @@ Biz iyerarxiyada aşağı axını olan proplar və state-in əsasında render ed
 
 React, proqramın necə işlədiyini aydın etmək üçün üçün bu məlumat axının açıq göstərir. Bu səbəbdən, standart iki-tərəfli məlumat axını ilə müqayisədə daha çox kod yazılmalıdır.
 
+<<<<<<< HEAD
 Əgər anket sahəsinə yazı yazdıqda və ya çekboksu çek etdikdə, daxil etdiyiniz dəyərlər sayılmayacaq. Səbəb, `input` elementinin `value` propunun həmişə `FilterableProductTable` komponentindən göndərilən `state`-ə bərabər olmasıdır.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 Gəlin nə baş verəcəyi haqqda fikirləşək. İstifadəçi anket sahələrini yenilədikdə, yeni dəyərlər state-də əks olunmalıdır. Komponentlər yalnız öz state-lərini yeniləməlidir. Bu səbəbdən, `FilterableProductTable` komponenti `SearchBar` komponentinə state-i yenilənməsi üçün callback-lər göndərəcək. Biz anket sahələrinin `onChange` hadisəsindən istifadə edərək dəyişiklikləri əks etdirə bilərik. `FilterableProductTable` tərəfindən göndərilən callback-lər `setState()` funksiyasını çağırıb applikasiyanı yeniləyəcəklər.
 
 ## Son {#and-thats-it}
 
+<<<<<<< HEAD
 Arzulayırıq ki, bu sənəd sizə React-də komponentlər və applikasiyalar yaratmaq üçün ideyalar verəcək. Yazdığınız kod standart kod yazmalarından biraz uzun ola bilər. Lakin, yadda saxlayın ki, kod, yazıldığından qat-qat çox oxunur. Belə modulyar və açıq kodu oxumaq daha asandır. Böyük komponentlər kitabxanaları yazdıqda, bu modulyarlığı və açıqlığı qiymətləndirəcəksiniz. Əlavə olaraq komponentləri yenidən istifadə edərək sətrlərinizi azalda biləcəksiniz. :)
+=======
+Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more often than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433

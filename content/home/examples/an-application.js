@@ -56,4 +56,8 @@ class TodoList extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(<TodoApp />, document.getElementById('todos-example'));
+=======
+root.render(<TodoApp />);
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
