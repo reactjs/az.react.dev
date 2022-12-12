@@ -39,7 +39,11 @@ React komandası əsasən aşağıdaki həlləri tövsiyə edir:
 
 [Create React App](https://github.com/facebookincubator/create-react-app), **React-i öyrənmək** və React-də **yeni [tək-səhifəli](/docs/glossary.html#single-page-application) applikasiya** yaratmaq üçün çox rahat mühit təmin edir.
 
+<<<<<<< HEAD
 Bu alət ən son JavaScript xüsusiyyətlərini istifadə etmək üçün təkmilləşmə mühiti yaradır, yaxşı developer təcrübəsi ilə proqramçıları təmin edir və applikasiyanı produksiya üçün optimallaşdırır. Bu aləti işlətmək üçün [Node >= 10.16 və npm >= 5.6](https://nodejs.org/en/) tələb edilir. Layihə yaratmaq üçün göstərilən əmri icra edin:
+=======
+It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have [Node >= 14.0.0 and npm >= 5.6](https://nodejs.org/en/) on your machine. To create a project, run:
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 ```bash
 npx create-react-app my-app
@@ -75,7 +79,11 @@ Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif 
 
 - **[Nx](https://nx.dev/react)**, React, Next.js, [Express](https://expressjs.com/) və digər kitabxanaları dəstəkləyən full-stək monorepo təkmilləşməsi üçün istifadə olunan alətdir.
 
+<<<<<<< HEAD
 - **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
+=======
+- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react/).
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 

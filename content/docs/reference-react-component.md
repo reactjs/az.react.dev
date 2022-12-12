@@ -52,7 +52,11 @@ Aşağıdakı funksiyalar komponent yarandığı və DOM-a əlavə edildiyi zama
 
 >Qeyd:
 >
+<<<<<<< HEAD
 >Bu funksiyalar köhnədir və yeni kodda bu funksiyaları [işlətməyin](/blog/2018/03/27/update-on-async-rendering.html):
+=======
+>This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -121,11 +125,19 @@ render()
 
 Çağrıldığı zaman, bu funksiya, `this.props` və `this.state` parametrlərindən istifadə edərək aşağıdakı tiplərdən birini qaytarmalıdır:
 
+<<<<<<< HEAD
 - **React elementləri.** Adətən [JSX](/docs/introducing-jsx.html) ilə düzəldilir. Məsələn, `<div />` və ya `<MyComponent />` React-ə DOM nodu və ya başqa istifadəçi tərəfindən düzəldilmiş komponenti render etməyi təlimatlandıran React elementləridirlər.
 - **Massivlər və fraqmentlər.** Bir renderdən bir neçə elementi qaytarmağa icazə verirlər. Əlavə məlumat üçün [fragmentlər](/docs/fragments.html) haqqında sənədə baxın.
 - **Portallar**. Uşaqları fərqli DOM ağacına render etməyə imkan verirlər. Əlavə məlumat üçün [portallar](/docs/portals.html) sənədinə baxın.
 - **Mətn və rəqəm.** Bunlar DOM-a mətn nodları kimi render edilirlər.
 - **Booleans və ya `null`**. Heç nə render etməyin. (Bir çox zaman `return test && <Child />` pattern-i istifadə etmək üçün işlədilir. `test` booleandır.)
+=======
+- **React elements.** Typically created via [JSX](/docs/introducing-jsx.html). For example, `<div />` and `<MyComponent />` are React elements that instruct React to render a DOM node, or another user-defined component, respectively.
+- **Arrays and fragments.** Let you return multiple elements from render. See the documentation on [fragments](/docs/fragments.html) for more details.
+- **Portals**. Let you render children into a different DOM subtree. See the documentation on [portals](/docs/portals.html) for more details.
+- **String and numbers.** These are rendered as text nodes in the DOM.
+- **Booleans or `null` or `undefined`**. Render nothing. (Mostly exists to support `return test && <Child />` pattern, where `test` is boolean).
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 `render()` funksiyası saf olmalıdır. Bu o deməkdir ki, bu funksiya komponent vəziyyətini dəyişmir, hər çağrıldığı zaman eyni nəticəni verir, və birbaşa brauzer ilə əlaqə yaratmır.
 
@@ -506,12 +518,16 @@ Burada yalnız iki funksiya var: `setState()` və `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` dəyişiklikləri komponent state-ində növbəyə əlavə edir və React-ə bu komponentin və uşaqlarının yenidən render edilməsini bildirir. Bu funksiya UI-ı hadisə işləyiciləri və server cavabları əsasında yeniləmək üçün əsas metoddur.
 
+<<<<<<< HEAD
 `setState()`-ə komponenti yeniləmək üçün birbaşa əmr əvəzinə bir *sorğu* kimi baxın. Daha yaxşı performans üçün React yeniləməni gecikdirib bir neçə komponenti bir keçiddə yeniləyə bilər. React state yeniliklərinin dərhal tətbiqinə qarantiya vermir.
+=======
+Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. In the rare case that you need to force the DOM update to be applied synchronously, you may wrap it in [`flushSync`](/docs/react-dom.html#flushsync), but this may hurt performance.
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 `setState()` komponenti dərhal yeniləmir. Bu dəyişklikləri bir dəstəyə yığa bilər və ya yeniliyi sonraya qədər təxirə sala bilər. Bu `this.state`-i `setState()`-dən dərhal sonra oxuduqda problem yardır. Bunun əvəzinə, `componentDidUpdate` və ya `setState` callback-indən istifadə edin (`setState(updater, callback)`). Bu iki yol yenilik baş verdikdən sonra həmişə çağrılır. Əgər sizə state-i keçmiş state əsasında təyin etmək lazımdırsa, aşağıdakı `updater` arqumenti haqqında oxuyun.
 
