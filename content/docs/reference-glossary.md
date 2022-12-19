@@ -39,6 +39,7 @@ JSX JavaScript üçün sintaksis əlavəsidir. Bu dilin şablon dilinə oxşamas
 
 React DOM atributları, HTML atribut adlarından fərqli olaraq camelCase ad konvensiyasından istifadə edir. Məsələn, JSX-də `tabindex` `tabIndex`-ə çevrilir. Həmçinin `class` atributu JavaScript-in qorunan sözü olduğundan JSX-də `className` kimi yazılır:
 
+<<<<<<< HEAD
 ```js
 const name = 'Clementine';
 ReactDOM.render(
@@ -46,6 +47,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```  
+=======
+```jsx
+<h1 className="hello">My name is Clementine!</h1>
+```
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 ## [Elementlər](/docs/rendering-elements.html) {#elements}
 
