@@ -33,7 +33,11 @@ function MyDiv(props) {
 }
 ```
 
+<<<<<<< HEAD
 **Yaxşı:** Yayma operatoru ilə lazımlı dəyişəni proplardan ayırıb qalan propları digər dəyişəndə saxlamaq mümkündür.
+=======
+**Good:** The spread syntax can be used to pull variables off props, and put the remaining props into a variable.
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
 
 ```js
 function MyDiv(props) {
