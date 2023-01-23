@@ -46,7 +46,11 @@ Portalları işlətməyin tipik ssenarilərdən biri validayen komponentinin `ov
 >
 > Portallar ilə işlədikdə [klaviatur fokusunu idarə etmək](/docs/accessibility.html#programmatically-managing-focus) çox vacib olur.
 >
+<<<<<<< HEAD
 > Modal dialoqlarını hamının istifadə edə bilməsi üçün [WAI-ARIA Modal Praktikalarından](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) istifadə edin.
+=======
+> For modal dialogs, ensure that everyone can interact with them by following the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -144,7 +148,8 @@ function Child() {
   );
 }
 
-ReactDOM.render(<Parent />, appRoot);
+const root = ReactDOM.createRoot(appRoot);
+root.render(<Parent />);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/jGBWpE)

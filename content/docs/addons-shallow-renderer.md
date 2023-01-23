@@ -59,7 +59,11 @@ Dayaz render etmənin bəzi məhdudiyyətləri var. Hal-hazırda ref-lər dəst�
 
 Siz shallowRenderer-ə komponenti render etmək üçün və komponentin nəticəsini idxal etmək üçün bir "yer" kimi baxa bilərsiniz.
 
+<<<<<<< HEAD
 `shallowRenderer.render()` [`ReactDOM.render()`-ə](/docs/react-dom.html#render) bənzəyir amma DOM tələb etmir və komponentləri yalnız bir dərəcə dərinliyə kimi render edir. Bu metod, sizə komponentləri uşaqların tətbiqindən təcrid olunmuş şəkildə test etməyə imkan yaradır.
+=======
+`shallowRenderer.render()` is similar to [`root.render()`](/docs/react-dom-client.html#createroot) but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
