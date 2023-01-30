@@ -14,7 +14,24 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 Performans üçün və brauzerlər arası uyğunluqlar üçün React brauzerdən müstəqil DOM sistemi tətbiq edir. Biz bu fürsətdən istifadə edərək brauzer DOM-unun tətbiqində olan bəzi problemləri düzəltdik.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 React-də bütün DOM parametrləri və atributları (hadisə işləyiciləri daxil olmaqla) camelCase formatında olmalıdır. Məsələn `tabindex` HTML atributu React-də `tabIndex` atributuna uyğun gəlir. İstisnalar `aria-*` və `data-*` atributlarıdır: bu atributlar kiçik hərf ilə yazılmalıdır. Məsələn, siz `aria-label` atributunu `aria-label` kimi saxlaya bilərsiniz.
 
@@ -117,7 +134,11 @@ Normalda bu xəbərdarlıq, uşağı olan elementin `contentEditable` atributu o
 
 Server React render etdikdə normalda server və klient fərqli kontent render edirsə xəbərdarlıq atılır. Amma bəzi nadir hallarda klient və server kontentinin uyğun olduğunu qarantiyalamaq çətindir. Məsələn tarixlərin server və klientdə fərqli olması gözlənilir.
 
+<<<<<<< HEAD
 Əgər `suppressHydrationWarning` `true`-dursa React, elementlər arasında və atributlar arasında fərqliliklər haqqında xəbərdarlıq etməyəcək. Bu, yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Hidrasiya haqqında əlavə məlumat üçün [`ReactDOM.hydrate()` sənədinə](/docs/react-dom.html#hydrate) baxın.
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ### value {#value}
 

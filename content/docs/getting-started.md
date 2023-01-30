@@ -18,7 +18,17 @@ redirect_from:
   - "docs/environments.html"
 ---
 
+<<<<<<< HEAD
 Bu səhifədə React sənədlərinin icmalından və React ilə əlaqəli resurslardan danışacağıq.
+=======
+> Try the new React documentation.
+> 
+> The new [Quick Start](https://beta.reactjs.org/learn) teaches modern React and includes live examples.
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+This page is an overview of the React documentation and related resources.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 **React**, UI yaratmaq üçün JavaScript kitabxanasıdır. React-in nə olduğunu öyrənmək üçün [ana səhifəmizə](/) və ya [dərsliyə](/tutorial/tutorial.html) baxın.
 
@@ -38,7 +48,11 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 React ilə oynamaq istəyirsinizsə, onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Stackblitz-də](https://stackblitz.com/fork/react) sınayın.
 
+<<<<<<< HEAD
 Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
+=======
+If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ### React-i Veb Səhifəyə Əlavə Et {#add-react-to-a-website}
 
@@ -115,7 +129,11 @@ React sənədində işlədilən bütün terminlərin icmalı üçün [Lüğətə
 
 Siz həmçinin [@reactjs Twitter hesabını](https://twitter.com/reactjs) izləyə bilərsiniz. Lakin, bloqu oxuyursunuzsa heç bir vacib məlumatı qaçırmayacaqsınız.
 
+<<<<<<< HEAD
 Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/master/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/main/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ## Versiyalı Sənədlər {#versioned-documentation}
 
