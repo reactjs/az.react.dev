@@ -11,7 +11,22 @@ redirect_from:
   - "tips/children-undefined.html"
 ---
 
+<<<<<<< HEAD
 Ref-lər ilə render metodundan DOM-a və ya React elementlərinə istinad etmək mümkündür.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Referencing Values with Refs](https://beta.reactjs.org/learn/referencing-values-with-refs)
+> - [Manipulating the DOM with Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`useRef`](https://beta.reactjs.org/reference/react/useRef)
+> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Refs provide a way to access DOM nodes or React elements created in the render method.
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 [Proplar](/docs/components-and-props.html), normal React məlumat axınında valideyn komponentlərin uşaqlar ilə əlaqəsi üçün yeganə yoldur. Uşaq komponentini yeniləmək üçün bu komponenti yeni proplar ilə render etmək lazımdır. Lakin, bəzi hallarda uşaq komponentini imperativ şəkildə normal məlumat axınından kənarda dəyişmək lazım olur. Dəyişiləcək uşaq komponenti, React komponentinin instansiyası və ya DOM elementi ola bilər. React-də hər iki ssenari üçün çıxış yolu var.
 
