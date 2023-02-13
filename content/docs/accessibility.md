@@ -226,7 +226,11 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Komponentləri genişləndirmək üçün HOC istifadə edərkən, React-in `forwardRef` funksiyasını istifadə edərək əhatə edən komponentə [ref-i yönləndirmək](/docs/forwarding-refs.html) məsləhət görülür. Əgər üçüncü tərəf HOC ref-i yonləndirmirsə, yuxarıdakı şablon hələdə alternativ plan kimi istifadə oluna bilər.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 [React-aria-modal](https://github.com/davidtheclark/react-aria-modal) yaxşı fokus idarəçiliyin misalıdır. Bu tam imkanlı modal pəncərəsinin nisbətən nadir misalıdır. Bu, ilkin fokusu, ləğv etmə düyməsinin üzərinə fokuslamasından (klaviatur istifadəçisini təsadüfəni şəkildə uğurlu əməliyyatı aktivləşdirməyin qarşısını alır) və klaviatur fokusunun modalın daxilində tutmasından əlavə, həm də ilkin olaraq modalı açan elementə fokusu qaytarır.
 
@@ -373,8 +377,13 @@ Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [
 
 Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işləndiyi gözlənilir:
 
+<<<<<<< HEAD
 - [WAI-ARIA Yazma Təcrübələri - Dizayn Həlləri və Vidcetlər](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
 - [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical-aria-examples/)
+=======
+- [ARIA Authoring Practices Guide (APG) - Design Patterns and Examples](https://www.w3.org/WAI/ARIA/apg/patterns/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Nəzərə Alınmalı Digər Məqamlar {#other-points-for-consideration}
@@ -401,7 +410,11 @@ Biz bunu React-də [React Sənəd Başlığı Komponentindən](https://github.co
 - [Rəng Kontrastı haqqında hər şey və niyə biz bu haqda yenidən düşünməliyik](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Rəng Kontrastı nədir](https://a11yproject.com/posts/what-is-color-contrast/)
 
+<<<<<<< HEAD
 Sizə veb səhifənizdəki bütün mümkün hallarda düzgün rəng kombinasiyasını əllə hesablamaq yorucu ola bilər. Bunun əvəzinə siz [bütün imkanlı rəng paletini Colorable ilə hesablaya bilərsiniz](https://jxnblk.com/colorable/).
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 Aşağıda qeyd olunmuş aXe and WAVE alətlərinə rəng kontrastı testləri də daxil edir və bu testlər sizə kontrast xətalarından hesabat verir..
 
@@ -451,7 +464,11 @@ Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tər
 
 [The Accessibility Engine](https://www.deque.com/products/axe/) və ya aXe, `aXe-core`-da qurulmuş imkanlılıq inspektoru brauzer proqram əlavəsidir.
 
+<<<<<<< HEAD
 Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [react-axe](https://github.com/dylanb/react-axe) modulunu istifadə edə bilərsiniz.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 #### WebAIM WAVE {#webaim-wave}
 

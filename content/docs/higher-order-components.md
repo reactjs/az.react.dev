@@ -296,7 +296,11 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 ## Konvensiya: Asan Dibaq Etmək üçün Görüntüləmə Adı Əlavə Edin{#convention-wrap-the-display-name-for-easy-debugging}
 
+<<<<<<< HEAD
 HOC tərəfindən yaradılan konteyner komponentləri digər komponentlər kimi [React Developer Tools](https://github.com/facebook/react-devtools)-da görünür. Dibaqı asanlaşdırmaq üçün HOC tərəfindən yaradılan komponentlərə özəl ad vermək olar.
+=======
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 Ən çox yayılmış texnika əhatə olunmuş komponentin adını sarmaqdır. Yəni, yüksək dərəcəli komponentiniz `withSubscription` adlanırsa və əhatə olunan komponentin adı `CommentList`-dirsə, görüntüləmə adı olaraq `WithSubscription(CommentList)` istifadə edirik:
 

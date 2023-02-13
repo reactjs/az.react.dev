@@ -32,10 +32,15 @@ Rekonsilyatorun açıq API-ı yoxdur. React DOM və React Native kimi [Render ed
 Gəlin komponentin ilk dəfə mount edilməsinə baxaq:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+const root = ReactDOM.createRoot(rootEl);
+root.render(<App />);
 ```
 
+<<<<<<< HEAD
 React DOM, `<App />` elementini rekonsilyatora göndərir. `<App />`-in React elementi (yəni, *nəyin* render ediləcəyinin təsviri) olduğunu yaddan çıxarmayın. Siz, bunun sadə obyekt olduğunu fikirləşə bilərsiniz:
+=======
+`root.render` will pass `<App />` along to the reconciler. Remember that `<App />` is a React element, that is, a description of *what* to render. You can think about it as a plain object:
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 ```js
 console.log(<App />);
@@ -236,9 +241,15 @@ Bunun işlək olmasına baxmayaraq bu tətbiq rekonsilyatorun əsl tətbiqindən
 React-in əsas xüsusiyyətlərindən biri bütün elementlərin yenidən render olunduğundan baxmayaraq DOM-un yenidən yaradılmaması və state-in sıfırlanmamasıdır:
 
 ```js
+<<<<<<< HEAD
 ReactDOM.render(<App />, rootEl);
 // Eyni DOM nodlarını işlədəcək:
 ReactDOM.render(<App />, rootEl);
+=======
+root.render(<App />);
+// Should reuse the existing DOM:
+root.render(<App />);
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 ```
 
 Lakin, bizim tətbiqimiz yalnız ilkin ağacı mount etməyi bilir. Bizim tətbiqimizin `publicInstance`-lar və ya DOM `node`-ların hansı komponentlərə uyğun olduğu kimi lazımi məlumatlardan xəbəri olmadığından biz bu ağacın üstündə yeniliklər edə bilmirik.
@@ -412,7 +423,11 @@ Sahib daxili instansiyalarında aşağıdakı maddələr saxlanılır:
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools ağacı" />
 
+<<<<<<< HEAD
 Refaktorinqı tamamlamaq üçün biz konteyner noduna bütün ağacı mount edən funksiyanı (`ReactDOM.render()` kimi) təqdim edəcəyik. Bu funksiya `ReactDOM.render()` kimi açıq instansiyanı qaytarır:
+=======
+To complete this refactoring, we will introduce a function that mounts a complete tree into a container node and a public instance:
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 ```js
 function mountTree(element, containerNode) {
