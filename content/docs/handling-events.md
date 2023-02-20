@@ -8,7 +8,20 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 React elementlərində hadisələrin emal edilməsi DOM elementlərindəkinə bənzəyir. Amma bəzi sintaktik fərqlər var:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Responding to Events](https://beta.reactjs.org/learn/responding-to-events)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 * React hadisələrinə lowercase yox camelCase istifadə edilərək ad verilir.
 * JSX ilə string yerinə funksiya hadisə işlədicisi kimi ötürülür.
@@ -29,20 +42,30 @@ React-dəkindən bir az fərqlidir:
 </button>
 ```
 
+<<<<<<< HEAD
 Başqa bir fərq ondan ibarətdir ki, React-də `false` qaytarmaqla default davranışın qarşısını almaq olmur. Bunu etmək üçün `preventDefault` açıq şəkildə çağırılmalıdır. Məsələn, sadə HTML ilə linkin ilkin davranışını (yeni səhifə açmaq) ləğv etmək üçün belə yaza bilərsiniz:
 
 ```html
 <a href="#" onclick="console.log('Linkə tıklandı.'); return false">
   Mənə tıkla
 </a>
+=======
+Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
+
+```html
+<form onsubmit="console.log('You clicked submit.'); return false">
+  <button type="submit">Submit</button>
+</form>
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 React-də bunu belə yazmaq olar:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     console.log('Linkə tıklandı.');
   }
 
@@ -50,6 +73,15 @@ function ActionLink() {
     <a href="#" onClick={handleClick}>
       Mənə tıkla
     </a>
+=======
+    console.log('You clicked submit.');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
   );
 }
 ```
@@ -71,8 +103,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
@@ -84,11 +116,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -97,15 +124,23 @@ JSX callback-lərində `this` ilə işləyərkən ehtiyatlı olmaq lazımdır. J
 
 Bu spesifik olaraq React-ə aid davranış deyil, [JavaScript-də funksiyalar ümumiyyətlə belə işləyir](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Metodu sonunda mötərizəsiz istifadə etməklə də bağlamaq olar. Məsələn: `onClick={this.handleClick}`.
 
+<<<<<<< HEAD
 Əgər `bind` xoşunuza gəlmirsə, iki alternativ yolunuz var. Birincisi sınaq vəziyyətində olan [public sinif sahələri sintaksisi](https://babeljs.io/docs/plugins/transform-class-properties/) istifadə etməkdir. Bu sahələri callback-ləri düzgün bağlamaq üçün istifadə etmək olar:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
   // Bu sintaksis `this`-in handleClick-ə bind olunduğuna zəmanət verir.
   // Diqqət: bu *experimental* sintaksisdir.
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+
+```js{2-6}
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (
