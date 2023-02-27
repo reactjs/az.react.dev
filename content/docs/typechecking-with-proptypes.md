@@ -172,6 +172,7 @@ Greeting.defaultProps = {
   name: 'Yabançı'
 };
 
+<<<<<<< HEAD
 // "Salam, Yabançı" render edir:
 ReactDOM.render(
   <Greeting />,
@@ -180,6 +181,14 @@ ReactDOM.render(
 ```
 
 [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) kimi Babel çevirməsindən istifadə etdikdə `defaultProps` komponent sinfin statik parametri kimi təyin edilə bilər. Bu sintaksis hələ yekunlaşmayıb və brauzerdə işləməsi üçün kompilyasiya addımı lazımdır. Əlavə məlumat üçün [sinif sahələri təklifi](https://github.com/tc39/proposal-class-fields) haqqında oxuyun.
+=======
+// Renders "Hello, Stranger":
+const root = ReactDOM.createRoot(document.getElementById('example')); 
+root.render(<Greeting />);
+```
+
+Since ES2022 you can also declare `defaultProps` as static property within a React component class. For more information, see the [class public static fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_static_fields). This modern syntax will require a compilation step to work within older browsers. 
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 
 ```javascript
 class Greeting extends React.Component {
