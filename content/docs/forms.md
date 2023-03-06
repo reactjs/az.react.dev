@@ -9,7 +9,21 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, gəlin sadə HTML-də yazılmış yalnız ad qəbul edən anketə baxaq:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 ```html
 <form>
@@ -270,15 +284,19 @@ this.setState(partialState);
 
 ## Null Dəyərli Daxil Olmanın İdarəsi {#controlled-input-null-value}
 
+<<<<<<< HEAD
 [Kontrol olunan komponentin](/docs/forms.html#controlled-components) `value` propunu təyin etdikdə istifadəçinin anket sahəsini dəyişməsini idarə edə bilərsiniz. Əgər `value` təyin edildiyindən asılı olmayaraq anket sahəsinin dəyəri dəyişə bilirsə, siz istəmədən `value`-nu `undefined` və `null` ilə təyin etmiş ola bilərsiniz.
+=======
+Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 Aşağıdaki kod bu problemi göstərir. (Anket sahəsi ilkin olaraq dəyişə bilmir amma bir zamandan sonra dəyişə bilir.)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```

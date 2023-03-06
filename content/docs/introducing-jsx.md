@@ -6,7 +6,20 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+<<<<<<< HEAD
 Bu dəyişən bəyannaməsini nəzərdən keçirin:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Writing Markup with JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript in JSX with Curly Braces](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Consider this variable declaration:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 ```js
 const element = <h1>Salam dünya!</h1>;
@@ -33,6 +46,7 @@ Burdan yola çıxaraq, gəlin başlayaq!
 Aşağıdakı misalda `name` adlı bir dəyişən elan edirik və onu JSX daxilində fiqurlu mötərizə ilə istifadə edirik:
 
 ```js{1,2}
+<<<<<<< HEAD
 const name = 'Səbuhi Qurbanov';
 const element = <h1>Salam, {name}</h1>;
 
@@ -40,6 +54,10 @@ ReactDOM.render(
   element,
   document.getElementById('root')
 );
+=======
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 ```
 
 JSX daxilində fiqurlu mötərizə içərisində istənilən [JavaScript ifadəsi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) istifadə edə bilərsiniz. Misal üçün. `2+2`, `user.firstName`, və ya `formatName(user)`, hər biri doğru(valid) Javascript ifadəsidir.
@@ -61,14 +79,9 @@ const element = (
     Salam, {formatName(user)}!
   </h1>
 );
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 JSX-i kodun rahat oxunması üçün bir neçə sətirə bölürük. Bunun tələb olunmamasına baxmayaraq, [avtomatik olaraq nöqtəli vergüllərin yerləşdirilməsinin](https://stackoverflow.com/q/2846283) qarşısını almaq üçün onu mötərizədə saxlamağı məsləhət görürük
 
@@ -92,7 +105,7 @@ function getGreeting(user) {
 Simli literalları dırnaq açaraq bildirə bilərsiniz: 
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Həmçinin fiqurlu mötərizələrdən istifadə edərək Javascript ifadəsini atribut kimi bildirə bilərsiniz:

@@ -132,7 +132,13 @@ var SayHello = createReactClass({
 });
 ```
 
+<<<<<<< HEAD
 Bu deməkdir ki, ES6 sinifləri hadisə işləyiciləri üçün əlavə kod tələb edir. Lakin, bu siniflər böyük applikasiyalarda daha tez işləyirlər.
+=======
+This means writing ES6 classes comes with a little more boilerplate code for event handlers, but the upside is slightly better performance in large applications.
+
+If the boilerplate code is too unattractive to you, you may use [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) syntax:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 Əgər bu əlavə kod sizin üçün çoxdursa **eksperimental** [Sinif Parametrləri](https://babeljs.io/docs/plugins/transform-class-properties/) sintaksis təklifini Babel-a qoşa bilərsiniz:
 
@@ -142,11 +148,16 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Salam!'};
   }
+<<<<<<< HEAD
   // Xəbərdarlıq: Bu sintaksis eksperimentaldır!
   // Ox funksiyaları funksiyalar avtomatik bind olunur:
+=======
+  
+  // Using an arrow here binds the method:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -158,9 +169,13 @@ class SayHello extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Nəzərə alın ki, yuxarıda göstərilən sintaksis **eksperimentaldır**. Bu səbəbdən, bu sintaksis dəyişə bilər və ya verilən təklif dilin spesifikasiyasına çatmaya bilər.
 
 Əgər problemsiz işləmək istəyirsinizsə sizdə bir neçə seçim var:
+=======
+You also have a few other options:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 * Konstruktordan funksiyaları bind edin.
 * Ox funksiyalarından istifadə edin: `onClick={(e) => this.handleClick(e)}`.
@@ -215,10 +230,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Əgər komponent bir neçə miksindən istifadə edirsə və bu miksinlər eyni lifecycle funksiyalarını təyin edirsə (məsələn, komponent dağıldığı zaman bir neçə miksin təmizləmə işləri aparmaq istəyirsə) bütün lifecycle funksiyalarının çağırışı qarantiya olunacaq. Miksinlərdə təyin edilən metodlar, miksinlərin massivdə göstərildiyi sıra ilə çağrılacaq. Ən sonda, komponentin lifecycle metodları çağrılacaq.
