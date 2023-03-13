@@ -9,7 +9,19 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<<<<<<< HEAD
 Bir çox zaman, bir neçə komponent eyni zamanda dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan valideyn komponentə qaldırmağı tövsiyə edirik. Gəlin bunun necə işlədiyinə baxaq.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://beta.reactjs.org/learn/sharing-state-between-components)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. Let's see how this works in action.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Bu bölmədə, verilən temperaturda suyun qaynayacağını hesablayan temperatur kalkulyatoru düzəldəcəyik.
 
@@ -324,7 +336,11 @@ React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət 
 
 Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, `celsiusValue` və `fahrenheitValue` dəyərlərini state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və bölgüsünü `temperature` və `scale`-də saxlaya bilirik. Digər sahənin dəyəri `render()` funksiyasında, cari dəyərin əsasında hesablana bilər. Bu yanaşma, dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
 
+<<<<<<< HEAD
 UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react/tree/master/packages/react-devtools) istifadə edə bilərsiniz. Bu alətlər, baqların mənbəyini tapmağa imkan yaradır:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 <img src="../images/docs/react-devtools-state.gif" alt="React Proqramçı Alətlərində State-in Yoxlanması" max-width="100%" height="100%">
 

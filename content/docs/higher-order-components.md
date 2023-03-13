@@ -14,7 +14,11 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Adi komponent propları UI-a çevirir, yüksək dərəcəli komponent isə komponenti başqa bir komponentə çevirir.
 
+<<<<<<< HEAD
 HOC-lər üçüncü tərəf React kitabxanalarında yayğındır, məsələn Redux-ın [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)-i və ya Relay-in [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer)-i kimi.
+=======
+HOCs are common in third-party React libraries, such as Redux's [`connect`](https://react-redux.js.org/api/connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Bu sənəddə yüksək dərəcəli komponentlərin niyə faydalı olduğunu və necə yazılacağını müzakirə edəcəyik.
 
@@ -296,7 +300,11 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 ## Konvensiya: Asan Dibaq Etmək üçün Görüntüləmə Adı Əlavə Edin{#convention-wrap-the-display-name-for-easy-debugging}
 
+<<<<<<< HEAD
 HOC tərəfindən yaradılan konteyner komponentləri digər komponentlər kimi [React Developer Tools](https://github.com/facebook/react-devtools)-da görünür. Dibaqı asanlaşdırmaq üçün HOC tərəfindən yaradılan komponentlərə özəl ad vermək olar.
+=======
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Ən çox yayılmış texnika əhatə olunmuş komponentin adını sarmaqdır. Yəni, yüksək dərəcəli komponentiniz `withSubscription` adlanırsa və əhatə olunan komponentin adı `CommentList`-dirsə, görüntüləmə adı olaraq `WithSubscription(CommentList)` istifadə edirik:
 
