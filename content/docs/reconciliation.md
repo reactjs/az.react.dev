@@ -4,6 +4,16 @@ title: Rekonsilyasiya
 permalink: docs/reconciliation.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+
+</div>
+
 Komponent yenilikləri zaman baş verən dəyişiklər haqqında fikirləşməmək üçün React deklarativ API təmin edir. Bu API applikasiyaların yazılmasını asanlaşdırır. Lakin, React-in daxilində nə baş verdiyi aydın olmaya bilər. Bu məqalədə, komponent yeniliklərinin proqnozlaşdırıla bilən olması və applikasiyalarda tez işləməsi üçün React-in "fərqlilik" (diffing) alqoritmində etdiyimiz seçimlərdən danışacağıq.
 
 ## Motivasiya {#motivation}

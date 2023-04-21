@@ -6,6 +6,18 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects)
+> - [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+> - [`useEffect`](https://react.dev/reference/react/useEffect)
+
+</div>
+
 *Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Funksiya komponentlərindən yan effektləri icra etmək üçün *Effect Hookundan* istifadə edilir:

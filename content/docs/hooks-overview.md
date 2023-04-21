@@ -6,6 +6,18 @@ next: hooks-state.html
 prev: hooks-intro.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach React with Hooks:
+>
+> - [Quick Start](https://react.dev/learn)
+> - [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
+> - [`react`: Hooks](https://react.dev/reference/react)
+
+</div>
+
 *Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Hooklar [geriyə uyğundurlar](/docs/hooks-intro.html#no-breaking-changes). Bu səhifədə təcrübəli React istifadəçiləri üçün Hookların icmalı göstərilir. Bu icmal çox tez tempdədir. Çaşdıqda, aşağıdakı formada göstərilən sarı qutulara baxın:

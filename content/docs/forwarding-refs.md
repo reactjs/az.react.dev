@@ -4,6 +4,17 @@ title: Ref-lərin Yönləndirilməsi
 permalink: docs/forwarding-refs.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://react.dev/reference/react/forwardRef)
+
+</div>
+
 Ref-in yönləndirilməsi - avtomatik [ref](/docs/refs-and-the-dom.html) komponentinin içindən onun bir uşağına ötürülməsi texnikasıdır. Bu texnika çox vaxt applikasiyadakı komponentlər üçün vacib deyil. Lakin, bəzi növ komponentlər üçün, xüsusilə yenidən istifadə olunan komponent kitabxanalarında, faydalı ola bilər. Çox vaxt rast gəlinən ssenarilər aşağıda qeyd olunub.
 
 ## DOM komponentlərinə ref-lərin yönləndirilməsi {#forwarding-refs-to-dom-components}

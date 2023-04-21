@@ -12,6 +12,14 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> The updated [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe) teaches modern React and includes live examples.
+
+</div>
+
 Bu dərsliyə başlamaq üçün React biliyinizin olması vacib deyil.
 
 ## Dərsliyi Başlamazdan Əvvəl {#before-we-start-the-tutorial}
@@ -106,7 +114,7 @@ cd ..
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 ```
 
@@ -236,7 +244,7 @@ Gəlin, Square komponentinə tıklandığı zaman kvadratı "X" ilə dolduraq.
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -254,7 +262,7 @@ class Square extends React.Component {
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -281,7 +289,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );

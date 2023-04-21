@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/examples.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React cəmiyyəti tərəfindən çoxlu layihələr yaradılıb. Bu səhifədə 3-cü tərəfin state idarə etmə kitabxanalarından istifadə etməyən layihələrə fokus verilir.
 
 Öz layihənizi əlavə etməkdən çəkinməyin. Layihə əlavə etdikdə bu layihədə React-in ən sonuncu versiyasını işlədin.

@@ -8,6 +8,16 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Responding to Events](https://react.dev/learn/responding-to-events)
+
+</div>
+
 React elementlərində hadisələrin emal edilməsi DOM elementlərindəkinə bənzəyir. Amma bəzi sintaktik fərqlər var:
 
 * React hadisələrinə lowercase yox camelCase istifadə edilərək ad verilir.
@@ -39,9 +49,9 @@ Başqa bir fərq ondan ibarətdir ki, React-də `false` qaytarmaqla default davr
 
 React-də bunu belə yazmaq olar:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
     console.log('Linkə tıklandı.');
   }
@@ -71,8 +81,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
@@ -84,11 +94,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də bax**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -105,7 +110,7 @@ class LoggingButton extends React.Component {
   // Diqqət: bu *experimental* sintaksisdir.
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (

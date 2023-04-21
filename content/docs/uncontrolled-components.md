@@ -4,6 +4,18 @@ title: Kontrolsuz Komponentlər
 permalink: docs/uncontrolled-components.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://react.dev/reference/react-dom/components/input)
+> - [`<select>`](https://react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://react.dev/reference/react-dom/components/textarea)
+
+</div>
+
 Biz çox halda, anketləri tətbiq etmək üçün [kontrol olunan komponentlər](/docs/forms.html#controlled-components) işlətməyi tövsiyə edirik. Kontrol olunan komponentlərdə anket məlumatları React komponenti tərəfindən idarə olunur. Buna alternativ kontrolsuz komponentlərdir. Bu komponentlərdə anket məlumatları DOM tərəfindən idarə olunur.
 
 Kontrolsuz komponent işlətdikdə DOM-dan anket dəyərlərini almaq üçün hadisə işləyiciləri ilə state-i yeniləmək əvəzinə [ref-dən istifadə edə bilərsiniz](/docs/refs-and-the-dom.html).

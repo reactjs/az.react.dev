@@ -6,6 +6,16 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`<Profiler>`](https://react.dev/reference/react/Profiler)
+
+</div>
+
 React applikasiyasının hansı tezlikdə render edilməsini və render edilmənin "qiymətini" ölçmək üçün `Profiler`-dən istifadə edilir.
 Bu alət applikasiyanın yavaş işləyən və [memoizasiya kimi optimallaşdırmalardan faydalana bilən](/docs/hooks-faq.html#how-to-memoize-calculations) hissələrini tapmaq üçün işlədilir.
 

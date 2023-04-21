@@ -8,6 +8,14 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> The updated [Thinking in React](https://react.dev/learn/thinking-in-react) guide teaches modern React and includes live examples.
+
+</div>
+
 Bizim fikrimizcə böyük və tez işləyən Javascript Veb applikasiyaları yazmaq üçün React ən yaxşı yollardan biridir. React Facebook-da və Instagram-da çox yaxşı scale edir.
 
 React-in ən yaxşı hissələrindən biri applikasiyanı yaza-yaza sizi xüsusi formada fikirləşməyə məcbur etməsidir. Bu sənəddə, React-dən istifadə edərək axtarıla bilən məhsulların məlumat cədvəlini yaratmaq üçün düşüncə prosesindən danışacağıq.
@@ -41,7 +49,7 @@ Bir çox zaman istifadəçiyə JSON məlumatı göndərildiyindən, model düzg�
 
 ![Komponent sxemi](../images/blog/thinking-in-react-components.png)
 
-Bu sxemdə, applikasiyamızın beş komponentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı kursiv ilə yazmışıq.
+Bu sxemdə, applikasiyamızın beş komponentdən ibarət olduğunu görəcəksiniz. Hər komponentin təmsil etdiyi məlumatı kursiv ilə yazmışıq. The numbers in the image correspond to the numbers below.
 
   1. **`FilterableProductTable` (narıncı):** bütün nümunə üçün konteynerdir
   2. **`SearchBar` (mavi):** *istifadəçi daxil etməsini* qəbul edir
@@ -70,7 +78,7 @@ Məlumat modelini render edən applikasiyanın statik versiyasını düzəltmək
 
 Siz komponentləri aşağıdan yuxarı və ya yuxarıdan aşağı formada düzəldə bilərsiniz. Bu deməkdir ki, iyerarxiyada üstdə (məsələn, `FilterableProductTable`) və ya altda olan komponentlərdən (məsələn, `ProductRow`) başlamaq olar. Sadə nümunələrdə yuxarıdan aşağı yazmaq daha asandır. Böyük layihələrdə isə aşağıdan yuxarı gedib komponentləri düzəltdikcə test etmək daha asandır.
 
-Bu addımın sondunda, məlumat modelini render edən və yenidən istifadə edilə bilən komponentlər kitabxanamız olacaq. Applikasiyanın statik versiyası olduğundan, komponentlərin yalnız `render()` funksiyaları olacaq. İyerarxiyada üstdə olan `FilterableProductTable` komponenti, məlumat modelini prop kimi qəbul edəcək. Əgər siz məlumat modelini dəyişib `ReactDOM.render()` funksiyasını yenidən çağırsanız, UI yenilənəcək. UI-ın necə yeniləndiyini görüb harada dəyişikliklərin lazım olduğunu görə biləcəksiniz. React-in **bir tərəfli məlumat axını** (həmçinin *bir tərəfli binding* adlanır) hər şeyin modulyar və tez olmasına imkan yaradır.
+Bu addımın sondunda, məlumat modelini render edən və yenidən istifadə edilə bilən komponentlər kitabxanamız olacaq. Applikasiyanın statik versiyası olduğundan, komponentlərin yalnız `render()` funksiyaları olacaq. İyerarxiyada üstdə olan `FilterableProductTable` komponenti, məlumat modelini prop kimi qəbul edəcək. Əgər siz məlumat modelini dəyişib `root.render()` funksiyasını yenidən çağırsanız, UI yenilənəcək. UI-ın necə yeniləndiyini görüb harada dəyişikliklərin lazım olduğunu görə biləcəksiniz. React-in **bir tərəfli məlumat axını** (həmçinin *bir tərəfli binding* adlanır) hər şeyin modulyar və tez olmasına imkan yaradır.
 
 Bu addımı icra etmək üçün komək lazımdırsa [React sənədlərinə](/docs/) baxın.
 

@@ -47,7 +47,7 @@ Node.js-də Jest kimi icra edicilərdə [modulların mok edilməsi dəstəkləni
 
 ### Taymerlərin mok edilməsi {#mocking-timers}
 
-Komponentlər `setTimeout`, `setInterval` və ya `Date.now` kimi funksiyalardan istifadə edə bilərlər. Test mühitlərində bu funksiyaları, zamanı əl ilə "qabağa çəkə bilən" əvəzetmələri ilə mok etmək faydalı ola bilər. Bu, testlərin tez işləməsinə imkan yaradır! Taymerlərdən asılı olan testlər eyni çağrılma sırasını qoruyaraq daha tez həll olunacaq [<small>(nümunə)</small>](/docs/testing-recipes.html#timers). [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) və [lolex](https://github.com/sinonjs/lolex) kimi freymvorklar taymerləri mok etməyə imkan yaradır.
+Komponentlər `setTimeout`, `setInterval` və ya `Date.now` kimi funksiyalardan istifadə edə bilərlər. Test mühitlərində bu funksiyaları, zamanı əl ilə "qabağa çəkə bilən" əvəzetmələri ilə mok etmək faydalı ola bilər. Bu, testlərin tez işləməsinə imkan yaradır! Taymerlərdən asılı olan testlər eyni çağrılma sırasını qoruyaraq daha tez həll olunacaq [<small>(nümunə)</small>](/docs/testing-recipes.html#timers). [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/latest/fake-timers) və [lolex](https://github.com/sinonjs/lolex) kimi freymvorklar taymerləri mok etməyə imkan yaradır.
 
 Bəzən, taymerləri mok etmək lazım olmaya bilər. Məsələn, bəzən animasiyaları və ya vaxta həssas olan (API sürəti məhdudlaşdırıcısı kimi) API nöqtələri ilə interaksiyaları test etikdə taymerlərin mok edilməsi faydasız ola bilər. Taymerləri mok edən kitabxanalar, mokları hər test/test dəsti üçün aktivləşdirməyə və ya ləğv etməyə imkan yaradır. Bu səbəbdən, siz hər testin necə işləyəcəyini idarə edə bilərsiniz.
 

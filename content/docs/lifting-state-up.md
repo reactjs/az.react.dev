@@ -9,6 +9,16 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)
+
+</div>
+
 Bir çox zaman, bir neçə komponent eyni zamanda dəyişən məlumatdan istifadə etməli olurlar. Bu halda, paylaşılan state-i yaxın olan valideyn komponentə qaldırmağı tövsiyə edirik. Gəlin bunun necə işlədiyinə baxaq.
 
 Bu bölmədə, verilən temperaturda suyun qaynayacağını hesablayan temperatur kalkulyatoru düzəldəcəyik.
@@ -324,7 +334,7 @@ React applikasiyalarında dəyişən məlumat üçün həmiçə tək "həqiqət 
 
 Əgər nəsə həm proplardan həm də state-dən törənə bilərsə, bu state-də olmamalıdır. Məsələn, `celsiusValue` və `fahrenheitValue` dəyərlərini state-də saxlamaq əvəzinə, biz son dəyişən sahənin dəyərini və bölgüsünü `temperature` və `scale`-də saxlaya bilirik. Digər sahənin dəyəri `render()` funksiyasında, cari dəyərin əsasında hesablana bilər. Bu yanaşma, dəqiqliyi itirmədən digər sahənin dəyərini yuvarlaqlaşdırmağa imkan yaradır.
 
-UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react/tree/master/packages/react-devtools) istifadə edə bilərsiniz. Bu alətlər, baqların mənbəyini tapmağa imkan yaradır:
+UI-da səhv gördüyünüz zaman, propları yoxlayıb ağacdan yuxarı qalxaraq state-i yeniləyən komponenti tapmaq üçün [React Proqramçı Alətlərindən](https://github.com/facebook/react/tree/main/packages/react-devtools) istifadə edə bilərsiniz. Bu alətlər, baqların mənbəyini tapmağa imkan yaradır:
 
 <img src="../images/docs/react-devtools-state.gif" alt="React Proqramçı Alətlərində State-in Yoxlanması" max-width="100%" height="100%">
 

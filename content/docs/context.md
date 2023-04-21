@@ -4,6 +4,17 @@ title: Kontekst
 permalink: docs/context.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Passing Data Deeply with Context](https://react.dev/learn/passing-data-deeply-with-context)
+> - [`useContext`](https://react.dev/reference/react/useContext)
+
+</div>
+
 Kontekst məlumatları komponent ağacının hər səviyyəsində proplar göndərmədən məlumatları komponentlərə ötürməyə təmin edir.
 
 Standart React applikasiyasında, məlumat yuxarıdan aşağı (valideyndən uşağa) proplar vasitəsi ilə göndərilir. Lakin bir çox komponentin istifadə etdiyi bəzi prop tiplərinin (məsələn dil seçimi, UI şablonun) göndərilməsi çox yorucu və çətin ola bilər. Kontekst ilə dəyərləri komponentlər arasında komponent ağacının hər səviyyəsində prop göndərmədən paylaşması mümkündür.

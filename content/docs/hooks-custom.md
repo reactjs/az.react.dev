@@ -6,6 +6,16 @@ next: hooks-reference.html
 prev: hooks-rules.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Reusing Logic with Custom Hooks](https://react.dev/learn/reusing-logic-with-custom-hooks)
+
+</div>
+
 *Hooklar* React 16.8-ə əlavə olunan yenilikdir. Hooklar ilə sinif yazmadan state və ya digər React xüsusiyyətlərindən istifadə edə bilərsiniz.
 
 Xüsusi Hookları düzəldərək komponent məntiqini yenidən istifadə oluna bilən funksiyalara ixrac etmək mümkündür.

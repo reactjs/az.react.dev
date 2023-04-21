@@ -2,22 +2,29 @@
 id: hello-world
 title: Salam Dünya
 permalink: docs/hello-world.html
-prev: cdn-links.html
+prev: release-channels.html
 next: introducing-jsx.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Quick Start](https://react.dev/learn) for an introduction to React.
+
+</div>
+
 Ən qısa React nümunəsi belə görsənir:
 
-```js
-ReactDOM.render(
-  <h1>Salam Dünya!</h1>,
-  document.getElementById('root')
-);
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Salam Dünya!</h1>);
 ```
 
 Bu kod, səhifədə "Salam Dünya!" başlığını yazır.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Onlayn redaktoru açmaq üçün yuxarıda qeyd olunan linkə keçid edin. Bu redaktorda dəyişiklik etməkdən çəkinməyin. və nəticənin necə olacağına baxın. Bu təlimatda olan bir çox səhifədə buna bənzər redaktə oluna bilən nümunələr görəcəksiniz.
 

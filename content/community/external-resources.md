@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/external-resources.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 Bu səhifədə React cəmiyyətinin kurasiya etdiyi heyranedici resurslar göstərilir.
 
 - [Reactiflux](https://www.reactiflux.com/) - 20,000+ React proqramçılardan ibarət cəmiyyət. Burada yaxşı kurasiya olunmuş [öyrənmək bölməsi](https://www.reactiflux.com/learning/) var.

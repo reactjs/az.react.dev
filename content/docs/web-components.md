@@ -6,6 +6,14 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> See [Custom HTML elements](https://react.dev/reference/react-dom/components#custom-html-elements) in the new docs.
+>
+</div>
+
 React və [Veb Komponentlər](https://developer.mozilla.org/en-US/docs/Web/Web_Components) müxtəlif problemləri həll etmək üçün qurulub. Veb Komponentlər yenidən istifadə oluna bilən komponentlər üçün güclü inkapsulyasiyanı dəstəkləyir. React isə DOM-u sizin məlumatlarınızı sinxronlaşdıran deklarativ kitabxana təmin edir. Bu məqsədlər tamamlayıcıdırlar. Developer kimi siz Veb Komponentlərinizdə React istifadə edə bilər və ya React-də Veb Komponentlər istifadə edə bilərsiniz, və ya hər ikisini.
 
 React istifadə edənlərin çoxu Veb Komponentlər istifadə etmir, amma siz istifadə etmək istəyə bilərsiniz. Xüsusilə, əgər siz Veb Komponentlərin istifadəsi üçün yazılmış üçüncü tərəf UI komponentləri istifadə edirsinizsə.
@@ -50,7 +58,8 @@ class XSearch extends HTMLElement {
 
     const name = this.getAttribute('name');
     const url = 'https://www.google.com/search?q=' + encodeURIComponent(name);
-    ReactDOM.render(<a href={url}>{name}</a>, mountPoint);
+    const root = ReactDOM.createRoot(mountPoint);
+    root.render(<a href={url}>{name}</a>);
   }
 }
 customElements.define('x-search', XSearch);

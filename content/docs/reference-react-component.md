@@ -15,6 +15,16 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`React.Component`](https://react.dev/reference/react/Component)
+
+</div>
+
 Bu səhifədə React komponent sinif təriflərinin ətraflı API arayışı var. Bu səhifə, sizin [Komponent və Proplar](/docs/components-and-props.html) və [State və Lifecycle](/docs/state-and-lifecycle.html) kimi React-in əsas konsepsiyaları haqqında məlumatınızın olduğunu fərziyyə edir. Əgər sizin məlumatınız yoxdursa, ilk öncə bu konsepsiyaları oxuyun.
 
 ## İcmal {#overview}
@@ -506,7 +516,7 @@ Burada yalnız iki funksiya var: `setState()` və `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` dəyişiklikləri komponent state-ində növbəyə əlavə edir və React-ə bu komponentin və uşaqlarının yenidən render edilməsini bildirir. Bu funksiya UI-ı hadisə işləyiciləri və server cavabları əsasında yeniləmək üçün əsas metoddur.

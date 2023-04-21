@@ -6,6 +6,18 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Writing Markup with JSX](https://react.dev/learn/writing-markup-with-jsx)
+> - [JavaScript in JSX with Curly Braces](https://react.dev/learn/javascript-in-jsx-with-curly-braces)
+
+</div>
+
 Bu dəyişən bəyannaməsini nəzərdən keçirin:
 
 ```js
@@ -35,11 +47,6 @@ Aşağıdakı misalda `name` adlı bir dəyişən elan edirik və onu JSX daxili
 ```js{1,2}
 const name = 'Səbuhi Qurbanov';
 const element = <h1>Salam, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
 JSX daxilində fiqurlu mötərizə içərisində istənilən [JavaScript ifadəsi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) istifadə edə bilərsiniz. Misal üçün. `2+2`, `user.firstName`, və ya `formatName(user)`, hər biri doğru(valid) Javascript ifadəsidir.
@@ -61,14 +68,9 @@ const element = (
     Salam, {formatName(user)}!
   </h1>
 );
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 JSX-i kodun rahat oxunması üçün bir neçə sətirə bölürük. Bunun tələb olunmamasına baxmayaraq, [avtomatik olaraq nöqtəli vergüllərin yerləşdirilməsinin](https://stackoverflow.com/q/2846283) qarşısını almaq üçün onu mötərizədə saxlamağı məsləhət görürük
 
@@ -92,7 +94,7 @@ function getGreeting(user) {
 Simli literalları dırnaq açaraq bildirə bilərsiniz: 
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Həmçinin fiqurlu mötərizələrdən istifadə edərək Javascript ifadəsini atribut kimi bildirə bilərsiniz:
