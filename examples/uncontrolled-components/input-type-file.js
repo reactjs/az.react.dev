@@ -9,9 +9,7 @@ class FileInput extends React.Component {
     // highlight-range{3}
     event.preventDefault();
     alert(
-      `Seçilmiç fayl - ${
-        this.fileInput.current.files[0].name
-      }`
+      `Seçilmiç fayl - ${this.fileInput.current.files[0].name}`
     );
   }
 
