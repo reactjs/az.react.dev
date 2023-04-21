@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/podcasts.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React-ə hərs olunmuş Podkastlar və React müzakirəsi olan podkast seriyaları.
 
 ## Podkastlar {#podcasts}
@@ -19,6 +25,8 @@ React-ə hərs olunmuş Podkastlar və React müzakirəsi olan podkast seriyalar
 - [React Native Radio](https://reactnativeradio.com) - React Native-i birlikdə araşdıraq. [Infinite Red](https://infinite.red) tərəfindən dərc edilir.
 
 - [React Wednesdays](https://www.telerik.com/react-wednesdays) - React dünyasının ən yaxşı və parlaq üzvləri ilə həftəlik canlı yayınlar
+
+- [The React Native Show](https://callstack.com/podcast-react-native-show) - Discuss everything React Native, hosted by [Callstack](https://callstack.com/?utm_campaign=Podcast&utm_source=reactjs_org&utm_medium=community_podcasts)
 
 ## Seriyalar {#episodes}
 

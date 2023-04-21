@@ -32,7 +32,8 @@ Rekonsilyatorun açıq API-ı yoxdur. React DOM və React Native kimi [Render ed
 Gəlin komponentin ilk dəfə mount edilməsinə baxaq:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+const root = ReactDOM.createRoot(rootEl);
+root.render(<App />);
 ```
 
 React DOM, `<App />` elementini rekonsilyatora göndərir. `<App />`-in React elementi (yəni, *nəyin* render ediləcəyinin təsviri) olduğunu yaddan çıxarmayın. Siz, bunun sadə obyekt olduğunu fikirləşə bilərsiniz:
@@ -236,9 +237,9 @@ Bunun işlək olmasına baxmayaraq bu tətbiq rekonsilyatorun əsl tətbiqindən
 React-in əsas xüsusiyyətlərindən biri bütün elementlərin yenidən render olunduğundan baxmayaraq DOM-un yenidən yaradılmaması və state-in sıfırlanmamasıdır:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+root.render(<App />);
 // Eyni DOM nodlarını işlədəcək:
-ReactDOM.render(<App />, rootEl);
+root.render(<App />);
 ```
 
 Lakin, bizim tətbiqimiz yalnız ilkin ağacı mount etməyi bilir. Bizim tətbiqimizin `publicInstance`-lar və ya DOM `node`-ların hansı komponentlərə uyğun olduğu kimi lazımi məlumatlardan xəbəri olmadığından biz bu ağacın üstündə yeniliklər edə bilmirik.

@@ -11,9 +11,9 @@ redirect_from:
 
 React, Facebook-un aktiv təkmilləşmədə olan və [facebook.com](https://www.facebook.com)-da olan bütün istifadəçilər tərəfindən yüklənilən ilk open source layihələrdən biridir. Biz, bu layihədə iştirak etməyin asan və şəffaf olması üzərində işləyirik. Lakin, biz hələdə istəyimizə tam çatmamışıq. Arzu edirik ki, bu sənəd iştirak etmək prosesini aydınlaşdırır və sizin bəzi suallarınızı cavablandırılır.
 
-### [Davranış Qaydaları](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+### [Davranış Qaydaları](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
-Facebook, [Contributor Covenant](https://www.contributor-covenant.org/)-ı öz Davranış Qaydaları kimi adaptasiya etdiyindən biz layihə iştirakçılarının bu qaydalara riayət edəcəyini gözləyirik. Hansı hərəkətlərin dözülüb dözülməyəcəyini anlamaq üçün [bütün mətni](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxumağınız xahiş olunur.
+Facebook, [Contributor Covenant](https://www.contributor-covenant.org/)-ı öz Davranış Qaydaları kimi adaptasiya etdiyindən biz layihə iştirakçılarının bu qaydalara riayət edəcəyini gözləyirik. Hansı hərəkətlərin dözülüb dözülməyəcəyini anlamaq üçün [bütün mətni](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) oxumağınız xahiş olunur.
 
 ### Açıq Təkmilləşmə {#open-development}
 
@@ -23,19 +23,19 @@ React üzərində işlənilən bütün işlər [GitHub-da](https://github.com/fa
 
 React, [semantik versiyalamadan](https://semver.org/) istifadə edir. Biz, pəç versiyalarında kritiki baq düzəlişlərini, kiçik versiyalarda yeni xüsusiyyətləri, böyük versiyalarda isə pozucu dəyişiklikləri dərc edirik. Pozucu dəyişiklik olduqda istifadəçilərin gəcələk dəyişikliklərdən xəbəri olmasını və öz kodlarını öncədən miqrasiya etmələri üçün biz kiçik versiyalarda köhnəlmə xəbərdarlıqları əlavə edirik. Bizim stabilliyə və inkremental miqrasiyaya öhdəliyimiz haqqında məlumat almaq üçün [bizim versiya qaydalarımızı](/docs/faq-versioning.html) oxuyun.
 
-Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/master/CHANGELOG.md) sənədləşdirilir.
+Hər bir mühüm dəyişiklik [changelog faylında](https://github.com/facebook/react/blob/main/CHANGELOG.md) sənədləşdirilir.
 
 ### Branch Orqanizasiyası {#branch-organization}
 
-Bütün dəyişiklikləri [`master branch`-inə](https://github.com/facebook/react/tree/master) göndərin. Biz təkmilləşmə və gələcək buraxılışlar üçün ayrı branch-lər işlətmirik. Biz, `master`-in hər zaman yaxşı formada qalması və bütün testlərin keçməsi üçün əlimizdən gələni edirik.
+Bütün dəyişiklikləri [`main branch`-inə](https://github.com/facebook/react/tree/main) göndərin. Biz təkmilləşmə və gələcək buraxılışlar üçün ayrı branch-lər işlətmirik. Biz, `main`-in hər zaman yaxşı formada qalması və bütün testlərin keçməsi üçün əlimizdən gələni edirik.
 
-`master`-ə çatan kod ən yeni stabil versiya buraxılışı ilə işləməlidir. Burada, əlavə xüsusiyyətlər ola bilər. Lakin, pozucu dəyişikliklər ola bilməz. Biz `master`-dən istədiyimiz zaman yeni kiçik versiya dərc edə bilməliyik.
+`main`-ə çatan kod ən yeni stabil versiya buraxılışı ilə işləməlidir. Burada, əlavə xüsusiyyətlər ola bilər. Lakin, pozucu dəyişikliklər ola bilməz. Biz `main`-dən istədiyimiz zaman yeni kiçik versiya dərc edə bilməliyik.
 
 ### Xüsusiyyət Flaqları {#feature-flags}
 
-`master` branch-ini buraxılışa hazır vəziyyətdə saxlaya bilmək üçün bütün pozucu dəyişikliklər və eksperimental xüsusiyyətlər "xüsusiyyət flaqı" ilə gizlədilir.
+`main` branch-ini buraxılışa hazır vəziyyətdə saxlaya bilmək üçün bütün pozucu dəyişikliklər və eksperimental xüsusiyyətlər "xüsusiyyət flaqı" ilə gizlədilir.
 
-Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js) faylında təyin edilir. React-in fərqli qurulmaları fərqli xüsusiyyət flaqlarını aktiv edir. Məsələn, React Native qurulması React DOM qurulmasından fərqli konfiqurasiyada olunur. Bu flaqları [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks) direktoriyasından tapa bilərsiniz. Xüsusiyyət flaqlarına Flow ilə statik tiplər əlavə edilir. Bu səbəbdən, lazımi faylların yenilənməsini təsdiqləmək üçün `yarn flow` əmrindən istifadə edə bilərsiniz.
+Xüsusiyyət flaqları [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/main/packages/shared/ReactFeatureFlags.js) faylında təyin edilir. React-in fərqli qurulmaları fərqli xüsusiyyət flaqlarını aktiv edir. Məsələn, React Native qurulması React DOM qurulmasından fərqli konfiqurasiyada olunur. Bu flaqları [`packages/shared/forks`](https://github.com/facebook/react/tree/main/packages/shared/forks) direktoriyasından tapa bilərsiniz. Xüsusiyyət flaqlarına Flow ilə statik tiplər əlavə edilir. Bu səbəbdən, lazımi faylların yenilənməsini təsdiqləmək üçün `yarn flow` əmrindən istifadə edə bilərsiniz.
 
 React-in qurma sistemi React-i dərc etməmişdən öncə deaktiv edilmiş bütün xüsusiyyətləri siləcək. Continuous integration işi hər commit-dən sonra paket ölçüsünü yoxlayır. Siz ölçüdə baş verən dəyişiklik əsasında xüsusiyyətin düzgün gizlədildiyindən əmin ola bilərsiniz.
 
@@ -70,7 +70,7 @@ Açıq API-ı dəyişmək və ya tətbiqə kiçik olmayan dəyişikliklər etmə
 
 İlk Pull Request-iniz üzərində işləyirsiniz? Bunu necə etmək haqqında öyrənmək istəyirsinizsə, göstərilən pulsuz video seriyasına baxa bilərsiniz:
 
-**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+**[Github-da Yerləşən Open Source Layihələrdə Necə İştirak Etmək Olar](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
 
 Sizi bizim iştirak etmək prosesimiz ilə tanış etmək üçün məhdudlu əhatə dairəsi olan baqlardan ibarət **[yaxşı ilk problemlər](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** siyahımıza baxmağı tövsiyyə edirik.
 
@@ -84,12 +84,12 @@ Pull request-ləri core komandası izləyir. Biz, sizin pull request-inizə bax�
 
 **Pull request göndərməmişdən öncə** aşağıdakı addımları atmağınızı xahiş edirik:
 
-1. [repo-nu](https://github.com/facebook/react) fork edib `master`-dən branch yaradın.
+1. [repo-nu](https://github.com/facebook/react) fork edib `main`-dən branch yaradın.
 2. Repo-nun ana direktoriyasından `yarn` əmrini çağırın.
 3. Əgər baq düzəlişi etmisinizsə və ya test edilməli kod əlavə etmisinizsə, testlər əlavə edin!
 4. Test dəstinin uğurlu keçdiyindən əmin olun (`yarn test`). Məsləhət: Təkmilləşmə zamanı `yarn test --watch TestName` formalı əmr çağırmaq faydalıdır.
 5. Testləri produksiya mühitində yoxlamaq üçün `yarn test --prod` əmrini icra edin.
-6. Əgər sizə debaqqer lazımdırsa, `yarn debug-test --watch TestName` əmrini icra edin, `chrome://inspect` səhifəsini açın və "Inspect" düyməsini tıklayın.
+6. Əgər sizə debaqqer lazımdırsa, `yarn test --debug --watch TestName` əmrini icra edin, `chrome://inspect` səhifəsini açın və "Inspect" düyməsini tıklayın.
 7. Kodunuzu [prettier](https://github.com/prettier/prettier) ilə format edin (`yarn prettier`).
 8. Kodunuzun lint olduğundan əmin olun (`yarn lint`). Məsləhət: yalnız dəyişən faylları yoxlamaq üçün `yarn linc` əmrini icra edin.
 9. [Flow](https://flowtype.org/) tip yoxlamalarını icra edin (`yarn flow`).

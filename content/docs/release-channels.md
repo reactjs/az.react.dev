@@ -8,6 +8,15 @@ prev: cdn-links.html
 next: hello-world.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Versioning Policy](https://react.dev/community/versioning-policy) to learn about the React release channels.
+
+</div>
+
 React, çiçəklənən open source cəmiyyətinin göndərdiyi baq hesabatlarına, açdığı pull request-lərə və [təqdim etdiyi RFC-lərə](https://github.com/reactjs/rfcs) arxalanır. Rəyləri təşviq etmək üçün biz buraxılmamış xüsusiyyətlər üçün React-in xüsusi qurulmalarını paylaşırıq.
 
 > Bu sənəddə olan məlumatlar freymvorklar, kitabxanalar və digər developer alətləri üzərində işləyən proqramçılar üçün daha uyğundur. İstifadəçilər üçün applikasiyalar yazan proqramçılar bizim ön buraxılış kanallarımızda baş verən problemlərdən narahat olmamalıdırlar.
@@ -53,13 +62,13 @@ React-də olan bütün dəyişikliklər, dərc olunmadan öncə geniş daxili te
 - Üstünlük verdiyiniz continuous inteqration platformunda cron iş quraşdırın. Cron işlər [CircleCI](https://circleci.com/docs/2.0/triggers/#scheduled-builds) və [Travis CI](https://docs.travis-ci.com/user/cron-jobs/) platformalarında dəstəklənirlər.
 - Cron işində, NPM-də `next` təqindən istifadə edərək React paketlərini Next kanalında olan ən yeni buraxılış ilə yeniləyin. NPM ilə:
 
-  ```
+  ```console
   npm update react@next react-dom@next
   ```
 
   Yarn ilə:
 
-  ```
+  ```console
   yarn upgrade react@next react-dom@next
   ```
 - Test dəstinizi yenilənən paketlər ilə icra edin.
@@ -94,4 +103,4 @@ Eksperimental xüsusiyyətlər sənədləşmiş olmaya bilərlər. Adətən, eks
 
 Yeni eksperimentləri elan etməyə hazır olduqda biz bunları [React bloqunda](/blog) dərc edəcəyik. Lakin, bu demək deyil ki, biz hər eksperimenti elan edəcəyik.
 
-Dəyişikliklərin əhatəli siyahısını görmək üçün bizim ictimati GitHub repomuzun [tarixinə](https://github.com/facebook/react/commits/master) istinad edə bilərsiniz.
+Dəyişikliklərin əhatəli siyahısını görmək üçün bizim ictimati GitHub repomuzun [tarixinə](https://github.com/facebook/react/commits/main) istinad edə bilərsiniz.

@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/articles.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 - [React How-to](https://github.com/petehunt/react-howto) - Pit Hantın React ekosisteminə girişi.
 - [9 things every React.js beginner should know](https://camjackson.net/post/9-things-every-reactjs-beginner-should-know) - Kəm Ceksonun yeni başlayanlar üçün dərsliyi.
 - [React "Aha" Moments](https://tylermcginnis.com/react-aha-moments/) - Tayler MakGinnisin React-də baş verən "Aha" momentlərinin kolleksiyası.

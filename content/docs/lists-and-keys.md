@@ -6,6 +6,17 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Rendering Lists](https://react.dev/learn/rendering-lists)
+
+</div>
+
+
 Gəlin JavaScript-də siyahıları çevirməyi nəzərdən keçirək.
 
 Göstərilən kodda [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) funksiyasından istifadə edərək rəqəmlər (`numbers`) massivinində olan dəyərləri iki dəfə artırırıq. `map()`-dən qaytarılan yeni massivi `doubled` dəyişəninə təyin edib bu massivi çap edirik:
@@ -36,10 +47,7 @@ const listItems = numbers.map((number) =>
 `listItems` massivini `<ul>` elementinə daxil edərək siyahını [DOM-a render edirik](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +72,8 @@ function NumberList(props) {
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
 
 Bu kodu icra etdikdə, siyahı elementlərinin açarları olması haqqında xəbərdarlıq göstəriləcək. Elementlər siyahısı düzəltdikdə, xüsusi mətn atributu olan "key" (açar) atributunu daxil etməlisiniz. Gələcək bölmədə bu atributun əhəmiyyətindən danışacağıq.
@@ -86,12 +92,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -130,7 +130,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) Robin Pokorninin məqaləsini oxuyun. Siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
+Elementlərin sırası dəyişirsə, massiv indekslərini açar kimi işlətməyi tövsiyə etmirik. Bu performansa ziyan vura və komponent state-ində problemlər yarada bilər. [İndeksi açar kimi işlədikdə yaranan problemlər haqqında dərin izahat üçün](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/) Robin Pokorninin məqaləsini oxuyun. Siyahı elementlərinə açıq formada açar təyin edilmədikdə, React massiv indekslərini açar kimi işlədəcək.
 
 Əlavə məlumat üçün [açarların vacibliyi haqqında dərin izahatı](/docs/reconciliation.html#recursing-on-children) sənədini oxuya bilərsiniz.
 
@@ -165,12 +165,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 **Nümunə: Açarın Düzgün İstifadəsi**
@@ -193,12 +187,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +227,9 @@ const posts = [
   {id: 1, title: 'Salam Dünya', content: 'React-i Öyrənməyə Xoş Gəlmisiniz!'},
   {id: 2, title: 'Yükləmə', content: 'npm ilə React-i yükləyə bilərsiniz.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)

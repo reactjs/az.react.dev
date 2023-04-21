@@ -16,6 +16,18 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Your First Component](https://react.dev/learn/your-first-component)
+> - [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
+
+</div>
+
 Komponentlər sizə UI-ı müstəqil, yenidən istifadə oluna bilən hissələrə bölməyə və hər bir hissə haqqında izolasiya olunmuş kimi düşünməyə imkan verir. Bu səhifə komponentlər haqqında ideya üçün girişi təmin edir. Siz [komponent API referansı haqqında ətraflı burada](/docs/react-component.html) məlumat tapa bilərsiniz.
 
 Konseptual olaraq, komponentlər JavaScript funksiyalarına bənzəyir. Komponentlər özbaşına daxiletmələri ("proplar" adlanan) qəbul edir və ekranda nə olacağını təsvir edən React elementlərini qaytarırlar.
@@ -64,23 +76,21 @@ React, proqramçılar tərəfindən yazılmış komponenti təmsil edən element
 
 Məsələn, aşağıdakı kod "Salam, Aysel" mətnini səhifədə render edir:
 
-```js{1,5}
+```js{1,6}
 function Welcome(props) {
   return <h1>Salam, {props.name}</h1>;
 }
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 const element = <Welcome name="Aysel" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+root.render(element);
 ```
 
-[](codepen://components-and-props/rendering-a-component)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Gəlin bu nümunədə baş verənləri qeyd edək:
 
-1. Biz `ReactDOM.render()`-i `<Welcome name="Aysel" />` elementi ilə çağırırıq.
+1. Biz `root.render()`-i `<Welcome name="Aysel" />` elementi ilə çağırırıq.
 2. React `Welcome` komponentini proplar kimi`{name: 'Aysel'}`-i ilə çağırırıq.
 3. Bizim `Welcome` komponentimiz `<h1>Salam, Aysel</h1>` elementini nəticə kimi çağırır.
 4. React DOM-u `<h1>Salam, Aysel</h1>`-ə uyğunlaşdırmaq üçün effektli şəkildə DOM-u yeniləyir.
@@ -111,14 +121,9 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://components-and-props/composing-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
 Adətən yeni React applikasiyalarının ən yuxarıda tək `App` komponenti olur. Buna baxmayaraq, əgər siz mövcud applikasiyalara React-i inteqrasiya etsəniz, siz aşağıdan yuxarı `Button` kimi kiçik komponentlər ilə başlamalı olacaqsız və tədricən ierarxiyanın ən yuxarısına işləməlisiniz.
 
@@ -152,7 +157,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
 
 Bu `author` (obyekt), `text` (mətn), və `date`-i (məlumat) proplar kimi qəbul edir və sosial media saytında kommenti təsvir edir.
 
@@ -231,7 +236,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components-continued)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
 
 Komponentlərin ixrac edilməsi ilk öncə aşağı səviyyəli iş kimi görünə bilər, amma daha böyük applikasiyalarda yenidən istifadə oluna bilən komponentlər paletinin olması yararlıdır. Bir neçə yerdə istifadə oluna bilən (`Button`, `Panel`, `Avatar`) və ya təklildə mürəkkəb tərkibi (`App`, `FeedStory`, `Comment`) olan və UI-ı yenidən istifadə oluna bilən komponentlərə ixrac etməyi tövsiyyə edirik.
 

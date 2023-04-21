@@ -18,6 +18,15 @@ redirect_from:
   - "docs/environments.html"
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> The new [Quick Start](https://react.dev/learn) teaches modern React and includes live examples.
+
+</div>
+
 Bu səhifədə React sənədlərinin icmalından və React ilə əlaqəli resurslardan danışacağıq.
 
 **React**, UI yaratmaq üçün JavaScript kitabxanasıdır. React-in nə olduğunu öyrənmək üçün [ana səhifəmizə](/) və ya [dərsliyə](/tutorial/tutorial.html) baxın.
@@ -38,7 +47,7 @@ React, tədrici adaptasiya fikri ilə dizayn olunub. **Siz applikasiyanızda Rea
 
 React ilə oynamaq istəyirsinizsə, onlayn kod meydançasından istifadə edə bilərsiniz. Salam Dünya şablonunu [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) və ya [Stackblitz-də](https://stackblitz.com/fork/react) sınayın.
 
-Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
+Əgər öz kod redaktorunuzdan istifadə etmək istəyirsinizsə [bu HTML faylını yükləyib](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) və redaktə edib brauzerdə lokal fayl sistemindən aça bilərsiniz. Bu nümunədə, icra zamanı yavaş kod transformasiyası edildiyindən bu metodu yalnız sadə demolarda istifadə etməyi tövsiyə edirik.
 
 ### React-i Veb Səhifəyə Əlavə Et {#add-react-to-a-website}
 
@@ -115,7 +124,7 @@ React sənədində işlədilən bütün terminlərin icmalı üçün [Lüğətə
 
 Siz həmçinin [@reactjs Twitter hesabını](https://twitter.com/reactjs) izləyə bilərsiniz. Lakin, bloqu oxuyursunuzsa heç bir vacib məlumatı qaçırmayacaqsınız.
 
-Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/master/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
+Bütün React buraxılışları öz bloq yazısına layiq deyil. Hər buraxılışın detallı changelog-una [React reposunun `CHANGELOG.md` faylından](https://github.com/facebook/react/blob/main/CHANGELOG.md) və ya [Buraxılışlar](https://github.com/facebook/react/releases) səhifəsindən baxa bilərsiniz.
 
 ## Versiyalı Sənədlər {#versioned-documentation}
 

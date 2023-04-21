@@ -8,6 +8,12 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React-in çox güclü kompozisiya modeli olduğundan komponentlər arasında kodu paylaşa bilmək üçün varislik əvəzinə kompozisiyadan istifadə etməyi tövsiyə edirik.
 
 Bu bölmədə, React-ə yeni başlayan proqramçıların ilk yanaşmada varisliyə əl atdıqları problemləri nəzərə alıb, bu problemlərin kompozisiya ilə həllini göstərəcəyik.

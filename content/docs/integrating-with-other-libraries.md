@@ -4,6 +4,19 @@ title: Digər Kitabxanalar ilə İnteqrasiya
 permalink: docs/integrating-with-other-libraries.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`useSyncExternalStore`: Subscribing to an external store 
+](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-an-external-store)
+> - [`createPortal`: Rendering React components into non-React DOM nodes 
+](https://react.dev/reference/react-dom/createPortal#rendering-react-components-into-non-react-dom-nodes)
+
+</div>
+
 React bütün veb applikasiyalarda işlənilə bilər. React-i digər applikasiyalara və digər applikasiyları React-ə qoşmaq mümkündür. Bu sənəddə çox işlənilən ssenarilərə baxacağıq. Əsas olaraq [jQuery](https://jquery.com/) və [Backbone](https://backbonejs.org/) kitabxanalarına inteqrasiyaya fokuslandığımıza baxmayaraq istifadə olunan fikirlər ilə komponentləri hər hansı mövcud koda inteqrasiya etmək mümkündür.
 
 ## DOM Manipulyasiya Plaginlərinə İnteqrasiya {#integrating-with-dom-manipulation-plugins}
@@ -190,9 +203,9 @@ class Chosen extends React.Component {
 
 ## Digər Kitabxanalar ilə İnteqrasiya {#integrating-with-other-view-libraries}
 
-[`ReactDOM.render()`](/docs/react-dom.html#render) funksiyasının elastikliyi React-i digər applikasiyalara əlavə etməyə imkan yaradır.
+[`createRoot()`](/docs/react-dom-client.html#createRoot) funksiyasının elastikliyi React-i digər applikasiyalara əlavə etməyə imkan yaradır.
 
-Çox zaman React, tək ana React komponentini DOM-a yükləmək üçün işlədilir. Lakin `ReactDOM.render()` ilə UI-ın bir neçə müstəqil hissəsini (məsələn kiçik düymə və ya applikasiya kimi böyük) render etmək olar.
+Çox zaman React, tək ana React komponentini DOM-a yükləmək üçün işlədilir. Lakin `createRoot()` ilə UI-ın bir neçə müstəqil hissəsini (məsələn kiçik düymə və ya applikasiya kimi böyük) render etmək olar.
 
 Facebook-da React bu formada işlədilir. Bu bizə React-də applikasiyaları hissə hissə yazmağa və React hissələrini mövcud serverdə yaradılan şablon və ya digər klient kodu ilə birlikdə işlətməyə icazə verir.
 
@@ -216,15 +229,9 @@ function Button() {
   return <button id="btn">Salam De</button>;
 }
 
-ReactDOM.render(
-  <Button />,
-  document.getElementById('container'),
-  function() {
-    $('#btn').click(function() {
-      alert('Salam!');
-    });
-  }
-);
+$('#btn').click(function() {
+  alert('Salam!');
+});
 ```
 
 Siz buradan başlayaraq daha çox kodu komponentlərə çevirib React-də işlədilən praktikaları tətbiq edə bilərsiniz. Məsələn, eyni komponentin bir neçə dəfə render edilə bildiyindən, komponentlərdə ID-lər işlətmək məsləhət deyil. Bunun əvəzinə, [React-in hadisə sistemindən](/docs/handling-events.html) istifadə edib tıklamaq işləyicisini birbaşa React `<button>` elementinə goşa bilərsiniz:
@@ -240,36 +247,34 @@ function HelloButton() {
   }
   return <Button onClick={handleClick} />;
 }
-
-ReactDOM.render(
-  <HelloButton />,
-  document.getElementById('container')
-);
 ```
 
 [**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-Siz bu formalı komponentləri `ReactDOM.render()`-dən istifadə edib fərqli DOM konteynerlərə  render edə bilərsiniz. Zaman ilə, applikasiyanın daha çox hissələri React-ə çevirərək bə bu komponentləri birləşdirərək `ReactDOM.render()` çağırışlarını iyerarxiyada qaldıra bilərik.
+Siz bu formalı komponentləri `ReactDOM.createRoot()`-dən istifadə edib fərqli DOM konteynerlərə  render edə bilərsiniz. Zaman ilə, applikasiyanın daha çox hissələri React-ə çevirərək bə bu komponentləri birləşdirərək `ReactDOM.createRoot()` çağırışlarını iyerarxiyada qaldıra bilərik.
 
 ### React-i Backbone Görünüşlərinə Qoşmaq {#embedding-react-in-a-backbone-view}
 
 [Backbone](https://backbonejs.org/) görünüşləri adətən HTML mətnləri və ya mətn yaradan şablon funksiyalarından istifadə edərək DOM elementləri üçün kontent yaradır. Bu proses React komponenti render etməsi ilə əvəz edilə bilər.
 
-Aşağıda `ParagraphView` Backbone görünüşü yaradacağıq. Bu görünüş, Backbone-un `render()` funksiyasını əvəzləyərək `<Paragraph>` React komponentini Backbone tərəfindən təmin edilən DOM elementinə (`this.el`) render edəcək. Biz burada da [`ReactDOM.render()`-dən](/docs/react-dom.html#render) istifadə edəcəyik:
+Aşağıda `ParagraphView` Backbone görünüşü yaradacağıq. Bu görünüş, Backbone-un `render()` funksiyasını əvəzləyərək `<Paragraph>` React komponentini Backbone tərəfindən təmin edilən DOM elementinə (`this.el`) render edəcək. Biz burada da [`ReactDOM.createRoot()`-dən](/docs/react-dom-client.html#createroot) istifadə edəcəyik:
 
-```js{1,5,8,12}
+```js{7,11,15}
 function Paragraph(props) {
   return <p>{props.text}</p>;
 }
 
 const ParagraphView = Backbone.View.extend({
+  initialize(options) {
+    this.reactRoot = ReactDOM.createRoot(this.el);
+  },
   render() {
     const text = this.model.get('text');
-    ReactDOM.render(<Paragraph text={text} />, this.el);
+    this.reactRoot.render(<Paragraph text={text} />);
     return this;
   },
   remove() {
-    ReactDOM.unmountComponentAtNode(this.el);
+    this.reactRoot.unmount();
     Backbone.View.prototype.remove.call(this);
   }
 });
@@ -277,7 +282,7 @@ const ParagraphView = Backbone.View.extend({
 
 [**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-Elementin DOM-dan ayrıldığı zaman React-də hadisə işləyicilərini və komponent ağacı haqqında olan resursları silmək üçün `remove` funksiyasında `ReactDOM.unmountComponentAtNode()` çağırmaq lazımdır.
+Elementin DOM-dan ayrıldığı zaman React-də hadisə işləyicilərini və komponent ağacı haqqında olan resursları silmək üçün `remove` funksiyasında `root.unmount()` çağırmaq lazımdır.
 
 React ağacı *daxilində olan* komponent silindikdə, bu təmizlik işi avtomatik baş verir. Lakin burada elementi ağacdan əl ilə sildiyimizdən, bu funksiyanı çağırmaq lazımdır.
 
@@ -428,10 +433,8 @@ function Example(props) {
 }
 
 const model = new Backbone.Model({ firstName: 'Frodo' });
-ReactDOM.render(
-  <Example model={model} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Example model={model} />);
 ```
 
 [**CodePen-də Sınayın**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)

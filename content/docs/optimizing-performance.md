@@ -6,6 +6,17 @@ redirect_from:
   - "docs/advanced-performance.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`memo`: Skipping re-rendering when props are unchanged
+](https://react.dev/reference/react/memo#skipping-re-rendering-when-props-are-unchanged)
+
+</div>
+
 Daxildə, React, bir neçə ağıllı texnikadan istifadə edərək UI-ı yeniləmək üçün ağır DOM əməliyyatlarının sayını azaldır. Bir çox applikasiyada performansı xüsusi optimallaşdırmadan React-dən istifadə etdikdə itifadəçi interfeysi tez işləyəcək. Buna baxmayaraq React applikasiyasını tezləşdirməyin bir neçə yolu var.
 
 ## Produksiya Qurulmasından İstifadə Edin {#use-the-production-build}
@@ -43,8 +54,8 @@ Bunun yalnız produksiya zamanı işlədildiyini unutmayın. Normal development 
 Biz, React və React DOM-un produksiyaya hazır versiyalarını tək fayl ilə təmin edirik:
 
 ```html
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
 Produksiya üçün yalnız `.production.min.js` ilə bitən faylların uyğun olduğunu unutmayın.

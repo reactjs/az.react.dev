@@ -6,21 +6,30 @@ prev: create-a-new-react-app.html
 next: release-channels.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Add React to an Existing Project](https://react.dev/learn/add-react-to-an-existing-project) for the recommended ways to add React.
+
+</div>
+
 React və ReactDOM CDN-dən mövcuddur.
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 ```
 
 Yuxarıda göstərilən versiyalar yalnız development üçündür. Bu linkləri produksiyada işlətməyin. React-in minimallaşmış (minify) və produksiya üçün optimallaşmış versiyalarını aşağıdakı linklərdən yükləyə bilərsiniz:
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
-`react` və `react-dom`-un spesifik versiyalarını yükləmək üçün `17` rəqəmini versiya nömrəsi ilə əvəz edin.
+`react` və `react-dom`-un spesifik versiyalarını yükləmək üçün `18` rəqəmini versiya nömrəsi ilə əvəz edin.
 
 ### Niyə `crossorigin` Atributu? {#why-the-crossorigin-attribute}
 

@@ -8,11 +8,20 @@ redirect_from:
   - "support.html"
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See the [Community](https://react.dev/community) resources on the new site.
+
+</div>
+
 React-in milyonlarla proqramçıdan ibarət cəmiyyəti var.
 
 Bu səhifədə React ilə bağlı qoşula biləcəyiniz cəmiyyətlər göstərilib. Onlayn və ya canlı öyrənmə materialları üçün bu bölmədəki digər səhifələrə baxın.
 
-React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
+React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
 
 ## Stack Overflow {#stack-overflow}
 

@@ -4,6 +4,14 @@ title: Yüksək Dərəcəli Komponentlər
 permalink: docs/higher-order-components.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> Higher-order components are not commonly used in modern React code.
+
+</div>
+
 Yüksək dərəcəli komponentlər (Higher-Order Component, HOC) React-də komponent məntiqini yenidən istifadə etmənin qabaqcıl texnikasıdır. HOC-lər özlüyündə React API-ın bir parçası deyil, React-in kompozisiyalı təbiətindən ortaya çıxan modeldir.
 
 Qısacası, **yüksək dərəcəli komponent bir komponenti parametr olaraq qəbul edib, yeni bir komponent qaytaran funksiyadır.**
@@ -14,7 +22,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Adi komponent propları UI-a çevirir, yüksək dərəcəli komponent isə komponenti başqa bir komponentə çevirir.
 
-HOC-lər üçüncü tərəf React kitabxanalarında yayğındır, məsələn Redux-ın [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)-i və ya Relay-in [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer)-i kimi.
+HOC-lər üçüncü tərəf React kitabxanalarında yayğındır, məsələn Redux-ın [`connect`](https://react-redux.js.org/api/connect)-i və ya Relay-in [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer)-i kimi.
 
 Bu sənəddə yüksək dərəcəli komponentlərin niyə faydalı olduğunu və necə yazılacağını müzakirə edəcəyik.
 
@@ -296,7 +304,7 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 ## Konvensiya: Asan Dibaq Etmək üçün Görüntüləmə Adı Əlavə Edin{#convention-wrap-the-display-name-for-easy-debugging}
 
-HOC tərəfindən yaradılan konteyner komponentləri digər komponentlər kimi [React Developer Tools](https://github.com/facebook/react-devtools)-da görünür. Dibaqı asanlaşdırmaq üçün HOC tərəfindən yaradılan komponentlərə özəl ad vermək olar.
+HOC tərəfindən yaradılan konteyner komponentləri digər komponentlər kimi [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools)-da görünür. Dibaqı asanlaşdırmaq üçün HOC tərəfindən yaradılan komponentlərə özəl ad vermək olar.
 
 Ən çox yayılmış texnika əhatə olunmuş komponentin adını sarmaqdır. Yəni, yüksək dərəcəli komponentiniz `withSubscription` adlanırsa və əhatə olunan komponentin adı `CommentList`-dirsə, görüntüləmə adı olaraq `WithSubscription(CommentList)` istifadə edirik:
 

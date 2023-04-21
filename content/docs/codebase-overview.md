@@ -19,8 +19,8 @@ Burada göstərilən konvensiyaların React applikasiyalarında işlədilməsini
 
 [React repo-sunu](https://github.com/facebook/react) klon etdikdə aşağıdakı direktoriyaları görəcəksiniz:
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) direktoriyasında React reposunda olan bütün paketlərin metadata-ları (`package.json` kimi) və mənbə kodları (`src` alt direktoriyalarında) saxlanılır. **Əgər etdiyiniz dəyişiklik kod ilə əlaqəlidirsə, siz vaxtınızın çoxunu hər paketin `src` alt direktoriyasında keçirəcəksiniz.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) direktoriyasında iştirakçılar üçün test React applikasiyaları saxlanılır.
+* [`packages`](https://github.com/facebook/react/tree/main/packages) direktoriyasında React reposunda olan bütün paketlərin metadata-ları (`package.json` kimi) və mənbə kodları (`src` alt direktoriyalarında) saxlanılır. **Əgər etdiyiniz dəyişiklik kod ilə əlaqəlidirsə, siz vaxtınızın çoxunu hər paketin `src` alt direktoriyasında keçirəcəksiniz.**
+* [`fixtures`](https://github.com/facebook/react/tree/main/fixtures) direktoriyasında iştirakçılar üçün test React applikasiyaları saxlanılır.
 * `build` direktoriyasında React-in qurulma nəticəsini saxlanılır. Bu direktoriya repo-da yoxdur, amma bu direktoriyanı React-i ilk dəfə [quraşdırdıqda](/docs/how-to-contribute.html#development-workflow) görəcəksiniz.
 
 Sənədlər [React-dən kənar repo-da](https://github.com/reactjs/reactjs.org) saxlanılır.
@@ -98,7 +98,7 @@ React, [monorepo](https://danluu.com/monorepo/)-dur. Bu repo bir neçə paketdə
 
 ### React Core {#react-core}
 
-React-in "core"-unda bütün [yuxarı səviyyəli `React` API-ları](/docs/top-level-api.html#react) saxlanılır. Məsələn:
+React-in "core"-unda bütün [yuxarı səviyyəli `React` API-ları](/docs/react-api.html#react) saxlanılır. Məsələn:
 
 * `React.createElement()`
 * `React.Component`
@@ -106,7 +106,7 @@ React-in "core"-unda bütün [yuxarı səviyyəli `React` API-ları](/docs/top-l
 
 **React core-da yalnız komponentləri təyin etmək üçün lazım olan API-lar saxlanılır.** Burada [rekonsilyasiya](/docs/reconciliation.html) alqoritmi və ya digər platformaya xas olan kodlar mövcud deyil. Buradakı kodlar həm React DOM, həm də React Native komponentləri tərəfindən istifadə edilir.
 
-React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) direktoriyasında saxlanılır. React core, NPM-də [`react`](https://www.npmjs.com/package/react) paketi adı altında mövcuddur. Bağımsız brauzer qurulmaları isə `react.js` adlanır. Bu qurulmalarda ixrac edilən qlobal dəyişənin adı `React`-dir.
+React core-un kodu [`packages/react`](https://github.com/facebook/react/tree/main/packages/react) direktoriyasında saxlanılır. React core, NPM-də [`react`](https://www.npmjs.com/package/react) paketi adı altında mövcuddur. Bağımsız brauzer qurulmaları isə `react.js` adlanır. Bu qurulmalarda ixrac edilən qlobal dəyişənin adı `React`-dir.
 
 ### Render Edici Qurğular {#renderers}
 
@@ -114,17 +114,17 @@ Başlanğıcda React yalnız DOM üçün yaradılmışdı, amma bir zaman sonra 
 
 **Render edici qurğular React ağacını platformaya xas olan çağırışlara çevirmək üçündür.**
 
-Render edici qurğular [`packages/`](https://github.com/facebook/react/tree/master/packages/) direktoriyasında yerləşir:
+Render edici qurğular [`packages/`](https://github.com/facebook/react/tree/main/packages/) direktoriyasında yerləşir:
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) qurğusu React komponentlərini DOM-a render edir. Bu qurğu [yuxarı səviyyəli `ReactDOM` API-larını](/docs/react-dom.html) tətbiq edir. Bu qurğu NPM-də [`react-dom`](https://www.npmjs.com/package/react-dom) paketi adı ilə mövcuddur. Əlavə olaraq siz bu qurğunu `react-dom.js` adlı bağımsız brauzer paketi ilə də işlədə bilərsiniz. Bu paket, `ReactDOM` qlobal obyektini ixrac edir.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React komponentlərini nativ görünüşlərə render edir. Bu qurğu React Native tərəfindən işlədilir.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) qurğusu React komponentlərini JSON ağaclarına çevirir. Bu qurğu [Jest](https://facebook.github.io/jest)-in [Snəpşot Test Etmə](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) xüsusiyyətindən istifadə edir. Bu qurğu NPM-də [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) paketi adı ilə mövcuddur.
+* [React DOM Renderer](https://github.com/facebook/react/tree/main/packages/react-dom) qurğusu React komponentlərini DOM-a render edir. Bu qurğu [yuxarı səviyyəli `ReactDOM` API-larını](/docs/react-dom.html) tətbiq edir. Bu qurğu NPM-də [`react-dom`](https://www.npmjs.com/package/react-dom) paketi adı ilə mövcuddur. Əlavə olaraq siz bu qurğunu `react-dom.js` adlı bağımsız brauzer paketi ilə də işlədə bilərsiniz. Bu paket, `ReactDOM` qlobal obyektini ixrac edir.
+* [React Native Renderer](https://github.com/facebook/react/tree/main/packages/react-native-renderer) qurğusu React komponentlərini nativ görünüşlərə render edir. Bu qurğu React Native tərəfindən işlədilir.
+* [React Test Renderer](https://github.com/facebook/react/tree/main/packages/react-test-renderer) qurğusu React komponentlərini JSON ağaclarına çevirir. Bu qurğu [Jest](https://facebook.github.io/jest)-in [Snəpşot Test Etmə](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) xüsusiyyətindən istifadə edir. Bu qurğu NPM-də [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) paketi adı ilə mövcuddur.
 
-Rəsmi dəstəklənən render edici qurğularından biri də [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art)-dır. Əvvəllər bu qurğu ayrı [GitHub repo-sunda idi](https://github.com/reactjs/react-art), amma hələlik biz bu qurğunu əsas kod repo-suna əlavə etmişik.
+Rəsmi dəstəklənən render edici qurğularından biri də [`react-art`](https://github.com/facebook/react/tree/main/packages/react-art)-dır. Əvvəllər bu qurğu ayrı [GitHub repo-sunda idi](https://github.com/reactjs/react-art), amma hələlik biz bu qurğunu əsas kod repo-suna əlavə etmişik.
 
 >**Qeyd:**
 >
->Texniki olaraq [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) qurğusu React-in React Native tətbiqi ilə işləməsi üçün çox nazik bir təbəqədir. Nativ görünüşləri idarə edən, platformaya xas olan kodlar və bu kodların işləməsi üçün lazım olan komponentlər [React Native repo-sunda](https://github.com/facebook/react-native) saxlanılır.
+>Texniki olaraq [`react-native-renderer`](https://github.com/facebook/react/tree/main/packages/react-native-renderer) qurğusu React-in React Native tətbiqi ilə işləməsi üçün çox nazik bir təbəqədir. Nativ görünüşləri idarə edən, platformaya xas olan kodlar və bu kodların işləməsi üçün lazım olan komponentlər [React Native repo-sunda](https://github.com/facebook/react-native) saxlanılır.
 
 ### Rekonsilyatorlar {#reconcilers}
 
@@ -152,11 +152,11 @@ Bu qurğunun əsas məqsədləri aşağıda göstərilib:
 
 React-in Fiber Arxitekturası haqqında əlavə məlumat almaq üçün [bura](https://github.com/acdlite/react-fiber-architecture) və [bura](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react) baxın. Bu rekonsilyatorun React 16-da olmasına baxmayaraq hələki asinxron xüsusiyyətlər standart şəkildə aktivləşməyib.
 
-React rekonsilyatoru [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler) direktoriyasında saxlanılır.
+React rekonsilyatoru [`packages/react-reconciler`](https://github.com/facebook/react/tree/main/packages/react-reconciler) direktoriyasında saxlanılır.
 
 ### Hadisə Sistemi {#event-system}
 
-React, brauzerlər arası dəyişiklikləri eyniləşdirmək nativ hadisələr üzərindən abstrakt təbəqə tətbiq edir. Bu abstraksiyanın kodu [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events) direktoriyasındadır.
+React, brauzerlər arası dəyişiklikləri eyniləşdirmək nativ hadisələr üzərindən abstrakt təbəqə tətbiq edir. Bu abstraksiyanın kodu [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/main/packages/react-dom/src/events) direktoriyasındadır.
 
 ### Sonrakı Addımlar {#what-next}
 

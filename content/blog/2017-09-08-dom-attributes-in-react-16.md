@@ -3,6 +3,12 @@ title: "DOM Attributes in React 16"
 author: [gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
 
 ```js
@@ -165,7 +171,7 @@ Below is a detailed list of them.
     React 15: Converts `NaN`s to strings and passes them through.  
     React 16: Converts `NaN`s to strings and passes them through with a warning.
 
-While testing this release, we have also [created an automatically generated table](https://github.com/facebook/react/blob/master/fixtures/attribute-behavior/AttributeTableSnapshot.md) for all known attributes to track potential regressions.
+While testing this release, we have also [created an automatically generated table](https://github.com/facebook/react/blob/main/fixtures/attribute-behavior/AttributeTableSnapshot.md) for all known attributes to track potential regressions.
 
 ## Try It! {#try-it}
 

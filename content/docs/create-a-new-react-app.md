@@ -8,6 +8,15 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Start a New React Project](https://react.dev/learn/start-a-new-react-project) for the recommended ways to create an app.
+
+</div>
+
 Ən yaxşı istifadəçi və developer təcrübəsi üçün inteqrasiya olunmuş toolchain istifadə edin.
 
 Bu səhifə, göstərilən məsələləri həll etməyə kömək edən React toolchain-lərindən danışır:
@@ -75,7 +84,7 @@ Aşağıda göstərilən toolchain-lər daha çox seçim və elastiklik təklif 
 
 - **[Nx](https://nx.dev/react)**, React, Next.js, [Express](https://expressjs.com/) və digər kitabxanaları dəstəkləyən full-stək monorepo təkmilləşməsi üçün istifadə olunan alətdir.
 
-- **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes.html#react) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
+- **[Parcel](https://parceljs.org/)** [React ilə işlənə bilən](https://parceljs.org/recipes/react/) çevik və sıfır konfiqurasiyalı veb applikasiya paketləyənidir.
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** konfiqurasiya tələb etməyən server ilə render etmə freymvorkdur. Bu framevork Next.js-dən daha elastikdir.
 

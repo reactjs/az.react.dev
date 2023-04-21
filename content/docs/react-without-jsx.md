@@ -4,6 +4,12 @@ title: JSX-siz React
 permalink: docs/react-without-jsx.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React işlətmək üçün JSX quraşdırmaq tələb olunmur. Yaranma mühitində kompilyasiya prosesi quraşdırmaq istəmədikdə React-i JSX-siz işlətmək əlverişlidir.
 
 JSX elementləri `React.createElement(component, props, ...children)` funksiyası üçün asan sintaksisdir. Bu səbəbdən, JSX-də mümkün olan bütün əməliyyatlar, sadə JavaScript ilə yazıla bilər.
@@ -17,10 +23,8 @@ class Hello extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Hello toWhat="Dünya" />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Hello toWhat="Dünya" />);
 ```
 
 JSX işlətməyən bu koda kompilyasiya olunur:
@@ -32,10 +36,8 @@ class Hello extends React.Component {
   }
 }
 
-ReactDOM.render(
-  React.createElement(Hello, {toWhat: 'Dünya'}, null),
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(Hello, {toWhat: 'Dünya'}, null));
 ```
 
 JSX-in JavaScript-ə çevrilməsi haqqında əlavə nümunələr üçün [onlayn Babel kompilyatorundan](babel://jsx-simple-example) istifadə edə bilərsiniz.
@@ -47,10 +49,8 @@ Təmin olunan komponent mətn, `React.Component`-in alt sinfi və ya sadə funks
 ```js
 const e = React.createElement;
 
-ReactDOM.render(
-  e('div', null, 'Hello World'),
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(e('div', null, 'Hello World'));
 ```
 
 `React.createElement` funksiyasını qısaldılmış formada istifadə etmək React-i JSX-siz işlətmək üçün əlverişli ola bilər.

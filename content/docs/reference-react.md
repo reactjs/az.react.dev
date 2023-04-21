@@ -13,6 +13,19 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react`: Components](https://react.dev/reference/react/components)
+> - [`react`: Hooks](https://react.dev/reference/react/)
+> - [`react`: APIs](https://react.dev/reference/react/apis)
+> - [`react`: Legacy APIs](https://react.dev/reference/react/legacy)
+
+</div>
+
 `React` React kitabxanası üçün başlanğıc nöqtəsidir. Əgər siz React-i `<script>` təqi ilə yükləyirsinizsə, bu üst səviyyəli API-lar `React` qlobalında mövcuddur. Əgər siz NPM ilə ES6 işlədirsinizsə, siz `import React from 'react'` yaza bilərsiniz. Əgər siz NPM ilə ES5 işlədirsinizsə, siz `var React = require('react')` yaza bilərsiniz.
 
 ## İcmal {#overview}
@@ -66,6 +79,13 @@ Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" im
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
 
+### Transitions {#transitions}
+
+*Transitions* are a new concurrent feature introduced in React 18. They allow you to mark updates as transitions, which tells React that they can be interrupted and avoid going back to Suspense fallbacks for already visible content.
+
+- [`React.startTransition`](#starttransition)
+- [`React.useTransition`](/docs/hooks-reference.html#usetransition)
+
 ### Hooklar {#hooks}
 
 *Hooklar* React 16.8-a yeni əlavədir. Onlar sizə state və başqa React xüsusiyyətlərini sinif yazmadan istifadə etməyə imkan yaradır. Hooklara [həsr olunmuş ayrıca sənədləri](/docs/hooks-intro.html) və API arayışları var:
@@ -82,12 +102,26 @@ Suspense komponentləri render etməmişdən qabaq nəyisə "gözləməsinə" im
   - [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)
   - [`useLayoutEffect`](/docs/hooks-reference.html#uselayouteffect)
   - [`useDebugValue`](/docs/hooks-reference.html#usedebugvalue)
+  - [`useDeferredValue`](/docs/hooks-reference.html#usedeferredvalue)
+  - [`useTransition`](/docs/hooks-reference.html#usetransition)
+  - [`useId`](/docs/hooks-reference.html#useid)
+- [Library Hooks](/docs/hooks-reference.html#library-hooks)
+  - [`useSyncExternalStore`](/docs/hooks-reference.html#usesyncexternalstore)
+  - [`useInsertionEffect`](/docs/hooks-reference.html#useinsertioneffect)
 
 * * *
 
 ## Arayış {#reference}
 
 ### `React.Component` {#reactcomponent}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Component`](https://react.dev/reference/react/Component).
+
+</div>
 
 `React.Component` [ES6 sinifləri](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) ilə müəyyənləşdirilən React komponentləri üçün əsas sinifdir:
 
@@ -105,19 +139,35 @@ class Greeting extends React.Component {
 
 ### `React.PureComponent` {#reactpurecomponent}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`PureComponent`](https://react.dev/reference/react/PureComponent).
+
+</div>
+
 `React.PureComponent`-i [`React.Component`-inə](#reactcomponent) bənzəyir. Bu ikisi arasında fərq [`React.Component-in`](#reactcomponent) [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) funksiyasını tətbiq etməməsi, `React.PureComponent`-in isə bu funksiyanın dayaz prop və state müqayisəsi ilə tətbiq etməsidir.
 
 Əgər React komponentin `render()` funksiyası verilən proplar və state əsasında eyni nəticəni render edirsə, siz bəzi hallarda performans üçün `React.PureComponent`-dən istifadə edə bilərsiniz.
 
 > Qeyd
 >
-> `React.PureComponent`-in `shouldComponentUpdate()` funksiyası obyektləri yalnız dayaz müqayisə edir. Əgər kompleks data strukturlar varsa, bu sizə dərin müqayisələrdə səhv-neqativlər verə bilər. Komponentinizi `PureComponent` ilə yalnız sadə proplar və state olduqda genişləndirin. Əks halda dərin data strukturlarının dəyişdiyini bildiyiniz zaman [`forceUpdate()`](/docs/react-component.html#forceupdate) funksiyasından istifadə edin. Əlavə olaraq, dərin məlumatların tez müqayisəsi üçün [dəyişməyən obyektlərdən](https://facebook.github.io/immutable-js/) istifadə edin.
+> `React.PureComponent`-in `shouldComponentUpdate()` funksiyası obyektləri yalnız dayaz müqayisə edir. Əgər kompleks data strukturlar varsa, bu sizə dərin müqayisələrdə səhv-neqativlər verə bilər. Komponentinizi `PureComponent` ilə yalnız sadə proplar və state olduqda genişləndirin. Əks halda dərin data strukturlarının dəyişdiyini bildiyiniz zaman [`forceUpdate()`](/docs/react-component.html#forceupdate) funksiyasından istifadə edin. Əlavə olaraq, dərin məlumatların tez müqayisəsi üçün [dəyişməyən obyektlərdən](https://immutable-js.com/) istifadə edin.
 >
 > Əlavə olaraq, `React.PureComponent`-in `shouldComponentUpdate()` funksiyası komponentdən başlayan komponent ağacının prop yeniliklərini saymır. Əmin olun ki, bütün uşaq komponentlər də "təmizdirlər."
 
 * * *
 
 ### `React.memo` {#reactmemo}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`memo`](https://react.dev/reference/react/memo).
+
+</div>
 
 ```javascript
 const MyComponent = React.memo(function MyComponent(props) {
@@ -157,6 +207,14 @@ Bu metod yalnız **[performans optimizasiyası](/docs/optimizing-performance.htm
 
 ### `createElement()` {#createelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createElement`](https://react.dev/reference/react/createElement).
+
+</div>
+
 ```javascript
 React.createElement(
   type,
@@ -173,10 +231,18 @@ Verilmiş tip ilə yeni [React elementi](/docs/rendering-elements.html) yaradın
 
 ### `cloneElement()` {#cloneelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`cloneElement`](https://react.dev/reference/react/cloneElement).
+
+</div>
+
 ```
 React.cloneElement(
   element,
-  [props],
+  [config],
   [...children]
 )
 ```
@@ -189,13 +255,21 @@ React.cloneElement(
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-Lakin, bu həmçinin `ref`-ləridə saxlayır. Bu deməkdir ki, əgər sizə üstündə `ref` olan uşaq gəlirsə, siz təsadüfən, ref-i əcdad komponentdən oğurlamayacaqsınız. Siz yeni `ref` qoşulmuş yeni element alacaqsınız.
+Lakin, bu həmçinin `ref`-ləridə saxlayır. Bu deməkdir ki, əgər sizə üstündə `ref` olan uşaq gəlirsə, siz təsadüfən, ref-i əcdad komponentdən oğurlamayacaqsınız. Siz yeni `ref` qoşulmuş yeni element alacaqsınız. The new `ref` or `key` will replace old ones if present.
 
 Bu API, köhnəlmiş `React.addons.cloneWithProps()` funksiyasının əvəzləmək üçün təqdim edilmişdir.
 
 * * *
 
 ### `createFactory()` {#createfactory}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createFactory`](https://react.dev/reference/react/createFactory).
+
+</div>
 
 ```javascript
 React.createFactory(type)
@@ -211,6 +285,14 @@ Siz JSX işlətdiyiniz zaman çox vaxt `React.createFactory()` funksiyasını bi
 
 ### `isValidElement()` {#isvalidelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`isValidElement`](https://react.dev/reference/react/isValidElement).
+
+</div>
+
 ```javascript
 React.isValidElement(object)
 ```
@@ -220,6 +302,14 @@ Elementin React elementi olmasını təsdiqləyir. `true` və ya `false` qaytar�
 * * *
 
 ### `React.Children` {#reactchildren}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Children`](https://react.dev/reference/react/Children).
+
+</div>
 
 `React.Children` `this.props.children` qeyri şəffaf data strukturu ilə məşğul olmaq üçün faydalı funksiyalar ilə təmin edir.
 
@@ -279,6 +369,14 @@ React.Children.toArray(children)
 
 ### `React.Fragment` {#reactfragment}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Fragment`](https://react.dev/reference/react/Fragment).
+
+</div>
+
 `React.Fragment` komponenti bir neçə elementi, əlavə DOM elementi yaratmadan `render()` funksiyasından qaytarmağa imkan yaradır:
 
 ```javascript
@@ -296,10 +394,26 @@ Siz həmçinin `<></>` qısa sintaksisi işlədə bilərsiniz. Daha ətraflı m�
 
 ### `React.createRef` {#reactcreateref}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createRef`](https://react.dev/reference/react/createRef).
+
+</div>
+
 `React.createRef` React elementlərinə ref parametri ilə qoşulan [ref](/docs/refs-and-the-dom.html) yaradır.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`forwardRef`](https://react.dev/reference/react/forwardRef).
+
+</div>
 
 `React.forwardRef` qəbul etdiyi [ref-i](/docs/refs-and-the-dom.html) aşağısında olan digər komponentə yönləndirən React komponenti yaradır. Bu texnika tez-tez istifadə olunmur; bu yalnız iki ssenaridə faydalıdır:
 
@@ -318,6 +432,14 @@ Nəticədə, React ref-i əlavə etdikdən sonra, `ref.current` birbaşa `button
 
 ### `React.lazy` {#reactlazy}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`lazy`](https://react.dev/reference/react/lazy).
+
+</div>
+
 `React.lazy()` sizə dinamik yüklənən komponenti müəyyən etməyə icazə verir. Bu ilkin render zamanı işlənməyən komponentlərin yüklənməsini gecikdirərək, sizin applikasiyanızın paket ölçüsünü azaltmağa kömək edir.
 
 Siz bunu necə işlətməyi [kod parçalanması sənədindən](/docs/code-splitting.html#reactlazy) öyrənə bilərsiniz. Siz həmçinin bunu işlətmək haqqında daha ətraflı izahat üçün [bu məqaləni](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) oxuya bilərsiniz.
@@ -329,11 +451,15 @@ const SomeComponent = React.lazy(() => import('./SomeComponent'));
 
 Nəzərə alın ki, `lazy` komponentləri render etmək üçün komponent ağacında üstdə `<React.Suspense>` komponenti olmalıdır. Siz belə formada yükləmə göstəricisini müəyyənləşdirirsiniz.
 
-> **Qeyd**
->
-> `React.lazy`-ni dinamik import ilə işlətmək üçün Javascript mühitində Promise-in olması tələb olunur. Bu, IE11 və aşağı versiyalarda polifilin işlədilməsini tələb edir.
-
 ### `React.Suspense` {#reactsuspense}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Suspense`](https://react.dev/reference/react/Suspense).
+
+</div>
 
 `React.Suspense`, ağacda olan komponentlərin render-ə hazır olmadığı halda sizə yükləmə indikatoru müəyyənləşdirməyə icazə verir. Bugün, `<React.Suspense>` **yalnız** komponentlərin lazy yüklənməsini dəstəkləyir:
 
@@ -355,8 +481,36 @@ function MyComponent() {
 
 Bu funksionallıq, [kod parçalanması sənədində](/docs/code-splitting.html#reactlazy) göstərilmişdir. Qeyd edin ki, `lazy` komponentlər `Suspense` ağacının dərinliklərində də ola bilər. Suspense hər bir `lazy` komponenti əhatə etməməlidir. Yükləmə indikatoru görmək istədiyiniz yerdə `<Suspense>`-i əlavə etmək, amma `lazy()`-ni kod parçalaması etmək istədiyiniz yerdə işlətmək ən yaxşı praktikadır.
 
-İndiki gündə dəstəklənməməsinə baxmayaraq, biz gələcəkdə `Suspense`-in məlumat yüklənməsi kimi ssenarilərini dəstəkləməsini planlaşdırırıq. Bu haqda əlavə məlumat üçün, [yol xəritəmizi](/blog/2018/11/27/react-16-roadmap.html) oxuya bilərsiniz.
-
->Qeyd:
+> Qeyd:
 >
->`React.lazy()` və `<React.Suspense>` `ReactDOMServer` tərəfindən dəstəklənmir. Bu məlum olan məhdudiyyət gələcəkdə həll olunacaq.
+> For content that is already shown to the user, switching back to a loading indicator can be disorienting. It is sometimes better to show the "old" UI while the new UI is being prepared. To do this, you can use the new transition APIs [`startTransition`](#starttransition) and [`useTransition`](/docs/hooks-reference.html#usetransition) to mark updates as transitions and avoid unexpected fallbacks.
+
+#### `React.Suspense` in Server Side Rendering {#reactsuspense-in-server-side-rendering}
+During server side rendering Suspense Boundaries allow you to flush your application in smaller chunks by suspending.
+When a component suspends we schedule a low priority task to render the closest Suspense boundary's fallback. If the component unsuspends before we flush the fallback then we send down the actual content and throw away the fallback.
+
+#### `React.Suspense` during hydration {#reactsuspense-during-hydration}
+Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before it is hydrated will cause the boundary to hydrate at a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
+
+### `React.startTransition` {#starttransition}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`startTransition`](https://react.dev/reference/react/startTransition).
+
+</div>
+
+```js
+React.startTransition(callback)
+```
+`React.startTransition` lets you mark updates inside the provided callback as transitions. This method is designed to be used when [`React.useTransition`](/docs/hooks-reference.html#usetransition) is not available.
+
+> Qeyd:
+>
+> Updates in a transition yield to more urgent updates such as clicks.
+>
+> Updates in a transition will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
+>
+> `React.startTransition` does not provide an `isPending` flag. To track the pending status of a transition see [`React.useTransition`](/docs/hooks-reference.html#usetransition).

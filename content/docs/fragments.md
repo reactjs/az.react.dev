@@ -4,6 +4,16 @@ title: Fraqmentlər
 permalink: docs/fragments.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`<Fragment>`](https://react.dev/reference/react/Fragment)
+
+</div>
+
 React-də ümumi pattern çoxlu elementlərə komponentin qayıtması üçündür. Fraqmentlər sizə DOM-a nodelar əlavə etmədən uşaqların siyahısını qruplaşdırmağa imkan verir.
 
 ```js

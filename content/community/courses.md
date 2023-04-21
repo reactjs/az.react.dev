@@ -6,6 +6,13 @@ sectionid: community
 permalink: community/courses.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 ## Pulsuz Kurslar {#free-courses}
 
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - React-i öyrənmək üçün İnteraktiv kod nümunələri olan 5-hissəli pulsuz kurs.
@@ -24,7 +31,12 @@ permalink: community/courses.html
 
 - [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - React applikasiyaları düzəltmək üçün 48 videodan ibarət dərslik.
 
+- [University of Helsinki: Full Stack Open MOOC](https://fullstackopen.com/en/) - Learn to build web applications with React. Available in English, Spanish, Chinese and Finnish.
+
+
 ## Ödənişli Kurslar {#paid-courses}
+
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Launch your career as a front-end developer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or prior experience required to get started.
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - React və digər mövzular üçün qısa və təlimatlı videolar.
 
@@ -44,7 +56,7 @@ permalink: community/courses.html
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - React biliklərinizi yeni səviyyəyə çatdırın.
 
-- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
+- [Tyler McGinnis](https://ui.dev/) - Tayler MakGinnis öz kurslarına aylıq ödəniş ilə keçid verir. Buraya "React Fundamentals" və "Universal React" kimi kurslar daxildir.
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - React ilə professional interaktiv applikasiyların düzəldilməsi.
 

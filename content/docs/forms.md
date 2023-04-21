@@ -9,6 +9,18 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://react.dev/reference/react-dom/components/input)
+> - [`<select>`](https://react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://react.dev/reference/react-dom/components/textarea)
+
+</div>
+
 React-də HTML anket elementləri digər DOM elementlərindən fərqli işləyirlər. Çünki anket elementlərinin təbii şəkildə daxili vəziyyəti olur. Məsələn, gəlin sadə HTML-də yazılmış yalnız ad qəbul edən anketə baxaq:
 
 ```html
@@ -275,10 +287,10 @@ this.setState(partialState);
 Aşağıdaki kod bu problemi göstərir. (Anket sahəsi ilkin olaraq dəyişə bilmir amma bir zamandan sonra dəyişə bilir.)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```

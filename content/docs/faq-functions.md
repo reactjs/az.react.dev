@@ -37,14 +37,14 @@ class Foo extends Component {
 }
 ```
 
-#### Sinif Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-stage-3-proposal}
+#### Sinif Parametrləri (3-cü Mərhələ Təklifi) {#class-properties-es2022}
 
 ```jsx
 class Foo extends Component {
   // Qeyd: bu sintaksis experimentaldır və hələ standartlaşmayıb.
   handleClick = () => {
     console.log('Tıklama Hadisəsi Baş Verdi');
-  }
+  };
   render() {
     return <button onClick={this.handleClick}>Tıkla</button>;
   }

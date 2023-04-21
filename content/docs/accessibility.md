@@ -373,7 +373,7 @@ Burada biz [ARIA Rolları](https://www.w3.org/TR/wai-aria/#roles), eləcə də [
 
 Hər növ vidcetin xüsusi dizayn "patterni" var və bu vidcet növlərindən müəyyən bir şəkildə istifadəçilər və istifadəçi agentləri tərəfindən işləndiyi gözlənilir:
 
-- [WAI-ARIA Yazma Təcrübələri - Dizayn Həlləri və Vidcetlər](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [WAI-ARIA Yazma Təcrübələri - Dizayn Həlləri və Vidcetlər](https://www.w3.org/WAI/ARIA/apg/patterns/)
 - [Heydon Pickering - ARIA Nümunələri](https://heydonworks.com/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
@@ -401,7 +401,7 @@ Biz bunu React-də [React Sənəd Başlığı Komponentindən](https://github.co
 - [Rəng Kontrastı haqqında hər şey və niyə biz bu haqda yenidən düşünməliyik](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Rəng Kontrastı nədir](https://a11yproject.com/posts/what-is-color-contrast/)
 
-Sizə veb səhifənizdəki bütün mümkün hallarda düzgün rəng kombinasiyasını əllə hesablamaq yorucu ola bilər. Bunun əvəzinə siz [bütün imkanlı rəng paletini Colorable ilə hesablaya bilərsiniz](https://jxnblk.com/colorable/).
+Sizə veb səhifənizdəki bütün mümkün hallarda düzgün rəng kombinasiyasını əllə hesablamaq yorucu ola bilər. Bunun əvəzinə siz [bütün imkanlı rəng paletini Colorable ilə hesablaya bilərsiniz](https://colorable.jxnblk.com/).
 
 Aşağıda qeyd olunmuş aXe and WAVE alətlərinə rəng kontrastı testləri də daxil edir və bu testlər sizə kontrast xətalarından hesabat verir..
 
@@ -451,7 +451,7 @@ Deque Systems sizin applikasiyalarınızın avtomatlaşdırılmış və iki tər
 
 [The Accessibility Engine](https://www.deque.com/products/axe/) və ya aXe, `aXe-core`-da qurulmuş imkanlılıq inspektoru brauzer proqram əlavəsidir.
 
-Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [react-axe](https://github.com/dylanb/react-axe) modulunu istifadə edə bilərsiniz.
+Siz həmçinin development və debaqlaşdırma zamanı bu imkanlılıq tapıntılarını birdəfəlik konsula hesabat vermək üçün [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) modulunu istifadə edə bilərsiniz.
 
 #### WebAIM WAVE {#webaim-wave}
 

@@ -14,6 +14,21 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://react.dev/reference/react-dom/components/common)
+> - [`<input>`](https://react.dev/reference/react-dom/components/input)
+> - [`<option>`](https://react.dev/reference/react-dom/components/option)
+> - [`<progress>`](https://react.dev/reference/react-dom/components/progress)
+> - [`<select>`](https://react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://react.dev/reference/react-dom/components/textarea)
+
+</div>
+
 Performans üçün və brauzerlər arası uyğunluqlar üçün React brauzerdən müstəqil DOM sistemi tətbiq edir. Biz bu fürsətdən istifadə edərək brauzer DOM-unun tətbiqində olan bəzi problemləri düzəltdik.
 
 React-də bütün DOM parametrləri və atributları (hadisə işləyiciləri daxil olmaqla) camelCase formatında olmalıdır. Məsələn `tabindex` HTML atributu React-də `tabIndex` atributuna uyğun gəlir. İstisnalar `aria-*` və `data-*` atributlarıdır: bu atributlar kiçik hərf ilə yazılmalıdır. Məsələn, siz `aria-label` atributunu `aria-label` kimi saxlaya bilərsiniz.
@@ -117,7 +132,7 @@ Normalda bu xəbərdarlıq, uşağı olan elementin `contentEditable` atributu o
 
 Server React render etdikdə normalda server və klient fərqli kontent render edirsə xəbərdarlıq atılır. Amma bəzi nadir hallarda klient və server kontentinin uyğun olduğunu qarantiyalamaq çətindir. Məsələn tarixlərin server və klientdə fərqli olması gözlənilir.
 
-Əgər `suppressHydrationWarning` `true`-dursa React, elementlər arasında və atributlar arasında fərqliliklər haqqında xəbərdarlıq etməyəcək. Bu, yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Hidrasiya haqqında əlavə məlumat üçün [`ReactDOM.hydrate()` sənədinə](/docs/react-dom.html#hydrate) baxın.
+Əgər `suppressHydrationWarning` `true`-dursa React, elementlər arasında və atributlar arasında fərqliliklər haqqında xəbərdarlıq etməyəcək. Bu, yalnız bir dərəcə dərinlikdə işləyir və yalnız çıxış yolu kimi işlətmək üçün nəzərdə tutulub. Bunu çox işlətməyin. Hidrasiya haqqında əlavə məlumat üçün [`ReactDOM.hydrateRoot()` sənədinə](/docs/react-dom-client.html#hydrateroot) baxın.
 
 ### value {#value}
 

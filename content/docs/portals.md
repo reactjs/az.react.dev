@@ -4,6 +4,16 @@ title: Portallar
 permalink: docs/portals.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`createPortal`](https://react.dev/reference/react-dom/createPortal)
+
+</div>
+
 Portallar, valideyn komponentin DOM iyerarxiyasından kənarda olan DOM noduna uşaqları render etməyə imkan yaradır.  
 
 ```js
@@ -46,7 +56,7 @@ Portalları işlətməyin tipik ssenarilərdən biri validayen komponentinin `ov
 >
 > Portallar ilə işlədikdə [klaviatur fokusunu idarə etmək](/docs/accessibility.html#programmatically-managing-focus) çox vacib olur.
 >
-> Modal dialoqlarını hamının istifadə edə bilməsi üçün [WAI-ARIA Modal Praktikalarından](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) istifadə edin.
+> Modal dialoqlarını hamının istifadə edə bilməsi üçün [WAI-ARIA Modal Praktikalarından](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/) istifadə edin.
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -144,7 +154,8 @@ function Child() {
   );
 }
 
-ReactDOM.render(<Parent />, appRoot);
+const root = ReactDOM.createRoot(appRoot);
+root.render(<Parent />);
 ```
 
 [**CodePen-də sınayın**](https://codepen.io/gaearon/pen/jGBWpE)
