@@ -268,7 +268,7 @@ export default function TopNav({
                 )}
                 onClick={onOpenSearch}>
                 <IconSearch className="mr-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
-                Search
+                Axtarış
                 <span className="ml-auto hidden sm:flex item-center mr-1">
                   <Kbd data-platform="mac">⌘</Kbd>
                   <Kbd data-platform="win" wide>
@@ -281,18 +281,18 @@ export default function TopNav({
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
                 <NavItem isActive={section === 'learn'} url="/learn">
-                  Learn
+                  Öyrənmək
                 </NavItem>
                 <NavItem
                   isActive={section === 'reference'}
                   url="/reference/react">
-                  Reference
+                  İstinad
                 </NavItem>
                 <NavItem isActive={section === 'community'} url="/community">
-                  Community
+                  İcma
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/blog">
-                  Blog
+                  Bloq
                 </NavItem>
               </div>
               <div className="flex w-full md:hidden"></div>
@@ -360,20 +360,20 @@ export default function TopNav({
                 <Suspense fallback={null}>
                   <div className="pl-3 xs:pl-5 xs:gap-0.5 xs:text-base overflow-x-auto flex flex-row lg:hidden text-base font-bold text-secondary dark:text-secondary-dark">
                     <NavItem isActive={section === 'learn'} url="/learn">
-                      Learn
+                      Öyrən
                     </NavItem>
                     <NavItem
                       isActive={section === 'reference'}
                       url="/reference/react">
-                      Reference
+                      İstinad
                     </NavItem>
                     <NavItem
                       isActive={section === 'community'}
                       url="/community">
-                      Community
+                      İcma
                     </NavItem>
                     <NavItem isActive={section === 'blog'} url="/blog">
-                      Blog
+                      Bloq
                     </NavItem>
                   </div>
                   <div
