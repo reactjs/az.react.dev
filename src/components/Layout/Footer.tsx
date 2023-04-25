@@ -286,50 +286,52 @@ export function Footer() {
         </div>
         <div className="flex flex-col">
           <FooterLink href="/learn" isHeader={true}>
-            Learn React
+            React öyrən
           </FooterLink>
-          <FooterLink href="/learn/">Quick Start</FooterLink>
-          <FooterLink href="/learn/installation">Installation</FooterLink>
+          <FooterLink href="/learn/">Sürətli başla</FooterLink>
+          <FooterLink href="/learn/installation">Yükləmə</FooterLink>
           <FooterLink href="/learn/describing-the-ui">
-            Describing the UI
+            UI təsvir etmək
           </FooterLink>
           <FooterLink href="/learn/adding-interactivity">
-            Adding Interactivity
+            İnteraktivlik əlavə etmək
           </FooterLink>
-          <FooterLink href="/learn/managing-state">Managing State</FooterLink>
-          <FooterLink href="/learn/escape-hatches">Escape Hatches</FooterLink>
+          <FooterLink href="/learn/managing-state">
+            State-in idarə edilməsi
+          </FooterLink>
+          <FooterLink href="/learn/escape-hatches">Çıxış yolları</FooterLink>
         </div>
         <div className="flex flex-col">
           <FooterLink href="/reference/react" isHeader={true}>
-            API Reference
+            API İstinadı
           </FooterLink>
           <FooterLink href="/reference/react">React APIs</FooterLink>
           <FooterLink href="/reference/react-dom">React DOM APIs</FooterLink>
         </div>
         <div className="md:col-start-2 xl:col-start-4 flex flex-col">
           <FooterLink href="/community" isHeader={true}>
-            Community
+            İcma
           </FooterLink>
           <FooterLink href="https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md">
-            Code of Conduct
+            Kodlama Qaydası
           </FooterLink>
           <FooterLink href="/community/team">Meet the Team</FooterLink>
           <FooterLink href="/community/docs-contributors">
-            Docs Contributors
+            Kontributorların siyahısı
           </FooterLink>
           <FooterLink href="/community/acknowledgements">
-            Acknowledgements
+            Məlumatlandırma
           </FooterLink>
         </div>
         <div className="flex flex-col">
-          <FooterLink isHeader={true}>More</FooterLink>
-          <FooterLink href="/blog">Blog</FooterLink>
+          <FooterLink isHeader={true}>Daha çox</FooterLink>
+          <FooterLink href="/blog">Bloq</FooterLink>
           <FooterLink href="https://reactnative.dev/">React Native</FooterLink>
           <FooterLink href="https://opensource.facebook.com/legal/privacy">
-            Privacy
+            Məxfilik siyasəti
           </FooterLink>
           <FooterLink href="https://opensource.fb.com/legal/terms/">
-            Terms
+            Şərtlər
           </FooterLink>
           <div className="flex flex-row mt-8 gap-x-2">
             <ExternalLink
