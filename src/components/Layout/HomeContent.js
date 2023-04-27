@@ -131,7 +131,7 @@ export function HomeContent() {
             React
           </h1>
           <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
-            Veb və yerli istifadəçi interfeysləri üçün kitabxana
+            Veb və nativ istifadəçi interfeysləri üçün kitabxana
           </p>
           <div className="mt-5 self-center flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
             <ButtonLink
@@ -140,15 +140,15 @@ export function HomeContent() {
               size="lg"
               className="w-full sm:w-auto justify-center"
               label="React öyrən">
-              React öyrən
+              React-i öyrən
             </ButtonLink>
             <ButtonLink
               href={'/reference/react'}
               type="secondary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="API İstinadı">
-              API İstinadı
+              label="API Referans">
+              API Referans
             </ButtonLink>
           </div>
         </div>
@@ -169,11 +169,11 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              React istifadə etmək eyni hissiyatı verir, baxmayaraq ki, siz tək
-              işləyirsiniz ya da ki, minlərlə başqa developerlərlə . Bu,
-              müstəqil insanlar, komandalar və təşkilatlar tərəfindən yazılmış
-              komponentləri problemlər olmadan birləşdirməyə imkan verən bir
-              dizayndır.
+              React-i istifadə etmək , baxmayaraq ki, siz tək işləyirsiniz ya da
+              ki, minlərlə başqa developerlərlə hər bir halda eyni hissiyatı
+              verir. Bu, müstəqil insanlar, komandalar və təşkilatlar tərəfindən
+              yazılmış komponentləri problemlər olmadan birləşdirməyə imkan
+              verən bir dizayndır.
             </Para>
           </Center>
         </Section>
@@ -195,7 +195,7 @@ export function HomeContent() {
           <Center>
             <Para>
               Bu markup JSX adlanır. React tərəfindən populyarlaşdırılan
-              JavaScript sintaksis əlavəsidir. Renderləmə məntiqinə yaxın JSX
+              JavaScript sintaksis əlavəsidir. Render etmək məntiqinə yaxın JSX
               markup qoymaq, React komponentlərini yaratmaq, saxlamaq və silməyi
               asanlaşdırır.
             </Para>
@@ -204,14 +204,14 @@ export function HomeContent() {
 
         <Section background="left-card">
           <Center>
-            <Header>Hara istəyirsiniz ora interaktivlik əlavə edin</Header>
+            <Header>İstədiyiniz yerə interaktivlik əlavə edin</Header>
             <Para>
               React komponentləri məlumat qəbul edir və ekranda görünməli olanı
-              geri qaytarır. İstifadəçi bir inputa yazı yazdıqda onlara
+              geri qaytarır. İstifadəçi bir input-a yazı yazdıqda onlara
               interaktiv cavab olaraq yeni məlumatı ötürə bilərsiniz. Məsələn
-              istifadəçi bir inputa yazı yazdıqda onlara interaktiv cavab olaraq
-              yeni məlumatı ötürə bilərsiniz. Yeni məlumata uyğun olaraq React
-              ekranı yeniləyəcək.
+              istifadəçi bir input-a yazı yazdıqda onlara interaktiv cavab
+              olaraq yeni məlumatı ötürə bilərsiniz. Yeni məlumata uyğun olaraq
+              React ekranı yeniləyəcək.
             </Para>
           </Center>
           <FullBleed>
@@ -237,7 +237,7 @@ export function HomeContent() {
         <Section background="right-card">
           <Center>
             <Header>
-              Framevörk ilə <br className="hidden lg:inline" />
+              Freymvork ilə <br className="hidden lg:inline" />
               full-stack olun
             </Header>
             <Para>
@@ -246,7 +246,7 @@ export function HomeContent() {
               edilməsini göstərmir. Bütün bir applikasiyanı React ilə yığmaq
               üçün, biz <Link href="https://nextjs.org">Next.js</Link> yaxud da{' '}
               <Link href="https://remix.run">Remix</Link> kimi full-stack React
-              framevörkünü tövsiyyə edirik.
+              freymvork-larını tövsiyyə edirik.
             </Para>
           </Center>
           <FullBleed>
@@ -254,8 +254,8 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              React həmçinin bir arxitekturadır . Framevörklər sizə serverdə
-              yaxud da build zamanı işləyən asinxron komponentlərdə data əldə
+              React həmçinin bir arxitekturadır. Freymvorklar sizə serverdə
+              yaxud da build zamanı işləyən asinxron komponentlərdə məlumat əldə
               edilməsinə şərait yaradır. Fayldan və ya verilənlər bazasından
               məlumatı oxuyun və bunu interaktiv komponentlərinizə ötürün.
             </Para>
@@ -264,7 +264,7 @@ export function HomeContent() {
                 color="gray"
                 icon="framework"
                 href="/learn/start-a-new-react-project">
-                Framevörklə öyrənməyə başlayın
+                Framevorkla öyrənməyə başlayın
               </CTA>
             </div>
           </Center>
@@ -276,8 +276,8 @@ export function HomeContent() {
                 Bütün platformalar üçün ən yaxşısını istifadə edin
               </Header>
               <Para>
-                İnsanlar veb və native applikasiyaları müxtəlif səbəblərə görə
-                sevir. React sizə eyni biliklər ilə veb and native
+                İnsanlar veb və nativ applikasiyaları müxtəlif səbəblərə görə
+                sevir. React sizə eyni biliklər ilə veb and nativ
                 applikasiyaları qurmağa şərait yaradır. Sizin interfeyslərin hər
                 platformada eyni hissiyatı verməsi, artıq hər platformanın öz
                 unikal güclərindən asılı olacaq.
@@ -301,9 +301,9 @@ export function HomeContent() {
                         istəyir. Serverdə React sizə HTML-i yükləməyə
                         başlayarkən hələ də məlumatı yükləməyə, Javascript
                         kodunun yüklənməsindən əvvəl tam məzmunu doldurmağa
-                        imkan verir. Client tərəfdə, render zamanı UI-ın düzgün
-                        görünməsi üçün React standart veb API-larını istifadə
-                        edir.
+                        imkan verir. İstifadəçi tərəfdə, render zamanı UI-ın
+                        düzgün görünməsi üçün React standart veb API-larını
+                        istifadə edir.
                       </p>
                     </div>
                   </div>
@@ -381,10 +381,10 @@ export function HomeContent() {
                       </div>
                       <div className="flex flex-col items-start justify-center pt-0 gap-3 px-2.5 lg:pt-8 lg:px-8">
                         <h4 className="leading-tight text-primary dark:text-primary-dark font-semibold text-3xl lg:text-4xl">
-                          Həqiqi native qalın
+                          Həqiqi nativ qalın
                         </h4>
                         <p className="h-full lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-                          İnsanlar native tətbiqlərin öz platformalarına uyğun
+                          İnsanlar nativ tətbiqlərin öz platformalarına uyğun
                           görünüşə və hissə malik olmasını gözləyir.{' '}
                           <Link href="https://reactnative.dev">
                             React Native
@@ -392,9 +392,9 @@ export function HomeContent() {
                           və{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
                           sizə React applikasiyalarını Android, iOS, və
-                          başqaları üçün yığmağa şərait yaradır. Onlar native
+                          başqaları üçün yığmağa şərait yaradır. Onlar nativ
                           görünür və hissiyatı verir çünki onların UI-ı{' '}
-                          həqiqətən nativedir. Bu, bir veb görünüşü deyil —
+                          həqiqətən nativ-dir. Bu, bir veb görünüşü deyil —
                           sizin React komponentləriniz platforma tərəfindən
                           təmin edilən real Android və iOS görünüşlərini render
                           edir.
@@ -407,15 +407,15 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                React ilə siz eyni zamanda veb <i>və</i> native developer ola
-                bilərsiniz. Sizin komandınız istifadəçi təcrübəsindən asılı
+                React ilə siz eyni zamanda veb <i>və</i> nativ developer ola
+                bilərsiniz. Sizin komandanız istifadəçi təcrübəsindən asılı
                 olmadan çoxlu platformalara dəstək ola bilər. Sizin təşkilatınız
                 platformalar arasındakı boşluqları aradan qaldıra bilər və bütün
                 xüsusiyyətlərin sahibi olan komandalar yarada bilər.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
-                  Native platformalar üçün inşa edin
+                  Nativ platformalar üçün inşa edin
                 </CTA>
               </div>
             </div>
@@ -428,18 +428,18 @@ export function HomeContent() {
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
                 <Header>Yenilik hazır olduğunda yeniləmə edin</Header>
                 <Para>
-                  React yeniliklərə diqqətlə yanaşır. Hər React commitində bir
+                  React yeniliklərə diqqətlə yanaşır. Hər React commitin-də bir
                   milyard istifadəçisi olan kritik səthlərdə test olunur.
                   Meta-da 100.000-dən çox React komponenti hər köçürmə
                   strategiyasını təsdiqləməyə kömək edir.
                 </Para>
                 <div className="order-last pt-5">
                   <Para>
-                    React komandası həmişə React-ı inkişaf etdirmək üçün
+                    React komandası həmişə React-i inkişaf etdirmək üçün
                     araşdırmalar aparır. Bəzən araşdırmaların nəticələri almaq
-                    üçün illər keçə bilər. React-da bir araşdırma ideyasını
+                    üçün illər keçə bilər. React-də bir araşdırma ideyasını
                     reallaşdırmaq üçün yüksək standartlar tətbiq edilir. Ancaq
-                    təsdiqlənmiş yanaşmalar React-ın bir hissəsi olur.
+                    təsdiqlənmiş yanaşmalar React-in bir hissəsi olur.
                   </Para>
                   <div className="hidden lg:flex justify-start w-full">
                     <CTA color="gray" icon="news" href="/blog">
