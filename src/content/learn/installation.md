@@ -4,7 +4,7 @@ title: Yükləmək
 
 <Intro>
 
-React has been designed from the start for gradual adoption. Ehtiyacınız olan qədər az və ya çox React istifadə edə bilərsiniz. React-i yoxlamaq, HTML səhifəyə bəzi interaktivlik əlavə etmək, ya da ki kompleks React applikasiyaya başlamaq olsun   Whether you want to get a taste of React, add some interactivity to an HTML page, or start a complex React-powered app, this section will help you get started.
+React freymvorku tədrici adaptasiya fikri ilə dizayn olunub. Ehtiyacınız olan qədər az və ya çox React istifadə edə bilərsiniz. React-i yoxlamaq, HTML səhifəyə bəzi interaktivlik əlavə etmək, ya da ki kompleks React applikasiyaya başlamaq olsun fərqi yoxdur bu hissə sizə başlamağa kömək edəcəkdir.
 
 </Intro>
 
@@ -24,24 +24,25 @@ React ilə başlamaq üçün heç bir şey yükləməyinizə ehtiyac yoxdur. Bu 
 <Sandpack>
 
 ```js
-function Greeting({ name }) {
-  return <h1>Hello, {name}</h1>;
+function Greeting({ad }) {
+  return <h1>Salam, {ad}</h1>;
 }
 
 export default function App() {
-  return <Greeting name="world" />
+  return <Greeting ad="dünya" />
 }
 ```
 
 </Sandpack>
 
-You can edit it directly or open it in a new tab by pressing the "Fork" button in the upper right corner.
+Siz onun birbaşa üzərində işləyə bilərsiniz və ya sağ üst küncdən "Fork" düyməsini klikləyərək yeni bir tab-da aça bilərsiniz.
 
-Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
+React dokumentasiyasında əks olunan çox səhifələrdə belə sandbokslar mövcuddur. React dokumentasiyasının xaricində, bir çox sandboks React-i dəstəkləyir: məsələn,
+[CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
 
 ### Lokalda yoxlayın {/*try-react-locally*/}
 
-Kompüterinizdə localda yoxlamaq üçün, [Bu HTML səhifəni yükləyin.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Əvvəlcə editorunuzda açın sonra isə browserinizdə açın ardıcıl olaraq!
+Kompüterinizdə lokalda yoxlamaq üçün, [Bu HTML səhifəni yükləyin.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Ardıcıl olaraq əvvəlcə editorunuzda açın sonra isə browserinizdə açın !
 
 ## Yeni React layihəyə başlayın {/*start-a-new-react-project*/}
 
@@ -53,6 +54,6 @@ Kompüterinizdə localda yoxlamaq üçün, [Bu HTML səhifəni yükləyin.](http
 
 ## Növbəti addımlar {/*next-steps*/}
 
-Hər gün rast gələcəyiniz ən mühüm React konseptlərinə bir tur üçün [Qısa Başlanğıc](/learn) təlimatlarına yönəlin.
+Hər gün rast gələcəyiniz ən mühüm React konseptlərinə baxmaq üçün [Qısa Başlanğıc](/learn) təlimatlarına yönəlin.
 
 
