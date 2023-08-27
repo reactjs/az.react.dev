@@ -68,3 +68,4 @@ If you would like to add a new term or change an existing one please change make
 ## License
 
 Content submitted to [az.react.dev](https://az.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/az.react.dev/blob/main/LICENSE-DOCS.md) file.
+Tebriker, penah1350
