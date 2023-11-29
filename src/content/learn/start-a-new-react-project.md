@@ -1,24 +1,30 @@
 ---
-title: Start a New React Project
+title: Yeni React layihə başlat
 ---
 
 <Intro>
 
-If you want to build a new app or a new website fully with React, we recommend picking one of the React-powered frameworks popular in the community. Frameworks provide features that most apps and sites eventually need, including routing, data fetching, and generating HTML.
+
+Əgər yeni bir tətbiq və ya veb saytı tamamilə React ilə yaratmaq istəyirsinizsə, icmada məşhur olan Reactla dəstəklənmiş freymvorklərdən birini seçməyi tövsiyə edirik. Freymvork, yönləndirmələri (routing), məlumat əldə edilməsi (data fetching) və HTML yaradılması kimi bir çox tətbiq və saytların nəhayətində ehtiyacı olan funksiyaları təmin edir.
 
 </Intro>
 
 <Note>
 
-**You need to install [Node.js](https://nodejs.org/en/) for local development.** You can *also* choose to use Node.js in production, but you don't have to. Many React frameworks support export to a static HTML/CSS/JS folder.
+**Lokalda işləyə bilmək üçün [Node.js](https://nodejs.org/en/) quraşdırmağınız lazımdır.** İstəyə *bağlı* olaraq, production-da Node.js-dən də istifadə edə bilərsiniz. Çox sayda React freymvorkü statik HTML/CSS/JS qovluğuna idxal etməni dəstəkləyir.
 
 </Note>
 
-## Production-grade React frameworks {/*production-grade-react-frameworks*/}
+## Production-səviyyədə React freymvorkləri {/*production-grade-react-frameworks*/}
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) is a full-stack React framework.** It's versatile and lets you create React apps of any size--from a mostly static blog to a complex dynamic application. To create a new Next.js project, run in your terminal:
+**[Next.js](https://nextjs.org/) full-stack React freymvorküdur.** 
+Bu çox yönlüdür və sizi hər hansı bir ölçüdə React tətbiqləri yaratmağa imkan verir - əksər statik bloglardan tutmuş çox kompleks dinamik tətbiqlərə qədər. Yeni bir Next.js layihəsi yaratmaq üçün terminalda aşağıdakı əmri yoxlayınız:
+
+
+
+Next.js tam təlimsiz React çərçivəsidir. Bu çərçivə çox tərəfli olaraq işləyir və sənə istənilən ölçüdə React tətbiqi yaratmağa imkan verir - çoxlu statik bir blogdan çətin dinamik bir tətbiqə qədər. Yeni bir Next.js layihəsi yaratmaq üçün terminalda aşağıdakı əmri çalışdırın:
 
 <TerminalBlock>
 npx create-next-app@latest
@@ -123,6 +129,6 @@ Next.js's App Router also integrates [data fetching with Suspense](/blog/2022/03
 </Suspense>
 ```
 
-Server Components and Suspense are React features rather than Next.js features. However, adopting them at the framework level requires buy-in and non-trivial implementation work. At the moment, the Next.js App Router is the most complete implementation. The React team is working with bundler developers to make these features easier to implement in the next generation of frameworks.
+Server Komponentləri və Suspense, Next.js xüsusiyyətləri əvəzində React xüsusiyyətləridir. Lakin onları freymvork səviyyəsində qəbul etmək, razılaşma və mühüm olmayan icra işi tələb edir. Hal-hazırda, Next.js App Router ən tamamlanmış icra variantıdır. React komandası, bu xüsusiyyətlərin növbəti nəsil çərçivələrdə daha asan icrasını təmin etmək üçün bundler developerləri ilə birgə çalışır.
 
 </DeepDive>
