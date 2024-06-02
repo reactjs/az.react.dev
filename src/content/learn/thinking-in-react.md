@@ -80,7 +80,7 @@ Siz komponentləri iyerarxiyada yuxarıda olan komponentlərdən (məsələn `Fi
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -298,7 +298,7 @@ Aplikasiyanın necə işləyəcəyini artıq görməyə başlayacaqsınız. Aşa
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -461,7 +461,7 @@ function SearchBar({ filterText, inStockOnly }) {
 Amma, biz istifadəçinin mətn daxil etmək kimi əməliyyatlarına cavab vermək üçün kod yazmamışıq. Sonuncu addımda biz bunu tətbiq edəcəyik.
 
 
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
+## Addım 5: Tərs məlumat axını əlavə et {/*step-5-add-inverse-data-flow*/}
 
 Hal-hazırda aplikasiya, proplar və state-i iyerarxiyada yuxarıdan aşağı göndərərək düzgün render edilir. İstifadəçi əməliyyatı esasında state-i dəyişmək üçün isə biz məlumatı əks istiqamətdə göndərməliyik: iyerarxiyada dərində olan anket komponentləri `FilterableProductTable` komponentində olan state-i yeniləməlidir.
 
@@ -485,19 +485,33 @@ function FilterableProductTable({ products }) {
 
 `SearchBar` komponentində `onChange` hadisə işləyicisi əlavə edərək valideyn komponentin state-ini dəyişəcəyik:
 
-```js {5}
-<input 
-  type="text" 
-  value={filterText} 
-  placeholder="Axtar..." 
-  onChange={(e) => onFilterTextChange(e.target.value)} />
+```js {4,5,13,19}
+function SearchBar({
+  filterText,
+  inStockOnly,
+  onFilterTextChange,
+  onInStockOnlyChange
+}) {
+  return (
+    <form>
+      <input
+        type="text"
+        value={filterText}
+        placeholder="Axtar..."
+        onChange={(e) => onFilterTextChange(e.target.value)}
+      />
+      <label>
+        <input
+          type="checkbox"
+          checked={inStockOnly}
+          onChange={(e) => onInStockOnlyChange(e.target.checked)}
 ```
 
 İndi bizim aplikasiyamız tam işləyir!
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
