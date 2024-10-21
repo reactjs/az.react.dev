@@ -264,11 +264,19 @@ Biz, keçən addımda iki state müəyyən etdik: axtarış mətni və çekboksu
 
 Gəlin əvvəlki strategiyadan istifadə edərək state-in saxlanacağı yeri tapaq:
 
+<<<<<<< HEAD
 1. **State-dən istifadə edən komponentləri müəyyən edək:**
     * `ProductTable` komponenti state əsasında (axtarış mətni və çekboks dəyəri) məhsulların siyahısını filtr etməlidir.
     * `SearchBar` komponenti state-i göstərməlidir (axtarış mətni və çekboks dəyəri)
 2. **Bu komponentlərin ortaq valideynini tapın:** Bu komponentlərin paylaşdığı valideyn `FilterableProductTable` komponentidir.
 3. **State-in harada saxlanacağına qərar verin**: Biz filtr mətnini və çekboks dəyərini `FilterableProductTable` komponentində saxlayacağıq.
+=======
+1. **Identify components that use state:**
+    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
+    * `SearchBar` needs to display that state (search text and checkbox value).
+2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
+3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+>>>>>>> 9467bc58868e66c53ca9385c8531dcf7b02178c2
 
 State dəyərləri `FilterableProductTable` komponentində saxlanacaq. 
 
