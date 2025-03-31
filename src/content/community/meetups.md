@@ -47,6 +47,9 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 ## Colombia {/*colombia*/}
 * [Medellin](https://www.meetup.com/React-Medellin/)
 
+## Czechia {/*czechia*/}
+* [Prague](https://guild.host/react-prague/)
+
 ## Denmark {/*denmark*/}
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
 * [Aarhus](https://www.meetup.com/Aarhus-ReactJS-Meetup/)
