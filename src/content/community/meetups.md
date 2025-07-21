@@ -88,6 +88,7 @@ Yerli React.js yığıncağınız (meetup) varsa, buraya əlavə edin! (Xahiş e
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Mumbai](https://reactmumbai.dev)
 * [Pune](https://www.meetup.com/ReactJS-and-Friends/)
+* [Rajasthan](https://reactrajasthan.com)
 
 ## Indonesia {/*indonesia*/}
 * [Indonesia](https://www.meetup.com/reactindonesia/)
