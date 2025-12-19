@@ -36,9 +36,15 @@ Mokapda olan bütün komponent və subkomponentlərin ətrafında qutular çək�
 
 İxtisasınızdan asılı olaraq, dizaynı fərqli formada komponentlərə ayıra bilərsiniz:
 
+<<<<<<< HEAD
 * **Programlaşdırma**--Yeni funksiya və ya obyekti yaratdıqda işlətdiyiniz eyni texnikalardan istifadə edin. Bu texnikalardan biri [tək sorumluluq ilkəsidir](https://en.wikipedia.org/wiki/Single_responsibility_principle) -- bir komponent yalnız bir iş ilə məşqul olmalıdır. Əgər komponent böyüyürsə, bu komponenti kiçik subkomponentlərə ayırmaq lazımdır. 
 * **CSS**--CSS klas selektorlarının nə üçün düzəldildiyini nəzərə alın. (However, components are a bit less granular.)
 * **Dizayn**--Dizayn təbəqələrini nəcür təşkil edildiyini nəzərə alın.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Yaxşı structurda olan JSON-un komponent strukturuna təbii uyuşdurulduğunu görə bilərsiniz. Çünki, normalda Uİ və məlumat modellərinin informasiya arxitekturu eynidir (yəni eyni formadadır). İstifadəçi interfeysini məlumat modelinin bir hissəsinə uyğunlaşdırılan komponentlərə ayılrın.
 
