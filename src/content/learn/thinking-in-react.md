@@ -36,9 +36,15 @@ Mokapda olan bütün komponent və subkomponentlərin ətrafında qutular çək�
 
 İxtisasınızdan asılı olaraq, dizaynı fərqli formada komponentlərə ayıra bilərsiniz:
 
+<<<<<<< HEAD
 * **Programlaşdırma**--Yeni funksiya və ya obyekti yaratdıqda işlətdiyiniz eyni texnikalardan istifadə edin. Bu texnikalardan biri [tək sorumluluq ilkəsidir](https://en.wikipedia.org/wiki/Single_responsibility_principle) -- bir komponent yalnız bir iş ilə məşqul olmalıdır. Əgər komponent böyüyürsə, bu komponenti kiçik subkomponentlərə ayırmaq lazımdır. 
 * **CSS**--CSS klas selektorlarının nə üçün düzəldildiyini nəzərə alın. (However, components are a bit less granular.)
 * **Dizayn**--Dizayn təbəqələrini nəcür təşkil edildiyini nəzərə alın.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 Yaxşı structurda olan JSON-un komponent strukturuna təbii uyuşdurulduğunu görə bilərsiniz. Çünki, normalda Uİ və məlumat modellərinin informasiya arxitekturu eynidir (yəni eyni formadadır). İstifadəçi interfeysini məlumat modelinin bir hissəsinə uyğunlaşdırılan komponentlərə ayılrın.
 
@@ -227,10 +233,17 @@ Qalan bütün məlumatlar state-dir.
 
 Gəlin məlumatlara yenidən baxaq:
 
+<<<<<<< HEAD
 1. Məhsulların orijinal siyahısı **proplar ilə qəbul olunduğundan state deyil** 
 2. Axtarış mətni istifadəçi tərəfindən dəyişdirildiyi və digər məlumatlardan hesablana bilmədiyi üçün state-dir.
 3. Çekboksun dəyəri istifadəçi tərəfindən dəyişdirildiyi və digər məlumatlardan hesablana bilmədiyi üçün state-dir.
 4. Filtr olunmuş məhsulların siyahısı, orijinal məhsulların siyahısını axtarış mətni və çekboks dəyəri əsasında **filtr olunaduğundan state deyil**
+=======
+1. The original list of products is **passed in as props, so it's not state.**
+2. The search text seems to be state since it changes over time and can't be computed from anything.
+3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
+4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 Burada yalnız axtarış mətni və çekboksun dəyəri state-dir! Əla!
 
@@ -272,30 +285,34 @@ Gəlin əvvəlki strategiyadan istifadə edərək state-in saxlanacağı yeri ta
 3. **State-in harada saxlanacağına qərar verin**: Biz filtr mətnini və çekboks dəyərini `FilterableProductTable` komponentində saxlayacağıq.
 =======
 1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
+    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value).
     * `SearchBar` needs to display that state (search text and checkbox value).
 2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
 3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
 >>>>>>> 9467bc58868e66c53ca9385c8531dcf7b02178c2
 
+<<<<<<< HEAD
 State dəyərləri `FilterableProductTable` komponentində saxlanacaq. 
+=======
+So the state values will live in `FilterableProductTable`.
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 Komponentə state-i [`useState()` Hooku](/reference/react/useState) ilə əlavə edin. Hooklar, React ilə danışmaq üçün quraşdırılmış xüsusi funksiyalardır. `FilterableProductTable` komponentinin ən yuxarısında iki ədə state dəyişəni yaradıb ilkin dəyərini müəyyən edin:
 
 ```js
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);  
+  const [inStockOnly, setInStockOnly] = useState(false);
 ```
 
 Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as props:
 
 ```js
 <div>
-  <SearchBar 
-    filterText={filterText} 
+  <SearchBar
+    filterText={filterText}
     inStockOnly={inStockOnly} />
-  <ProductTable 
+  <ProductTable
     products={products}
     filterText={filterText}
     inStockOnly={inStockOnly} />
@@ -315,10 +332,10 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly} />
-      <ProductTable 
+      <ProductTable
         products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
@@ -396,13 +413,20 @@ function ProductTable({ products, filterText, inStockOnly }) {
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
+<<<<<<< HEAD
       <input 
         type="text" 
         value={filterText} 
         placeholder="Axtar..."/>
+=======
+      <input
+        type="text"
+        value={filterText}
+        placeholder="Search..."/>
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
       <label>
-        <input 
-          type="checkbox" 
+        <input
+          type="checkbox"
           checked={inStockOnly} />
         {' '}
         Yalnız inventarda olan məhsulları göstər
@@ -460,9 +484,9 @@ Yuxarıdakı sandbox-da, `ProductTable` və `SearchBar` komponentləri `filterTe
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
 ```
 
@@ -471,7 +495,11 @@ Amma, biz istifadəçinin mətn daxil etmək kimi əməliyyatlarına cavab verm�
 
 ## Addım 5: Tərs məlumat axını əlavə et {/*step-5-add-inverse-data-flow*/}
 
+<<<<<<< HEAD
 Hal-hazırda aplikasiya, proplar və state-i iyerarxiyada yuxarıdan aşağı göndərərək düzgün render edilir. İstifadəçi əməliyyatı esasında state-i dəyişmək üçün isə biz məlumatı əks istiqamətdə göndərməliyik: iyerarxiyada dərində olan anket komponentləri `FilterableProductTable` komponentində olan state-i yeniləməlidir.
+=======
+Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 React-də bu məlumat axınının xüsusi tətbiq olunmalıdır. Yuxarıdakı nümunədə axtarıq xanasına mətn daxil etdikdə və ya çekboksu aktivləşdirdikdə React-in bizim əməlliyatlarımızı saymamasını görəcəksiniz. Bu qəsdən belədir. `<input value={filterText} />` yazdıqda, biz `input` elementinin `value` propunun həmişə `FilterableProductTable` komponentindən gələn `filterText` state-ə bərabər olduğunu bildiririk. `filterText` state-inin dəyəri dəyişmədiyindən, anket xanası heç vaxt dəyişmir.
 
@@ -484,8 +512,8 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
@@ -528,13 +556,13 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
+      <SearchBar
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <ProductTable
+        products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
@@ -616,14 +644,14 @@ function SearchBar({
 }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} placeholder="Search..." 
+      <input
+        type="text"
+        value={filterText} placeholder="Search..."
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
+        <input
+          type="checkbox"
+          checked={inStockOnly}
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
         Yalnız inventarda olan məhsulları göstər
