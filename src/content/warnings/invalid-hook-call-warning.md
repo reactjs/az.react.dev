@@ -144,7 +144,11 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
+<<<<<<< HEAD
 Bu, `false` qaytardıqda sizdə React-in iki versiyasının olduğunu biləcəksiniz. Cəmiyyət üzvlərinin tapdığı səbəblərə [bu issue-dan](https://github.com/facebook/react/issues/13991) baxa bilərsiniz.
+=======
+If it prints `false` then you might have two Reacts and need to figure out why that happened. [This issue](https://github.com/react/react/issues/13991) includes some common reasons encountered by the community.
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
 
 Bəzən `npm link` və ya ekvivalentini işlətdikdə bu problem ilə uzlaşa bilərsiniz. Bu ssenaridə paketləmə qurğusu React-in iki versiyasını "görür" — applikasiya direktoriyasında və kitabxana direktoriyasında. `myapp` və `mylib` direktoriyalarının qardaş direktoriyalar olduğunu fərz etsək düzəlişlərdən biri `mylib` direktoriyasından `npm link ../myapp/node_modules/react` əmrini çağırmaqdır. Bu əmr ilə kitabxanaya eyni React versiyasını işlətməyi təyin edə bilərsiniz.
 
@@ -156,4 +160,8 @@ Normalda, React-in bir neçə müstəqi kopiyası ola bilər (məsələn, applik
 
 ## Digər Səbəblər {/*other-causes*/}
 
+<<<<<<< HEAD
 Əgər yuxarıdakı heç bir həll işləmirsə, sizə kömək edə bilməmiz üçün [bu issue-ya](https://github.com/facebook/react/issues/13991) komment atın. Bu problemi göstərə bilərək kiçik nümunə yaradın. Bu nümunəni düzəltdikcə problemi tapmaq şansınız da artacaq.
+=======
+If none of this worked, please comment in [this issue](https://github.com/react/react/issues/13991) and we'll try to help. Try to create a small reproducing example — you might discover the problem as you're doing it.
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
