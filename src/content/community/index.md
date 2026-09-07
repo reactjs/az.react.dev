@@ -10,7 +10,11 @@ React-in milyonlarla proqramçıdan ibarət cəmiyyəti var. Bu səhifədə Reac
 
 ## Code of Conduct {/*code-of-conduct*/}
 
+<<<<<<< HEAD
 React cəmiyyətlərində iştirak etməmişdən öncə [Davranış Qaydalarını](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) oxuyun. Bizim davranış qaydalarımız [Contributor Covenant](https://www.contributor-covenant.org/) əsasında yazılıb. Biz, bütün iştirakçıların bu qaydalara riayət edəcəyini gözləyirik.
+=======
+Before participating in React's communities, [please read our Code of Conduct.](https://github.com/react/react/blob/main/CODE_OF_CONDUCT.md) We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/) and we expect that all community members adhere to the guidelines within.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 ## Stack Overflow {/*stack-overflow*/}
 
